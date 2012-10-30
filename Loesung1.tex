@@ -17,6 +17,50 @@ Markus Fenske und Florian Neumeyer, Tutor: Stephan Schwartz
 \section*{Aufgabe 1.1}
 \subsection*{Teil a)}
 
+Gegeben ist $(x+iy)^2 = a+bi$. Daraus erhält man ($i^2 = -1$) durch binomische
+Formel $x^2+2xyi-y^2 = a+bi$. Dann Auftrennen in Real- und Imaginärteil. $a =
+x^2-y^2$ und $b = 2xy$. Wir lösen die zweite Gleichung nach $x$ auf: $x =
+\frac{b}{2y}$ und Setzen in die erste Gleichung ein: $a = \left(\frac{b}{2y}\right)^2 -
+y^2 = \frac{b^2}{4y^2} - y^2$. Diese Gleichung gilt es nun nach $y$ aufzulösen.
+Durch Multiplikation mit $4y^2$ erhalten wir $4ay^2 = b^2 - 4y^4$, durch
+Umstellen $4y^4 - 4ay^2 - b^2 = 0$, durch Division durch 4 dann $y^4 - ay^2 -
+\frac{b^2}{4} = 0$. Um die Gleichung nun mittels PQ-Formel zu
+lösen substituieren wir $e = y^2$, behalten aber im Hinterkopf, dass $y$ reell
+ist, damit dann also $e$ positiv und die negative Lösung wegfällt. Die Lösung
+ist also $e = \frac{a}{2} + \sqrt{\frac{a^2}{4} + \frac{b^2}{4}}$. Nun kann man
+noch $\frac{1}{4}$ aus der Wurzel ziehen, so dass alles auf einem Bruchstrich
+steht: $e = \frac{a + \sqrt{a^2 + b^2}}{2}$. Durch Rücksubstitution und Wurzel
+ziehen gilt nun $y = \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}$.
+
+Nun kann man in $x = \frac{b}{2y}$ einsetzen um auch den Realteil der Wurzel zu
+erhalten. Insgesamt erhält man dann für Real- und Imaginärteil von $z = x+iy$:
+
+$$\operatorname{Re}(z) = \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}$$
+$$\operatorname{Im}(z) = \frac{b}{2\frac{a + \sqrt{a^2 + b^2}}{2}}$$
+
+\subsection{Teil b)}
+
+Berechnung der Quadratwurzel $z = \sqrt{8+6i}$.
+
+\begin{align}
+\operatorname{Re}(z) &= \sqrt{\frac{8 + \sqrt{8^2 + 6^2}}{2}} \\
+&= \sqrt{\frac{8 + \sqrt{64 + 36}}{2}} \\
+&= \sqrt{\frac{8 + \sqrt{100}}{2}} \\
+&= \sqrt{\frac{8 + 10}{2}} \\
+&= \sqrt{\frac{18}{2}} \\
+&= \sqrt{9} \\
+&= 3 \\
+\end{align}
+
+Für den Imaginärteil können wir nutzen, dass der Imaginärteil vom Realteil abhängt.
+
+\begin{align}
+\operatorname{Im}(z) &= \frac{6}{2 \cdot 3} \\
+&= 1
+\end{align}
+
+Die Quadratwurzel aus $8+6i$ ist also $3 + 1i$.
+
 \section*{Aufgabe 1.2}
 
 Wir betrachten komplexen Zahlen hier geometrisch und in Polarform. Sofern $z_0$
