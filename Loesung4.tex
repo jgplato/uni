@@ -145,7 +145,12 @@ Nicht bearbeitet.
 
 \section*{4.3 Inverse Matrix}
 
-Dazu benutzen wir den \textsc{Gauß}-\textsc{Jordan}-Algorithmus.
+Die Inverse Matrix lässt sich mit dem \textsc{Gauß}-\textsc{Jordan}-Algorithmus
+bestimmen, indem die Matrix und die Einheitsmatrix nebeinander geschrieben
+werden. Dann werden die gleichen Operationen auf der linken und der rechten
+Seite ausgeführt, bis das System gelöst ist.
+
+Wir starten mit folgendem System.
 
 \begin{equation*}
 \left(
@@ -167,219 +172,10 @@ Dazu benutzen wir den \textsc{Gauß}-\textsc{Jordan}-Algorithmus.
 \right.
 \end{equation*}
 
-Abziehen der doppelten ersten Zeile und Addition der $3$-fachen ersten Zeile von der vierten Zeile:
+Die Zwischenschritte sind langweilig. Die 4 Schmierblätter möchte ich nicht
+abtippen und du wahrscheinlich auch nicht korrigieren. Das Ergebnis, bei dem
+die Inverse nun auf der rechten Seite steht lautet:
 
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & -1 & 1 & -5 \\
- 0 & 4 & -3 & 1 \\
- 0 & 10 & -8 & 10
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  -2 & 1 & 0 & 0 \\
-  0 & 0 & 1 & 0 \\
-  3 & 0 & 0 & 1
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Multiplikation der zweiten Zeile mit $-1$
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 5 \\
- 0 & 4 & -3 & 1 \\
- 0 & 10 & -8 & 10
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  0 & 0 & 1 & 0 \\
-  3 & 0 & 0 & 1
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des $4$ und $10$-fachen der zweiten Zeile von der dritten und vierten Zeile.
-
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 5 \\
- 0 & 0 & 1 & -19 \\
- 0 & 0 & 2 & -40
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  -8 & 4 & 1 & 0 \\
-  -17 & 10 & 0 & 1
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des doppelten der dritten Zeile von der letzten Zeile.
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 5 \\
- 0 & 0 & 1 & -19 \\
- 0 & 0 & 0 & -2
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  -8 & 4 & 1 & 0 \\
-  -1 & 2 & 0 & 1
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Teilen der letzten Zeile durch $-2$.
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 5 \\
- 0 & 0 & 1 & -19 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  -8 & 4 & 1 & 0 \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des $-19$-fachen der vierten Zeile von der dritten Zeile.
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 5 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des $5$-fachen der vierten Zeile von der zweiten Zeile.
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & -1 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  -\frac{1}{2} & 4 & 0 & \frac{5}{2} \\
-  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Addition der dritten Zeile zur zweiten und aus praktischen Gründen auch gleich zur ersten Zeile:
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & 0 & 4 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  \frac{5}{2} & -15 & -1 & -\frac{19}{2} \\
-  1 & -11 & -1 & 7 \\
-  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des vierfachen der letzten Zeile von der ersten Zeile
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  \frac{1}{2} & -19 & -1 & -\frac{15}{2} \\
-  1 & -11 & -1 & 7 \\
-  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Subtraktion des dreifachen der zweiten Zeile von der ersten Zeile.
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 0 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  -\frac{5}{2} & 14 & 8 & -\frac{57}{2} \\
-  1 & -11 & -1 & 7 \\
-  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
-  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Wir lassen uns nun das Ergebnis von Wolfram Alpha berechnen und erhalten die korrekte Lösung:
 \begin{equation*}
 \left(
  \begin{matrix}
