@@ -173,7 +173,7 @@ Abziehen der doppelten ersten Zeile und Addition der $3$-fachen ersten Zeile von
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & -1 & -3 & -5 \\
+ 0 & -1 & 1 & -5 \\
  0 & 4 & -3 & 1 \\
  0 & 10 & -8 & 10
  \end{matrix}
@@ -194,7 +194,7 @@ Multiplikation der zweiten Zeile mit $-1$
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
+ 0 & 1 & -1 & 5 \\
  0 & 4 & -3 & 1 \\
  0 & 10 & -8 & 10
  \end{matrix}
@@ -210,15 +210,15 @@ Multiplikation der zweiten Zeile mit $-1$
 \right.
 \end{equation*}
 
-Subtraktion vom $4$ bzw. $10$-fachen der zweiten Zeile von der dritten bzw. vierten Zeile:
+Subtraktion des $4$ und $10$-fachen der zweiten Zeile von der dritten und vierten Zeile.
 
 \begin{equation*}
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
- 0 & 0 & -15 & -19 \\
- 0 & 0 & -38 & -40
+ 0 & 1 & -1 & 5 \\
+ 0 & 0 & 1 & -19 \\
+ 0 & 0 & 2 & -40
  \end{matrix}
  \left|
   \hspace{5pt}
@@ -226,61 +226,40 @@ Subtraktion vom $4$ bzw. $10$-fachen der zweiten Zeile von der dritten bzw. vier
   1 & 0 & 0 & 0 \\
   2 & -1 & 0 & 0 \\
   -8 & 4 & 1 & 0 \\
-  -17 & -10 & 0 & 1
+  -17 & 10 & 0 & 1
   \end{matrix}
  \right)
 \right.
 \end{equation*}
 
-Multiplikation der dritten Zeile mit $-15$.
+Subtraktion des doppelten der dritten Zeile von der letzten Zeile.
 \begin{equation*}
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
- 0 & 0 & 1 & -285 \\
- 0 & 0 & -38 & -40
+ 0 & 1 & -1 & 5 \\
+ 0 & 0 & 1 & -19 \\
+ 0 & 0 & 0 & -2
  \end{matrix}
  \left|
   \hspace{5pt}
   \begin{matrix}
   1 & 0 & 0 & 0 \\
   2 & -1 & 0 & 0 \\
-  120 & -60 & -15 & 0 \\
-  -17 & -10 & 0 & 1
+  -8 & 4 & 1 & 0 \\
+  -1 & 2 & 0 & 1
   \end{matrix}
  \right)
 \right.
 \end{equation*}
 
-Addition des $38$-fachen der dritten Zeile zur vierten Zeile.
+Teilen der letzten Zeile durch $-2$.
 \begin{equation*}
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
- 0 & 0 & 1 & -285 \\
- 0 & 0 & 0 & -10870
- \end{matrix}
- \left|
-  \hspace{5pt}
-  \begin{matrix}
-  1 & 0 & 0 & 0 \\
-  2 & -1 & 0 & 0 \\
-  120 & -60 & -15 & 0 \\
-  4543 & -2290 & -570 & 1
-  \end{matrix}
- \right)
-\right.
-\end{equation*}
-
-Teilen der vierten Zeile durch $-10870$
-\begin{equation*}
-\left(
- \begin{matrix}
- 1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
- 0 & 0 & 1 & -285 \\
+ 0 & 1 & -1 & 5 \\
+ 0 & 0 & 1 & -19 \\
  0 & 0 & 0 & 1
  \end{matrix}
  \left|
@@ -288,31 +267,141 @@ Teilen der vierten Zeile durch $-10870$
   \begin{matrix}
   1 & 0 & 0 & 0 \\
   2 & -1 & 0 & 0 \\
-  120 & -60 & -15 & 0 \\
-  \frac{4543}{10870} & \frac{2290}{10870} & \frac{570}{10870} & \frac{1}{10870}
+  -8 & 4 & 1 & 0 \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
   \end{matrix}
  \right)
 \right.
 \end{equation*}
 
-Matrix nun in Stufenform. Subtraktion des $-285$-fachen der letzten Zeile von der dritten Zeile.
+Subtraktion des $-19$-fachen der vierten Zeile von der dritten Zeile.
 \begin{equation*}
 \left(
  \begin{matrix}
  1 & 3 & -1 & 4 \\
- 0 & 1 & 3 & 5 \\
- 0 & 0 & 1 & -285 \\
- 0 & 0 & 0 & -285
+ 0 & 1 & -1 & 5 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
  \end{matrix}
  \left|
   \hspace{5pt}
   \begin{matrix}
   1 & 0 & 0 & 0 \\
   2 & -1 & 0 & 0 \\
-  120 & -60 & -15 & 0 \\
-  -\frac{285\cdot4543}{10870} & -\frac{285\cdot2290}{10870} & -\frac{285\cdot570}{10870} & -\frac{285}{10870}
+  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
   \end{matrix}
  \right)
 \right.
 \end{equation*}
+
+Subtraktion des $5$-fachen der vierten Zeile von der zweiten Zeile.
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 3 & -1 & 4 \\
+ 0 & 1 & -1 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+  1 & 0 & 0 & 0 \\
+  -\frac{1}{2} & 4 & 0 & \frac{5}{2} \\
+  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Addition der dritten Zeile zur zweiten und aus praktischen Gründen auch gleich zur ersten Zeile:
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 3 & 0 & 4 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+  \frac{5}{2} & -15 & -1 & -\frac{19}{2} \\
+  1 & -11 & -1 & 7 \\
+  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Subtraktion des vierfachen der letzten Zeile von der ersten Zeile
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 3 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+  \frac{1}{2} & -19 & -1 & -\frac{15}{2} \\
+  1 & -11 & -1 & 7 \\
+  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Subtraktion des dreifachen der zweiten Zeile von der ersten Zeile.
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+  -\frac{5}{2} & 14 & 8 & -\frac{57}{2} \\
+  1 & -11 & -1 & 7 \\
+  \frac{3}{2} & -15 & 1 & -\frac{19}{2} \\
+  \frac{1}{2} & -1 & 0 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Wir lassen uns nun das Ergebnis von Wolfram Alpha berechnen und erhalten die korrekte Lösung:
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+    \frac{5}{2} & 22 & -29 & \frac{27}{2} \\
+     1 & -11 & 15 & -7 \\
+     \frac{3}{2} & -15 & -20 & -\frac{19}{2} \\
+     \frac{1}{2} & -1 & 1 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+\section*{4.4 Drehmatrix}
+
+Nicht bearbeitet.
+
 \end{document}
