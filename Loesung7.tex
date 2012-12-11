@@ -89,6 +89,45 @@ Die Zusammenfassung der Gleichungen 1, 2 und 3 liefert somit $\lambda_1 =
 \lambda_2 = \lambda_3 = 0$ aus $\lambda_1 \cdot 1 + \lambda_2 \cdot \sin(x) +
 \lambda_3 \cdot \cos(x) = 0 \forall x \in [0;\pi]$, was genau die Aussage ist,
 die zu beweisen war.
+\section*{Aufgabe 7.2}
+Wenn man $A = \frac{1}{2} \sum_{k=0}^{3} \operatorname{Sp}(AS_k) S_k$
+nachrechnet, berechnet man dasjenige $K_S(A)$ für das zu Beweisen ist, dass es
+eine Transformation in die Basis $S$ ist und dann die Rücktransformation in die
+Einheitsbasis. Wenn bei der Rücktransformation wieder $A$ herauskommt, bedeutet
+dass, dass sich $A$ sich durch $K_S(A)$ darstellen lässt. Dass dies zur Basis
+$S$ ist, ist offensichtlich, denn die einzelnen Komponenten sind jeweils
+Vielfache der Basismatrizen (wie man gleich sieht). Somit ist der Beweis durch
+Nachrechnen gültig.
+
+Nachrechnen mit $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$:
+
+Komponente $S_0$:
+
+\begin{equation*}
+  \operatorname{Sp}(AS_0) S_0 = (a+d) S_0 = \begin{pmatrix} a+d & 0 \\ 0 & a+d \end{pmatrix}
+\end{equation*}
+
+Komponente $S_1$:
+\begin{equation*}
+  \operatorname{Sp}(AS_1) S_1 = (b+c) S_1 = \begin{pmatrix} 0 & b+c \\ b+c & 0 \end{pmatrix}
+\end{equation*}
+
+Komponente $S_2$:
+\begin{equation*}
+  \operatorname{Sp}(AS_2) S_2 = (bi-ci) S_2 = \begin{pmatrix} 0 & b-c \\ c-b & 0 \end{pmatrix}
+\end{equation*}
+
+Komponente $S_3$:
+\begin{equation*}
+  \operatorname{Sp}(AS_3) S_3 = (a-d) S_3 = \begin{pmatrix} a-d & 0 \\ 0 & d-a \end{pmatrix}
+\end{equation*}
+
+Gesamt:
+\begin{equation*}
+  A = \frac{1}{2} \begin{pmatrix} a+d+a-d & b+c+b-c \\ b+c+c-b & a+d+d-a \end{pmatrix}
+    = \frac{1}{2} \begin{pmatrix} 2a & 2b \\ 2c & 3d \end{pmatrix}
+    = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\end{equation*}
 
 \section*{Aufgabe 7.3}
 
@@ -106,7 +145,7 @@ Ist offensichtlich.
 \subsubsection*{2. Vektoren liegen im selben Vektorraum}
 Wenn zwei Vektoren $u$ und $v$ im selben Vektorraum liegen, ist deren Addition
 definiert als $+: V \times V \to V$, $+: u \times v \mapsto w$, somit liegt
-auch das Resulat im selben Vektorraum.
+auch das Resultat im selben Vektorraum.
 
 \subsubsection*{3. Vektoren sind linear unabhängig}
 
@@ -287,11 +326,12 @@ Hier existiert die Lösung:
 Somit lässt sich jedes $\mathbf{s}_n$ als Linearkombination von $\mathbf{s}_1$
 und $\mathbf{s}_2$ schreiben und die Matrix hat den Rang 2.
 
-\subsection{Teil b}
+\subsection*{Teil b}
 
 Es gilt $\operatorname{rang}(AB) \leq \operatorname{min}(\operatorname{rang} A,
 \operatorname{rang} B)$. Weil sich die entstehende Matrix auch als Produkt aus
 Zeilen- und Spaltenvektor schreiben lässt und die beiden Vektoren jeweils den
-Rang 1 haben, ist der Rang der Matrix $1$.
+Rang 1 haben (denn jede Komponente muss laut Aufgabenstellung von null
+verschieden sein), ist der Rang der Matrix $1$.
 
 \end{document}
