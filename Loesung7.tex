@@ -204,5 +204,94 @@ Somit
   K_B(v) = \begin{pmatrix} \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \end{pmatrix}
 \end{equation*}
 
+\section*{Aufgabe 7.4}
+\subsection*{Teil a}
+
+Wenn ich das korrekt verstanden habe, darf $x_1 = x_2 = \dotsb = x_n = 0$ sein,
+sofern $y_n \neq 0 \forall n$. Dann wäre der Rang der Matrix $1$, was der
+Aufgabenstellung widerspricht. Sofern allerdings mindestens ein $x_n \neq 0$
+existiert, gilt folgendes.
+
+Die Matrix ist folgende:
+
+\begin{equation*}
+A =
+  \begin{pmatrix}
+    a_1 + b_1 & a_1 + b_2 & a_1 + b_3 & \dotsb & a_1 + b_n \\
+    a_2 + b_1 & a_2 + b_2 & a_2 + b_3 & \dotsb & a_2 + b_n \\
+    a_3 + b_1 & a_3 + b_2 & a_3 + b_3 & \dotsb & a_3 + b_n \\
+    \vdots    & \vdots    & \vdots    & \ddots & \vdots \\
+    a_n + b_1 & a_n + b_2 & a_n + b_3 & \dotsb & a_n + b_n
+  \end{pmatrix}
+\end{equation*}
+
+Hier sieht man, dass man die Matrix aus Spaltenvektoren aufbauen kann. Dabei ist
+
+\begin{align*}
+  \mathbf{a} &= \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix} \\
+  \mathbf{b} &= \begin{pmatrix} b_1 \\ b_1 \\ \vdots \\ b_1 \end{pmatrix}
+\end{align*}
+
+Dann lässt sich der erste Eintrag schreiben als:
+
+\begin{equation*}
+  \mathbf{s}_1 = \mathbf{a} + \mathbf{b}
+\end{equation*}
+
+Der nächste Eintrag $\mathbf{s}_2$ kann man schreiben als:
+
+\begin{equation*}
+  \mathbf{s}_2 = \mathbf{a} + \lambda_2 \mathbf{b}
+\end{equation*}
+
+Denn wenn alle Komponenten im jeweiligen Vektor $\mathbf{b}_n$ gleich sind,
+lässt er sich auch als Vielfaches des ersten Vektors $\mathbf{b}$ schreiben
+(sofern $\mathbf{b} \neq 0$, was oben bereits vorrausgesetzt wird.
+
+Somit gilt für einen beliebigen Spaltenvektor:
+\begin{equation*}
+  \mathbf{s}_n = \mathbf{a} + \lambda_n \mathbf{b}
+\end{equation*}
+
+Damit kann man nun beweisen, dass sich alle Spaltenvektoren jeweils aus den
+ersten beiden aufbauen lassen. Dazu muss man zeigen, dass die nachfolgende
+Gleichung mindestens eine nichttriviale Lösung, also $\mu_1 \neq 0$ und/oder
+$\mu_2 \neq 0$.
+
+\begin{align*}
+  \mathbf{s}_n &= \mu_1 \mathbf{s}_1 + \mu_2 \mathbf{s}_2 \\
+  \mathbf{s}_n &= \mu_1 (\mathbf{a} + \mathbf{b}) + \mu_2(\mathbf{a} + \lambda_2 \mathbf{b}) \\
+  \mathbf{s}_n &= \mu_1 \mathbf{a} + \mu_1 \mathbf{b} + \mu_2 \mathbf{a} + \lambda_2\mu_2\mathbf{b}
+\end{align*}
+
+Wir zeigen nun, dass $\mu_1 = \mu_2 = \frac{1}{2}$ eine Lösung ist:
+
+\begin{align*}
+  \mathbf{s}_n &= \frac{1}{2} \mathbf{a} + \frac{1}{2} \mathbf{b} + \frac{1}{2} \mathbf{a} + \frac{1}{2} \lambda_2\mathbf{b} \\
+  \mathbf{s}_n &= \mathbf{a} + \frac{1}{2} (\lambda_2+1)\mathbf{b}
+\end{align*}
+
+Mit $\mathbf{s}_n = \mathbf{a} + \lambda_n \mathbf{b}$ erhält man:
+
+\begin{align*}
+ \mathbf{a} + \lambda_n \mathbf{b} &= \mathbf{a} + \frac{1}{2} (\lambda_2+1)\mathbf{b} \\
+ \lambda_n \mathbf{b} &= \frac{1}{2} (\lambda_2+1)\mathbf{b} \\
+\end{align*}
+
+Hier existiert die Lösung:
+
+\begin{equation*}
+  \lambda_n = \frac{1}{2} (\lambda_2+1)
+\end{equation*}
+
+Somit lässt sich jedes $\mathbf{s}_n$ als Linearkombination von $\mathbf{s}_1$
+und $\mathbf{s}_2$ schreiben und die Matrix hat den Rang 2.
+
+\subsection{Teil b}
+
+Es gilt $\operatorname{rang}(AB) \leq \operatorname{min}(\operatorname{rang} A,
+\operatorname{rang} B)$. Weil sich die entstehende Matrix auch als Produkt aus
+Zeilen- und Spaltenvektor schreiben lässt und die beiden Vektoren jeweils den
+Rang 1 haben, ist der Rang der Matrix $1$.
 
 \end{document}
