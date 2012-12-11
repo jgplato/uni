@@ -92,6 +92,7 @@ die zu beweisen war.
 
 \section*{Aufgabe 7.3}
 
+\subsection*{Teil a}
 Wenn die angegebenen Vektoren $a$, $b$ und $c$ eine Basis des Vektorraums $V$
 sind, dann bedeutet dies, dass der Vektorraum 3 Dimensionen hat und dass die
 angegebenen Vektoren linear unabhängig sind. Damit $a+b$, $b+c$ und $c+a$ eine
@@ -99,15 +100,15 @@ Basis des selben Vektorraums sind, müssen sie 1. Ingesamt 3 an der Anzahl sein,
 da der Vektorraum 3 Dimensionen hat, 2. Im selben Vektorraum liegen und 3.
 linear unabhängig sein.
 
-\subsection*{1. Anzahl der Vektoren ist 3}
+\subsubsection*{1. Anzahl der Vektoren ist 3}
 Ist offensichtlich.
 
-\subsection*{2. Vektoren liegen im selben Vektorraum}
+\subsubsection*{2. Vektoren liegen im selben Vektorraum}
 Wenn zwei Vektoren $u$ und $v$ im selben Vektorraum liegen, ist deren Addition
 definiert als $+: V \times V \to V$, $+: u \times v \mapsto w$, somit liegt
 auch das Resulat im selben Vektorraum.
 
-\subsection*{3. Vektoren sind linear unabhängig}
+\subsubsection*{3. Vektoren sind linear unabhängig}
 
 Zu zeigen ist, dass aus $\lambda_1 (a+b) + \lambda_2 (b+c) + \lambda_3 (c+a) =
 0$ folgt, dass $\lambda_{1,2,3} = 0$. Die Prämisse lässt sich umformen:
@@ -170,4 +171,38 @@ Dieses Gleichungssystem lässt sich umformen:
 Daraus folgt, dass wenn $a$, $b$ und $c$ linear unabhängig sind, dass auch
 $a+b$, $b+c$ und $c+a$ linear unabhängig sind. Somit ist bei den gegebenen
 Ausgangsbedingungen auch $(a+b, b+c, c+a)$ eine Basis von $V$.
+
+
+\subsection*{Teil b}
+
+Wir berechnen zuerst $K_A(w)$.
+
+\begin{align*}
+  w &= 1(a+b) + 2(b+c) + 3(c+a) \\
+    &= 1a + 1b + 2b + 2c + 3c + 3a \\
+    &= (1+3)a + (1+2)b + (2+3)c \\
+    &= 4a + 3b + 5c
+\end{align*}
+
+Somit
+
+\begin{equation*}
+  K_A(w) = \begin{pmatrix} 4 \\ 3 \\ 5 \end{pmatrix}
+\end{equation*}
+
+Für $K_B(v)$:
+
+\begin{align*}
+  v &= 1a + 1b + 1c \\
+    &= \frac{1}{2}a + \frac{1}{2}a + \frac{1}{2}b + \frac{1}{2}b + \frac{1}{2}c + \frac{1}{2} c \\
+    &= \frac{1}{2}(a+b) + \frac{1}{2}(b+c) + \frac{1}{2}(c+a)
+\end{align*}
+
+Somit
+
+\begin{equation*}
+  K_B(v) = \begin{pmatrix} \frac{1}{2} \\ \frac{1}{2} \\ \frac{1}{2} \end{pmatrix}
+\end{equation*}
+
+
 \end{document}
