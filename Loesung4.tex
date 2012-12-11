@@ -179,9 +179,8 @@ Wir starten mit folgendem System.
 \right.
 \end{equation*}
 
-Die Zwischenschritte sind langweilig. Die 4 Schmierblätter möchte ich nicht
-abtippen und du wahrscheinlich auch nicht korrigieren. Das Ergebnis, bei dem
-die Inverse nun auf der rechten Seite steht lautet:
+Am Ende erhält man folgendes System, bei dem sich die Inverse Matrix auf der
+rechten Seite befindet.
 
 \begin{equation*}
 \left(
@@ -205,6 +204,24 @@ die Inverse nun auf der rechten Seite steht lautet:
 
 \section*{4.4 Drehmatrix}
 
-Nicht bearbeitet.
+Ich berechne zuerst die Matrix $AW$:
+
+\begin{equation*}
+AW =
+\begin{pmatrix}
+a \cos \omega + b \sin \omega & -a \sin \omega + b \cos \omega \\
+b \cos \omega + c \sin \omega & -b \sin \omega + c \cos \omega
+\end{pmatrix}
+\end{equation*}
+
+Und dann daraus den oberen nichtdiagonalen Eintrag $(W^TAW)_{12}$
+
+\begin{align*}
+(W^TAW)_{12} &= \cos \omega ( -a \sin \omega + b \cos \omega ) + \sin \omega (-b \sin \omega + c \cos \omega ) \\
+&= -a\cos(\omega) \sin(\omega) + b \cos^2(\omega) -b \sin^2(\omega) + c\sin(\omega)\cos(\omega)
+\end{align*}
+
+Es ist nun egal wie man $\omega$ wählt. Der nichtdiagonale Eintrag kann nicht
+unabhängig von $a$, $b$ oder $c$ null werden.
 
 \end{document}

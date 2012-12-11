@@ -1,0 +1,173 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Mathematik für Physiker I, Wintersemester 2012/2013, 4. Übungsblatt
+
+Florian Neumeyer und Markus Fenske, Tutor: Stephan Schwartz
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 7.1}
+
+Damit die Angegebenen Abbildungen linear unabhängig sind, darf die
+Linearkombination aus den Abbildungen nur dann den gesamten Wertebereich auf
+${0}$ abbilden, wenn die Linearfaktoren alle $= 0$ sind. Es muss also $\sum_{i}
+\lambda_{i} v_i = 0$ sein, wobei $0$ diejenige Abbildung $F:
+[0;\pi] \to \mathbb{R}$ sein muss, für die $F: x \mapsto 0$.
+
+Konkret heisst dass, dass $\lambda_1 \cdot 1 + \lambda_2 \cdot \sin(x) +
+\lambda_3 \cdot \cos(x) = 0 \forall x \in [0;\pi]$ folgen muss, dass $\lambda_1 = \lambda_2 =
+\lambda_3 = 0$.
+
+Dies prüfen wir, indem wir verschiedene Werte aus dem Wertebereich einsetzen.
+Bei $x = 0$ und $x = \pi$ erhalten wir:
+
+\begin{align*}
+\lambda_1 + \lambda_3 &= 0 \\
+\lambda_1 - \lambda_3 &= 0
+\end{align*}
+
+Durch Umformungen lässt sich zeigen, dass $\lambda_1 = \lambda_3 = 0$ sein muss:
+
+\begin{align*}
+\lambda_1 + \lambda_3 &= 0 \\
+\lambda_1 &= \lambda_3
+\end{align*}
+
+\begin{align*}
+\lambda_1 + \lambda_1 &= 0 \\
+\lambda_1 &= \lambda_3
+\end{align*}
+
+\begin{align*}
+2\lambda_1 &= 0 \\
+\lambda_1 &= \lambda_3
+\end{align*}
+
+\begin{align*}
+\lambda_1 &= 0 \\
+\lambda_1 &= \lambda_3
+\end{align*}
+
+\begin{align}
+\lambda_1 &= 0 \\
+\lambda_3 &= 0
+\end{align}
+
+Durch Einsetzen in die Ausgangsgleichung erhalten wir:
+
+\begin{equation*}
+  \lambda_2 \sin x = 0 \forall x \in [0;\pi]
+\end{equation*}
+
+Sofern nicht offensichtlich ist, dass dies nur für $\lambda_2 = 0$ gegeben ist,
+können wir erneut ein beliebiges $x \in [0;\pi]$ einsetzen, z.B. $\frac{\pi}{2}$
+und erhalten direkt:
+
+\begin{equation}
+  \lambda_2 = 0
+\end{equation}
+
+Die Zusammenfassung der Gleichungen 1, 2 und 3 liefert somit $\lambda_1 =
+\lambda_2 = \lambda_3 = 0$ aus $\lambda_1 \cdot 1 + \lambda_2 \cdot \sin(x) +
+\lambda_3 \cdot \cos(x) = 0 \forall x \in [0;\pi]$, was genau die Aussage ist,
+die zu beweisen war.
+
+\section*{Aufgabe 7.3}
+
+Wenn die angegebenen Vektoren $a$, $b$ und $c$ eine Basis des Vektorraums $V$
+sind, dann bedeutet dies, dass der Vektorraum 3 Dimensionen hat und dass die
+angegebenen Vektoren linear unabhängig sind. Damit $a+b$, $b+c$ und $c+a$ eine
+Basis des selben Vektorraums sind, müssen sie 1. Ingesamt 3 an der Anzahl sein,
+da der Vektorraum 3 Dimensionen hat, 2. Im selben Vektorraum liegen und 3.
+linear unabhängig sein.
+
+\subsection*{1. Anzahl der Vektoren ist 3}
+Ist offensichtlich.
+
+\subsection*{2. Vektoren liegen im selben Vektorraum}
+Wenn zwei Vektoren $u$ und $v$ im selben Vektorraum liegen, ist deren Addition
+definiert als $+: V \times V \to V$, $+: u \times v \mapsto w$, somit liegt
+auch das Resulat im selben Vektorraum.
+
+\subsection*{3. Vektoren sind linear unabhängig}
+
+Zu zeigen ist, dass aus $\lambda_1 (a+b) + \lambda_2 (b+c) + \lambda_3 (c+a) =
+0$ folgt, dass $\lambda_{1,2,3} = 0$. Die Prämisse lässt sich umformen:
+
+\begin{align*}
+  \lambda_1 (a+b) + \lambda_2 (b+c) + \lambda_3 (c+a) &= 0 \\
+  \lambda_1 a + \lambda_1 b + \lambda_2 b + \lambda_2 c + \lambda_3 c + \lambda_3 a &= 0 \\
+  (\lambda_1 + \lambda_3) a + (\lambda_1 + \lambda_2) b + (\lambda_2 + \lambda_3) c &= 0
+\end{align*}
+
+Mit den Ersetzungen $\alpha = (\lambda_1 + \lambda_3)$, $\beta = (\lambda_1 +
+\lambda_2)$ und $\gamma = (\lambda_2 + \lambda_3)$ erhält man
+
+\begin{align*}
+  \alpha a + \beta b + \gamma c &= 0
+\end{align*}
+
+Da gegegeben ist, dass $a$, $b$ und $c$ linear unabhängig sind (weil sie eine
+Basis von $V$ bilden), folgt aus $\alpha a + \beta b + \gamma c = 0$, dass $\alpha =
+\beta = \gamma = 0$. Daraus folgt, dass
+
+\begin{align*}
+  \lambda_1 + \lambda_2 &= 0 \\
+  \lambda_2 + \lambda_3 &= 0 \\
+  \lambda_1 + \lambda_3 &= 0
+\end{align*}
+
+Dieses Gleichungssystem lässt sich umformen:
+
+\begin{align*}
+  \lambda_1 + \lambda_2 &= 0 \\
+  \lambda_2 + \lambda_3 &= 0 \\
+  \lambda_1 &= -\lambda_3
+\end{align*}
+
+\begin{align*}
+  \lambda_1 + \lambda_2 &= 0 \\
+  \lambda_2 - \lambda_1 &= 0 \\
+  \lambda_1 &= -\lambda_3
+\end{align*}
+
+\begin{align*}
+  \lambda_1 + \lambda_2 &= 0 \\
+  \lambda_2 &= \lambda_1 \\
+  \lambda_1 &= -\lambda_3
+\end{align*}
+
+\begin{align*}
+  \lambda_1 + \lambda_1 &= 0 \\
+  \lambda_2 &= \lambda_1 \\
+  \lambda_1 &= -\lambda_3
+\end{align*}
+
+\begin{align*}
+  \lambda_1 &= 0 \\
+  \lambda_2 &= 0 \\
+  \lambda_3 &= 0
+\end{align*}
+
+Daraus folgt, dass wenn $a$, $b$ und $c$ linear unabhängig sind, dass auch
+$a+b$, $b+c$ und $c+a$ linear unabhängig sind. Somit ist bei den gegebenen
+Ausgangsbedingungen auch $(a+b, b+c, c+a)$ eine Basis von $V$.
+\end{document}
