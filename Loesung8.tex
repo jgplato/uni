@@ -1,0 +1,317 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Mathematik für Physiker I, Wintersemester 2012/2013, 8. Übungsblatt
+
+Florian Neumeyer und Markus Fenske, Tutor: Stephan Schwartz
+\vspace{-10pt}
+\end{center}
+
+
+\section*{Aufgabe 8.1}
+\subsection*{Teil a+b}
+
+Wir bestimmen den Koordinatenvektor $K_B(x_1)$ indem wir die folgende Gleichung, die dieser erfüllen müsste, lösen.
+
+\begin{align*}
+  \begin{pmatrix}
+     1 & 4 & 3 \\
+     2 & 2 & 0 \\
+     3 & 1 & 0 \\
+     4 & 3 & 2 \\
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    x \\
+    y \\
+    z
+  \end{pmatrix}
+  &=
+  \begin{pmatrix}
+    2 \\
+    4 \\
+    4 \\
+    5
+  \end{pmatrix} \\
+  \begin{pmatrix}
+     x + 4y + 3z \\
+     2x + 2y \\
+     3x + y \\
+     4x + 3y + 2z \\
+  \end{pmatrix}
+  &=
+  \begin{pmatrix}
+    2 \\
+    4 \\
+    4 \\
+    5
+  \end{pmatrix}
+\end{align*}
+
+Das \textsc{Gauß}sche Verfahren wird hier nicht benötigt. Durch scharfes
+Ansehen der zweiten und dritten Spalte erkannt man sofort $x = y = 1$, Somit
+ergibt sich zusammen mit der oberen Spalte aus $1 + 4 + 3z = 2$, dass $z = -1$.
+Dies erfüllt auch die untere Zeile. Somit $x_1 \in U$ und
+
+\begin{equation*}
+  K_B(x_1) = \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}
+\end{equation*}
+
+Daraus folgt auch, dass $b_1$, $b_2$ und $b_3$ linear unabhängig sind, denn
+sonst gäbe es keine eindeutige Lösung, und somit eine Basis von $U$.
+
+Für $K_B(x_2)$ ergibt sich analog zu oben
+
+\begin{align*}
+  \begin{pmatrix}
+     1 & 4 & 3 \\
+     2 & 2 & 0 \\
+     3 & 1 & 0 \\
+     4 & 3 & 2 \\
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    x \\
+    y \\
+    z
+  \end{pmatrix}
+  &=
+  \begin{pmatrix}
+    1 \\
+    2 \\
+    3 \\
+    -1
+  \end{pmatrix} \\
+  \begin{pmatrix}
+     x + 4y + 3z \\
+     2x + 2y \\
+     3x + y \\
+     4x + 3y + 2z \\
+  \end{pmatrix}
+  &=
+  \begin{pmatrix}
+    1 \\
+    2 \\
+    3 \\
+    -1
+  \end{pmatrix}
+\end{align*}
+
+Aus der zweiten und dritten Zeile folgt direkt $x = 1$ und $y = 0$. Eingesetzt
+in die erste Zeile $1 + 3z = 1$, somit $z = 0$, was dann der letzten Zeile
+widerspricht ($4 + 0 + 0 \neq -1$). Somit ist $x_2 \neq U$, denn es lässt sich
+nicht durch die Basisvektoren darstellen.
+
+\subsection*{Teil c}
+
+\begin{align*}
+  \Phi_B(z) &= -1 \cdot \begin{pmatrix} 1 \\ 2 \\ 3 \\ 4 \end{pmatrix} + 2 \cdot \begin{pmatrix} 4 \\ 2 \\ 1 \\ 3 \end{pmatrix} - 2 \cdot \begin{pmatrix} 3 \\ 0 \\ 0 \\ 2\end{pmatrix} \\
+            &= \begin{pmatrix} -1 +8 -6 \\ -2 +4 \\ -3+2 \\ -4+6-4 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ -1 \\ -2\end{pmatrix}
+\end{align*}
+
+\section*{Aufgabe 8.2}
+Aufgrund der an den $\mathbf{R}^5$ gestellten 2 Bedingungen, muss das Resultat
+$U$ nur noch $5-2 = 3$ Dimensionen haben. Es werden also zusätzlich zum
+gegebenen Basisvektor noch zwei weitere benötigt. Die Basisvektoren $\vec{a}_2,
+\vec{a}_3$ müssen $\in U$ sein, somit als die Bedingung $A\vec{a}_n = 0$
+erfüllen, und zum gegebenen $\vec{a}$ und untereinander linear unabhängig sein.
+
+Wir suchen also zuerst zwei $\vec{a}_n$ mit
+
+\begin{equation*}
+  \begin{pmatrix} 1 & 1 & 1 & 1 & 1 \\ 1 & -1 & 1 & -1 & 0 \end{pmatrix} \cdot \vec{a}_n = 0
+\end{equation*}
+
+Es bieten sich als Lösungen offensichtlich an: $\vec{m}_1 = (0, 0, 1, 1, -2)^T$, $\vec{m}_2 = (1, 1, 0, 0, -2)^T$
+oder $\vec{m_3} = (0, 1, 1, 0, -2)^T$. Da sich die zweite Möglichkeit
+$\vec{m}_2$ bereits durch $\vec{m}_2 = \vec{a} + \vec{m}_3$ darstellen lässen,
+wäre dies keine gute Wahl. Wir testen also die lineare Unabhängigkeit von
+$\vec{m}_1$, $\vec{m}_3$ und $\vec{a}$.
+
+\begin{equation*}
+  \lambda_1 \begin{pmatrix} 1 \\ 1 \\ -1 \\ -1 \\ 0\end{pmatrix} +
+  \lambda_2 \begin{pmatrix} 0 \\ 0 \\ 1 \\ 1 \\ -2\end{pmatrix} +
+  \lambda_3 \begin{pmatrix} 0 \\ 1 \\ 1 \\ 0 \\ -2 \end{pmatrix} = 0
+\end{equation*}
+
+Aus der ersten Zeile sieht man bereits, dass die Gleichung nur für $\lambda_1 =
+0$ erfüllt ist. Wenn man dies in die zweite Zeile einsetzt, erhält man
+$\lambda_3 = 0$. Durch Einsetzen der Werte in die dritte Zeile dann auch
+$\lambda_2 = 0$. Somit gibt es keine außer den trivialen Lösungen. Die Vektoren
+sind linear unabhänig und somit die Basis von $U$.
+
+\section*{Aufgabe 8.3}
+
+Gegeben ist, dass $A \cup C$ eine Basis von $U$ ist. Dann lässt sich jedes
+Element $u \in U$ als Linearkombination der Elemente von $a_1, a_2, \dotsb, a_n
+\in A$ und $c_1, c_2, \dotsb, c_m \in C$ schreiben.
+
+\begin{equation}
+  u = \lambda_1a_1 + \lambda_2a_2 + \dotsb + \lambda_na_n + \lambda_{n+1}c_1 + \lambda_{n+2}c_2 + \lambda_{n+m} c_m
+  \label{kombi_ac}
+\end{equation}
+
+Gegegeben ist außerdem, dass $B \cup C$ eine Basis von $W$ ist. Dann lässt sich
+analog jedes $w \in W$ als Linearkombination der Elemente von $b_1, b_2,
+\dotsb, b_n \in B$ und $c_1, c_2, \dotsb, c_m \in C$ schreiben.
+
+\begin{equation}
+  w = \mu_1b_1 + \mu_2b_2 + \dotsb + \mu_nb_n + \mu_{n+1}c_1 + \mu_{n+2}c_2 + \mu_{n+m} c_m
+  \label{kombi_bc}
+\end{equation}
+
+$U + W$ bezeichnet den Vektorraum, dessen Elemente Linearkombinationen der
+Elemente von $U$ und $W$ sind. Nennen wir diesen Vektorraum $X = U + W$. Wenn
+$x \in X$, dann lässt sich jedes $x$ schreiben durch $u \in U, w \in W$
+
+\begin{equation*}
+  x = u + w
+\end{equation*}
+
+Dies können wir unter Benutzung von \ref{kombi_ac} und \ref{kombi_bc} auch
+anders schreiben.
+
+\begin{align*}
+  x = &\lambda_1a_1 + \lambda_2a_2 + \dotsb + \lambda_na_n + \lambda_{n+1}c_1 +
+       \lambda_{n+2}c_2 + \lambda_{n+m} c_m + \\
+      &\mu_1b_1 + \mu_2b_2 + \dotsb + \mu_nb_n + \mu_{n+1}c_1 
+       + \mu_{n+2}c_2 + \mu_{n+m} c_m
+\end{align*}
+
+Wir definieren nun $\nu_n = \lambda_{m+n} + \mu_{m+n}$, womit wir die Konstanten ersetzen können.
+
+\begin{align*}
+  x = &\lambda_1a_1 + \lambda_2a_2 + \dotsb + \lambda_na_n + \\
+      &\nu_1c_1     + \nu_2    c_2 + \dotsb + \nu_nc_n     + \\
+      &\mu_1b_1     + \mu_2b_2     + \dotsb + \mu_nb_n
+\end{align*}
+
+Wenn nun $A \cup B \cup C$ eine Basis ist, die den Vektorraum $Y$ aufspannt,
+dann lässt sich jedes $y \in Y$ schreiben durch eine Linearkombination der der
+Elemente $a_1, a_2, \dotsb, a_n \in A$, $b_1, b_2, \dotsb, b_n \in B$ und $c_1,
+c_2, \dotsb, c_m \in C$  Also
+
+\begin{align*}
+  y = &\lambda_1a_1 + \lambda_2a_2 + \dotsb + \lambda_na_n + \\
+      &\nu_1c_1     + \nu_2    c_2 + \dotsb + \nu_nc_n     + \\
+      &\mu_1b_1     + \mu_2b_2     + \dotsb + \mu_nb_n
+\end{align*}
+
+Dies ist genau vorherige Gleichung. Somit folgt, dass $A \cup B \cup C$ eine Basis von $U + W$ ist.
+
+Draus folgt auch $\dim U + \dim W = \dim(U \cup W) + \dim(U+W)$. Die Anzahl der
+Basisvektoren eines Vektorraum ist bekanntlich gleich seiner Dimension. Da $A
+\cup C$ eine Basis von $U$ ist, lässt sich jedes Element von $U$ ausdrücken
+durch eine Linearkombination von $|A| + |C|$ Basisvektoren.
+
+\begin{equation}
+  \dim U = |A| + |C|
+  \label{dim_u}
+\end{equation}
+
+Analog lässt sich jedes Element in $W$ ausdrücken durch eine Linearkombination von $|B| + |C|$ Basisvektoren.
+
+\begin{equation}
+  \dim W = |B| + |C|
+  \label{dim_w}
+\end{equation}
+
+Aus der Aufgabenstellung gegeben ist, dass $C$ eine Basis von $U \cap W$ ist, also
+
+\begin{equation}
+  \dim(U \cap W) = |C|
+  \label{dim_ucapw}
+\end{equation}
+
+Bewiesen wurde auch, dass $A \cup B \cup C$ eine Basis von $U + W$ ist, somit
+
+\begin{equation}
+  \dim(U + W) = |A| + |B| + |C|
+  \label{dim_ucupw}
+\end{equation}
+
+Daraus folgt für die gegebene Gleichung
+
+\begin{align*}
+\dim U + \dim W &= \dim(U \cup W) + \dim(U+W) \\
+|A| + |C| + |B| + |C| &= |C| + |A| + |B| + |C|
+\end{align*}
+
+Was damit bewiesen wäre.
+
+\section{Aufgabe 8.4}
+
+Gegeben ist, dass alle $\vec{a}_1, \dotsb, \vec{a}_n$ linear unabhängig sind.
+Das bedeutet also, dass für folgende Gleichung nur die Lösung, dass alle $\lambda =
+0$ existiert.
+
+\begin{equation*}
+  \lambda_1\vec{a}_1 + \lambda_2{a}_2 + \dotsb + \lambda_n\vec{a}_n = 0
+\end{equation*}
+
+Außerdem ist ein $\vec{b}$ gegeben, der ebenso wie alle $\vec{a}$ reell ist.
+Das heisst, dass $i \vec{b}$ auf jeden Fall imaginär ist und damit linear
+unabhängig zu allen $\vec{a}$.
+
+Angenommen die Vektoren $\vec{a}_1 + i\vec{b}, \dotsb, \vec{a}_n + i\vec{b}$
+wären linear unabhängig, dann müsste für folgende Gleichung nur die Lösung
+existieren, dass alle $\lambda = 0$
+
+\begin{equation*}
+\lambda_1(\vec{a}_1 + i\vec{b}) + \dotsb + \lambda_n(\vec{a}_n + i\vec{b}) = 0
+\end{equation*}
+
+Durch Umformung erhält man:
+
+\begin{align*}
+  \lambda_1(\vec{a}_1 + i\vec{b}) + \dotsb + \lambda_n(\vec{a}_n + i\vec{b}) &= 0 \\
+  \lambda_1\vec{a}_1 + \dotsb + \lambda_n\vec{a}_n + (\lambda_1 + \dotsb + \lambda_n) ni\vec{b} &= 0 \\
+  \lambda_1\vec{a}_1 + \dotsb + \lambda_n\vec{a}_n &= -n(\lambda_1 + \dotsb + \lambda_n)i\vec{b}  \\
+\end{align*}
+
+Da auf der linken Seite eine reeller Vektor steht und auf der rechten Seite ein
+imaginärer Vektor (denn es ist $\vec{b} \in \mathbb{R}^n$ gegeben), folgt daraus, dass
+alle $\lambda = 0$. Somit sind alle $\vec{a}_1 + i\vec{b}, \dotsb, \vec{a}_n + i\vec{b}$
+linear unabhängig, sofern alle $\lambda \in \mathbb{R}$ 
+
+In der Aufgabestellung ist jedoch lineare Unabhängigkeit im Sinne von $\mathbb{C}^n$
+gefordert (sofern ich das richtig verstanden habe), also $\lambda \in \mathbb{C}$.
+
+Durch Aufsplitten in Real- und Imaginärteil ($\lambda = \mu + i\nu$) erhält man:
+
+\begin{align*}
+  \mu_1\vec{a}_{\mathbb{R},1} + \dotsb + \mu_n\vec{a}_{\mathbb{R},n} &= n(\nu_1 + \dotsb + \nu_n)\vec{b}_{\mathbb{R}}  \\
+  \nu_1\vec{a}_{\mathbb{C},1} + \dotsb + \nu_n\vec{a}_{\mathbb{C},n} &= -n(\mu_1 + \dotsb + \mu_n)\vec{b}_{\mathbb{C}}
+\end{align*}
+
+Die untere Gleichung ist wertlos, denn da die Vektoren alle reell sind, ist der
+Komplexteil $= 0$, somit lassen sich keine Aussagen herleiten.
+
+Es bleibt übrig:
+\begin{align*}
+  \mu_1\vec{a}_{1} + \dotsb + \mu_n\vec{a}_{n} &= n(\nu_1 + \dotsb + \nu_n)\vec{b}
+\end{align*}
+
+Diese Gleichung lässt sich erfüllen, sofern $\vec{b}$ eine Linearkombination
+von $\vec{a}_1, \dotsb, \vec{a}_n$ ist.
+
+Wo liegt mein Fehler?
+
+\end{document}
