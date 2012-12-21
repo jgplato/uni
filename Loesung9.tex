@@ -114,38 +114,67 @@ untätig sein darf ($I$). Eine Projektion auf eine Achse ist eine Möglichkeit.
 
 \section*{Aufgabe 9.2}
 Die Aufgabe wäre langweilig, wenn wir von der Differentiation nach etwas
-anderem als $t$ ausgingen. Nehmen wir uns also die Basisvektoren von $A$
-(\textbf{Rausfinden, wie man solche fancy Buchstaben wir in der
-Aufgabenstellung macht!}) und wenden $D$ an.
+anderem als $t$ ausgingen. Nehmen wir uns also die Basisvektoren von
+$a_1, \dotsb, a_4 \in \mathcal{A}$ und wenden $D$ an.
 
-\textbf{Achtung: Textsatz ist hier kaputt, Ausrichtung scheiße}
-\begin{align*}
-  D(a_1) &= D(\sin t)  = \frac{d}{dt} \sin  t = \cos t    &= a_2 \\
-  D(a_2) &= D(\cos t)  = \frac{d}{dt} \cos  t = -\sin t   &= -a_1 \\
-  D(a_3) &= D(\sin 2t) = \frac{d}{dt} \sin 2t = 2\cos 2t  &= 2a_4 \\
-  D(a_4) &= D(\cos 2t) = \frac{d}{dt} \cos 2t = -2\sin 2t &= -2a_3
-\end{align*}
+\begin{alignat*}{5}
+  D(a_1) &= D(\sin t)  &&= \frac{d}{dt} \sin  t &&= \cos t    &&= a_2 \\
+  D(a_2) &= D(\cos t)  &&= \frac{d}{dt} \cos  t &&= -\sin t   &&= -a_1 \\
+  D(a_3) &= D(\sin 2t) &&= \frac{d}{dt} \sin 2t &&= 2\cos 2t  &&= 2a_4 \\
+  D(a_4) &= D(\cos 2t) &&= \frac{d}{dt} \cos 2t &&= -2\sin 2t &&= -2a_3
+\end{alignat*}
 
-Wenn man dies in der Basis $A$ (\textbf{Hier auch fancy Buchstabe!}) schreibt,
-dann ist das
+Wenn man die Basisvektoren direkt in der Basis $\mathcal{A}$ schreibt, dann
+bedeutet das, dass sich für die Bilder der Basisvektoren jeweils ergibt:
 
 \begin{align*}
-  D_A\left(\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix}, &
   D_A\left(\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} -1 \\ 0 \\ 0 \\ 0\end{pmatrix} \\
-  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ 0 \\ 2\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ 0 \\ 2\end{pmatrix}, &
   D_A\left(\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ -2 \\ 0\end{pmatrix} \\
 \end{align*}
 
-Da die darstellende Matrix blabla (\textbf{Hier den superwichtigen Satz aus dem Tutorium eintragen})
+In den Spalten der darstellenden Matrix stehen die Bilder der Basisvektoren
+ausgedrückt in der Basis. Da dort oben die Basisvektoren und ihre Bilder
+stehen, ergibt sich auch schon direkt die darstellende Matrix.
 
 \begin{equation}
-  M_A(D) = \begin{pmatrix}0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 2 \\ 0 & 0 & -2 & 0\end{pmatrix}
+  M_{\mathcal{A}}(D) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -2 \\ 0 & 0 & 2 & 0\end{pmatrix}
 \end{equation}
 
-Jetzt nur noch darstellende Matrix aufstellen und fertig. Selbe Aktion für $D^2$. $D$ ist invertierbar, weil Matrix invertierbar ist. Invertierte Matrix ausrechnen.
+$M_{\mathcal{A}}(D^2)$ ist dann die darstellende Matrix für zweimaliges
+Anwenden des Differentiationsoperators. Dorthin gibt es zwei Wege, entweder
+zweimaliges Ableiten oder die Multiplikation der Matrix mit sich selbst.
+Letzteres ergibt (\textbf{muss ich die Rechnung abtippen?}):
+
+\begin{equation}
+  M_{\mathcal{A}}(D^2) = \begin{pmatrix}-1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -4 & 0 \\ 0 & 0 & 0 & -4\end{pmatrix}
+\end{equation}
+
+Was mit dem Ableitungen übereinstimmen würde, würde man sie ausrechnen. Denn es
+ergeben sich jeweils die selben trignomometrischen Funktionen, allerdings mit
+einem Minuszeichen davor bzw\. dem Vorfaktor $2 \cdot 2$ für die Terme mit der
+Frequenz $2t$.
+
+An $M_{\mathcal{A}}(D)$ sieht man, dass $D$ invertierbar ist, denn $\det
+M_{\mathcal{A}}(D) \neq 0$. Da die Determinante sich durch Vertauschen der
+Zeilen nicht ändert, lässt sich die Matrix in Diagonalform bringen. Durch
+Multiplikation der Diagonalelemente ergibt sich dann die Determinante, die
+ungleich Null ist. $M_{\mathcal{A}}(D^{-1}) = M_{\mathcal{A}}(D)^{-1}$  Das
+Inverse der Matrix (\textbf{sind die Rechenschritte erforderlich?}) ist:
+
+\begin{equation}
+  M_{\mathcal{A}}(D^{-1}) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -\frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}
+\end{equation}
+
 
 \section*{Aufgabe 9.4}
+Wir berechnen zuerst die Basistransformationsmatrix von der kanonischen Basis
+nach $\mathcal{A}$ (das sind die Bilder der Basisvektoren), dann die
+Basistransformationsmatrix von $\mathcal{B}$ in die kanonische Basis (das ist
+das Inverse der Basistransformationsmatrix von der kanonischen Basis nach
+$\mathcal{B}$). Durch die Verkettung der drei Abbildungen erhalten wir die
+geforderte darstellende Matrix.
 
-Die Spaltenvektoren der darstellenden Matrix sind die Basisvektoren in der Basis (\textbf{oder so? Nochmal in den Notizen nachsehen!}).
 
 \end{document}
