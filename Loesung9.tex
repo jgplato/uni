@@ -104,7 +104,7 @@ Und jetzt darf ich so ein Kästchen machen, oder? $\Box$
 
 \subsection*{Teil b}
 
-Es ist gegeben, dass $P$ nicht alles in den Nullpunkt schickendarf ($O$), noch
+Es ist gegeben, dass $P$ nicht alles in den Nullpunkt schicken darf ($O$), noch
 untätig sein darf ($I$). Eine Projektion auf eine Achse ist eine Möglichkeit.
 
 \begin{equation} 
@@ -167,6 +167,77 @@ Inverse der Matrix (\textbf{sind die Rechenschritte erforderlich?}) ist:
   M_{\mathcal{A}}(D^{-1}) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -\frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}
 \end{equation}
 
+\section*{Aufgabe 9.3}
+\subsection*{Teil a}
+Wenn man $z = a+bi$ setzt, ist die Abbildung:
+
+\begin{align*}
+  z &\mapsto w_1z + w_2\overline{z} \\
+  z &\mapsto (\alpha_1 + \beta_1i)(a+bi) + (\alpha_2+\beta_2i)(a-bi) \\
+  z &\mapsto (\alpha_1a-\beta_1b) + (\alpha_1b + \beta_1a)i + (\alpha_2a+\beta_2b)+(-\alpha_2b+\beta_2a)i
+\end{align*}
+
+Durch Auftrennen der Real- und Imaginärteile erhält man die Vektorform
+
+\begin{align*}
+  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1a-\beta_1b) + (\alpha_2a+\beta_2b) \\ (-\alpha_2b+\beta_2a)i + (\alpha_1b + \beta_1a)i \end{pmatrix} \\
+  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1+\alpha_2)a + (\beta_2 - \beta_1)b \\ (\beta_1+\beta_2)a + (\alpha_1-\alpha_2)b \end{pmatrix}
+\end{align*}
+
+Damit kann man die darstellende Matrix eigentlich schon direkt ablesen, denn in
+den Spalten der darstellenden Matrix stehen die Bilder der Basisvektoren
+ausgedrückt in der Basis. Explizit:
+
+\begin{align*}
+  \begin{pmatrix} 1 \\ 0 \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1+\alpha_2) \\ (\beta_1+\beta_2) \end{pmatrix} \\
+  \begin{pmatrix} 0 \\ 1 \end{pmatrix} &\mapsto \begin{pmatrix} (\beta_2 - \beta_1) \\ (\alpha_1-\alpha_2) \end{pmatrix}
+\end{align*}
+
+Somit ist die darstellende Matrix in der kanonischen Basis:
+
+\begin{equation}
+  M_{\mathcal{B}}^{\mathcal{A}} = \begin{pmatrix} \alpha_1+\alpha_2 & \beta_2 - \beta_1 \\ \beta_1+\beta_2 & \alpha_1-\alpha_2 \end{pmatrix}
+\end{equation}
+\subsection*{Teil b}
+
+Jeder Vektorraum-Endomorphismus ist durch eine darstellende Matrix darstellbar.
+Solange die Komponenten der darstellenden Matrix beliebig gewählt werden
+können, kann auch jeder Endomorphismus abgebildet werden. Wir zeigen also, dass
+sich die obige darstellende Matrix mit beliebigen Komponenten füllen lässt.
+
+\begin{align*}
+  \begin{pmatrix} \alpha_1+\alpha_2 & \beta_2 - \beta_1 \\ \beta_1+\beta_2 & \alpha_1-\alpha_2 \end{pmatrix} = \begin{pmatrix} a & b \\ c & d\end{pmatrix}
+\end{align*}
+
+Wenn diese Gleichung eindeutig lösbar ist, lässt sich jeder Endomorphismus
+darstellen.
+
+\begin{align*}
+  a &= \alpha_1 + \alpha_2 \\
+  b &= \beta_2 - \beta_1 \\
+  c &= \beta_1+\beta_2 \\
+  d &= \alpha_1 - \alpha_2
+\end{align*}
+
+Durch Addition der zweiten und dritten Zeile erhält man $b+c = 2\beta_2$, somit
+$\beta_2 = (b+c)/2$. Durch Einsetzen in die dritten Zeile $\beta_1 = c -
+(b+c)/2$. Durch Addition der ersten und vierten Zeile analog $a+d = 2\alpha_1$,
+woraus $\alpha_1 = (a+d)/2$ folgt. Und durch Einsetzen in die erste Zeile
+$\alpha_2 = a - (a+d)/2$.
+
+Zusammengefasst:
+
+\begin{align*}
+  \alpha_1 &= \frac{a+d}{2} \\
+  \alpha_2 &= a - \frac{a+d}{2} \\
+  \beta_1  &= c - \frac{b+c}{2} \\
+  \beta_2  &= \frac{b+c}{2}
+\end{align*}
+
+Das bedeutet, dass jede Darstellungsmatrix eines Endomorphismus im gegebenen
+Vektorraum durch die darstellende Matrix der gegebenen Abbildung darstellbar
+ist, damit jeder Endomorphismus durch $z \mapsto w_1z + w_2\overline{z}$, wenn
+man $w_1$ und $w_2$ entsprechend wählt.
 
 \section*{Aufgabe 9.4}
 Wir berechnen zuerst die Basistransformationsmatrix von der kanonischen Basis
