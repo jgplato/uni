@@ -36,14 +36,14 @@ Sei $v \in V$, dann gilt aufgrund der Idempotenz des Endomorphismus $P$
 
 Da $P$ ein Vektorraum-Endomorphismus, damit ein Vektorraum-Holomorphismus und
 damit eine lineare Abbildung ist, folgt aus muss aus der Homogenität linearer
-Abbildungen ($P(x) + P(y) = P(x+y), x{,}y \in V$) folgen, dass
+Abbildungen ($P(x) + P(y) = P(x+y)$ mit $x{,}y \in V$) folgen, dass
 
 \begin{align*}
   P(P(v) - v) &= 0
 \end{align*}
 
 Der Kern von $P$ ist definiert als $\ker P := \{v \in V: P(v) = 0\}$, somit
-$P(v) - v \in \ker P$ sein.
+muss $P(v) - v \in \ker P$ sein.
 
 Das Bild von $P$ ist per definitionem $\operatorname{Im} P := \{v \in V: P(w) = v, w \in V\}$.
 Sei also $u \in V$, dann lässt es sich darstellen durch
@@ -56,20 +56,22 @@ Sei also $u \in V$, dann lässt es sich darstellen durch
 
 Womit bewiesen wäre, dass $V = \ker P + \operatorname{Im} P$. Allerdings ist
 dies nur der Beweis für die Summe, nicht für die direkte Summe. Für die direkte
-Summe ist zu zeigen (\textbf{Begründung einfügen, warum das zu zeigen ist}),
-dass $\ker P \cap \operatorname{Im} P = \{0\}$.
+Summe ist zu zeigen, dass sich jedes Element auf genau eine Weise aus $\ker P$
+und $\operatorname{Im} P$ schreiben lässt, was äquivalent ist zu $\ker P \cap
+\operatorname{Im} P = \{0\}$ (siehe Skript, 6.8.6).
 
-Gegegeben sei $x \in \ker P$ und gleichzeitig $x \operatorname{Im} P$. Zu
-zeigen ist, dass dann $x = 0$ gilt.
+Gegegeben sei $x \in \ker P$ und gleichzeitig $x \in \operatorname{Im} P$. Zu
+zeigen ist, dass daraus $x = 0$ folgt.
 
-Aus $x \in \operatorname{Im} P$ folgt, dass $x$ darstellbar ist durch $x =
+Wegen $x \in \operatorname{Im} P$, ist $x$ darstellbar ist durch $x =
 P(z), z \in V$.
 
 \begin{align*}
   x &= P(z)
 \end{align*}
 
-Da $P$ eine lineare Abbildung ist, müssen bei Werten auch gleiche Bilder herrauskommen. Somit
+Da $P$ eine lineare Abbildung ist, müssen bei gleichen Werten auch gleiche
+Bilder herrauskommen. Somit
 
 \begin{align*}
   P(x) &= P(P(z))
@@ -81,7 +83,7 @@ Da $P$ idempotent ($P^2 = P$) ist:
   P(x) &= P(z)
 \end{align*}
 
-Aus $x \in \ker P$ folgt muss $P(x) = 0$:
+Aus $x \in \ker P$ folgt, dass $P(x) = 0$:
 \begin{align*}
   0 &= P(z)
 \end{align*}
@@ -91,13 +93,14 @@ Am Anfang war allerdings bereits gegeben, dass $x = P(z)$:
   0 &= x
 \end{align*}
 
-Somit $\ker P \cap \operatorname{Im} P = \{0\}$, und zusammen mit $V = \ker P + \operatorname{Im} P$ ergibt das:
+Somit $\ker P \cap \operatorname{Im} P = \{0\}$, und zusammen mit $V = \ker P +
+\operatorname{Im} P$ ergibt das:
 
 \begin{equation}
   V = \ker P \oplus \operatorname{Im} P
 \end{equation}
 
-Und jetzt darf ich so ein Kästchen machen. $\Box$
+Und jetzt darf ich so ein Kästchen machen, oder? $\Box$
 
 \subsection*{Teil b}
 
@@ -109,6 +112,40 @@ untätig sein darf ($I$). Eine Projektion auf eine Achse ist eine Möglichkeit.
     \begin{pmatrix}\alpha \\ 0\end{pmatrix}
 \end{equation}
 
+\section*{Aufgabe 9.2}
+Die Aufgabe wäre langweilig, wenn wir von der Differentiation nach etwas
+anderem als $t$ ausgingen. Nehmen wir uns also die Basisvektoren von $A$
+(\textbf{Rausfinden, wie man solche fancy Buchstaben wir in der
+Aufgabenstellung macht!}) und wenden $D$ an.
 
+\textbf{Achtung: Textsatz ist hier kaputt, Ausrichtung scheiße}
+\begin{align*}
+  D(a_1) &= D(\sin t)  = \frac{d}{dt} \sin  t = \cos t    &= a_2 \\
+  D(a_2) &= D(\cos t)  = \frac{d}{dt} \cos  t = -\sin t   &= -a_1 \\
+  D(a_3) &= D(\sin 2t) = \frac{d}{dt} \sin 2t = 2\cos 2t  &= 2a_4 \\
+  D(a_4) &= D(\cos 2t) = \frac{d}{dt} \cos 2t = -2\sin 2t &= -2a_3
+\end{align*}
+
+Wenn man dies in der Basis $A$ (\textbf{Hier auch fancy Buchstabe!}) schreibt,
+dann ist das
+
+\begin{align*}
+  D_A\left(\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} -1 \\ 0 \\ 0 \\ 0\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ 0 \\ 2\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ -2 \\ 0\end{pmatrix} \\
+\end{align*}
+
+Da die darstellende Matrix blabla (\textbf{Hier den superwichtigen Satz aus dem Tutorium eintragen})
+
+\begin{equation}
+  M_A(D) = \begin{pmatrix}0 & 0 & -1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 2 \\ 0 & 0 & -2 & 0\end{pmatrix}
+\end{equation}
+
+Jetzt nur noch darstellende Matrix aufstellen und fertig. Selbe Aktion für $D^2$. $D$ ist invertierbar, weil Matrix invertierbar ist. Invertierte Matrix ausrechnen.
+
+\section*{Aufgabe 9.4}
+
+Die Spaltenvektoren der darstellenden Matrix sind die Basisvektoren in der Basis (\textbf{oder so? Nochmal in den Notizen nachsehen!}).
 
 \end{document}
