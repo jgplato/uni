@@ -1,0 +1,56 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Theoretische Physik I, Wintersemester 2012/2013, 10. Übungsblatt
+
+Normen Peulecke und Markus Fenske, Tutorin: Alexandra Junck
+\vspace{-10pt}
+\end{center}
+
+
+\section*{1. Fingerübungen}
+\subsection*{a. Fläche der Ellipse}
+
+In einem kartesischen Koordinatensystem erfüllt die Ellipse die Gleichung
+$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$. Diese Gleichung ist nach $y$
+umstellbar. Dabei kann man die durch Wurzelziehen entstehnden
+Doppeldeutigkeiten von vorn herein erledigen, indem man $y > 0$ und $x > 0$
+setzt und sich auf die Berechnung einer Viertelellipse beschränkt.
+
+\begin{align*}
+  1 &= \frac{x^2}{a^2} + \frac{y^2}{b^2}\\
+  1 - \frac{x^2}{a^2} &= \frac{y^2}{b^2}\\
+  b^2 - \frac{x^2b^2}{a^2} &= y^2\\
+  y &= \sqrt{b^2 - \frac{x^2b^2}{a^2}} \\
+  y &= \frac{b}{a} \sqrt{a^2 - x^2}
+\end{align*}
+
+Damit gilt für die gesamte Fläche $A$ der Ellipse:
+
+\begin{align*}
+  A &= 4 \cdot \int_0^a dx \frac{b}{a} \sqrt{a^2 - x^2} \\
+  A &= \frac{4b}{a} \cdot \int_0^a dx \sqrt{a^2 - x^2} \\
+  A &= \frac{4b}{a} \left[ \frac{x}{2} \sqrt{a^2 - x^2} + \frac{a^2}{2} \arcsin \frac{x}{a} \right]_0^a
+  A &= \frac{4b}{a} \left( \left(\frac{a}{2} \sqrt{a^2 - a^2} + \frac{a^2}{2} \arcsin \frac{a}{a} \right) \\
+    &\left( \frac{0}{2} \sqrt{a^2 - 0^2} + \frac{a^2}{2} \arcsin \frac{0}{a} \right) \right)
+\end{align*}
+
+
+\end{document}
