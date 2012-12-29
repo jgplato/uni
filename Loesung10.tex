@@ -28,6 +28,71 @@ Markus Fenske, Tutor: Alex Krüger
 
 \section*{32. Druck}
 
+\begin{equation}
+  P = \frac{F}{A} = \frac{F}{\pi r^2} = \frac{50 \newton}{\pi (50 \cdot 10^{-6} \meter)^2} \approx 6{,}3 \cdot 10^9 \newton\per\meter\squared = 6{,}3 \giga\pascal 
+\end{equation}
 
+Dieser Druck entspricht in etwa dem 62800-fachen des Atmossphärendrucks.:w
+
+\section*{33. Luftdruck}
+
+Wenn wir davon ausgehen, dass der Luftdruck planetenweit konstant ist, wirkt
+auf die gesamte Erdoberfläche ($A = 4 \pi r^2$) die Kraft
+
+\begin{equation}
+  F = AP = 4 \pi r^2 P
+\end{equation}
+
+Da diese Kraft nur aus der Gravitation kommen kann, erhalten wir mit $F = mg$
+\begin{equation}
+  m = \frac{4 \pi r^2 P}{g}
+\end{equation}
+
+Dies ergibt eine Masse der Atmossphäre von $5{,}2 \cdot 10^{18} \kilo\gram$.
+
+\section*{34. Barometrische Höhenformel}
+
+Nicht bearbeitet.
+
+\section*{35. Kühlschranktür}
+
+Aus $PV = nRT$ folgt für konstante $n, R, V$, dass $\frac{P}{T}$ konstant sein muss. Somit gilt
+
+\begin{align*}
+  \frac{P_2}{T_2} &= \frac{P_1}{T_1} \\
+  P_2 &= P_1 \frac{T_2}{T_1}
+\end{align*}
+
+Mit $P = \frac{F}{A}$ gilt für die Kraft, mit der die Kühlschranktür zugehalten wird und dem Gegendruck der Atomossphäre.
+
+\begin{align*}
+  \frac{F}{A} &= P_1 \frac{T_2}{T_1} - P_1 \\
+  F_P &= A P_1 \left(\frac{T_2}{T_1} - 1\right)
+\end{align*}
+
+Die Kraft wirkt gleichmäßig auf die ganze Tür, kann also auch in die Mitte gesetzt werden. Dann gilt für das Drehmoment (wenn sich das Scharnier im Nullpunkt befindet).
+
+\begin{align*}
+  M_P = F_P \cdot 0{,}25 \meter
+\end{align*}
+
+Dieses muss durch ein Drehmoment mindestens kompensiert werden, dass am Griff
+angreift, der sich (sofern der Kühlschrank sinnvoll konstruiert ist), auf der
+gegenüberliegenden Seite des Scharniers befindet, also im Abstand $0{,}45
+\meter$.
+
+Es ergibt sich (mit einem angenommenen Atmossphärendruck von $10^5 \pascal$):
+
+\begin{align*}
+  M_z &= F_z \cdot 0{,}45 \meter \\
+  F_P \cdot 0{,}25 \meter &= F_z \cdot 0{,}45 \meter \\
+  F_z &= F_P \cdot \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &= A P_1 \left(\frac{T_2}{T_1} - 1\right) \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &= 0{,}5 \meter\squared 10^5 \pascal \left(\frac{255 \kelvin}{298 \kelvin} - 1\right) \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &\approx -4{,}0 \kilo\newton
+\end{align*}
+
+Die Tür wird sich also kaum noch öffnen lassen, weswegen normale Kühlschränke
+ein Loch zum Druckausgleich haben.
 
 \end{document}
