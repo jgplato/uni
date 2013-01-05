@@ -42,14 +42,17 @@ setzt und sich auf die Berechnung einer Viertelellipse beschränkt.
   y &= \frac{b}{a} \sqrt{a^2 - x^2}
 \end{align*}
 
-Damit gilt für die gesamte Fläche $A$ der Ellipse:
+Damit gilt für die gesamte Fläche $A$ der Ellipse (Berechnung des Integrals siehe Formelsammlung):
 
 \begin{align*}
   A &= 4 \cdot \int_0^a dx \frac{b}{a} \sqrt{a^2 - x^2} \\
   A &= \frac{4b}{a} \cdot \int_0^a dx \sqrt{a^2 - x^2} \\
-  A &= \frac{4b}{a} \left[ \frac{x}{2} \sqrt{a^2 - x^2} + \frac{a^2}{2} \arcsin \frac{x}{a} \right]_0^a
-  A &= \frac{4b}{a} \left( \left(\frac{a}{2} \sqrt{a^2 - a^2} + \frac{a^2}{2} \arcsin \frac{a}{a} \right) \\
-    &\left( \frac{0}{2} \sqrt{a^2 - 0^2} + \frac{a^2}{2} \arcsin \frac{0}{a} \right) \right)
+  A &= \frac{4b}{a} \left[ \frac{x}{2} \sqrt{a^2 - x^2} + \frac{a^2}{2} \arcsin \frac{x}{a} \right]_0^a \\
+  A &= \frac{4b}{a} \left( \left(\frac{a}{2} \sqrt{a^2 - a^2} + \frac{a^2}{2} \arcsin \frac{a}{a} \right) -
+    \left( \frac{0}{2} \sqrt{a^2 - 0^2} + \frac{a^2}{2} \arcsin \frac{0}{a} \right) \right) \\
+  A &= \frac{4b}{a} \left( \frac{a^2}{2} \arcsin 1 - \frac{a^2}{2} \arcsin 0 \right) \\
+  A &= 2ba \left( \arcsin 1 - \arcsin 0 \right) \\
+  A &= \pi ba
 \end{align*}
 
 
