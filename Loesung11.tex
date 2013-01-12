@@ -1,0 +1,67 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Experiementalphysik I, Wintersemester 2012/2013, 10. Übungsblatt
+
+Normen Peulecke und Markus Fenske, Tutor: Alex Krüger
+%Markus Fenske, Tutor: Alex Krüger
+\vspace{-10pt}
+\end{center}
+
+
+\section*{38. Innere Energie}
+
+Die durchschnittliche kinetische Energie eines Teilchens ist gegeben durch
+$\epsilon = \frac{3}{2} kT$. Die Anzahl der Teilchen durch $N = \frac{PV}{kT}$.
+Damit ergibt sich für die Gesamtenergie:
+
+\begin{align*}
+  E &= N \cdot \epsilon \\
+    &= \frac{PV}{kT} \frac{3}{2} kT \\
+    &= \frac{3}{2} PV
+\end{align*}
+
+Der Druck ist über die Zeit konstant, dann durch das Schlüsselloch findet ein
+Druckausgleich statt. Das Volumen des Zimmers ändert sich ebenfalls nicht. Die
+innere Energie der Luft, die im Zimmer verbleibt, ist konstant. Ich bin mir
+jedoch nicht sicher, ob das die Frage war.
+
+Sollte sich die Frage auf die Energie beziehen, die die Luft hat, die vor der
+Erwärmung im Zimmer war, dann lässt sich diese Energie über die Volumenänderung
+berechnen.
+
+\begin{align*}
+  \frac{PV_2}{NkT_2} &= \frac{PV_1}{NkT_1} \\
+  \frac{V_2}{T_2} &= \frac{V_1}{T_1} \\
+  V_2 &= V_1 \frac{T_2}{T_1}
+\end{align*}
+
+Somit erhöht sich die Energie um
+
+\begin{align*}
+  \delta E &= \frac{3}{2} (PV_2 - PV_1) \\
+  \delta E &= \frac{3}{2} \left(PV_1 \frac{T_2}{T_1} - PV_1\right) \\
+  \delta E &= \frac{3}{2} PV_1 \left(\frac{T_2}{T_1} - 1\right)
+\end{align*}
+
+Mit $P = 101300 \pascal$, $V_1 = 50 \cubic\meter$, $T_1 = 278 \kelvin$, $T_2 =
+295 \kelvin$ ergibt sich eine Erhöhung um $\approx 9292 \joule$.
+
+\end{document}
