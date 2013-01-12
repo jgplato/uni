@@ -25,6 +25,22 @@ Normen Peulecke und Markus Fenske, Tutor: Alex Krüger
 \vspace{-10pt}
 \end{center}
 
+\section*{37. Wärmeleitung}
+
+Für den Wärmestrom gilt $\dot Q = \frac{A \lambda \delta T}/l$. Für 0{,}1
+\meter Länge und 0{,}01 \meter Durchmesser ergibt sich:
+
+\begin{align*}
+  \dot Q &= \frac{\pi 0{,}01 \cdot 380 \cdot 100}{0{,}1} \watt
+         &\approx 11937 \watt
+\end{align*}
+
+Mit 0{,}01 \meter Länge und 0{,}1 \meter Durchmesser ergibt sich:
+
+\begin{align*}
+  \dot Q &= \frac{\pi 0{,}1 \cdot 380 \cdot 100}{0{,}01} \watt
+         &\approx 1194 \kilo\watt
+\end{align*}
 
 \section*{38. Innere Energie}
 
@@ -63,5 +79,37 @@ Somit erhöht sich die Energie um
 
 Mit $P = 101300 \pascal$, $V_1 = 50 \cubic\meter$, $T_1 = 278 \kelvin$, $T_2 =
 295 \kelvin$ ergibt sich eine Erhöhung um $\approx 9292 \joule$.
+
+\section*{39. Zustandsänderung}
+\subsection*{a. Arbeit}
+
+Die Arbeit lässt sich berechnen durch $\delta W_{rev} = -\int_1^2 PdV$. Da im
+PV-Diagramm eine gerade Linie sein soll, gilt $P \propto V$. Somit also $P(V) =
+\alpha V$. Aus den Werten in $\pascal$ und $\cubic\meter$ lässt sich $\alpha = \frac{100000}{0{,}025} = 4\cdot 10^6$ ablesen. Somit ist
+das Integral:
+
+\begin{align*}
+  \delta W_{rev} &= -\int_1^2 PdV \\
+                 &= -4 \cdot 10^6 \int_{0{,}025}^{0{,}075} V dV \\
+                 &= -4 \cdot 10^6 \left[\frac{1}{2}V^2\right]_{0{,}025}^{0{,}075} \\
+                 &= -2 \cdot 10^6 \left(0{,}025^2-0{,}075^2\right) \\
+                 &= 10 \kilo\joule
+\end{align*}
+
+\subsection*{b. Temperatur}
+
+Gemäß $PV = nRT$ muss gelten
+
+\begin{equation*}
+  \delta T &= \frac{P_2V_2 - P_1V_1}{nR}
+\end{equation*}
+
+Mit den gegebenen Werten ($P_1 = 100000 \pascal$, $V_1 = 0{,}025 \cubic\meter$,
+$P_2 = 300000 \pascal$, $V_2 = 0{,}075 \cubic\meter$, $n = 1 \mol$ ergibt sich
+eine Temperaturänderung von $\delta T \approx 2405 \kelvin$.
+
+\subsection*{c. Entropie}
+
+\textbf{TODO}
 
 \end{document}
