@@ -1,0 +1,140 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Mathematik für Physiker I, Wintersemester 2012/2013, 10. Übungsblatt
+
+Florian Neumeyer und Markus Fenske, Tutor: Stephan Schwartz
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 10.1}
+\subsection*{Teil a}
+
+Da der Rang der darstellenden Matrix 2 ist (Berechng durch Wolfram Alpha), ist
+der Rang der linearen Abbildung $F$ auch 2.
+
+\subsection*{Teil b}
+
+Durch Multiplikation $Fv_1$, $Fv_2$ und $Fv_3$ erhält man die jeweiligen Bilder
+
+\begin{equation}
+  F(v_1) = \begin{pmatrix} 11 \\ 22 \\ 20 \end{pmatrix}, 
+  F(v_2) = \begin{pmatrix} -16 \\ -36 \\ 36 \end{pmatrix},
+  F(v_3) = \begin{pmatrix} 6 \\ 52 \\ -80 \end{pmatrix}
+\end{equation}
+
+\subsecton*{Teil c}
+
+Die Vektoren $v_1, v_2, v_3$ sind linear unabhängig, somit hat der Unterraum
+$V$ die Dimension 3.  Die drei Bildvektoren sind auch linear unabhängig, somit hat das
+Bild ebenfalls die Dimension 3.
+
+\section*{Aufgabe 10.2}
+
+Wir berechnen zuerst, wie sich ein Vektor $\vec{b}_{\mathcal{B}}  = \begin{pmatrix} b_1 \\ b_2
+\\ b_3 \\ b_4 \end{pmatrix}$ in der Basis $\mathcal{A}$ ausdrückt.
+
+\begin{align*}
+  \begin{pmatrix} b_1 \\ b_2\\ b_3 \\ b_4 \end{pmatrix} &= b_1 + b_2(x+1) + b_3(x+1)^2 + b_4(x+1)^3 \\
+                                                        &= b_1 + b_2x + b_2 + b_3x^2 + b_32x + b_3 + b_4x^3 + b_43x^2 + b_43x + b_4 \\
+                                                        &= (b_1 + b_2 + b_3 + b_4)1 + (b_2 + 2b_3 + 3b_4)x + (b_3 + 3b_4)x^2 + b_4x^2
+\end{align*}
+
+Durch Einsetzen der jeweiligen Einheitsvektoren (denn $\mathcal{A}$ ist
+kanonische Basis) ergeben sich die Spalten der Transformationsmatrix.
+
+\begin{equation}
+  T_{\mathcal{A}}^{\mathcal{B}} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 1 & 3 \\ 0 & 0 & 0 & 1\end{pmatrix}
+\end{equation}
+
+Es ergibt sich offenbar der Anfang des \textsc{Pascal}schen Dreiecks.
+
+Die Rücktransformation $\mathcal{A} \to \mathcal{B}$ ergibt sich durch
+Multiplikation mit dem Inversen der Transformationsmatrix, somit ist
+$T_{\mathcal{B}}^{\mathcal{A}} =
+\left(T_{\mathcal{A}}^{\mathcal{B}}\right)^{-1}$.
+
+Das Inverse wurde mit dem Algorithmus nach \textsc{Gauß-Jordan} bestimmt
+(Nebenrechnung nicht beigefügt) und lautet:
+
+\begin{equation}
+  T_{\mathcal{B}}^{\mathcal{A}} = \begin{pmatrix} 1 & -1 & 1 & -1 \\ 0 & 1 & -2 & 3 \\ 0 & 0 & 1 & -3 \\ 0 & 0 & 0 & 1\end{pmatrix}
+\end{equation}
+
+\section*{Aufgabe 10.3}
+
+\subsection*{Teil a}
+
+Die darstellende Matrix besteht aus den Bildern der Einheitsvektoren. Wir
+verwenden hier die Schreibweise $y = (p)(x)$ für die Berechnung des $y$ eines
+Polynoms $p$ an der Stelle $x$ bzw. $y = (p)'(x)$ für den Wert der ersten
+Ableitung von $p$. Für weitere Ableitungen dann analog.
+
+\begin{align*}
+  M^{\mathcal{B}}_{\mathcal{E}}(F) &=
+\begin{pmatrix}
+(1)(0)    & (x)(0)    & (x^2)(0)    & (x^3)(0)    \\
+(1)'(1)   & (x)'(1)   & (x^2)'(1)   & (x^3)'(1)   \\
+(1)''(2)  & (x)''(2)  & (x^2)''(2)  & (x^3)''(2)  \\
+(1)'''(3) & (x)'''(3) & (x^2)'''(3) & (x^3)'''(3)
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+(1)(0) & (x)(0) & (x^2)(0) & (x^3)(0)  \\
+(0)(1) & (1)(1) & (2x)(1)  & (3x^2)(1) \\
+(0)(2) & (0)(2) & (2)(2)   & (6x)(2)   \\
+(0)(3) & (0)(3) & (0)(3)   & (6)(3)
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 & 0 & 0  \\
+0 & 1 & 2 & 3  \\
+0 & 0 & 2 & 12 \\
+0 & 0 & 0 & 6
+\end{pmatrix}
+\end{align*}
+
+\subsection*{Teil b}
+
+Es muss eine Basistransformationsmatrix $T^{\mathcal{B}}_{\mathcal{A}}$ existieren, die von $\mathcal{B}$ nach $\mathcal{A}$ transformiert, derart, dass
+
+\begin{align*}
+  M^{\mathcal{B}}_{\mathcal{E}} &= T^{\mathcal{B}}_{\mathcal{A}} M^{\mathcal{A}}_{\mathcal{E}} = E_n \\
+  T^{\mathcal{B}}_{\mathcal{A}} &= \left(M^{\mathcal{A}}_{\mathcal{E}}\right)^{-1} \\
+\end{align*}
+
+Wenn man das Inverse ausrechnet ist dies
+
+\begin{equation}
+  T^{\mathcal{B}}_{\mathcal{A}} = \begin{pmatrix} 1 & 0 & 0 & 0 \\  0 & 1 & -1 & \frac{3}{2} \\ 0 & 0 & \frac{1}{2} & -1 \\ 0 & 0 & 0 & \frac{1/6} \end{pmatrix}
+\end{equation}
+
+Die Basisvektoren bestehen aus den Spalten der Transformationsmatrix. Da
+$\mathcal{A}$ kanonische Basis ist, kann man die Basispolynome also direkt
+ablesen. 
+
+\begin{equation}
+  \mathcal{B} = \left(1, X, -X+\frac{1}{2}X^2, \frac{3}{2}X-X^2+\frac{1}{6}X^3\right)
+\end{equation}
+
+
+
+
+\end{document}

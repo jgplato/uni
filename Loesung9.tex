@@ -35,7 +35,7 @@ Sei $v \in V$, dann gilt aufgrund der Idempotenz des Endomorphismus $P$
 \end{align*}
 
 Da $P$ ein Vektorraum-Endomorphismus, damit ein Vektorraum-Holomorphismus und
-damit eine lineare Abbildung ist, folgt aus muss aus der Homogenität linearer
+damit eine lineare Abbildung ist, muss aus der Homogenität linearer
 Abbildungen ($P(x) + P(y) = P(x+y)$ mit $x{,}y \in V$) folgen, dass
 
 \begin{align*}
@@ -145,23 +145,20 @@ stehen, ergibt sich auch schon direkt die darstellende Matrix.
 $M_{\mathcal{A}}(D^2)$ ist dann die darstellende Matrix für zweimaliges
 Anwenden des Differentiationsoperators. Dorthin gibt es zwei Wege, entweder
 zweimaliges Ableiten oder die Multiplikation der Matrix mit sich selbst.
-Letzteres ergibt (\textbf{TODO: muss ich die Rechnung abtippen?}):
+Letzteres ergibt:
 
 \begin{equation}
   M_{\mathcal{A}}(D^2) = \begin{pmatrix}-1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -4 & 0 \\ 0 & 0 & 0 & -4\end{pmatrix}
 \end{equation}
 
-Was mit dem Ableitungen übereinstimmen würde, würde man sie ausrechnen. Denn es
-ergeben sich jeweils die selben trignomometrischen Funktionen, allerdings mit
-einem Minuszeichen davor bzw\. dem Vorfaktor $2 \cdot 2$ für die Terme mit der
-Frequenz $2t$.
+Was mit dem Ableitungen übereinstimmt.
 
 An $M_{\mathcal{A}}(D)$ sieht man, dass $D$ invertierbar ist, denn $\det
 M_{\mathcal{A}}(D) \neq 0$. Da die Determinante sich durch Vertauschen der
 Zeilen nicht ändert, lässt sich die Matrix in Diagonalform bringen. Durch
 Multiplikation der Diagonalelemente ergibt sich dann die Determinante, die
 ungleich Null ist. $M_{\mathcal{A}}(D^{-1}) = M_{\mathcal{A}}(D)^{-1}$  Das
-Inverse der Matrix (\textbf{TODO: sind die Rechenschritte erforderlich?}) ist:
+Inverse der Matrix) ist:
 
 \begin{equation}
   M_{\mathcal{A}}(D^{-1}) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -\frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}
@@ -177,10 +174,11 @@ Wenn man $z = a+bi$ setzt, ist die Abbildung:
   z &\mapsto (\alpha_1a-\beta_1b) + (\alpha_1b + \beta_1a)i + (\alpha_2a+\beta_2b)+(-\alpha_2b+\beta_2a)i
 \end{align*}
 
-Durch Auftrennen der Real- und Imaginärteile erhält man die Vektorform
+Durch Auftrennen der Real- und Imaginärteile erhält man zwei Gleichungen, die
+man in Vektorform schreiben kann.
 
 \begin{align*}
-  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1a-\beta_1b) + (\alpha_2a+\beta_2b) \\ (-\alpha_2b+\beta_2a)i + (\alpha_1b + \beta_1a)i \end{pmatrix} \\
+  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1a-\beta_1b) + (\alpha_2a+\beta_2b) \\ (-\alpha_2b+\beta_2a) + (\alpha_1b + \beta_1a) \end{pmatrix} \Leftrightarrow \\
   \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1+\alpha_2)a + (\beta_2 - \beta_1)b \\ (\beta_1+\beta_2)a + (\alpha_1-\alpha_2)b \end{pmatrix}
 \end{align*}
 
@@ -240,7 +238,9 @@ ist, damit jeder Endomorphismus durch $z \mapsto w_1z + w_2\overline{z}$, wenn
 man $w_1$ und $w_2$ entsprechend wählt.
 
 \section*{Aufgabe 9.4}
-$M^{\mathcal{A}}_{\mathcal{B}}(F)$ besteht aus drei Teilen.
+Die Abbildung $M^{\mathcal{A}}_{\mathcal{B}}(F)$ besteht aus drei
+hintereinander ausgeführten Abbildungen.
+
 \begin{enumerate}
   \item Transformation des Wertes von $\mathcal{A}$ in die kanonische Basis. Die darstellende Matrix dieser Transformation sei $T^{\mathcal{A}}_E$.
   \item Anwenden der linearen Abbildung, die darstellende Matrix ist $A$, wir nennen sie $A^E_E$.
@@ -248,19 +248,18 @@ $M^{\mathcal{A}}_{\mathcal{B}}(F)$ besteht aus drei Teilen.
 \end{enumerate}
 
 Durch die Verkettung der drei Abbildungen erhalten wir die
-geforderte Abbildung. Die darstellende Matrix ist dann die Multiplikation der drei darstellenden Matrizen.
+geforderte Abbildung. Die darstellende Matrix ist dann die Multiplikation der
+drei darstellenden Matrizen.
 
 \begin{equation}
-  M^{\mathcal{A}}_{\mathcal{B}}(F) = F T^{\mathcal{A}}_E A^E_E T^{E}_{\mathcal{B}}
+  M^{\mathcal{A}}_{\mathcal{B}} = T^{E}_{\mathcal{B}} A^E_E T^{\mathcal{A}}_E 
 \end{equation}
 
-
 Die erste Matrix $T^{\mathcal{A}}_E$ lässt sich berechnen. Denn das Inverse der
-darstellenden Matrix ist die darstellende Matrix der Rücktransformation
-(\textbf{TODO: Inverses ausrechnen!}).
+darstellenden Matrix ist die darstellende Matrix der Rücktransformation.
 
 \begin{equation}
-  T^{E}_{\mathcal{B}} = (T^{E}_{\mathcal{B}})^{-1} = \begin{pmatrix} \dotsb \end{pmatrix}
+  T^{E}_{\mathcal{B}} = (T^{E}_{\mathcal{B}})^{-1} = \begin{pmatrix} 0 & 1 & -1 & 1 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & -1 & 1 & -1 \end{pmatrix}
 \end{equation}
 
 Die zweite Matrix $A^E_E$ ist gegeben.
@@ -273,26 +272,28 @@ ausgedrückt in der Basis.
   T^{E}_{\mathcal{B}} = \begin{pmatrix} 1 & -2 \\ 2 & 0 \end{pmatrix}
 \end{equation}
 
-Da wir nun alle Matrizen zusammen haben, können wir
-$M^{\mathcal{A}}_{\mathcal{B}}$ berechnen (\textbf{TODO: Berechnen!}).
+Damit können wir nun $M^{\mathcal{A}}_{\mathcal{B}}$ berechnen
 
 \begin{equation}
   M^{\mathcal{A}}_{\mathcal{B}} =
 \begin{pmatrix}
-  \dotsb
+  1 & -2 \\
+  2 & 0
 \end{pmatrix}
 \begin{pmatrix}
   1 &  2 & 3 & 4 \\
   0 & -1 & 2 & 1
 \end{pmatrix}
 \begin{pmatrix}
-  1 & -2 \\
-  2 & 0
+   0 &  1 & -1 &  1 \\
+  -1 &  1 &  0 &  0 \\
+   0 &  0 &  0 &  1 \\
+   1 & -1 &  1 & -1
 \end{pmatrix}
 =
 \begin{pmatrix}
-  \dotsb?\dotsb
+-2 &  3 & 1 & -2 \\
+ 4 & -2 & 6 &  0
 \end{pmatrix}
 \end{equation}
-
 \end{document}
