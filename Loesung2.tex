@@ -7,7 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
-\usepackage{wrapfig}
+%\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 \restylefloat{table}
 \geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
@@ -19,21 +19,22 @@
 \sffamily % Serifenlose Schrift
 \vspace{-40pt}
 Analysis I, Sommersemester 2013, 2. Übungsblatt
+
 Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \vspace{-10pt}
 \end{center}
 
 \section*{Aufgabe 2.1}
 \subsection*{Teil a}
-Wenn $f, g$ beschränkt sind, gilt $|f(x)| \le K_1 \all x$ und $|g(x)| \le K_2
-\all x$. Addieren der beiden Ungleichungen:
+Wenn $f, g$ beschränkt sind, gilt $|f(x)| \le K_1 \forall x$ und $|g(x)| \le K_2
+\forall x$. Addieren der beiden Ungleichungen:
 
 \begin{align*}
-  |f(x)| + |g(x)| \le K_1 + K_2 \all x \\
+  |f(x)| + |g(x)| \le K_1 + K_2 \forall x \\
 \end{align*}
 Wegen der Dreieckesungleichung ($|a + b| \le |a| + |b|$) gilt dann:
 \begin{align*}
-  |f(x) + g(x)| \le K_1 + K_2 \all x \\
+  |f(x) + g(x)| \le K_1 + K_2 \forall x \\
 \end{align*}
 
 Somit ist $f + g$ beschränkt.
@@ -43,7 +44,76 @@ Somit ist $f + g$ beschränkt.
 \subsection*{Teil c}
 Sei $f: x \mapsto x^2$ und $g: x \mapsto x$:
 \begin{align*}
-  \sup
+  \sup_{x \in I} f(x) &= f(1) = 1 \\
+  \sup_{x \in I} g(x) &= g(1) = 1 \\
+  \sup_{x \in I} f(x) + g(x) &= 2
 \end{align*}
+
+\subsection*{Teil d}
+Sei $f: x \mapsto -x$ und $g: x \mapsto x$:
+
+\begin{align*}
+  \sup_{x \in I} f(x) &= f(0) = 0 \\
+  \sup_{x \in I} g(x) &= g(1) = 1 \\
+  \sup_{x \in I} f(x) + g(x) &= 0
+\end{align*}
+
+\section*{Aufgabe 2.2}
+
+Bekannt ist die allgemeine binomische Formel:
+
+\begin{equation*}
+  (a+b)^n = \sum_{k=0}^n {n \choose k} a^{n-k} b^k
+\end{equation*}
+
+Mit $a=b=1$:
+\begin{align*}
+ \sum_{k=0}^n {n \choose k} 1^{n-k} 1^k &= (1+1)^n \\
+  \sum_{k=0}^n {n \choose k} &= 2^n
+\end{align*}
+
+Mit $a=1, b=-1$:
+\begin{align*}
+  \sum_{k=0}^n {n \choose k} 1^{n-k} (-1)^k &= (1-1)^n \\
+  \sum_{k=0}^n {n \choose k} (-1)^k &= 0
+\end{align*}
+
+
+\section*{Aufgabe 2.3}
+\textbf{FIXME} Fehlt % FIXME
+
+\section*{Aufgabe 2.4}
+Wir wissen, dass $\left(\sqrt{n^2}\right) = (n)$ bestimmt divergiert. Wenn also
+$n!$ schneller wächst als $n^2$, muss die Folge zwangsläufig bestimmt
+divergieren.
+
+Dies ist für $n = 4$ der Fall. Per Induktion kann man zeigen, dass dies für
+jedes $n \ge 4$ gilt.
+
+\begin{align*}
+  (n+1)! &\gt (n+1)^2
+\end{align*}
+
+Da $(n+1) \gt 0$, kann dividiert werden:
+\begin{align*}
+  n! &\gt (n+1)
+\end{align*}
+
+Da wir wissen, dass $n! \gt n^2$, ist zu zeigen, dass $n^2 \gt n+1$ für alle
+$n \gt 4$. Ebenfalls per Induktion. Für $n = 4$ ist die Gleichung erfüllt:
+
+\begin{align*}
+  n^2 &\gt n+1 \\
+  4^2 &\gt 4+1 \\
+  16 &\gt 5
+\end{align*}
+
+Für $n+1$ muss dann gelten:
+\begin{align*}
+  (n+1)^2 \gt (n+1)+1 \\
+  (n^2+2n+1) \gt (n+2) \\
+  (n^2+2n) \gt (n+1) \\
+\end{align}
+
 
 \end{document}
