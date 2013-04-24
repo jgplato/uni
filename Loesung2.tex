@@ -261,10 +261,56 @@ Das heißt, wir können unseren Ausdruck auch umschreiben zu:
 \begin{align*}
   \frac{\sum_{p=0}^k {k \choose p} n^{k-p}}{k} &\le n^k \\
   \Leftrightarrow \sum_{p=0}^k {k \choose p} n^{k-p} &\le n^k \cdot k\\
-  \Leftrightarrow (n+1)^k \le u^k \cdot k
+  \Leftrightarrow (n+1)^k &\le u^k \cdot k
 \end{align*}
 
 \subsection*{Teil c}
+
+Zeige $n^k \le k^n$ per Induktion. Betrachte $k$ als fixiert.
+
+\subsubsection*{Induktionsanfang}
+
+Für $n=1$:
+
+\begin{align*}
+  1^k \le k^1 \Leftrightarrow 1 \le k
+\end{align*}
+
+Die Aussage trifft zu, da $k$ per Definition natürliche Zahl ist, somit $k > 0$
+
+\subsubsection*{Induktionsvorraussetzung}
+
+\begin{align*}
+  n^k \le k^n
+\end{align*}
+
+\subsubsection*{Induktionsschritt}
+
+\begin{align*}
+  (n+1)^k &\le k^{n+1} \\
+  (n+1)^k &\le k^n \cdot k \\
+\end{align*}
+
+Nach Induktionsvorraussetzung gilt:
+
+\begin{align*}
+  n^k \le k^n \Leftrightarrow n^k \cdot k \le k^n \cdot k \\
+  \Rightarrow (n+1)^k \le n^k \cdot k \le k^n \cdot k
+\end{align*}
+
+Der vordere Teil ($(n+1)^k \le n^k \cdot k$) trifft zu, wie wir in in Teil b gezeigt haben. Damit ist der Induktionsbeweis erbracht.
+\subsection*{Teil d}
+
+Die Tatsache, dass $k \ge 3$ wurde in Teil a, b und c benutzt. Der Induktionsbeweis in Teil c funktioniert nur für $k \ge 3$, da die Induktionsvoraussetzung an sich nur für $k \ge 3$ gilt. Betrachte $k=2$ für unterschiedliche $n$:
+
+\begin{align*}
+  n=1&: 1 \le 2 \operatorname{w.A!}\\
+  n=2&: 4 \le 4 \operatorname{w.A!}\\
+  n=3&: 9 \le 8 \operatorname{f.}\\
+  n=4&: 16 \le 16 \operatorname{w.A!}\\
+  n=5&: 25 \le 32 \operatorname{w.A!}\\
+  n=6&: 36 \le 64 \operatorname{w.A!}
+\end{align*}
 
 \section*{Aufgabe 2.4}
 Wir wissen, dass $\left(\sqrt{n^2}\right) = (n)$ bestimmt divergiert. Wenn also
