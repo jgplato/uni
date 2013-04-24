@@ -39,7 +39,51 @@ Wegen der Dreieckesungleichung ($|a + b| \le |a| + |b|$) gilt dann:
 
 Somit ist $f + g$ beschränkt.
 \subsection*{Teil b}
-\textbf{FIXME} Fehlt % FIXME
+Betrachte $(f+g)(x) = f(x)+g(x)$:
+
+$(f+g)(x)$ bildet ein beliebiges $x \in I$ ab wie folgt:
+
+\begin{equation*}
+  (f+g)(x) = f(x) + g(x)
+\end{equation*}
+
+Annahme: Da $\sup f \ge f(x) \forall x \in I$:
+
+\begin{align*}
+  f(x) \le \sup{x \in I} f
+\end{align*}
+
+Da $\sup g \ge g(x) \forall x \in I$:
+
+\begin{align*}
+  g(x) \le \sup_{x \in I}\ g
+\end{align*}
+
+Dann trifft auch die Aussage zu:
+
+\begin{equation*}
+  f(x) + g(x) \le \sup{x \in I} f(x) + \sup_{x \in I} g(x) \forall x \in I
+\end{equation*}
+
+Da das Intervall I geschlossen ist, ist das Supremum von $(f+g)$ selbst Element der Bildmenge:
+
+\begin{align*}
+  \sup_{x \in I} (f+g) \in (f+g)[I]
+\end{align*}
+
+Das heißt:
+
+\begin{align*}
+  \exists x \in I: f(x) + g(x) = \sup_{x \in I} (f+g)
+\end{align*}
+
+Und mit $f(x)+g(x) \le \sup_{x \in I} f(x) + \sup_{x \in I} g(x) \forall x \in I$ folgt:
+
+\begin{align*}
+  \sup_{x \in I} (f+g)(x) \le \sup_{x \in I} f(x) + \sup_{x \in I} g(x)
+\end{align*}
+
+Was zu zeigen war.
 
 \subsection*{Teil c}
 Sei $f: x \mapsto x^2$ und $g: x \mapsto x$:
@@ -80,7 +124,89 @@ Mit $a=1, b=-1$:
 
 
 \section*{Aufgabe 2.3}
-\textbf{FIXME} Fehlt % FIXME
+Wenn $3 \le k \le n$, zu zeigende Relation:
+\begin{align*}
+  {k \choose p} n^{k-p} \le n^k \forall p \ge 1
+\end{align*}
+
+Wir können diese auch ausdrücken als:
+
+\begin{align*}
+  \Leftrightarrow {k \choose p} \le \frac{n^k}{n^{k-p}}
+\end{align*}
+
+...solange $n^{k-p} > 0$, was erfüllt ist, da $n > 0$.
+
+\begin{align*}
+  \Leftrightarrow {k \choose p} &\le n^p \\
+  \Leftrightarrow \frac{k!}{p!(k-p)!} &\le n^p
+\end{align*}
+
+$k \choose p$ wird maximal für $p=\frac{k}{2}$ bei geraden $p$, bzw. für $p=\frac{k+1}{2}$ und $p=\frac{k-1}{2}$ bei ungeradem $p$.
+
+Betrachte gerades $p$. Zu zeigen:
+
+\begin{align*}
+  \frac{k!}{\left(\frac{k}{2}\right)! \left(k-\frac{k}{2}\right)!} &\le n^\frac{k}{2} \\
+  \Leftrightarrow \frac{k!}{\left(\frac{k}{2}\right)! \left(\frac{k}{2}\right)!} &\le n^\frac{k}{2} \\
+  \Leftrightarrow \frac{k \cdot (k-1) \cdot \dots \cdot \left(\frac{k}{2}+1\right)}{ \left(\frac{k}{2}\right) \cdot \left(\frac{k}{2}-1\right) \cdot \dots \cdot 1} &\le n^\frac{k}{2} \\
+  \Leftrightarrow \frac{k}{\frac{k}{2}} \cdot \frac{k-1}{\frac{k}{2} - 1} \cdot \dots \cdot \left(\frac{k}{2} + 1\right) &\le n^\frac{k}{2} \\
+\end{align*}
+Auf der linken Seite existieren nun $\frac{k}{2}$ Faktoren. Aber auch auf der rechten Seite der Ungleichung haben wir $\frac{k}{2}$ Faktoren ($n$).
+
+Wenn es uns nun gelingt zu zeigen:
+
+\begin{align*}
+  \frac{k}{\frac{k}{2}}, \frac{k-1}{\frac{k}{2} - 1}, \dots, \frac{k+1}{2} \le n
+\end{align*}
+
+\dots ist unsere Relation bewiesen. Das ist einfach, denn
+
+\begin{align*}
+  n \ge k > (k-1) > \left(\frac{k}{2} + 1\right) \forall k \ge 3
+\end{align*}
+
+Und für die Terme in den Nennern gilt:
+
+\begin{align*}
+  \frac{k}{2} > \left(\frac{k}{2} - 1\right) > \dots > 1
+\end{align*}
+
+Und somit gilt erst recht:
+
+\begin{align*}
+  \frac{k}{\frac{k}{2}}, \frac{k-1}{\frac{k}{2} - 1}, \dots, \frac{k+1}{2} \le n
+\end{align*}
+
+Analog für ungerade $p$ zu zeigen:
+
+\begin{align*}
+  \frac{k!}{\left(\frac{k-1}{2}\right)! \cdot \left(k - \frac{k-1}{2}\right)!} &\le n^{\frac{k}{2} - 1} \\
+  \Leftrightarrow \frac{k!}{\left(\frac{k-1}{2}\right)! \cdot \left(\frac{k+1}{2}\right)!} &\le n^{\frac{k}{2} - 1} \\
+  \Leftrightarrow \frac{k \cdot (k-1) \cdot \dots \cdot \left(\frac{k+1}{2} + 1\right)!}{\frac{k-1}{2} \cdot \left(\frac{k-1}{2} -1 \right) \cdot \dots \cdot 1} &\le n^{\frac{k}{2} - 1} \\
+  \Leftrightarrow \frac{k}{\frac{k-1}{2} \cdot \dots \cdot \frac{\frac{k+1}{2}+1}{1}} &\le n^{\frac{k}{2} - 1}
+\end{align*}
+
+
+Zeige:
+
+\begin{align*}
+  \frac{k}{\frac{k-1}{2}}, \frac{k-1}{\frac{k-1}{2} -1}, \dots, \frac{\frac{k+1}{2}+1}{1} \le n
+\end{align*}
+
+Dass
+
+\begin{align*}
+  \frac{k+1}{2} + 1 < \dots < k -1 < k \le n
+\end{align*}
+
+ist klar. Und auch hier gilt für die Nenner:
+
+\begin{align*}
+  \frac{k-1}{2} > \frac{k-1}{2} -1 > \dots \ge 1
+\end{align*}
+
+da $k \ge 3$. Und somit erhalten wir, dass die Relation stimmt.
 
 \section*{Aufgabe 2.4}
 Wir wissen, dass $\left(\sqrt{n^2}\right) = (n)$ bestimmt divergiert. Wenn also
@@ -91,29 +217,20 @@ Dies ist für $n = 4$ der Fall. Per Induktion kann man zeigen, dass dies für
 jedes $n \ge 4$ gilt.
 
 \begin{align*}
-  (n+1)! &\gt (n+1)^2
+  n! &> n^2 \\
+  (n+1)! &> n^2(n+1) \\
+  (n+1)! &> n^3+n^2
 \end{align*}
 
-Da $(n+1) \gt 0$, kann dividiert werden:
+Zu zeigen ist also nur noch, dass $n^3+n^2 \ge (n+1)^2$
+
 \begin{align*}
-  n! &\gt (n+1)
+  n^3+n^2 &\ge (n+1)^2 \\
+  n^3+n^2 &\ge n^2+2n+1 \\
+  n^3 &\ge 2n+1
 \end{align*}
 
-Da wir wissen, dass $n! \gt n^2$, ist zu zeigen, dass $n^2 \gt n+1$ für alle
-$n \gt 4$. Ebenfalls per Induktion. Für $n = 4$ ist die Gleichung erfüllt:
-
-\begin{align*}
-  n^2 &\gt n+1 \\
-  4^2 &\gt 4+1 \\
-  16 &\gt 5
-\end{align*}
-
-Für $n+1$ muss dann gelten:
-\begin{align*}
-  (n+1)^2 \gt (n+1)+1 \\
-  (n^2+2n+1) \gt (n+2) \\
-  (n^2+2n) \gt (n+1) \\
-\end{align}
-
+Dies ist für $n \ge 4$ offensichtlich wahr. Somit ist $n! > n^2 \forall n > 4$
+und die Folge muss bestimmt gegen $+\infty$ divergieren.
 
 \end{document}
