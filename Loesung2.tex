@@ -313,28 +313,33 @@ Die Tatsache, dass $k \ge 3$ wurde in Teil a, b und c benutzt. Der Induktionsbew
 \end{align*}
 
 \section*{Aufgabe 2.4}
-Wir wissen, dass $\left(\sqrt{n^2}\right) = (n)$ bestimmt divergiert. Wenn also
-$n!$ schneller wächst als $n^2$, muss die Folge zwangsläufig bestimmt
-divergieren.
+Abschätzung: $n^\frac{n}{2} \le n!$
 
-Dies ist für $n = 4$ der Fall. Per Induktion kann man zeigen, dass dies für
-jedes $n \ge 4$ gilt.
+Denn es lässt sich stets ein $n > N$ finden, sodass $|N^{\frac{N}{2}} - N!| \le
+|n^\frac{n}{2} - n!|$.
 
 \begin{align*}
-  n! &> n^2 \\
-  (n+1)! &> n^2(n+1) \\
-  (n+1)! &> n^3+n^2
+  \forall n > N: |N^\frac{N}{2} - N!| \le |n^\frac{n}{2} - n!| \qquad n,N \in \mathbb{N}
 \end{align*}
 
-Zu zeigen ist also nur noch, dass $n^3+n^2 \ge (n+1)^2$
+So ist $1^\frac{1}{2} \le 1!$, $2^{\frac{2}{2}} \le 2!$, $3^{3}{2} \le 3!$, \dots usw., wobei
 
 \begin{align*}
-  n^3+n^2 &\ge (n+1)^2 \\
-  n^3+n^2 &\ge n^2+2n+1 \\
-  n^3 &\ge 2n+1
+  (1! - 1^{\frac{1}{2}}) \le (2! - 2^{\frac{2}{2}}) \le (3! - 3^{\frac{3}{2}}) \le (4! - 4^{\frac{4}{2}}) \le \dots
 \end{align*}
 
-Dies ist für $n \ge 4$ offensichtlich wahr. Somit ist $n! > n^2 \forall n > 4$
-und die Folge muss bestimmt gegen $+\infty$ divergieren.
+Offensichtlich divergiert $\left(n^\frac{n}{2}\right)_{n=0}^{\infty}$ bestimmt, denn
 
+\begin{align*}
+  \lim_{n \to \infty} n^\frac{n}{2} = \infty
+\end{align*}
+
+Was gilt jedoch für die Folge $\left( \sqrt[n]{n^\frac{n}{2}} \right)_{n=0}^{\infty}$?
+
+\begin{align*}
+  \sqrt[n]{n^{\frac{n}{2}}} = n^\frac{1}{2} = \sqrt{n}
+\end{align*}
+
+Jedoch gilt $\lim_{n \to \infty} \sqrt{n} = \infty$. Also divergiert auch 
+ $\left( \sqrt[n]{n!} \right)_{n=0}^{\infty}$.
 \end{document}
