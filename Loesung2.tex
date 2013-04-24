@@ -124,6 +124,7 @@ Mit $a=1, b=-1$:
 
 
 \section*{Aufgabe 2.3}
+\subsection*{Teil a}
 Wenn $3 \le k \le n$, zu zeigende Relation:
 \begin{align*}
   {k \choose p} n^{k-p} \le n^k \forall p \ge 1
@@ -207,6 +208,63 @@ ist klar. Und auch hier gilt für die Nenner:
 \end{align*}
 
 da $k \ge 3$. Und somit erhalten wir, dass die Relation stimmt.
+
+\subsection*{Teil b}
+
+Zu zeigen:
+
+\begin{align*}
+  (n+1)^k \le n^k \cdot k
+\end{align*}
+
+Bereits gezeigt:
+
+\begin{align*}
+  {k \choose p} \cdot n^{k-p} \le n^k
+\end{align*}
+
+Drücke $(n+1)^k$ durch den Binomialkoeffizienten aus, bzw. durch den Binomischen Satz:
+
+\begin{align*}
+  (n+1)^k = \sum_{p=0}^k {k \choose p} n^{k-p} 1^p
+\end{align*}
+
+Da $1^p = 1 \forall p$ können wir schreiben:
+
+\begin{align*}
+  (n+1)^k = \sum_{p=0}^k {k \choose p} n^{k-p}
+\end{align*}
+
+Und mit der Relation aus Teil a gilt für jeden einzelnen der $k+1$ Summanden:
+
+\begin{align*}
+  {k \choose p} n^{k-p} \le n^k
+\end{align*}
+
+Und damit:
+
+\begin{align*}
+  \frac{\sum_{p=0}^k {k \choose p} n^{k-p}}{k+1} \le n^k
+\end{align*}
+
+Insbesondere gilt aber auch:
+
+\begin{align*}
+  {k \choose k} n^0 + {k \choose k-1}n^1 &\le n^k \\
+  1 + kn \le n^k
+\end{align*}
+
+Offensichtlich trifft diese Aussage für $3 \le k \le n$ zu.
+
+Das heißt, wir können unseren Ausdruck auch umschreiben zu:
+
+\begin{align*}
+  \frac{\sum_{p=0}^k {k \choose p} n^{k-p}}{k} &\le n^k \\
+  \Leftrightarrow \sum_{p=0}^k {k \choose p} n^{k-p} &\le n^k \cdot k\\
+  \Leftrightarrow (n+1)^k \le u^k \cdot k
+\end{align*}
+
+\subsection*{Teil c}
 
 \section*{Aufgabe 2.4}
 Wir wissen, dass $\left(\sqrt{n^2}\right) = (n)$ bestimmt divergiert. Wenn also
