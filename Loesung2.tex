@@ -1,0 +1,114 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 2. Blatt
+
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
+Damit $L'(q, \dot{q}, t) = L(q, \dot{q}, t) + \frac{d}{dt} F(q(t))$ auf die
+selben Bewegungsgleichungen führt, muss
+
+\begin{align*}
+  \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) \left(L - L'\right) &= 0 \\
+  \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) \left(\frac{d}{dt} F\right) &= 0 \\
+\end{align*}
+
+Dies führt zu
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{d}{dt} F &= \frac{\partial}{\partial q}\frac{d}{dt} F \\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{\partial F}{\partial q} \frac{dq}{dt} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{\partial F}{\partial q} \dot{q} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} \dot{q} \frac{\partial F}{\partial q} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial F}{\partial q} &= \frac{\partial}{\partial q}\frac{d}{dt} F
+\end{align*}
+
+Die Ableitungen sollten vertauschbar sein, zur Sicherheit beweisen wir von der rechten Seite her.
+
+\begin{align*}
+  \frac{\partial}{\partial q}\frac{d}{dt} F &= \frac{\partial \dot{q}}{\partial q} \frac{\partial F}{\partial q} \\
+                                            &= \frac{\partial}{\partial q} \frac{dq}{dt} \frac{\partial F}{\partial q} \\
+                                            &= \frac{d}{dt} \frac{\partial F}{\partial q}
+\end{align*}
+
+Somit führen $L$ und $L'$ auf die selben Bewegungsgleichungen.
+
+\subsection*{Teil b}
+$L_1$ und $L_2$ führen auf die selben Bewegungsgleichungen, denn $L_2 - L_1 =
+q^3\dot{q} = \frac{d}{dt} \frac{q^4}{4}$. Damit ergibt sich aus obigem Beweis
+die Äquivalenz der Bewegungsgleichungen.
+
+$L_2$ und $L_3$ führen auf die selben Bewegungsgleichungen denn eine
+Lagrange-Funktion kann mit beliebigem $c \neq 0$ multipliziert werden und führt
+auf die selben Bewegungsgleichungen. Beweis:
+
+\begin{align*}
+  &\left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) c L = 0 \\
+  \Leftrightarrow & \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) L = \frac{0}{c} = 0
+\end{align*}
+
+$L_4$ führt zu einer anderen Bewegungsgleichung als $L_1$, $L_2$ und $L_3$,
+denn $q^3$ kann nicht als Zeitableitung eines $F(q(t))$ geschrieben werden,
+ohne direkt von $t$ abzuhängen.
+
+$L_5$ führt widerrum zu einer anderen Bewegungsgleichung, als alle
+vorhergehenden, denn ohne die vorherige Bewegungsgleichung explizit
+auszurechnen, ist klar, dass aus $L_4$ bei der Anwendung des
+Lagrange-Formalismus keine gemischten Terme der Form ($c \cdot q^i \cdot
+\dot{q}^j, \quad i,j > 0$) entstehen können, während dies bei $L_5$ und $L_6$
+der Fall sein muss.
+
+$L_6$ ist die $\frac{3}{2}$te Potenz von $L_5$. Die Vermutung, dass dies auf
+die selben Bewegungsgleichungen führt, überprüfe ich durch Ausrechnen:
+
+Für $L_5$ ergibt sich:
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} q^2\dot{q}^4 &= \frac{\partial}{\partial q} q^2\dot{q}^4 \\
+  \frac{d}{dt} (q^24\dot{q}^3) &= 2q\dot{q}^4 \\
+  2\dot{q}q4\dot{q}^3 + q^24 \cdot 3 \ddot{q}\dot{q}^2 &= 2q\dot{q}^4 \\
+  8q\dot{q}^4+ 12q^2\dot{q}^2\ddot{q} &= 2q\dot{q}^4 \\
+  4q\dot{q}^4+ 6q^2\dot{q}^2\ddot{q} &= q\dot{q}^4 \\
+  4\dot{q}^4+ 6q\dot{q}^2\ddot{q} &= \dot{q}^4 \\
+  3\dot{q}^2+ 6q\ddot{q} &= 0 \\
+  \dot{q}^2+ 2q\ddot{q} &= 0 \\
+\end{align*}
+
+Für $L_6$:
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} q^3\dot{q}^6 &= \frac{\partial}{\partial q} q^3\dot{q}^6 \\
+  \frac{d}{dt} (q^36\dot{q}^5) &= 3q^2\dot{q}^6 \\
+  6q^3 \cdot 5\dot{q}^4\ddot{q} + 6\dot{q}^5\cdot3q^2\dot{q} &= 3q^2\dot{q}^6 \\
+  30q^3\dot{q}^4\ddot{q} + 18q^2\dot{q}^6 &= 3q^2\dot{q}^6 \\
+  10q^3\dot{q}^4\ddot{q} + 6q^2\dot{q}^6 &= q^2\dot{q}^6 \\
+  10q\dot{q}^4\ddot{q} + 6\dot{q}^6 &= \dot{q}^6 \\
+  10q\ddot{q} + 6\dot{q}^2 &= \dot{q}^2 \\
+  \dot{q}^2 + 2q\ddot{q} &= 0
+\end{align*}
+
+Für $L_5$ und $L_6$ erhält man also die selben Bewegungsgleichungen.
+
+Zusammenfassend: $L_1 \equiv L_2 \equiv L_3 \not \equiv L_4 \not \equiv L_5 \equiv L_6$.
+
+
+\end{document}
