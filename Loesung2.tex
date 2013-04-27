@@ -238,7 +238,44 @@ freie Koordinate bleibt $x$ übrig.
 
 \subsection*{Bewegungsgleichungen unter Benutzung der Newtonschen Mechanik}
 
-Sorry, nein.
+Entlang des Drahtes wirkt zum Einen die Zentripetalkraft:
+
+\begin{align*}
+  F_z = m \omega^2 r = m \dot{phi}^2 r
+\end{align*}
+
+Außerdem der tangentiale Anteil der Gewichtskraft:
+
+\begin{align*}
+  F_a = F_g \cdot \tan \alpha
+\end{align*}
+
+Dabei ist $\alpha$ der Steigungswinkel des Drahtes. Da wir die Funktion kennen,
+die die Form des Drahtes beschreibt, gilt
+
+\begin{align*}
+  \tan \alpha = \frac{d}{dr} ar^4 = 4ar^3
+\end{align*}
+
+Wir erhalten:
+
+\begin{align*}
+  F_a = 4mgar^3
+\end{align*}
+
+Die effektive Kraft $F$ ergibt sich also aus der Summe:
+
+\begin{align*}
+  F = F_a + F_z
+\end{align*}
+
+Aus dem zweiten Newtonschen Gesetz ergibt sich dann:
+
+\begin{align*}
+  ma &= 4mgar^3 + m \omega^2 r \\
+  m\ddot{r} &= 4mgar^3 + m \omega^2 r \\
+  \ddot{r} &= 4gar^3 + \omega^2 r
+\end{align*}
 
 \subsection*{Bewegungsgleichungen unter Benutzung der Lagrange-Mechanik}
 
