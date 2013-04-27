@@ -116,11 +116,18 @@ Zusammenfassend: $L_1 \widehat{=} L_2 \widehat{=} L_3 \widehat{\neq} L_4 \wideha
 \begin{equation*}
   \frac{\partial \dot{q}_i}{\partial \dot{s}_j} =
   \frac{\partial}{\partial \dot{s}_j} \frac{dq_i}{dt} =
-  \frac{\partial}{\partial \dot{s}_j} \frac{\partial q_i}{\partial s_j} \frac{ds_j}{dt} =
-  \frac{\partial}{\partial \dot{s}_j} \frac{\partial q_i}{\partial s_j} \dot{s_j} =
-  \frac{\partial}{\partial \dot{s}_j} \dot{s_j} \frac{\partial q_i}{\partial s_j} =
+  \frac{\partial}{\partial \dot{s}_j} \left(\frac{\partial q_i}{\partial t} + \sum_{k=1}^n \frac{\partial q_i}{\partial s_k} \frac{ds_k}{dt}\right) =
+  \frac{\partial}{\partial \dot{s}_j} \left(\frac{\partial q_i}{\partial t} + \sum_{k=1}^n \frac{\partial q_i}{\partial s_k} \dot{s_k}\right) =
   \frac{\partial q_i}{\partial s_j}
 \end{equation*}
+
+Der Übergang vom vorletzten auf den letzten Gleichungsterm erfolgt, weil durch
+$\frac{\partial}{\partial \dot{s_j}}$ nur derjenige Term aus der Klammer
+ausgewählt wird, der $\dot{s_j}$ enthält, die restlichen Terme verschwinden.
+
+Somit sollte auch $\frac{\partial q_i}{\partial \dot{s_j}} = 0$ klar sein, denn
+$q_i = q(s_1, \dots, s_N, t)$ hängt von keinem $\dot{s_j}$ ab, die partielle
+Ableitung muss also verschwinden.
 
 
 \end{document}
