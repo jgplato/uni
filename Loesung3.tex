@@ -94,6 +94,25 @@ Da die Folge monoton fällt, aber jedes $x \ge \sqrt{a}$, muss
   \lim x_n = \sqrt{a}
 \end{align*}
 
+\section*{Aufgabe 3.3}
+\subsection*{Teil a}
+
+Um eine explizite Formel zu finden, verschaffen wir uns erstmal einen Überblick:
+
+\begin{align*}
+  &x_0 = s \\
+  &x_1 = as + b \\
+  &x_2 = a(as+b) + b    &= a^2s+ab+b\\
+  &x_3 = a(a(as+b)+b)+b &= a^3s + a^2b +ab + b
+\end{align*}
+
+Offensichtlich ist
+\begin{align*}
+  x_n &= a^ns + a^{n-1}b + a^{n-2}b + \dots + ab + b \\
+  x_n &= a^ns + b(a^{n-1} + a^{n-2} + \dots + a + 1) \\
+  x_n &= a^ns + b \frac{1-a^n}{1-a}
+\end{align*}
+
 \begin{landscape}
 \begin{align*}
   &\lim_{n \to \infty} \sqrt[3]{(n+a)(n+b)(n+c)} - n \\
