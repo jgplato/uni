@@ -119,6 +119,27 @@ Für $a=1$ kann man schon obiger Formel entnehmen, dass die Folge bei $b=0$
 stationär bei $s$ bleibt, ansonsten bestimmt divergiert. Für $b > 0$ gegen
 $+\infty$, bei $b<0$ gegen $-\infty$.
 
+Der erste Term ($a^ns$) divergiert offensichtlich für Werte $a > 1$ und $a
+< -1$, für $a = -1$ divergiert er unbestimmt. Der Term kann also nur für $-1 <
+a < 1$ konvergieren, dann geht er gegen null.
+
+Der zweite Term konvergiert auch nur für $-1 < a < 1$, denn sonst wächst der
+Zähler über alle Grenzen. Ansonsten ist $\lim_{n \to \infty} a^n = 0$.
+
+Zusammenfassen lässt sich also sagen: Für das Konvergenzverhalten sind $b$ und
+$s$ unerheblich, damit die Folge konvergiert, muss $-1 < a < 1$.
+
+\subsection*{Teil c}
+
+Vorrausgesetzt, $a \in ]-1,1[$
+
+\begin{align*}
+  &\lim_{n \to \intfy} a^ns + b \frac{1-a^n}{a-1} \\
+  = & \lim_{n \to \infty} a^ns + b \frac{1-\lim_{n \to \infty} a^n}{a-1} \\
+  = & 0 + b \frac{1-0}{a-1} \\
+  = & \frac{b}{a-1}
+\end{align*}
+
 \section*{Aufgabe 3.4}
 
 \begin{align*}
