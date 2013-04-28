@@ -41,8 +41,59 @@ Wir wissen, dass $x > 0$ und $a > 0$, deswegen:
   (x_n - \sqrt{a})^2 &\ge 0
 \end{align*}
 
-Diese Aussage ist wahr.
+Diese Aussage ist wahr, denn $a,x_n > 0$.
+
 \subsection*{Teil b}
+Der Induktionsanfang von $x_0$ nach $x_1$ gilt nur für $a \ge 1$:
+
+\begin{align*}
+  x_0 &\ge \frac{x_1^2 + a}{2a} \\
+  a &\ge \frac{a^2 + a}{2a} \\
+  2a^2 &\ge a^2 + a \\
+  a^2 &\ge a \\
+  a &\ge 1
+\end{align*}
+
+Somit ist das Gegenteil bewiesen.
+
+Allerdings gilt der Induktionsanfang von $x_1$ nach $x_2$ immer:
+
+\begin{align*}
+  x_1 &\ge x_2 \\
+  \frac{x_0^2 + a}{2x_0} &\ge \frac{x_1^2 + a}{2x_1} \\
+  \frac{x_0^2 + a}{2x_0} &\ge \frac{\left(\frac{x_0^2 + a}{2x_0}\right)^2 + a}{2\left(\frac{x_0^2 + a}{2x_0}\right)} \\
+  \frac{a^2 + a}{2a} &\ge \frac{\left(\frac{a^2 + a}{2a}\right)^2 + a}{2\left(\frac{a^2 + a}{2a}\right)} \\
+  \frac{a + 1}{2} &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{2\left(\frac{a + 1}{2}\right)} \\
+  a + 1 &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{\frac{a + 1}{2}} \\
+  a + 1 &\ge \frac{\frac{(a+1)^2}{4} + a}{\frac{a + 1}{2}} \\
+  a + 1 &\ge \frac{\frac{(a+1)^2}{2} + 2a}{a+1} \\
+  2(a + 1)^2 &\ge (a+1)^2 + 4a \\
+  (a + 1)^2 &\ge 4a \\
+  a^2+2a+1 &\ge 4a \\
+  a^2-2a+1 &\ge 0 \\
+  (a-1)^2 &\ge 0
+\end{align*}
+
+Damit können wir nun den Induktionsschritt $x_n$ nach $x_{n+1}$ machen:
+
+\begin{align*}
+  x_{n} \ge x_{n+1} \\
+  x_n \ge \frac{x_n^2 + a}{2x_n} \\
+  2x_n^2 \ge x_n^2 + a \\
+  x_n^2 \ge a \\
+  x_n \ge \sqrt{a}
+\end{align*}
+
+Dass jedes $x_n \ge \sqrt{a}$ ist aus Teil a bekannt, somit ist die Aussage
+wahr und die Induktion gültig. Die Folge fällt für $n \ge 1$ monoton.
+
+\subsection*{Teil c}
+Da die Folge monoton fällt, aber jedes $x \ge \sqrt{a}$, muss
+
+\begin{align*}
+  \lim x_n = \sqrt{a}
+\end{align*}
+
 \begin{landscape}
 \begin{align*}
   &\lim_{n \to \infty} \sqrt[3]{(n+a)(n+b)(n+c)} - n \\
