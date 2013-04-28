@@ -110,8 +110,42 @@ Offensichtlich ist
 \begin{align*}
   x_n &= a^ns + a^{n-1}b + a^{n-2}b + \dots + ab + b \\
   x_n &= a^ns + b(a^{n-1} + a^{n-2} + \dots + a + 1) \\
-  x_n &= a^ns + b \frac{1-a^n}{1-a}
+  x_n &= \left\{\begin{array}{ll} a^ns + b \frac{1-a^n}{1-a} & a \neq 1 \\
+         s + bn & a = 1\end{array}\right.
 \end{align*}
+
+\subsection*{Teil b}
+Für $a=1$ kann man schon obiger Formel entnehmen, dass die Folge bei $b=0$
+stationär bei $s$ bleibt, ansonsten bestimmt divergiert. Für $b > 0$ gegen
+$+\infty$, bei $b<0$ gegen $-\infty$.
+
+\section*{Aufgabe 3.4}
+
+\begin{align*}
+  \lim_{n \to \infty} \left(1+ \frac{1}{n}\right)^{-n} = \frac{1}{\lim_{n \to \infty} \left(1+ \frac{1}{n}\right)^{n}} = \frac{1}{e}
+\end{align*}
+
+\begin{align*}
+  &\lim_{n \to \infty} \left(1-\frac{1}{n}\right)^n \\
+  = &\lim_{n \to \infty} \left(\frac{n-1}{n}\right)^n \\
+  = &\lim_{n \to \infty} \left(\frac{n}{n-1}\right)^{-n} \\
+  = &\lim_{n \to \infty} \left(\frac{n}{n-1}\right)^{-n} \\
+  = &\lim_{n \to \infty} \left(1+\frac{1}{n-1}\right)^{-n} \\
+  = &\lim_{n \to \infty} \frac{1}{\left(1+\frac{1}{n-1}\right)^{n}} \\
+  = &\lim_{n \to \infty} \frac{1}{\left(1+\frac{1}{n-1}\right) \cdot \left(1+\frac{1}{n-1}\right)^{n-1}} \\
+  = &\frac{1}{\underbrace{\lim_{n \to \infty}\left(1+\frac{1}{n-1}\right)}_{= 1} \cdot \underbrace{\lim_{n \to \infty} \left(1+\frac{1}{n-1}\right)^{n-1}}_{= e}} \\
+  = &\frac{1}{e}
+\end{align*}
+
+\begin{align*}
+  \lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{-n} = \frac{1}{\lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{n}} = \frac{1}{\frac{1}{e}} = e
+\end{align*}
+
+\begin{align*}
+  &\lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right)^{n} = \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \left(1-\frac{1}{n}\right)^n \\
+  = &\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \lim_{n \to \infty} \left(1-\frac{1}{n}\right)^n = e \cdot \frac{1}{e} = 1
+\end{align*}
+
 
 \begin{landscape}
 \begin{align*}
