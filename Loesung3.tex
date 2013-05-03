@@ -25,4 +25,64 @@ Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \section*{Aufgabe 1}
 \subsection*{Teil a}
 
+In der Aufgabe ist festgelegt, dass die $x$-Position des Keils durch die Lage
+seiner Spitze festgelegt werden soll. Da der Keil auf einer ebenen Unterlage
+ist, ist er in $y$-Richtung nicht beweglich (Zwangbedingung: $y=0$), so dass
+sich die Position durch $x$ allein festlegen lässt. Von der Skizze des Blattes
+weichen wir allerdings ab und spiegeln das Problem an der $y$-Achse, so dass
+der Winkel zur anderen Seite offen ist. Des Ergebnis bleibt das selbe.
+
+Der Klotz kann sich nur auf der Oberfläche des Keils entlang bewegen. Aufgrund
+der Spiegelung ergibt sich dann folgende Gleichung, die auch eine
+Zwangsbedingung darstellt.
+
+\begin{align*}
+  \vec{r} =  r \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}
+\end{align*}
+
+Die unabhängigen Koordindaten lauten also $x$ und $r$.
+
+\subsection*{Teil b}
+
+Sei $T_x$ die kinetische Energie des Keils und $T_r$ die des Klotzes:
+
+\begin{align*}
+  T &= T_x + T_r \\
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \dot{r}^2
+\end{align*}
+
+Das Gravitationspotential ist $V(y) = mgy$. Sei $V_x$ die potentielle Energie
+des Keils und $V_r$ die des Klotzes. $V_x = 0$, denn die $y$-Koordinate des
+Klotzes verschwindet aufgrund der Zwangsbedingung.
+
+\begin{align*}
+  V &= V_x + V_r \\
+    &= 0 + m_2gr \sin \alpha
+\end{align*}
+
+Für die Lagrange-Funktion $L = T - V$ ergibt sich dann
+
+\begin{align*}
+  L &= T - V \\
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \dot{r}^2 - m_2gr \sin \alpha
+\end{align*}
+
+\subsection*{Teil c}
+
+Die Bewegungsgleichungen ergeben sich durch Anwendung der Euler-Lagrange-Gleichung:
+
+\begin{align*}
+  \left(\frac{d}{dt}\frac{\partial}{\partial \dot{q_i}} - \frac{\partial}{\partial q_i}\right) L = 0
+\end{align*}
+
+Für die $x$-Koordinate ist:
+
+\begin{align*}
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = \frac{d}{dt} m_1\dot{x} = m_1\ddot{x} \\
+  \frac{\partial L}{\partial x} = 0 \\
+  \Rightarrow m_1\ddot{x} = 0
+\end{align*}
+
+\textbf{\dots und das ist komisch. Der Keil bewegt sich nicht?}
+
 \end{document}
