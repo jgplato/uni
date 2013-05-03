@@ -44,11 +44,21 @@ Die unabhängigen Koordindaten lauten also $x$ und $r$.
 
 \subsection*{Teil b}
 
-Sei $T_x$ die kinetische Energie des Keils und $T_r$ die des Klotzes:
+Sei $T_x$ die kinetische Energie des Keils und $T_r$ die des Klotzes. Bei $T_r$
+ist zu beachten, dass sich die Geschwindigkeit des Klotzes gegenüber dem
+Nullpunkt durch Vektoraddition der Geschwindigkeit des Keils gegenüber dem
+Nullpunkt und des Klotzes gegenüber dem Keil ergibt. Beim Auflösen der
+Quadrierten Klammer ergibt sich ein Skalarprodukt, dass wir mit $\vec{a} \cdot
+\vec{b} = |a| |b| \cos \theta$ lösen. $\theta$ ist dabei der Winkel zwischen
+den Vektoren, der genau mit unserem $\alpha$ übereinstimmt. Sieht man aber
+auch, wenn man die Vektoren komponentenweise ausmultipliziert.
 
 \begin{align*}
   T &= T_x + T_r \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \dot{r}^2
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \left(\dot{\vec{x}} + \dot{\vec{r}}\right)^2 \\
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}(\dot{x}^2 + \dot{r}^2 + 2\dot{\vec{x}}\cdot\dot{\vec{r}}) \\
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}(\dot{x}^2 + \dot{r}^2 + 2\dot{x}\dot{r} \cos \alpha) \\
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha
 \end{align*}
 
 Das Gravitationspotential ist $V(y) = mgy$. Sei $V_x$ die potentielle Energie
@@ -64,7 +74,8 @@ Für die Lagrange-Funktion $L = T - V$ ergibt sich dann
 
 \begin{align*}
   L &= T - V \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \dot{r}^2 - m_2gr \sin \alpha
+    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha - m_2gr \sin \alpha \\
+    &= \frac{m_1+m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha - m_2gr \sin \alpha
 \end{align*}
 
 \subsection*{Teil c}
@@ -77,12 +88,53 @@ Die Bewegungsgleichungen ergeben sich durch Anwendung der Euler-Lagrange-Gleichu
 
 Für die $x$-Koordinate ist:
 
-\begin{align*}
-  \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = \frac{d}{dt} m_1\dot{x} = m_1\ddot{x} \\
+\begin{align}
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = \frac{d}{dt} (m_1+m_2)\dot{x} + m_2\dot{r} = (m_1+m_2)\ddot{x} + m_2\ddot{r} \cos \alpha \\
   \frac{\partial L}{\partial x} = 0 \\
-  \Rightarrow m_1\ddot{x} = 0
+  \Rightarrow (m_1+m_2)\ddot{x} = -m_2 \ddot{r} \cos \alpha
+  \label{x_component}
+\end{align}
+
+Für die $r$-Koordinate:
+
+\begin{align}
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{r}} = \frac{d}{dt} m_2\dot{r} + m_2\dot{x} \cos \alpha = m_2\ddot{r} + m_2\ddot{x} \cos \alpha \\
+  \frac{\partial L}{\partial r} = -m_2g \sin \alpha \\
+  \Rightarrow m_2\ddot{r} + m_2\ddot{x} \cos \alpha = -m_2g \sin \alpha
+  \label{r_component}
+\end{align}
+
+Um nun zu zeigen, dass beide Massen konstant beschleunigt werden, müssen wir
+zeigen dass $\ddot{r} = \operatorname{const.}$ und $\ddot{x} =
+\operatorname{const.}$.
+
+Dazu stellen wir (\ref{r_component}) nach $\ddot{r}$ um:
+
+\begin{align}
+  &m_2\ddot{r} + m_2\ddot{x} \cos \alpha = -m_2g \sin \alpha \\
+  \Leftrightarrow \qquad &\ddot{r} + \ddot{x} \cos \alpha = -g \sin \alpha \\
+  \Leftrightarrow \qquad &\ddot{r} = -\ddot{x} \cos \alpha -g \sin \alpha \label{solved_for_r}
+\end{align}
+
+Und setzen das Ergebnis in (\ref{x_component}) ein:
+
+\begin{align*}
+  &(m_1+m_2)\ddot{x} = -m_2 \ddot{r} \cos \alpha \\
+  \Leftrightarrow \qquad &(m_1+m_2)\ddot{x} = -m_2 (-\ddot{x} \cos \alpha -g \sin \alpha) \cos \alpha \\
+  \Leftrightarrow \qquad &(m_1+m_2)\ddot{x} = m_2 \ddot{x} \cos \alpha + m_2 g \sin \alpha \cos \alpha \\
+  \Leftrightarrow \qquad &(m_1+m_2-m_2 \cos \alpha)\ddot{x} = m_2 g \sin \alpha \cos \alpha \\
+  \Leftrightarrow \qquad &\ddot{x} = \frac{m_2 g \sin \alpha \cos \alpha}{m_1+m_2-m_2 \cos \alpha}
 \end{align*}
 
-\textbf{\dots und das ist komisch. Der Keil bewegt sich nicht?}
+Diese Gleichung ist ziemlich häßlich, muss aber nicht weiter vereinfacht
+werden. Da auf der rechten Seite nur noch Konstanten stehen, muss $\ddot{x} =
+\operatorname{const.}$.
+
+Wenn $\ddot{x}$ konstant ist, muss aber gemäß (\ref{solved_for_r}) auch
+$\ddot{r}$ konstant sein.
+
+
+\subsection*{Teil d}
+Nicht bearbeitet.
 
 \end{document}
