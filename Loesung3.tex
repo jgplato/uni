@@ -34,11 +34,11 @@ Siehe letzte Seite.
 Wir wissen, dass $x > 0$ und $a > 0$, deswegen:
 
 \begin{align*}
-  \frac{x_n^2 + a}{2x} &\ge \sqrt{a} \\
-  x_n^2 + a &\ge \sqrt{a}2x \\
-  x_n^2 -\sqrt{a}2x+ a &\ge 0 \\
-  x_n^2 - 2\sqrt{a}x+ \sqrt{a}^2 &\ge 0 \\
-  (x_n - \sqrt{a})^2 &\ge 0
+  \leftrightarrow \frac{x_n^2 + a}{2x} &\ge \sqrt{a} \\
+  \leftrightarrow x_n^2 + a &\ge \sqrt{a}2x \\
+  \leftrightarrow x_n^2 -\sqrt{a}2x+ a &\ge 0 \\
+  \leftrightarrow x_n^2 - 2\sqrt{a}x+ \sqrt{a}^2 &\ge 0 \\
+  \leftrightarrow (x_n - \sqrt{a})^2 &\ge 0
 \end{align*}
 
 Diese Aussage ist wahr, denn $a,x_n > 0$.
@@ -48,10 +48,10 @@ Der Induktionsanfang von $x_0$ nach $x_1$ gilt nur für $a \ge 1$:
 
 \begin{align*}
   x_0 &\ge \frac{x_1^2 + a}{2a} \\
-  a &\ge \frac{a^2 + a}{2a} \\
-  2a^2 &\ge a^2 + a \\
-  a^2 &\ge a \\
-  a &\ge 1
+  \leftrightarrow a &\ge \frac{a^2 + a}{2a} \\
+  \leftrightarrow 2a^2 &\ge a^2 + a \\
+  \leftrightarrow a^2 &\ge a \\
+  \leftrightarrow a &\ge 1
 \end{align*}
 
 Somit ist das Gegenteil bewiesen.
@@ -60,38 +60,47 @@ Allerdings gilt der Induktionsanfang von $x_1$ nach $x_2$ immer:
 
 \begin{align*}
   x_1 &\ge x_2 \\
-  \frac{x_0^2 + a}{2x_0} &\ge \frac{x_1^2 + a}{2x_1} \\
-  \frac{x_0^2 + a}{2x_0} &\ge \frac{\left(\frac{x_0^2 + a}{2x_0}\right)^2 + a}{2\left(\frac{x_0^2 + a}{2x_0}\right)} \\
-  \frac{a^2 + a}{2a} &\ge \frac{\left(\frac{a^2 + a}{2a}\right)^2 + a}{2\left(\frac{a^2 + a}{2a}\right)} \\
-  \frac{a + 1}{2} &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{2\left(\frac{a + 1}{2}\right)} \\
-  a + 1 &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{\frac{a + 1}{2}} \\
-  a + 1 &\ge \frac{\frac{(a+1)^2}{4} + a}{\frac{a + 1}{2}} \\
-  a + 1 &\ge \frac{\frac{(a+1)^2}{2} + 2a}{a+1} \\
-  2(a + 1)^2 &\ge (a+1)^2 + 4a \\
-  (a + 1)^2 &\ge 4a \\
-  a^2+2a+1 &\ge 4a \\
-  a^2-2a+1 &\ge 0 \\
-  (a-1)^2 &\ge 0
+  \leftrightarrow \frac{x_0^2 + a}{2x_0} &\ge \frac{x_1^2 + a}{2x_1} \\
+  \leftrightarrow \frac{x_0^2 + a}{2x_0} &\ge \frac{\left(\frac{x_0^2 + a}{2x_0}\right)^2 + a}{2\left(\frac{x_0^2 + a}{2x_0}\right)} \\
+  \leftrightarrow \frac{a^2 + a}{2a} &\ge \frac{\left(\frac{a^2 + a}{2a}\right)^2 + a}{2\left(\frac{a^2 + a}{2a}\right)} \\
+  \leftrightarrow \frac{a + 1}{2} &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{2\left(\frac{a + 1}{2}\right)} \\
+  \leftrightarrow a + 1 &\ge \frac{\left(\frac{a + 1}{2}\right)^2 + a}{\frac{a + 1}{2}} \\
+  \leftrightarrow a + 1 &\ge \frac{\frac{(a+1)^2}{4} + a}{\frac{a + 1}{2}} \\
+  \leftrightarrow a + 1 &\ge \frac{\frac{(a+1)^2}{2} + 2a}{a+1} \\
+  \leftrightarrow 2(a + 1)^2 &\ge (a+1)^2 + 4a \\
+  \leftrightarrow (a + 1)^2 &\ge 4a \\
+  \leftrightarrow a^2+2a+1 &\ge 4a \\
+  \leftrightarrow a^2-2a+1 &\ge 0 \\
+  \leftrightarrow (a-1)^2 &\ge 0
 \end{align*}
 
 Damit können wir nun den Induktionsschritt $x_n$ nach $x_{n+1}$ machen:
 
 \begin{align*}
   x_{n} \ge x_{n+1} \\
-  x_n \ge \frac{x_n^2 + a}{2x_n} \\
-  2x_n^2 \ge x_n^2 + a \\
-  x_n^2 \ge a \\
-  x_n \ge \sqrt{a}
+  \leftrightarrow x_n \ge \frac{x_n^2 + a}{2x_n} \\
+  \leftrightarrow 2x_n^2 \ge x_n^2 + a \\
+  \leftrightarrow x_n^2 \ge a \\
+  \leftrightarrow x_n \ge \sqrt{a}
 \end{align*}
 
 Dass jedes $x_n \ge \sqrt{a}$ ist aus Teil a bekannt, somit ist die Aussage
 wahr und die Induktion gültig. Die Folge fällt für $n \ge 1$ monoton.
 
 \subsection*{Teil c}
-Da die Folge monoton fällt, aber jedes $x \ge \sqrt{a}$, muss
-
+Unter der Annahme, dass ein Grenzwert existiert ist:
 \begin{align*}
-  \lim x_n = \sqrt{a}
+\lim x_{n+1}=\lim \frac{x_n^2 + a}{2x_n}
+\end{align*}
+Wir haben gezeigt, dass ein Grenzwert existiert, da die Folge monoton fällt und nach unten beschränkt ist. Wie in der Vorlesung können wir schreiben:
+\begin{align*}
+x = \frac{x^2 + a}{2x}
+\end{align*}
+Sei x der Grenzwert der Folge.
+\begin{align*}
+\leftrightarrow 2x^2 = x^2 + a\\
+\leftrightarrow x^2 = a\\
+\leftrightarrow x = \sqrt{a}
 \end{align*}
 
 \section*{Aufgabe 3.3}
@@ -102,7 +111,7 @@ Um eine explizite Formel zu finden, verschaffen wir uns erstmal einen Überblick
 \begin{align*}
   &x_0 = s \\
   &x_1 = as + b \\
-  &x_2 = a(as+b) + b    &= a^2s+ab+b\\
+  &x_2 = a(as+b) + b &= a^2s+ab+b\\
   &x_3 = a(a(as+b)+b)+b &= a^3s + a^2b +ab + b
 \end{align*}
 
@@ -115,19 +124,85 @@ Offensichtlich ist
 \end{align*}
 
 \subsection*{Teil b}
-Für $a=1$ kann man schon obiger Formel entnehmen, dass die Folge bei $b=0$
-stationär bei $s$ bleibt, ansonsten bestimmt divergiert. Für $b > 0$ gegen
-$+\infty$, bei $b<0$ gegen $-\infty$.
+Die Wahl von b und s ist für das Konvergenzverhalten der Folge irrelevant, da:
+\begin{align*}
+\lim_{n \to \infty} a^ns + b\cdot\frac{1-a^n}{1-a} = s\cdot\lim_{n \to \infty} a^n + b\cdot \frac{1}{1-a} \cdot \lim_{n \to \infty} 1-a^n
+\end{align*}
+Es reicht also aus, das Konvergenzverhalten von $a^n$ zu betrachten.\\
 
-Der erste Term ($a^ns$) divergiert offensichtlich für Werte $a > 1$ und $a
-< -1$, für $a = -1$ divergiert er unbestimmt. Der Term kann also nur für $-1 <
-a < 1$ konvergieren, dann geht er gegen null.
+Für $a>1$:
+\begin{align*}
+n>m=>a^n>a^m \;wenn\; a>1
+\end{align*}
+Daraus folgt:
+\begin{align*}
+a^n>a^m \; \forall n,m\ \;wenn\; n>m
+\end{align*}
+Die Folge ist also für das betrachtete $a$ monoton steigend. Falls Konvergenz vorhanden ist, muss die Folge auch nach oben beschränkt sein.\\
+Tatsächlich finden wir keine obere Schranke, da $n \in \mathbb{N}$, wobei $\mathbb{N}$ nicht nach oben beschränkt ist. Wegen der Monotonie von $a^n$; $a>1$ folgt daraus, dass auch $a^n$ nicht beschränkt ist und somit ist die Folge auch nicht konvergent.\\
 
-Der zweite Term konvergiert auch nur für $-1 < a < 1$, denn sonst wächst der
-Zähler über alle Grenzen. Ansonsten ist $\lim_{n \to \infty} a^n = 0$.
+Für $a=1$:\\
+Betrachten wir $x_n=s+bn$. Offensichtlich ist:
+\begin{align*}
+\lim_{n \to \infty}\,s+bn = s + b \cdot \lim_{n \to \infty} n = s +b \cdot \infty = \infty\\
+\end{align*}
 
-Zusammenfassen lässt sich also sagen: Für das Konvergenzverhalten sind $b$ und
-$s$ unerheblich, damit die Folge konvergiert, muss $-1 < a < 1$.
+Für $0<a<1$:
+\begin{align*}
+a^n<a^m\;\forall n,m\ \;wenn\; n>m
+\end{align*}
+Die Folge ist also für das betrachtete $a$ monoton fallend. Falls Konvergenz vorhanden ist muss eine untere Schranke existieren.\\
+Tatsächlich ist: 
+\begin{align*}
+a^n>0\;\forall a>0\
+\end{align*}
+Also ist $s=0$ untere Schranke der Folge für betrachtetes a und die Folge konvergent.\\
+
+Für $a=0$:
+\begin{align*}
+0^n=n\;\forall n \
+\end{align*}
+...die Folge ist statisch und somit konvergent.\\
+
+Für $-1<a<0$:\\
+Jede Cauchy-Folge in $\mathbb{R}$ ist konvergent. Also reicht es zu zeigen, dass $(a^n)$ für betrachtetes n Cauchy-Folge ist.\\
+
+Für $-1<a<0$ gilt:
+\begin{align*}
+|a^n|>|a^m|\;\forall n,m \;wenn\; n>m
+\end{align*}
+Sei $\epsilon>0$. Wir können davon ausgehen, dass ein N existiert, sodass:
+\begin{align*}
+2|a^N|<\epsilon
+\end{align*}
+Für dieses N wird auch gelten:
+\begin{align*}
+2a^N<\epsilon
+\end{align*}
+oBdA sei $N<m<=n$. Dann ist:
+\begin{align*}
+|a_m-a_n|=|a^m-a^n|\leq|a^m|+|a^n|\leq|a^N|+|a^N|=2|a^N|<\epsilon
+\end{align*}
+Damit wird die Voraussetzung für eine Cauchy-Folge erfüllt:
+\begin{align*}
+\forall \epsilon>0\ \exists N \in \mathbb{N} \: |a_m-a_n|<\epsilon \; \forall m,n \leq N \
+\end{align*}
+
+Für $a=-1$:
+\begin{align*}
+a^n=-1 \;oder\; a^n=1 \quad \forall n\
+\end{align*}
+...abhängig davon, ob n ungerade oder gerade ist. Offensichtlich divergiert die Folge, wie wir schon in der Vorlesung gesehen haben.\\
+
+Für $a<-1$:
+\begin{align*}
+a^n<a^m\;\forall n,m\ \;wenn\; n>m
+\end{align*}
+Die Folge ist für betrachtetes $a$ also monoton fallend. Falls Konvergenz vorhanden, muss eine untere Schranke existieren.\\
+Tatsächlich finden wir keine untere Schranke, da $n \in \mathbb{N}$ und $\mathbb{N}$ nicht nach oben beschränkt ist. Wegen der Monotonie von $(a^n)$; $a<-1$ folgt daraus, dass die Folge nicht nach unten beschränkt ist und somit auch nicht konvergent.\\
+
+Zusammenfassend lässt sich also sagen: Für das Konvergenzverhalten sind $b$ und
+$s$ unerheblich; damit die Folge konvergiert, muss $-1 < a < 1$ gelten.
 
 \subsection*{Teil c}
 
@@ -147,24 +222,27 @@ Vorrausgesetzt, $a \in ]-1,1[$
 \end{align*}
 
 \begin{align*}
-  &\lim_{n \to \infty} \left(1-\frac{1}{n}\right)^n \\
-  = &\lim_{n \to \infty} \left(\frac{n-1}{n}\right)^n \\
-  = &\lim_{n \to \infty} \left(\frac{n}{n-1}\right)^{-n} \\
-  = &\lim_{n \to \infty} \left(\frac{n}{n-1}\right)^{-n} \\
-  = &\lim_{n \to \infty} \left(1+\frac{1}{n-1}\right)^{-n} \\
-  = &\lim_{n \to \infty} \frac{1}{\left(1+\frac{1}{n-1}\right)^{n}} \\
-  = &\lim_{n \to \infty} \frac{1}{\left(1+\frac{1}{n-1}\right) \cdot \left(1+\frac{1}{n-1}\right)^{n-1}} \\
-  = &\frac{1}{\underbrace{\lim_{n \to \infty}\left(1+\frac{1}{n-1}\right)}_{= 1} \cdot \underbrace{\lim_{n \to \infty} \left(1+\frac{1}{n-1}\right)^{n-1}}_{= e}} \\
-  = &\frac{1}{e}
+  &\lim_{n \to \infty} \left(1-\frac{1}{n}\right)^n 
+  = \lim_{n \to \infty} \left(1+\frac{1}{-n}\right)^n \\
+  & =\left(\lim_{n \to \infty} \left(1+\frac{1}{-n}\right)^{-n}\right)^{-1}
+  = \left(e\right)^{-1}=\frac{1}{e}
 \end{align*}
 
 \begin{align*}
-  \lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{-n} = \frac{1}{\lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{n}} = \frac{1}{\frac{1}{e}} = e
+  \lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{-n} 
+  = \frac{1}{\lim_{n \to \infty} \left(1- \frac{1}{n}\right)^{n}} 
+  = \frac{1}{\frac{1}{e}} = e
 \end{align*}
 
 \begin{align*}
-  &\lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right)^{n} = \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \left(1-\frac{1}{n}\right)^n \\
-  = &\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \lim_{n \to \infty} \left(1-\frac{1}{n}\right)^n = e \cdot \frac{1}{e} = 1
+  & \lim_{n \to \infty} \left(1 + \frac{1}{n^2}\right)^{n}
+   = \lim_{n \to \infty} \left(1 - \frac{1}{-n^2}\right)^{n} \\
+  & =\lim_{n \to \infty} \left(\left(1 - \frac{1}{-n^2}\right)^{-n}\right)^{-1}
+  = \left(\lim_{n \to \infty} \left(1 - \frac{1}{-n^2}\right)^{-n}\right)^{-1} \\
+  & = \left(\lim_{n \to \infty} \left(1 - \frac{1}{n^2}\right)^{n}\right)^{-1} 
+  = \left(\lim_{n \to \infty} \left(\left(1 - \frac{1}{n}\right)\left(1 + \frac{1}{n}\right)\right)^{n}\right)^{-1} \\
+  & = \left(\lim_{n \to \infty} \left(1 - \frac{1}{n}\right)^{n} \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^{n}\right)^{-1} 
+  = \left(\left(\frac{1}{e}\right)\left(e\right)\right)^{-1} = 1
 \end{align*}
 
 
@@ -172,7 +250,7 @@ Vorrausgesetzt, $a \in ]-1,1[$
 \begin{align*}
   &\lim_{n \to \infty} \sqrt[3]{(n+a)(n+b)(n+c)} - n \\
   = &\lim_{n \to \infty} \frac{\sqrt[3]{(n+a)(n+b)(n+c)}^3 - n^3}{\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right)^2 + n\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right) + n^2} \\
-  = &\lim_{n \to \infty} \frac{(n+a)(n+b)(n+c) + n^3}{\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right)^2 + n\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right) + n^2} \\
+  = &\lim_{n \to \infty} \frac{(n+a)(n+b)(n+c) - n^3}{\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right)^2 + n\left(\sqrt[3]{(n+a)(n+b)(n+c)}\right) + n^2} \\
   = &\lim_{n \to \infty} \frac{n^3 + n^2(a+b+c) + n(ab+bc+ac) + abc - n^3}{\left(\sqrt[3]{n^3 + n^2(a+b+c) + n(ab+bc+ac) + abc }\right)^2 + n\left(\sqrt[3]{n^3 + n^2(a+b+c) + n(ab+bc+ac) + abc }\right) + n^2} \\
   = &\lim_{n \to \infty} \frac{n^2\left((a+b+c) + \frac{ab+bc+ac}{n} + \frac{abc}{n^2}\right)}{\sqrt[3]{n^3 \left(1 + \frac{a+b+c}{n} + \frac{ab+bc+ac}{n^2} + \frac{abc}{n^3}\right)}^2 + n\sqrt[3]{n^3 \left(1 + \frac{a+b+c}{n} + \frac{ab+bc+ac}{n^2} + \frac{abc}{n^3}\right)} + n^2} \\
   = &\lim_{n \to \infty} \frac{n^2\left((a+b+c) + \frac{ab+bc+ac}{n} + \frac{abc}{n^2}\right)}{n^2\left(\sqrt[3]{1 + \frac{a+b+c}{n} + \frac{ab+bc+ac}{n^2} + \frac{abc}{n^3}}^2 + \sqrt[3]{1 + \frac{a+b+c}{n} + \frac{ab+bc+ac}{n^2} + \frac{abc}{n^3}} + 1\right)} \\
