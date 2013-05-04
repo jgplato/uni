@@ -294,7 +294,29 @@ folgt $f(x) = Ax+B$.
 Diese Funktion beschreibt eine Gerade. Da Licht sich in Medien mit konstantem
 Brechnungsindex immer auf einer Geraden ausbreitet, muss die Lösung stimmen.
 
+\subsection*{Teil b}
 
+\begin{align*}
+  &\frac{d}{dx} \left(a(x,y) \frac{2f'}{\sqrt{1+f'^2}} \right) - y' \cdot a'(x, y) \sqrt{1+y'^2} \overset{!}{=} 0 \\
+  \Leftrightarrow \quad &\frac{d}{dx} \left(a(x,y) \frac{2y'}{\sqrt{1+y'^2}} \right) = y' \cdot a'(x, y) \sqrt{1+y'^2}
+\end{align*}
+
+Einsetzen von $a = e^y$, $a' = y' e^y$:
+
+\begin{align*}
+  \Leftrightarrow \quad &\frac{d}{dx} \left(e^y \frac{2y'}{\sqrt{1+y'^2}} \right) = y'^2 e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &\frac{2e^y(y''+y'^4+y'^2)}{(y'^2+1)^\frac{3}{2}}= y'^2 e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &2(y''+y'^4+y'^2)= y'^2 (1+y'^2)^2\\
+  \Leftrightarrow \quad &2(y''+y'^4+y'^2)= y'^2+y'^6\\
+  \Leftrightarrow \quad &2y''+2y'^4+2y'^2= y'^2+y'^6\\
+\end{align*}
+
+Die Lösung dieser Differentialgleichung ergäbe den Lichtweg. Leider können wir
+diese Differentialgleichung nicht lösen. Wolfram Alpha konnte sie leider auch
+nicht berechnen (Überschreitung der Rechenzeit).
+
+\subsection*{Teil c}
+Nicht bearbeitet.
 
 
 \end{document}
