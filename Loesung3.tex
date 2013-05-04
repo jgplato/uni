@@ -187,4 +187,30 @@ $\eta^1$-Operator sowieso, deswegen lassen wir die anderen auch gleich weg.
   &\Rightarrow \frac{\delta I[f]}{\delta f} = \cos(f(x))
 \end{align*}
 
+\subsection*{Teil c}
+\begin{align*}
+  I[f] &= \int_a^b g(x)f'(x) dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx g(x)(f' + \eta') \right|_{\eta^1}
+\end{align*}
+
+Taylor-Entwicklung ist hier nicht sinnvoll, man sieht direkt, welche Terme stehen bleiben:
+
+\begin{align*}
+  &=\int_a^b dx \eta' g(x)
+\end{align*}
+
+Nun integrieren wir partiell, um $\eta$-Terme zu erhalten:
+
+\begin{align*}
+  &=\int_a^b dx \left[\eta(x) g(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) g'(x)
+\end{align*}
+
+Die $\eta(x)$-Funktion verschwindet per definitionem in den Randbereichen, denn
+es ist $\eta(a) = 0$ und $\eta(b) = 0$. Somit fällt der erste Term weg. Die
+funktionale Ableitung lässt sich dann direkt ablesen:
+
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} = g'(x)
+\end{align*}
 \end{document}
