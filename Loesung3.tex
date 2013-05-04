@@ -203,7 +203,7 @@ Taylor-Entwicklung ist hier nicht sinnvoll, man sieht direkt, welche Terme stehe
 Nun integrieren wir partiell, um $\eta$-Terme zu erhalten:
 
 \begin{align*}
-  &=\int_a^b dx \left[\eta(x) g(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) g'(x)
+  &=\left[\eta(x) g(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) g'(x)
 \end{align*}
 
 Die $\eta(x)$-Funktion verschwindet per definitionem in den Randbereichen, denn
@@ -213,4 +213,27 @@ funktionale Ableitung lässt sich dann direkt ablesen:
 \begin{align*}
   \frac{\delta I[f]}{\delta f} = g'(x)
 \end{align*}
+
+\subsection*{Teil d}
+\begin{align*}
+  I[f] &= \int_a^b f'(x)^2 dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx (f' + \eta')^2 \right|_{\eta^1}
+  &=\left.\int_a^b dx f'^2 + 2\eta'f' + \eta'^2 \right|_{\eta^1}
+  &=\int_a^b dx 2\eta'f'
+\end{align*}
+
+Partielle Integration:
+
+\begin{align*}
+  &=\left[2\eta(x) f'(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) f''(x)
+\end{align*}
+
+Selbe Begründung wie oben: Der erste Term verschwindet, die funktionale Ableitung lässt sich ablesen:
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} = f''(x)
+\end{align*}
+
+\subsection*{Teil e}
+
 \end{document}
