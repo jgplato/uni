@@ -244,8 +244,29 @@ definieren wir kurzerhand $a := n$.
   &=\left.\int_a^b dx \; a(x, f + \eta) \sqrt{1+(f'+\eta')^2} \right|_{\eta^1}
 \end{align*}
 
-\textbf{Und jetzt haben wir ein Problem:} Das Integral enthält sowohl $\eta$-
-als auch $\eta'$-Terme. Wäre $a(x, f+\eta)$ konstant, wäre es kein Problem nach
-$\eta'$ zu taylorn, partielle Integration, fertig. Aber da?
+Da hier nur Terme in mit $f$, $f'$ und $x$ vorkommen, bietet sich zur Lösung
+die Euler-Lagrange-Gleichung an. Sei $L = a(x, f) \sqrt{1+f'^2}$
+
+\begin{align*}
+  \frac{d}{dx} \frac{\partial L}{\partial f'} &= \frac{d}{dx} \left(\underbrace{\frac{\partial}{\partial f'} (a(x, f))}_{=0} \sqrt{1+f'^2} + a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'2}} \right)
+\end{align*}
+
+\begin{align*}
+  \frac{\partial L}{\partial f} &= \frac{\partial}{\partial f} \left(a(x, f)\right) \sqrt{1+f'^2} + a(x, f) \underbrace{\frac{\partial}{\partial f} \sqrt{1+f'^2}}_{=0} \\
+  &= \frac{\partial}{\partial f} \left(a(x, f)\right) \sqrt{1+f'^2} \\
+  &= f' \cdot a'(x, f) \sqrt{1+f'^2}
+\end{align*}
+
+Und damit ist:
+
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} &= \frac{d}{dx} \frac{\partial L}{\partial f'} - \frac{\partial L}{\partial f} \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'2}} \right) - f' \cdot a'(x, f) \sqrt{1+f'^2}
+\end{align*}
+
+\section*{Aufgabe 4}
+\subsection*{Teil a}
 
 \end{document}
