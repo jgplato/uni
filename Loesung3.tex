@@ -137,4 +137,54 @@ $\ddot{r}$ konstant sein.
 \subsection*{Teil d}
 Nicht bearbeitet.
 
+\section*{Aufgabe 3}
+Das angegebene Beispiel erschien uns logisch etwas inkonsistent, weswegen wir
+uns an dem Vorgehen aus dem Buch "Physik mit Bleistift" orientieren möchten.
+
+Dort ist die Schreibweise anders. Gegeben sei ein Funktional $I[f]$. Die
+funktionale Ableitung ergibt sich dann nicht wie im Beispiel durch $\delta I[f]
+= I[f_0 - \delta f] - I[f_0]$, wobei im Term $I[f_0 - \delta f]$ nur Terme bis
+zur maximal ersten Ordnung erhalten bleiben, sondern durch
+
+\begin{align*}
+  \delta I = \left.I[f_0 - \eta]\right|_{\eta^1}
+\end{align*}
+
+Wobei $\eta^1$ bedeutet, dass ausschließlich Terme mit linearem $\eta$ erhalten
+bleiben. Terme geringerer Ordnung ($\eta^0$) und höherer Ordnung ($\eta^2$,
+$\eta^3$, \dots) entfallen.
+
+Sofern die Terme dabei nicht frei stehen, führen wir eine Taylor-Entwicklung
+(z.B. Aufgabenteil b) durch, ansonsten ist diese natürlich unnötig (z.B.
+Aufgabenteil a).
+
+\subsection*{Teil a}
+
+\begin{align*}
+  I[f] &= \int_a^b f(x)^2 dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx (f+\eta)^2 \right|_{\eta^1} \\
+  &=\left.\int_a^b dx f^2 + 2 \eta f + \eta^2 \right|_{\eta^1} \\
+  &=\int_a^b dx \eta 2 f
+  &\Rightarrow \frac{\delta I[f]}{\delta f} = 2f(x)
+\end{align*}
+
+\subsection*{Teil b}
+
+\begin{align*}
+  I[f] &= \int_a^b sin(f(x)) dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx sin(f+\eta) \right|_{\eta^1}
+\end{align*}
+
+Hier entwickeln wir nun in eine Taylor-Reihe um freistehende $\eta^1$-Terme zu
+erhalten. Wir benötigen nur den Term erster Ordnung, den Rest frisst unser
+$\eta^1$-Operator sowieso, deswegen lassen wir die anderen auch gleich weg.
+
+\begin{align*}
+  &=\left.\int_a^b dx \dots + \frac{\left(\frac{\partial}{\partial \eta} \sin(f+\eta)\right)(\eta=0)}{1!} (\eta - 0)^1 + \dots\quad\right|_{\eta^1} \\
+  &=\int_a^b dx \eta \cos(f) \\
+  &\Rightarrow \frac{\delta I[f]}{\delta f} = \cos(f(x))
+\end{align*}
+
 \end{document}
