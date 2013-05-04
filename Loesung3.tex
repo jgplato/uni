@@ -235,5 +235,17 @@ Selbe Begründung wie oben: Der erste Term verschwindet, die funktionale Ableitu
 \end{align*}
 
 \subsection*{Teil e}
+Da $\eta$ und $n$ schrecklich schwer außeinander zu halten sind,
+definieren wir kurzerhand $a := n$.
+
+\begin{align*}
+  I[f] &= \int_a^b a(x,f(x)) \sqrt{1+f'(x)^2} dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx \; a(x, f + \eta) \sqrt{1+(f'+\eta')^2} \right|_{\eta^1}
+\end{align*}
+
+\textbf{Und jetzt haben wir ein Problem:} Das Integral enthält sowohl $\eta$-
+als auch $\eta'$-Terme. Wäre $a(x, f+\eta)$ konstant, wäre es kein Problem nach
+$\eta'$ zu taylorn, partielle Integration, fertig. Aber da?
 
 \end{document}
