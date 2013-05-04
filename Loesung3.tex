@@ -250,7 +250,7 @@ die Euler-Lagrange-Gleichung an. Sei $L = a(x, f) \sqrt{1+f'^2}$
 \begin{align*}
   \frac{d}{dx} \frac{\partial L}{\partial f'} &= \frac{d}{dx} \left(\underbrace{\frac{\partial}{\partial f'} (a(x, f))}_{=0} \sqrt{1+f'^2} + a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
   &= \frac{d}{dx} \left(a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
-  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'2}} \right)
+  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'^2}} \right)
 \end{align*}
 
 \begin{align*}
@@ -263,10 +263,38 @@ Und damit ist:
 
 \begin{align*}
   \frac{\delta I[f]}{\delta f} &= \frac{d}{dx} \frac{\partial L}{\partial f'} - \frac{\partial L}{\partial f} \\
-  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'2}} \right) - f' \cdot a'(x, f) \sqrt{1+f'^2}
+  &= \frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'^2}} \right) - f' \cdot a'(x, f) \sqrt{1+f'^2}
 \end{align*}
 
 \section*{Aufgabe 4}
 \subsection*{Teil a}
+
+Ausgehend von der Lösung in der letzten Ausgabe ergibt sich aus $a() = c$, dass
+$a'() = 0$. Das Licht nimmt den kürzesten Weg, deswegen muss das Funktional
+minimal sein und damit die Ableitung $=0$. Ob ein Minium oder ein Maximum
+vorliegt, könnte man mithilfe der zweiten funktionalen Ableitung prüfen,
+betrachten wir allerdings als sinnlos, da das Ergebnis mit der Erwartung
+übereinstimmt.
+
+\begin{align*}
+  &\frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'^2}} \right) - f' \cdot a'(x, f) \sqrt{1+f'^2} \overset{!}{=} 0 \\
+  \Leftrightarrow \quad &\frac{d}{dx} \left(a(x,f) \frac{2f'}{\sqrt{1+f'^2}} \right) = f' \cdot a'(x, f) \sqrt{1+f'^2}
+\end{align*}
+
+Einsetzen von $a = c$, $a' = 0$:
+
+\begin{align*}
+  \Leftrightarrow \quad &\frac{d}{dx} \left(c \frac{2f'}{\sqrt{1+f'^2}} \right) = 0
+\end{align*}
+
+Das braucht nicht explizit ausgerechnet zu werden. Damit der Term null wird,
+muss über dem Bruchstrich eine Konstante stehen, also muss $f'(x) = A$. Daraus
+folgt $f(x) = Ax+B$.
+
+Diese Funktion beschreibt eine Gerade. Da Licht sich in Medien mit konstantem
+Brechnungsindex immer auf einer Geraden ausbreitet, muss die Lösung stimmen.
+
+
+
 
 \end{document}
