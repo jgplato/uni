@@ -1,0 +1,60 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 3. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+
+Später.
+
+\section*{Aufgabe 2}
+\subsection*{Teil a}
+
+Für die Energie im Kondensator gilt:
+
+\begin{align*}
+  E = \frac{1}{2} C U^2
+\end{align*}
+
+Die Kapazität steigt linear mit steigender Dielektrizitätskonstante. Dementsprechend ist also
+
+\begin{align*}
+  C_{\text{neu}} = \epsilon_r C_\text{alt}
+\end{align*}
+
+Einsetzen und umstellen:
+
+\begin{align*}
+  &E = \frac{1}{2} \epsilon_r C_\text{alt} U^2 \\
+  \Leftrightarrow \quad &\epsilon_r = \frac{2E}{C_\text{alt} U^2}
+\end{align*}
+
+Durch Einsetzen der gegebenen Werte erhält man:
+
+\begin{align*}
+  \epsilon_r = \frac{2 \cdot 10 \cdot 10^{-6}\;\joule}{10 \cdot 10^{-12}\; \farad \left(700\; \volt\right)^2} \approx 4{,}08\; \farad\per\meter
+\end{align*}
+
+Diese Dielekrizitätszahl sollte ein Material haben, damit der Kondensator die
+angegebene Energiemenge speichern kann.
+
+\end{document}
