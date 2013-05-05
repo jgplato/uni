@@ -43,15 +43,15 @@ Sei $T_1$ die kinetische Energie des Klotzes und $T_2$ die des Keils. Die Masse
 des Klotzes sei $m_1$, die Masse des Keils sei $m_2$.
 
 \begin{align*}
-  T_1 = \frac{1}{2} m_1 \left(\dot{x_1}^2 + \dot{y_1}^2\right) \\
-  T_2 = \frac{1}{2} m_2 \dot{x_2}^2
+  T_1 &= \frac{1}{2} m_1 \left(\dot{x_1}^2 + \dot{y_1}^2\right) \\
+  T_2 &= \frac{1}{2} m_2 \dot{x_2}^2
 \end{align*}
 
 Durch Einsetzen der Zwangsbedingungen erhalten wir:
 
 \begin{align*}
-  T_1 = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha \\
-  T_2 = \frac{1}{2} m_2 \dot{x_2}^2
+  T_1 &= \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha \\
+  T_2 &= \frac{1}{2} m_2 \dot{x_2}^2
 \end{align*}
 
 Für die kinetische Energie insgesamt dann also:
@@ -97,19 +97,12 @@ Für $x_2$ ergibt sich:
 \begin{align*}
   \frac{\partial L}{\partial x_2} &= mg \sin \alpha \\
   \frac{d}{dt}\frac{\partial L}{\partial \dot{x_2}} &= \frac{d}{dt} m_2\dot{x_2} \sin^2 \alpha - m_2 \dot{x_1} \sin^2 \alpha + m_2\dot{x_2} \\
-  \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha
+  &= \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha
 \end{align*}
 
 \begin{align*}
   \Rightarrow\quad \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha = mg \sin \alpha
 \end{align*}
-
-\begin{align}
-  \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = \frac{d}{dt} (m_1+m_2)\dot{x} + m_2\dot{r} = (m_1+m_2)\ddot{x} + m_2\ddot{r} \cos \alpha \\
-  \frac{\partial L}{\partial x} = 0 \\
-  \Rightarrow (m_1+m_2)\ddot{x} = -m_2 \ddot{r} \cos \alpha
-  \label{x_component}
-\end{align}
 
 Um zu zeigen, dass beide Massen konstant beschleunigt werden, addieren wir die beiden Bewegungsgleichungen:
 
@@ -123,7 +116,7 @@ Nicht bearbeitet.
 
 \section*{Aufgabe 3}
 Das angegebene Beispiel erschien uns logisch etwas inkonsistent, weswegen wir
-uns an dem Vorgehen aus dem Buch ''Physik mit Bleistift'' orientieren möchten.
+uns an dem Vorgehen aus dem Buch ``Physik mit Bleistift'' orientieren möchten.
 
 Dort ist die Schreibweise anders. Gegeben sei ein Funktional $I[f]$. Die
 funktionale Ableitung ergibt sich dann nicht wie im Beispiel durch $\delta I[f]
