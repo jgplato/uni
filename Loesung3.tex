@@ -148,6 +148,48 @@ Lagrange-Funktion:
     &= \frac{m}{2} (B^2 + 4BCt + C^2t^2) + F(Bt+Ct^2)
 \end{align*}
 
+\subsection*{Teil b}
+\begin{align*}
+  \int_0^{t_a} dt L &= \int_0^{t_a} dt \frac{m}{2} (B^2 + 4BCt + C^2t^2) + F(Bt+Ct^2) \\
+                  &= \left[\frac{m}{2} \left(B^2t + 2BCt^2 + C^2\frac{t^3}{3}\right) + F\left(B\frac{t}{2}+C\frac{t^3}{3}\right)\right]_{t=0}^{t=t_a} \\
+                  &= \frac{m}{2} \left(B^2t_a + 2BCt_a^2 + C^2\frac{t_a^3}{3}\right) + F\left(B\frac{t_a}{2}+C\frac{t_a^3}{3}\right)
+\end{align*}
+
+\subsection*{Teil c}
+Die Werte, die das Wirkungsintegral extremal werden lassen, erhält man durch bilden der Ableitungen und Nullsetzen:
+\begin{align*}
+  \frac{\partial I[x]}{\partial B} \overset{!}{=} 0 \\
+  \frac{\partial I[x]}{\partial C} \overset{!}{=} 0
+\end{align*}
+
+Das Ergebnis setzt man dann in die ursprüngliche Gleichung ein und kriegt das
+selbe heraus, wie beim Lösen des Problems mit Newtonscher Mechanik.
+
+Lösen des Problems mit Newtonscher Mechanik:
+\begin{align*}
+  &F = m\ddot{x} \\
+  \Rightarrow & x(t) = \frac{F}{m}t^2 + c_1t + c_2
+\end{align*}
+
+Wegen $x(0) = 0$ muss $c_2 = 0$:
+
+\begin{align*}
+  \Rightarrow & x(t) = \frac{F}{m}t^2 + c_1t
+\end{align*}
+
+Einsetzen von $x(t_a) = a$ um $c_1$ zu ermitteln:
+\begin{align*}
+  &\frac{F}{m}t^2 + c_1t_a = a \\
+  \Leftrightarrow\quad & c_1t_a = a - \frac{F}{m}t_a^2 \\
+  \Leftrightarrow\quad & c_1 = \frac{a - \frac{F}{m}t_a^2}{t_a} \\
+\end{align*}
+
+Einsetzen des Ergebnisses in die ursprüngliche Bewegungsgleichung:
+
+\begin{align*}
+  x(t) = \frac{a - \frac{F}{m}t_a^2}{t_a}t + \frac{F}{m}t^2
+\end{align*}
+
 \section*{Aufgabe 3}
 Das angegebene Beispiel erschien uns logisch etwas inkonsistent, weswegen wir
 uns an dem Vorgehen aus dem Buch ``Physik mit Bleistift'' orientieren möchten.
