@@ -69,7 +69,7 @@ Eine potentielle Energie erhält nur der Klotz, denn der Keil ändert seine Höh
 Damit ist die Lagrangefunktion insgesamt:
 
 \begin{align*}
-  L = T -V \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2} m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2(\alpha) + \frac{1}{2} m_2 \dot{x_2}^2 - m_2g (x_1 - x_2) \sin \alpha
+  L = T -V = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2} m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2(\alpha) + \frac{1}{2} m_2 \dot{x_2}^2 - m_2g (x_1 - x_2) \sin \alpha
 \end{align*}
 
 \subsection*{Teil c}
@@ -86,10 +86,7 @@ Für die $x_1$-Koordinate:
   \frac{\partial L}{\partial x_1} &= -mg \sin \alpha \\
   \frac{d}{dt}\frac{\partial L}{\partial \dot{x_1}} &= \frac{d}{dt} m_1 \dot{x_1} + m_2\dot{x_1}\sin^2 \alpha - m_2\dot{x_2} \sin^2 \alpha \\
                                                   &= m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha \\
-\end{align*}
-
-\begin{align*}
-  \Rightarrow\quad m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha = -mg \sin \alpha
+  \Rightarrow\quad &m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha = -mg \sin \alpha
 \end{align*}
 
 Für $x_2$ ergibt sich:
@@ -97,19 +94,18 @@ Für $x_2$ ergibt sich:
 \begin{align*}
   \frac{\partial L}{\partial x_2} &= mg \sin \alpha \\
   \frac{d}{dt}\frac{\partial L}{\partial \dot{x_2}} &= \frac{d}{dt} m_2\dot{x_2} \sin^2 \alpha - m_2 \dot{x_1} \sin^2 \alpha + m_2\dot{x_2} \\
-  &= \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha
-\end{align*}
-
-\begin{align*}
-  \Rightarrow\quad \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha = mg \sin \alpha
+  &= \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha \\
+  \Rightarrow\quad &\ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha = mg \sin \alpha
 \end{align*}
 
 Um zu zeigen, dass beide Massen konstant beschleunigt werden, addieren wir die beiden Bewegungsgleichungen:
 
 \begin{align*}
-&\ddot{x_1}(m_1+m_2 \sin^2 \alpha -m_2 \sin \alpha)+\ddot{x_2}(m_2+m_2 \sin^2 \alpha - m_2 \sin^2 \alpha)=mg \sin \alpha - mg \sin \alpha \\
+&\ddot{x_1}(m_1+m_2 \sin^2 \alpha -m_2 \sin^2 \alpha)+\ddot{x_2}(m_2+m_2 \sin^2 \alpha - m_2 \sin^2 \alpha)=mg \sin \alpha - mg \sin \alpha \\
 \Leftrightarrow\quad & \ddot{x_1} m_1 = -\ddot{x_2} m_2
 \end{align*}
+
+
 
 \subsection*{Teil d}
 Nicht bearbeitet.
