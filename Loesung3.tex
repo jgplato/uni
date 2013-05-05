@@ -23,59 +23,53 @@ Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
 \section*{Aufgabe 1}
+
 \subsection*{Teil a}
+Für den Klotz wählen wir die Koordinaten $(x_1, y_1)$, für den Keil die
+Koordinaten $(x_2, y_2)$, jeweils vom Ursprung aus.
 
-In der Aufgabe ist festgelegt, dass die $x$-Position des Keils durch die Lage
-seiner Spitze festgelegt werden soll. Da der Keil auf einer ebenen Unterlage
-ist, ist er in $y$-Richtung nicht beweglich (Zwangbedingung: $y=0$), so dass
-sich die Position durch $x$ allein festlegen lässt. Von der Skizze des Blattes
-weichen wir allerdings ab und spiegeln das Problem an der $y$-Achse, so dass
-der Winkel zur anderen Seite offen ist. Des Ergebnis bleibt das selbe.
+Der Keil bewegt sich nur auf seiner Unterlage. Der Klotz hingegen nur auf der
+Schräge des Keils. Dies führt zu den folgenden Zwangsbedingungen:
 
-Der Klotz kann sich nur auf der Oberfläche des Keils entlang bewegen. Aufgrund
-der Spiegelung ergibt sich dann folgende Gleichung, die auch eine
-Zwangsbedingung darstellt.
 
 \begin{align*}
-  \vec{r} =  r \begin{pmatrix} \cos \alpha \\ \sin \alpha \end{pmatrix}
+  y_1 &= (x1-x2) \sin \alpha \\
+  y_2 &= 0
 \end{align*}
-
-Die unabhängigen Koordindaten lauten also $x$ und $r$.
 
 \subsection*{Teil b}
 
-Sei $T_x$ die kinetische Energie des Keils und $T_r$ die des Klotzes. Bei $T_r$
-ist zu beachten, dass sich die Geschwindigkeit des Klotzes gegenüber dem
-Nullpunkt durch Vektoraddition der Geschwindigkeit des Keils gegenüber dem
-Nullpunkt und des Klotzes gegenüber dem Keil ergibt. Beim Auflösen der
-Quadrierten Klammer ergibt sich ein Skalarprodukt, dass wir mit $\vec{a} \cdot
-\vec{b} = |a| |b| \cos \theta$ lösen. $\theta$ ist dabei der Winkel zwischen
-den Vektoren, der genau mit unserem $\alpha$ übereinstimmt. Sieht man aber
-auch, wenn man die Vektoren komponentenweise ausmultipliziert.
+Sei $T_1$ die kinetische Energie des Klotzes und $T_2$ die des Keils. Die Masse
+des Klotzes sei $m_1$, die Masse des Keils sei $m_2$.
 
 \begin{align*}
-  T &= T_x + T_r \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2} \left(\dot{\vec{x}} + \dot{\vec{r}}\right)^2 \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}(\dot{x}^2 + \dot{r}^2 + 2\dot{\vec{x}}\cdot\dot{\vec{r}}) \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}(\dot{x}^2 + \dot{r}^2 + 2\dot{x}\dot{r} \cos \alpha) \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha
+  T_1 = \frac{1}{2} m_1 \left(\dot{x_1}^2 + \dot{y_1}^2\right) \\
+  T_2 = \frac{1}{2} m_2 \dot{x_2}^2
 \end{align*}
 
-Das Gravitationspotential ist $V(y) = mgy$. Sei $V_x$ die potentielle Energie
-des Keils und $V_r$ die des Klotzes. $V_x = 0$, denn die $y$-Koordinate des
-Klotzes verschwindet aufgrund der Zwangsbedingung.
+Durch Einsetzen der Zwangsbedingungen erhalten wir:
 
 \begin{align*}
-  V &= V_x + V_r \\
-    &= 0 + m_2gr \sin \alpha
+  T_1 = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha \\
+  T_2 = \frac{1}{2} m_2 \dot{x_2}^2
 \end{align*}
 
-Für die Lagrange-Funktion $L = T - V$ ergibt sich dann
+Für die kinetische Energie insgesamt dann also:
 
 \begin{align*}
-  L &= T - V \\
-    &= \frac{m_1}{2}\dot{x}^2 + \frac{m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha - m_2gr \sin \alpha \\
-    &= \frac{m_1+m_2}{2}\dot{x}^2 + \frac{m_2}{2}\dot{r}^2 + m_2\dot{x}\dot{r} \cos \alpha - m_2gr \sin \alpha
+  T = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha + \frac{1}{2} m_2 \dot{x_2}^2
+\end{align*}
+
+Eine potentielle Energie erhält nur der Klotz, denn der Keil ändert seine Höhe nicht. Somit ist:
+
+\begin{align*}
+  V = V_2 = m_2gy_2 = m_2g (x_1 - x_2) \sin \alpha
+\end{align*}
+
+Damit ist die Lagrangefunktion insgesamt:
+
+\begin{align*}
+  L = T -V \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2} m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2(\alpha) + \frac{1}{2} m_2 \dot{x_2}^2 - m_2g (x_1 - x_2) \sin \alpha
 \end{align*}
 
 \subsection*{Teil c}
@@ -86,7 +80,29 @@ Die Bewegungsgleichungen ergeben sich durch Anwendung der Euler-Lagrange-Gleichu
   \left(\frac{d}{dt}\frac{\partial}{\partial \dot{q_i}} - \frac{\partial}{\partial q_i}\right) L = 0
 \end{align*}
 
-Für die $x$-Koordinate ist:
+Für die $x_1$-Koordinate:
+
+\begin{align*}
+  \frac{\partial L}{\partial x_1} &= -mg \sin \alpha \\
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x_1}} &= \frac{d}{dt} m_1 \dot{x_1} + m_2\dot{x_1}\sin^2 \alpha - m_2\dot{x_2} \sin^2 \alpha \\
+                                                  &= m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha \\
+\end{align*}
+
+\begin{align*}
+  \Rightarrow\quad m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha = -mg \sin \alpha
+\end{align*}
+
+Für $x_2$ ergibt sich:
+
+\begin{align*}
+  \frac{\partial L}{\partial x_2} &= mg \sin \alpha \\
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x_2}} &= \frac{d}{dt} m_2\dot{x_2} \sin^2 \alpha - m_2 \dot{x_1} \sin^2 \alpha + m_2\dot{x_2} \\
+  \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha
+\end{align*}
+
+\begin{align*}
+  \Rightarrow\quad \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha = mg \sin \alpha
+\end{align*}
 
 \begin{align}
   \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = \frac{d}{dt} (m_1+m_2)\dot{x} + m_2\dot{r} = (m_1+m_2)\ddot{x} + m_2\ddot{r} \cos \alpha \\
@@ -95,44 +111,12 @@ Für die $x$-Koordinate ist:
   \label{x_component}
 \end{align}
 
-Für die $r$-Koordinate:
-
-\begin{align}
-  \frac{d}{dt}\frac{\partial L}{\partial \dot{r}} = \frac{d}{dt} m_2\dot{r} + m_2\dot{x} \cos \alpha = m_2\ddot{r} + m_2\ddot{x} \cos \alpha \\
-  \frac{\partial L}{\partial r} = -m_2g \sin \alpha \\
-  \Rightarrow m_2\ddot{r} + m_2\ddot{x} \cos \alpha = -m_2g \sin \alpha
-  \label{r_component}
-\end{align}
-
-Um nun zu zeigen, dass beide Massen konstant beschleunigt werden, müssen wir
-zeigen dass $\ddot{r} = \operatorname{const.}$ und $\ddot{x} =
-\operatorname{const.}$.
-
-Dazu stellen wir (\ref{r_component}) nach $\ddot{r}$ um:
-
-\begin{align}
-  &m_2\ddot{r} + m_2\ddot{x} \cos \alpha = -m_2g \sin \alpha \\
-  \Leftrightarrow \qquad &\ddot{r} + \ddot{x} \cos \alpha = -g \sin \alpha \\
-  \Leftrightarrow \qquad &\ddot{r} = -\ddot{x} \cos \alpha -g \sin \alpha \label{solved_for_r}
-\end{align}
-
-Und setzen das Ergebnis in (\ref{x_component}) ein:
+Um zu zeigen, dass beide Massen konstant beschleunigt werden, addieren wir die beiden Bewegungsgleichungen:
 
 \begin{align*}
-  &(m_1+m_2)\ddot{x} = -m_2 \ddot{r} \cos \alpha \\
-  \Leftrightarrow \qquad &(m_1+m_2)\ddot{x} = -m_2 (-\ddot{x} \cos \alpha -g \sin \alpha) \cos \alpha \\
-  \Leftrightarrow \qquad &(m_1+m_2)\ddot{x} = m_2 \ddot{x} \cos \alpha + m_2 g \sin \alpha \cos \alpha \\
-  \Leftrightarrow \qquad &(m_1+m_2-m_2 \cos \alpha)\ddot{x} = m_2 g \sin \alpha \cos \alpha \\
-  \Leftrightarrow \qquad &\ddot{x} = \frac{m_2 g \sin \alpha \cos \alpha}{m_1+m_2-m_2 \cos \alpha}
+&\ddot{x_1}(m_1+m_2 \sin^2 \alpha -m_2 \sin \alpha)+\ddot{x_2}(m_2+m_2 \sin^2 \alpha - m_2 \sin^2 \alpha)=mg \sin \alpha - mg \sin \alpha \\
+\Leftrightarrow\quad & \ddot{x_1} m_1 = -\ddot{x_2} m_2
 \end{align*}
-
-Diese Gleichung ist ziemlich häßlich, muss aber nicht weiter vereinfacht
-werden. Da auf der rechten Seite nur noch Konstanten stehen, muss $\ddot{x} =
-\operatorname{const.}$.
-
-Wenn $\ddot{x}$ konstant ist, muss aber gemäß (\ref{solved_for_r}) auch
-$\ddot{r}$ konstant sein.
-
 
 \subsection*{Teil d}
 Nicht bearbeitet.
