@@ -268,12 +268,12 @@ Und damit ist:
 \section*{Aufgabe 4}
 \subsection*{Teil a}
 
-Ausgehend von der Lösung in der letzten Ausgabe ergibt sich aus $a() = c$, dass
-$\frac{\partial a}{\partial f} = 0$. Das Licht nimmt den kürzesten Weg, deswegen muss das Funktional
-minimal sein und damit die Ableitung $=0$. Ob ein Minium oder ein Maximum
-vorliegt, könnte man mithilfe der zweiten funktionalen Ableitung prüfen,
-betrachten wir allerdings als sinnlos, da das Ergebnis mit der Erwartung
-übereinstimmt.
+Ausgehend von der Lösung aus der vorherigen Aufgabe ergibt sich aus $a() = c$,
+dass $\frac{\partial a}{\partial f} = 0$. Das Licht nimmt den kürzesten Weg,
+deswegen muss das Funktional minimal sein und damit die Ableitung $=0$. Ob ein
+Minium oder ein Maximum vorliegt, könnte man mithilfe der zweiten funktionalen
+Ableitung prüfen, betrachten wir allerdings als sinnlos, da das Ergebnis mit
+der Erwartung übereinstimmt.
 
 \begin{align*}
   &\frac{d}{dx} \left(a(x,f) \frac{f'}{\sqrt{1+f'^2}} \right) - \frac{\partial a(x,f)}{\partial f} \sqrt{1+f'^2} \overset{!}{=} 0 \\
@@ -296,26 +296,39 @@ Brechnungsindex immer auf einer Geraden ausbreitet, muss die Lösung stimmen.
 
 \subsection*{Teil b}
 
-\begin{align*}
-  &\frac{d}{dx} \left(a(x,y) \frac{2f'}{\sqrt{1+f'^2}} \right) - y' \cdot a'(x, y) \sqrt{1+y'^2} \overset{!}{=} 0 \\
-  \Leftrightarrow \quad &\frac{d}{dx} \left(a(x,y) \frac{2y'}{\sqrt{1+y'^2}} \right) = y' \cdot a'(x, y) \sqrt{1+y'^2}
-\end{align*}
-
-Einsetzen von $a = e^y$, $a' = y' e^y$:
+Ausgehend von der Lösung aus Aufgabe 3e ergibt sich aus $a(x,y) = e^y$, dass
+$\frac{\partial a}{\partial y} = e^y$. Eingesetzt führt dies zur
+folgenden Differentialgleichung, die wir gleich null setzen, um das Minimum des
+Funktionals zu finden.
 
 \begin{align*}
-  \Leftrightarrow \quad &\frac{d}{dx} \left(e^y \frac{2y'}{\sqrt{1+y'^2}} \right) = y'^2 e^y \sqrt{1+y'^2} \\
-  \Leftrightarrow \quad &\frac{2e^y(y''+y'^4+y'^2)}{(y'^2+1)^\frac{3}{2}}= y'^2 e^y \sqrt{1+y'^2} \\
-  \Leftrightarrow \quad &2(y''+y'^4+y'^2)= y'^2 (1+y'^2)^2\\
-  \Leftrightarrow \quad &2(y''+y'^4+y'^2)= y'^2+y'^6\\
-  \Leftrightarrow \quad &2y''+2y'^4+2y'^2= y'^2+y'^6\\
+  &\frac{d}{dx} \left(e^y \frac{f'}{\sqrt{1+f'^2}} \right) - e^y \sqrt{1+y'^2} \overset{!}{=} 0 \\
+  \Leftrightarrow \quad &\frac{d}{dx} \left(e^y \frac{f'}{\sqrt{1+f'^2}} \right) = e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &\frac{e^y \left(y''(x) + y'(x)^4 + y'(x)^2\right)}{(y'(x)^2 + 1)^\frac{3}{2}} = e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &\frac{\left(y''(x) + y'(x)^4 + y'(x)^2\right)}{(y'(x)^2 + 1)^\frac{3}{2}} = \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &y''(x) + y'(x)^4 + y'(x)^2 = \left(1+y'^2\right)^2 \\
+  \Leftrightarrow \quad &y''(x) + y'(x)^4 + y'(x)^2 = 1+2y'^2+y'(x)^4 \\
+  \Leftrightarrow \quad &y''(x) - y'(x)^2 = 1
 \end{align*}
 
-Die Lösung dieser Differentialgleichung ergäbe den Lichtweg. Leider können wir
-sie nicht lösen. Auch Wolfram Alpha nicht (Überschreitung der Rechenzeit).
+Diese Differentialgleichung ist zwar generell auch per Hand lösbar, jedoch
+überlassen wir dies unter Anbetracht der bisherigen Schwierigkeit dieses
+Aufgabenblattes doch lieber Wolfram Alpha und bitten um Verständnis.
+
+Die Lösung lautet
+
+\begin{align*}
+  y(x) = A - \ln \cos\left(B + x\right)
+\end{align*}
+
+Diese Kurve wollen wir auch nicht weiter interpretieren.
 
 \subsection*{Teil c}
-Nicht bearbeitet.
-
+Eine Fata Morgana ist eine Luftspiegelung. Verbunden damit ist für den
+umherirrenden Wüstenforscher die Hoffnung, die rettende Oase zu erreichen,
+bevor er verdurstet. Sollte der Leser Schwierigkeiten haben, sich in eine
+solche Situation hineinzuversetzen, möge er sich vorstellen, er sei
+Physikstudent im 2. Semester und müsste diesen Aufgabenzettel in einer Woche
+bearbeiten.
 
 \end{document}
