@@ -24,7 +24,62 @@ Markus Fenske, Tutor: Dr. Marko Wietstruk
 \end{center}
 \section*{Aufgabe 1}
 
-Später.
+\subsection*{Teil a}
+Die elektrische Verschiebungsdichte existiert überall und ist konstant. Damit
+ist klar, dass es egal ist, ob die Platte mittig oder an der Seite eingeschoben
+wird. Ich gehe von der Seite aus. Damit ergibt sich für die Teilspannungen in
+Glas ($U_G$) und in Luft($U_L$):
+
+\begin{align*}
+  U &= U_G + U_L \\
+    &= E_G \cdot d + E_L \cdot (a-d) \\
+    &= \frac{D}{\epsilon_r \epsilon_0} d + \frac{D}{\epsilon_0} (a-d) \\
+    &= \frac{E_G}{\epsilon_r} d + E_L \cdot (a-d)
+\end{align*}
+
+Die Teilspannung in Luft ist:
+\begin{align*}
+  U_L &= E_L \cdot (a-d) \\
+      &= \frac{U (a-d)A}{(a-d) + \frac{d}{\epsilon_r}} \\
+      &= \frac{2500 \volt \cdot 0{,}0055 \meter}{0{,}0055 \meter \cdot \frac{0{,}0025 \meter}{7{,} 5}}
+      &\approx 2357 \volt
+\end{align*}
+
+Die Teilspannung in Glas muss also entsprechend sein:
+
+\begin{align*}
+  U_G = U_0 - U_L \approx 143 \volt
+\end{align*}
+
+\subsection*{Teil b}
+
+Die Feldstärke ist wegen der Homogenität
+
+\begin{align*}
+  E_L = \frac{U}{(a-d) + \frac{d}{\epsilon_r}} \approx 429 \kilo\volt\per\meter \\
+  E_G = \frac{E}{\epsilon_r} \approx 57 \kilo\volt\per\meter
+\end{align*}
+
+\subsection*{Teil c}
+Der Kondensator entspricht einer Reihenschaltung, womit:
+
+\begin{align*}
+  C_{ges} &= \frac{1}{\frac{1}{C_L} + \frac{1}{C_G}} \\
+  &= \frac{1}{\frac{d}{A\epsilon_0 \epsilon_r} + \frac{(d-a)}{A\epsilon_0}} \\
+  &\approx 1{,}52\;\pico\farad
+\end{align*}
+
+\subsection*{Teil d}
+Nicht bearbeitet.
+
+\subsection*{Teil e}
+\begin{align*}
+  w = \frac{W}{V} = \frac{\frac{1}{2} C U^2}{Ad} \approx 5938\;\milli\joule\per\meter^3
+\end{align*}
+
+\subsection*{Teil f}
+Nicht bearbeitet.
+
 
 \section*{Aufgabe 2}
 \subsection*{Teil a}
