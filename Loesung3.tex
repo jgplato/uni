@@ -51,10 +51,46 @@ Einsetzen und umstellen:
 Durch Einsetzen der gegebenen Werte erhält man:
 
 \begin{align*}
-  \epsilon_r = \frac{2 \cdot 10 \cdot 10^{-6}\;\joule}{10 \cdot 10^{-12}\; \farad \left(700\; \volt\right)^2} \approx 4{,}08\; \farad\per\meter
+  \epsilon_r = \frac{2 \cdot 10 \cdot 10^{-6}\;\joule}{10 \cdot 10^{-12}\; \farad \left(700\; \volt\right)^2} \approx \underline{4{,}08\; \farad\per\meter}
 \end{align*}
 
 Diese Dielekrizitätszahl sollte ein Material haben, damit der Kondensator die
 angegebene Energiemenge speichern kann.
+
+\subsection*{Teil b}
+
+Für die Kapazität im Plattenkondensator gilt
+
+\begin{align*}
+  C = \epsilon_0 \epsilon_r \frac{A}{d}
+\end{align*}
+
+Für die Energie im Kondensator:
+
+\begin{align*}
+  E = \frac{1}{2} C U^2
+\end{align*}
+
+
+Setzte man die Kapazität ein, erhält man also:
+
+\begin{align*}
+  E = \frac{1}{2} \epsilon_0 \epsilon_r \frac{A}{d}  U^2
+\end{align*}
+
+Entfernt man die Platte, ist $\epsilon_r = 1$. Das bedeutet:
+
+\begin{align*}
+  \Delta E &= E_\text{vorher} - E_\text{nachher}  \\ 
+           &= \frac{1}{2} \epsilon_0 \epsilon_r \frac{A}{d}  U^2 - \frac{1}{2} \epsilon_0 \frac{A}{d}  U^2 \\
+           &= \frac{1}{2} \epsilon_0 (\epsilon_r - 1) \frac{A}{d}  U^2
+\end{align*}
+
+Es ist also Energie nötig, um die Platte zu entfernen. Diese muss mechanisch
+aufgebracht werden, also ist $W = \Delta E$. Einsetzen und ausrechnen:
+
+\begin{align*}
+  W = \frac{1}{2} 8{,}85 \cdot 10^{-12} \;\farad\per\meter (5-1) \frac{1\;\meter^2}{5\cdot 10^{-3}\;\meter} \cdot 12^2 \volt^2 \approx \underline{4{,}25\;\joule}
+\end{align*}
 
 \end{document}
