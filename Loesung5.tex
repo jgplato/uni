@@ -94,6 +94,79 @@ Entladestrom nach $t_2$
 
 Durch Einsetzen der entsprechenden Werte ergibt sich $I \approx 256\;\micro\ampere$.
 
+\section*{Aufgabe 3}
+Die Kugel entlädt sich gegenüber dem Nullpotential, welches sich in unendlicher
+Entfernung befindet. Wir betrachten das Problem also als Kugelkondensator,
+wobei die äußere Kugelschale unendlich weit weg befindet. Zwischen den
+Kugelschalen herrscht dann die Spannung:
+
+\begin{align*}
+  &I = \frac{dQ}{dt} = C \frac{dU}{dt} \\
+  \Leftright U_C = \frac{1}{C} \int I dt
+\end{align*}
+
+Dies ist dann also die Spannung in der Luft. Die Luft habe den Widerstand $R$, dann ist:
+
+\begin{align*}
+  U_L = IR
+\end{align*}
+
+Gemäß dem Kirchhoffschen Gesetz verschwindet die Potentialsumme auf dem
+Ringintegral zwischen den Schalen und zurück. Dann gilt folglich:
+
+Dann ist
+\begin{align*}
+  &U_C + U_L = 0 \\
+  \Leftright &\frac{1}{C} \int I dt + IR = 0 \\
+  \Leftright &\frac{I}{C} + \frac{dI}{dt} R = 0 \\
+  \Leftright &\frac{I}{RC} + \frac{dI}{dt} = 0 \\
+\end{align*}
+
+Diese Differentialgleichung hat bekanntermaßen die Lösung:
+
+\begin{align*}
+  I(t) = I_0 \cdot e^{-\frac{t}{RC}}
+\end{align*}
+
+Die Entladung findet durch die Luft (Widerstand $R$ statt, die Spannung am
+Kondensator ist $U = \frac{Q}{C}$. Führt zu:
+
+\begin{align*}
+  I(t) = \frac{Q_0}{RC} \cdot e^{-\frac{t}{RC}}
+\end{align*}
+
+Dann ist klar, dass $\tau = RC$.
+
+Den Widerstand können wir noch genauer berechnen. Wir gehen Kugelschalenförmig vom Generatordurchmesser $r_1$ aus:
+
+\begin{align*}
+  &R = \int dR \\
+  &R = \rho \int \frac{l}{A} \\
+  &R = \rho \int_{r_1}^\infty \frac{dr}{dA} \\
+  &R = \rho \int_{r_1}^\infty dr \frac{1}{4 \pi r^2} \\
+  &R = \frac{1}{4 \pi}\rho \int_{r_1}^\infty dr \frac{1}{r^2} \\
+  &R = \frac{1}{4 \pi}\rho \int_{r_1}^\infty dr \frac{1}{r^2} \\
+  &R = \frac{\rho}{4 \pi r_1}
+\end{align*}
+
+Die Kapazität eines Kugelkondensators haben wir in einem früheren Aufgabenblatt berechnet. Sie ist:
+
+\begin{align*}
+  C = 4 \pi \epsilon_0 \left( \frac{1}{r_1} - \frac{1}{r_2} \right)^{-1}
+\end{align*}
+
+Wenn dabei $r_2 \to \infty$ geht (die andere Kugelschale ist unendlich weit weg), gilt für $C$:
+\begin{align*}
+  C = 4 \pi \epsilon_0 r_1
+\end{align*}
+
+Dann kürzen sich auf magische Weise viele Dinge weg und man erhält das hübsche
+Ergebnis:
+\begin{align*}
+  \tau = RC = \epsilon_0 \rho
+\end{align*}
+
+
 \section*{Aufgabe 4}
 Das Gesetz von Amperè besagt, dass für eine Fläche, durch die ein Strom $I$
 fließt, durch den (notwendigerweise geschlossenen) Rand dieser Fläche ein
