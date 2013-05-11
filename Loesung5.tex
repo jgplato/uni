@@ -94,6 +94,43 @@ Entladestrom nach $t_2$
 
 Durch Einsetzen der entsprechenden Werte ergibt sich $I \approx 256\;\micro\ampere$.
 
+\section*{Aufgabe 4}
+Das Gesetz von Amperè besagt, dass für eine Fläche, durch die ein Strom $I$
+fließt, durch den (notwendigerweise geschlossenen) Rand dieser Fläche ein
+Magnetfeld fließt:
 
+\begin{align*}
+  \oint_{\mathcal{S}} \vec{B} \cdot \vec{ds} = \mu_0 \cdot I
+\end{align*}
+
+Die Fläche ist in diesem Fall eine Kreisfläche, der Rand ein geschlossener
+Kreisbogen. Die Windungen der Spule gehen um den Kreisbogen herum. Das
+bedeutet, dass der Strom auf der Innenseite der Spule durch die Kreisfläche
+hindurchfließt, aber auf der anderen Außenseite, außerhalb der Kreisfläche
+wieder hinaus. Durch die Kreisfläche fließt also insgesamt der Strom $I=NI_0$,
+wobei $N$ die Anzahl der Windungen sei. Dann ist:
+
+\begin{align*}
+  \oint_{\mathcal{S}} \vec{B} \cdot \vec{ds} = \mu_0 \cdot NI_0
+\end{align*}
+
+Da das Problem rotationssysmmetrisch ist, ändert das Magnetfeld $\vec{B}$ seine
+Richtung, aber nicht seinen Betrag. Das Feld läuft außerdem in Richtung des
+Kreisbogens. Wir können also schreiben:
+
+\begin{align*}
+  B \oint_{\mathcal{S}} ds = \mu_0 \cdot NI_0
+\end{align*}
+
+Der Umfang des Kreises ist $2\pi r$. Damit ist das Ringintegral ausgeführt:
+
+\begin{align*}
+  B 2 \pi r = \mu_0 \cdot NI_0
+\end{align*}
+
+Umstellen ergibt den von der Aufgabenstellung geforderten Zusammenhang:
+\begin{align*}
+  B = \frac{\mu_0}{2 \pi} \frac{NI_0}{r}
+\end{align*}
 
 \end{document}
