@@ -63,7 +63,9 @@ Der Abbildung kann man den Aufbau des Integrals entnehmen. Die Gesamtfläche des
 Rotationskörpers ist zusammengesetzt aus einzelnen zylinderförmigen
 Teilelementen $dA$. Die Mantelfläche dieses Zylinders berechnet sich durch $dA
 = 2\pi dr \cdot ds$. Dabei ist $dr$ der Radius und $ds$ die Breite des
-Zylinders (siehe Grafik).
+Zylinders (siehe Grafik). \textbf{Notiz:} Grafik nochmal überarbeiten. Die
+Fläche $dA$ soll eine Zylinderoberfläche sein, kein Kegelstumpf. Scheiß
+Infinitesimalkalkül!
 
 Der Radius entspricht der Höhe der zu ermittelnden Funktion an der
 entsprechenden Stelle, also $dr = 2 \pi f(x)$. Die Breite ergibt sich durch das
@@ -73,8 +75,22 @@ Kurvenlängenelement $ds = \sqrt{dx^2 + dy^2} = \sqrt{1 +
 Insgesamt ist unser zu minimierendes Integral dann also:
 
 \begin{equation}
-  I[f] = \int_{x_1}^{x_2} 2 \pi f(x) \sqrt{1 + f'(x)}\; dx
+  I[f] = \int_{x_1}^{x_2} 2 \pi f(x) \sqrt{1 + f'(x)^2}\; dx
 \end{equation}
+
+Das Problem lösen wir mithilfe der Euler-Lagrange-Gleichung. Sei $L = f
+\sqrt{1+f'^2}$. Dann muss die minimierende Funktion die Lösung folgenden
+Gleichung sein:
+
+\begin{align*}
+  &\frac{d}{dt} \frac{\partial L}{\partial f'} = \frac{\partial L}{\partial f} \\
+  \Leftrightarrow &\frac{d}{dt} \frac{ff'}{\sqrt{1 + f'^2}} = \sqrt{1 + f'^2} \\
+  \Leftrightarrow &\frac{ff'' + f'^4 + f'^2}{(1+f'^2)^\frac{3}{2}} = \sqrt{1 + f'^2} \\
+  \Leftrightarrow &ff'' + f'^4 + f'^2 = (1 + f'^2)^2 \\
+  \Leftrightarrow &ff'' + f'^4 + f'^2 = 1 + 2f'^2+f'^4 \\
+  \Leftrightarrow &ff'' + f'^2 = 1 + 2f'^2 \\
+  \Leftrightarrow &ff'' - f'^2 = 1
+\end{align*}
 
 
 
