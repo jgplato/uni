@@ -72,4 +72,28 @@ Die Spannungsquelle $U_r$ liefert den Strom $I_1 + I_2$:
   P_r = U_r \cdot (I_1 + I_2) = \frac{185}{11} \;\watt \approx 16{,}8\;\watt
 \end{align*}
 
+\section*{Aufgabe 2}
+Die Spannung am Kondensator steigt gemäß folgender Gleichung:
+
+\begin{align*}
+  U(t) = U_0 \cdot (1 - e^{-\frac{t}{RC}})
+\end{align*}
+
+Mit den gegebenen Werten $U_0 = 60\;\volt$, $t = 55\;\milli\second$, $R = 270\;\kilo\ohm$, $C = 47\;\nano\farad$ ergibt sich am Ende des Ladevorgangs die Spannung
+\begin{align*}
+  U_1 \approx 59{,}21 \;\volt
+\end{align*}
+
+Wenn der Kondensator nun entladen wird, ergibt sich ein anfänglicher
+Entladestrom von $I_0 = \frac{U_1}{R_2}$. Es gilt dann also für den
+Entladestrom nach $t_2$
+
+\begin{align*}
+  I = \frac{U_1}{R_2} \cdot e^{-\frac{t_2}{R_2C}}
+\end{align*}
+
+Durch Einsetzen der entsprechenden Werte ergibt sich $I \approx 256\;\micro\ampere$.
+
+
+
 \end{document}
