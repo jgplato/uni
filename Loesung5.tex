@@ -1,0 +1,75 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 5. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
+
+Zur Anwendung der Kirchhoffschen Regel teilen ich den Stromkreis in einen
+linken Kreis ($I_1$) und einen rechten Kreis ($I_2$). Der linke Kreis fließe
+gegen den Uhrzeigersinn, der rechte Kreis fließe im Uhrzeigersinn.  Gestartet
+wird jeweils vom Knotenpunkt $b$.
+
+Somit ergeben sich folgende Gleichungen:
+
+\begin{align*}
+  \underbrace{-3I_1+5}_{\text{links}}\underbrace{-3I_2+5}_{\text{rechts}}+7-2I_1 &= 0 \\
+  \underbrace{-3I_1+5}_{\text{links}}\underbrace{-3I_2+5}_{\text{rechts}}+1I_2 &= 0
+\end{align*}
+
+Die Lösung dieses Gleichungssystems lautet:
+
+\begin{align*}
+  I_1 = \frac{38}{11}\;\ampere\approx3{,}5\;\ampere,\quad I_2 = -\frac{1}{11}\;\ampere\approx-0{,}1\;\ampere
+\end{align*}
+
+Durch den Widerstand $R_1$ fließt der Strom $I_2$ von oben nach unten, mit dem
+Betrag wie oben angegeben. Durch den Widerstand $R_2$ fließt der Strom $I_1$
+von links nach rechts, Betrag wie oben angegeben. Durch den Widerstand $R_3$
+fließen die Ströme $I_1$ und $I_2$ in die selbe Richtung, nämlich von unten
+nach oben. Es wird also addiert. Der Strom durch $R_3$ ist dann
+$\frac{37}{11}\;\ampere$.
+
+\subsection*{Teil b}
+
+Die Spannungsdifferenz zwischen Punkt $a$ und Punkt $b$ ist ($I$ sei der Strom
+durch $R_3$ (siehe oben)):
+
+\begin{align*}
+  R_3 \cdot I - 5\;\volt = \frac{111}{11}\;\volt - \frac{55}{11} = \frac{56}{11}\;\volt \approx 5{,}1\;\volt
+\end{align*}
+
+\subsection*{Teil c}
+Die Spannungsquelle $U_l$ muss den Strom $I_1$ liefern, die Leistung ist somit:
+
+\begin{align*}
+  P_l = U_l \cdot I_1 = \frac{266}{11} \;\watt \approx 24{,}2\;\watt
+\end{align*}
+
+Die Spannungsquelle $U_r$ liefert den Strom $I_1 + I_2$:
+
+\begin{align*}
+  P_r = U_r \cdot (I_1 + I_2) = \frac{185}{11} \;\watt \approx 16{,}8\;\watt
+\end{align*}
+
+\end{document}
