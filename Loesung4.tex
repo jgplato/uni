@@ -373,38 +373,56 @@ der Öffnung des Kegels.
 
 Es gibt nur eine Zwangsbedingung. Sie lautet:
 \begin{align*}
-\frac{r}{z}=\tan \alpha \quad \Rightarrow \quad f_1=r-z \cot \alpha =0
+\frac{r}{z}=\tan \alpha \quad \Rightarrow \quad f=r-z \tan \alpha =0
 \end{align*}
 
 Aufstellen der Lagrange-Funktion:
 \begin{align*}
-T&=\frac{m}{\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2} \\
-V&=0
-\mathcal{L}'&=T-V=\frac{m}{2} \dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2
+T&=\frac{m}{2} (\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2) \\
+V&=0 \\
+\mathcal{L}'&=T-V=\frac{m}{2}(\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2)
 \end{align*}
 
 \subsection*{Teilaufgabe 2}
-Setze Zwangsbedingungen über Lagrange-Multiplikator ein:
+Setze Zwangsbedingung über Lagrange-Multiplikator ein:
 \begin{align*}
-\mathcal{L}&=\mathcal{L'} + \lambda(r-z \cot \alpha)
+\mathcal{L}&=\mathcal{L'} + \lambda(r-z \tan \alpha) = \frac{m}{2}(\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2) + \lambda(r-z \tan \alpha) 
 \end{align*}
 
-Entwickeln der Lagrange-Gleichung 2.Art:
+Entwickeln der Lagrange-Gleichung 2. Art:
 \begin{align*}
-r: & \quad \frac{\partial \mathcal{L}}{\partial r}=?\\
-& \quad \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{r}}\right)=?
+r: & \quad \frac{\partial \mathcal{L}}{\partial r}=mr\dot{q}^2 + \lambda\\
+& \quad \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{r}}=m\ddot{r} \\
 \phi: & \quad \frac{\partial \mathcal{L}}{\partial \phi} = 0 \qquad \text{(da $\mathcal{L}$ nicht explizit von $\phi$ abhängt.)}\\
-& \quad \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{\phi}}\right)=?
-z: & \quad \frac{\partial \mathcal{L}}{\partial z}=?\\
-& \quad \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{z}}\right)=?
+& \quad \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{\phi}}\right)=mr^2\ddot{\phi} \\
+z: & \quad \frac{\partial \mathcal{L}}{\partial z} = -\lambda \tan \alpha
+& \quad \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{z}}\right)= m\ddot{z}
 \end{align*}
 
 Wir erhalten damit die folgenden Bewegungsgleichungen:
-\begin{equation*}
-\ddot{r} \left(1+\frac{1}{\tan^2 \alpha}\right)-r\dot{\phi}^2=\frac{g}{\tan \alpha}
-\end{equation*}
+\begin{align*}
+m\ddot{r} = mr\dot{\phi}^2 + \lambda_r \\
+\ddot{\phi}mr^2 = 0 \\
+m\ddot{z} = -\lambda_z \cdot \alpha
+\end{align*}
 
 \subsection*{Teilaufgabe 3}
+
+Durch Umstellen der Bewegungsgleichungen aus Teil 2:
+
+\begin{align*}
+  \lambda = \begin{pmatrix} \lambda_r \\ \lambda_{\phi} \\ \lambda_z \end{pmatrix} = \begin{pmatrix} m\ddot{r} - mr\dot{\phi}^2 \\ 0 \\ \frac{-m\ddot{z}}{\tan \alpha} \end{pmatrix}
+\end{align*}
+
+\subsection*{Teilaufgabe 4}
+
+Die Zwangskräfte lauten:
+
+\begin{align*}
+  Z_r &= -\lambda_r \frac{\partial f}{\partial r} - \lambda_z \frac{\partial f}{\partial r} \\
+      &= -m\ddot{r} + mr\dot{\phi}^2 - \frac{m\ddot{z}}{\tan \alpha} \\
+  Z_z &= -
+\end{align*}
 
 Für die Zwangskräfte gilt:
 \begin{equation*}
