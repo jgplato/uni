@@ -25,6 +25,27 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \vspace{-10pt}
 \end{center}
 
+\section*{Aufgabe 4.2}
+Quotientenkriterium: Die Reihe ist konvergent, wenn es ein $q < 1$ gibt, so
+dass für fast alle $n \in \mathbb{N}$ gilt:
+
+\begin{align*}
+  \left| \frac{a_{n+1}}{a_n} \right| \le q < 1
+\end{align*}
+
+Wir prüfen:
+
+\begin{align*}
+  \left| \frac{\frac{(n+1)!}{(n+1)^{n+1}}}{\frac{n!}{n^n}} \right| &= \left| \frac{n^n(n+1)!}{n!(n+1)^{n+1}} \right| \\ 
+  &= \left| \frac{n^n n! (n+1)}{n!(n+1)^{n+1}} \right| \\
+  &= \left| \frac{n^n (n+1)}{(n+1)^{n+1}} \right| \\
+  &= \left| \frac{n^n}{(n+1)^{n}} \right| \\
+\end{align*}
+
+Da bereits für $n=1$ gilt, dass $n^n < (n+1)^n$, ist das Quotientenkriterium
+erfüllt. Die Reihe konvergiert.
+
+
 \section*{Aufgabe 4.3}
 Quotientenkriterium: Die Reihe ist konvergent, wenn es ein $q < 1$ gibt, so
 dass für fast alle $n \in \mathbb{N}$ gilt:
