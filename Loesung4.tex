@@ -52,6 +52,38 @@ für sich gegen Null. Draus folgt
 
 Somit ist die Reihe nach Quotientenkriterium konvergent.
 
+Für die andere Reihe weisen wir mit Majorantenkriterium nach, dass diese divergiert. Wir wissen, dass die folgende Reihe $a$ divergiert.
+
+\begin{align*}
+  \sum_{i=1}^\infty a_n = \sum_{i=1}^\infty  \frac{1}{n} = \sum_{i=1}^\infty \frac{n}{n^2}
+\end{align*}
+
+Gemäß Majorantenkriterium (jeder Summand der Reihe $b$ ist größer als der der
+entsprechende Summand in der vorherigen Reihe) divergiert dann auch die Reihe $b$:
+
+\begin{align*}
+  \sum_{i=1}^\infty b_n = \sum_{i=1}^\infty  \frac{n+4}{n^2}
+\end{align*}
+
+Denn da $n>0$ muss gelten:
+
+\begin{align*}
+  \frac{n+4}{n^2} > \frac{n}{n^2}
+\end{align*}
+
+Wir zeigen nun, dass die Terme der gebenen Reihe ab $n > 1$ alle größer sind
+als die der Reihe $b$
+
+\begin{align*}
+ &\frac{n+4}{n^2-3n+1} > \frac{n+4}{n^2} \\
+ \Leftrightarrow\quad& \frac{n^2-3n+1}{n+4} < \frac{n^2}{n+4} \\
+ \Leftrightarrow\quad& n^2-3n+1 < n^2 \\
+ \Leftrightarrow\quad& -3n+1 < 0 \\
+ \Leftrightarrow\quad& -3n < -1 \\
+ \Leftrightarrow\quad& 3n > 1
+\end{align*}
+
+Da $n > 1$, ist dies wahr. Damit divergiert die gegebenen Reihe nach Majorantenkriterium.
 
 
 \end{document}
