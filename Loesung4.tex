@@ -376,14 +376,20 @@ Es gibt nur eine Zwangsbedingung. Sie lautet:
 \frac{r}{z}=\tan \alpha \quad \Rightarrow \quad f=r-z \tan \alpha =0
 \end{align*}
 
-Aufstellen der Lagrange-Funktion:
+Aufstellen der Lagrange-Funktion (wir nehmen ein Gravitationspotential an):
 \begin{align*}
 T&=\frac{m}{2} (\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2) \\
-V&=0 \\
-\mathcal{L}'&=T-V=\frac{m}{2}(\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2)
+V&=mgz \\
+\mathcal{L}'&=T-V=\frac{m}{2}(\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2) + mgz
 \end{align*}
 
 \subsection*{Teilaufgabe 2}
+Die Lagrangegleichung 1. Art lautet:
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{q_i}} - \frac{\partial \mathcal{L}}{\partial q_i} = \sum_j \lambda_j \frac{\partial f_j}{\partial q_i} = Z_i
+\end{align*}
+
 Setze Zwangsbedingung über Lagrange-Multiplikator ein:
 \begin{align*}
 \mathcal{L}&=\mathcal{L'} + \lambda(r-z \tan \alpha) = \frac{m}{2}(\dot{r}^2+r^2\dot{\phi}^2+\dot{z}^2) + \lambda(r-z \tan \alpha) 
