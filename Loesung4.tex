@@ -1,0 +1,57 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 4. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 4.3}
+Quotientenkriterium: Die Reihe ist konvergent, wenn es ein $q < 1$ gibt, so
+dass für fast alle $n \in \mathbb{N}$ gilt:
+
+\begin{align*}
+  \left| \frac{a_{n+1}}{a_n} \right| \le q < 1
+\end{align*}
+
+Dies prüfen wir:
+
+\begin{align*}
+  \left| \frac{\frac{(n+1)^9}{\sqrt{2^{n+1}}}}{\frac{n^9}{\sqrt{2^n}}} \right| &= \left| \frac{\sqrt{2^n} (n+1)^9}{n^9 \sqrt{2^{n+1}}} \right| \\
+  &= \left| \frac{(n+1)^9}{n^9 \sqrt{2}} \right| \\
+  &= \left| \frac{1}{\sqrt{2}} \frac{n^9+9n^8+36n^7+84n^6+126n^5+126n^4+84n^3+36n^2+9n+1}{n^9} \right| \\
+  &= \left| \frac{1}{\sqrt{2}} \left(1 + \frac{9}{n} + \frac{36}{n^2} + \frac{84}{n^3} + \frac{126}{n^4} + \frac{126}{n^5} + \frac{84}{n^6} + \frac{36}{n^7} + \frac{9}{n^8} + \frac{1}{n^9}\right) \right| \\
+\end{align*}
+
+Betrachten wir diesen Term als eine Folge $q_n$. Diese Folge konvergiert ganz
+offensichtlich, denn die Brüche, die $n$-Potenzen im Nenner haben, konvergieren
+für sich gegen Null. Draus folgt
+
+\begin{align*}
+  \lim_{n \to \infty} q_n = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2} < 1
+\end{align*}
+
+Somit ist die Reihe nach Quotientenkriterium konvergent.
+
+
+
+\end{document}
