@@ -56,6 +56,25 @@ Wir prüfen:
 Da bereits für $n=1$ gilt, dass $n^n < (n+1)^n$, ist das Quotientenkriterium
 erfüllt. Die Reihe konvergiert.
 
+Für die andere Reihe benutzen wir das Wurzelkriterium.
+\begin{align*}
+  &\lim_{n \to \infty} \sqrt[n]{\left| a_n \right|} =\\
+  &\lim_{n \to \infty} \sqrt[n]{\left| \frac{(n+1)^{n-1}}{(-n)^n} \right|} =\\
+  &\lim_{n \to \infty} \sqrt[n]{\left| \frac{(n+1)^{n-1}}{(-n)^n} \right|} =\\
+  &\lim_{n \to \infty} \sqrt[n]{\frac{(n+1)^{n-1}}{n^n}} =\\
+  &\lim_{n \to \infty} \frac{1}{n} \sqrt[n]{(n+1)^{n-1}} =\\
+  &\lim_{n \to \infty} \frac{1}{n} \frac{(n+1)^n}{(n+1)^n} \sqrt[n]{(n+1)^{n-1}} =\\
+  &\lim_{n \to \infty} \frac{1}{n} \frac{1}{(n+1)^n} \sqrt[n]{(n+1)^n} =\\
+  &\lim_{n \to \infty} \frac{1}{n} \frac{(n+1)}{(n+1)^n} =\\
+  &\lim_{n \to \infty} n^{-1} (n+1)^{-n+1} =\\
+  &\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{-n+1} =\\
+  &\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{-n} \cdot \lim_{n \to \infty} (1+\frac{1}{n}) =\\
+  &\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{-n}=\\
+  &\frac{1}{\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{n}}=\\
+  &\frac{1}{e} < 1
+\end{align*}
+
+Also konvergiert die Reihe.
 
 \section*{Aufgabe 4.3}
 Quotientenkriterium: Die Reihe ist konvergent, wenn es ein $q < 1$ gibt, so
