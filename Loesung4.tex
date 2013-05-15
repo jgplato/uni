@@ -117,6 +117,36 @@ als die der Reihe $b$
 
 Da $n > 1$, ist dies wahr. Damit divergiert die gegebenen Reihe nach Majorantenkriterium.
 
+\section*{Aufgabe 4.4}
+Hier bietet sich das Wurzelkriterium an. Die Reihe konvergiert dann, wenn
+
+\begin{align*}
+  \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|} < 1
+\end{align*}
+
+Im umgekehrten Fall folgt die Divergenz der Reihe:
+
+\begin{align*}
+  \lim_{n \to \infty} \sqrt[n]{\left| a_n \right|} > 1
+\end{align*}
+
+Wenn der Limes jedoch $=1$ ist, sagt das Wurzelkriterium nicht aus.
+
+Wir berechnen nun also das Wurzelkriterium:
+
+\begin{align*}
+  &\lim_{n \to \infty} \sqrt[n]{\left| a_n \right|} = \\
+  &\lim_{n \to \infty} \sqrt[n]{\left| \frac{x^n}{1+x^{2n}} \right|} = \\
+  &\lim_{n \to \infty} \sqrt[n]{\left| x^n \right|} \cdot \frac{1}{\lim_{n \to \infty} \sqrt[n]{\left| 1+x^{2n} \right|}} = \\
+  &|x| \cdot \frac{1}{\lim_{n \to \infty} \sqrt[n]{\left| x^{2n} \right|}} = \\
+  &\frac{|x|}{\left| x^2 \right|} =\\
+  &\frac{1}{\left| x \right|} =\\
+\end{align*}
+
+Dies bedeutet, dass die Reihe konvergiert, wenn $|x| > 1$. Für $|x| < 1$
+divergiert die Reihe. Im Fall $x = 1$ ist klar, dass jedes Glied der Summe
+genau $\frac{1}{2}$ ist, was bedeutet, dass die Folge divergiert.
+
 \section*{Aufgabe 4.5}
 \subsection*{Teil a}
 
