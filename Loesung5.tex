@@ -208,6 +208,49 @@ Das ist die Zentripetalkraft.
 
 Ok. Haben wir uns verdeutlicht.
 
+\subsection*{Teil b: Gesamt-Impuls}
+
+Die Lagrange-Gleichung für diese Koordinate lautet:
+
+\begin{align*}
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_j} = \frac{\partial L}{\partial q_j}
+\end{align*}
+
+
+Wenn wir nun den konjugierten Impuls $p_j = \partial_\dot{q_j} L$ einsetzen, sehen
+wir, dass die Lagrange-Gleichung die Zeitableitung des Impulses beschreibt.
+
+\begin{align*}
+  \dot{p_j} = \partial_{q_j} L\\
+\end{align*}
+\subsection*{Teil c: Zwangskraft}
+
+Dass $q_j$ zyklisch ist, bedeutet, dass $L$ kein $q_j$ enthält, sondern
+höchstens $\dot{q}_j$. Das bedeutet aber auch, dass gemäß
+Euler-Lagrange-Gleichung $\partial_q L = 0$, also
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}_j} L = 0
+\end{align*}
+
+Setzen wir $p_j = \partial_\dot{q_j} L$ ein, erhalten wir:
+
+\begin{align*}
+  \dot{p_j} = 0
+\end{align*}
+
+Mit $F = \dot{p}$ entsprechend:
+
+\begin{align*}
+  F_j = 0
+\end{align*}
+
+Es wirkt also keine Zwangskraft.
+
+\subsection*{Teil d: System}
+Wir haben bereits auf Blatt 2 gezeigt, dass die Lagrange-Funktion unter solchen
+Transformationen auf die selben Bewegungsgleichungen führt. Dies ist nur ein
+Spezialfall davon.
 
 
 \end{document}
