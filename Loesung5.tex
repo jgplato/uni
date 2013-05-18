@@ -57,34 +57,24 @@ Operator ist.
 Es gelte Einstein'sche Summenkonvention. Summiert wird nur in Produkten, nicht in Summen.
 
 \begin{align*}
-  \left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_a = \\
-  (\delta_{ij}a_i\partial_j)b_a + (\delta_{kl}b_k\partial_l)a_a + \epsilon_{axo}a_x(\epsilon_{omn}\partial_mb_n) + \epsilon_{ayz} a_y (\epsilon_{zpq} \partial_p a_q) =\\
-  (a_i\partial_i)b_a + (b_k\partial_k)a_a + \epsilon_{axo}a_x(\epsilon_{omn}\partial_mb_n) + \epsilon_{ayz} a_y (\epsilon_{zpq} \partial_p a_q) =\\
+  \left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i = \\
+  (\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
+  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
+  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m) =\\
 \end{align*}
 
-Weil nur in Produkten summiert wird, kann man die Indices umbennen.
+Es gilt $\epsilon_{ijk} = -\epsilon_{ikj} = \epsilon_{kij}$. Und deswegen
+$\epsilon_{ijk}\epsilon_{klm} = \epsilon_{kij}\epsilon_{klm} =
+\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$.
+
+Also:
 
 \begin{align*}
-  (a_i\partial_i)b_a + (b_i\partial_i)a_a + \epsilon_{axi}a_x(\epsilon_{ijk}\partial_ib_j) + \epsilon_{axi} b_x (\epsilon_{ijk} \partial_j a_k) =\\
-  (a_i\partial_i)b_a + (b_i\partial_i)a_a + \epsilon_{axi}(a_x(\epsilon_{ijk}\partial_ib_j) + b_x (\epsilon_{ijk} \partial_j a_k)) =\\
-  a_i\partial_ib_a + b_i\partial_ia_a + \epsilon_{axi}\epsilon_{ijk}(a_x\partial_ib_j + b_x\partial_ja_k) =\\
+  (a_j\partial_j)b_i + (b_j\partial_j)a_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \delta_{il}\delta_{jm}a_j\partial_lb_m + \delta_{il}\delta_{jm}b_j\partial_l a_m - \delta_{im}\delta_{jl}a_j\partial_lb_m - \delta_{im}\delta_{jl}b_j\partial_l a_m =\\
 \end{align*}
 
-Unter Vertauschung zweier Indicies ändert das Levi-Civita-Symbol sein
-Vorzeichen. $\epsilon_{axi} = -\epsilon_{aix} = \epsilon_{iax}$. Dann ist
-$\epsilon_{axi}\epsilon_{ijk} = \epsilon_{iax}\epsilon_{ijk} =
-\delta_{ja}\delta_{kx} - \delta_{jx}\delta_{ka}$. Eingesetzt:
-
-\begin{align*}
-  a_i\partial_ib_a + b_i\partial_ia_a + (\delta_{ja}\delta_{kx} - \delta_{jx}\delta_{ka})(a_x\partial_ib_j + b_x\partial_ja_k) =\\
-\end{align*}
-
-Jetzt können wir durch Ersetzen der Indices vereinfachen. Wir ersetzen $j$ durch $a$ und dann $x$ durch $k$.
-
-\begin{align*}
-  a_i\partial_ib_a + b_i\partial_ia_a + (\delta_{aa}\delta_{kk} - \delta_{ak}\delta_{ka})(a_k\partial_ib_a + b_k\partial_aa_k) =\\
-  a_i\partial_ib_a + b_i\partial_ia_a + (1 - \delta_{ak})(a_k\partial_ib_a + b_k\partial_aa_k) =\\
-\end{align*}
 
 
 \end{document}
