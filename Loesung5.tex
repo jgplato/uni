@@ -24,7 +24,10 @@ Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \section*{Aufgabe 1: Vektoren}
 \subsection*{Teil a: Beweis der Lagrange-Identität}
 
-Es gelte Einstein'sche Summenkonvention.
+Wir rechnen hier mit Pseudotensoren, weil uns die Lösung eleganter
+erschien, anstatt mit der ``Bac-Cab-Regel'' und Spatprodukt zu hantieren.
+Außerdem haben wir dann keinen Stilbruch mit Aufgabe 1b. Es gelte Einstein'sche
+Summenkonvention.
 
 \begin{align*}
   &(\vec{a} \times \vec{b}) \cdot (\vec{c} \times \vec{d}) =\\
@@ -35,6 +38,52 @@ Es gelte Einstein'sche Summenkonvention.
   &(\delta_{ik}\delta_{jl}-\delta_{il}\delta_{jl}) a_i b_j c_k d_l =\\
   &(\delta_{ik}a_ic_k \delta_{jl}b_jd_l)-(\delta_{il}a_id_l\delta_{jk}b_jc_k) =\\
   &(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d})-(\vec{a}\cdot\vec{d})(\vec{b} \cdot \vec{c})
+\end{align*}
+
+\subsection*{Teil b: Nabla-Produktregel}
+
+In Vektorschreibweise muss man beachten, dass $\nabla$ ein Differentialoperator
+und gleichzeitig ein Vektor ist. Er wirkt nur auf Dinge, die rechts von ihm
+stehen. Gleichzeitig kann man sich in Vektorschreibweise (im Gegensatz zu
+Pseudotensoren) nicht aussuchen, an welche Stelle man den Vektor schreibt. Eine
+Möglichkeit, das Problem trotzdem in Vektorschreibweise anzugehen, wäre
+gewesen, Vektoren zu unterstreichen, auf die $\nabla$ wirkt. Dies erschien uns
+zu unschön. Deswegen also Pseudotensoren.
+
+Sei $\nabla_i = \frac{\partial}{\partial x_i} = \partial_i$. Das sieht hübscher
+aus und erinnert uns außerdem daran, dass $\nabla$, wie geschrieben, auch ein
+Operator ist.
+
+Es gelte Einstein'sche Summenkonvention. Summiert wird nur in Produkten, nicht in Summen.
+
+\begin{align*}
+  \left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_a = \\
+  (\delta_{ij}a_i\partial_j)b_a + (\delta_{kl}b_k\partial_l)a_a + \epsilon_{axo}a_x(\epsilon_{omn}\partial_mb_n) + \epsilon_{ayz} a_y (\epsilon_{zpq} \partial_p a_q) =\\
+  (a_i\partial_i)b_a + (b_k\partial_k)a_a + \epsilon_{axo}a_x(\epsilon_{omn}\partial_mb_n) + \epsilon_{ayz} a_y (\epsilon_{zpq} \partial_p a_q) =\\
+\end{align*}
+
+Weil nur in Produkten summiert wird, kann man die Indices umbennen.
+
+\begin{align*}
+  (a_i\partial_i)b_a + (b_i\partial_i)a_a + \epsilon_{axi}a_x(\epsilon_{ijk}\partial_ib_j) + \epsilon_{axi} b_x (\epsilon_{ijk} \partial_j a_k) =\\
+  (a_i\partial_i)b_a + (b_i\partial_i)a_a + \epsilon_{axi}(a_x(\epsilon_{ijk}\partial_ib_j) + b_x (\epsilon_{ijk} \partial_j a_k)) =\\
+  a_i\partial_ib_a + b_i\partial_ia_a + \epsilon_{axi}\epsilon_{ijk}(a_x\partial_ib_j + b_x\partial_ja_k) =\\
+\end{align*}
+
+Unter Vertauschung zweier Indicies ändert das Levi-Civita-Symbol sein
+Vorzeichen. $\epsilon_{axi} = -\epsilon_{aix} = \epsilon_{iax}$. Dann ist
+$\epsilon_{axi}\epsilon_{ijk} = \epsilon_{iax}\epsilon_{ijk} =
+\delta_{ja}\delta_{kx} - \delta_{jx}\delta_{ka}$. Eingesetzt:
+
+\begin{align*}
+  a_i\partial_ib_a + b_i\partial_ia_a + (\delta_{ja}\delta_{kx} - \delta_{jx}\delta_{ka})(a_x\partial_ib_j + b_x\partial_ja_k) =\\
+\end{align*}
+
+Jetzt können wir durch Ersetzen der Indices vereinfachen. Wir ersetzen $j$ durch $a$ und dann $x$ durch $k$.
+
+\begin{align*}
+  a_i\partial_ib_a + b_i\partial_ia_a + (\delta_{aa}\delta_{kk} - \delta_{ak}\delta_{ka})(a_k\partial_ib_a + b_k\partial_aa_k) =\\
+  a_i\partial_ib_a + b_i\partial_ia_a + (1 - \delta_{ak})(a_k\partial_ib_a + b_k\partial_aa_k) =\\
 \end{align*}
 
 
