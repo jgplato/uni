@@ -40,7 +40,7 @@ Summenkonvention.
   &(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d})-(\vec{a}\cdot\vec{d})(\vec{b} \cdot \vec{c})
 \end{align*}
 
-\subsection*{Teil b: Nabla-Produktregel}
+\subsection*{Teil b: Nabla-Produktregel für Skalarprodukt}
 
 In Vektorschreibweise muss man beachten, dass $\nabla$ ein Differentialoperator
 und gleichzeitig ein Vektor ist. Er wirkt nur auf Dinge, die rechts von ihm
@@ -75,6 +75,36 @@ $\epsilon_{ijk}\epsilon_{klm} = \epsilon_{kij}\epsilon_{klm} =
   &\partial_ia_jb_j =\\
   &\partial_i(\delta_{jk}a_jb_k) =\\
   &\nabla_i(\vec{a} \cdot \vec{b})
+\end{align*}
+
+\subsection*{Teil c: Nabla-Produktregel für Kreuzprodukt}
+
+Wir beweisen wieder rückwärts. Es gelte Einstein'sche Summenkonvention nur in
+Produkten, nicht in Summen, genau wie oben.
+
+\begin{align*}
+  &\vec{b} \cdot (\nabla \times \vec{a}) - \vec{a} \cdot (\nabla \times \vec{b}) =\\
+  &\delta_{ai} b_a (\epsilon_{ijk} \partial_j a_k) - \delta_{ai} a_a (\epsilon_{ijk} \partial_j b_k) =\\
+  &b_i (\epsilon_{ijk} \partial_j a_k) - a_i (\epsilon_{ijk} \partial_j b_k) =\\
+\end{align*}
+
+Wegen $\epsilon_{ijk} = -\epsilon_{kji}$ ist:
+
+\begin{align*}
+  &b_i (\epsilon_{ijk} \partial_j a_k) + a_i (\epsilon_{kji} \partial_j b_k) =\\
+\end{align*}
+
+Nun Umbennen der Indices (vertauschen von $i$ und $k$). Da über Summen hinweg
+nicht summiert wird, dürfen wir das.
+
+\begin{align*}
+  &b_i (\epsilon_{ijk} \partial_j a_k) + a_k (\epsilon_{ijk} \partial_j b_i) =\\
+  &\epsilon_{ijk} (b_i \partial_j a_k) + a_k \partial_j b_i) =\\
+  &\epsilon_{ijk} \partial_j b_i a_k =\\
+  &-\epsilon_{ijk} \partial_j a_i b_k =\\
+  &\epsilon_{ijk} \partial_i a_j b_k =\\
+  &\partial_i \epsilon_{ijk} a_j b_k =\\
+  &\nabla (\vec{a} \times \vec{b})
 \end{align*}
 
 
