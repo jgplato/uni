@@ -1,0 +1,39 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 5. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section{Aufgabe 5.4}
+
+Sei $p(x)$ ein Polynom beliebig hohen Grades $N$. Die Exponentialreihe enthält
+dann immer einen Term $\frac{x^{N+1}}{(N+1)!}$, der schneller wächst als das
+Polynom. Denn $\sum_{i=0}^n \alpha x^i < \beta x^{n+1}$ für genügend große $x$,
+oder anders ausgedrückt: Das Polynom vom höheren Grad wächst schneller.
+
+Für die Sinusreihe gilt das Argument nicht, weil sie immer auch einen
+höhergradigen subtraktive Term enthält, der das Wachstum wieder zunichte macht.
+Außerdem ist bekannt, dass $\sin x \le 1$ für reele $x$.
+
+\end{document}
