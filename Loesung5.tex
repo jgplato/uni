@@ -57,22 +57,24 @@ Operator ist.
 Es gelte Einstein'sche Summenkonvention. Summiert wird nur in Produkten, nicht in Summen.
 
 \begin{align*}
-  \left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i = \\
-  (\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
-  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
-  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  &\left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i = \\
+  &(\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
+  &a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
+  &a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m) =\\
 \end{align*}
 
 Es gilt $\epsilon_{ijk} = -\epsilon_{ikj} = \epsilon_{kij}$. Und deswegen
 $\epsilon_{ijk}\epsilon_{klm} = \epsilon_{kij}\epsilon_{klm} =
-\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$.
-
-Also:
+\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$. Das setzen wir ein:
 
 \begin{align*}
-  (a_j\partial_j)b_i + (b_j\partial_j)a_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m) =\\
-  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m) =\\
-  (a_j\partial_j)b_i + (b_j\partial_j)a_i + \delta_{il}\delta_{jm}a_j\partial_lb_m + \delta_{il}\delta_{jm}b_j\partial_l a_m - \delta_{im}\delta_{jl}a_j\partial_lb_m - \delta_{im}\delta_{jl}b_j\partial_l a_m =\\
+  &a_j\partial_jb_i + b_j\partial_ja_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  &a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  &a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}a_j\partial_lb_j + \delta_{il}b_j\partial_l a_j - \delta_{im}a_j\partial_jb_m - \delta_{im}b_j\partial_j a_m =\\
+  &a_j\partial_ib_j + b_j\partial_i a_j =\\
+  &\partial_ia_jb_j =\\
+  &\partial_i(\delta_jka_jb_k) =\\
+  &\nabla_i(\vec{a} \cdot \vec{b})
 \end{align*}
 
 
