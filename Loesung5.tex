@@ -1,0 +1,73 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 5. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Vektoren}
+\subsection*{Teil a: Beweis der Lagrange-Identität}
+
+Bekanntlich ist $\vec{a} \cdot (\vec{b} \times \vec{c}) = \det(\vec{a},
+\vec{b}, \vec{c}) = (\vec{a} \times \vec{b}) \cdot \vec{c}$. Das nutzen wir.
+
+\begin{align*}
+  &(\vec{a} \times \vec{b}) \cdot (\vec{c} \times \vec{d}) =\\
+  &\vec{a} \cdot (\vec{b} \times (\vec{c} \times \vec{d})) =
+\end{align*}
+
+Mithilfe der ``Bac-Cab-Regel'' erhalten wir dann:
+
+\begin{align*}
+  &\vec{a} \cdot (\vec{b} \times (\vec{c} \times \vec{d})) =\\
+  &\vec{a} \cdot (\vec{c}(\vec{b} \cdot \vec{d}) - \vec{d} (\vec{b} \cdot \vec{c})) =\\
+  &(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d}) - (\vec{a} \cdot \vec{d}) (\vec{b} \cdot \vec{c})
+\end{align*}
+
+\subsection*{Teil b: Nabla-Produktregel}
+
+Wir beweisen rückwärts. Dabei müssen wir berücksichtigen, dass $\vec{\nabla}$
+sowohl ein Vektor, als auch ein Differentialoperator ist. Das bedeutet, dass es
+auf Terme wirkt, die (innerhalb eines Produkts) rechts von ihm stehen. Damit
+wir die Gleichung nicht auf Komponentenschreibweise aufdröseln müssen, ändern
+wir diese Konvention und unterstreichen einfach die Terme, auf die $\nabla$
+wirkt. Ausgangsgleichung ist:
+
+\begin{align*}
+  (\vec{a}\cdot\vec{\nabla})\vec{b} + (\vec{b} \cdot \vec{\nabla})\vec{a} + \vec{a} \times (\vec{\nabla} \times \vec{b}) + \vec{b} \times (\vec{\nabla} \times \vec{a}) =
+\end{align*}
+
+Mit der ``Bac-Cab-Regel'' erhalten wir für den dritten Term $\vec{a} \times
+(\vec{\nabla} \times \vec{b}) = \vec{\nabla}(\vec{a}\cdot\vec{b}) -
+\vec{b}(\vec{a}\cdot\vec{\nabla})$. Diesen setzen wir ein und uns sehen, dass
+dabei die Terme wegheben.
+
+\begin{align*}
+  &(\vec{a}\cdot\vec{\nabla})\vec{b} + (\vec{b} \cdot \vec{\nabla})\vec{a} + \vec{\nabla}(\vec{a}\cdot\vec{b}) - \vec{b}(\vec{a}\cdot\vec{\nabla}) + \vec{b} \times (\vec{\nabla} \times \vec{a}) = \\
+  &(\vec{b} \cdot \vec{\nabla})\vec{a} + \vec{\nabla}(\vec{a}\cdot\vec{b}) + \vec{b} \times (\vec{\nabla} \times \vec{a}) =
+\end{align*}
+
+Genauso verfahren wir mit $\vec{b} \times (\vec{\nabla} \times \vec{a}) = \vec{\nabla}(\vec{b} \cdot \vec{a}) - \vec{a}(\vec{b} \cdot \vec{\nabla})$
+
+\begin{align*}
+  &(\vec{b} \cdot \vec{\nabla})\vec{a} + \vec{\nabla}(\vec{a}\cdot\vec{b}) +  \vec{\nabla}(\vec{b} \cdot \vec{a}) - \vec{a}(\vec{b} \cdot \vec{\nabla}) =\\
+  &\vec{\nabla}(\vec{a}\cdot\vec{b}) + \vec{\nabla}(\vec{b} \cdot \vec{a}) =\\
+\end{align*}
+
+\end{document}
