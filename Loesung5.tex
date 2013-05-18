@@ -30,14 +30,14 @@ Außerdem haben wir dann keinen Stilbruch mit Aufgabe 1b. Es gelte Einstein'sche
 Summenkonvention.
 
 \begin{align*}
-  &(\vec{a} \times \vec{b}) \cdot (\vec{c} \times \vec{d}) =\\
-  &\delta_{ab}(\vec{a} \times \vec{b})_a (\vec{c} \times \vec{d})_b =\\
-  &\delta_{ab}(\epsilon_{aij} a_i b_j) (\epsilon_{bkl}c_k d_l) =\\
-  &\delta_{ab}\epsilon_{aij}\epsilon_{blk} a_i b_jc_kd_l =\\
-  &\epsilon_{aij}\epsilon_{alk} a_i b_jc_kd_l =\\
-  &(\delta_{ik}\delta_{jl}-\delta_{il}\delta_{jl}) a_i b_j c_k d_l =\\
-  &(\delta_{ik}a_ic_k \delta_{jl}b_jd_l)-(\delta_{il}a_id_l\delta_{jk}b_jc_k) =\\
-  &(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d})-(\vec{a}\cdot\vec{d})(\vec{b} \cdot \vec{c})
+  &(\vec{a} \times \vec{b}) \cdot (\vec{c} \times \vec{d})\\
+  =&\delta_{ab}(\vec{a} \times \vec{b})_a (\vec{c} \times \vec{d})_b\\
+  =&\delta_{ab}(\epsilon_{aij} a_i b_j) (\epsilon_{bkl}c_k d_l)\\
+  =&\delta_{ab}\epsilon_{aij}\epsilon_{blk} a_i b_jc_kd_l\\
+  =&\epsilon_{aij}\epsilon_{alk} a_i b_jc_kd_l\\
+  =&(\delta_{ik}\delta_{jl}-\delta_{il}\delta_{jl}) a_i b_j c_k d_l\\
+  =&(\delta_{ik}a_ic_k \delta_{jl}b_jd_l)-(\delta_{il}a_id_l\delta_{jk}b_jc_k)\\
+  =&(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d})-(\vec{a}\cdot\vec{d})(\vec{b} \cdot \vec{c})
 \end{align*}
 
 \subsection*{Teil b: Nabla-Produktregel für Skalarprodukt}
@@ -57,10 +57,10 @@ Operator ist.
 Es gelte Einstein'sche Summenkonvention. Summiert wird nur in Produkten, nicht in Summen.
 
 \begin{align*}
-  &\left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i = \\
-  &(\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
-  &a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m) =\\
-  &a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m) =\\
+  &\left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i\\
+  =&(\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m)\\
 \end{align*}
 
 Es gilt $\epsilon_{ijk} = -\epsilon_{ikj} = \epsilon_{kij}$. Und deswegen
@@ -68,13 +68,13 @@ $\epsilon_{ijk}\epsilon_{klm} = \epsilon_{kij}\epsilon_{klm} =
 \delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$. Das setzen wir ein:
 
 \begin{align*}
-  &a_j\partial_jb_i + b_j\partial_ja_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m) =\\
-  &a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m) =\\
-  &a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}a_j\partial_lb_j + \delta_{il}b_j\partial_l a_j - \delta_{im}a_j\partial_jb_m - \delta_{im}b_j\partial_j a_m =\\
-  &a_j\partial_ib_j + b_j\partial_i a_j =\\
-  &\partial_ia_jb_j =\\
-  &\partial_i(\delta_{jk}a_jb_k) =\\
-  &\nabla_i(\vec{a} \cdot \vec{b})
+  =&a_j\partial_jb_i + b_j\partial_ja_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}a_j\partial_lb_j + \delta_{il}b_j\partial_l a_j - \delta_{im}a_j\partial_jb_m - \delta_{im}b_j\partial_j a_m\\
+  =&a_j\partial_ib_j + b_j\partial_i a_j\\
+  =&\partial_ia_jb_j\\
+  =&\partial_i(\delta_{jk}a_jb_k)\\
+  =&\nabla_i(\vec{a} \cdot \vec{b})
 \end{align*}
 
 \subsection*{Teil c: Nabla-Produktregel für Kreuzprodukt}
@@ -83,28 +83,28 @@ Wir beweisen wieder rückwärts. Es gelte Einstein'sche Summenkonvention nur in
 Produkten, nicht in Summen, genau wie oben.
 
 \begin{align*}
-  &\vec{b} \cdot (\nabla \times \vec{a}) - \vec{a} \cdot (\nabla \times \vec{b}) =\\
-  &\delta_{ai} b_a (\epsilon_{ijk} \partial_j a_k) - \delta_{ai} a_a (\epsilon_{ijk} \partial_j b_k) =\\
-  &b_i (\epsilon_{ijk} \partial_j a_k) - a_i (\epsilon_{ijk} \partial_j b_k) =\\
+  &\vec{b} \cdot (\nabla \times \vec{a}) - \vec{a} \cdot (\nabla \times \vec{b})\\
+  =&\delta_{ai} b_a (\epsilon_{ijk} \partial_j a_k) - \delta_{ai} a_a (\epsilon_{ijk} \partial_j b_k)\\
+  =&b_i (\epsilon_{ijk} \partial_j a_k) - a_i (\epsilon_{ijk} \partial_j b_k)\\
 \end{align*}
 
 Wegen $\epsilon_{ijk} = -\epsilon_{kji}$ ist:
 
 \begin{align*}
-  &b_i (\epsilon_{ijk} \partial_j a_k) + a_i (\epsilon_{kji} \partial_j b_k) =\\
+  =&b_i (\epsilon_{ijk} \partial_j a_k) + a_i (\epsilon_{kji} \partial_j b_k)\\
 \end{align*}
 
 Nun Umbennen der Indices (vertauschen von $i$ und $k$). Da über Summen hinweg
 nicht summiert wird, dürfen wir das.
 
 \begin{align*}
-  &b_i (\epsilon_{ijk} \partial_j a_k) + a_k (\epsilon_{ijk} \partial_j b_i) =\\
-  &\epsilon_{ijk} (b_i \partial_j a_k) + a_k \partial_j b_i) =\\
-  &\epsilon_{ijk} \partial_j b_i a_k =\\
-  &-\epsilon_{ijk} \partial_j a_i b_k =\\
-  &\epsilon_{ijk} \partial_i a_j b_k =\\
-  &\partial_i \epsilon_{ijk} a_j b_k =\\
-  &\nabla (\vec{a} \times \vec{b})
+  &b_i (\epsilon_{ijk} \partial_j a_k) + a_k (\epsilon_{ijk} \partial_j b_i)\\
+  =&\epsilon_{ijk} (b_i \partial_j a_k) + a_k \partial_j b_i)\\
+  =&\epsilon_{ijk} \partial_j b_i a_k\\
+  =&-\epsilon_{ijk} \partial_j a_i b_k\\
+  =&\epsilon_{ijk} \partial_i a_j b_k\\
+  =&\partial_i \epsilon_{ijk} a_j b_k\\
+  =&\nabla (\vec{a} \times \vec{b})
 \end{align*}
 
 
