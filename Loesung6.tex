@@ -1,0 +1,84 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 6/7. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 3}
+
+\begin{equation}
+  \vec{p}_m = I \vec{A}
+\end{equation}
+
+Das magnetische Dipolmoment ist $p_m = I \cdot \vec{A}$. Dabei ist $I$ der
+Strom und $\vec{A}$ die Flächennormale der Kreisbahn. Da diese parallel zum
+Drehmoment, genau wie zum Drehimpuls ist, reicht es, hier mit Beträgen zu
+arbeiten.
+
+\begin{equation}
+  p_m = I A
+\end{equation}
+
+Für $I$ gilt $I = \frac{dQ}{dt}$. Das Elektron kommt auf seiner Kreisbahn mit
+dem Radius $r$ genau einmal pro Umlaufzeit $t$ am Ausgangspunkt vorbei. Der
+Strom ist also
+
+\begin{equation}
+  I = \frac{-e}{t}
+\end{equation}
+
+Die Umlaufzeit auf der Kreisbahn $s$ mit der Geschwindigkeit $v$ ist:
+
+\begin{equation}
+  t = \frac{s}{v} = \frac{2 \pi r}{v}
+\end{equation}
+
+Eingesetz in die Ausgangsgleichung:
+
+\begin{equation}
+  p_m = \frac{-e}{2 \pi r} v A
+\end{equation}
+
+Die Kreisfläche ist $A = \pi r^2$. Eingesetzt:
+
+\begin{equation}
+  p_m = \frac{-e}{2 \pi r} v \pi r^2 = \frac{-e}{2} v r
+\end{equation}
+
+Mit dem Impuls $p = mv$ erhält man:
+
+\begin{equation}
+  p_m = \frac{-e}{2m} p r
+\end{equation}
+
+Und mit dem Drehimpulsbetrag $L = pr$:
+
+\begin{equation}
+  p_m = \frac{-e}{2m} L
+\end{equation}
+
+Wenn ich nun $L = \hbar$ einsetze erhalte ich:
+
+\begin{equation}
+  p_m = \frac{-e}{2m_e} \hbar \approx -9{,}274 \cdot 10^{-24} \;\joule\per\tesla
+\end{equation}
+
+\end{document}
