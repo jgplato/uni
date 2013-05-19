@@ -77,6 +77,21 @@ Nach Wurzelkriterium:
 
 Die Reihe konvergiert also für $|z|^2 < 2 \Leftrightarrow |z| < \sqrt{2}$.
 
+\section*{Aufgabe 5.3}
+\subsection*{Teil a}
+
+Damit die gegebene Reihe absolut konvergiert, muss gemäß Wurzelkriterium gegeben sein:
+
+\begin{align*}
+  &\lim_{n \to \infty} \sqrt[n]{|a_nb_n(uv)^n|} < 1 \\
+ \Leftrightarrow\quad&\lim_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} < 1 \\
+ \Leftrightarrow\quad&\underbrace{\left(\lim_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\lim_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
+\end{align*}
+
+Diese beiden Grenzwerte existieren und sind beide $<1$, denn dies sind genau
+die Grenzwerte für das Wurzelkriterium der beiden gegeben Reihen. Also ist der
+Beweis erbracht.
+
 
 \section{Aufgabe 5.4}
 
