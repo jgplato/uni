@@ -41,6 +41,43 @@ Mit der Summenformel für die geometrische Reihe gilt dann:
   =&\frac{1}{\frac{n}{n} - \frac{(n+1)x}{n}} \\
   =&\frac{n}{n - (n+1)x} \\
 \end{align*}
+\section{Aufgabe 5.2}
+\subsection*{Teil a}
+Nach Wurzelkriterium ($|i^n| = |i|^n = 1$):
+
+\begin{align*}
+  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{|i^nz^n|} \\
+              &= \lim_{n \to \infty} \sqrt[n]{|z|^n} \\
+              &= |z| \\
+  \Leftrightarrow\quad R &= \frac{1}{|z|}
+\end{align*}
+
+Der Reihe konvergiert also für $|z| < 1$.
+
+\subsection*{Teil b}
+Nach Wurzelkriterium:
+
+\begin{align*}
+  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{\left|\frac{(z-2i)^n}{n\cdot3^n}\right|} \\
+              &= \frac{\lim_{n \to \infty} \sqrt[n]{|z-2i|^n}}{\lim_{n \to \infty} \sqrt[n]{3^n} \cdot \underbrace{\lim_{n \to \infty} \sqrt[n]{n}}_{\to 1}} \\
+              &= \frac{|z-2i|}{3} \\
+  \Leftrightarrow\quad R &= \frac{3}{|z-2i|}
+\end{align*}
+
+Die Reihe konvergiert also für $|z-2i| < 3$.
+
+\subsection*{Teil c}
+Nach Wurzelkriterium:
+\begin{align*}
+  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{\left|\frac{z^{2n}}{2^n}\right|} \\
+              &= \frac{\lim_{n \to \infty} \sqrt[n]{|z|^{2n}}}{\lim_{n \to \infty} \sqrt[n]{2^n}} \\
+              &= \frac{|z|^2}{2} \\
+  \Leftrightarrow\quad R &= \frac{2}{|z|^2}
+\end{align*}
+
+Die Reihe konvergiert also für $|z|^2 < 2 \Leftrightarrow |z| < \sqrt{2}$.
+
+
 \section{Aufgabe 5.4}
 
 Sei $p(x)$ ein Polynom beliebig hohen Grades $N$. Die Exponentialreihe enthält
