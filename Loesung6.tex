@@ -22,6 +22,58 @@ Elektrodynamik und Optik, Sommersemester 2013, 6/7. Blatt \\
 Markus Fenske, Tutor: Dr. Marko Wietstruk
 \vspace{-10pt}
 \end{center}
+\section*{Aufgabe 1}
+\textbf{Achtung: Vorzeichenfehler korrigieren!}
+
+Das Biot-Savart-Gesetz lautet:
+
+\begin{equation}
+  \vec{B}(\vec{r}) = \frac{\mu_0 I}{4 \pi} \int_{\text{Leiter}} \frac{(\vec{r} - \vec{r'}) \times \vec{ds}}{|\vec{r}-\vec{r'}|^3}
+\end{equation}
+
+Da hier das Magnetfeld im Ursprung berechnet werden soll, ist:
+
+
+\begin{equation}
+  \vec{B} = \frac{\mu_0 I}{4 \pi} \int_{\text{Leiter}} \frac{(-\vec{r'}) \times \vec{ds}}{|\vec{r'}|^3}
+\end{equation}
+
+$\vec{r'}$ ist der Der Vektor zum jeweiligen Punkt auf dem Leiter, während
+$\vec{ds}$ entlang des Leiters zeigt. Für das lange Stück ist $\vec{ds}$
+parallel zu $\vec{r}$, womit $\vec{r} \times \vec{ds} = \vec{0}$. Das gerade
+Stück kann also vernachlässigt werden.
+
+\begin{equation}
+  \vec{B} = \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} \frac{(-\vec{r'}) \times \vec{ds}}{|\vec{r'}|^3}
+\end{equation}
+
+Auf dem Kreisbogen steht $\vec{ds}$ senkrecht auf $\vec{r}$. Damit gilt dann
+$\vec{r'} \times \vec{ds} = \widehat{z} (|r| |ds|)$:
+
+\begin{align}
+  \vec{B} &= \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} \widehat{z} \frac{|r| |ds|}{r'^3} \\
+  \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} \widehat{z} \frac{|r'| |ds|}{r'^3} \\
+  \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} \widehat{z} \frac{1}{r'^2} ds \\
+\end{align}
+
+Sei nun $R$ der Radius des Kreises, dann ist $|\vec{r'}| = R$. Und somit:
+
+\begin{align}
+  \vec{B} = \frac{\mu_0 I}{4 \pi R^2} \widehat{z}\int_{\text{Bogen}} ds \\
+\end{align}
+
+Der Kreis hat den Umfang $2 \pi R$, der Halbkreis dementsprechend $\pi R$. Das führt zu:
+
+\begin{align}
+  \vec{B} = \frac{\mu_0 I}{4 \pi R^2} \widehat{z} \pi R \\
+\end{align}
+
+Und zusammengefasst:
+
+\begin{equation}
+  \vec{B} = \frac{\mu_0 I}{4 \pi R} \widehat{z}
+\end{equation}
+
 \section*{Aufgabe 3}
 
 \begin{equation}
