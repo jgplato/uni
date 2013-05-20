@@ -25,38 +25,44 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \vspace{-10pt}
 \end{center}
 
-\section{Aufgabe 5.1}
+\section*{Aufgabe 5.1}
 
+\begin{equation*}
+\sum_{n=1}^\infty nx^n 
+\end{equation*}
+Erweitern mit $(1-x)$ liefert:
 \begin{align*}
-   &\sum_{n=1}^\infty nx^n \\
-  =&\frac{\sum_{n=1}^\infty n(x^n - x^{n+1})}{1-x}
+  =\sum\limits_{n=1}^{\infty} nx^n \cdot \frac{(1-x)}{(1-x)}
+  =\sum_{n=1}^\infty n(x^n - x^{n+1}) \cdot \frac{1}{(1-x)}
 \end{align*}
 
-Die Reihe im Nenner kann man umsortieren.
-
+Untersuchen und Umsortieren des ersten Terms:
 \begin{align*}
   &\sum_{n=1}^\infty nx^n - nx^{n+1} \\
-  &= \left. n(x^n - x^{n+1}) \right|_{n=1} + \left. n(x^n - x^{n+1}) \right|_{n=2} + \left. n(x^n - x^{n+1}) \right|_{n=3} + \dots \\
-  &= 1(x - x^2) + 2(x^2 - x^3) + 3(x^3 - x^4) + 4(x^4 - x^5) + \dots \\
-  &= x \underbrace{- x^2 + 2x^2}_{=x^2} \underbrace{- 2x^3 + 3x^3}_{=x^3} \underbrace{- 3x^4 + 4x^4}_{=x^3} - 4x^5 + \dots \\
-  &= \sum_{n=1}^\infty x^n
+  &= \left. n(x^n - x^{n+1}) \right|_{n=1} + \left. n(x^n - x^{n+1}) \right|_{n=2} + \left. n(x^n - x^{n+1}) \right|_{n=3} + \dots + \left. n(x^n - x^{n+1}) \right|_{n=\infty}\\
+  &= 1(x - x^2) + 2(x^2 - x^3) + 3(x^3 - x^4) + 4(x^4 - x^5) + \dots - \lim\limits_{n \to \infty} nx^{n+1}\\
+  &= x \underbrace{- x^2 + 2x^2}_{=+x^2} \underbrace{- 2x^3 + 3x^3}_{=+x^3} \underbrace{- 3x^4 + 4x^4}_{=+x^3} - 4x^5 + \dots - \lim\limits_{n \to \infty} nx^{n+1}\\
+  &= \sum_{n=1}^\infty x^n - \lim\limits_{n \to \infty} nx^{n+1}
 \end{align*}
 
-Nach geometrischer Reihe konvergiert diese Reihe, wenn $|x| < 1$:
-
+Den Reihenterm können wir über die Summenformel für die geometrische Reihe ausdrücken, wenn $|x| < 1$:
 \begin{align*}
-  \sum_{n=1}^\infty x^n = \frac{x}{1-x}
+  \sum_{n=0}^\infty x^n = \frac{1}{(1-x)} \Rightarrow \sum_{n=1}^\infty x^n= \frac{1}{(1-x)} - 1 = \frac{1-\left(1-x\right)}{(1-x)}= \frac{x}{(1-x)}
 \end{align*}
 
-Eingesetzt in die Ausgangsgleichung ergibt sich dann wie gefordert:
+Ohne formellen Beweis werde ich davon ausgehen, dass:
+\begin{equation*}
+  \lim\limits_{n \to \infty} nx^{n+1}=0
+\end{equation*}
+...dies kann man sich auch ohne formellen Beweis überlegen, da wir wissen, dass $x^n$ für $|x|<1$ gegen 0 konvergiert. (Auf dem letzten Übungszettel bewiesen). Zwar divergiert $n$ bestimmt gegen $\infty$, aber durch das exponentielle Wachstum konvergiert $x^n$ schneller gegen den Grenzwert 0 als $n$ gegen $\infty$.
 
+Überführen wir ausgehend von diesen Überlegungen unsere Terme in die Ausgangsgleichung, erhalten wir:
 \begin{align*}
-   &\sum_{n=1}^\infty nx^n \\
-  &=\frac{\frac{x}{1-x}}{1-x} \\
-  &=\frac{x}{(1-x)^2}
+  &\sum_{n=1}^\infty nx^n  = \left(\frac{x}{(1-x)} - 0\right) \cdot \frac{1}{(1-x)} = \frac{x}{(1-x)^2}
 \end{align*}
+...wie zu zeigen war.
 
-\section{Aufgabe 5.2}
+\section*{Aufgabe 5.2}
 \subsection*{Teil a}
 Nach Wurzelkriterium ($|i^n| = |i|^n = 1$):
 
@@ -98,24 +104,122 @@ Die Reihe konvergiert also für $|z|^2 < 2 \Leftrightarrow |z| < \sqrt{2}$.
 Damit die gegebene Reihe absolut konvergiert, muss gemäß Wurzelkriterium gegeben sein:
 
 \begin{align*}
-  &\lim_{n \to \infty} \sqrt[n]{|a_nb_n(uv)^n|} < 1 \\
- \Leftrightarrow\quad&\lim_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} < 1 \\
- \Leftrightarrow\quad&\underbrace{\left(\lim_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\lim_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
+  &\limsup_{n \to \infty} \sqrt[n]{|a_nb_n(uv)^n|} < 1 \\
+ \Leftrightarrow\quad&\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} < 1 \\
+ \Leftrightarrow\quad&\underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
 \end{align*}
 
-Diese beiden Grenzwerte existieren und sind beide $<1$, denn dies sind genau
-die Grenzwerte für das Wurzelkriterium der beiden gegeben Reihen. Also ist der
-Beweis erbracht.
+Diese beiden Grenzwerte existieren und sind nach Voraussetzung beide $<1$, da unsere Reihen ansonsten das Wurzelkriterium nicht erfüllen. Damit ist der Beweis erbracht.
 
+\subsection*{Teil b}
 
-\section{Aufgabe 5.4}
+Gegeben sind:
+\begin{equation*}
+\sum\limits_{n=0}^{\infty} a_n z^n \; \text{mit} \; r_a>0\quad ; \quad \sum\limits_{n=0}^{\infty} b_n z^n \; \text{mit} \; r_b>0 \quad \text{und} \quad  \sum\limits_{n=0}^{\infty} a_n b_n z^n
+\end{equation*}
+Zu zeigen:
+\begin{equation*}
+r_c \geq r_a r_b
+\end{equation*}
+Dies zeigen wir ausgehend vom Wurzelkriterium.\\
+Angenommen, $\sum\limits_{n=0}^{\infty} a_n b_n z^n$ konvergiert absolut, muss gelten:
+\begin{align*}
+  & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n z^n|} < 1 \\
+  & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n| \; |z|^n} < 1\\
+  & |z| < \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}
+\end{align*}
+Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung. Offensichtlich gilt:
+\begin{align*}
+  & \sqrt[n]{|a_n|}< \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \quad \text{für fast alle n}\\
+  & \sqrt[n]{|b_n|}< \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|} \quad \text{für fast alle n}\\
+\end{align*}
+Dann wird auch gelten:
+\begin{align*} 
+  & \sqrt[n]{|a_n|} \cdot \sqrt[n]{|b_n|} < \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{b_n} \quad \text{für fast alle n}\\
+  & \Leftrightarrow \sqrt[n]{|a_n b_n|} < \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{b_n} \quad \text{für fast alle n}
+\end{align*}
+Also ist der Aufdruck auf der rechten Seite obere Grenze der Folge $\sqrt[n]{a_n b_n}$. Der Limes Superior dieser Folge muss kleiner/gleich jeder oberen Schranke sein, also gilt:
+\begin{equation*}
+\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|} \leq \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}
+\end{equation*}
+Und für die Kehrwerte:
+\begin{equation*}
+\underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}}_{r_c} \geq \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}= \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|}}}_{r_a} \cdot \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}}_{r_b}
+\end{equation*}
+
+\subsection*{Teil c}
+
+Seien $\sum\limits_{n=0}^{\infty} a_nz^n$ und $\sum\limits_{n=0}^{\infty} b_n z^n$ gegeben mit $a_n=\sin(n)$ und $b_n=\cos(n)$.\\
+\\
+Wir können sofort den Limes Superior von $a_n$ und $b_n$ und damit den Konvergenzradius beider Reihen bestimmen:
+\begin{equation*}
+r_a=\frac{1}{\limsup\limits_{n \to \infty} \sin(n)}=\frac{1}{1}=1 \quad \text{und} \quad r_b=\frac{1}{\limsup\limits_{n \to \infty} \cos(n)}=\frac{1}{1}=1
+\end{equation*}
+Hingegen gilt für den Konvergenzradius von $\sum\limits_{n=0}^{\infty} a_n b_n z^n$:
+\begin{equation*}
+r_c=\frac{1}{\limsup\limits_{n \to \infty} \sin(n)}=\frac{1}{\frac{1}{2}}=2>1=r_a \cdot r_b
+\end{equation*}
+
+\subsection*{Teil d}
+
+Hierfür nehmen wir die konvergente Reihe:
+\begin{equation*}
+\sum\limits_{n=0}^{\infty} a_nu^n:=\sum\limits_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n}} \quad ; \quad \text{sei} \quad a_n=\frac{1}{\sqrt{n}} \quad \text{und} \quad u=-1
+\end{equation*}
+Die Konvergenz beweisen wir über das Leibniz-Kriterium für alternierende Folgen. Monotonie von $a_n$ ist gegeben:
+\begin{align*}
+  & \frac{1}{|n|}<\frac{1}{n+1} \quad \forall n\\
+  & \Leftrightarrow \sqrt{\frac{1}{n}}<\sqrt{\frac{1}{n+1}} \quad \forall n\\
+  & \Leftrightarrow \frac{1}{\sqrt{n}}< \frac{1}{\sqrt{n+1}} \quad \forall n
+\end{align*}
+Des weiteren ist $a_n$ Nullfolge:
+\begin{equation}
+\lim\limits_{n \to \infty} \frac{1}{\sqrt{n}}=\lim\limits_{n \to \infty} \sqrt{\frac{1}{n}}=\sqrt{\lim\limits_{n \to \infty} \frac{1}{n}}=0
+\end{equation}
+Damit schlägt das Leibniz-Kriterium zu und unsere Reihe ist konvergent.\\
+Absolute Konvergenz ist nicht gegeben,denn:
+\begin{equation*}
+\sum\limits_{n=0}^{\infty} |\frac{(-1)^n}{\sqrt{n}}| = \sum\limits_{n=0}^{\infty} \frac{1}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \sqrt{\frac{1}{n}}
+\end{equation*}
+Die harmonische Reihe divergiert bestimmt. Das Ziehen der Quadratwurzel aller Summanden ändert nichts an der Divergenz der Reihe.
+Als zweite Reihe nehmen wir bequemerweise wieder die Gleiche (es gibt keinen Grund zur Annahme, dass dies nicht legitim wäre).\\
+\\
+Dann erhalten wir also die Produktreihe:
+\begin{equation*}
+\sum\limits_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n}} \cdot \frac{(-1)^n}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \frac{1}{n}
+\end{equation*}
+Dies ist die harmonische Reihe, von der wir bereits wissen, dass sie divergiert. Damit ist das Beispiel erbracht.
+
+\section*{Aufgabe 5.4}
 
 Sei $p(x)$ ein Polynom beliebig hohen Grades $N$. Die Exponentialreihe enthält
 dann immer einen Term $\frac{x^{N+1}}{(N+1)!}$, der schneller wächst als das
 Polynom. Denn $\sum_{i=0}^n \alpha x^i < \beta x^{n+1}$ für genügend große $x$,
 oder anders ausgedrückt: Das Polynom vom höheren Grad wächst schneller.
 
-Für die Sinusreihe gilt das Argument nicht, weil sie immer auch einen
+Das können wir einfach beweisen. Sei $p_1(x)=ax^n$ mit 
+
+Zu zeigen: Es gibt ein x, sodass:
+\begin{align*}
+  &p_1(x)>p_2(x)\\
+  & \Leftrightarrow ax^n>\sum\limits_{i=0}^{\infty} b_i x^i\\
+  & \Leftrightarrow ax^n>b_0+b_1x^1+b_2x^2+ \cdots\\
+  & \Leftrightarrow ax^n-b_0-b_1x^1-b_2x^2- \cdots >0
+\end{align*}
+Sei $c:=\max\{b_0,b_1,b_2,\cdots\}$, dann ist $\sum\limits_{i=0}^{\infty} b_i x^i \leq \sum\limits_{i=0}^{\infty} c x^i$ und es reicht aus, zu zeigen:
+\begin{align*}
+  & \Leftrightarrow ax^n-b_0-b_1x^1-b_2x^2- \cdots \geq ax^n-c-cx^1-cx^2- \cdots>0\\
+  & \Rightarrow ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n Summanden}>0
+\end{align*}
+Für $x \geq 1$ ist $x^{n-1} \geq x^m \; \forall m \geq n-1$, sodass er reicht, zu zeigen:
+\begin{align*}
+  & \Leftrightarrow ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n_Summanden} \geq ax^n-c\underbrace{\left(x^{n-1}+x^{n-1}+x^{n-1}+\cdots \right)}_{n_Summanden} = ax^n-cnx^{n-1} > 0\\
+  & \Rightarrow x^{n-1}\left(ax-cn\right)>0 \quad \Rightarrow \quad x^{n-1}\left(ax-cn\right)>ax-cn>0
+\end{align*}
+Offensichtlich gibt es ein x, welches diese Bedingung erfüllt. Das heißt, es gibt ein x, ab dem ein Polynom n-ten Grades größer wird als eines (n-1)-ten Grades.\\
+Obwohl die Potenzreihe von $\exp x$ nicht ein Polynom ist, wird sich auch hier ein x finden lassen, sodass die Funktion größer wird als Polynom beliebigen Grades, (s.o.) \\
+\\
+Für die Sinusreihe gilt unser Argumentationsweg nicht, weil sie immer auch einen
 höhergradigen subtraktive Term enthält, der das Wachstum wieder zunichte macht.
 Außerdem ist bekannt, dass $\sin x \le 1$ für reelle $x$.
 
