@@ -147,7 +147,7 @@ Bei konstantem $r = R$ ist das:
 \end{align*}
 
 \section{Aufgabe 3: Bewegung auf einem Kreis}
-\subection*{Teil a: Lagrange-Term}
+\subsection*{Teil a: Lagrange-Term}
 
 Für das Problem bieten sich 2D-Polarkoordinaten an.
 
@@ -158,7 +158,7 @@ Koordinaten $x$ und $y$ ist:
   L = T = \frac{m}{2} (\dot{r}^2 + r^2\dot{\phi}^2)
 \end{align*}
 
-\subection*{Teil b: Kreisbewegung}
+\subsection*{Teil b: Kreisbewegung}
 
 Bei einer Kreisbewegung bleibt der Abstand zum Kreismittelpunkt, den wir hier
 in den Ursprung setzen, konstant. Wenn der Radius $a$ ist, lautet die
@@ -174,15 +174,15 @@ Wenn wir dies als Lagrangemultiplikator mit unserem Lagrange-Term ansetzen, erha
   L = \frac{m}{2} (\dot{r}^2 + r^2\dot{\phi}^2)  + \lambda(r-a)
 \end{align*}
 
-Wir Lösen die Lagrangegleichung:
+Wir lösen die Lagrangegleichung:
 
 \begin{align*}
-  \frac{d}{dt} \frac{\partial}{\partial \dot{r}} = \frac{\partial}{\partial r} \\
+  &\frac{d}{dt} \frac{\partial}{\partial \dot{r}} = \frac{\partial}{\partial r} \\
   \Leftrightarrow\quad& m\ddot{r} = mr\dot{\phi}^2 + \lambda
 \end{align*}
 
 \begin{align*}
-  \frac{d}{dt} \frac{\partial}{\partial \dot{\phi}} = \frac{\partial}{\partial \phi} \\
+  &\frac{d}{dt} \frac{\partial}{\partial \dot{\phi}} = \frac{\partial}{\partial \phi} \\
   \Leftrightarrow\quad& m\ddot{\phi}r^2 = 0
 \end{align*}
 
@@ -217,7 +217,7 @@ Die Lagrange-Gleichung für diese Koordinate lautet:
 \end{align*}
 
 
-Wenn wir nun den konjugierten Impuls $p_j = \partial_\dot{q_j} L$ einsetzen, sehen
+Wenn wir nun den konjugierten Impuls $p_j = \partial_{\dot{q_j}} L$ einsetzen, sehen
 wir, dass die Lagrange-Gleichung die Zeitableitung des Impulses beschreibt.
 
 \begin{align*}
@@ -233,7 +233,7 @@ Euler-Lagrange-Gleichung $\partial_q L = 0$, also
   \frac{d}{dt} \frac{\partial}{\partial \dot{q}_j} L = 0
 \end{align*}
 
-Setzen wir $p_j = \partial_\dot{q_j} L$ ein, erhalten wir:
+Setzen wir $p_j = \partial_{\dot{q_j}} L$ ein, erhalten wir:
 
 \begin{align*}
   \dot{p_j} = 0
