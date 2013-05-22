@@ -72,7 +72,7 @@ Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
   & \limsup\limits_{n \to \infty} \sqrt[n]{|i^nz^n|}<1\\
   & \Leftrightarrow \limsup\limits_{n \to \infty} \sqrt[n]{|i|^n|z|^n}<1
 \end{align*}
-Wegen $x|i|=1$ und $|z|=constant$:
+Wegen $|i|=1$ und $|z|=constant$:
 \begin{equation*}
 \Leftrightarrow |z|<1
 \end{equation*}
@@ -132,7 +132,9 @@ Angenommen, $\sum\limits_{n=0}^{\infty} a_n b_n z^n$ konvergiert absolut, muss g
   & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n| \; |z|^n} < 1\\
   & |z| < \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}
 \end{align*}
-Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung. In einem beliebigen Intervall $I$ lässt sich zu jeder Folge ein Supremum finden:
+Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung.\\
+\\
+Nebenüberlegung: In einem beliebigen Intervall $I$ lässt sich zu jeder Folge ein Supremum finden:
 \begin{align*}
   & \sqrt[n]{\underset{n \in I}{|a_n|}} \leq \sup \sqrt[n]{|a_n|}\\
   & \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|b_n|}
@@ -142,7 +144,7 @@ Dann wird auch gelten:
 \begin{align*} 
   & \sqrt[n]{\underset{n \in I}{|a_n|}} \cdot \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
 \end{align*}
-Also ist der Aufdruck auf der rechten Seite obere Grenze der Folge $\sqrt[n]{a_n b_n}$. Das Supremum von $a_n \cdot b_n$ ist kleiner/gleich jeder oberen Schranke, also ist:
+Also ist der Aufdruck auf der rechten Seite obere Schranke der Folge $\sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}}$. Das Supremum ist per Definition kleiner/gleich jeder oberen Schranke, also ist:
 \begin{equation*}
 \sup \sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
 \end{equation*}
