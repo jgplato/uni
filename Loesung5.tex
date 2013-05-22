@@ -136,62 +136,82 @@ Damit die gegebene Reihe absolut konvergiert, muss gemäß Wurzelkriterium gegeb
   \Leftrightarrow\quad& \limsup_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} \leq \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
 \end{align*}
 
-Diese beiden Grenzwerte existieren und sind nach Voraussetzung beide $<1$, da unsere Reihen ansonsten das Wurzelkriterium nicht erfüllen. Damit ist der Beweis erbracht.\\
-\\
+Diese beiden Grenzwerte existieren und sind nach Voraussetzung beide $<1$, da unsere Reihen ansonsten das Wurzelkriterium nicht erfüllen. Damit ist der Beweis erbracht.
+
 Anmerkung: Dass $\limsup_{n \to \infty} a_nb_n \leq \limsup_{n \to \infty} a_n \cdot \limsup_{n \to \infty} b_n$ zeigen wir in der (b).
 
 \subsection*{Teil b}
 
 Gegeben sind:
 \begin{equation*}
-\sum\limits_{n=0}^{\infty} a_n z^n \; \text{mit} \; r_a>0\quad ; \quad \sum\limits_{n=0}^{\infty} b_n z^n \; \text{mit} \; r_b>0 \quad \text{und} \quad  \sum\limits_{n=0}^{\infty} a_n b_n z^n
+  \sum\limits_{n=0}^{\infty} a_n z^n \; \text{mit} \; r_a>0\quad ; \quad \sum\limits_{n=0}^{\infty} b_n z^n \; \text{mit} \; r_b>0 \quad \text{und} \quad  \sum\limits_{n=0}^{\infty} a_n b_n z^n
 \end{equation*}
+
 Zu zeigen:
 \begin{equation*}
-r_c \geq r_a r_b
+  r_c \geq r_a r_b
 \end{equation*}
-Dies zeigen wir ausgehend vom Wurzelkriterium.\\
+
+Dies zeigen wir ausgehend vom Wurzelkriterium.
+
 Angenommen, $\sum\limits_{n=0}^{\infty} a_n b_n z^n$ konvergiert absolut, muss gelten:
+
 \begin{align*}
   & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n z^n|} < 1 \\
   & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n| \; |z|^n} < 1\\
   & |z| < \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}
 \end{align*}
-Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung.\\
-\\
+
+Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung.
+
 Nebenüberlegung: In einem beliebigen Intervall $I$ lässt sich zu jeder Folge ein Supremum finden:
+
 \begin{align*}
   & \sqrt[n]{\underset{n \in I}{|a_n|}} \leq \sup \sqrt[n]{|a_n|}\\
   & \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|b_n|}
 \end{align*}
 
 Dann wird auch gelten:
-\begin{align*} 
+
+\begin{align*}
   & \sqrt[n]{\underset{n \in I}{|a_n|}} \cdot \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
 \end{align*}
-Also ist der Aufdruck auf der rechten Seite obere Schranke der Folge $\sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}}$. Das Supremum ist per Definition kleiner/gleich jeder oberen Schranke, also ist:
+
+Also ist der Aufdruck auf der rechten Seite obere Schranke der Folge
+$\sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}}$. Das
+Supremum ist per Definition kleiner/gleich jeder oberen Schranke, also ist:
+
 \begin{equation*}
-\sup \sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
+  \sup \sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
 \end{equation*}
 
-Diese Betrachtung gilt für das Supremum eines beliebiges Intervall. Betrachtet man ein beliebig großes Intervall, wird logischerweise für den Grenzwert der Suprema der Folgen, dem Limes Superior, gelten: 
+Diese Betrachtung gilt für das Supremum eines beliebiges Intervall. Betrachtet
+man ein beliebig großes Intervall, wird logischerweise für den Grenzwert der
+Suprema der Folgen, dem Limes Superior, gelten:
+
 \begin{equation*}
-\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|} \leq \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}
+  \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|} \leq \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}
 \end{equation*}
+
 Und für die Kehrwerte:
 \begin{equation*}
-\underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}}_{r_c} \geq \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}= \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|}}}_{r_a} \cdot \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}}_{r_b}
+  \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}}_{r_c} \geq \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}= \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n|}}}_{r_a} \cdot \underbrace{\frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}}}_{r_b}
 \end{equation*}
 
 \subsection*{Teil c}
 
-Seien $\sum\limits_{n=0}^{\infty} a_nz^n$ und $\sum\limits_{n=0}^{\infty} b_n z^n$ gegeben mit $a_n=\sin(n)$ und $b_n=\cos(n)$.\\
-\\
-Wir können sofort den Limes Superior von $a_n$ und $b_n$ und damit den Konvergenzradius beider Reihen bestimmen:
+Seien $\sum\limits_{n=0}^{\infty} a_nz^n$ und $\sum\limits_{n=0}^{\infty} b_n
+z^n$ gegeben mit $a_n=\sin(n)$ und $b_n=\cos(n)$.
+
+Wir können sofort den Limes Superior von $a_n$ und $b_n$ und damit den
+Konvergenzradius beider Reihen bestimmen:
+
 \begin{equation*}
 r_a=\frac{1}{\limsup\limits_{n \to \infty} \sin(n)}=\frac{1}{1}=1 \quad \text{und} \quad r_b=\frac{1}{\limsup\limits_{n \to \infty} \cos(n)}=\frac{1}{1}=1
 \end{equation*}
-Hingegen gilt für den Konvergenzradius von $\sum\limits_{n=0}^{\infty} a_n b_n z^n$:
+
+Hingegen gilt für den Konvergenzradius von $\sum\limits_{n=0}^{\infty} a_n b_n
+z^n$:
 \begin{equation*}
 r_c=\frac{1}{\limsup\limits_{n \to \infty} \sin(n)}=\frac{1}{\frac{1}{2}}=2>1=r_a \cdot r_b
 \end{equation*}
@@ -202,28 +222,34 @@ Hierfür nehmen wir die konvergente Reihe:
 \begin{equation*}
 \sum\limits_{n=0}^{\infty} a_nu^n:=\sum\limits_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n}} \quad ; \quad \text{sei} \quad a_n=\frac{1}{\sqrt{n}} \quad \text{und} \quad u=-1
 \end{equation*}
+
 Die Konvergenz beweisen wir über das Leibniz-Kriterium für alternierende Folgen. Monotonie von $a_n$ ist gegeben:
 \begin{align*}
   & \frac{1}{|n|}<\frac{1}{n+1} \quad \forall n\\
   & \Leftrightarrow \sqrt{\frac{1}{n}}<\sqrt{\frac{1}{n+1}} \quad \forall n\\
   & \Leftrightarrow \frac{1}{\sqrt{n}}< \frac{1}{\sqrt{n+1}} \quad \forall n
 \end{align*}
+
 Des weiteren ist $a_n$ Nullfolge:
 \begin{equation}
 \lim\limits_{n \to \infty} \frac{1}{\sqrt{n}}=\lim\limits_{n \to \infty} \sqrt{\frac{1}{n}}=\sqrt{\lim\limits_{n \to \infty} \frac{1}{n}}=0
 \end{equation}
-Damit schlägt das Leibniz-Kriterium zu und unsere Reihe ist konvergent.\\
-Absolute Konvergenz ist nicht gegeben,denn:
+
+Damit schlägt das Leibniz-Kriterium zu und unsere Reihe ist konvergent. Absolute Konvergenz ist nicht gegeben, denn:
 \begin{equation*}
 \sum\limits_{n=0}^{\infty} |\frac{(-1)^n}{\sqrt{n}}| = \sum\limits_{n=0}^{\infty} \frac{1}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \sqrt{\frac{1}{n}}
 \end{equation*}
-Die harmonische Reihe divergiert bestimmt. Das Ziehen der Quadratwurzel aller Summanden ändert nichts an der Divergenz der Reihe.
-Als zweite Reihe nehmen wir bequemerweise wieder die Gleiche (es gibt keinen Grund zur Annahme, dass dies nicht legitim wäre).\\
-\\
+
+Die harmonische Reihe divergiert bestimmt. Das Ziehen der Quadratwurzel aller
+Summanden ändert nichts an der Divergenz der Reihe.  Als zweite Reihe nehmen
+wir bequemerweise wieder die Gleiche.
+
 Dann erhalten wir also die Produktreihe:
+
 \begin{equation*}
-\sum\limits_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n}} \cdot \frac{(-1)^n}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \frac{1}{n}
+  \sum\limits_{n=0}^{\infty} \frac{(-1)^n}{\sqrt{n}} \cdot \frac{(-1)^n}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \frac{1}{n}
 \end{equation*}
+
 Dies ist die harmonische Reihe, von der wir bereits wissen, dass sie divergiert. Damit ist das Beispiel erbracht.
 
 \section*{Aufgabe 5.4}
