@@ -26,42 +26,57 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \end{center}
 
 \section*{Aufgabe 5.1}
+Gegeben ist
 
 \begin{equation*}
 \sum_{n=1}^\infty nx^n 
 \end{equation*}
-Erweitern mit $(1-x)$ liefert:
+
+Erweitern mit $1-x$ liefert:
 \begin{align*}
-  =\frac{(1-x)}{(1-x)} \cdot \sum\limits_{n=1}^{\infty} nx^n 
-  =\frac{1}{(1-x)} \cdot \sum\limits_{n=1}^{\infty} nx^n\cdot(1-x)
-  =\frac{1}{(1-x)} \cdot \sum_{n=1}^\infty n(x^n - x^{n+1})
+  &=\frac{1-x}{1-x} \sum\limits_{n=1}^{\infty} nx^n \\
+  &=\frac{1}{1-x} \sum\limits_{n=1}^{\infty} nx^n\cdot(1-x) \\
+  &=\frac{1}{1-x} \sum_{n=1}^\infty n(x^n - x^{n+1})
 \end{align*}
 
-Untersuchen und Umsortieren des ersten Terms:
+Untersuchen und Umsortieren der Summe:
 \begin{align*}
   &\sum_{n=1}^\infty nx^n - nx^{n+1} \\
-  &= \left. n(x^n - x^{n+1}) \right|_{n=1} + \left. n(x^n - x^{n+1}) \right|_{n=2} + \left. n(x^n - x^{n+1}) \right|_{n=3} + \dots + \left. n(x^n - x^{n+1}) \right|_{n=\infty}\\
-  &= 1(x - x^2) + 2(x^2 - x^3) + 3(x^3 - x^4) + 4(x^4 - x^5) + \dots - \lim\limits_{n \to \infty} nx^{n+1}\\
-  &= x \underbrace{- x^2 + 2x^2}_{=+x^2} \underbrace{- 2x^3 + 3x^3}_{=+x^3} \underbrace{- 3x^4 + 4x^4}_{=+x^3} - 4x^5 + \dots - \lim\limits_{n \to \infty} nx^{n+1}\\
-  &= \sum_{n=1}^\infty x^n - \lim\limits_{n \to \infty} nx^{n+1}
+  &= \left. n(x^n - x^{n+1}) \right|_{n=1} + \left. n(x^n - x^{n+1}) \right|_{n=2} + \left. n(x^n - x^{n+1}) \right|_{n=3} + \dots \\
+  &= 1(x - x^2) + 2(x^2 - x^3) + 3(x^3 - x^4) + 4(x^4 - x^5) + \dots \\
+  &= x \underbrace{- x^2 + 2x^2}_{=+x^2} \underbrace{- 2x^3 + 3x^3}_{=+x^3} \underbrace{- 3x^4 + 4x^4}_{=+x^3} - 4x^5 + \dots \underbrace{- \lim\limits_{n \to \infty} nx^{n+1}}_{\text{``Schlußterm''} \to 0}\\
+  &= x + x^2 + x^3 + x^4 + \dots \\
+  &= \sum_{n=1}^\infty x^n
 \end{align*}
 
-Den Reihenterm können wir über die Summenformel für die geometrische Reihe ausdrücken, wenn $|x| < 1$:
-\begin{align*}
-  \sum_{n=0}^\infty x^n = \frac{1}{(1-x)} \Rightarrow \sum_{n=1}^\infty x^n= \frac{1}{(1-x)} - 1 = \frac{1-\left(1-x\right)}{(1-x)}= \frac{x}{(1-x)}
-\end{align*}
+Am Schluss bleibt beim Umsortieren ein Term übrig. Dass dieser ``Schlussterm''
+gegen Null geht und somit wegfallen darf, möchten wir noch kurz erläutern.
+``Schlussterm'' in Anführungszeichen, weil es bei einer unendlichen Reihe per
+definitionem eigentlich keinen letzten Term gibt.
 
-Ohne formellen Beweis werde ich davon ausgehen, dass:
 \begin{equation*}
   \lim\limits_{n \to \infty} nx^{n+1}=0
 \end{equation*}
-...dies kann man sich auch ohne formellen Beweis überlegen, da wir wissen, dass $x^n$ für $|x|<1$ gegen 0 konvergiert. (Auf dem letzten Übungszettel bewiesen). Zwar divergiert $n$ bestimmt gegen $\infty$, aber durch das exponentielle Wachstum konvergiert $x^n$ schneller gegen den Grenzwert 0 als $n$ gegen $\infty$.
+
+Dies kann man sich auch ohne formellen Beweis überlegen, da wir wissen, dass
+$x^n$ für $|x|<1$ gegen 0 konvergiert. (Auf dem letzten Übungszettel bewiesen).
+Zwar divergiert $n$ bestimmt gegen $\infty$, aber durch das exponentielle
+Wachstum konvergiert $x^n$ schneller gegen den Grenzwert 0 als $n$ gegen
+$\infty$.
+
+Den Reihenterm können wir über die Summenformel für die geometrische Reihe ausdrücken, wenn $|x| < 1$.
+\begin{align*}
+  &\sum_{n=0}^\infty x^n = \frac{1}{1-x} \qquad\Rightarrow\qquad 1 + \sum_{n=1}^\infty x^n= \frac{1}{1-x}\\ 
+  \Leftrightarrow\quad & \sum_{n=1}^\infty x^n =\frac{1}{1-x} - 1 = \frac{1-\left(1-x\right)}{1-x}= \frac{x}{1-x}
+\end{align*}
+
 
 Überführen wir ausgehend von diesen Überlegungen unsere Terme in die Ausgangsgleichung, erhalten wir:
 \begin{align*}
-  &\sum_{n=1}^\infty nx^n  = \left(\frac{x}{(1-x)} - 0\right) \cdot \frac{1}{(1-x)} = \frac{x}{(1-x)^2}
+  &\sum_{n=1}^\infty nx^n = \frac{x}{1-x} \cdot \frac{1}{1-x} = \frac{x}{(1-x)^2}
 \end{align*}
-...wie zu zeigen war.
+
+Was zu zeigen war.
 
 \section*{Aufgabe 5.2}
 \subsection*{Teil a}
