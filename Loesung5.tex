@@ -85,34 +85,44 @@ Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} i^nz^n$.\\
 Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
 \begin{align*}
   & \limsup\limits_{n \to \infty} \sqrt[n]{|i^nz^n|}<1\\
-  & \Leftrightarrow \limsup\limits_{n \to \infty} \sqrt[n]{|i|^n|z|^n}<1
+  \Leftrightarrow\quad&\limsup\limits_{n \to \infty} \sqrt[n]{|i|^n|z|^n}<1
 \end{align*}
-Wegen $|i|=1$ und $|z|=constant$:
+
+Wegen $|i|=1$ und $|z|= \text{const.}$:
+
 \begin{equation*}
 \Leftrightarrow |z|<1
 \end{equation*}
+
 Also ist der Konvergenzradius gerade $R=1$.
 
 \subsection*{Teil b}
 
-Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{(z-2i)^n}{n\cdot3^n}$.\\
-Die Reihe konvergiert, falls das Wurzelkriterium erfüllt sit:
+Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{(z-2i)^n}{n\cdot3^n}$.
+
+Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
+
 \begin{align*}
   & \limsup_{n \to \infty} \sqrt[n]{\left|\frac{(z-2i)^n}{n\cdot3^n}\right|}<1\\
-  & \Leftrightarrow \frac{\limsup\limits_{n \to \infty} \sqrt[n]{|z-2i|^n}}{\limsup\limits_{n \to \infty} \sqrt[n]{3^n} \cdot \underbrace{\lim_{n \to \infty} \sqrt[n]{n}}_{\to 1}} < 1\\
-  & \Leftrightarrow \frac{|z-2i|}{3} < 1\\
+  \Leftrightarrow\quad& \frac{\limsup\limits_{n \to \infty} \sqrt[n]{|z-2i|^n}}{\limsup\limits_{n \to \infty} \sqrt[n]{3^n} \cdot \underbrace{\lim_{n \to \infty} \sqrt[n]{n}}_{\to 1}} < 1\\
+  \Leftrightarrow\quad& \frac{|z-2i|}{3} < 1\\
+  \Leftrightarrow\quad& |z-2i| < 3\\
 \end{align*}
-Die Reihe konvergiert also für $|z-2i| < 3$. Graphisch können wir uns das als ein Kreis mit Konvergenzradius 3 vorstellen, dessen Mittelpunkt um $-2i$ auf der Komplexen Ebene verschoben ist.
+
+Die Reihe konvergiert also für $|z-2i| < 3$.
 
 \subsection*{Teil c}
-Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{z^{2n}}{2^n}$.\\
+Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{z^{2n}}{2^n}$.
+
 Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
+
 \begin{align*}
   & \limsup\limits_{n \to \infty} \sqrt[n]{|\frac{z^{2n}}{2^n}|}<1\\
-  & \Leftrightarrow \limsup\limits_{n \to \infty} \sqrt[n]{\frac{{|z^2|}^n}{|2|^n}}<1\\
-  & \Leftrightarrow \frac{|z|^2}{2}<1\\
-  & \Leftrightarrow |z|<\sqrt{2}
+  \Leftrightarrow\quad& \limsup\limits_{n \to \infty} \sqrt[n]{\frac{{|z^2|}^n}{|2|^n}}<1\\
+  \Leftrightarrow\quad& \frac{|z|^2}{2}<1\\
+  \Leftrightarrow\quad& |z|<\sqrt{2}
   \end{align*}
+
 Der Konvergenzradius ist also gerade $R=\sqrt{2}$.
 
 \section*{Aufgabe 5.3}
