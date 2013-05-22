@@ -32,8 +32,9 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \end{equation*}
 Erweitern mit $(1-x)$ liefert:
 \begin{align*}
-  =\sum\limits_{n=1}^{\infty} nx^n \cdot \frac{(1-x)}{(1-x)}
-  =\sum_{n=1}^\infty n(x^n - x^{n+1}) \cdot \frac{1}{(1-x)}
+  =\frac{(1-x)}{(1-x)} \cdot \sum\limits_{n=1}^{\infty} nx^n 
+  =\frac{1}{(1-x)} \cdot \sum\limits_{n=1}^{\infty} nx^n\cdot(1-x)
+  =\frac{1}{(1-x)} \cdot \sum_{n=1}^\infty n(x^n - x^{n+1})
 \end{align*}
 
 Untersuchen und Umsortieren des ersten Terms:
@@ -64,39 +65,40 @@ Ohne formellen Beweis werde ich davon ausgehen, dass:
 
 \section*{Aufgabe 5.2}
 \subsection*{Teil a}
-Nach Wurzelkriterium ($|i^n| = |i|^n = 1$):
 
+Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} i^nz^n$.\\
+Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
 \begin{align*}
-  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{|i^nz^n|} \\
-              &= \lim_{n \to \infty} \sqrt[n]{|z|^n} \\
-              &= |z| \\
-  \Leftrightarrow\quad R &= \frac{1}{|z|}
+  & \limsup\limits_{n \to \infty} \sqrt[n]{|i^nz^n|}<1\\
+  & \Leftrightarrow \limsup\limits_{n \to \infty} \sqrt[n]{|i|^n|z|^n}<1
 \end{align*}
-
-Der Reihe konvergiert also für $|z| < 1$.
+Wegen $x|i|=1$ und $|z|=constant$:
+\begin{equation*}
+\Leftrightarrow |z|<1
+\end{equation*}
+Also ist der Konvergenzradius gerade $R=1$.
 
 \subsection*{Teil b}
-Nach Wurzelkriterium:
 
+Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{(z-2i)^n}{n\cdot3^n}$.\\
+Die Reihe konvergiert, falls das Wurzelkriterium erfüllt sit:
 \begin{align*}
-  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{\left|\frac{(z-2i)^n}{n\cdot3^n}\right|} \\
-              &= \frac{\lim_{n \to \infty} \sqrt[n]{|z-2i|^n}}{\lim_{n \to \infty} \sqrt[n]{3^n} \cdot \underbrace{\lim_{n \to \infty} \sqrt[n]{n}}_{\to 1}} \\
-              &= \frac{|z-2i|}{3} \\
-  \Leftrightarrow\quad R &= \frac{3}{|z-2i|}
+  & \limsup_{n \to \infty} \sqrt[n]{\left|\frac{(z-2i)^n}{n\cdot3^n}\right|}<1\\
+  & \Leftrightarrow \frac{\limsup\limits_{n \to \infty} \sqrt[n]{|z-2i|^n}}{\limsup\limits_{n \to \infty} \sqrt[n]{3^n} \cdot \underbrace{\lim_{n \to \infty} \sqrt[n]{n}}_{\to 1}} < 1\\
+  & \Leftrightarrow \frac{|z-2i|}{3} < 1\\
 \end{align*}
-
-Die Reihe konvergiert also für $|z-2i| < 3$.
+Die Reihe konvergiert also für $|z-2i| < 3$. Graphisch können wir uns das als ein Kreis mit Konvergenzradius 3 vorstellen, dessen Mittelpunkt um $-2i$ auf der Komplexen Ebene verschoben ist.
 
 \subsection*{Teil c}
-Nach Wurzelkriterium:
+Gesucht ist der Konvergenzradius von $\sum\limits_{n=0}^{\infty} \frac{z^{2n}}{2^n}$.\\
+Die Reihe konvergiert, falls das Wurzelkriterium erfüllt ist:
 \begin{align*}
-  \frac{1}{R} &= \lim_{n \to \infty} \sqrt[n]{\left|\frac{z^{2n}}{2^n}\right|} \\
-              &= \frac{\lim_{n \to \infty} \sqrt[n]{|z|^{2n}}}{\lim_{n \to \infty} \sqrt[n]{2^n}} \\
-              &= \frac{|z|^2}{2} \\
-  \Leftrightarrow\quad R &= \frac{2}{|z|^2}
-\end{align*}
-
-Die Reihe konvergiert also für $|z|^2 < 2 \Leftrightarrow |z| < \sqrt{2}$.
+  & \limsup\limits_{n \to \infty} \sqrt[n]{|\frac{z^{2n}}{2^n}|}<1\\
+  & \Leftrightarrow \limsup\limits_{n \to \infty} \sqrt[n]{\frac{{|z^2|}^n}{|2|^n}}<1\\
+  & \Leftrightarrow \frac{|z|^2}{2}<1\\
+  & \Leftrightarrow |z|<\sqrt{2}
+  \end{align*}
+Der Konvergenzradius ist also gerade $R=\sqrt{2}$.
 
 \section*{Aufgabe 5.3}
 \subsection*{Teil a}
@@ -105,11 +107,13 @@ Damit die gegebene Reihe absolut konvergiert, muss gemäß Wurzelkriterium gegeb
 
 \begin{align*}
   &\limsup_{n \to \infty} \sqrt[n]{|a_nb_n(uv)^n|} < 1 \\
- \Leftrightarrow\quad&\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} < 1 \\
- \Leftrightarrow\quad&\underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
+  &\Leftrightarrow \limsup_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} < 1 \\
+  &\Leftrightarrow \limsup_{n \to \infty} \sqrt[n]{|a_nu^n|} \sqrt[n]{|b_nv^n|} \leq \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|a_nu^n|}\right)}_{<1} \cdot \underbrace{\left(\limsup_{n \to \infty} \sqrt[n]{|b_nv^n|}\right)}_{<1} < 1 \\
 \end{align*}
 
-Diese beiden Grenzwerte existieren und sind nach Voraussetzung beide $<1$, da unsere Reihen ansonsten das Wurzelkriterium nicht erfüllen. Damit ist der Beweis erbracht.
+Diese beiden Grenzwerte existieren und sind nach Voraussetzung beide $<1$, da unsere Reihen ansonsten das Wurzelkriterium nicht erfüllen. Damit ist der Beweis erbracht.\\
+\\
+Anmerkung: Dass $\limsup_{n \to \infty} a_nb_n \leq \limsup_{n \to \infty} a_n \cdot \limsup_{n \to \infty} b_n$ zeigen wir in der (b).
 
 \subsection*{Teil b}
 
@@ -128,17 +132,22 @@ Angenommen, $\sum\limits_{n=0}^{\infty} a_n b_n z^n$ konvergiert absolut, muss g
   & \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n| \; |z|^n} < 1\\
   & |z| < \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|}}
 \end{align*}
-Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung. Offensichtlich gilt:
+Der Konvergenzradius ist also genau der Ausdruck auf der rechten Seite der Gleichung. In einem beliebigen Intervall $I$ lässt sich zu jeder Folge ein Supremum finden:
 \begin{align*}
-  & \sqrt[n]{|a_n|}< \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \quad \text{für fast alle n}\\
-  & \sqrt[n]{|b_n|}< \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|} \quad \text{für fast alle n}\\
+  & \sqrt[n]{\underset{n \in I}{|a_n|}} \leq \sup \sqrt[n]{|a_n|}\\
+  & \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|b_n|}
 \end{align*}
+
 Dann wird auch gelten:
 \begin{align*} 
-  & \sqrt[n]{|a_n|} \cdot \sqrt[n]{|b_n|} < \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{b_n} \quad \text{für fast alle n}\\
-  & \Leftrightarrow \sqrt[n]{|a_n b_n|} < \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{b_n} \quad \text{für fast alle n}
+  & \sqrt[n]{\underset{n \in I}{|a_n|}} \cdot \sqrt[n]{\underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
 \end{align*}
-Also ist der Aufdruck auf der rechten Seite obere Grenze der Folge $\sqrt[n]{a_n b_n}$. Der Limes Superior dieser Folge muss kleiner/gleich jeder oberen Schranke sein, also gilt:
+Also ist der Aufdruck auf der rechten Seite obere Grenze der Folge $\sqrt[n]{a_n b_n}$. Das Supremum von $a_n \cdot b_n$ ist kleiner/gleich jeder oberen Schranke, also ist:
+\begin{equation*}
+\sup \sqrt[n]{\underset{n \in I}{|a_n|} \cdot \underset{n \in I}{|b_n|}} \leq \sup \sqrt[n]{|a_n|} \sup \sqrt[n]{|b_n|}
+\end{equation*}
+
+Diese Betrachtung gilt für das Supremum eines beliebiges Intervall. Betrachtet man ein beliebig großes Intervall, wird logischerweise für den Grenzwert der Suprema der Folgen, dem Limes Superior, gelten: 
 \begin{equation*}
 \limsup\limits_{n \to \infty} \sqrt[n]{|a_n b_n|} \leq \limsup\limits_{n \to \infty} \sqrt[n]{|a_n|} \cdot \limsup\limits_{n \to \infty} \sqrt[n]{|b_n|}
 \end{equation*}
@@ -197,7 +206,7 @@ dann immer einen Term $\frac{x^{N+1}}{(N+1)!}$, der schneller wächst als das
 Polynom. Denn $\sum_{i=0}^n \alpha x^i < \beta x^{n+1}$ für genügend große $x$,
 oder anders ausgedrückt: Das Polynom vom höheren Grad wächst schneller.
 
-Das können wir einfach beweisen. Sei $p_1(x)=ax^n$ mit 
+Das können wir einfach beweisen. Sei $p_1(x)=ax^n$ und $p_2(x)=\sum\limits_{i=0}^{\infty} b_i x^i$.
 
 Zu zeigen: Es gibt ein x, sodass:
 \begin{align*}
@@ -217,7 +226,7 @@ Für $x \geq 1$ ist $x^{n-1} \geq x^m \; \forall m \geq n-1$, sodass er reicht, 
   & \Rightarrow x^{n-1}\left(ax-cn\right)>0 \quad \Rightarrow \quad x^{n-1}\left(ax-cn\right)>ax-cn>0
 \end{align*}
 Offensichtlich gibt es ein x, welches diese Bedingung erfüllt. Das heißt, es gibt ein x, ab dem ein Polynom n-ten Grades größer wird als eines (n-1)-ten Grades.\\
-Obwohl die Potenzreihe von $\exp x$ nicht ein Polynom ist, wird sich auch hier ein x finden lassen, sodass die Funktion größer wird als Polynom beliebigen Grades, (s.o.) \\
+Obwohl die Potenzreihe von $\exp x$ nicht ein Polynom ist, wird sich auch hier ein x finden lassen, sodass die Funktion größer wird als Polynom beliebigen Grades (s.o.) \\
 \\
 Für die Sinusreihe gilt unser Argumentationsweg nicht, weil sie immer auch einen
 höhergradigen subtraktive Term enthält, der das Wachstum wieder zunichte macht.
