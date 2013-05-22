@@ -237,7 +237,7 @@ Des weiteren ist $a_n$ Nullfolge:
 
 Damit schlägt das Leibniz-Kriterium zu und unsere Reihe ist konvergent. Absolute Konvergenz ist nicht gegeben, denn:
 \begin{equation*}
-\sum\limits_{n=0}^{\infty} |\frac{(-1)^n}{\sqrt{n}}| = \sum\limits_{n=0}^{\infty} \frac{1}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \sqrt{\frac{1}{n}}
+\sum\limits_{n=0}^{\infty} \left|\frac{(-1)^n}{\sqrt{n}}\right| = \sum\limits_{n=0}^{\infty} \frac{1}{\sqrt{n}}=\sum\limits_{n=0}^{\infty} \sqrt{\frac{1}{n}}
 \end{equation*}
 
 Die harmonische Reihe divergiert bestimmt. Das Ziehen der Quadratwurzel aller
@@ -261,28 +261,36 @@ oder anders ausgedrückt: Das Polynom vom höheren Grad wächst schneller.
 
 Das können wir einfach beweisen. Sei $p_1(x)=ax^n$ und $p_2(x)=\sum\limits_{i=0}^{\infty} b_i x^i$.
 
-Zu zeigen: Es gibt ein x, sodass:
+Zu zeigen: Es gibt ein $x$, sodass:
 \begin{align*}
   &p_1(x)>p_2(x)\\
-  & \Leftrightarrow ax^n>\sum\limits_{i=0}^{\infty} b_i x^i\\
-  & \Leftrightarrow ax^n>b_0+b_1x^1+b_2x^2+ \cdots\\
-  & \Leftrightarrow ax^n-b_0-b_1x^1-b_2x^2- \cdots >0
+  \Leftrightarrow\quad& ax^n>\sum\limits_{i=0}^{\infty} b_i x^i\\
+  \Leftrightarrow\quad& ax^n>b_0+b_1x^1+b_2x^2+ \cdots\\
+  \Leftrightarrow\quad& ax^n-b_0-b_1x^1-b_2x^2- \cdots >0
 \end{align*}
+
 Sei $c:=\max\{b_0,b_1,b_2,\cdots\}$, dann ist $\sum\limits_{i=0}^{\infty} b_i x^i \leq \sum\limits_{i=0}^{\infty} c x^i$ und es reicht aus, zu zeigen:
 \begin{align*}
-  & \Leftrightarrow ax^n-b_0-b_1x^1-b_2x^2- \cdots \geq ax^n-c-cx^1-cx^2- \cdots>0\\
-  & \Rightarrow ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n Summanden}>0
+  \Leftrightarrow\quad& ax^n-b_0-b_1x^1-b_2x^2- \cdots \geq ax^n-c-cx^1-cx^2- \cdots>0\\
+  \Rightarrow\quad& ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n\;\text{Summanden}}>0
 \end{align*}
-Für $x \geq 1$ ist $x^{n-1} \geq x^m \; \forall m \geq n-1$, sodass er reicht, zu zeigen:
+
+Für $x \geq 1$ ist $x^{n-1} \geq x^m \; \forall m \geq n-1$, sodass es reicht, zu zeigen:
 \begin{align*}
-  & \Leftrightarrow ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n_Summanden} \geq ax^n-c\underbrace{\left(x^{n-1}+x^{n-1}+x^{n-1}+\cdots \right)}_{n_Summanden} = ax^n-cnx^{n-1} > 0\\
-  & \Rightarrow x^{n-1}\left(ax-cn\right)>0 \quad \Rightarrow \quad x^{n-1}\left(ax-cn\right)>ax-cn>0
+  \Leftrightarrow\quad & ax^n-c\underbrace{\left(1+x^1+x^2+\cdots \right)}_{n\;\text{Summanden}} \geq ax^n-c\underbrace{\left(x^{n-1}+x^{n-1}+x^{n-1}+\cdots \right)}_{n\;\text{Summanden}} = ax^n-cnx^{n-1} > 0\\
+  \Rightarrow\quad& x^{n-1}\left(ax-cn\right)>0 \quad \Rightarrow \quad x^{n-1}\left(ax-cn\right)>ax-cn>0
 \end{align*}
-Offensichtlich gibt es ein x, welches diese Bedingung erfüllt. Das heißt, es gibt ein x, ab dem ein Polynom n-ten Grades größer wird als eines (n-1)-ten Grades.\\
-Obwohl die Potenzreihe von $\exp x$ nicht ein Polynom ist, wird sich auch hier ein x finden lassen, sodass die Funktion größer wird als Polynom beliebigen Grades (s.o.) \\
-\\
+
+Offensichtlich gibt es ein $x$, welches diese Bedingung erfüllt. Das heißt, es
+gibt ein $x$, ab dem ein Polynom $n$-ten Grades größer wird als eines $(n-1)$-ten
+Grades.
+
+Obwohl die Potenzreihe von $e^x$ kein Polynom ist (denn Polynome haben
+endlichen Grad), wird sich auch hier ein $x$ finden lassen, ab dem die Funktion
+größer wird als Polynom beliebigen Grades (siehe oben).
+
 Für die Sinusreihe gilt unser Argumentationsweg nicht, weil sie immer auch einen
-höhergradigen subtraktive Term enthält, der das Wachstum wieder zunichte macht.
-Außerdem ist bekannt, dass $\sin x \le 1$ für reelle $x$.
+höhergradigen subtraktiven Term enthält, der das Wachstum wieder zunichte macht.
+Außerdem ist bekannt, dass $|\sin x| \le 1$ für reelle $x$.
 
 \end{document}
