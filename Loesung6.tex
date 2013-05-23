@@ -75,6 +75,82 @@ Und zusammengefasst:
 Da die $z$-Achse aus der Oberseite des Aufgabenblattes herausragt, stimmt dies
 auch mit der Rechte-Faust-Regel überein.
 
+\section*{Aufgabe 2}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+      \draw[semithick] (1.0,1.5) ellipse (0.3 and 1.2);% left coil
+      \draw[<->,semithick] (1.0,1.5) -- (1.0,2.7); % left radius
+      \draw (0.6,2) node {$r_1$}; % left radius text
+
+      \draw[semithick] (3.0,1.5) ellipse (0.3 and 1.2);% right coil
+      \draw[<->,semithick] (3.0,1.5) -- (3.0,2.7); % right radius
+      \draw (2.6,2) node {$r_2$}; % right radius text
+
+      \draw[->,semithick] (2,1.5) -- (2,3); % r axis
+      \draw (1.7,3) node {$r$}; % r axis beschriftung
+      \draw (2,1.25) node {$0$}; % ursprung
+
+      \draw[<-|,semithick] (0,1.5) -- (1,1.5);
+      \draw[-,semithick] (1,1.5) -- (2,1.5);
+      \draw[-|,semithick] (2,1.5) -- (3,1.5);
+      \draw[->,semithick] (3,1.5) -- (4,1.5);
+
+      \draw (1,1.2) node {$-z$};
+      \draw (3,1.2) node {$z$};
+    \end{tikzpicture}
+  \end{center}
+  \caption{Helmholtzspule}
+\end{figure}
+
+Gegeben seien zwei kurze Spulen mit den identischen Radien $r = r_1 = r_2$ und
+eine identischen Anzahl an Windungen $N$ an den Positionen $z$ und $-z$. Das
+Magnetfeld wird im Zentrum des Aufbaus (also im Ursprung) gemessen und ergibt
+sich als Überlagerung der Magnetfelder der beiden Spulen.
+
+Das Magnetfeld einer Leiterschleife ist aus den Vorlesungsunterlagen bekannt,
+daher verzichte ich hier auf eine Herleitung. Die Spulen seien Überlagerungen
+von jeweils $N$ Leiterschleifen. Daraus folgt für die Magnetfelder:
+
+\begin{align*}
+  B = B_1 + B_2 &= \frac{I\mu_0 N}{2} \left(\frac{r^2}{(r^2 + z^2)^{3/2}} + \frac{r^2}{(r^2 + (-z)^2)^{3/2}}\right) \\
+            &= I\mu_0 N \left(\frac{r^2}{(r^2 + z^2)^{3/2}}\right)
+\end{align*}
+
+Die erste Ableitung lautet:
+
+\begin{align*}
+  \frac{\partial B}{\partial z} &= I\mu_0 N  r^2 \left(-\frac{3}{2}\right) \cdot 2z \cdot \frac{1}{(r^2 + z^2)^{5/2}} \\
+                                &= I\mu_0 N \frac{-3zr^2}{(r^2 + z^2)^{5/2}}
+\end{align*}
+
+Die zweite Ableitung lautet:
+
+\begin{align*}
+  \frac{\partial^2 B}{\partial z^2} &= -I\mu_0 N \cdot 3 r^2 \frac{\partial}{\partial z} \frac{z}{(r^2 + z^2)^{5/2}} \\
+                                    &= -I\mu_0 N \cdot 3 r^2 \left(\frac{1}{(r^2 + z^2)^{5/2}} - \frac{5z^2}{(r^2+z^2)^{7/2}}\right) \\
+                                    &= -I\mu_0 N \cdot 3 r^2 \frac{1}{(r^2 + z^2)^{7/2}} \left( (r^2+z^2) - 5z^2 \right) \\
+                                    &= -I\mu_0 N \cdot 3 r^2 \frac{1}{(r^2 + z^2)^{7/2}} \left( r^2 - 4z^2 \right) \\
+\end{align*}
+
+Die zweite Ableitung nun weiter zusammenzufassen wäre Verschwendung von
+teurer Drucktinte. Wir suchen $\partial_z^2 B \overset{!}{=} 0$. Obiger Ausdruck
+muss also null werden. Dies passiert offensichtlich nur dann, wenn die innerste
+Klammer null wird.
+
+\begin{align*}
+  &r^2 - 4z^2 \overset{!}{=} 0 \\
+  \Leftrightarrow\quad & r^2 = 4z^2 \\
+  \Leftrightarrow\quad & r =  \pm 2z \\
+  \Rightarrow\quad &z = \pm\frac{r}{2}
+\end{align*}
+
+Die Abstände $z$ müssen also jeweils das Halbe des Spulenradius betragen,
+damit das Feld möglichst homogen wird. Das $\pm$ bedeutet nur, dass die Spulen
+prinzipiell vertauschbar sind. Der Abstand zwischen den Spulen muss also genau
+dem Radius der Spulen entsprechen.
+
 \section*{Aufgabe 3}
 
 \begin{equation}
