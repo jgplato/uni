@@ -1,0 +1,87 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 6. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Doppelpendel}
+
+Sei $(x_i, y_i)$ die Position der Masse $m_i$ relativ zum Ursprung. Die
+$y$-Achse zeige nach oben, die $x$-Achse zeige nach rechts.
+
+\begin{align*}
+  T &= \frac{m_1}{2} (\dot{x}_1^2 + \dot{y}_1^2) + \frac{m_2}{2} (\dot{x}_2^2 + \dot{y}_2^2) \\
+  V &= mgy_1 + mgy_2
+\end{align*}
+
+Die Zwangsbedingungen ergeben sich aus der zeitlichen Konstanz von $l_i$, so
+dass wir mit den beiden unabhängigen Koordinaten $\phi_i$ arbeiten können.
+
+\begin{align*}
+  x_1 =  l_1 \sin \phi_1 \\
+  y_1 = -l_1 \cos \phi_1 \\
+  x_2 =  l_1 \sin \phi_1 + l_2 \sin \phi_2 \\
+  y_2 = -l_1 \cos \phi_1 - l_2 \cos \phi_2
+\end{align*}
+
+Mit den Zeitableitungen:
+
+\begin{align*}
+  \dot{x_1} = l_1 \dot{phi_1} \cos \phi_1 \\
+  \dot{y_1} = l_1 \dot{phi_1} \sin \phi_1 \\
+  \dot{x_2} = l_1 \dot{phi_1} \cos \phi_1 + l_2 \dot{phi_2} \cos \phi_2\\
+  \dot{y_2} = l_1 \dot{phi_1} \sin \phi_1 + l_2 \dot{phi_2} \sin \phi_2
+\end{align*}
+
+Eingesetzt in $T$:
+
+\begin{align*}
+  T &= \frac{m_1}{2} (l_1^2 \dot{\phi}_1^2 \cos^2 \phi_1 + l_1^2 \dot{\phi}_1^2 \sin^2 \phi_1) +
+       \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 \cos^2 \phi_1 + l_1^2 \dot{\phi}_1^2 \sin^2 \phi_1 +
+                      l_2^2 \dot{\phi}_2^2 \cos^2 \phi_2 + l_2^2 \dot{\phi}_2^2 \sin^2 \phi_2) \\
+    &= \frac{m_1}{2} (l_1^2 \dot{\phi}_1^2) + \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 + l_2^2 \dot{\phi}_2^2) \\
+    &= \frac{m_1 + m_2}{2} (l_1^2 \dot{\phi}_1^2) + \frac{m_2}{2} (l_2^2 \dot{\phi}_2^2) \\
+\end{align*}
+
+Eingesetzt in $V$:
+\begin{align*}
+  V = -mgl_1 \cos \phi_1 - m_2g(l_1 \cos \phi_1 + l_2 \cos \phi_2)
+\end{align*}
+
+Insgesamt:
+\begin{align*}
+  L = T - V = \frac{m_1 + m_2}{2} (l_1^2 \dot{\phi}_1^2) + \frac{m_2}{2} (l_2^2 \dot{\phi}_2^2) + mgl_1 \cos \phi_1 + m_2g(l_1 \cos \phi_1 + l_2 \cos \phi_2)
+\end{align*}
+
+Durch Anwendung von $\partial_t \partial_{\dot{\phi}} - \partial_\phi$ erhalten wir für $\phi_1$:
+
+\begin{align*}
+  &(m_1 + m_2) l_1^2 \ddot{\phi_1} + m_1g l_1 \sin \phi_1 + m_2g l_1 \sin \phi_2 = 0 \\
+  \Leftrightarrow\quad& (m_1 + m_2) l_1^2 \ddot{\phi_1} + (m_1 + m_2) gl_1 \sin \phi_1  = 0 \\
+  \Leftrightarrow\quad& (m_1 + m_2) (l_1^2 \ddot{\phi_1} + gl_1 \sin \phi_1)  = 0 \\
+\end{align*}
+
+Und für $\phi_2$:
+
+\begin{align*}
+  m_2 l_2^2 \ddot{\phi}_2 + m_2 g l_2 \sin \phi_2 = 0
+\end{align*}
+
+\end{document}
