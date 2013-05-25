@@ -25,6 +25,32 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \vspace{-10pt}
 \end{center}
 
+\section*{Aufgabe 6.2}
+\subsection*{Teil b}
+
+\begin{align*}
+  \lim_{x \to a} \frac{x^2 - (a+1)x + a}{x^3 - a^3}
+\end{align*}
+
+Aus $s - t = \frac{s^3 - t^3}{s^2 + st + t^2}$ folgt $s^3 - t^3 = (s - t)(s^2 +
+st + t^2)$ (siehe Aufgabe 3.1). Dies nutzen wir für den Nenner. Den Zähler
+zerlegen wir in Summanden.
+
+\begin{align*}
+  = &\lim_{x \to a} \frac{x^2 - ax - x + a}{(x-a)(x^2 - xa + a^2)} \\
+  = &\lim_{x \to a} \frac{x^2 - ax - x + a}{(x-a)(x^2 + xa + a^2)}
+\end{align*}
+
+Jetzt faktorisieren wir den Zähler, kürzen und können dann $x = a$ einsetzen:
+
+\begin{align*}
+  = &\lim_{x \to a} \frac{(a-x)(1-x)}{(x-a)(x^2 + xa + a^2)} \\
+  = &\lim_{x \to a} \frac{-(1-x)}{(x^2 + xa + a^2)} \\
+  = &\lim_{x \to a} \frac{(x-1)}{(x^2 + xa + a^2)} \\
+  = &\frac{a-1}{a^2 + a^2 + a^2} \\
+  = &\frac{a-1}{3a^2}
+\end{align*}
+
 \section*{Aufgabe 6.3}
 
 Wir berechnen
