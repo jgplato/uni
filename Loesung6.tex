@@ -1,0 +1,52 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 6. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 6.3}
+
+Wir berechnen
+
+\begin{align*}
+  \qquad&\lim_{x \to 0} \frac{\sqrt[n]{1+x} - 1}{x}
+\end{align*}
+
+indem wir mit $u^n = 1+x$ substituieren. Für $x \to 0$ geht dann $u^n \to 1$, also $u \to 1$:
+
+\begin{align*}
+  = &\lim_{u \to 1} \frac{\sqrt[n]{u^n} - 1}{u^n -1} \\
+  = &\lim_{u \to 1} \frac{u - 1}{u^n -1}
+\end{align*}
+
+Wir wissen, dass $\frac{u^n-1}{u-1} = \sum_0^{n-1} u^n$ und setzen das ein.
+
+\begin{align*}
+  = &\lim_{u \to 1} \frac{1}{\sum_0^{n-1} u^n} \\
+  = &\lim_{u \to 1} \frac{1}{u^0 + u^1 + \dots + u^n} \\
+  = &\frac{1}{\underbrace{1 + 1 + \dots + 1}_{n\;\text{Einsen}}} \\
+  = &\frac{1}{n}
+\end{align*}
+
+\end{document}
