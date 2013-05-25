@@ -109,11 +109,11 @@ zurückgreifen. Es ist
   s - t = \frac{s^3 - t^3}{s^2 + st + t^2}
 \end{align*}
 
-Wir bringen zuerst $\mu$ auf die andere Seite, unter der Vorraussetzung dass
+Wir bringen zuerst $\mu$ auf die andere Seite, unter der Vorraussetzung, dass
 der folgende Grenzwert existiert.
 
 \begin{align*}
-  \lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x - \mu = 0\\
+  &\lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x - \mu = 0\\
   \Leftrightarrow\quad&\lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x = \mu \\
 \end{align*}
 
@@ -131,7 +131,7 @@ existiert.
 
 \begin{align*}
   &\lim_{x \to \infty} \frac{x^3 - 1 - x^3}{(x^3 - 1)^\frac{2}{3} - \sqrt[3]{x^3 - 1}x + x^2} \\
-  =&\lim_{x \to \infty} \frac{1}{x^2 \underbrace{((1 - \frac{1}{x^3})^\frac{2}{3} - \sqrt[3]{x - \frac{1}{x^3}} + 1)}_{\to 3}} \\
+  =&\lim_{x \to \infty} \frac{1}{x^2 \underbrace{\left(\left(1 - \frac{1}{x^3}\right)^\frac{2}{3} - \sqrt[3]{1 - \frac{1}{x^3}} + 1\right)}_{\to 3}} \\
   =&\lim_{x \to \infty} \frac{1}{3x^2} \\
   =& 0
 \end{align*}
