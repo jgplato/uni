@@ -150,6 +150,79 @@ Die Lagrange-Funktion ist dann:
 
 \subsection*{Teil d: Bewegungsgleichungen}
 
-Nicht bearbeitet.
+Die Lagrange-Funktion vereinfachen wir zu
+
+\begin{align*}
+  L = \frac{ml}{2}\left(\dot{\phi}^2 \frac{l}{3} - g \sin \phi\right)
+\end{align*}
+
+Unter Anwendung der Lagrange-Gleichung erhalten wir dann
+
+\begin{align*}
+  \Leftrightarrow\quad&\frac{ml}{2} \left(\frac{l}{3} \ddot{\phi} - g \cos \phi\right) = 0
+\end{align*}
+
+Da $\frac{ml}{2} \neq 0$ (zumindest in interessanten Fällen) führt dies zur Bewegungsgleichung
+
+\begin{align*}
+  \Leftrightarrow\quad&\frac{l}{3} \ddot{\phi} - g \cos \phi = 0
+\end{align*}
+
+Zur Kürzung führen wir eine Konstante $a = \frac{3g}{l}$ ein.
+
+\begin{align*}
+  \Leftrightarrow\quad&\ddot{\phi} = a \cos \phi
+\end{align*}
+
+Wir lösen diese Gleichung durch Trennung der Variablen:
+
+\begin{align*}
+  \Leftrightarrow\quad&\frac{d \dot{\phi}}{dt} = a \cos \phi
+  \Leftrightarrow\quad&d \dot{\phi} \frac{1}{\cos \phi} = a \; dt
+\end{align*}
+
+Wir integrieren von $\dot{\phi}_0$ bis $\dot{phi}(t)$ und von $t_0 = 0$ bis $t$
+
+\begin{align*}
+  \Leftrightarrow\quad&\int_{\dot{\phi}_0}^{\dot{phi}(t)} d \dot{\phi} \; \frac{1}{\cos \phi} = \int_0^{t} a \; dt
+\end{align*}
+
+und stellen fest, dass $\frac{1}{\cos \phi}$ nicht schön zu integrieren ist. Da
+wird den Ausdruck für $\phi \ll \frac{\phi}{2}$ auswerten sollen, setzen wir
+$\frac{1}{\cos \phi_0} \approx \cos \phi_0$ und taylorn in $\phi_0 = 0$. Dies
+liefert einen einzigen Term, nämlich $1$.
+
+Also integrieren erhalten wir
+
+\begin{align*}
+  \Rightarrow\quad&\dot{\phi}(t) -\dot{\phi}_0 = at
+\end{align*}
+
+Mit erneuter Trennung der Variablen
+
+\begin{align*}
+  \frac{d \phi}{dt} = at + \dot{\phi}_0\\
+  \Leftrightarrow\quad& \int_{\phi_0 = \omega}^{0} d\phi(t) = \int_0^{\tau}(at + \phi_0) dt\\
+  \Leftrightarrow\quad& -\phi_0 = \frac{a \tau^2}{2} + \omega \tau \\
+  \Leftrightarrow\quad& \frac{a \tau^2}{2} + \omega \tau + \phi_0 = 0
+\end{align*}
+
+Lösen Anwendung der PQ-Formel:
+
+\begin{align*}
+  \tau = -\frac{\omega}{a} \pm \sqrt{\frac{\omega^2}{a^2} - \frac{2}{a} \phi_0}
+\end{align*}
+
+Für $\omega = 0$ also:
+
+\begin{align*}
+  \tau = \pm \sqrt{- \frac{2}{a} \phi_0}
+\end{align*}
+
+Die Fallzeit kann nur positiv sein, $a$ hingegen muss negativ sein, dass $a = \frac{3g}{l}$ und $g$ negativ ist. Damit erhalten wir:
+
+\begin{align*}
+  \tau = \sqrt{\frac{2}{3} \frac{l}{g} \phi_0}
+\end{align*}
 
 \end{document}
