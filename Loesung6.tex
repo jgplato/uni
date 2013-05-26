@@ -85,7 +85,14 @@ Insgesamt:
       &+(m_1 + m_2)gl_1 \cos \phi_1 + m_2gl_2 \cos \phi_2
 \end{align*}
 
-\textbf{TODO:} Lagrange-Gleichung anwenden.
+Durch Anwendung der Lagrange-Gleichung und kürzen von $l_1$ bzw. $l_2$ ergeben
+sich dann die Bewegungsgleichungen:
+
+\begin{align*}
+  (m_1 + m_2)l_1 \ddot{\phi_1} + m_2 l_2 \ddot{\phi_2} \cos(\phi_1 - \phi_2) + m_2 l_2 \dot{\phi_2}^2 \sin(\phi_1 - \phi_2) + (m_1 + m_2) g \sin \phi_1 = 0\\
+  l_2 \ddot{\phi_2} + l_1 \ddot{\phi_1} \cos(\phi_1 - \phi_2) - l_1 \dot{\phi_1}^2 \sin(\phi_1 - \phi_2) + g \sin\phi_2 = 0
+\end{align*}
+
 
 \section*{Aufgabe 2: Brett an Wand}
 \subsection*{Teil a: Koordinaten}
