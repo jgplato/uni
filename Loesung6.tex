@@ -26,52 +26,54 @@ Markus Fenske / Luis Herrmann, Tutor: Dr. Marko Wietstruk / Paul Stoll
 \section*{Aufgabe 1}
 Das Biot-Savart-Gesetz lautet:
 
-\begin{equation}
+\begin{equation*}
   \vec{B}(\vec{r}) = \frac{\mu_0 I}{4 \pi} \int_{\text{Leiter}} \frac{(\vec{r} - \vec{r'}) \times \vec{ds}}{|\vec{r}-\vec{r'}|^3}
-\end{equation}
+\end{equation*}
 
 Da hier das Magnetfeld im Ursprung berechnet werden soll, ist:
 
 
-\begin{equation}
+\begin{equation*}
   \vec{B} = \frac{\mu_0 I}{4 \pi} \int_{\text{Leiter}} \frac{(-\vec{r'}) \times \vec{ds}}{|\vec{r'}|^3}
-\end{equation}
+\end{equation*}
 
 $\vec{r'}$ ist der der Vektor zum jeweiligen Punkt auf dem Leiter, während
 $\vec{ds}$ entlang des Leiters zeigt. Für das gerade Leiterstück ist $\vec{ds}$
 also parallel zu $\vec{r}$, womit $\vec{r} \times \vec{ds} = \vec{0}$. Das
 gerade Stück kann also vernachlässigt werden.
 
-\begin{equation}
+\begin{equation*}
   \vec{B} = \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} \frac{(-\vec{r'}) \times \vec{ds}}{|\vec{r'}|^3}
-\end{equation}
+\end{equation*}
 
 Auf dem Kreisbogen steht $\vec{ds}$ senkrecht auf $\vec{r}$. Damit gilt dann
 $-\vec{r'} \times \vec{ds} = -\widehat{z} (r' ds)$:
 
-\begin{align}
+\begin{align*}
   \vec{B} &= \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} -\widehat{z} \frac{r' ds}{r'^3} \\
   \vec{B} &= \frac{\mu_0 I}{4 \pi} \int_{\text{Bogen}} -\widehat{z} \frac{1}{r'^2} ds \\
-\end{align}
+\end{align*}
 
-Sei nun $R$ der Radius des Kreises, dann ist $|\vec{r'}| = R$. Und somit:
+Sei nun $R$ der Radius des Kreises, dann ist $|\vec{r'}| = R$ konstant. Und
+kann somit aus dem Integral gezogen werden.
 
-\begin{align}
+\begin{align*}
   \vec{B} = -\frac{\mu_0 I}{4 \pi R^2} \widehat{z}\int_{\text{Bogen}} ds \\
-\end{align}
+\end{align*}
 
-Der Kreis hat den Umfang $2 \pi R$, der Halbkreis dementsprechend die Länge
-$\pi R$. Das führt zu:
+Übrig bleibt das Integral über die Länge der Bogenstücke. Der Kreis hat den
+Umfang $2 \pi R$, der Halbkreis dementsprechend die Länge $\pi R$. Das führt
+zu:
 
-\begin{align}
+\begin{align*}
   \vec{B} = -\frac{\mu_0 I}{4 \pi R^2} \widehat{z} \pi R \\
-\end{align}
+\end{align*}
 
 Und zusammengefasst:
 
-\begin{equation}
+\begin{equation*}
   \vec{B} = -\frac{\mu_0 I}{4 \pi R} \widehat{z}
-\end{equation}
+\end{equation*}
 
 Da die $z$-Achse aus der Oberseite des Aufgabenblattes herausragt, stimmt dies
 auch mit der Rechte-Faust-Regel überein.
@@ -154,62 +156,62 @@ dem Radius der Spulen entsprechen.
 
 \section*{Aufgabe 3}
 
-\begin{equation}
+\begin{equation*}
   \vec{p}_m = I \vec{A}
-\end{equation}
+\end{equation*}
 
 Das magnetische Dipolmoment ist $p_m = I \cdot \vec{A}$. Dabei ist $I$ der
 Strom und $\vec{A}$ die Flächennormale der Kreisbahn. Da diese parallel zum
 Drehmoment, genau wie zum Drehimpuls ist, reicht es, hier mit Beträgen zu
 arbeiten.
 
-\begin{equation}
+\begin{equation*}
   p_m = I A
-\end{equation}
+\end{equation*}
 
 Für $I$ gilt $I = \frac{dQ}{dt}$. Das Elektron kommt auf seiner Kreisbahn mit
 dem Radius $r$ genau einmal pro Umlaufzeit $t$ am Ausgangspunkt vorbei. Der
 Strom ist also
 
-\begin{equation}
+\begin{equation*}
   I = \frac{-e}{t}
-\end{equation}
+\end{equation*}
 
 Die Umlaufzeit auf der Kreisbahn $s$ mit der Geschwindigkeit $v$ ist:
 
-\begin{equation}
+\begin{equation*}
   t = \frac{s}{v} = \frac{2 \pi r}{v}
-\end{equation}
+\end{equation*}
 
 Eingesetz in die Ausgangsgleichung:
 
-\begin{equation}
+\begin{equation*}
   p_m = \frac{-e}{2 \pi r} v A
-\end{equation}
+\end{equation*}
 
 Die Kreisfläche ist $A = \pi r^2$. Eingesetzt:
 
-\begin{equation}
+\begin{equation*}
   p_m = \frac{-e}{2 \pi r} v \pi r^2 = \frac{-e}{2} v r
-\end{equation}
+\end{equation*}
 
 Mit dem Impuls $p = mv$ erhält man:
 
-\begin{equation}
+\begin{equation*}
   p_m = \frac{-e}{2m} p r
-\end{equation}
+\end{equation*}
 
 Und mit dem Drehimpulsbetrag $L = pr$:
 
-\begin{equation}
+\begin{equation*}
   p_m = \frac{-e}{2m} L
-\end{equation}
+\end{equation*}
 
 Wenn wir nun $L = \hbar$ einsetzen erhalten wir:
 
-\begin{equation}
+\begin{equation*}
   p_m = \frac{-e}{2m_e} \hbar \approx -9{,}274 \cdot 10^{-24} \;\joule\per\tesla
-\end{equation}
+\end{equation*}
 
 \section*{Aufgabe 4}
 \subsection*{Teil a}
@@ -379,9 +381,9 @@ Einsetzen:
 \subsection*{Teil a}
 Für das Magnetfeld einer langen Spule gilt
 
-\begin{equation}
+\begin{equation*}
   B = \mu_0 \mu_r \frac{n}{l} I
-\end{equation}
+\end{equation*}
 
 In diesem Fall:
 
@@ -390,10 +392,10 @@ In diesem Fall:
 \end{align*}
 
 \subsection*{Teil b}
+
 Aus obiger Gleichung ist klar, dass $I$ mit dem Faktor $1200$ multipliziert
 werden muss, wenn $\mu$ durch $1200$ dividiert wird. Dementsprechend muss dann
 $I = 1200 \cdot 20\;\milli\ampere = 24\;\ampere$ sein.
-
 
 \section*{Aufgabe 8}
 \subsection*{Teil a}
