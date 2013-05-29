@@ -161,7 +161,7 @@ der folgende Grenzwert existiert.
 Jetzt bestimmen wir davon ausgehend $\lambda$
 
 \begin{align*}
-  \lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x &= \lim_{x \to \infty} \frac{x^3 - 1 - \lambda x^3}{(x^3 - 1)^\frac{2}{3} - \sqrt[3]{x^3 - 1}\lambda x + \lambda^2 x^2} \\
+  \lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x &= \lim_{x \to \infty} \frac{x^3 - 1 - \lambda x^3}{(x^3 - 1)^\frac{2}{3} + \sqrt[3]{x^3 - 1}\lambda x + \lambda^2 x^2} \\
 \end{align*}
 
 Ohne formellen Beweis können wir uns überlegen, dass der Ausdruck für $\lambda \neq 1$ divergiert, denn im Nenner kommt
@@ -170,8 +170,8 @@ $x$ nicht in dritter Ordnung vor sondern lediglich in zweiter Ordnung, der Zähl
 Nun setzen wir heuristisch $\lambda = 1$ und zeigen, dass dann der Grenzwert existiert.
 
 \begin{align*}
-  &\lim_{x \to \infty} \frac{x^3 - 1 - x^3}{(x^3 - 1)^\frac{2}{3} - \sqrt[3]{x^3 - 1}x + x^2} \\
-  =&\lim_{x \to \infty} \frac{1}{x^2 \underbrace{\left(\left(1 - \frac{1}{x^3}\right)^\frac{2}{3} - \sqrt[3]{1 - \frac{1}{x^3}} + 1\right)}_{\to 3}} \\
+  &\lim_{x \to \infty} \frac{x^3 - 1 - x^3}{(x^3 - 1)^\frac{2}{3} + \sqrt[3]{x^3 - 1}x + x^2} \\
+  =&\lim_{x \to \infty} \frac{1}{x^2 \underbrace{\left(\left(1 - \frac{1}{x^3}\right)^\frac{2}{3} + \sqrt[3]{1 - \frac{1}{x^3}} + 1\right)}_{\to 3}} \\
   =&\lim_{x \to \infty} \frac{1}{3x^2} \\
   =& 0
 \end{align*}
