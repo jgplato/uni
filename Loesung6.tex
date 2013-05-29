@@ -25,6 +25,43 @@ Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
 \vspace{-10pt}
 \end{center}
 
+\section{Aufgabe 6.1}
+
+Zu einem beliebigen $x\in \mathbb{R}$ existiert ein $t\in \mathbb{R}$, sodass:
+\begin{equation*}
+\frac{1}{t}=x
+\end{equation*}
+
+Es sei eine Funktion $f(x):\mathbb{R}\rightarrow\mathbb{R}$ gegeben. Nehmen wir an, es existiert ein reeller Grenzwert der Funktion:
+\begin{equation*}
+\lim\limits_{x \to \infty} f(x)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
+Diese Gleichung können wir äquivalent zur folgendermaßen formulieren:
+\begin{equation*}
+\lim\limits_{\frac{1}{t} \to \infty} f\left(\frac{1}{t}\right)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
+Bisher haben wir nichts getan, außer das Argument $x$ durch $\frac{1}{t}$ zu ersetzen, was legitim ist, da wir davon ausgegangen sind, dass:
+\begin{equation*}
+\forall x \exists t : \frac{1}{t}=x
+\end{equation*}
+
+Wir haben vor einigen Vorlesungen gesehen, dass:
+\begin{equation*}
+\lim\limits_{t \searrow \infty} \frac{1}{t}=0
+\end{equation*}
+
+Oder suggestiver ausgedrückt: aus $t\searrow 0$ folgt $\frac{1}{t}\rightarrow \infty$. \\
+Wenn sich $t$ rechtsseitig 0 nähert, ist der (uneigentliche) Grenzwert $\infty$.\\
+
+(Dies ist wohlgemerkt nur der Fall, wenn sich $t$ rechtsseitig 0 nähert. Nähert sich $t$ linksseitig an, ist der uneigentliche Grenzwert $-\infty$. Aus $t\nearrow  0$  folgt $\frac{1}{t} \rightarrow -\infty$.)\\
+
+Wir folgern:
+\begin{equation*}
+\lim\limits_{t \searrow 0} f(\frac{1}{t})=\lim\limits_{\frac{1}{t} \to \infty} f(\frac{1}{t})=\lim\limits_{x \to \infty} f(x)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
 \section*{Aufgabe 6.2}
 \subsection*{Teil a}
 
@@ -74,7 +111,11 @@ Wenn $a = 0$ ist der Grenzwert gegeben durch:
 \begin{align*}
   \lim_{x \to 0} \frac{x^2 - x}{x^3} = \lim_{x \to 0} \frac{x - 1}{x^2} = \lim_{x \to \pm\infty} \frac{x^2}{x-1} = \infty
 \end{align*}
-
+Die Divergenz können wir uns ohne formellen Beweis überlegen: $x^2$ wächst wesentlich schneller als der Term im Nenner, $x-1$. Ferner wird für sehr große $x$ die $-1$ im Nenner vernachlässigbar, sodass der Ausdruck für große $x$ im Wesentlichen: 
+\begin{equation*}
+\lim\limits_{x \to \infty}\frac{x^2}{x}=\lim\limits_{x \to \infty}=\infty
+\end{equation*}
+...ist. 
 
 \section*{Aufgabe 6.3}
 
@@ -109,7 +150,7 @@ zurückgreifen. Es ist
   s - t = \frac{s^3 - t^3}{s^2 + st + t^2}
 \end{align*}
 
-Wir bringen zuerst $\mu$ auf die andere Seite, unter der Vorraussetzung, dass
+Wir bringen zuerst $\mu$ auf die andere Seite, unter der Voraussetzung, dass
 der folgende Grenzwert existiert.
 
 \begin{align*}
@@ -123,11 +164,10 @@ Jetzt bestimmen wir davon ausgehend $\lambda$
   \lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x &= \lim_{x \to \infty} \frac{x^3 - 1 - \lambda x^3}{(x^3 - 1)^\frac{2}{3} - \sqrt[3]{x^3 - 1}\lambda x + \lambda^2 x^2} \\
 \end{align*}
 
-Wir sehen, dass für $\lambda \neq 1$ die Folge divergiert, denn im Nenner kommt
-$x$ nicht in dritter Ordnung vor, der Zähler würde also stets schneller wachsen
-als der Nenner. Ein strenger Beweis dafür ist aber auch nicht erforderlich. Wir
-setzen einfach heuristisch $\lambda = 1$ und zeigen, dass der Grenzwert
-existiert.
+Ohne formellen Beweis können wir uns überlegen, dass der Ausdruck für $\lambda \neq 1$ divergiert, denn im Nenner kommt
+$x$ nicht in dritter Ordnung vor sondern lediglich in zweiter Ordnung, der Zähler wird also stets wesentlich schneller wachsen als der Nenner und der Ausdruck sollte divergieren.\\
+
+Nun setzen wir heuristisch $\lambda = 1$ und zeigen, dass dann der Grenzwert existiert.
 
 \begin{align*}
   &\lim_{x \to \infty} \frac{x^3 - 1 - x^3}{(x^3 - 1)^\frac{2}{3} - \sqrt[3]{x^3 - 1}x + x^2} \\
