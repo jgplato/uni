@@ -21,6 +21,50 @@ Analytische Mechanik, Sommersemester 2013, 7. Blatt \\
 Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
+\section*{Aufgabe 3: Keplersche Gesetze für harmonisches Potential}
+\subsection*{Teil a: Aufstellen und Lösen der Bewegungsgleichungen}
+Wir stellen die Lagrange-Funktion in 2-dimensionalen kartesischen Koordinaten
+auf:
+
+\begin{align*}
+  \mathcal{L} = \frac{m}{2}(\dot{x}^2 + \dot{y}^2) - \frac{k}{2}(x^2 + y^2)
+\end{align*}
+
+Durch Anwendung der Euler-Lagrange-Gleichung erhalten wir direkt die
+Bewegungsgleichungen:
+
+\begin{align*}
+  m\ddot{x} + kx &= 0\\
+  m\ddot{y} + ky &= 0
+\end{align*}
+
+Mit $\omega_{x} = \frac{k}{m}$ erhalten wir die üblichen Lösungen für den
+harmonischen Oszillator:
+
+\begin{align*}
+  x(t) = A_x \sin(\omega_0 t + \phi_x) \\
+  y(t) = A_y \sin(\omega_0 t + \phi_y)
+\end{align*}
+
+Dies kann eine Ellipse sein, wenn $\phi_x = \phi_y + \frac{\pi}{2} + n\pi$.
+Denn dann kann der Sinus in der zweiten Gleichung als Kosinus geschrieben
+werden und die Ellipsengleichung ist wegen $A_x, A_y > 0$ erfüllt. Für $A_x =
+A_y$ kann sich sogar ein Kreis ergeben. Es können aber auch andere Bahnkurven
+herauskommen. Beispielsweise die harmonische Bewegung auf einer geraden Linie,
+wenn $\phi_x = \phi_y$ oder wenn $A_x = 0$ oder $A_y = 0$. Zusammengefasst
+können sich alle Bewegungen Ergeben, die einer Lissajous-Figur mit
+Frequenzverhältnis 1:1 entsprechen.
+
+\subsection*{Teil b: Flächensatz}
+
+Der Flächensatz ist eine Folge der Drehimpulserhaltung, die immer gilt, wenn
+das Potential konservativ ist. Da das Potential nur von $r$ abhängt, ist es
+konservativ, also gilt Drehimpulserhaltung und damit der Flächensatz.
+
+\subsection*{Teil c: Bahngröße und Umlaufzeit}
+
+Nicht bearbeitet.
+
 \section*{Aufgabe 4: Gravitation in höherdimensionalen reellen Räumen}
 
 Die Wahl hypersphährischer Koordinaten ist hier unangemessen und führt zu
