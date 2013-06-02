@@ -1,0 +1,43 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 8. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Dynamo}
+
+Aus der Vorlesung ist bekannt, dass
+
+\begin{align*}
+  U_{\text{ind}} = B \cdot N \cdot A \cdot \omega \sin \omega t
+\end{align*}
+
+Durch Einsetzen der Werte ergibt sich für die zeitabhängige Spannung $U(t)$:
+
+\begin{align*}
+  U(t) &= 0{,}1 \;\tesla \cdot 100 \cdot 0{,}01 \;\meter^2 \cdot 5 \;\second^{-1} \cdot \sin(5 \;\second^{-1} \cdot t) \\
+       &= 0{,}5 \;\volt \cdot \sin 5 \;\second^{-1} \cdot t
+\end{align*}
+
+Da der Maximalwert des Sinus $1$ ist, ist die maximale Spannung $U_{\text{max}} = 0{,}5 \;\volt$.
+
+\end{document}
