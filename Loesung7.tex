@@ -1,0 +1,75 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 7. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section{Aufgabe 7.2}
+
+Der Algorithmus funktioniert wie folgt: Wir wählen ein Intervall $[a,b]$, von
+dem wir wissen, dass sich in diesem eine Nullstelle der Funktion $f(x)$
+befindet. Wir berechnen den Funktionswert in der Mitte $m = \frac{a+b}{2}$. Hat
+$f(m)$ das selbe Vorzeichen wie $f(a)$, befindet sich die Nullstelle im
+Intervall $[m, b]$, ansonsten befindet sie sich im Intervall $[a, m]$. Setzen
+wir dieses Intervall wieder als unser Ursprungsintervall, erhalten wir immer
+genauere Näherungen $m$ für die Nullstelle.
+
+Wenn man dies mit dem ``Taschenrechner'' ausrechnet,
+erhält man folgende Werte bei 5 Durchläufen:
+
+% Generiert mit folgendem Code:
+% #!/usr/bin/env ruby
+% def f(x) x*x - 2; end
+% def sgn(x) x > 0 ? 1 : -1; end
+% a,b = [1,2].map(&:to_f)
+% class Float; def to_tex; to_s.gsub('.','{,}'); end; end
+% class Fixnum; def to_tex; to_s; end; end
+% 6.times.map{|x|
+%   mid = (a+b)/2.0; f_a, f_mid, f_b = [a, mid, b].map{|x| f(x)}
+%   puts [x, a, b, mid, f_a, f_b, f_mid].map(&:to_tex).join(" & ") + " \\"
+%   sgn(f_a) != sgn(f_mid) ? b = mid : a = mid
+% }
+\vspace{20pt}
+\begin{tabular}{lllllll}
+\hline
+$n$ & $a_n$   & $b_n$ & $m_n$ & $f(a_n)$ & $f(b_n)$ & $f(m_n)$ \\ \hline
+0 & 1{,}0 & 2{,}0 & 1{,}5 & -1{,}0 & 2{,}0 & 0{,}25 \\
+1 & 1{,}0 & 1{,}5 & 1{,}25 & -1{,}0 & 0{,}25 & -0{,}4375 \\
+2 & 1{,}25 & 1{,}5 & 1{,}375 & -0{,}4375 & 0{,}25 & -0{,}109375 \\
+3 & 1{,}375 & 1{,}5 & 1{,}4375 & -0{,}109375 & 0{,}25 & 0{,}06640625 \\
+4 & 1{,}375 & 1{,}4375 & 1{,}40625 & -0{,}109375 & 0{,}06640625 & -0{,}0224609375 \\
+5 & 1{,}40625 & 1{,}4375 & 1{,}421875 & -0{,}0224609375 & 0{,}06640625 & 0{,}021728515625 \\
+\hline
+\end{tabular}
+\vspace{20pt}
+
+Benutzt man $a_5$ als letzte Näherung erhält man für die Genauigkeit
+
+\begin{align*}
+  |\sqrt{2} - a_5| \approx 0{,}007963562373 \le \frac{1}{64} = 0{,}015625
+\end{align*}
+
+Die Näherung liegt also innerhalb der geforderten Toleranz.
+
+\end{document}
