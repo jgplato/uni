@@ -40,4 +40,40 @@ Durch Einsetzen der Werte ergibt sich für die zeitabhängige Spannung $U(t)$:
 
 Da der Maximalwert des Sinus $1$ ist, ist die maximale Spannung $U_{\text{max}} = 0{,}5 \;\volt$.
 
+\section*{Aufgabe 2: Magnetfeld im Koaxialkabel}
+\subsection*{Teil a}
+
+Vorüberlegung: Denken wir uns ein Kreisfläche, die senkrecht zu den Zylinderachsen durch das
+Kabel verläuft, mit dem Mittelpunkt in der Zylinderachse. Wenn der Radius
+dieser Kreisfläche kleiner as $r_1$ ist, geht kein Strom durch diese
+Kreisfläche. Dementsprechend kann kein Magnetfeld im inneren des ersten
+Zylinders vorhanden sein. Liegt der Radius zwischen $r_1$ und $r_2$, geht der
+Strom des ersten Zylinders durch die Fläche, also existiert ein Magnetfeld. Ist
+der Radius hingegen größer als $r_2$, geht der Strom beider Zylinder durch die
+Fläche. Da der Strom durch einen Zylinder hin- und durch den anderen zurück
+fließt ist die Summe der Ströme null, also existiert außerhalb des Kabels kein
+Magnetfeld.
+
+Aus dem Ampereschen Gesetz ergibt sich für das Feld zwischen den Zylindern dann
+
+\begin{align*}
+  \oint \vec{B} \cdot \vec{ds} = \mu_0 I
+\end{align*}
+
+Da das Kabel radialsymmetrisch ist, gilt das auch für das Feld. Dementsprechend
+ist $B$ nur abhängig von $r$, senkrecht zu $\vec{ds}$ kann also vor das
+Integral gezogen werden. Übrig bleibt der Betrag von $\vec{ds}$.
+
+\begin{align*}
+  B \oint ds = \mu_0 I
+\end{align*}
+
+Der Umfang des Kreises ist $2 \pi r$. Also:
+
+\begin{align*}
+  &B 2 \pi r = \mu_0 I \\
+  \Leftrightarrow\quad &B(r) = \frac{\mu_0 I}{2 \pi r} \quad \text{wenn}\quad\; r_1 < r < r_2
+\end{align*}
+
+
 \end{document}
