@@ -1,0 +1,173 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 7. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 4: Gravitation in höherdimensionalen reellen Räumen}
+
+Die Wahl hypersphährischer Koordinaten ist hier unangemessen und führt zu
+abartigem Rechenaufwand. Grundgedanke der Aufgabe ist es, zu zeigen, dass die
+Gravitation für $d > 3$ keine stabilen Bahnen mehr aufweist, unter der Annahme,
+dass $V(r) = -kr^{2-d}$.
+
+Wir sind der Meinung, dass sich $4$-dimensionale Zylinderkoordinaten besser
+eignen. Da der Lagrange-Formalismus von der Koordinatenwahl unabhängig ist,
+führt dies zum selben Ergebnis. Wenn es dafür einen kleinen Punktabzug gibt,
+soll uns das Recht sein.
+
+\subsection*{Teil a: Aufstellen der Lagrange-Funktion}
+
+Die Zylinderkoordinaten in 4 Dimensionen lauten:
+
+\begin{align*}
+  x &= r \cos \phi \\
+  y &= r \sin \phi \\
+  z &= z \\
+  u &= u
+\end{align*}
+
+Die Zeitableitungen:
+
+\begin{align*}
+  \dot{x} &= -r \dot{\phi} \sin \phi + \dot{r} \cos \phi\\
+  \dot{y} &= r \dot{\phi} \cos \phi + \dot{r} \sin \phi\\
+  \dot{z} &= \dot{z} \\
+  \dot{u} &= \dot{u}
+\end{align*}
+
+Die Lagrange-Funktion ist dann:
+
+\begin{align*}
+  \mathcal{L} = \frac{m}{2}(r^2\dot{\phi}^2 + \dot{r}^2 + \dot{z}^2 + \dot{u}^2) - V(r)
+\end{align*}
+
+\subsection*{Teil b: Erhaltungsgrößen}
+
+Hier sieht man sofort, dass $\phi$ zyklische Koordinate ist. Die entsprechende Erhaltungsgröße $\partial_{\dot{\phi}} L$ (Drehimpuls) ist dann:
+
+\begin{align*}
+  \frac{\partial L}{\partial \dot{\phi}} = mr^2 \dot{\phi} = L = \text{const.}
+\end{align*}
+
+Außerdem sind $z$ und $u$ zyklisch, was jeweils auf die Impulserhaltungssätze führt:
+
+\begin{align*}
+  p_z &= m\dot{z} = \text{const.} \\
+  p_u &= m\dot{u} = \text{const.}
+\end{align*}
+
+Damit lässt sich die Lagrange-Funktion schreiben als:
+
+\begin{align*}
+  \mathcal{L} = \frac{1}{2}(L\dot{\phi} + m\dot{r^2} + p_z\dot{z} + p_u \dot{u}) - V(r)
+\end{align*}
+
+\subsection*{Teil c: Gesamtenergie}
+
+Wegen $\mathcal{L} = T - V$ und $E_{\text{ges}} = T + V$ ist die Gesamtenergie
+einfach die Lagrange-Funktion, aber mit umgekehrtem Vorzeichen des Potentials.
+
+\begin{align*}
+  E_{\text{ges}} = \frac{1}{2}(L\dot{\phi} + m\dot{r^2} + p_z\dot{z} + p_u \dot{u}) + V(r)
+\end{align*}
+
+\subsection*{Teil d: Stabile Minima des effektiven Potentials}
+Das effektive Potential ergibt sich als Summe der Energiebeiträge aus Potential
+und Erhaltungsgrößen. Dementsprechend ist
+
+\begin{align*}
+  V_{\text{eff}} = \frac{1}{2}(L\dot{\phi} + p_z\dot{z} + p_u \dot{u}) + V(r)
+\end{align*}
+
+Durch Einsetzen des angenommenen Gravitationspotentials $V(r) = -kr^{2-d}$
+erhalten wir:
+
+\begin{align*}
+  &V_{\text{eff}} = \frac{1}{2}(L\dot{\phi} + p_z\dot{z} + p_u \dot{u}) - \frac{k}{r^2} \\
+  \Leftrightarrow\quad&V_{\text{eff}} = \frac{m}{2}(r^2\dot{\phi}^2 + \dot{z}^2 + \dot{u}^2) - \frac{k}{r^2}
+\end{align*}
+
+Wir bestimmen nun die Minimalstellen dieser Funktion in Abhängigkeit von $r$
+(unter der Annahme $r \neq 0$).
+
+\begin{align*}
+  &\frac{d}{dr} V_{\text{eff}} = mr\dot{\phi}^2 + \frac{2k}{r^3} \overset{!}{=} 0 \\
+  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2}{r^3} + \frac{2k}{r^3} \\
+  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2 + 2k}{r^3}
+\end{align*}
+
+Dies wird offensichtlich nur dann null, wenn der Zähler verschwindet. Also
+
+\begin{align*}
+  &mr^4\dot{\phi}^2 = -2k \\
+  \Leftrightarrow\quad &r^4 = \frac{-2k}{m\dot{\phi}^2} \\
+\end{align*}
+
+Dies hat keine Lösungen im reelen, also gibt es keine Extremwerte, somit keine stabilen Bahnen.
+
+\subsection*{Teil e: Stabile Minima des effektiven Potentials für $d=2$ und $d=3$}
+
+Für $d = 3$ erhalten wir das effektive Potential, indem wir $u = 0$ setzen und
+das Potential der Dimensionszahl anpassen. Ansonsten wie oben.
+
+\begin{align*}
+  V_{\text{eff}} = \frac{m}{2}(r^2\dot{\phi}^2 + \dot{z}^2) - \frac{k}{r}
+\end{align*}
+
+Analog zu oben:
+
+\begin{align*}
+  &\frac{d}{dr} V_{\text{eff}} = mr\dot{\phi}^2 + \frac{k}{r^2} \overset{!}{=} 0 \\
+  \Leftrightarrow\quad&\frac{mr^3\dot{\phi}^2}{r^2} + \frac{k}{r^2} \\
+  \Leftrightarrow\quad&\frac{mr^3\dot{\phi}^2 + 2k}{r^2}
+\end{align*}
+
+Die Lösung ist dann:
+
+\begin{align*}
+  &mr^3\dot{\phi}^2 = -2k \\
+  \Leftrightarrow\quad r^3 = \frac{-2k}{m\dot{\phi}^2} \\
+  \Leftrightarrow\quad r = \sqrt[3]{\frac{-2k}{m\dot{\phi}^2}}
+\end{align*}
+
+Um zu bestimmen, ob es sich wirklich um ein Minimum handelt, einsetzen in die zweite $r$-Ableitung:
+\begin{align*}
+  &\frac{d^2}{dr^2} V_{\text{eff}} = m\dot{\phi}^2 - \frac{2k}{r^3}\\
+  &\frac{d^2}{dr^2} V_{\text{eff}}(\sqrt[3]{\frac{-2k}{m\dot{\phi}^2}}) =  m\dot{\phi}^2 - \frac{2k}{-2k} m\dot{\phi}^2 \\
+  = &m\dot{\phi}^2 + m\dot{\phi}^2 \\
+  = &2m\dot{\phi}^2\\
+\end{align*}
+
+Es ist klar, dass $m > 0$. Da $\dot{\phi}$ reell ist, ist $\dot{\phi}^2 > 0$. Damit existiert für den Fall $d=3$ eine stabile Bahn.
+
+Wir prüfen nun $d=2$. Effektives Potential ist dann (wie oben, nur mit $u=z=0$, angepasstes Potential):
+
+\begin{align*}
+  V_{\text{eff}} = \frac{m}{2}r^2\dot{\phi}^2 - k
+\end{align*}
+
+In $r$ ausgewertet ist dies eine nach oben offene Parabel, von der wir wissen,
+dass sie ein Minimum hat. Wir sparen uns also weitere Berechnungen. Die Bahn
+ist stabil.
+
+
+
+\end{document}
