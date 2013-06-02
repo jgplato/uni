@@ -100,5 +100,43 @@ Durch Gleichsetzen der Gleichungen und Umformen erhalten wir:
   \Leftrightarrow\quad&\frac{L}{l} = \frac{\mu_0}{2 \pi} \ln \frac{r_2}{r_1}
 \end{align*}
 
+\section*{Aufgabe 4: Spulen-Kreis}
+
+Wir berechnen zuerst den Strom, der vor dem Öffnen des Schalters und nach dem Öffnen durch die Spule fließt. Vorher:
+
+\begin{align*}
+  R_{\text{ges}} = \frac{1}{\frac{1}{R_1} + \frac{1}{R_2}} \approx 23{,}76\;\ohm \\
+  I_{\text{vorher}} = \frac{U}{R} \approx 1 \;\ampere
+\end{align*}
+
+Nachher:
+
+\begin{align*}
+  I_{\text{nachher}} = \frac{24 \; \volt}{2400 \; \ohm} = 0{,}01 \ampere
+\end{align*}
+
+Es gilt die Differentialgleichung:
+
+\begin{align*}
+  U_{\text{ind}} = -L \frac{dI}{dt}
+\end{align*}
+
+Mit $I = \frac{U}{R}$:
+
+\begin{align*}
+  U = -\frac{L}{R} \frac{dU}{dt}
+\end{align*}
+
+Lösung der DGL:
+
+\begin{align*}
+  U(t) = U_0 \cdot e^\frac{_tL}{R}
+\end{align*}
+
+Mit $U_0 = 24 \;\volt$:
+
+\begin{align*}
+  U(t) = 24 \volt \cdot e^\frac{-tL}{R}
+\end{align*}
 
 \end{document}
