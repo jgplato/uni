@@ -1,0 +1,256 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 5. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Vektoren}
+\subsection*{Teil a: Beweis der Lagrange-Identität}
+
+Wir rechnen hier mit Pseudotensoren, weil uns die Lösung eleganter
+erschien, anstatt mit der ``Bac-Cab-Regel'' und Spatprodukt zu hantieren.
+Außerdem haben wir dann keinen Stilbruch mit Aufgabe 1b. Es gelte Einstein'sche
+Summenkonvention.
+
+\begin{align*}
+  &(\vec{a} \times \vec{b}) \cdot (\vec{c} \times \vec{d})\\
+  =&\delta_{ab}(\vec{a} \times \vec{b})_a (\vec{c} \times \vec{d})_b\\
+  =&\delta_{ab}(\epsilon_{aij} a_i b_j) (\epsilon_{bkl}c_k d_l)\\
+  =&\delta_{ab}\epsilon_{aij}\epsilon_{blk} a_i b_jc_kd_l\\
+  =&\epsilon_{aij}\epsilon_{alk} a_i b_jc_kd_l\\
+  =&(\delta_{ik}\delta_{jl}-\delta_{il}\delta_{jl}) a_i b_j c_k d_l\\
+  =&(\delta_{ik}a_ic_k \delta_{jl}b_jd_l)-(\delta_{il}a_id_l\delta_{jk}b_jc_k)\\
+  =&(\vec{a} \cdot \vec{c})(\vec{b} \cdot \vec{d})-(\vec{a}\cdot\vec{d})(\vec{b} \cdot \vec{c})
+\end{align*}
+
+\subsection*{Teil b: Nabla-Produktregel für Skalarprodukt}
+
+In Vektorschreibweise muss man beachten, dass $\nabla$ ein Differentialoperator
+und gleichzeitig ein Vektor ist. Er wirkt nur auf Dinge, die rechts von ihm
+stehen. Gleichzeitig kann man sich in Vektorschreibweise (im Gegensatz zu
+Pseudotensoren) nicht aussuchen, an welche Stelle man den Vektor schreibt. Eine
+Möglichkeit, das Problem trotzdem in Vektorschreibweise anzugehen, wäre
+gewesen, Vektoren zu unterstreichen, auf die $\nabla$ wirkt. Dies erschien uns
+zu unschön. Deswegen also Pseudotensoren.
+
+Sei $\nabla_i = \frac{\partial}{\partial x_i} = \partial_i$. Das sieht hübscher
+aus und erinnert uns außerdem daran, dass $\nabla$, wie geschrieben, auch ein
+Operator ist.
+
+Es gelte Einstein'sche Summenkonvention. Summiert wird nur in Produkten, nicht in Summen.
+
+\begin{align*}
+  &\left[(\vec{a}\cdot\nabla)\vec{b} + (\vec{b}\cdot\nabla)\vec{a} + \vec{a} \times (\nabla \times b) + \vec{b} \times (\nabla \times \vec{a})\right]_i\\
+  =&(\delta_{jk}a_j\partial_k)b_i + (\delta_{jk}b_j\partial_k)a_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}a_j(\epsilon_{klm}\partial_lb_m) + \epsilon_{ijk} b_j (\epsilon_{klm} \partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \epsilon_{ijk}\epsilon_{klm} (a_j\partial_lb_m + b_j\partial_l a_m)\\
+\end{align*}
+
+Es gilt $\epsilon_{ijk} = -\epsilon_{ikj} = \epsilon_{kij}$. Und deswegen
+$\epsilon_{ijk}\epsilon_{klm} = \epsilon_{kij}\epsilon_{klm} =
+\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$. Das setzen wir ein:
+
+\begin{align*}
+  =&a_j\partial_jb_i + b_j\partial_ja_i + (\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) (a_j\partial_lb_m + b_j\partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}\delta_{jm}(a_j\partial_lb_m + b_j\partial_l a_m) - \delta_{im}\delta_{jl}(a_j\partial_lb_m + b_j\partial_l a_m)\\
+  =&a_j\partial_jb_i + b_j\partial_ja_i + \delta_{il}a_j\partial_lb_j + \delta_{il}b_j\partial_l a_j - \delta_{im}a_j\partial_jb_m - \delta_{im}b_j\partial_j a_m\\
+  =&a_j\partial_ib_j + b_j\partial_i a_j\\
+  =&\partial_ia_jb_j\\
+  =&\partial_i(\delta_{jk}a_jb_k)\\
+  =&\nabla_i(\vec{a} \cdot \vec{b})
+\end{align*}
+
+\subsection*{Teil c: Nabla-Produktregel für Kreuzprodukt}
+
+Wir beweisen wieder rückwärts. Es gelte Einstein'sche Summenkonvention nur in
+Produkten, nicht in Summen, genau wie oben.
+
+\begin{align*}
+  &\vec{b} \cdot (\nabla \times \vec{a}) - \vec{a} \cdot (\nabla \times \vec{b})\\
+  =&\delta_{ai} b_a (\epsilon_{ijk} \partial_j a_k) - \delta_{ai} a_a (\epsilon_{ijk} \partial_j b_k)\\
+  =&b_i (\epsilon_{ijk} \partial_j a_k) - a_i (\epsilon_{ijk} \partial_j b_k)\\
+\end{align*}
+
+Wegen $\epsilon_{ijk} = -\epsilon_{kji}$ ist:
+
+\begin{align*}
+  =&b_i (\epsilon_{ijk} \partial_j a_k) + a_i (\epsilon_{kji} \partial_j b_k)\\
+\end{align*}
+
+Nun Umbennen der Indices (vertauschen von $i$ und $k$). Da über Summen hinweg
+nicht summiert wird, dürfen wir das.
+
+\begin{align*}
+  &b_i (\epsilon_{ijk} \partial_j a_k) + a_k (\epsilon_{ijk} \partial_j b_i)\\
+  =&\epsilon_{ijk} (b_i \partial_j a_k) + a_k \partial_j b_i)\\
+  =&\epsilon_{ijk} \partial_j b_i a_k\\
+  =&-\epsilon_{ijk} \partial_j a_i b_k\\
+  =&\epsilon_{ijk} \partial_i a_j b_k\\
+  =&\partial_i \epsilon_{ijk} a_j b_k\\
+  =&\nabla (\vec{a} \times \vec{b})
+\end{align*}
+
+\section*{Aufgabe 2: Kinetische Energie}
+\subsection*{Teil a: Freies Teilchen}
+
+Die minale Anzahl an freien Koordinaten für so ein ein Probel ist 1. Also sei
+$q$ die freie Koordinate. Dann ist die kinetische Energie:
+
+\begin{align*}
+  T = \frac{m}{2} \dot{q}^2
+\end{align*}
+
+
+\subsection*{Teil b: Teilchen auf Kugeloberfläche}
+
+Kinetische Energie in Kugelkoordinaten ist
+\begin{align*}
+  T = \frac{m}{2} (r^2 \dot{\theta}^2 + r^2 \dot{\phi}^2 \sin^2 \theta + \dot{r}^2)
+\end{align*}
+
+Bei konstantem $r = R$ ist das dann:
+
+\begin{align*}
+  T = \frac{m}{2} (R^2 \dot{\theta}^2 + R^2 \dot{\phi}^2 \sin^2 \theta)
+\end{align*}
+
+
+\subsection*{Teil c: Teilchen auf Zylindermantel}
+
+Kinetische Energie in Zylinderkoordinaten ist
+
+\begin{align*}
+  T = \frac{m}{2} (\dot{r}^2 + r^2\dot{\phi}^2 + \dot{z}^2)
+\end{align*}
+
+Bei konstantem $r = R$ ist das:
+
+\begin{align*}
+  T = \frac{m}{2} (R^2\dot{\phi}^2 + \dot{z}^2)
+\end{align*}
+
+\section{Aufgabe 3: Bewegung auf einem Kreis}
+\subsection*{Teil a: Lagrange-Term}
+
+Für das Problem bieten sich 2D-Polarkoordinaten an.
+
+Bei einer potentialfreien Bewegung ($V=0$) in der Ebene mit den freien
+Koordinaten $x$ und $y$ ist:
+
+\begin{align*}
+  L = T = \frac{m}{2} (\dot{r}^2 + r^2\dot{\phi}^2)
+\end{align*}
+
+\subsection*{Teil b: Kreisbewegung}
+
+Bei einer Kreisbewegung bleibt der Abstand zum Kreismittelpunkt, den wir hier
+in den Ursprung setzen, konstant. Wenn der Radius $a$ ist, lautet die
+Zwangsbedingung also
+
+\begin{align*}
+  r - a = 0
+\end{align*}
+
+Wenn wir dies als Lagrangemultiplikator mit unserem Lagrange-Term ansetzen, erhalten wir:
+
+\begin{align*}
+  L = \frac{m}{2} (\dot{r}^2 + r^2\dot{\phi}^2)  + \lambda(r-a)
+\end{align*}
+
+Wir lösen die Lagrangegleichung:
+
+\begin{align*}
+  &\frac{d}{dt} \frac{\partial}{\partial \dot{r}} = \frac{\partial}{\partial r} \\
+  \Leftrightarrow\quad& m\ddot{r} = mr\dot{\phi}^2 + \lambda
+\end{align*}
+
+\begin{align*}
+  &\frac{d}{dt} \frac{\partial}{\partial \dot{\phi}} = \frac{\partial}{\partial \phi} \\
+  \Leftrightarrow\quad& m\ddot{\phi}r^2 = 0
+\end{align*}
+
+Letzteres ist die Drehimpulserhaltung, die für uns uninteressant ist, weil kein
+$\lambda$ einhalten ist.
+
+Aus erster Gleichung sieht man, dass:
+
+\begin{align*}
+  \lambda = m\ddot{r} - mr\dot{\phi}^2
+\end{align*}
+
+Da das Teilchen auf eine Kreisbahn eingeschränkt ist, ist $r=a$ konstant, somit $\ddot{r} = 0$ und damit
+
+\begin{align*}
+  \lambda = -mr\dot{\phi}^2
+\end{align*}
+
+Das ist die Zentripetalkraft.
+
+\section{Aufgabe 4: Gleichmäßig bewegte Systeme}
+\subsection*{Teil a: Kinetische Energie}
+
+Ok. Haben wir uns verdeutlicht.
+
+\subsection*{Teil b: Gesamt-Impuls}
+
+Die Lagrange-Gleichung für diese Koordinate lautet:
+
+\begin{align*}
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_j} = \frac{\partial L}{\partial q_j}
+\end{align*}
+
+
+Wenn wir nun den konjugierten Impuls $p_j = \partial_{\dot{q_j}} L$ einsetzen, sehen
+wir, dass die Lagrange-Gleichung die Zeitableitung des Impulses beschreibt.
+
+\begin{align*}
+  \dot{p_j} = \partial_{q_j} L\\
+\end{align*}
+\subsection*{Teil c: Zwangskraft}
+
+Dass $q_j$ zyklisch ist, bedeutet, dass $L$ kein $q_j$ enthält, sondern
+höchstens $\dot{q}_j$. Das bedeutet aber auch, dass gemäß
+Euler-Lagrange-Gleichung $\partial_q L = 0$, also
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}_j} L = 0
+\end{align*}
+
+Setzen wir $p_j = \partial_{\dot{q_j}} L$ ein, erhalten wir:
+
+\begin{align*}
+  \dot{p_j} = 0
+\end{align*}
+
+Mit $F = \dot{p}$ entsprechend:
+
+\begin{align*}
+  F_j = 0
+\end{align*}
+
+Es wirkt also keine Zwangskraft.
+
+\subsection*{Teil d: System}
+Wir haben bereits auf Blatt 2 gezeigt, dass die Lagrange-Funktion unter solchen
+Transformationen auf die selben Bewegungsgleichungen führt. Dies ist nur ein
+Spezialfall davon.
+
+
+\end{document}

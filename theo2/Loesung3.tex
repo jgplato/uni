@@ -1,0 +1,382 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 3. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+
+\subsection*{Teil a}
+Für den Klotz wählen wir die Koordinaten $(x_1, y_1)$, für den Keil die
+Koordinaten $(x_2, y_2)$, jeweils vom Ursprung aus.
+
+Der Keil bewegt sich nur auf seiner Unterlage. Der Klotz hingegen nur auf der
+Schräge des Keils. Dies führt zu den folgenden Zwangsbedingungen:
+
+
+\begin{align*}
+  y_1 &= (x1-x2) \sin \alpha \\
+  y_2 &= 0
+\end{align*}
+
+\subsection*{Teil b}
+
+Sei $T_1$ die kinetische Energie des Klotzes und $T_2$ die des Keils. Die Masse
+des Klotzes sei $m_1$, die Masse des Keils sei $m_2$.
+
+\begin{align*}
+  T_1 &= \frac{1}{2} m_1 \left(\dot{x_1}^2 + \dot{y_1}^2\right) \\
+  T_2 &= \frac{1}{2} m_2 \dot{x_2}^2
+\end{align*}
+
+Durch Einsetzen der Zwangsbedingungen erhalten wir:
+
+\begin{align*}
+  T_1 &= \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha \\
+  T_2 &= \frac{1}{2} m_2 \dot{x_2}^2
+\end{align*}
+
+Für die kinetische Energie insgesamt dann also:
+
+\begin{align*}
+  T = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2}m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2 \alpha + \frac{1}{2} m_2 \dot{x_2}^2
+\end{align*}
+
+Eine potentielle Energie erhält nur der Klotz, denn der Keil ändert seine Höhe nicht. Somit ist:
+
+\begin{align*}
+  V = V_2 = m_2gy_2 = m_2g (x_1 - x_2) \sin \alpha
+\end{align*}
+
+Damit ist die Lagrangefunktion insgesamt:
+
+\begin{align*}
+  L = T -V = \frac{1}{2}m_1\dot{x_1}^2 + \frac{1}{2} m_2 (\dot{x_1}^2 - 2\dot{x_1}\dot{x_2}+\dot{x_2}^2) \sin^2(\alpha) + \frac{1}{2} m_2 \dot{x_2}^2 - m_2g (x_1 - x_2) \sin \alpha
+\end{align*}
+
+\subsection*{Teil c}
+
+Die Bewegungsgleichungen ergeben sich durch Anwendung der Euler-Lagrange-Gleichung:
+
+\begin{align*}
+  \left(\frac{d}{dt}\frac{\partial}{\partial \dot{q_i}} - \frac{\partial}{\partial q_i}\right) L = 0
+\end{align*}
+
+Für die $x_1$-Koordinate:
+
+\begin{align*}
+  \frac{\partial L}{\partial x_1} &= -mg \sin \alpha \\
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x_1}} &= \frac{d}{dt} m_1 \dot{x_1} + m_2\dot{x_1}\sin^2 \alpha - m_2\dot{x_2} \sin^2 \alpha \\
+                                                  &= m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha \\
+  \Rightarrow\quad &m_1\ddot{x_1} + m_2 \ddot{x_1} \sin^2 \alpha - m_2 \ddot{x_2} \sin^2 \alpha = -mg \sin \alpha
+\end{align*}
+
+Für $x_2$ ergibt sich:
+
+\begin{align*}
+  \frac{\partial L}{\partial x_2} &= mg \sin \alpha \\
+  \frac{d}{dt}\frac{\partial L}{\partial \dot{x_2}} &= \frac{d}{dt} m_2\dot{x_2} \sin^2 \alpha - m_2 \dot{x_1} \sin^2 \alpha + m_2\dot{x_2} \\
+  &= \ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha \\
+  \Rightarrow\quad &\ddot{x_2}(m_2+m_2 \sin^2 \alpha) - \ddot{x_1} m_2 \sin^2 \alpha = mg \sin \alpha
+\end{align*}
+
+Um zu zeigen, dass beide Massen konstant beschleunigt werden, addieren wir die beiden Bewegungsgleichungen:
+
+\begin{align*}
+&\ddot{x_1}(m_1+m_2 \sin^2 \alpha -m_2 \sin^2 \alpha)+\ddot{x_2}(m_2+m_2 \sin^2 \alpha - m_2 \sin^2 \alpha)=mg \sin \alpha - mg \sin \alpha \\
+\Leftrightarrow\quad & \ddot{x_1} m_1 = -\ddot{x_2} m_2
+\end{align*}
+
+% iblue: Habe das hinzugefügt.
+Setzt man dies in die zweite Bewegungsgleichung ein, erhält man:
+
+\begin{align*}
+  &\ddot{x_2}(m_2+m_2 \sin^2 \alpha) + \ddot{x_2} \frac{m_2^2}{m_1} \sin^2 \alpha = mg \sin \alpha \\
+  \Leftrightarrow \quad &\ddot{x_2} (m_2+m_2 \sin^2 \alpha + \frac{m_2^2}{m_1} \sin^2 \alpha) = mg \sin \alpha \\
+  \Leftrightarrow \quad &\ddot{x_2} = \frac{mg \sin \alpha}{m_2+m_2 \sin^2 \alpha + \frac{m_2^2}{m_1} \sin^2 \alpha}
+\end{align*}
+
+Da auf der rechten Seite nur Konstanten stehen, muss $\ddot{x_2}$ konstant
+sein. Dies bedeutet, dass gemäß $\ddot{x_1} m_1 = -\ddot{x_2} m_2$ auch
+$\ddot{x_1}$ konstant sein muss. Somit werden beide Massen konstant
+beschleunigt.
+% iblue: -----------
+
+
+\subsection*{Teil d}
+Nicht bearbeitet.
+
+\section*{Aufgabe 2}
+\subsection*{Teil a}
+Wenn $x(0) = 0$ ist, ist klar, dass $A=0$ sein muss. Damit vereinfacht sich der
+Bewegungsgleichungskandidat zu $x(t) = Bt+Ct^2$.
+
+Ausrechnen der kinetischen Energie:
+\begin{align*}
+  T &= \frac{1}{2}m x'(t)^2 \\
+    &= \frac{1}{2}m (B+2Ct)^2 \\
+    &= \frac{m}{2} (B^2 + 4BCt + C^2t^2)
+\end{align*}
+
+Potenzielle Energie:
+\begin{align*}
+  V &= -Fx \\
+    &= -F(Bt+Ct^2)
+\end{align*}
+
+Lagrange-Funktion:
+\begin{align*}
+  L &= T - V \\
+    &= \frac{m}{2} (B^2 + 4BCt + C^2t^2) + F(Bt+Ct^2)
+\end{align*}
+
+\subsection*{Teil b}
+\begin{align*}
+  \int_0^{t_a} dt L &= \int_0^{t_a} dt \frac{m}{2} (B^2 + 4BCt + C^2t^2) + F(Bt+Ct^2) \\
+                  &= \left[\frac{m}{2} \left(B^2t + 2BCt^2 + C^2\frac{t^3}{3}\right) + F\left(B\frac{t}{2}+C\frac{t^3}{3}\right)\right]_{t=0}^{t=t_a} \\
+                  &= \frac{m}{2} \left(B^2t_a + 2BCt_a^2 + C^2\frac{t_a^3}{3}\right) + F\left(B\frac{t_a}{2}+C\frac{t_a^3}{3}\right)
+\end{align*}
+
+\subsection*{Teil c}
+Die Werte, die das Wirkungsintegral extremal werden lassen, erhält man durch bilden der Ableitungen und Nullsetzen:
+\begin{align*}
+  \frac{\partial I[x]}{\partial B} \overset{!}{=} 0 \\
+  \frac{\partial I[x]}{\partial C} \overset{!}{=} 0
+\end{align*}
+
+Das Ergebnis setzt man dann in die ursprüngliche Gleichung ein und kriegt das
+selbe heraus, wie beim Lösen des Problems mit Newtonscher Mechanik.
+
+Lösen des Problems mit Newtonscher Mechanik:
+\begin{align*}
+  &F = m\ddot{x} \\
+  \Rightarrow & x(t) = \frac{F}{m}t^2 + c_1t + c_2
+\end{align*}
+
+Wegen $x(0) = 0$ muss $c_2 = 0$:
+
+\begin{align*}
+  \Rightarrow & x(t) = \frac{F}{m}t^2 + c_1t
+\end{align*}
+
+Einsetzen von $x(t_a) = a$ um $c_1$ zu ermitteln:
+\begin{align*}
+  &\frac{F}{m}t^2 + c_1t_a = a \\
+  \Leftrightarrow\quad & c_1t_a = a - \frac{F}{m}t_a^2 \\
+  \Leftrightarrow\quad & c_1 = \frac{a - \frac{F}{m}t_a^2}{t_a} \\
+\end{align*}
+
+Einsetzen des Ergebnisses in die ursprüngliche Bewegungsgleichung:
+
+\begin{align*}
+  x(t) = \frac{a - \frac{F}{m}t_a^2}{t_a}t + \frac{F}{m}t^2
+\end{align*}
+
+\section*{Aufgabe 3}
+Das angegebene Beispiel erschien uns logisch etwas inkonsistent, weswegen wir
+uns an dem Vorgehen aus dem Buch ``Physik mit Bleistift'' orientieren möchten.
+
+Dort ist die Schreibweise anders. Gegeben sei ein Funktional $I[f]$. Die
+funktionale Ableitung ergibt sich dann nicht wie im Beispiel durch $\delta I[f]
+= I[f_0 - \delta f] - I[f_0]$, wobei im Term $I[f_0 - \delta f]$ nur Terme bis
+zur maximal ersten Ordnung erhalten bleiben, sondern durch
+
+\begin{align*}
+  \delta I = \left.I[f_0 - \eta]\right|_{\eta^1}
+\end{align*}
+
+Wobei $\eta^1$ bedeutet, dass ausschließlich Terme mit linearem $\eta$ erhalten
+bleiben. Terme geringerer Ordnung ($\eta^0$) und höherer Ordnung ($\eta^2$,
+$\eta^3$, \dots) entfallen.
+
+Sofern die Terme dabei nicht frei stehen, führen wir eine Taylor-Entwicklung
+(z.B. Aufgabenteil b) durch, ansonsten ist diese natürlich unnötig (z.B.
+Aufgabenteil a).
+
+\subsection*{Teil a}
+
+\begin{align*}
+  I[f] &= \int_a^b f(x)^2 dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx (f+\eta)^2 \right|_{\eta^1} \\
+  &=\left.\int_a^b dx f^2 + 2 \eta f + \eta^2 \right|_{\eta^1} \\
+  &=\int_a^b dx \eta 2 f \\
+  \Rightarrow& \frac{\delta I[f]}{\delta f} = 2f(x)
+\end{align*}
+
+\subsection*{Teil b}
+
+\begin{align*}
+  I[f] &= \int_a^b sin(f(x)) dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx sin(f+\eta) \right|_{\eta^1}
+\end{align*}
+
+Hier entwickeln wir nun in eine Taylor-Reihe um freistehende $\eta^1$-Terme zu
+erhalten. Wir benötigen nur den Term erster Ordnung, den Rest frisst unser
+$\eta^1$-Operator sowieso, deswegen lassen wir die anderen auch gleich weg.
+
+\begin{align*}
+  &=\left.\int_a^b dx \dots + \frac{\left(\frac{\partial}{\partial \eta} \sin(f+\eta)\right)(\eta=0)}{1!} (\eta - 0)^1 + \dots\quad\right|_{\eta^1} \\
+  &=\int_a^b dx \eta \cos(f) \\
+  &\Rightarrow \frac{\delta I[f]}{\delta f} = \cos(f(x))
+\end{align*}
+
+\subsection*{Teil c}
+\begin{align*}
+  I[f] &= \int_a^b g(x)f'(x) dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx g(x)(f' + \eta') \right|_{\eta^1}
+\end{align*}
+
+Taylor-Entwicklung ist hier nicht sinnvoll, man sieht direkt, welche Terme stehen bleiben:
+
+\begin{align*}
+  &=\int_a^b dx \eta' g(x)
+\end{align*}
+
+Nun integrieren wir partiell, um $\eta$-Terme zu erhalten:
+
+\begin{align*}
+  &=\left[\eta(x) g(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) g'(x)
+\end{align*}
+
+Die $\eta(x)$-Funktion verschwindet per definitionem in den Randbereichen, denn
+es ist $\eta(a) = 0$ und $\eta(b) = 0$. Somit fällt der erste Term weg. Die
+funktionale Ableitung lässt sich dann direkt ablesen:
+
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} = g'(x)
+\end{align*}
+
+\subsection*{Teil d}
+\begin{align*}
+  I[f] &= \int_a^b f'(x)^2 dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx (f' + \eta')^2 \right|_{\eta^1} \\
+  &=\left.\int_a^b dx f'^2 + 2\eta'f' + \eta'^2 \right|_{\eta^1} \\
+  &=\int_a^b dx 2\eta'f'
+\end{align*}
+
+Partielle Integration:
+
+\begin{align*}
+  &=\left[2\eta(x) f'(x)\right]_{x=a}^{x=b} - \int_a^b dx \eta(x) f''(x)
+\end{align*}
+
+Selbe Begründung wie oben: Der erste Term verschwindet, die funktionale Ableitung lässt sich ablesen:
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} = f''(x)
+\end{align*}
+
+\subsection*{Teil e}
+Da $\eta$ und $n$ schrecklich schwer außeinander zu halten sind,
+definieren wir kurzerhand $a := n$.
+
+\begin{align*}
+  I[f] &= \int_a^b a(x,f(x)) \sqrt{1+f'(x)^2} dx \\
+  \delta I &= \left.I[f_0 - \eta]\right|_{\eta^1} \\
+  &=\left.\int_a^b dx \; a(x, f + \eta) \sqrt{1+(f'+\eta')^2} \right|_{\eta^1}
+\end{align*}
+
+Da hier nur Terme in mit $f$, $f'$ und $x$ vorkommen, bietet sich zur Lösung
+die Euler-Lagrange-Gleichung an. Sei $L = a(x, f) \sqrt{1+f'^2}$
+
+\begin{align*}
+  \frac{d}{dx} \frac{\partial L}{\partial f'} &= \frac{d}{dx} \left(\underbrace{\frac{\partial}{\partial f'} (a(x, f))}_{=0} \sqrt{1+f'^2} + a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{\partial}{\partial f'} \sqrt{1+f'^2} \right) \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{f'}{\sqrt{1+f'^2}} \right)
+\end{align*}
+
+\begin{align*}
+  \frac{\partial L}{\partial f} &= \frac{\partial}{\partial f} \left(a(x, f)\right) \sqrt{1+f'^2} + a(x, f) \underbrace{\frac{\partial}{\partial f} \sqrt{1+f'^2}}_{=0} \\
+  &= \frac{\partial a(x,f)}{\partial f} \sqrt{1+f'^2} \\
+\end{align*}
+
+Und damit ist:
+
+\begin{align*}
+  \frac{\delta I[f]}{\delta f} &= \frac{d}{dx} \frac{\partial L}{\partial f'} - \frac{\partial L}{\partial f} \\
+  &= \frac{d}{dx} \left(a(x,f) \frac{f'}{\sqrt{1+f'^2}} \right) - \frac{\partial a(x,f)}{\partial f} \sqrt{1+f'^2}
+\end{align*}
+
+\section*{Aufgabe 4}
+\subsection*{Teil a}
+
+Ausgehend von der Lösung aus der vorherigen Aufgabe ergibt sich aus $a() = c$,
+dass $\frac{\partial a}{\partial f} = 0$. Das Licht nimmt den kürzesten Weg,
+deswegen muss das Funktional minimal sein und damit die Ableitung $=0$. Ob ein
+Minium oder ein Maximum vorliegt, könnte man mithilfe der zweiten funktionalen
+Ableitung prüfen, betrachten wir allerdings als sinnlos, da das Ergebnis mit
+der Erwartung übereinstimmt.
+
+\begin{align*}
+  &\frac{d}{dx} \left(a(x,f) \frac{f'}{\sqrt{1+f'^2}} \right) - \frac{\partial a(x,f)}{\partial f} \sqrt{1+f'^2} \overset{!}{=} 0 \\
+  \Leftrightarrow \quad &\frac{d}{dx} \left(a(x,f) \frac{f'}{\sqrt{1+f'^2}} \right) = \frac{\partial a(x,f)}{\partial f} \sqrt{1+f'^2}
+\end{align*}
+
+Einsetzen von $a = c$, $\frac{\partial a}{\partial f} = 0$:
+
+\begin{align*}
+  \Leftrightarrow \quad &\frac{d}{dx} \left(c \frac{f'}{\sqrt{1+f'^2}} \right) = 0 \\
+  \Leftrightarrow \quad &c \frac{f''(x)}{\left(1 + f'(x)^2\right)^{\frac{3}{2}}} = 0
+\end{align*}
+
+Damit der Term null wird, muss über dem Bruchstrich eine $0$ stehen, unter dem
+Bruchstrich hingegen darf keine stehen. Wir machen also den Ansatz $f(x) =
+Ax+B$.
+
+Diese Funktion beschreibt eine Gerade. Da Licht sich in Medien mit konstantem
+Brechnungsindex immer auf einer Geraden ausbreitet, muss die Lösung stimmen.
+
+\subsection*{Teil b}
+
+Ausgehend von der Lösung aus Aufgabe 3e ergibt sich aus $a(x,y) = e^y$, dass
+$\frac{\partial a}{\partial y} = e^y$. Eingesetzt führt dies zur
+folgenden Differentialgleichung, die wir gleich null setzen, um das Minimum des
+Funktionals zu finden.
+
+\begin{align*}
+  &\frac{d}{dx} \left(e^y \frac{f'}{\sqrt{1+f'^2}} \right) - e^y \sqrt{1+y'^2} \overset{!}{=} 0 \\
+  \Leftrightarrow \quad &\frac{d}{dx} \left(e^y \frac{f'}{\sqrt{1+f'^2}} \right) = e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &\frac{e^y \left(y''(x) + y'(x)^4 + y'(x)^2\right)}{(y'(x)^2 + 1)^\frac{3}{2}} = e^y \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &\frac{\left(y''(x) + y'(x)^4 + y'(x)^2\right)}{(y'(x)^2 + 1)^\frac{3}{2}} = \sqrt{1+y'^2} \\
+  \Leftrightarrow \quad &y''(x) + y'(x)^4 + y'(x)^2 = \left(1+y'^2\right)^2 \\
+  \Leftrightarrow \quad &y''(x) + y'(x)^4 + y'(x)^2 = 1+2y'^2+y'(x)^4 \\
+  \Leftrightarrow \quad &y''(x) - y'(x)^2 = 1
+\end{align*}
+
+Diese Differentialgleichung ist zwar generell auch per Hand lösbar, jedoch
+überlassen wir dies unter Anbetracht der bisherigen Schwierigkeit dieses
+Aufgabenblattes doch lieber Wolfram Alpha und bitten um Verständnis.
+
+Die Lösung lautet
+
+\begin{align*}
+  y(x) = A - \ln \cos\left(B + x\right)
+\end{align*}
+
+Diese Kurve wollen wir auch nicht weiter interpretieren.
+
+\subsection*{Teil c}
+Nicht bearbeitet.
+
+\end{document}

@@ -1,0 +1,274 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 6. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Doppelpendel}
+
+Sei $(x_i, y_i)$ die Position der Masse $m_i$ relativ zum Ursprung. Die
+$y$-Achse zeige nach oben, die $x$-Achse zeige nach rechts.
+
+\begin{align*}
+  T &= T_1 + T_2 = \frac{m_1}{2} (\dot{x}_1^2 + \dot{y}_1^2) + \frac{m_2}{2} (\dot{x}_2^2 + \dot{y}_2^2) \\
+  V &= m_1gy_1 + m_2gy_2
+\end{align*}
+
+Die Zwangsbedingungen ergeben sich aus der zeitlichen Konstanz von $l_i$, so
+dass wir mit den beiden unabhängigen Koordinaten $\phi_i$ arbeiten können.
+
+\begin{align*}
+  x_1 &=  l_1 \sin \phi_1 \\
+  y_1 &= -l_1 \cos \phi_1 \\
+  x_2 &=  l_1 \sin \phi_1 + l_2 \sin \phi_2 \\
+  y_2 &= -l_1 \cos \phi_1 - l_2 \cos \phi_2
+\end{align*}
+
+Mit den Zeitableitungen:
+
+\begin{align*}
+  \dot{x_1} &= l_1 \dot{\phi_1} \cos \phi_1 \\
+  \dot{y_1} &= l_1 \dot{\phi_1} \sin \phi_1 \\
+  \dot{x_2} &= l_1 \dot{\phi_1} \cos \phi_1 + l_2 \dot{\phi_2} \cos \phi_2\\
+  \dot{y_2} &= l_1 \dot{\phi_1} \sin \phi_1 + l_2 \dot{\phi_2} \sin \phi_2
+\end{align*}
+
+Eingesetzt in $T_1$ (Kinetische Energe von $m_1$):
+
+\begin{align*}
+  T_1 &= \frac{m_1}{2} (l_1^2 \dot{\phi}_1^2 \cos^2 \phi_1 + l_1^2 \dot{\phi}_1^2 \sin^2 \phi_1) \\
+    &= \frac{m_1}{2} (l_1^2 \dot{\phi}_1^2)
+\end{align*}
+
+Eingesetzt in $T_2$ (Kinetische Energe von $m_2$):
+
+\begin{align*}
+  T_2 &= \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 \cos^2 \phi_1 + l_2^2 \dot{\phi}_2^2 \cos^2 \phi_2 + 2l_1l_2\dot{\phi}_1\dot{\phi_2}\cos(\phi_1) \cos(\phi_2) \\
+      &\quad + l_1^2 \dot{\phi}_1^2 \sin^2 \phi_1 + l_2^2 \dot{\phi_2}^2 \sin^2 \phi_2 + 2l_1l_2\dot{\phi_1}\dot{\phi_2}\sin(\phi_1)\sin(\phi_2)) \\
+      &= \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 + l_2^2 \dot{\phi}_2^2 + 2l_1l_2\dot{\phi}_1\dot{\phi_2} (\cos(\phi_1) \cos(\phi_2) + \sin(\phi_1)\sin(\phi_2))) \\
+      &= \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 + l_2^2 \dot{\phi}_2^2 + 2l_1l_2\dot{\phi}_1\dot{\phi_2} \cos(\phi_1 - \phi_2)) \\
+\end{align*}
+
+Insgesamt ($T = T_1 + T_2$):
+
+\begin{align*}
+  T &= \frac{m_1}{2} (l_1^2 \dot{\phi}_1^2) + \frac{m_2}{2} (l_1^2 \dot{\phi}_1^2 + l_2^2 \dot{\phi}_2^2) + 2l_1l_2\dot{\phi}_1\dot{\phi_2} \cos(\phi_1 - \phi_2) \\
+    &= \frac{m_1 + m_2}{2} l_1^2 \dot{\phi}_1^2 + \frac{m_2}{2} l_2^2 \dot{\phi}_2^2 + m_2l_1l_2\dot{\phi}_1\dot{\phi_2} \cos(\phi_1 - \phi_2)
+\end{align*}
+
+Für die potentielle Energie gilt:
+\begin{align*}
+  V &= -m_1gl_1 \cos \phi_1 - m_2g(l_1 \cos \phi_1 + l_2 \cos \phi_2) \\
+    &= -(m_1 + m_2)gl_1 \cos \phi_1 - m_2gl_2 \cos \phi_2
+\end{align*}
+
+Insgesamt:
+\begin{align*}
+  L = &\frac{m_1 + m_2}{2} l_1^2 \dot{\phi}_1^2 + \frac{m_2}{2} l_2^2 \dot{\phi}_2^2 + m_2l_1l_2\dot{\phi}_1\dot{\phi_2} \cos(\phi_1 - \phi_2) \\
+      &+(m_1 + m_2)gl_1 \cos \phi_1 + m_2gl_2 \cos \phi_2
+\end{align*}
+
+Durch Anwendung der Lagrange-Gleichung und kürzen von $l_1$ bzw. $l_2$ ergeben
+sich dann die Bewegungsgleichungen:
+
+\begin{align*}
+  (m_1 + m_2)l_1 \ddot{\phi_1} + m_2 l_2 \ddot{\phi_2} \cos(\phi_1 - \phi_2) + m_2 l_2 \dot{\phi_2}^2 \sin(\phi_1 - \phi_2) + (m_1 + m_2) g \sin \phi_1 = 0\\
+  l_2 \ddot{\phi_2} + l_1 \ddot{\phi_1} \cos(\phi_1 - \phi_2) - l_1 \dot{\phi_1}^2 \sin(\phi_1 - \phi_2) + g \sin\phi_2 = 0
+\end{align*}
+
+
+\section*{Aufgabe 2: Brett an Wand}
+\subsection*{Teil a: Koordinaten}
+
+Wenn wir das Brett in Segmente der Länge $d \eta$ zerlegen, dann ist die Länge
+$l = \int d \eta$. $\eta$ ist also die auf dem Brett abgetragene Strecke unter
+dem Integral. Dann ist die Position des Segments $d \eta$:
+
+\begin{align*}
+  x &= - \eta \cos \phi \\
+  y &= \eta \sin \phi
+\end{align*}
+
+Die Geschwindigkeiten sind:
+
+\begin{align*}
+  \dot{x} &= \eta \dot{\phi} \sin \phi \\
+  \dot{y} &= \eta \dot{\phi} \cos \phi
+\end{align*}
+
+
+\subsection*{Teil b: Energien}
+
+Aus der kinetischen Energie $dT = \frac{dm}{2}(\dot{x}^2 + \dot{y}^2)$ folgt:
+
+\begin{align*}
+  dT &= \frac{dm}{2}(\eta^2 \dot{\phi}^2 \sin^2 \phi + \eta^2 \dot{\phi}^2 \cos^2 \phi) \\
+     &= \frac{dm}{2} \eta^2 \dot{\phi}^2 \\
+     &= d \eta \frac{m}{2l} \eta^2 \dot{\phi}^2
+\end{align*}
+
+Für die potentielle Energie $dV = dm g y$ ist:
+
+\begin{align*}
+  dV &= dm g \eta \sin \phi \\
+     &= d \eta \frac{mg}{l} \eta \sin \phi
+\end{align*}
+
+\subsection*{Teil c: Lagrange-Funktion}
+
+Wir berechnen die gesamte kinetische und die gesamte potentielle Energie.
+
+\begin{align*}
+  T &= \int_0^l d \eta\; \frac{m}{2l} \eta^2 \dot{\phi}^2 \\
+    &= \frac{m}{2l} \dot{\phi}^2 \int_0^l d\eta \; \eta^2 \\
+    &= \frac{m}{2l} \dot{\phi}^2 \frac{1}{3} l^3 \\
+    &= \frac{1}{6} m \dot{\phi}^2 l^2
+\end{align*}
+
+\begin{align*}
+  V &= \int_0^l d \eta; \frac{mg}{l} \eta \sin \phi \\
+    &= \frac{mg}{l} \sin(\phi) \int_0^l d \eta; \eta \\
+    &= \frac{mg}{l} \sin(\phi) \frac{1}{2} l^2 \\
+    &= \frac{1}{2} mgl \sin \phi
+\end{align*}
+
+Die Lagrange-Funktion ist dann:
+
+\begin{align*}
+  L = T - V = \frac{1}{6} m \dot{\phi}^2 l^2 - \frac{1}{2} mgl \sin \phi
+\end{align*}
+
+\subsection*{Teil d: Bewegungsgleichungen}
+
+Die Lagrange-Funktion vereinfachen wir zu
+
+\begin{align*}
+  L = \frac{ml}{2}\left(\dot{\phi}^2 \frac{l}{3} - g \sin \phi\right)
+\end{align*}
+
+Unter Anwendung der Lagrange-Gleichung erhalten wir dann
+
+\begin{align*}
+  \frac{ml}{2} \left(\frac{l}{3} \ddot{\phi} - g \cos \phi\right) = 0
+\end{align*}
+
+Da $\frac{ml}{2} \neq 0$ (zumindest in interessanten Fällen) führt dies zur Bewegungsgleichung
+
+\begin{align*}
+  \Rightarrow\quad&\frac{l}{3} \ddot{\phi} - g \cos \phi = 0
+\end{align*}
+
+Zur Kürzung führen wir eine Konstante $a = \frac{3g}{l}$ ein.
+
+\begin{align*}
+  \Leftrightarrow\quad&\ddot{\phi} = a \cos \phi
+\end{align*}
+
+\textbf{Anmerkung:} Wir sind uns hier leider nicht einig geworden. Es wäre
+nett, wenn du einfach die bessere Variante bewerten und korrigieren würdest,
+falls möglich. Vielen Dank!
+
+\subsubsection*{Weg A: Luis}
+
+Wir lösen diese Gleichung durch Trennung der Variablen:
+
+\begin{align*}
+  \Leftrightarrow\quad&\frac{d \dot{\phi}}{dt} = a \cos \phi\\
+  \Leftrightarrow\quad&d \dot{\phi} \frac{1}{\cos \phi} = a \; dt
+\end{align*}
+
+Wir integrieren von $\dot{\phi}_0$ bis $\dot{\phi}(t)$ und von $t_0 = 0$ bis $t$
+
+\begin{align*}
+  \Leftrightarrow\quad&\int_{\dot{\phi}_0}^{\dot{\phi}(t)} d \dot{\phi} \; \frac{1}{\cos \phi} = \int_0^{t} a \; dt
+\end{align*}
+
+und stellen fest, dass $\frac{1}{\cos \phi}$ nicht schön zu integrieren ist. Da
+wir den Ausdruck für $\phi \ll \frac{\phi}{2}$ auswerten sollen, setzen wir
+$\frac{1}{\cos \phi_0} \approx \cos \phi_0$ und taylorn in $\phi_0 = 0$. Dies
+liefert einen einzigen Term, nämlich $1$.
+
+Also integrieren erhalten wir
+
+\begin{align*}
+  \Rightarrow\quad&\dot{\phi}(t) -\dot{\phi}_0 = at
+\end{align*}
+
+Mit erneuter Trennung der Variablen
+
+\begin{align*}
+  &\frac{d \phi}{dt} = at + \dot{\phi}_0\\
+  \Leftrightarrow\quad& \int_{\phi_0 = \omega}^{0} d\phi(t) = \int_0^{\tau}(at + \phi_0) dt\\
+  \Leftrightarrow\quad& -\phi_0 = \frac{a \tau^2}{2} + \omega \tau \\
+  \Leftrightarrow\quad& \frac{a \tau^2}{2} + \omega \tau + \phi_0 = 0
+\end{align*}
+
+Lösen Anwendung der PQ-Formel:
+
+\begin{align*}
+  \tau = -\frac{\omega}{a} \pm \sqrt{\frac{\omega^2}{a^2} - \frac{2}{a} \phi_0}
+\end{align*}
+
+Für $\omega = 0$ also:
+
+\begin{align*}
+  \tau = \pm \sqrt{- \frac{2}{a} \phi_0}
+\end{align*}
+
+Die Fallzeit kann nur positiv sein, $a$ hingegen muss negativ sein, dass $a = \frac{3g}{l}$ und $g$ negativ ist. Damit erhalten wir:
+
+\begin{align*}
+  \tau = \sqrt{\frac{2}{3} \frac{l}{g} \phi_0}
+\end{align*}
+
+\subsubsection*{Weg B: Markus}
+
+Ich bin dreist und aproximiere wegen $\phi \ll \frac{\pi}{2}$ zu $\cos \phi = 1$. Dann erhalte ich:
+
+\begin{align*}
+  &\ddot{\phi} = \frac{3g}{l} \\
+  &\dot{\phi} = \frac{3g}{l}t + \omega_0 \\
+\end{align*}
+
+Da das Brett an der Wand lehnt, gehe ich davon aus, dass die Anfangswinkelgeschwindigkeit $\omega_0 = 0$.
+
+\begin{align*}
+  &\dot{\phi} = \frac{3g}{l}t\\
+  &\phi = \frac{3g}{2l} t^2 + \phi_0
+\end{align*}
+
+Für die Fallzeit $t \overset{!}{=} \tau$, die benötigt wird, damit das Brett von der
+Ausgangslage zu $\phi \overset{!}{=} 0$ kommt, muss gelöst werden:
+
+\begin{align*}
+  0 &= \frac{3g}{2l} \tau^2 + \phi_0 \\
+  \tau^2 &= -\phi_0 \frac{2l}{3g}
+\end{align*}
+
+Wir haben weiter oben $g$ als negativ angenommen, oder ein Vorzeichen verloren oder sowas in der Art. Deswegen
+
+\begin{align*}
+  \tau^2 = \phi_0 \frac{2l}{3g} \\
+  \tau = \sqrt{\phi_0 \frac{2l}{3g}}
+\end{align*}
+
+Was mit obigen Ergebnis übereinstimmt.
+
+\end{document}

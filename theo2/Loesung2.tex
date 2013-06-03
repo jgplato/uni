@@ -1,0 +1,345 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 2. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
+Damit $L'(q, \dot{q}, t) = L(q, \dot{q}, t) + \frac{d}{dt} F(q(t))$ auf die
+selben Bewegungsgleichungen führt, muss
+
+\begin{align*}
+  \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) \left(L - L'\right) &= 0 \\
+  \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) \left(\frac{d}{dt} F\right) &= 0 \\
+\end{align*}
+
+Dies führt zu
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{d}{dt} F &= \frac{\partial}{\partial q}\frac{d}{dt} F \\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{\partial F}{\partial q} \frac{dq}{dt} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}}\frac{\partial F}{\partial q} \dot{q} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} \dot{q} \frac{\partial F}{\partial q} &= \frac{\partial}{\partial q}\frac{d}{dt} F\\
+  \frac{d}{dt} \frac{\partial F}{\partial q} &= \frac{\partial}{\partial q}\frac{d}{dt} F
+\end{align*}
+
+Die Ableitungen sollten vertauschbar sein, zur Sicherheit beweisen wir von der
+rechten Seite her.
+
+\begin{align*}
+  \frac{\partial}{\partial q}\frac{d}{dt} F &= \frac{\partial \dot{q}}{\partial q} \frac{\partial F}{\partial q} \\
+                                            &= \frac{\partial}{\partial q} \frac{dq}{dt} \frac{\partial F}{\partial q} \\
+                                            &= \frac{d}{dt} \frac{\partial F}{\partial q}
+\end{align*}
+
+Somit führen $L$ und $L'$ auf die selben Bewegungsgleichungen.
+
+\subsection*{Teil b}
+$L_1$ und $L_2$ führen auf die selben Bewegungsgleichungen, denn $L_2 - L_1 =
+q^3\dot{q} = \frac{d}{dt} \frac{q^4}{4}$. Damit ergibt sich aus obigem Beweis
+die Äquivalenz der Bewegungsgleichungen.
+
+$L_2$ und $L_3$ führen auf die selben Bewegungsgleichungen denn eine
+Lagrange-Funktion kann mit beliebigem $c \neq 0$ multipliziert werden und führt
+auf die selben Bewegungsgleichungen. Beweis:
+
+\begin{align*}
+  &\left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) c L = 0 \\
+  \Leftrightarrow & \left(\frac{d}{dt} \frac{\partial}{\partial \dot{q}} - \frac{\partial}{\partial q}\right) L = \frac{0}{c} = 0
+\end{align*}
+
+$L_4$ führt zu einer anderen Bewegungsgleichung als $L_1$, $L_2$ und $L_3$,
+denn $q^3$ kann nicht als Zeitableitung eines $F(q(t))$ geschrieben werden,
+ohne direkt von $t$ abzuhängen.
+
+$L_5$ führt widerrum zu einer anderen Bewegungsgleichung, als alle
+vorhergehenden, denn ohne die vorherige Bewegungsgleichung von $L_4$ explizit
+auszurechnen, ist klar, dass aus $L_4$ bei der Anwendung des
+Lagrange-Formalismus keine gemischten Terme der Form $cq^i\dot{q}^j$
+($c{,}i{,}j \neq 0$) entstehen können, während dies bei $L_5$ und $L_6$ der
+Fall sein muss.
+
+$L_6$ ist die $\frac{3}{2}$te Potenz von $L_5$. Die Vermutung, dass dies auf
+die selben Bewegungsgleichungen führt, überprüfe ich durch Ausrechnen:
+
+Für $L_5$ ergibt sich:
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} q^2\dot{q}^4 &= \frac{\partial}{\partial q} q^2\dot{q}^4 \\
+  \frac{d}{dt} (q^24\dot{q}^3) &= 2q\dot{q}^4 \\
+  2\dot{q}q4\dot{q}^3 + q^24 \cdot 3 \ddot{q}\dot{q}^2 &= 2q\dot{q}^4 \\
+  8q\dot{q}^4+ 12q^2\dot{q}^2\ddot{q} &= 2q\dot{q}^4 \\
+  4q\dot{q}^4+ 6q^2\dot{q}^2\ddot{q} &= q\dot{q}^4 \\
+  4\dot{q}^4+ 6q\dot{q}^2\ddot{q} &= \dot{q}^4 \\
+  3\dot{q}^2+ 6q\ddot{q} &= 0 \\
+  \dot{q}^2+ 2q\ddot{q} &= 0 \\
+\end{align*}
+
+Für $L_6$:
+
+\begin{align*}
+  \frac{d}{dt} \frac{\partial}{\partial \dot{q}} q^3\dot{q}^6 &= \frac{\partial}{\partial q} q^3\dot{q}^6 \\
+  \frac{d}{dt} (q^36\dot{q}^5) &= 3q^2\dot{q}^6 \\
+  6q^3 \cdot 5\dot{q}^4\ddot{q} + 6\dot{q}^5\cdot3q^2\dot{q} &= 3q^2\dot{q}^6 \\
+  30q^3\dot{q}^4\ddot{q} + 18q^2\dot{q}^6 &= 3q^2\dot{q}^6 \\
+  10q^3\dot{q}^4\ddot{q} + 6q^2\dot{q}^6 &= q^2\dot{q}^6 \\
+  10q\dot{q}^4\ddot{q} + 6\dot{q}^6 &= \dot{q}^6 \\
+  10q\ddot{q} + 6\dot{q}^2 &= \dot{q}^2 \\
+  \dot{q}^2 + 2q\ddot{q} &= 0
+\end{align*}
+
+Für $L_5$ und $L_6$ erhält man also die selben Bewegungsgleichungen.
+
+Zusammenfassend: $L_1 \widehat{=} L_2 \widehat{=} L_3 \widehat{\neq} L_4 \widehat{\neq} L_5 \widehat{=} L_6$.
+
+\section*{Aufgabe 2}
+\subsection*{Teil a}
+
+\begin{equation*}
+  \frac{\partial \dot{q}_i}{\partial \dot{s}_j} =
+  \frac{\partial}{\partial \dot{s}_j} \frac{dq_i}{dt} =
+  \frac{\partial}{\partial \dot{s}_j} \left(\frac{\partial q_i}{\partial t} + \sum_{k=1}^n \frac{\partial q_i}{\partial s_k} \frac{ds_k}{dt}\right) =
+  \frac{\partial}{\partial \dot{s}_j} \left(\frac{\partial q_i}{\partial t} + \sum_{k=1}^n \frac{\partial q_i}{\partial s_k} \dot{s_k}\right) =
+  \frac{\partial q_i}{\partial s_j}
+\end{equation*}
+
+Der Übergang vom vorletzten auf den letzten Gleichungsterm erfolgt, weil durch
+$\frac{\partial}{\partial \dot{s_j}}$ nur derjenige Term aus der Klammer
+ausgewählt wird, der $\dot{s_j}$ enthält, die restlichen Terme verschwinden.
+
+Somit sollte auch $\frac{\partial q_i}{\partial \dot{s_j}} = 0$ klar sein, denn
+$q_i = q(s_1, \dots, s_N, t)$ hängt von keinem $\dot{s_j}$ ab, die partielle
+Ableitung muss also verschwinden.
+
+\subsection*{Teil b}
+
+\begin{align*}
+  \frac{\partial \tilde{L}}{\partial \dot{s_j}} &= \frac{dL}{d\dot{s}_j} \\
+                                                &= \sum_{i=1}^N \frac{\partial L}{\partial q_i}       \frac{\partial q_i}{\partial \dot{s_j}} +
+                                                   \sum_{i=1}^N \frac{\partial L}{\partial \dot{q}_i} \frac{\partial \dot{q_i}}{\partial \dot{s_j}} +
+                                                   \frac{\partial L}{\partial t} \frac{\partial t}{\partial \dot{s_j}}
+\end{align*}
+
+Aus Teil a ist bekannt, dass $\frac{\partial q_i}{\partial \dot{s_j}} = 0$ und
+$\frac{\partial \dot{q_i}}{\partial \dot{s_j}} = \frac{\partial q_i}{\partial
+s_j}$. Dass $\frac{\partial t}{\partial \dot{s_j}} = 0$, ist klar, denn $t$ ist
+keine Funktion von $\dot{s_j}$. Insgesamt also:
+
+
+\begin{align*}
+  \frac{\partial \tilde{L}}{\partial \dot{s}_j} = \sum_{i=1}^N \frac{\partial L}{\partial \dot{q}_i} \frac{\partial q_i}{\partial s_j}
+\end{align*}
+
+\subsection*{Teil c}
+
+\begin{align*}
+  \frac{d}{dt} \left(\frac{\partial \tilde{L}}{\partial \dot{s_j}}\right) - \frac{\partial \tilde{L}}{\partial s_j} = 0
+\end{align*}
+
+Einsetzen von Teil b:
+
+\begin{align*}
+\frac{d}{dt} \left(
+  \sum_{i=1}^N \frac{\partial L}{\partial \dot{q}_i} \frac{\partial q_i}{\partial s_j}
+\right) - \frac{\partial \tilde{L}}{\partial s_j} = 0
+\end{align*}
+
+Betrachtung von $\frac{\partial \tilde{L}}{\partial s_j}$ liefert:
+
+\begin{align*}
+  \frac{\partial \tilde{L}}{\partial s_j} &= \frac{dL}{ds_j} = \sum_{i=1}^N \left(\frac{\partial L}{\partial q_i} \frac{\partial q_i}{\partial s_j}\right) + \frac{\partial L}{\partial t}\frac{\partial t}{\partial s_j} \\
+  &= \sum_{i=1}^N \frac{\partial L}{\partial q_i} \frac{\partial q_i}{\partial s_j}
+\end{align*}
+
+Durch Einsetzen in die Anfangsgleichung erhält man:
+
+\begin{align*}
+\frac{d}{dt} \left(
+  \sum_{i=1}^N \frac{\partial L}{\partial \dot{q}_i} \frac{\partial q_i}{\partial s_j}
+\right) - \left(
+  \sum_{i=1}^N \frac{\partial L}{\partial q_i} \frac{\partial q_i}{\partial s_j}
+\right) = 0
+\end{align*}
+
+Wenn $L$ eine Lagrange-Funktion ist, gilt
+
+\begin{align*}
+  &\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = 0 \\
+  \Leftrightarrow &\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = \frac{\partial L}{\partial q_i}
+\end{align*}
+
+Wenn man das $\frac{d}{dt}$ in die Summe zieht und den linken Teil einsetzt, liefert das:
+
+\begin{align*}
+&\left(
+  \sum_{i=1}^N \frac{\partial L}{\partial q_i} \frac{\partial q_i}{\partial s_j}
+\right) - \left(
+  \sum_{i=1}^N \frac{\partial L}{\partial q_i} \frac{\partial q_i}{\partial s_j}
+\right) = 0 \\
+\Leftrightarrow &0 = 0
+\end{align*}
+
+Somit ist $\tilde{L}$ eine Lagrange-Funktion, wenn $L$ eine Lagrange-Funktion
+ist. Die Lagrange-Funktion ist also unter der gegebenen Transformation
+invariant.
+
+\section*{Aufgabe 3}
+\subsection*{Teil a}
+
+Die Zwangsbedingung ist in der Aufgabe als $z = \alpha (x^2+y^2)$ gegeben. Da
+das Problem eine Rotationssymmetrie aufweist, würde ich Zylinderkoordinaten
+verwenden. Dies führt auf die neue Zwangsbedingung $z = \alpha r^2$. Meine
+unabhängigen Koordinaten wären dann $r$ und $\phi$.
+
+\subsection*{Teil b}
+Als Koordinatensystem würde ich zuerst ein kartesisches Koordinatensystem wählen.
+Dabei ist $\vec{r}_0 = (x_0, y_0, z_0)$ mein Aufhängepunkt, für den die
+Zwangsbedingungen $z_0 = 0$, $y_0 = 0$ und $x_0 = A \cdot \sin (\omega t +
+\alpha)$ gelten.
+
+Die Pendelmasse befindet sich an $\vec{r}_1 = (x_1, y_1, z_1)$. Offensichtlich
+ist $z_1 = 0$. Aufgrund des festen Abstandes der Pendelmasse vom Aufhängepunkt
+gilt:
+
+\begin{align*}
+  x_1 = x_0 - l \sin \phi \\
+  y_1 = y_0 - l \cos \phi
+\end{align*}
+
+Als unabhängige Koordinate bleibt also $\phi$ übrig.
+
+
+\subsection*{Teil c}
+Da die Beschleunigung und der Anstiegswinkel konstant sind, erscheint es nicht
+sinnvoll, das Koordinatensystem irgendwie zu transformieren. Ich würde ein
+2-dimensionales kartesisches Koordinatensystem $(x, y)$ benutzen.
+
+Die Zwangsbedingungen lauten $\frac{x}{y} = \alpha$ (Anstiegswinkel, $\alpha =
+\operatorname{const.}$), $\ddot{x} = a$ (Konstante Beschleunigung $a =
+\operatorname{const.}$).
+
+Es bleiben keine freien Koordinaten übrig, aus den Zwangsbedingungen ergibt
+sich direkt die Bewegung.
+
+\section*{Aufgabe 4}
+
+\subsection*{Bewegungsgleichungen unter Benutzung der Newtonschen Mechanik}
+\begin{tikzpicture}[scale=2]
+  %\draw[style=help lines] (0,0) grid (3.9,3.9);
+
+  \draw[->] (-0.2,0) -- (4,0) node[right] {$r$};
+  \draw[->] (0,-0.2) -- (0,4) node[above] {$z$};
+  \draw[->] (1.5,2.25) -- (1.5, 1.00) node[right] {$F_g$};
+  \draw[->] (1.5,1.00) -- (1.1, 1.00) node[above left] {$F_a$};
+  \draw[->] (1.5,2.25) -- (1.1, 1.00) node[below] {$F_t$};
+
+  \draw (-.5,.25) parabola bend (0,0) (2,4) node[below right] {$ar^4$};
+\end{tikzpicture}
+
+Entlang des Drahtes wirkt zum Einen die Zentripetalkraft:
+
+\begin{align*}
+  F_z = m \omega^2 r = m \dot{\phi}^2 r
+\end{align*}
+
+Außerdem der radiale Anteil der Gewichtskraft:
+
+\begin{align*}
+  F_a = F_g \cdot \tan \alpha
+\end{align*}
+
+Dabei ist $\alpha$ der Steigungswinkel des Drahtes. Da wir die Funktion kennen,
+die die Form des Drahtes beschreibt, gilt
+
+\begin{align*}
+  \tan \alpha = \frac{d}{dr} ar^4 = 4ar^3
+\end{align*}
+
+Wir erhalten:
+
+\begin{align*}
+  F_a = 4mgar^3
+\end{align*}
+
+Die effektive Kraft $F$ ergibt sich also aus der Summe:
+
+\begin{align*}
+  F = F_a + F_z
+\end{align*}
+
+Aus dem zweiten Newtonschen Gesetz ergibt sich dann:
+
+\begin{align*}
+  ma &= 4mgar^3 + m \omega^2 r \\
+  m\ddot{r} &= 4mgar^3 + m \omega^2 r \\
+  \ddot{r} &= 4gar^3 + \omega^2 r
+\end{align*}
+
+\subsection*{Bewegungsgleichungen unter Benutzung der Lagrange-Mechanik}
+
+Zur Bearbeitung des Problems bieten sich Zylinderkoordinaten an, wobei der
+Nullpunkt des parabelförmigen Drahtes im Ursprung liegt.
+
+Die Zwangsbedingungen sind dann dementsprechend $z=ar^4$ (wie gegeben) und
+$\dot{\phi} = \omega$.
+
+Durch das Gravitationspotential ergibt sich
+
+\begin{align*}
+  V = mgz = mgar^4
+\end{align*}
+
+Und für die kinetische Energie
+
+\begin{align*}
+  T &= \frac{1}{2}mv^2 \\
+    &= \frac{1}{2}m(\dot{r}^2 + r^2\dot{\phi}^2 + \dot{z}^2) \\
+    &= \frac{1}{2}m(\dot{r}^2 + r^2\omega^2 + 4ar^3\dot{r})
+\end{align*}
+
+Damit ist die Lagrangefunktion insgesamt:
+
+\begin{align*}
+  L = T - V = \frac{1}{2}m(\dot{r}^2 + r^2\omega^2 + 4ar^3\dot{r}) - mgar^4
+\end{align*}
+
+Ableitungen:
+\begin{align*}
+  \frac{d}{dt} \frac{\partial L}{\partial \dot{r}} = \frac{d}{dt} m\dot{r} + 2ar^3 = m\ddot{r} + 6ar^2\dot{r} \\
+  \frac{\partial L}{\partial r} = mr\omega^2+6ar^2\dot{r} - 4mgar^3
+\end{align*}
+
+Unter Benutzung der Lagrangegleichung ergibt sich dann ($m \neq 0$):
+
+\begin{align*}
+  m\ddot{r} + 6ar^2\dot{r} &=  mr\omega^2 + 6ar^2\dot{r} - 4mgar^3 \\
+  m\ddot{r} &= mr\omega^2 - 4mgar^3 \\
+  \ddot{r} &= r\omega^2 - 4gar^3
+\end{align*}
+
+Damit sind die Bewegungsgleichungen insgesamt:
+\begin{align*}
+  \ddot{r} &= r\omega^2 - 4gar^3 \\
+  \dot{phi} &= \omega \\
+  z &= ar^4
+\end{align*}
+
+\end{document}
