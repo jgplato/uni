@@ -1,0 +1,209 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 5. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
+
+Zur Anwendung der Kirchhoffschen Regel teilen ich den Stromkreis in einen
+linken Kreis ($I_1$) und einen rechten Kreis ($I_2$). Der linke Kreis fließe
+gegen den Uhrzeigersinn, der rechte Kreis fließe im Uhrzeigersinn.  Gestartet
+wird jeweils vom Knotenpunkt $b$.
+
+Somit ergeben sich folgende Gleichungen:
+
+\begin{align*}
+  \underbrace{-3I_1+5}_{\text{links}}\underbrace{-3I_2+5}_{\text{rechts}}+7-2I_1 &= 0 \\
+  \underbrace{-3I_1+5}_{\text{links}}\underbrace{-3I_2+5}_{\text{rechts}}+1I_2 &= 0
+\end{align*}
+
+Die Lösung dieses Gleichungssystems lautet:
+
+\begin{align*}
+  I_1 = \frac{38}{11}\;\ampere\approx3{,}5\;\ampere,\quad I_2 = -\frac{1}{11}\;\ampere\approx-0{,}1\;\ampere
+\end{align*}
+
+Durch den Widerstand $R_1$ fließt der Strom $I_2$ von oben nach unten, mit dem
+Betrag wie oben angegeben. Durch den Widerstand $R_2$ fließt der Strom $I_1$
+von links nach rechts, Betrag wie oben angegeben. Durch den Widerstand $R_3$
+fließen die Ströme $I_1$ und $I_2$ in die selbe Richtung, nämlich von unten
+nach oben. Es wird also addiert. Der Strom durch $R_3$ ist dann
+$\frac{37}{11}\;\ampere$.
+
+\subsection*{Teil b}
+
+Die Spannungsdifferenz zwischen Punkt $a$ und Punkt $b$ ist ($I$ sei der Strom
+durch $R_3$ (siehe oben)):
+
+\begin{align*}
+  R_3 \cdot I - 5\;\volt = \frac{111}{11}\;\volt - \frac{55}{11} = \frac{56}{11}\;\volt \approx 5{,}1\;\volt
+\end{align*}
+
+\subsection*{Teil c}
+Die Spannungsquelle $U_l$ muss den Strom $I_1$ liefern, die Leistung ist somit:
+
+\begin{align*}
+  P_l = U_l \cdot I_1 = \frac{266}{11} \;\watt \approx 24{,}2\;\watt
+\end{align*}
+
+Die Spannungsquelle $U_r$ liefert den Strom $I_1 + I_2$:
+
+\begin{align*}
+  P_r = U_r \cdot (I_1 + I_2) = \frac{185}{11} \;\watt \approx 16{,}8\;\watt
+\end{align*}
+
+\section*{Aufgabe 2}
+Die Spannung am Kondensator steigt gemäß folgender Gleichung:
+
+\begin{align*}
+  U(t) = U_0 \cdot (1 - e^{-\frac{t}{RC}})
+\end{align*}
+
+Mit den gegebenen Werten $U_0 = 60\;\volt$, $t = 55\;\milli\second$, $R = 270\;\kilo\ohm$, $C = 47\;\nano\farad$ ergibt sich am Ende des Ladevorgangs die Spannung
+\begin{align*}
+  U_1 \approx 59{,}21 \;\volt
+\end{align*}
+
+Wenn der Kondensator nun entladen wird, ergibt sich ein anfänglicher
+Entladestrom von $I_0 = \frac{U_1}{R_2}$. Es gilt dann also für den
+Entladestrom nach $t_2$
+
+\begin{align*}
+  I = \frac{U_1}{R_2} \cdot e^{-\frac{t_2}{R_2C}}
+\end{align*}
+
+Durch Einsetzen der entsprechenden Werte ergibt sich $I \approx 256\;\micro\ampere$.
+
+\section*{Aufgabe 3}
+Die Kugel entlädt sich gegenüber dem Nullpotential, welches sich in unendlicher
+Entfernung befindet. Wir betrachten das Problem also als Kugelkondensator,
+wobei die äußere Kugelschale unendlich weit weg befindet. Zwischen den
+Kugelschalen herrscht dann die Spannung:
+
+\begin{align*}
+  &I = \frac{dQ}{dt} = C \frac{dU}{dt} \\
+  \Leftrightarrow\quad &U_C = \frac{1}{C} \int I dt
+\end{align*}
+
+Dies ist dann also die Spannung in der Luft. Die Luft habe den Widerstand $R$, dann ist:
+
+\begin{align*}
+  U_L = IR
+\end{align*}
+
+Gemäß dem Kirchhoffschen Gesetz verschwindet die Potentialsumme auf dem
+Ringintegral zwischen den Schalen und zurück. Dann gilt folglich:
+
+Dann ist
+\begin{align*}
+  &U_C + U_L = 0 \\
+  \Leftrightarrow\quad &\frac{1}{C} \int I dt + IR = 0 \\
+  \Leftrightarrow\quad &\frac{I}{C} + \frac{dI}{dt} R = 0 \\
+  \Leftrightarrow\quad &\frac{I}{RC} + \frac{dI}{dt} = 0 \\
+\end{align*}
+
+Diese Differentialgleichung hat bekanntermaßen die Lösung:
+
+\begin{align*}
+  I(t) = I_0 \cdot e^{-\frac{t}{RC}}
+\end{align*}
+
+Die Entladung findet durch die Luft (Widerstand $R$ statt, die Spannung am
+Kondensator ist $U = \frac{Q}{C}$. Führt zu:
+
+\begin{align*}
+  I(t) = \frac{Q_0}{RC} \cdot e^{-\frac{t}{RC}}
+\end{align*}
+
+Dann ist klar, dass $\tau = RC$.
+
+Den Widerstand können wir noch genauer berechnen. Wir gehen Kugelschalenförmig vom Generatordurchmesser $r_1$ aus:
+
+\begin{align*}
+  &R = \int dR \\
+  &R = \rho \int \frac{l}{A} \\
+  &R = \rho \int_{r_1}^\infty \frac{dr}{dA} \\
+  &R = \rho \int_{r_1}^\infty dr \frac{1}{4 \pi r^2} \\
+  &R = \frac{1}{4 \pi}\rho \int_{r_1}^\infty dr \frac{1}{r^2} \\
+  &R = \frac{1}{4 \pi}\rho \int_{r_1}^\infty dr \frac{1}{r^2} \\
+  &R = \frac{\rho}{4 \pi r_1}
+\end{align*}
+
+Die Kapazität eines Kugelkondensators haben wir in einem früheren Aufgabenblatt berechnet. Sie ist:
+
+\begin{align*}
+  C = 4 \pi \epsilon_0 \left( \frac{1}{r_1} - \frac{1}{r_2} \right)^{-1}
+\end{align*}
+
+Wenn dabei $r_2 \to \infty$ geht (die andere Kugelschale ist unendlich weit weg), gilt für $C$:
+\begin{align*}
+  C = 4 \pi \epsilon_0 r_1
+\end{align*}
+
+Dann kürzen sich auf magische Weise viele Dinge weg und man erhält das hübsche
+Ergebnis:
+\begin{align*}
+  \tau = RC = \epsilon_0 \rho
+\end{align*}
+
+
+\section*{Aufgabe 4}
+Das Gesetz von Amperè besagt, dass für eine Fläche, durch die ein Strom $I$
+fließt, durch den (notwendigerweise geschlossenen) Rand dieser Fläche ein
+Magnetfeld fließt:
+
+\begin{align*}
+  \oint_{\mathcal{S}} \vec{B} \cdot \vec{ds} = \mu_0 \cdot I
+\end{align*}
+
+Die Fläche ist in diesem Fall eine Kreisfläche, der Rand ein geschlossener
+Kreisbogen. Die Windungen der Spule gehen um den Kreisbogen herum. Das
+bedeutet, dass der Strom auf der Innenseite der Spule durch die Kreisfläche
+hindurchfließt, aber auf der anderen Außenseite, außerhalb der Kreisfläche
+wieder hinaus. Durch die Kreisfläche fließt also insgesamt der Strom $I=NI_0$,
+wobei $N$ die Anzahl der Windungen sei. Dann ist:
+
+\begin{align*}
+  \oint_{\mathcal{S}} \vec{B} \cdot \vec{ds} = \mu_0 \cdot NI_0
+\end{align*}
+
+Da das Problem rotationssysmmetrisch ist, ändert das Magnetfeld $\vec{B}$ seine
+Richtung, aber nicht seinen Betrag. Das Feld läuft außerdem in Richtung des
+Kreisbogens. Wir können also schreiben:
+
+\begin{align*}
+  B \oint_{\mathcal{S}} ds = \mu_0 \cdot NI_0
+\end{align*}
+
+Der Umfang des Kreises ist $2\pi r$. Damit ist das Ringintegral ausgeführt:
+
+\begin{align*}
+  B 2 \pi r = \mu_0 \cdot NI_0
+\end{align*}
+
+Umstellen ergibt den von der Aufgabenstellung geforderten Zusammenhang:
+\begin{align*}
+  B = \frac{\mu_0}{2 \pi} \frac{NI_0}{r}
+\end{align*}
+
+\end{document}

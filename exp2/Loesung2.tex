@@ -1,0 +1,230 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 3. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
+
+Homogene Ladungsverteilungen auf einer Kugel verhalten sich von außerhalb der
+Kugel betrachtet wie eine Punktladung im Zentrum. Dementsprechend:
+
+\begin{align*}
+  &E = \frac{q}{4 \pi \epsilon_0r^2} \\
+  \Leftrightarrow \quad&q = \frac{E 4 \pi \epsilon_0}{r^2}
+\end{align*}
+
+Einsetzen der Werte:
+
+\begin{align*}
+  q &= \frac{3 \cdot 10^6 \cdot 4 \cdot \pi \cdot 8{,}86 \cdot 10^{-12}}{0{,}05^2} \coulomb \\
+    & \approx 0{,}13 \;\coulomb
+\end{align*}
+
+\subsection*{Teil b}
+
+Homogene Ladungsverteilungen auf einer Kugel verhalten sich von außerhalb der
+Kugel betrachtet wie eine Punktladung im Zentrum. FÜr Potential zwischen einem
+Punkt in unendlichem Abstand und einem Punkt im Abstand zu einer Punktladung gilt:
+
+\begin{align*}
+  \Phi &= \frac{E}{r} = \frac{3 \cdot 10^6}{0{,}05} \volt = 60 \;\mega\volt
+\end{align*}
+
+\subsection*{Teil c}
+
+In einem kubischen Atomgitter befindet sich ein Atom pro Gittereinheit. Die Atomdichte ist
+diesem Fall also $\frac{1}{0{,}25^3 \;\nano\meter^3} = \frac{1}{1{,}56 \cdot 10^{-29} \;\meter^3}$.
+
+Für das Volumen der Hohlkugel gilt:
+
+\begin{align*}
+  V &= \frac{4}{3} \pi (r_a^3 - r_i^3), \quad r_a = 50 \;\milli\meter, r_i = 47\;\milli\meter \\
+    &= 8{,}87 \cdot 10^{-5}\; \meter^3 \\
+\end{align*}
+
+Die Anzahl der Atome ist dann
+
+\begin{align*}
+  n &= V \cdot \frac{n}{V} = 8{,}87 \cdot 10^{-5} \cdot \frac{1}{1{,}56 \cdot 10^{-29} \;\meter^3} \\
+    &= 5{,}69 \cdot 10^{24}
+\end{align*}
+
+Die Anzahl der Elektronen in der Ladung ist
+
+\begin{align*}
+  n_e &= \frac{0{,}133 \;\coulomb}{1{,}6 \cdot 10^{-19} \coulomb} \\
+      &= 8{,}3 \cdot 10^{17}
+\end{align*}
+
+Das bedeutet, dass bei der gegebenen Ladung etwa $10^{7}$-mal mehr Atome im
+Hohlkopf enthalten sind, als Elektronen auf der Oberfläche.
+
+
+In der obersten Schicht ist ein Atom auf einer Oberfläche von jeweils $(0{,}25
+\;\nano\meter)^2 = 6{,}25 \cdot 10^{-20} \meter^2$. Die Oberfläche des
+Hohlkopfes ist
+
+\begin{align*}
+  A = 4 \pi r^2 = 4 \pi \cdot 0{,}05^2 \meter^2 \approx 3{,}1 \cdot 10^{-2} \meter^2
+\end{align*}
+
+Die Anzahl der Atome auf der Oberfläche ist dann
+
+\begin{align*}
+  n &= A \cdot \frac{n}{A} \\
+    &= 3{,}1 \cdot 10^{-2} \meter^2 \cdot \frac{1}{6{,}25 \cdot 10^{-20} \;\meter^2} \\
+    &\approx 5{,}0 \cdot 10^{17}
+\end{align*}
+
+Die Anzahl der Elektronen auf der Oberfläche liegt trotzdem noch um den Faktor
+$1{,}6$ über diesem Wert.
+
+\section*{Aufgabe 2}
+Wenn man das elektrische Feld als homogen annimmt, ist die Feldstärke $E = 25
+\kilo\volt\per\meter = 25 \newton\per\coulomb$. Auf ein Elektron wirkt dann
+eine Kraft von $F = eE = 4 \cdot 10^{-15} \newton$ in Richtung einer der beiden
+Platten.
+
+Die x-Komponente des Ortes des Elektrons ist dementsprechend 
+
+\begin{align*}
+  x &= \frac{1}{2}at^2 = \frac{1}{2} \frac{F}{m_e} t^2 \\
+    &= \frac{1}{2} \frac{4 \cdot 10^{-15} \newton}{9{,}1 \cdot 10^{-31} \kilo\gram} \cdot t^2
+\end{align*}
+
+Das Elektron trifft auf die Platte, sofern es um mehr als $1 \centi\meter$ in
+eine der beiden Richtungen abgelenkt wird. Die Zeit, die das Feld dazu
+einwirken muss ist
+
+\begin{align*}
+  t &= \sqrt{2\cdot 0{,}01 \meter \frac{9{,}1 \cdot 10^{-31} \kilo\gram}{4 \cdot 10^{-15} \newton}} \\
+    &\approx 2{,}1 \cdot 10^{-9} \second
+\end{align*}
+
+Das Elektron muss die Plattenlänge von $10 \centi\meter$ also in weniger als dieser Zeit durchqueren. Dazu muss es dazu folgende Geschwindigkeit haben.
+
+\begin{align*}
+  v = \frac{0{,}1 \meter}{2{,}1 \cdot 10^{-9} \second} = 4{,}8 \cdot 10^{7} \meter\per\second
+\end{align*}
+
+Um diese Geschwindigkeit zu erreichen, muss $E_{\operatorname{kin}} = E_{\operatorname{el}}$:
+
+\begin{align*}
+  &\frac{1}{2} m_e v^2 = qU \\
+  \Leftrightarrow \quad & U = \frac{1}{2} \frac{m_e}{q} v^2
+\end{align*}
+
+Daraus ergibt sich eine Beschleunigungsspannung $U_0 \approx 6{,}5 \;\kilo\volt$.
+
+\section*{Aufgabe 3}
+\subsection*{Teil a}
+Das Feld in einem Plattenkondensator ist näherungsweise homogen. Werden die
+Platten auf einen größeren Abstand bei gleichzeitigem Ladungserhalt gebracht,
+steigt das Volumen das vom Feld ausgefüllt wird. Somit muss das Potential wegen
+der Homogenität des Feldes steigen.
+
+Sollte diese Begründung nicht nachvollziehbar sein, kann ich auch alternativ
+begründen, dass beim Entfernen der ungleichnamig geladenen Platten Arbeit
+aufgewendet werden muss. Da die Ladung erhalten bleibt, kann sich diese Arbeit
+nur in einer Potentialdifferenz niederschlagen.
+
+\subsection*{Teil b}
+Wenn die Spannungsquelle verbunden bleibt, kann Ladung abfließen. Die Spannung
+bleibt gleich. Die Feldstärke verringert sich, die Kapazität steigt.
+
+
+\section*{Aufgabe 4}
+
+\begin{align*}
+  C_{\operatorname{gesamt}} = \frac{1}{\frac{1}{C_1} + \frac{1}{C_2 + C_3}} = 0{,}1\overline{3} \;\micro\farad
+\end{align*}
+
+\section*{Aufgabe 5}
+\subsection*{Teil a}
+Für die Bestimmung des elektrischen Feldes betrachten wir Innen- und Außenkugel
+separat. Der Beitrag der Außenkugel ist $E=0$, denn das Innere einer leitenden
+Kugel ist feldfrei, auch im inneren der Innenkugel herrscht deswegen kein Feld.
+Die Innenkugel erzeugt ein Feld, das dem einer Punktladung entspricht.
+Dementsprechend ist:
+
+\begin{align*}
+  E(r) = \left\{\begin{array}{ll} \frac{Q}{4 \pi \epsilon_0 r^2} & a < r < b \\
+         0 & r < a \lor r > b\end{array}\right.
+\end{align*}
+
+Das Potential bestimmt sich durch $\Phi(r) = -\int_\infty^r E(r')\, dr'$. Da
+außerhalb des Kondensators kein Feld herrscht, reicht es, von der äußeren
+Kugelschale zu integrieren.
+
+\begin{align*}
+  \Phi(r) &= -\int_{b}^r E(r')\, dr' \\
+          &= -\int_{b}^r \frac{Q}{4 \pi \epsilon_0 r'^2}\, dr' \\
+          &= \frac{Q}{4\pi \epsilon_0} \left(\frac{1}{r}-\frac{1}{b}\right)
+\end{align*}
+
+Damit gilt für die Spannung zwischen den Kugelschalen:
+
+\begin{align*}
+  U = \frac{Q}{4\pi \epsilon_0} \left(\frac{1}{a}-\frac{1}{b}\right)
+\end{align*}
+
+Dies liefert dann, wie gefordert, die Kapazität:
+
+\begin{align*}
+  C &= \frac{Q}{U} =  4\pi \epsilon_0 \frac{1}{\left(\frac{1}{a}-\frac{1}{b}\right)} \\
+    &=  4\pi \epsilon_0 \frac{1}{\left(\frac{b}{ab}-\frac{a}{ab}\right)} \\
+    &=  4\pi \epsilon_0 \frac{1}{\frac{b-a}{ab}} \\
+    &=  4\pi \epsilon_0 \frac{ab}{b-a}
+\end{align*}
+
+\subsection*{Teil b}
+Vom letzten Blatt ist das elektrische Feld eines Zylinders bekannt. Mit der
+selben Argumentation wie in Teil a ergibt sich dann für das elektrische Feld:
+
+\begin{align*}
+  E(r) = \left\{\begin{array}{ll} \frac{Q}{2 \pi \epsilon_0 lr} & a < r < b \\
+         0 & r < a \lor r > b\end{array}\right.
+\end{align*}
+
+Damit gilt für das Potential zwischen den Zylindern (Argumente wie vorher)
+\begin{align*}
+  \Phi(r) &= -\int_{a}^r E(r')\, dr' \\
+          &= -\int_{a}^r \frac{Q}{2 \pi \epsilon_0 l r'}\, dr' \\
+          &= -\frac{Q}{2 \pi l \epsilon_0} \ln \frac{r}{a}
+\end{align*}
+
+Das Potential zwischen den Zylindern ist also:
+
+\begin{align*}
+  U = \frac{Q}{2 \pi l \epsilon_0} \ln \frac{b}{a}
+\end{align*}
+
+Mit $C = \frac{Q}{U}$ ergibt sich die Kapazität:
+
+\begin{align*}
+  C &= \frac{Q}{\frac{Q}{2 \pi l \epsilon_0} \ln \frac{b}{a}} \\
+    &= \frac{2 \pi l \epsilon_0}{\ln \frac{b}{a}}
+\end{align*}
+
+
+\end{document}

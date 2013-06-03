@@ -1,0 +1,208 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 3. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1}
+
+\subsection*{Teil a}
+Die elektrische Verschiebungsdichte existiert überall und ist konstant. Damit
+ist klar, dass es egal ist, ob die Platte mittig oder an der Seite eingeschoben
+wird. Ich gehe von der Seite aus. Damit ergibt sich für die Teilspannungen in
+Glas ($U_G$) und in Luft($U_L$):
+
+\begin{align*}
+  U &= U_G + U_L \\
+    &= E_G \cdot d + E_L \cdot (a-d) \\
+    &= \frac{D}{\epsilon_r \epsilon_0} d + \frac{D}{\epsilon_0} (a-d) \\
+    &= \frac{E_G}{\epsilon_r} d + E_L \cdot (a-d)
+\end{align*}
+
+Die Teilspannung in Luft ist:
+\begin{align*}
+  U_L &= E_L \cdot (a-d) \\
+      &= \frac{U (a-d)A}{(a-d) + \frac{d}{\epsilon_r}} \\
+      &= \frac{2500 \volt \cdot 0{,}0055 \meter}{0{,}0055 \meter \cdot \frac{0{,}0025 \meter}{7{,} 5}}
+      &\approx 2357 \volt
+\end{align*}
+
+Die Teilspannung in Glas muss also entsprechend sein:
+
+\begin{align*}
+  U_G = U_0 - U_L \approx 143 \volt
+\end{align*}
+
+\subsection*{Teil b}
+
+Die Feldstärke ist wegen der Homogenität
+
+\begin{align*}
+  E_L = \frac{U}{(a-d) + \frac{d}{\epsilon_r}} \approx 429 \kilo\volt\per\meter \\
+  E_G = \frac{E}{\epsilon_r} \approx 57 \kilo\volt\per\meter
+\end{align*}
+
+\subsection*{Teil c}
+Der Kondensator entspricht einer Reihenschaltung, womit:
+
+\begin{align*}
+  C_{ges} &= \frac{1}{\frac{1}{C_L} + \frac{1}{C_G}} \\
+  &= \frac{1}{\frac{d}{A\epsilon_0 \epsilon_r} + \frac{(d-a)}{A\epsilon_0}} \\
+  &\approx 1{,}52\;\pico\farad
+\end{align*}
+
+\subsection*{Teil d}
+Nicht bearbeitet.
+
+\subsection*{Teil e}
+\begin{align*}
+  w = \frac{W}{V} = \frac{\frac{1}{2} C U^2}{Ad} \approx 5938\;\milli\joule\per\meter^3
+\end{align*}
+
+\subsection*{Teil f}
+Nicht bearbeitet.
+
+
+\section*{Aufgabe 2}
+\subsection*{Teil a}
+
+Für die Energie im Kondensator gilt:
+
+\begin{align*}
+  E = \frac{1}{2} C U^2
+\end{align*}
+
+Die Kapazität steigt linear mit steigender Dielektrizitätskonstante. Dementsprechend ist also
+
+\begin{align*}
+  C_{\text{neu}} = \epsilon_r C_\text{alt}
+\end{align*}
+
+Einsetzen und umstellen:
+
+\begin{align*}
+  &E = \frac{1}{2} \epsilon_r C_\text{alt} U^2 \\
+  \Leftrightarrow \quad &\epsilon_r = \frac{2E}{C_\text{alt} U^2}
+\end{align*}
+
+Durch Einsetzen der gegebenen Werte erhält man:
+
+\begin{align*}
+  \epsilon_r = \frac{2 \cdot 10 \cdot 10^{-6}\;\joule}{10 \cdot 10^{-12}\; \farad \left(700\; \volt\right)^2} \approx \underline{4{,}08\; \farad\per\meter}
+\end{align*}
+
+Diese Dielekrizitätszahl sollte ein Material haben, damit der Kondensator die
+angegebene Energiemenge speichern kann.
+
+\subsection*{Teil b}
+
+Für die Kapazität im Plattenkondensator gilt
+
+\begin{align*}
+  C = \epsilon_0 \epsilon_r \frac{A}{d}
+\end{align*}
+
+Für die Energie im Kondensator:
+
+\begin{align*}
+  E = \frac{1}{2} C U^2
+\end{align*}
+
+
+Setzte man die Kapazität ein, erhält man also:
+
+\begin{align*}
+  E = \frac{1}{2} \epsilon_0 \epsilon_r \frac{A}{d}  U^2
+\end{align*}
+
+Entfernt man die Platte, ist $\epsilon_r = 1$. Das bedeutet:
+
+\begin{align*}
+  \Delta E &= E_\text{vorher} - E_\text{nachher}  \\ 
+           &= \frac{1}{2} \epsilon_0 \epsilon_r \frac{A}{d}  U^2 - \frac{1}{2} \epsilon_0 \frac{A}{d}  U^2 \\
+           &= \frac{1}{2} \epsilon_0 (\epsilon_r - 1) \frac{A}{d}  U^2
+\end{align*}
+
+Es ist also Energie nötig, um die Platte zu entfernen. Diese muss mechanisch
+aufgebracht werden, also ist $W = \Delta E$. Einsetzen und ausrechnen:
+
+\begin{align*}
+  W = \frac{1}{2} 8{,}85 \cdot 10^{-12} \;\farad\per\meter (5-1) \frac{1\;\meter^2}{5\cdot 10^{-3}\;\meter} \cdot 12^2 \volt^2 \approx \underline{4{,}25\;\joule}
+\end{align*}
+
+\section*{Aufgabe 3}
+
+Das elektrische Feld einer Flächenladung ist homogen und bestimmt sich durch
+
+\begin{align*}
+  E = \frac{\sigma}{2 \epsilon_0} \\
+\end{align*}
+
+Die Flächenladungsdichte $\sigma$ ist dabei:
+
+\begin{align*}
+  \sigma = \frac{Q}{A}
+\end{align*}
+
+Die Fläche des Bandes, die in einer gegebenen Zeit $t$ an der Elektrode
+vorbeiläuft ist ($b$ sei die Breite des Bandes):
+
+\begin{align*}
+  A = vt \cdot b
+\end{align*}
+
+Die zeitlich konstante Stromstärke ergibt sich durch:
+\begin{align*}
+  &I = \frac{Q}{t} \\
+  \Leftrightarrow \quad &Q = It
+\end{align*}
+
+Einsetzen in die Flächenladungsdichte $\sigma$:
+
+\begin{align*}
+  \sigma = \frac{Q}{A} = \frac{It}{A}
+\end{align*}
+
+Einsetzen der Fläche $A$ in $\sigma$:
+
+\begin{align*}
+  \sigma = \frac{It}{vtb} = \frac{I}{vb} 
+\end{align*}
+
+Einsetzen von $\sigma$ in $E$:
+
+\begin{align*}
+  &E = \frac{\frac{I}{vb}}{2 \epsilon_0} \\
+  &\quad = \frac{I}{2 \epsilon_0 vb} \\
+  &\Leftrightarrow I = E 2\epsilon_0 vb
+\end{align*}
+
+Einsetzen und ausrechnen:
+\begin{align*}
+  I = E 2 \epsilon_0 v b = 3000\;\volt\per\meter \cdot 2 \cdot 8{,}85\cdot10^{-12}\;\farad\per\meter \cdot 20\;\meter\per\second \cdot 0{,}1\;\meter \approx \underline{1{,}06 \cdot 10^{-7}\;\ampere}
+\end{align*}
+
+\section*{Aufgabe 4}
+
+Nicht bearbeitet.
+
+
+\end{document}

@@ -1,0 +1,142 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 8. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Dynamo}
+
+Aus der Vorlesung ist bekannt, dass
+
+\begin{align*}
+  U_{\text{ind}} = B \cdot N \cdot A \cdot \omega \sin \omega t
+\end{align*}
+
+Durch Einsetzen der Werte ergibt sich für die zeitabhängige Spannung $U(t)$:
+
+\begin{align*}
+  U(t) &= 0{,}1 \;\tesla \cdot 100 \cdot 0{,}01 \;\meter^2 \cdot 5 \;\second^{-1} \cdot \sin(5 \;\second^{-1} \cdot t) \\
+       &= 0{,}5 \;\volt \cdot \sin 5 \;\second^{-1} \cdot t
+\end{align*}
+
+Da der Maximalwert des Sinus $1$ ist, ist die maximale Spannung $U_{\text{max}} = 0{,}5 \;\volt$.
+
+\section*{Aufgabe 2: Magnetfeld im Koaxialkabel}
+\subsection*{Teil a}
+
+Vorüberlegung: Denken wir uns ein Kreisfläche, die senkrecht zu den Zylinderachsen durch das
+Kabel verläuft, mit dem Mittelpunkt in der Zylinderachse. Wenn der Radius
+dieser Kreisfläche kleiner as $r_1$ ist, geht kein Strom durch diese
+Kreisfläche. Dementsprechend kann kein Magnetfeld im inneren des ersten
+Zylinders vorhanden sein. Liegt der Radius zwischen $r_1$ und $r_2$, geht der
+Strom des ersten Zylinders durch die Fläche, also existiert ein Magnetfeld. Ist
+der Radius hingegen größer als $r_2$, geht der Strom beider Zylinder durch die
+Fläche. Da der Strom durch einen Zylinder hin- und durch den anderen zurück
+fließt ist die Summe der Ströme null, also existiert außerhalb des Kabels kein
+Magnetfeld.
+
+Aus dem Ampereschen Gesetz ergibt sich für das Feld zwischen den Zylindern dann
+
+\begin{align*}
+  \oint \vec{B} \cdot \vec{ds} = \mu_0 I
+\end{align*}
+
+Da das Kabel radialsymmetrisch ist, gilt das auch für das Feld. Dementsprechend
+ist $B$ nur abhängig von $r$, senkrecht zu $\vec{ds}$ kann also vor das
+Integral gezogen werden. Übrig bleibt der Betrag von $\vec{ds}$.
+
+\begin{align*}
+  B \oint ds = \mu_0 I
+\end{align*}
+
+Der Umfang des Kreises ist $2 \pi r$. Also:
+
+\begin{align*}
+  &B 2 \pi r = \mu_0 I \\
+  \Leftrightarrow\quad &B(r) = \frac{\mu_0 I}{2 \pi r} \quad \text{wenn}\quad\; r_1 < r < r_2
+\end{align*}
+
+\subsection*{Teil b: Energiedichte}
+
+Mit der aus den Vorlesungsunterlagen bekannten Formel für die Energiedichte
+erhalten wir durch Einsetzen von $B(r)$:
+
+\begin{align*}
+  \omega_{\text{magn}} &= \frac{1}{2} \frac{B^2}{\mu_0} \\
+                       &= \frac{1}{2} \frac{\mu_0^2 I^2}{2^2 \pi^2 r^2} \frac{1}{\mu_0} \\
+                       &= \frac{\mu_0 I^2}{8 \pi^2 r^2}
+\end{align*}
+
+\subsection*{Teil c: Energie}
+
+Nicht bearbeitet.
+
+\subsection*{Teil d: Selbstinduktivität}
+
+Durch Gleichsetzen der Gleichungen und Umformen erhalten wir:
+
+\begin{align*}
+  &\frac{1}{2}LI^2 = \frac{\mu_0}{4 \pi} l I^2  \ln \frac{r_2}{r_1} \\
+  \Leftrightarrow\quad&L = \frac{\mu_0}{2 \pi} l  \ln \frac{r_2}{r_1} \\
+  \Leftrightarrow\quad&\frac{L}{l} = \frac{\mu_0}{2 \pi} \ln \frac{r_2}{r_1}
+\end{align*}
+
+\section*{Aufgabe 4: Spulen-Kreis}
+
+Wir berechnen zuerst den Strom, der vor dem Öffnen des Schalters und nach dem Öffnen durch die Spule fließt. Vorher:
+
+\begin{align*}
+  R_{\text{ges}} = \frac{1}{\frac{1}{R_1} + \frac{1}{R_2}} \approx 23{,}76\;\ohm \\
+  I_{\text{vorher}} = \frac{U}{R} \approx 1 \;\ampere
+\end{align*}
+
+Nachher:
+
+\begin{align*}
+  I_{\text{nachher}} = \frac{24 \; \volt}{2400 \; \ohm} = 0{,}01 \ampere
+\end{align*}
+
+Es gilt die Differentialgleichung:
+
+\begin{align*}
+  U_{\text{ind}} = -L \frac{dI}{dt}
+\end{align*}
+
+Mit $I = \frac{U}{R}$:
+
+\begin{align*}
+  U = -\frac{L}{R} \frac{dU}{dt}
+\end{align*}
+
+Lösung der DGL:
+
+\begin{align*}
+  U(t) = U_0 \cdot e^\frac{_tL}{R}
+\end{align*}
+
+Mit $U_0 = 24 \;\volt$:
+
+\begin{align*}
+  U(t) = 24 \volt \cdot e^\frac{-tL}{R}
+\end{align*}
+
+\end{document}
