@@ -1,0 +1,170 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Experiementalphysik I, Wintersemester 2012/2013, 10. Übungsblatt
+
+Normen Peulecke und Markus Fenske, Tutor: Alex Krüger
+%Markus Fenske, Tutor: Alex Krüger
+\vspace{-10pt}
+\end{center}
+
+
+\section*{32. Druck}
+
+\begin{equation}
+  P = \frac{F}{A} = \frac{F}{\pi r^2} = \frac{50 \newton}{\pi (50 \cdot 10^{-6} \meter)^2} \approx 6{,}3 \cdot 10^9 \newton\per\meter\squared = 6{,}3 \giga\pascal 
+\end{equation}
+
+Dieser Druck entspricht in etwa dem 62800-fachen des Atmossphärendrucks.
+
+\section*{33. Luftdruck}
+
+Wenn wir davon ausgehen, dass der Luftdruck planetenweit konstant ist, wirkt
+auf die gesamte Erdoberfläche ($A = 4 \pi r^2$) die Kraft
+
+\begin{equation}
+  F = AP = 4 \pi r^2 P
+\end{equation}
+
+Da diese Kraft nur aus der Gravitation kommen kann, erhalten wir mit $F = mg$
+\begin{equation}
+  m = \frac{4 \pi r^2 P}{g}
+\end{equation}
+
+Dies ergibt eine Masse der Atmossphäre von $5{,}2 \cdot 10^{18} \kilo\gram$.
+
+\section*{34. Barometrische Höhenformel}
+
+Wir betrachten das Volumenelement $dV = dxdydz$ als Würfel. Sofern alle
+Strömungen ausgeglichen sind und man von einer flachen Erdoberfläche ausgeht,
+muss man nur den Drücke auf der Ober- und auf der Unterseite des Würfels
+betrachten.
+
+An der Oberseite des Würfels wirkt ein Druck $p_{u}$. An der Unterseite
+zusätzlich zu $p_{u}$ noch der Druck, der durch das Gas innerhalb des
+Volumenelements $dV$ erzeugt wird.
+
+\begin{align*}
+  p_d &= p_u + \frac{F}{A}
+\end{align*}
+
+Mit $F = m \cdot g$ und $m = \rho V$ erhält man:
+
+\begin{align*}
+  p_d &= p_u + \frac{\rho V g}{A}
+\end{align*}
+
+Volumen und Fläche kürzen sich:
+
+\begin{align*}
+  p_d &= p_u + \frac{\rho dxdydz g}{dxdy} \\
+  p_d &= p_u + \rho dz g \\
+\end{align*}
+
+Bildet man nun die Druckdifferenz $dp = p_u - p_d$, erhält man:
+
+\begin{align*}
+  dp &= p_u - p_d \\
+  dp &= p_u - (p_u + \rho dz g) \\
+  dp &= - \rho dz g \\
+  \frac{dp}{dz} &= - \rho g
+\end{align*}
+
+Die Dichte $\rho$ kann man aus dem idealen Gasgesetz einsetzen, um eine Differentialgleichung zu erhalten.
+
+\begin{align*}
+  pV &= nRT \\
+  pV &= \frac{mRT}{M} \\
+  p &= \frac{mRT}{VM} \\
+  \frac{pM}{RT} &= \frac{m}{V} \\
+  \rho &= \frac{pM}{RT}
+\end{align*}
+
+Eingesetzt ergibt sich:
+
+\begin{equation}
+  \frac{dp}{dz} = -p \frac{Mg}{RT}
+\end{equation}
+
+Wenn man von einer homogenen isothermen Atmpossphäre ($M$ und $T$ konstant) in
+einem konstanten Schwerefeld ($g$ konstant) ausgeht, lässt sich durch Trennung
+der Variablen lösen:
+
+\begin{align*}
+  \frac{dp}{dz} &= -p \frac{Mg}{RT} \\
+  dp &= -p \frac{Mg}{RT} dz \\
+  dp \frac{1}{p} &= -\frac{Mg}{RT} dz \\
+  \int_{p_0}^{p_1} dp \frac{1}{p} &= \int_{h_0}^{h_1} -\frac{Mg}{RT} dz \\
+  \frac{\ln p_1}{\ln p_0} &= -\frac{Mg}{RT} (h_1 - h_0) \\
+  \ln p_1 &= - \frac{Mg}{RT} (h_1 - h_0) \ln p_0 \\
+   p_1 &= e^{- \frac{Mg}{RT} (h_1 - h_0)} p_0 \\
+\end{align*}
+
+Berechnung der Bergwanderung mit den gegebenen Werten (SI-Einheiten):
+
+\begin{align*}
+  p &= 101000 e^{-\frac{0{,}028\cdot 9{,}8}{8{,}314 \cdot 288} (2000 - 400)} \\
+  p &\approx 84079
+\end{align*}
+
+In einer Höhe von $2000 \meter$ herrscht demnach ein Luftdruck von etwa $841 \hecto\pascal$.
+
+\section*{35. Kühlschranktür}
+
+Aus $PV = nRT$ folgt für konstante $n, R, V$, dass $\frac{P}{T}$ konstant sein muss. Somit gilt
+
+\begin{align*}
+  \frac{P_2}{T_2} &= \frac{P_1}{T_1} \\
+  P_2 &= P_1 \frac{T_2}{T_1}
+\end{align*}
+
+Mit $P = \frac{F}{A}$ gilt für die Kraft, mit der die Kühlschranktür zugehalten wird und dem Gegendruck der Atomossphäre.
+
+\begin{align*}
+  \frac{F}{A} &= P_1 \frac{T_2}{T_1} - P_1 \\
+  F_P &= A P_1 \left(\frac{T_2}{T_1} - 1\right)
+\end{align*}
+
+Die Kraft wirkt gleichmäßig auf die ganze Tür, kann also auch in die Mitte gesetzt werden. Dann gilt für das Drehmoment (wenn sich das Scharnier im Nullpunkt befindet).
+
+\begin{align*}
+  M_P = F_P \cdot 0{,}25 \meter
+\end{align*}
+
+Dieses muss durch ein Drehmoment mindestens kompensiert werden, dass am Griff
+angreift, der sich (sofern der Kühlschrank sinnvoll konstruiert ist), auf der
+gegenüberliegenden Seite des Scharniers befindet, also im Abstand $0{,}45
+\meter$.
+
+Es ergibt sich (mit einem angenommenen Atmossphärendruck von $10^5 \pascal$):
+
+\begin{align*}
+  M_z &= F_z \cdot 0{,}45 \meter \\
+  F_P \cdot 0{,}25 \meter &= F_z \cdot 0{,}45 \meter \\
+  F_z &= F_P \cdot \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &= A P_1 \left(\frac{T_2}{T_1} - 1\right) \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &= 0{,}5 \meter\squared 10^5 \pascal \left(\frac{255 \kelvin}{298 \kelvin} - 1\right) \frac{0{,}25 \meter}{0{,}45 \meter} \\
+  F_z &\approx -4{,}0 \kilo\newton
+\end{align*}
+
+Die Tür wird sich also kaum noch öffnen lassen, weswegen normale Kühlschränke
+ein Loch zum Druckausgleich haben.
+
+\end{document}

@@ -1,0 +1,175 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Experiementalphysik I, Wintersemester 2012/2013, 10. Übungsblatt
+
+Normen Peulecke und Markus Fenske, Tutor: Alex Krüger
+%Markus Fenske, Tutor: Alex Krüger
+\vspace{-10pt}
+\end{center}
+
+\section*{36. Kinetische Gastheorie}
+
+Zuerst bestimmen wir, wie viele Atome jeweils gestoßen werden, wenn ein
+Helium-Atom durch ein Volumen aus feststehenden Helium-Atomen fliegt. Ein Stoß
+passiert, sofern der Abstand zwischen zwei Atomen geringer als das doppelte der
+jeweiligen Durchmesser ist.
+
+Die Anzahl der gestoßenenen Atome auf der Länge $l$ ist also gleich der Anzahl der Atome, die
+sich in einem Zylinder mit dem Radius $2r$ und der Länge $l$ befinden. Das Volumen ist dann:
+
+\begin{align*}
+  V &= A \cdot l \\
+    &= 2\pi(2r)^2 l \\
+    &= 8\pi r^2 l
+\end{align*}
+
+Die Anzahl der Atome in diesem Zylinder mit dem Volumen $V$ lässt sich aus der
+thermischen Zustandsgleichung herleiten.
+
+\begin{align*}
+  PV &= NkT \\
+  N &= \frac{PV}{kT} \\
+  N &= \frac{P \cdot 8 \pi r^2 l}{kT}
+\end{align*}
+
+Die mittlere freie Weglänge ist dann ($W = N$)
+
+\begin{align*}
+  \lambda &= \frac{l}{W} \\
+  \lambda &= \frac{l}{\frac{P \cdot 8 \pi r^2 l}{kT}} \\
+  \lambda &= \frac{kT}{P \cdot 8 \pi r^2}
+\end{align*}
+
+Um die mittlere Zeit zwischen zwei Stößen zu bestimmen, berechnen wir die Geschwindigkeit des Teilchens aus seiner kinetischen Energie.
+
+\begin{align*}
+  E &= \frac{3}{2} k T \\
+  E &= \frac{1}{2} m v^2 \\
+  v &= \sqrt{\frac{3 k T}{m}}
+\end{align*}
+
+Die Masse eines einzelnen Teilches ergibt sich aus der molaren Masse. Bei 4
+Gramm pro Mol ($N_A$ Teilchen) ergibt sich pro Teilchen eine Masse von $m =
+M^*/N_A$. Somit:
+
+\begin{align*}
+  v &= \sqrt{\frac{3 k T N_A}{M^*}} \\
+  v &= \sqrt{\frac{3 RT}{M^*}}
+\end{align*}
+
+Die Zeit $\tau$ zwischen zwei Stößen ist dann gegeben durch 
+
+\begin{equation*}
+\tau = \frac{\lambda}{v}
+\end{equation*}
+
+Durch Einsetzen der gegebenen Werte ergibt sich für die mittlere freie Weglänge
+$\lambda$ im Fall a $\lambda = 1{,}64 \cdot 10^-5 \meter$ und im Fall b
+$\lambda = 1{,}64 \cdot 10^8 \meter$. Die Geschwindigkeit ist in beiden Fällen
+aufgrund der gleichen Temperatur $v = 43{,}10 \meter\per\second$. Damit ergibt
+sich für die Zeit zwischen zwei Stößen im Fall a $\tau = 3{,}80 \cdot 10^{-7}
+\second$ und im Fall b $\tau =  3{,}80 \cdot 10^{6} \second$.
+
+
+\section*{37. Wärmeleitung}
+
+Für den Wärmestrom gilt $\dot Q = \frac{A \lambda \delta T}/l$. Für 0{,}1
+\meter Länge und 0{,}01 \meter Durchmesser ergibt sich:
+
+\begin{align*}
+  \dot Q &= \frac{\pi 0{,}01 \cdot 380 \cdot 100}{0{,}1} \watt
+         &\approx 11937 \watt
+\end{align*}
+
+Mit 0{,}01 \meter Länge und 0{,}1 \meter Durchmesser ergibt sich:
+
+\begin{align*}
+  \dot Q &= \frac{\pi 0{,}1 \cdot 380 \cdot 100}{0{,}01} \watt
+         &\approx 1194 \kilo\watt
+\end{align*}
+
+\section*{38. Innere Energie}
+
+Die durchschnittliche kinetische Energie eines Teilchens ist gegeben durch
+$\epsilon = \frac{3}{2} kT$. Die Anzahl der Teilchen durch $N = \frac{PV}{kT}$.
+Damit ergibt sich für die Gesamtenergie:
+
+\begin{align*}
+  E &= N \cdot \epsilon \\
+    &= \frac{PV}{kT} \frac{3}{2} kT \\
+    &= \frac{3}{2} PV
+\end{align*}
+
+Der Druck ist über die Zeit konstant, dann durch das Schlüsselloch findet ein
+Druckausgleich statt. Das Volumen des Zimmers ändert sich ebenfalls nicht. Die
+innere Energie der Luft, die im Zimmer verbleibt, ist konstant. Ich bin mir
+jedoch nicht sicher, ob das die Frage war.
+
+Sollte sich die Frage auf die Energie beziehen, die die Luft hat, die vor der
+Erwärmung im Zimmer war, dann lässt sich diese Energie über die Volumenänderung
+berechnen.
+
+\begin{align*}
+  \frac{PV_2}{NkT_2} &= \frac{PV_1}{NkT_1} \\
+  \frac{V_2}{T_2} &= \frac{V_1}{T_1} \\
+  V_2 &= V_1 \frac{T_2}{T_1}
+\end{align*}
+
+Somit erhöht sich die Energie um
+
+\begin{align*}
+  \delta E &= \frac{3}{2} (PV_2 - PV_1) \\
+  \delta E &= \frac{3}{2} \left(PV_1 \frac{T_2}{T_1} - PV_1\right) \\
+  \delta E &= \frac{3}{2} PV_1 \left(\frac{T_2}{T_1} - 1\right)
+\end{align*}
+
+Mit $P = 101300 \pascal$, $V_1 = 50 \cubic\meter$, $T_1 = 278 \kelvin$, $T_2 =
+295 \kelvin$ ergibt sich eine Erhöhung um $\approx 9292 \joule$.
+
+\section*{39. Zustandsänderung}
+\subsection*{a. Arbeit}
+
+Die Arbeit lässt sich berechnen durch $\delta W_{rev} = -\int_1^2 PdV$. Da im
+PV-Diagramm eine gerade Linie sein soll, gilt $P \propto V$. Somit also $P(V) =
+\alpha V$. Aus den Werten in $\pascal$ und $\cubic\meter$ lässt sich $\alpha = \frac{100000}{0{,}025} = 4\cdot 10^6$ ablesen. Somit ist
+das Integral:
+
+\begin{align*}
+  \delta W_{rev} &= -\int_1^2 PdV \\
+                 &= -4 \cdot 10^6 \int_{0{,}025}^{0{,}075} V dV \\
+                 &= -4 \cdot 10^6 \left[\frac{1}{2}V^2\right]_{0{,}025}^{0{,}075} \\
+                 &= -2 \cdot 10^6 \left(0{,}025^2-0{,}075^2\right) \\
+                 &= 10 \kilo\joule
+\end{align*}
+
+\subsection*{b. Temperatur}
+
+Gemäß $PV = nRT$ muss gelten
+
+\begin{align*}
+  \delta T &= \frac{P_2V_2 - P_1V_1}{nR}
+\end{align*}
+
+Mit den gegebenen Werten ($P_1 = 100000 \pascal$, $V_1 = 0{,}025 \cubic\meter$,
+$P_2 = 300000 \pascal$, $V_2 = 0{,}075 \cubic\meter$, $n = 1 \operatorname{mol}$ ergibt sich
+eine Temperaturänderung von $\delta T \approx 2405 \kelvin$.
+
+\end{document}
