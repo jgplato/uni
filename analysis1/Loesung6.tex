@@ -1,0 +1,197 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 6. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section{Aufgabe 6.1}
+
+Zu einem beliebigen $x\in \mathbb{R}$ existiert ein $t\in \mathbb{R}$, sodass:
+\begin{equation*}
+\frac{1}{t}=x
+\end{equation*}
+
+Es sei eine Funktion $f(x):\mathbb{R}\rightarrow\mathbb{R}$ gegeben. Nehmen wir an, es existiert ein reeller Grenzwert der Funktion:
+\begin{equation*}
+\lim\limits_{x \to \infty} f(x)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
+Diese Gleichung können wir äquivalent zur folgendermaßen formulieren:
+\begin{equation*}
+\lim\limits_{\frac{1}{t} \to \infty} f\left(\frac{1}{t}\right)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
+Bisher haben wir nichts getan, außer das Argument $x$ durch $\frac{1}{t}$ zu ersetzen, was legitim ist, da wir davon ausgegangen sind, dass:
+\begin{equation*}
+\forall x \exists t : \frac{1}{t}=x
+\end{equation*}
+
+Wir haben vor einigen Vorlesungen gesehen, dass:
+\begin{equation*}
+\lim\limits_{t \searrow \infty} \frac{1}{t}=0
+\end{equation*}
+
+Oder suggestiver ausgedrückt: aus $t\searrow 0$ folgt $\frac{1}{t}\rightarrow \infty$. \\
+Wenn sich $t$ rechtsseitig 0 nähert, ist der (uneigentliche) Grenzwert $\infty$.\\
+
+(Dies ist wohlgemerkt nur der Fall, wenn sich $t$ rechtsseitig 0 nähert. Nähert sich $t$ linksseitig an, ist der uneigentliche Grenzwert $-\infty$. Aus $t\nearrow  0$  folgt $\frac{1}{t} \rightarrow -\infty$.)\\
+
+Wir folgern:
+\begin{equation*}
+\lim\limits_{t \searrow 0} f(\frac{1}{t})=\lim\limits_{\frac{1}{t} \to \infty} f(\frac{1}{t})=\lim\limits_{x \to \infty} f(x)=a \quad \text{mit} \quad a\in\mathbb{R}
+\end{equation*}
+
+\section*{Aufgabe 6.2}
+\subsection*{Teil a}
+
+\begin{align*}
+  \qquad&\lim_{x \to 1} \frac{1}{1-x} - \frac{3}{1-x^3}
+\end{align*}
+
+Wir wissen, dass $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$, angewendet auf den zweiten Term:
+
+\begin{align*}
+  = &\lim_{x \to 1} \frac{1}{1-x} - \frac{3}{(1-x)(1+x+x^2)} \\
+  = &\lim_{x \to 1} \frac{1}{1-x} \left(1 - \frac{3}{1+x+x^2}\right) \\
+  = &\lim_{x \to 1} \frac{1}{1-x} \left(\frac{1+x+x^2}{1+x+x^2} - \frac{3}{1+x+x^2}\right) \\
+  = &\lim_{x \to 1} \frac{1}{1-x} \frac{-2+x+x^2}{1+x+x^2} \\
+  = &\lim_{x \to 1} \frac{1}{1-x} \frac{(x-1)(x+2)}{1+x+x^2} \\
+  = &\lim_{x \to 1} \frac{x-1}{1-x} \frac{x+2}{1+x+x^2} \\
+  = &\lim_{x \to 1} -\frac{x+2}{1+x+x^2} \\
+  = &-\frac{3}{3} \\
+  = &-1
+\end{align*}
+
+
+\subsection*{Teil b}
+
+\begin{align*}
+  \qquad&\lim_{x \to a} \frac{x^2 - (a+1)x + a}{x^3 - a^3}
+\end{align*}
+
+Genau wie oben nutzen wir $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$
+
+\begin{align*}
+  = &\lim_{x \to a} \frac{x^2 - ax - x + a}{(x-a)(x^2 - xa + a^2)}
+\end{align*}
+
+Jetzt faktorisieren wir den Zähler, kürzen und können dann $x = a$ einsetzen:
+
+\begin{align*}
+  = &\lim_{x \to a} \frac{(a-x)(1-x)}{(x-a)(x^2 + xa + a^2)} \\
+  = &\lim_{x \to a} \frac{-(1-x)}{(x^2 + xa + a^2)} \\
+  = &\lim_{x \to a} \frac{(x-1)}{(x^2 + xa + a^2)} \\
+  = &\frac{a-1}{a^2 + a^2 + a^2} \\
+  = &\frac{a-1}{3a^2}
+\end{align*}
+
+Wenn $a = 0$ ist der Grenzwert gegeben durch:
+
+\begin{align*}
+  \lim_{x \to 0} \frac{x^2 - x}{x^3} = \lim_{x \to 0} \frac{x - 1}{x^2} = \lim_{x \to \pm\infty} \frac{x^2}{x-1} = \infty
+\end{align*}
+Die Divergenz können wir uns ohne formellen Beweis überlegen: $x^2$ wächst wesentlich schneller als der Term im Nenner, $x-1$. Ferner wird für sehr große $x$ die $-1$ im Nenner vernachlässigbar, sodass der Ausdruck für große $x$ im Wesentlichen: 
+\begin{equation*}
+\lim\limits_{x \to \infty}\frac{x^2}{x}=\lim\limits_{x \to \infty}=\infty
+\end{equation*}
+...ist. 
+
+\section*{Aufgabe 6.3}
+
+Wir berechnen
+
+\begin{align*}
+  \qquad&\lim_{x \to 0} \frac{\sqrt[n]{1+x} - 1}{x}
+\end{align*}
+
+indem wir mit $u^n = 1+x$ substituieren. Für $x \to 0$ geht dann $u^n \to 1$, also $u \to 1$:
+
+\begin{align*}
+  = &\lim_{u \to 1} \frac{\sqrt[n]{u^n} - 1}{u^n -1} \\
+  = &\lim_{u \to 1} \frac{u - 1}{u^n -1}
+\end{align*}
+
+Wir wissen, dass $\frac{u^n-1}{u-1} = \sum_0^{n-1} u^n$ und setzen das ein.
+
+\begin{align*}
+  = &\lim_{u \to 1} \frac{1}{\sum_0^{n-1} u^n} \\
+  = &\lim_{u \to 1} \frac{1}{u^0 + u^1 + \dots + u^n} \\
+  = &\frac{1}{\underbrace{1 + 1 + \dots + 1}_{n\;\text{Einsen}}} \\
+  = &\frac{1}{n}
+\end{align*}
+
+\section*{Aufgabe 6.4}
+
+Dies erinnert uns an Aufgabe 3.1, weswegen wir hier auch auf den selben Trick
+zurückgreifen. Es ist
+
+\begin{align*}
+  s - t = \frac{s^3 - t^3}{s^2 + st + t^2}
+\end{align*}
+
+Wir bringen zuerst $\mu$ auf die andere Seite, unter der Voraussetzung, dass
+der folgende Grenzwert existiert.
+
+\begin{align*}
+  &\lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x - \mu = 0\\
+  \Leftrightarrow\quad&\lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x = \mu \\
+\end{align*}
+
+Jetzt bestimmen wir davon ausgehend $\lambda$
+
+\begin{align*}
+  \lim_{x \to \infty} \sqrt[3]{x^3 - 1} - \lambda x &= \lim_{x \to \infty} \frac{x^3 - 1 - \lambda x^3}{(x^3 - 1)^\frac{2}{3} + \sqrt[3]{x^3 - 1}\lambda x + \lambda^2 x^2} \\
+\end{align*}
+
+Ohne formellen Beweis können wir uns überlegen, dass der Ausdruck für $\lambda \neq 1$ divergiert, denn im Nenner kommt
+$x$ nicht in dritter Ordnung vor sondern lediglich in zweiter Ordnung, der Zähler wird also stets wesentlich schneller wachsen als der Nenner und der Ausdruck sollte divergieren.\\
+
+Nun setzen wir heuristisch $\lambda = 1$ und zeigen, dass dann der Grenzwert existiert.
+
+\begin{align*}
+  &\lim_{x \to \infty} \frac{x^3 - 1 - x^3}{(x^3 - 1)^\frac{2}{3} + \sqrt[3]{x^3 - 1}x + x^2} \\
+  =&\lim_{x \to \infty} \frac{1}{x^2 \underbrace{\left(\left(1 - \frac{1}{x^3}\right)^\frac{2}{3} + \sqrt[3]{1 - \frac{1}{x^3}} + 1\right)}_{\to 3}} \\
+  =&\lim_{x \to \infty} \frac{1}{3x^2} \\
+  =& 0
+\end{align*}
+
+Woraus auch folgt, dass $\mu = 0$.
+
+Der Teil (b) geht noch einfacher. In Aufgabe 3.1 haben wir für ganze $x$
+gezeigt, dass gilt
+
+\begin{align*}
+  \lim_{x \to \infty} \sqrt[3]{(x+a)(x+b)(x+c)} - x = \frac{a+b+c}{3}
+\end{align*}
+
+Da die Ganzzahligkeit in der damaligen Herleitung nicht benutzt wurde, gilt
+dies auch für reelle $x$. Für $a = b = 0$ und $c = -1$ folgt:
+
+\begin{align*}
+  &\lim_{x \to \infty} \sqrt[3]{x^3 - x^2} - x = -\frac{1}{3} \\
+  \Leftrightarrow\quad &\lim_{x \to \infty} \sqrt[3]{x^3 - x^2} - x + \frac{1}{3} = 0
+\end{align*}
+
+Woraus folgt, dass $\lambda = 1$ und $\mu = -\frac{1}{3}$
+\end{document}
