@@ -11,7 +11,7 @@ vpath %.tex $(SRC_DIR)
 
 define make-goal
 $1/%.pdf: $(subst build/,,$1)/%.tex
-	$(LATEX) $$< -output-directory `dirname $$@` -jobname `basename $$@ .pdf`
+	cd `dirname $$@` && $(LATEX) ../../$$< && cd ../../
 endef
 
 .PHONY: all checkdirs clean pdfs
