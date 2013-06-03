@@ -1,0 +1,299 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Mathematik für Physiker I, Wintersemester 2012/2013, 9. Übungsblatt
+
+Florian Neumeyer und Markus Fenske, Tutor: Stephan Schwartz
+\vspace{-10pt}
+\end{center}
+
+
+\section*{Aufgabe 9.1}
+\subsection*{Teil a}
+
+Sei $v \in V$, dann gilt aufgrund der Idempotenz des Endomorphismus $P$
+\begin{align*}
+  P^2(v) &= P(v) \\
+  P^2(v) - P(v) &= 0
+\end{align*}
+
+Da $P$ ein Vektorraum-Endomorphismus, damit ein Vektorraum-Holomorphismus und
+damit eine lineare Abbildung ist, muss aus der Homogenität linearer
+Abbildungen ($P(x) + P(y) = P(x+y)$ mit $x{,}y \in V$) folgen, dass
+
+\begin{align*}
+  P(P(v) - v) &= 0
+\end{align*}
+
+Der Kern von $P$ ist definiert als $\ker P := \{v \in V: P(v) = 0\}$, somit
+muss $P(v) - v \in \ker P$ sein.
+
+Das Bild von $P$ ist per definitionem $\operatorname{Im} P := \{v \in V: P(w) = v, w \in V\}$.
+Sei also $u \in V$, dann lässt es sich darstellen durch
+
+\begin{align*}
+  u &= u \\
+  u &= u - P(u) + P(u) \\
+  u &= x + y, x \in \ker P, y \in \operatorname{Im} P
+\end{align*}
+
+Womit bewiesen wäre, dass $V = \ker P + \operatorname{Im} P$. Allerdings ist
+dies nur der Beweis für die Summe, nicht für die direkte Summe. Für die direkte
+Summe ist zu zeigen, dass sich jedes Element auf genau eine Weise aus $\ker P$
+und $\operatorname{Im} P$ schreiben lässt, was äquivalent ist zu $\ker P \cap
+\operatorname{Im} P = \{0\}$ (siehe Skript, 6.8.6).
+
+Gegegeben sei $x \in \ker P$ und gleichzeitig $x \in \operatorname{Im} P$. Zu
+zeigen ist, dass daraus $x = 0$ folgt.
+
+Wegen $x \in \operatorname{Im} P$, ist $x$ darstellbar ist durch $x =
+P(z), z \in V$.
+
+\begin{align*}
+  x &= P(z)
+\end{align*}
+
+Da $P$ eine lineare Abbildung ist, müssen bei gleichen Werten auch gleiche
+Bilder herrauskommen. Somit
+
+\begin{align*}
+  P(x) &= P(P(z))
+\end{align*}
+
+Da $P$ idempotent ($P^2 = P$) ist:
+
+\begin{align*}
+  P(x) &= P(z)
+\end{align*}
+
+Aus $x \in \ker P$ folgt, dass $P(x) = 0$:
+\begin{align*}
+  0 &= P(z)
+\end{align*}
+
+Am Anfang war allerdings bereits gegeben, dass $x = P(z)$:
+\begin{align*}
+  0 &= x
+\end{align*}
+
+Somit $\ker P \cap \operatorname{Im} P = \{0\}$, und zusammen mit $V = \ker P +
+\operatorname{Im} P$ ergibt das:
+
+\begin{equation}
+  V = \ker P \oplus \operatorname{Im} P
+\end{equation}
+
+Und jetzt darf ich so ein Kästchen machen, oder? $\Box$
+
+\subsection*{Teil b}
+
+Es ist gegeben, dass $P$ nicht alles in den Nullpunkt schicken darf ($O$), noch
+untätig sein darf ($I$). Eine Projektion auf eine Achse ist eine Möglichkeit.
+
+\begin{equation} 
+  P\left(\begin{pmatrix} \alpha \\ \beta \end{pmatrix}\right) =
+    \begin{pmatrix}\alpha \\ 0\end{pmatrix}
+\end{equation}
+
+\section*{Aufgabe 9.2}
+Die Aufgabe wäre langweilig, wenn wir von der Differentiation nach etwas
+anderem als $t$ ausgingen. Nehmen wir uns also die Basisvektoren von
+$a_1, \dotsb, a_4 \in \mathcal{A}$ und wenden $D$ an.
+
+\begin{alignat*}{5}
+  D(a_1) &= D(\sin t)  &&= \frac{d}{dt} \sin  t &&= \cos t    &&= a_2 \\
+  D(a_2) &= D(\cos t)  &&= \frac{d}{dt} \cos  t &&= -\sin t   &&= -a_1 \\
+  D(a_3) &= D(\sin 2t) &&= \frac{d}{dt} \sin 2t &&= 2\cos 2t  &&= 2a_4 \\
+  D(a_4) &= D(\cos 2t) &&= \frac{d}{dt} \cos 2t &&= -2\sin 2t &&= -2a_3
+\end{alignat*}
+
+Wenn man die Basisvektoren direkt in der Basis $\mathcal{A}$ schreibt, dann
+bedeutet das, dass sich für die Bilder der Basisvektoren jeweils ergibt:
+
+\begin{align*}
+  D_A\left(\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix}, &
+  D_A\left(\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} -1 \\ 0 \\ 0 \\ 0\end{pmatrix} \\
+  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 1 \\ 0\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ 0 \\ 2\end{pmatrix}, &
+  D_A\left(\begin{pmatrix} 0 \\ 0 \\ 0 \\ 1\end{pmatrix}\right) &= \begin{pmatrix} 0 \\ 0 \\ -2 \\ 0\end{pmatrix} \\
+\end{align*}
+
+In den Spalten der darstellenden Matrix stehen die Bilder der Basisvektoren
+ausgedrückt in der Basis. Da dort oben die Basisvektoren und ihre Bilder
+stehen, ergibt sich auch schon direkt die darstellende Matrix.
+
+\begin{equation}
+  M_{\mathcal{A}}(D) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -2 \\ 0 & 0 & 2 & 0\end{pmatrix}
+\end{equation}
+
+$M_{\mathcal{A}}(D^2)$ ist dann die darstellende Matrix für zweimaliges
+Anwenden des Differentiationsoperators. Dorthin gibt es zwei Wege, entweder
+zweimaliges Ableiten oder die Multiplikation der Matrix mit sich selbst.
+Letzteres ergibt:
+
+\begin{equation}
+  M_{\mathcal{A}}(D^2) = \begin{pmatrix}-1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -4 & 0 \\ 0 & 0 & 0 & -4\end{pmatrix}
+\end{equation}
+
+Was mit dem Ableitungen übereinstimmt.
+
+An $M_{\mathcal{A}}(D)$ sieht man, dass $D$ invertierbar ist, denn $\det
+M_{\mathcal{A}}(D) \neq 0$. Da die Determinante sich durch Vertauschen der
+Zeilen nicht ändert, lässt sich die Matrix in Diagonalform bringen. Durch
+Multiplikation der Diagonalelemente ergibt sich dann die Determinante, die
+ungleich Null ist. $M_{\mathcal{A}}(D^{-1}) = M_{\mathcal{A}}(D)^{-1}$  Das
+Inverse der Matrix) ist:
+
+\begin{equation}
+  M_{\mathcal{A}}(D^{-1}) = \begin{pmatrix}0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & -\frac{1}{2} \\ 0 & 0 & \frac{1}{2} & 0\end{pmatrix}
+\end{equation}
+
+\section*{Aufgabe 9.3}
+\subsection*{Teil a}
+Wenn man $z = a+bi$ setzt, ist die Abbildung:
+
+\begin{align*}
+  z &\mapsto w_1z + w_2\overline{z} \\
+  z &\mapsto (\alpha_1 + \beta_1i)(a+bi) + (\alpha_2+\beta_2i)(a-bi) \\
+  z &\mapsto (\alpha_1a-\beta_1b) + (\alpha_1b + \beta_1a)i + (\alpha_2a+\beta_2b)+(-\alpha_2b+\beta_2a)i
+\end{align*}
+
+Durch Auftrennen der Real- und Imaginärteile erhält man zwei Gleichungen, die
+man in Vektorform schreiben kann.
+
+\begin{align*}
+  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1a-\beta_1b) + (\alpha_2a+\beta_2b) \\ (-\alpha_2b+\beta_2a) + (\alpha_1b + \beta_1a) \end{pmatrix} \Leftrightarrow \\
+  \begin{pmatrix} a \\ b \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1+\alpha_2)a + (\beta_2 - \beta_1)b \\ (\beta_1+\beta_2)a + (\alpha_1-\alpha_2)b \end{pmatrix}
+\end{align*}
+
+Damit kann man die darstellende Matrix eigentlich schon direkt ablesen, denn in
+den Spalten der darstellenden Matrix stehen die Bilder der Basisvektoren
+ausgedrückt in der Basis. Explizit:
+
+\begin{align*}
+  \begin{pmatrix} 1 \\ 0 \end{pmatrix} &\mapsto \begin{pmatrix} (\alpha_1+\alpha_2) \\ (\beta_1+\beta_2) \end{pmatrix} \\
+  \begin{pmatrix} 0 \\ 1 \end{pmatrix} &\mapsto \begin{pmatrix} (\beta_2 - \beta_1) \\ (\alpha_1-\alpha_2) \end{pmatrix}
+\end{align*}
+
+Somit ist die darstellende Matrix in der kanonischen Basis:
+
+\begin{equation}
+  M_{\mathcal{B}}^{\mathcal{A}} = \begin{pmatrix} \alpha_1+\alpha_2 & \beta_2 - \beta_1 \\ \beta_1+\beta_2 & \alpha_1-\alpha_2 \end{pmatrix}
+\end{equation}
+\subsection*{Teil b}
+
+Jeder Vektorraum-Endomorphismus ist durch eine darstellende Matrix darstellbar.
+Solange die Komponenten der darstellenden Matrix beliebig gewählt werden
+können, kann auch jeder Endomorphismus abgebildet werden. Wir zeigen also, dass
+sich die obige darstellende Matrix mit beliebigen Komponenten füllen lässt.
+
+\begin{align*}
+  \begin{pmatrix} \alpha_1+\alpha_2 & \beta_2 - \beta_1 \\ \beta_1+\beta_2 & \alpha_1-\alpha_2 \end{pmatrix} = \begin{pmatrix} a & b \\ c & d\end{pmatrix}
+\end{align*}
+
+Wenn diese Gleichung eindeutig lösbar ist, lässt sich jeder Endomorphismus
+darstellen.
+
+\begin{align*}
+  a &= \alpha_1 + \alpha_2 \\
+  b &= \beta_2 - \beta_1 \\
+  c &= \beta_1+\beta_2 \\
+  d &= \alpha_1 - \alpha_2
+\end{align*}
+
+Durch Addition der zweiten und dritten Zeile erhält man $b+c = 2\beta_2$, somit
+$\beta_2 = (b+c)/2$. Durch Einsetzen in die dritten Zeile $\beta_1 = c -
+(b+c)/2$. Durch Addition der ersten und vierten Zeile analog $a+d = 2\alpha_1$,
+woraus $\alpha_1 = (a+d)/2$ folgt. Und durch Einsetzen in die erste Zeile
+$\alpha_2 = a - (a+d)/2$.
+
+Zusammengefasst:
+
+\begin{align*}
+  \alpha_1 &= \frac{a+d}{2} \\
+  \alpha_2 &= a - \frac{a+d}{2} \\
+  \beta_1  &= c - \frac{b+c}{2} \\
+  \beta_2  &= \frac{b+c}{2}
+\end{align*}
+
+Das bedeutet, dass jede Darstellungsmatrix eines Endomorphismus im gegebenen
+Vektorraum durch die darstellende Matrix der gegebenen Abbildung darstellbar
+ist, damit jeder Endomorphismus durch $z \mapsto w_1z + w_2\overline{z}$, wenn
+man $w_1$ und $w_2$ entsprechend wählt.
+
+\section*{Aufgabe 9.4}
+Die Abbildung $M^{\mathcal{A}}_{\mathcal{B}}(F)$ besteht aus drei
+hintereinander ausgeführten Abbildungen.
+
+\begin{enumerate}
+  \item Transformation des Wertes von $\mathcal{A}$ in die kanonische Basis. Die darstellende Matrix dieser Transformation sei $T^{\mathcal{A}}_E$.
+  \item Anwenden der linearen Abbildung, die darstellende Matrix ist $A$, wir nennen sie $A^E_E$.
+  \item Transformation des Bildes von der kanonischen Basis nach $\mathcal{B}$. Die darstellende Matrix wollen wir $T^{E}_{\mathcal{B}}$ nennen.
+\end{enumerate}
+
+Durch die Verkettung der drei Abbildungen erhalten wir die
+geforderte Abbildung. Die darstellende Matrix ist dann die Multiplikation der
+drei darstellenden Matrizen.
+
+\begin{equation}
+  M^{\mathcal{A}}_{\mathcal{B}} = T^{E}_{\mathcal{B}} A^E_E T^{\mathcal{A}}_E 
+\end{equation}
+
+Die erste Matrix $T^{\mathcal{A}}_E$ lässt sich berechnen. Denn das Inverse der
+darstellenden Matrix ist die darstellende Matrix der Rücktransformation.
+
+\begin{equation}
+  T^{E}_{\mathcal{B}} = (T^{E}_{\mathcal{B}})^{-1} = \begin{pmatrix} 0 & 1 & -1 & 1 \\ -1 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 1 & -1 & 1 & -1 \end{pmatrix}
+\end{equation}
+
+Die zweite Matrix $A^E_E$ ist gegeben.
+
+Die letzte Matrix $T^{E}_{\mathcal{B}}$ kann man ablesen, denn in
+den Spalten der darstellenden Matrix stehen die Bilder der Basisvektoren
+ausgedrückt in der Basis.
+
+\begin{equation}
+  T^{E}_{\mathcal{B}} = \begin{pmatrix} 1 & -2 \\ 2 & 0 \end{pmatrix}
+\end{equation}
+
+Damit können wir nun $M^{\mathcal{A}}_{\mathcal{B}}$ berechnen
+
+\begin{equation}
+  M^{\mathcal{A}}_{\mathcal{B}} =
+\begin{pmatrix}
+  1 & -2 \\
+  2 & 0
+\end{pmatrix}
+\begin{pmatrix}
+  1 &  2 & 3 & 4 \\
+  0 & -1 & 2 & 1
+\end{pmatrix}
+\begin{pmatrix}
+   0 &  1 & -1 &  1 \\
+  -1 &  1 &  0 &  0 \\
+   0 &  0 &  0 &  1 \\
+   1 & -1 &  1 & -1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2 &  3 & 1 & -2 \\
+ 4 & -2 & 6 &  0
+\end{pmatrix}
+\end{equation}
+\end{document}

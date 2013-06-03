@@ -1,0 +1,227 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Mathematik für Physiker I, Wintersemester 2012/2013, 4. Übungsblatt
+
+Florian Neumeyer und Markus Fenske, Tutor: Stephan Schwartz
+\vspace{-10pt}
+\end{center}
+
+\section*{4.1 Kommutierende Matrix}
+
+Wir stellen aus $A \cdot B = B \cdot A$ ein Gleichungssystem auf und lösen dieses.
+
+\begin{align*}
+A \cdot B &= B \cdot A \\
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1 & 2 \\
+3 & 4
+\end{pmatrix} \\
+\begin{pmatrix}
+1b_{11} + 2b_{21} & 1b_{12} + 2b_{22} \\
+3b_{11} + 4b_{21} & 3b_{12} + 4b_{22}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+1b_{11} + 3b_{12} & 2b_{11} + 4b_{12} \\
+1b_{21} + 3b_{22} & 2b_{21} + 4b_{22}
+\end{pmatrix}
+\end{align*}
+
+Damit ergeben sich folgende Gleichungen:
+
+\begin{align*}
+1b_{11} + 2b_{21} - 1b_{11} - 3b_{12} &= 0 \\
+1b_{12} + 2b_{22} - 2b_{11} - 4b_{12} &= 0 \\
+3b_{11} + 4b_{21} - 1b_{21} - 3b_{22} &= 0 \\
+3b_{12} + 4b_{22} - 2b_{21} - 4b_{22} &= 0
+\end{align*}
+
+Oder umgeformt:
+\begin{equation*}
+\left.
+\begin{aligned}
+ 0b_{11} + 3b_{12} + 2b_{21} + 0b_{22} &= 0 \\
+-2b_{11} - 3b_{12} + 0b_{21} + 2b_{22} &= 0 \\
+ 3b_{11} + 0b_{12} + 3b_{21} - 3b_{22} &= 0 \\
+ 0b_{11} + 3b_{12} - 2b_{21} + 0b_{22} &= 0
+\end{aligned}
+\right\}
+\left(
+ \begin{matrix}
+  0 & 3 & 2 & 0\\
+  -2 & -3 & 0 & 2 \\
+  3 & 0 & 3 & -3 \\
+  0 & 3 & -2 & 0 \\
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+   0\\
+   0\\
+   0\\
+   0
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Um das Gleichungssystem zu Lösen, kann man auf den \textsc{GAUSS}schen
+Algorithmus verzichten, dazu reicht scharfes Hinsehen.
+
+Wenn man nun die erste und letzte Zeile des Gleichungssystems betrachtet, fällt
+auf, dass $b_{12} = 0$ und $b_{21} = 0$ sein müssen. Daraus folgt bei
+Betrachtung der beiden mittleren Zeilen, dass $b_{11} = b_{22}$ sein müssen.
+
+Wenn die Matrix $B$ mit der gegebenen Matrix $A$ kommutieren soll, muss
+folgende Gleichung gelten, in der $a$ irgendeine Zahl ist.
+
+\begin{equation*}
+B
+=
+\begin{pmatrix}
+a & 0 \\
+0 & a
+\end{pmatrix}
+\end{equation*}
+
+\section*{4.2 Spuren}
+\subsection*{a. Distributivgesetz der Spurbildung}
+Nicht bearbeitet.
+
+\subsection*{b. Kommutativgesetz der Spurbildung}
+Ich verwende ab hier \textsc{Einstein}sche Summenkonvention. Die Summenzeichen
+werden weggelassen, es wird über gleiche Indices summiert.
+
+Bekannt ist, dass die Multiplikation zweier Matrizen definiert ist als $A \cdot
+B = A_{ij} B_{jk}$. Die Spurbildung ist dann $\operatorname{Sp}(A) = A_{ii}$.
+Somit ist:
+
+\begin{align*}
+\operatorname{Sp}(A \cdot B) &=  A_{ij} B_{ji} \\
+&= B_{ji} A_{ij} \\
+&= B_{ij} A_{ji} \\
+&= \operatorname{Sp}(B \cdot A)
+\end{align*}
+
+Die Gültigkeit der zweiten Zeile ergibt sich aus dem Kommutativgesetz das für
+Skalare gilt. In der dritten Zeile wurden einfach nur die Namen der Indices
+vertauscht, was nichts anderes als eine Umbenennung ansonsten gleichbleibender
+Variablen ist.
+
+\subsection*{c. Kommutator zweiter Matrizen}
+
+Nicht bearbeitet.
+
+%Der Kommutator ist
+
+%\begin{equation*}
+%C_{ik} = A_{ij} B_{jk} - B_{ij} A_{jk} \neq \delta_{ik}
+%\end{equation*}
+
+\section*{4.3 Inverse Matrix}
+
+Die Inverse Matrix lässt sich mit dem \textsc{Gauß}-\textsc{Jordan}-Algorithmus
+bestimmen, indem die Matrix und die Einheitsmatrix nebeinander geschrieben
+werden. Dann werden die gleichen Operationen auf der linken und der rechten
+Seite ausgeführt, bis das System gelöst ist.
+
+Wir starten mit folgendem System.
+
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 3 & -1 & 4 \\
+ 2 & 5 & -1 & 3 \\
+ 0 & 4 & -3 & 1 \\
+ -3 & 1 & -5 & -2
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+  1 & 0 & 0 & 0 \\
+  0 & 1 & 0 & 0 \\
+  0 & 0 & 1 & 0 \\
+  0 & 0 & 0 & 1
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+Am Ende erhält man folgendes System, bei dem sich die Inverse Matrix auf der
+rechten Seite befindet.
+
+\begin{equation*}
+\left(
+ \begin{matrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+ \end{matrix}
+ \left|
+  \hspace{5pt}
+  \begin{matrix}
+    \frac{5}{2} & 22 & -29 & \frac{27}{2} \\
+     1 & -11 & 15 & -7 \\
+     \frac{3}{2} & -15 & -20 & -\frac{19}{2} \\
+     \frac{1}{2} & -1 & 1 & -\frac{1}{2}
+  \end{matrix}
+ \right)
+\right.
+\end{equation*}
+
+\section*{4.4 Drehmatrix}
+
+Ich berechne zuerst die Matrix $AW$:
+
+\begin{equation*}
+AW =
+\begin{pmatrix}
+a \cos \omega + b \sin \omega & -a \sin \omega + b \cos \omega \\
+b \cos \omega + c \sin \omega & -b \sin \omega + c \cos \omega
+\end{pmatrix}
+\end{equation*}
+
+Und dann daraus den oberen nichtdiagonalen Eintrag $(W^TAW)_{12}$
+
+\begin{align*}
+(W^TAW)_{12} &= \cos \omega ( -a \sin \omega + b \cos \omega ) + \sin \omega (-b \sin \omega + c \cos \omega ) \\
+&= -a\cos(\omega) \sin(\omega) + b \cos^2(\omega) -b \sin^2(\omega) + c\sin(\omega)\cos(\omega)
+\end{align*}
+
+Es ist nun egal wie man $\omega$ wählt. Der nichtdiagonale Eintrag kann nicht
+unabhängig von $a$, $b$ oder $c$ null werden.
+
+\end{document}

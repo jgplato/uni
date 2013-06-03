@@ -1,0 +1,121 @@
+\documentclass[a4paper,german,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{float}
+\restylefloat{table}
+\geometry{a4paper, top=25mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+
+Mathematik für Physiker I, Wintersemester 2012/2013, 2. Übungsblatt
+
+Markus Fenske und Florian Neumeyer, Tutor: Stephan Schwartz
+
+\section*{Aufgabe 2.1}
+
+Die Berechnung von $\sum_{k=1}^n \frac{1}{k(k+1)}$ für $n=1,2,3$ liefert folgende Werte.
+
+\begin{table}[H]
+\begin{tabular}{|c|cr|}
+$n=1$ & $\frac{1}{1\cdot2}$ & $= \frac{1}{2}$ \\
+$n=2$ & $\frac{1}{1\cdot2} + \frac{1}{2\cdot3}$ & $= \frac{2}{3}$ \\
+$n=3$ & $\frac{1}{1\cdot2} + \frac{1}{2\cdot3} + \frac{1}{3 \cdot 4}$ & $= \frac{3}{4}$
+\end{tabular}
+\end{table}
+
+\textbf{Vermutung:} $\sum_{k=1}^n \frac{1}{k(k+1)} = \frac{n}{n+1}$.
+
+\textbf{Induktionsanfang:} $n=1$ führt zu $\frac{1}{1\cdot2} = \frac{1}{2}$.
+
+\textbf{Induktionsschritt:} Wir müssen aus der Induktionsvorraussetzung
+$\sum_{k=1}^n \frac{1}{k(k+1)} = \frac{n}{n+1}$ die Induktionsbehauptung
+$\sum_{k=1}^{n+1} \frac{1}{k(k+1)} = \frac{n+1}{n+2}$ beweisen.
+
+\textbf{Beweis:} $\sum_{k=1}^{n+1} \frac{1}{k(k+1)} = \left[\sum_{k=1}^{n}
+\frac{1}{k(k+1)}\right] + \frac{1}{(n+1)(n+2)} = \frac{n}{n+1} +
+\frac{1}{(n+1)(n+2)} = \frac{n(n+2)+1}{(n+1)(n+2)} =
+\frac{n^2+2n+1}{(n+1)(n+2)} = \frac{(n+1)^2}{(n+1)(n+2)} = \frac{n+1}{n+2}$. q.e.d.
+
+\section*{Aufgabe 2.2}
+
+\textbf{Induktionsanfang:} $n=1$ führt zu $\frac{1}{2^1} = 2 - \frac{3}{2}$,
+was offensichtlich wahr ist.
+
+\textbf{Induktionsschritt:} Wir müssen aus der Induktionsvorraussetzung
+$\sum_{k=1}^n \frac{k}{2^k} = 2 - \frac{n+2}{2^n}$ die Induktionsbehauptung
+$\sum_{k=1}^{n+1} \frac{k}{2^k} = 2 - \frac{n+3}{2^{n+1}}$ beweisen.
+
+\textbf{Beweis:} Es muss beweisen werden, dass $\sum_{k=1}^{n+1} \frac{k}{2^k}
+= \left[\sum_{k=1}^n \frac{k}{2^k}\right] + \frac{n+1}{2^{n+1}} = 2 -
+\frac{n+2}{2^n} + \frac{n+1}{2^{n+1}}$ gleich dem obigen Term ist.
+
+Das ist durch einfaches Umformen lösbar.
+
+\begin{align*}
+2 - \frac{n+2}{2^n} + \frac{n+1}{2^{n+1}} &= 2 - \frac{n+3}{2^{n+1}} \\
+- \frac{n+2}{2^n} + \frac{n+1}{2^{n+1}} &= - \frac{n+3}{2^{n+1}} \\
+- \frac{2(n+2)}{2^{n+1}} + \frac{n+1}{2^{n+1}} &= - \frac{n+3}{2^{n+1}} \\
+\frac{-2(n+2)+(n+1)}{2^{n+1}} &= - \frac{n+3}{2^{n+1}} \\
+\end{align*}
+\begin{align*}
+-2(n+2)+(n+1) &= - (n+3) \\
+-(2n+4)+(n+1) &= -n-3 \\
+-2n-4+n+1 &= -n-3 \\
+-n-4+1 &= -n-3 \\
+-n-3 &= -n-3
+\end{align*}
+
+Somit ist die Induktionsbehauptung bewiesen.
+
+\section*{Aufgabe 2.3}
+
+\subsection*{Teil a)}
+
+$S_2 = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} \approx 0,58$
+
+$T_2 = \frac{1}{2+1} + \frac{1}{2+2} \approx 0,58$
+
+\subsection*{Teil b)}
+
+$S_n = \sum_{k=1}^n \frac{1}{2k-1} - \frac{1}{2k}$
+
+$T_n = \sum_{k=1}^n \frac{1}{n+k}$
+
+\subsection*{Teil c)}
+
+Nicht bearbeitet.
+
+\section*{Aufgabe 2.4}
+
+Die $k$ $n$-ten Wurzeln aus einer komplexen Zahl $a$ sind $z_k
+= \sqrt[n]{r} \left( \cos \frac{\phi + 2 \pi k}{n} + i \sin \frac{\phi + 2
+\pi k}{n} \right)$, wobei $r$ der Betrag und $\phi$ das Argument von $a$ in
+Polarform ist.
+
+Der größte Imaginärteil wird am Maximum von $\sin \frac{\phi + 2 \pi k}{n}$
+auftreten. Dies ist zuerst einmal vom Winkel $\phi$ abhängig, so dass dieser
+zuerst berechnet werden muss. Er ist im Bogenmaß $\phi = \arctan -2/\frac{1}{5}
+= \arctan -10 \approx -1,47$. Wir berechneten also die einzelnen Werte in
+Näherung.
+
+\begin{table}[H]
+\begin{tabular}{|c|c|}
+$k=1$ & 0,6347 \\
+$k=2$ & 0,9999 \\
+$k=3$ & 0,6122
+\end{tabular}
+\end{table}
+
+An dieser Stelle kann man bereits abbrechen. Das Maximum liegt bei $k=2$. Die
+exakte Lösung für die größte siebte Wurzel von $\frac{1}{5} - 2i$ ist $z_2 =
+\sqrt[7]{\sqrt{(\frac{1}{5})^2+2^2}}$ $(\cos \frac{\arctan(-10) + 2 \pi
+2}{7} +$ $i \sin \frac{\arctan(-10) + 2 \pi 2}{7})$. Mit
+Taschenrechnergenauigkeit \\ $z_2$ $\approx$ $-0.0757156$ $ + 5.31736i$.
+
+\end{document}
+
