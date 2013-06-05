@@ -72,4 +72,30 @@ Benutzt man $a_5$ als letzte Näherung erhält man für die Genauigkeit
 
 Die Näherung liegt also innerhalb der geforderten Toleranz.
 
+\section{Aufgabe 7.2}
+
+Wir und benutzen $\epsilon$-$\delta$-Kriterium. Dabei gehen wir von $x \neq
+x_0$ aus (ansonsten hat das ganze sowieso keinen Sinn). Außerdem gehen wir
+davon aus, dass $x$ und $x_0$ nicht gleichzeitig ganzzahlig sind, dies schränkt
+den Beweis aber nicht ein.
+
+\begin{align*}
+  |f(x) - f(x_0)| &= \left|([x] + \sqrt{x-[x]}) - ([x_0] + \sqrt{x_0 - [x_0]})\right| \\
+                  &= \left|[x] - [x_0] + \sqrt{x-[x]} - \sqrt{x_0 - [x_0]}\right| \\
+                  &= \left|[x] - [x_0] + \frac{(\sqrt{x-[x]} - \sqrt{x_0 - [x_0]}) \cdot (\sqrt{x-[x]} + \sqrt{x_0 - [x_0]})}{\sqrt{x-[x]} + \sqrt{x_0 - [x_0]}}\right| \\
+                  &= \left|[x] - [x_0] + \frac{x-x_0+[x_0]-[x]}{\sqrt{x-[x]} + \sqrt{x_0 - [x_0]}}\right|
+\end{align*}
+
+Da $a \ge [a]$ ist, ist $\sqrt{a - [a]}$ reel und $\ge 0$. Da wir vorher
+angenommen haben, dass $x_0 \neq x$ und nicht beide gleichzeitig ganzzahlig
+sind, steht unter dem Bruch eine positve Zahl. Wir können also abschätzen:
+
+\begin{align*}
+  &< \left|[x] - [x_0] + (x-x_0+[x_0]-[x])\right| \\
+  &= \left|x-x_0\right|
+\end{align*}
+
+Damit haben wir gezeigt, dass $|f(x) - f(x_0)| < |x-x_0|$. Daraus folgt, dass sich
+zu jeden $x_0$ ein $x$ finden lässt, so dass $|f(x) - f(x_0)| < \epsilon$.
+
 \end{document}
