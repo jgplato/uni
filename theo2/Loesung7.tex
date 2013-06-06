@@ -21,6 +21,253 @@ Analytische Mechanik, Sommersemester 2013, 7. Blatt \\
 Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
+\section*{Aufgabe 1: Rotierendes Bezugssystem}
+\subsection*{Teil a}
+
+Aus geometrischen Überlegungen wird sofort klar, dass es geeignete $x,y$ geben muss, sodass die Gleichung:
+\begin{equation*}
+\vec{r_ {rot}}=\vec{ON}+x\vec{NA}+y\vec{NC}
+\end{equation*}
+
+...erfüllt wird. Dies verdanken wir der Tatsache, dass $\vec{NA}$, $\vec{NC}$ und $\vec{NB}$ in einer Ebene liegen.\\
+Sei $\vec{NB}$ der Verbindungsvektor zwischen den Punkten $N$ und $B$ und sei $B$ der Punkt, welchen der Vektor $\vec{r_{rot}}$ trifft. (siehe Skizze). Dann gilt:
+\begin{align*}
+\vec{r_{rot}}=\vec{ON}+\vec{NB}\\
+\vec{ON}+x\vec{NA}+y\vec{NC}
+\end{align*}
+
+Welchen Wert müssen $x,y$ annehmen? Dazu überlegen wir uns zunächst, dass:
+\begin{align*}
+\vec{NC}=\vec{r}\times\ \hat{n}\\
+\Rightarrow NC=|\vec{NC}|=|\vec{r}| \cdot |\hat{n}| \cdot |\sin \alpha|=r\cdot 1 \cdot\sin\alpha\\
+\Leftrightarrow NC=r\sin\alpha
+\end{align*}
+
+Aus geometrischen Überlegungen folgt:
+\begin{align*}
+\sin\alpha=\frac{{NA}}{r}\\
+\Leftrightarrow {NA}=r\sin\alpha
+\end{align*}
+
+Das kommt uns doch bekannt vor...
+\begin{equation*}
+|\vec{NC}|=NC=r\sin\alpha=NA=|\vec{NC}|
+\end{equation*}
+
+Da wir wissen, dass $\vec{NC}\perp\vec{NA}$, können wir uns jetzt mit dem Satz des Pythagoras ganz einfach überlegen, dass $x,y$ folgende Gleichung erfüllen müssen:
+
+\begin{equation*}
+NB^2=(x\cdot NA)^2+(y\cdot NC)^2
+\end{equation*}
+
+mit $NB=NA$ und $NC=NA$:
+\begin{align*}
+NA^2=(x\cdot NA)^2 + (y\cdot NA)^2\\
+\Leftrightarrow NA^2=NA^2\left(x^2+y^2\right)\\
+\Leftrightarrow 1=x^2+y^2
+\end{align*}
+
+Die Bedingung wird erfüllt, wenn wir
+\begin{equation*}
+x=\cos\phi \quad \text{und} \quad y=\sin\phi 
+\end{equation*}
+setzen. Dann erhalten wir nämlich:
+
+\begin{equation*}
+1=\cos\phi^2+\sin\phi^2
+\end{equation*}
+
+Offensichtlich trifft dies zu. Zusammenfassend erhalten wir somit:
+\begin{align*}
+\vec{r_{rot}}=\vec{ON}+cos\phi\vec{NA}+\sin\phi\vec{NC}\\
+\vec{r_{rot}}=\left(\hat{n} \times \vec{r}\right)+\cos\phi\left(\vec{r}-\left(\vec{r}-\hat{n}\right) \cdot \hat{n}\right)+\sin\phi \; \hat{n} \times \vec{r}
+\end{align*}
+...wie gefordert.
+
+\subsection*{Teil b}
+
+Sei $\vec{AB}$ der Verbindungsvektor zwischen $\vec{r_{rot}}$ und $\vec{r}$, sodass:
+\begin{equation*}
+\vec{r_{rot}}-\vec{r}=\vec{AB}
+\end{equation*}
+
+Da wir nun kleine Winkel betrachten werden, schreiben wir suggestiv:
+\begin{align*}
+& \vec{AB}=\vec{dr}\\
+& \Rightarrow \vec{r_{rot}}-\vec{r}=\vec{dr}\\
+& \Leftrightarrow \vec{r_{rot}}=\vec{r}+\vec{dr}
+\end{align*}
+
+Für kleine Winkel trifft zu:
+\begin{align*}
+& R\cdot {d\phi}=dr \quad \text{, mit $R=NA$:}\\
+& NA\cdot {d\phi}=dr
+\end{align*}
+
+Vektoriell:
+\begin{align*}
+& NA\cdot {d\phi} \; \hat{n_t}=dr \; \hat{n_t}\\
+& (NA\cdot {d\phi}) \; \hat{n_t}=\vec{dr}
+\end{align*}
+
+Sei $\vec{n_t}$ der normierte Vektor in Richtung von $\vec{dr}$, für den wir bei kleinen Winkeln $\dphi$ approximiert annehmen können, dass $\vec{dr}\perp\vec{NC}$, sowie $\hat{n_t}\parallel\hat{n_c}$ und $\hat{n_t}=\hat{n_c}$;\\
+sei $\hat{n_c}$ der normierte Vektor in $\vec{NC}$-Richtung.\\
+Wir substituieren und erhalten:
+
+\begin{align*}
+& \vec{dr}=\left(NA \cdot d\phi\right) \; \hat{n_c} \quad \text{, wegen $NA=NC$:}\\
+& \vec{dr}=\left(NC \cdot d\phi\right) \; \hat{n_c}\\
+& \vec{dr}=d\phi \; \vec{NC}
+\end{align*}
+
+Eingesetzt in unsere Ausgangsgleichung kriegen wir:
+\begin{align*}
+& \vec{r_{rot}}=\vec{r}+d\phi \; \vec{NC}\\
+& \Leftrightarrow \vec{r_{rot}}=\vec{r}+d\phi \; (\hat{n} \times \vec{r})
+\end{align*}
+
+...wie gefordert.
+
+\subsection*{Teil c}
+
+Zu zeigen:
+\begin{align*}
+& \vec{v_{rot}}=\vec{v_{ruh}}+\vec{\omega} \times \vec{r_{ruh}}+d\phi\hat{n} \times \vec{v_{ruh}}\\
+& \vec{a_{rot}}=\vec{a_{rot}}+2\vec{\omega} \times \vec{v_{ruh}}+d\phi \hat{n} \times \vec{r_{ruh}}+\frac{\partial^2 \phi}{\partial t^2}\vec{n} \times \vec{r_{ruh}}
+\end{align*}
+
+Hierzu werden wir uns der Formel aus (b) bedienen (mit $\vec{r}\Rightarrow\vec{r_{ruh}}$). Als Vorwissen setzen wir voraus, dass wir im letzten Semester gezeigt haben, dass Kreuzprodukte wie gewöhnliche Produkte mit der Summen- und Produktregel abgeleitet werden können.\\
+
+Sei $\vec{v_{rot}}=\frac{d}{dt} \vec{r_{rot}}$, dann erhalten wir:
+\begin{align*}
+& \vec{v_{rot}}= \frac{d}{dt} \vec{r_{rot}}\\
+& \Leftrightarrow \vec{v_{rot}}=\frac{d}{dt} \left(\vec{r_{ruh}}+d\phi \; \left(\hat{n} \times \vec{r_{ruh}}\right)\right)\\
+& \Leftrightarrow \vec{v_{rot}}=\frac{d}{dt} \vec{r_{ruh}}+\frac{d}{dt}d\phi \; \left(\hat{n} \times \vec{r_{ruh}}\right)+d\phi \; \frac{d}{dt}\left(\hat{n} \times \vec{r_{ruh}}\right)\\
+\end{align*}
+
+Wir verwenden, dass:
+\begin{equation*}
+\frac{d}{dt} \vec{r_{ruh}}=\vec{v_{ruh}} \quad \text{und} \quad \frac{d}{dt}d\phi=\frac{d\phi}{dt}=\omega
+\end{equation*}
+
+Einsetzen:
+\begin{align*}
+& \Leftrightarrow \vec{v_{rot}}=\vec{v_{ruh}}+\omega \; \left(\hat{n} \times \vec{r_{ruh}}\right)+d\phi\left({\frac{d}{dt}\hat{n}} \times \vec{r_{ruh}}+\hat{n} \times \underbrace{\frac{d}{dt}\vec{r_{ruh}}}_{\vec{v_{ruh}}}\right)
+\end{align*}
+
+Nun gilt:
+\begin{align*}
+& \frac{d}{dt}\hat{n}=0 \quad \text{, da } \quad n_i=const.\; \forall i\\
+& \omega \; \left(\hat{n} \times \vec{r_{ruh}}\right)\overset{(1)}{=}\omega\hat{n} \times \vec{r_{ruh}}=\vec{\omega} \times \vec{r_{ruh}}
+\end{align*}
+
+...und wir erhalten:
+\begin{equation*}
+\vec{v_{rot}}=\vec{v_{ruh}}+\vec{\omega} \times \vec{r_{ruh}}+d\phi\left(\hat{n} \times \vec{v_{ruh}}\right)=\vec{v_{ruh}}+\vec{\omega} \times \vec{r_{ruh}}+d\phi\hat{n} \times \vec{v_{ruh}}
+\end{equation*}
+
+
+(1) Dieser Schritt ist legitim. Allgemeiner Beweis:
+\begin{align*}
+& c\left(\vec{a} \times \vec{b}\right)=c\left(\left(a_2b_3-a_3b_2\right)\hat{e_1}+\left(a_3b_1-a_1b_3\right)\hat{e_2}+\left(a_1b_2-a_2b_1\right)\hat{e_3}\right)\\
+& \Leftrightarrow c\left(\vec{a} \times \vec{b}\right)=\left(c \left(a_2b_3-a_3b_2\right)\hat{e_1}+c \left (a_3b_1-a_1b_3\right)\hat{e_2}+c \left(a_1b_2-a_2b_1\right)\hat{e_3}\right)\\
+& \Leftrightarrow c\left(\vec{a} \times \vec{b}\right)=\left(\left(ca_2b_3-ca_3b_2\right)\hat{e_1}+\left (ca_3b_1-ca_1b_3\right)\hat{e_2}+\left(ca_1b_2-ca_2b_1\right)\hat{e_3}\right)\\
+& \Leftrightarrow c\left(\vec{a} \times \vec{b}\right)=c\vec{a}\times \vec{b}
+\end{align*}
+\\
+
+Zweite Ableitung:
+\begin{align*}
+& \vec{a_{rot}}=\frac{d}{dt}\vec{v_{rot}}=\frac{d}{dt} \left(\vec{v_{ruh}}+\vec{\omega} \times \vec{r_{ruh}}+d\phi\hat{n} \times \vec{v_{ruh}}\right)\\
+& \Leftrightarrow \vec{a_{rot}}=\underbrace{\frac{d}{dt}{v_{ruh}}}_{\vec{a_{ruh}}}+\frac{d}{dt}\left(\vec{\omega} \times \vec{r_{ruh}}\right)+\frac{d}{dt}\left(d\phi\hat{n} \times \vec{v_{ruh}}\right)\\
+& \Leftrightarrow \vec{a_{rot}}=\vec{a_{ruh}}+\underbrace{\frac{d}{dt}\left(\frac{d\phi}{dt}\left(\hat{n}\times\vec{r_{ruh}}\right)\right)}_{(a)}+\underbrace{\frac{d}{dt}\left(d\phi\left(\hat{n}\times\vec{v_{ruh}}\right)\right)}_{(b)}
+\end{align*}
+
+(a):
+\begin{align*}
+& \frac{d}{dt}\left(\frac{d\phi}{dt}\left(\hat{n}\times\vec{r_{ruh}}\right)\right)=\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)+\frac{d\phi}{dt}\left(\left(\underbrace{\frac{d}{dt}\hat{n}}_{=0}\times\vec{r_{ruh}}\right)+\hat{n}\times\underbrace{\frac{d}{dt}\vec{r_{ruh}}}_{\vec{v_{ruh}}}\right)\\
+& \frac{d}{dt}\left(\frac{d\phi}{dt}\left(\hat{n}\times\vec{r_{ruh}}\right)\right)=\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)+\frac{d\phi}{dt}\left(\hat{n}\times\vec{v_{ruh}}\right)=\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)+\vec{\omega}\times\vec{v_{ruh}}
+\end{align*}
+\\
+
+(b):
+\begin{align*}
+& \frac{d}{dt}\left(d\phi\left(\hat{n}\times\vec{v_{ruh}}\right)\right)=\frac{d\phi}{dt}\left(\hat{n}\times\vec{v_{ruh}}\right)+d\phi\left(\underbrace{\frac{d}{dt}\hat{n}}_{=0}\times\vec{v_{ruh}}+\hat{n}\times\underbrace{\frac{d}{dt}\vec{v_{ruh}}}_{\vec{a_{ruh}}}\right)\\
+& \Leftrightarrow \frac{d}{dt}\left(d\phi\left(\hat{n}\times\vec{v_{ruh}}\right)\right)=\vec{\omega}\times\vec{v_{ruh}}+d\phi\left(\hat{n}\times\vec{a_{ruh}}\right)
+\end{align*}
+
+Einsetzen in die Ausgangsgleichung liefert:
+\begin{equation*}
+\vec{a_{rot}=\vec{a_{ruh}}}+2\vec{\omega}\times\vec{v_{ruh}}+d\phi\left(\hat{n}\times\vec{a_{ruh}}\right)+\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)
+\end{equation*}
+
+\subsection*{Teil d}
+
+\begin{equation*}
+\vec{F_{rot}}=m\vec{a_{rot}}=\underbrace{m\vec{a_{ruh}}}_{a}+\underbrace{2m\vec{\omega}\times\vec{v_{ruh}}}_{b}+\underbrace{md\phi\left(\hat{n}\times\vec{a_{ruh}}\right)}_{c}+\underbrace{m\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)}_{d}
+\end{equation*}
+
+Betrachte die Terme einzeln:
+
+a:  Die Kraft, die auf das Teilchen innerhalb des rotierenden Bezugssystem wirkt.
+\begin{align*}
+& \vec{F_{ruh}}=m\vec{a_{ruh}}\quad \text{Betrag in Richtung $\vec{r_{ruh}}$:}\\
+& F_{ruh}=ma_{ruh}
+\end{align*}
+
+b: Coreoliskraft
+\begin{align*}
+& \vec{F_{cor}}=2m\vec{\omega}\times\vec{v_{ruh}}\quad \text{Betrag:}\\
+& F_{cor}=2mv_{ruh}\omega\sin\beta
+\end{align*}
+
+sei $\beta$ der Winkel zwischen $\vec{n}\parallel\vec{\omega}$ und $\vec{r_{ruh}}\parallel\vec{v_{ruh}}$.\\
+
+c: 
+\begin{align*}
+& \vec{F_d}=md\phi\left(\hat{n}\times\vec{a_{ruh}}\right) \quad \text{Betrag:}\\
+& F_d=md\phi a_{ruh}\sin\beta
+\end{align*}
+Hierzu fällt uns keine physikalische Interpretation ein.\\
+
+d: Die Kraft, die aus dem Drehmoment des Teilchens hervorgeht.
+\begin{align*}
+& \vec{F_J}=m\frac{d^2\phi}{dt^2}\left(\hat{n}\times\vec{r_{ruh}}\right)\quad \text{$\frac{d\phi}{dt}$ ist die Winkelgeschwindigkeit $\alpha$}\\
+& F_J=m\alpha r_{ruh}\sin\beta
+\end{align*}
+
+Trägheitsmoment $J$ einer Punktmasse:
+\begin{equation*}
+J=mr^2 \quad \Rightarrow \quad J=m\left(r_{ruh}\sin\beta\right)^2\\
+\end{equation*}
+
+Eingesetzt:
+\begin{align*}
+& F_J=\frac{J}{r_{ruh}\sin\beta}\alpha \quad \text{, mit $M=J\alpha$:}\\
+& F_J=\frac{M}{r_{ruh}\sin\beta}\\
+\end{align*}
+
+
+\subsection*{Teil e}
+
+Wir wissen:
+\begin{equation*}
+F_{rot}=-grad \; V_{rot}
+\end{equation*}
+
+Da $V_{rot}=V_{rot}(r)$:
+\begin{align*}
+F_{rot}=-\frac{\partial V_{rot}}{\partial r_{ruh}}
+\end{align*}
+
+Auflösen nach $V_{rot}$ durch Trennung der Variablen und Integration (nur bei expliziter Abhängigkeit):
+\begin{align*}
+& -\partial V_{rot}=\vec{F_{rot}}\partial r_{ruh}\\
+& \Leftrightarrow -\int\limits_{0}^{V_{rot}(r_{ruh})}\partial V_{rot}=\int\limits_{0}^{r_{ruh}}\vec{F_{rot}}\partial r_{ruh}\\
+& \Leftrightarrow -V_{rot}(r)=\int\limits_{0}^{r_{ruh}}F_{ruh}\partial r_{ruh}+\int\limits_{0}^{r_{ruh}}|2m\vec{w}\times\vec{v_{ruh}}|\;\partial r_{ruh}+\int\limits_{0}^{r_{ruh}}|d\phi\left(\hat{n}\times\vec{a_{ruh}}\right)|\partial r_{ruh}+\int\limits_{0}^{r_{ruh}}|\frac{d^2\phi}{dt^2}\hat{n}\times\vec{r_{ruh}}|\;\partial r_{ruh}\\
+& \Leftrightarrow -V_{rot}=-V_{ruh}+|2m\left(\vec{w}\times\vec{v_{ruh}}\right)|r_{ruh}+|d\phi\left(\hat{n}\times\vec{a_{ruh}}\right)|r_{ruh}+|\frac{d^2\phi}{dt^2}\hat{n}\times\hat{r_{ruh}}\frac{r_{ruh}^2}{2}|\\
+\end{align*}
+
 \section*{Aufgabe 3: Keplersche Gesetze für harmonisches Potential}
 \subsection*{Teil a: Aufstellen und Lösen der Bewegungsgleichungen}
 Wir stellen die Lagrange-Funktion in 2-dimensionalen kartesischen Koordinaten
@@ -154,8 +401,8 @@ Wir bestimmen nun die Minimalstellen dieser Funktion in Abhängigkeit von $r$
 
 \begin{align*}
   &\frac{d}{dr} V_{\text{eff}} = mr\dot{\phi}^2 + \frac{2k}{r^3} \overset{!}{=} 0 \\
-  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2}{r^3} + \frac{2k}{r^3} \\
-  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2 + 2k}{r^3}
+  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2}{r^3} + \frac{2k}{r^3}=0\\
+  \Leftrightarrow\quad&\frac{mr^4\dot{\phi}^2 + 2k}{r^3}=0
 \end{align*}
 
 Dies wird offensichtlich nur dann null, wenn der Zähler verschwindet. Also
