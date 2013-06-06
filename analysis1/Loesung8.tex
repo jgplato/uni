@@ -75,14 +75,42 @@ Polynom. Da $h_n(x)$ ein Polynom ist und $\lim_{x \to \pm \infty} e^{x^2} =
 
 \subsection*{Teil c}
 
+Wir beweisen zuerst, das der Satz von Rolle nicht für für echte Nullstellen
+gilt, sondern auch für Grenzwerte.
+
+Behauptung: Sei $f(x)$ eine im Intervall $[x_0, \infty[$ differenzierbare, im
+Intervall $]x_0, \infty[$ stetige Funktion mit einer Nullstelle $f(x_0) = 0$
+und einem Grenzwert $\lim_{x \to \infty} f(x) = 0$. Dann existiert mindestens
+ein $c \in (x_0, \infty)$ für das gilt, dass $f'(c) = 0$.
+
+Beweis: Sei $g(x) = f\left(x_0 - 1 + \frac{1}{x}\right)$ für $x \in ]0, 1]$ und $g(x) =
+0$. Dann ist $g(x)$ stetig in $[0,1]$ und differenzierbar in $]0, 1[$. Außerdem
+ist $g(0) = g(1) = 0$. Nach dem Satz von Rolle muss mindestens ein $d \in ]0,1[$
+existieren für das gilt, dass $g'(d) = 0$. Daraus folgt 
+
+\begin{align*}
+  &0 = g'(d) \\
+  \Leftrightarrow\quad&0 = -\frac{1}{d^2} f'\left(x_0 - 1 + \frac{1}{x}\right)(d)
+\end{align*}
+
+Da $d \neq 0$ kann dies nur erfüllt sein, wenn die Ableitung null wird.
+
+\begin{align*}
+  \Leftrightarrow\quad f'\left(x_0 - 1 + \frac{1}{d}\right) = 0
+\end{align*}
+
+Also hat $f'(x)$ mindestens eine Nullstelle im Intervall $[x_0, \infty[$. Damit
+ist der Beweis erbracht.
+
 Wir beginnen mit der Feststellung, dass an der Nullstelle $a_n(x_i) = 0$ nur
 erfüllt werden kann, wenn $h_n(x_i) = 0$, denn $e^{-x^2} \neq 0 \forall x$.
 
 Nun beweisen wir per Induktion, dass $h_n(x)$ genau $n$ reele Nullstellen hat
 (und damit $a_n(x)$).
 
-Induktionsvoraussetzung: Für die Anwendung des Satzes von Rolle auf $a_0(x)$
-prüfen wir zuerst die wichtigen Vorraussetzungen:
+Induktionsvoraussetzung: Für die Anwendung des Satzes von Rolle und des
+modifizierten Satzes von Rolle auf $a_0(x)$ prüfen wir zuerst die wichtigen
+Vorraussetzungen:
 
 \begin{itemize}
   \item Es müssen $a$ und $b$ existieren, für die $a_0(x_1) = a_0(x_2)$
@@ -107,22 +135,17 @@ $h_1(x)$ null wird. Dies ist ein Polynom $1$ Grades, dass maximal einen
 Nullstelle haben kann.
 
 Induktionsschritt: Angenommen $a_n(x)$ habe $n$ Nullstellen, dann bedeutet das,
-dass zwischen diesen Nullstellen nach dem Satz von Rolle insgesamt $n-1$
-Nullstellen liegen.  Die ersten beiden Vorraussetzungen haben wir bereits für
-alle $a_n(x)$ überprüft.
+dass zwischen diesen Nullstellen nach dem Satz von Rolle insgesamt mindestens $n-1$
+Nullstellen liegen.
 
-Da $h_{n+1}(x)$ ein Polynom vom Grade $n+1$ ist, kann es zusätzlich zu diesen
-$n-1$ noch maximal zwei weitere reelle Nullstellen haben.
+Seien die Nullstellen von $a_n(x)$ jeweils bei $x_0, x_1, \dots, x_n$. Dann
+gilt $a_n(x_0) = \lim_{x \to -\infty} a_n(x) = 0$ und $a_n(x_n) = \lim_{x \to
+\infty} = 0$. Nach obigem Beweis des Satzes von Rolle für Grenzwerte muss $a_{n+1}(x)$
+in den Intervallen $]-\infty,x_0]$ und $[x_n,\infty[$ jeweils mindestens eine
+Nullstelle haben.
 
-Seien die Nullstellen von $a_n(x)$ jeweils bei $x_0, x_1, \dots, x_n$. Wenn wir
-nun die äußersten Nullstellen $a_n(x_0) = 0$ und $a_n(x_n) = 0$ betrachten,
-dann ist klar, dass $a_n'(x_0) \neq 0$ und $a_n'(x_n) \neq 0$ (\textbf{Warum?}).
-
-Das bedeutet, dass die Funktion $a_n(x)$ an den Nullstellen $a_n(x_0)$ und
-$a_n(x_n)$ ihr Vorzeichen wechselt, da die Funktion aber für $x \to \infty$
-gegen $0$ geht, muss $a_n(x)$ nochmal die Steigung $0$ haben. Die Steigung $0$
-bedeutet aber, dass an dieser Stelle (nennen wir sie $b$) $a_n'(b) = 0$ gelten
-muss. Somit hat $a_n'(x)$ noch zwei weitere Nullstellen.
-
-Also hat $a_{n+1}(x)$ genau $n+1$ reelle Nullstellen.
+Somit hat $a_{n+1}(x)$ mindestens $n+1$ Nullstellen. Da die Nullstellen alle
+aus dem Polynom $h_{n+1}(x)$ kommen und jedes Polynom vom Grad $n+1$ höchstens
+$n+1$ Nullstellen haben kann, hat das Polynom $a_{n+1}(x)$ genau $n+1$
+Nullstellen. Das war zu beweisen.
 \end{document}
