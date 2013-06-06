@@ -1,0 +1,76 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 8. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 8.1}
+
+\subsection*{Teil a}
+
+Das machen wir induktiv. Induktionsvorraussetzung: Sei $h_0(x) = 1$,
+dann ist $a_0(x) = h_0(x) \cdot e^{-x^2}$. Induktionsschritt: Sei
+$a_n(x) = h_n(x) \cdot e^{-x^2}$, wobei $h_n(x)$ ein Polynom ist. Dann ist:
+
+\begin{align*}
+  a_{n+1}(x) &= \frac{d}{dx} h_n(x) \cdot e^{-x^2} \\
+             &= h_n'(x) \cdot e^{-x^2} + h_n(x) \cdot -2xe^{-x^2} \\
+             &= (h_n'(x) - 2x h_n(x)) \cdot e^{-x^2} \\
+             &= h_{n+1}(x) \cdot e^{-x^2}
+\end{align*}
+
+Da $h_0$ ein Polynom ist, muss gemäß Rekursionsformel $h_{n+1}(x) = (h_n'(x) -
+2x h_n(x))$ auch $h_n(x)$ ein Polynom sein, denn die Ableitung eines Polynoms
+gibt wieder ein Polynom. Außerdem ist klar, dass die Multiplikation zweier
+Polynome ($2x$ ist ein Polynom) wieder ein Polynom ergibt, die Subtraktion
+ebenfalls.
+
+Für den Grad der Polynome gilt gemäß Rekursionsformel
+
+\begin{align*}
+  \deg h_{n+1} &= \deg (h_n'(x) - 2x h_n(x)) \\
+               &= \max (\deg h_n'(x), \deg 2x h_n(x)) \\
+               &= \max (\deg(h_n) - 1, \deg(h_n) + 1) \\
+               &= \deg(h_n) + 1
+\end{align*}
+
+Da $h_0(x) = 1$ ein Polynom vom Grad 0 ist, muss gemäß Induktion $h_n(x)$ vom Grad
+$n$ sein.
+
+\subsection*{Teil b}
+
+\begin{align*}
+  \lim_{x \to \pm \infty} a_n(x) &= \lim_{x \to \pm \infty} h_n(x) \cdot e^{-x^2} \\
+  &= \lim_{x \to \pm \infty} \frac{h_n(x)}{e^{x^2}} \\
+  &= 0
+\end{align*}
+
+Erklärung dazu: Wir haben in Aufgabe 5.4 bewiesen, dass die Exponentialfunktion
+$e^x$ schneller wächst als jedes Polynom. Da $e^{x^2} > e^x$ für fast alle $x$
+(außer vielleicht irgendwo in der Gegend von $|x| < 1$, was für die Betrachtung
+im unendlichen irrelevant ist), wächst auch $e^{x^2}$ schneller als jedes
+Polynom. Da $h_n(x)$ ein Polynom ist und $\lim_{x \to \pm \infty} e^{x^2} =
+\infty$ muss der Grenzwert 0 sein.
+
+\end{document}
