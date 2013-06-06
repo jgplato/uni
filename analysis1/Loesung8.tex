@@ -75,9 +75,14 @@ Polynom. Da $h_n(x)$ ein Polynom ist und $\lim_{x \to \pm \infty} e^{x^2} =
 
 \subsection*{Teil c}
 
-Wir beweisen dies per Induktion.
+Wir beginnen mit der Feststellung, dass an der Nullstelle $a_n(x_i) = 0$ nur
+erfüllt werden kann, wenn $h_n(x_i) = 0$, denn $e^{-x^2} \neq 0 \forall x$.
 
-Für die Anwendung des Satzes von Rolle auf $a_0(x)$ prüfen wir zuerst die wichtigen Vorraussetzungen:
+Nun beweisen wir per Induktion, dass $h_n(x)$ genau $n$ reele Nullstellen hat
+(und damit $a_n(x)$).
+
+Induktionsvoraussetzung: Für die Anwendung des Satzes von Rolle auf $a_0(x)$
+prüfen wir zuerst die wichtigen Vorraussetzungen:
 
 \begin{itemize}
   \item Es müssen $a$ und $b$ existieren, für die $a_0(x_1) = a_0(x_2)$
@@ -96,56 +101,28 @@ Die Funktion $a_0(x)$ ist symmetrisch, denn
   \Leftrightarrow\quad &e^{-x^2} = e^{-x^2}
 \end{align*}
 
-Das bedeutet, dass die erste Vorraussetzung erfüllt ist. Deswegen hat $a_1(x)$ eine Nullstelle.
+Das bedeutet, dass die erste Vorraussetzung erfüllt ist. Deswegen hat $a_1(x)$
+eine Nullstelle, und zwar nur eine, denn $a_1(x)$ kann nur null werden, wenn
+$h_1(x)$ null wird. Dies ist ein Polynom $1$ Grades, dass maximal einen
+Nullstelle haben kann.
 
-Angenommen $a_n(x)$ habe $n$ Nullstellen, dann bedeutet das, dass zwischen
-diesen Nullstellen nach dem Satz von Rolle insgesamt $n-1$ Nullstellen liegen.
+Induktionsschritt: Angenommen $a_n(x)$ habe $n$ Nullstellen, dann bedeutet das,
+dass zwischen diesen Nullstellen nach dem Satz von Rolle insgesamt $n-1$
+Nullstellen liegen.  Die ersten beiden Vorraussetzungen haben wir bereits für
+alle $a_n(x)$ überprüft.
+
+Da $h_{n+1}(x)$ ein Polynom vom Grade $n+1$ ist, kann es zusätzlich zu diesen
+$n-1$ noch maximal zwei weitere reelle Nullstellen haben.
 
 Seien die Nullstellen von $a_n(x)$ jeweils bei $x_0, x_1, \dots, x_n$. Wenn wir
 nun die äußersten Nullstellen $a_n(x_0) = 0$ und $a_n(x_n) = 0$ betrachten,
-dann ist klar, dass $a_n'(x_0) \neq 0$ und $a_n'(x_n) \neq 0$.
+dann ist klar, dass $a_n'(x_0) \neq 0$ und $a_n'(x_n) \neq 0$ (\textbf{Warum?}).
 
-Beweis:
+Das bedeutet, dass die Funktion $a_n(x)$ an den Nullstellen $a_n(x_0)$ und
+$a_n(x_n)$ ihr Vorzeichen wechselt, da die Funktion aber für $x \to \infty$
+gegen $0$ geht, muss $a_n(x)$ nochmal die Steigung $0$ haben. Die Steigung $0$
+bedeutet aber, dass an dieser Stelle (nennen wir sie $b$) $a_n'(b) = 0$ gelten
+muss. Somit hat $a_n'(x)$ noch zwei weitere Nullstellen.
 
-Sei $a_n(x_i) = 0$, dann muss $h_n(x_i) = 0$ sein, denn $e^{-x^2} \neq 0
-\forall x$. Dann ist $h_{n+1}(x_i) = h_n'(x_i) + 2x h_n(x_i) = h_n'(x_i)$. Wäre $h_n'(x_i) = 0$, dann wäre $h_n(x_i + \epsilon) = 0$ f
-
-
-dann finden wir ein beliebig kleines $\epsilon_0 > 0$ so, dass $a_n(x_0 -
-\epsilon_0) \neq 0$ und $a_n(x_0 + \epsilon_0)$, denn $a_n'(x_0) \neq 0$
-(Beweis?). Das bedeutet, dass $a_n(x)$ die Nullstelle entweder von unten oder
-von oben schneidet. Da aber $\lim_{x \to \infty} a_n(x) = 0$, kann die Funktion
-nicht ungegrenzt wachsen, sie muss irgendwann gegen 0 gehen. Um das zu tun,
-muss die Steigung der Funktion umdrehen. Das heisst, es existiert ein $a > 0$,
-bei dem $a_n'(x_0 - a) = 0$.
-
-Der obige Absatz gilt für $x_n$ analog.
-
-
-\begin{align*}
-  
-\end{align*}
-
-Für die inneren $n-2$ Nullstellen: Satz von Rolle. Die beiden äußeren
-Nullstellen existieren, weil $a_n$ gegen 0 geht, deswegen muss $a_n$ ab einem
-gewissen Punkt streng monoton fallen, die Steigung dreht sich also um, heisst
-da muss $a_n'(x) = 0$ sein, das sind die beiden verbliebenen Nullstellen.
-
-Zuerst beweisen wir, für die ersten drei Polynome, dass dort Nullstellenen in
-der zu beweisenden Anzahl auftreten.
-
-Zuerst prüf
-
-Die Funktion $a_0(x) = e^{-x^2}$ hat offensichtlich keine Nullstellen, denn
-$e^{-x^2} = 0$ hat keine Lösungen.
-
-Die Funktion $a_1(x) = -2x e^{-x^2}$ kann nur dann null werden, wenn $-2x = 0$,
-denn $e^{-x^2}$ hat keine Nullstellen (wie eben gezeigt).
-
-Die Funktion $a_2(x) = (4x^2 - 2) e^{-x^2}$ hat zwei Nullstellen, denn $4x^2 -
-2 = 0$ hat offensichtlich die Lösungen $x = \pm \sqrt{2}$.
-
-Damit haben wir die Vorraussetzung für die Anwendung des Satzes von Rolle geschaffen, nämlich zwei gleiche Funktionswerte
-
-
+Also hat $a_{n+1}(x)$ genau $n+1$ reelle Nullstellen.
 \end{document}
