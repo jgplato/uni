@@ -75,8 +75,10 @@ Polynom. Da $h_n(x)$ ein Polynom ist und $\lim_{x \to \pm \infty} e^{x^2} =
 
 \subsection*{Teil c}
 
-Wir beweisen zuerst, das der Satz von Rolle nicht für für echte Nullstellen
-gilt, sondern auch für Grenzwerte.
+Wir beweisen zuerst, das der Satz von Rolle nicht nur für für echte Nullstellen
+gilt, sondern auch für ``Nullstellen im Unendlichen ($f(\pm\infty) = 0$)'' (alles
+in Anführungszeichen weil mathematisch betrachtet hochgradig obszön - aber so
+ist nachvollziehbar, was wir meinen).
 
 Behauptung: Sei $f(x)$ eine im Intervall $[x_0, \infty[$ differenzierbare, im
 Intervall $]x_0, \infty[$ stetige Funktion mit einer Nullstelle $f(x_0) = 0$
@@ -100,17 +102,16 @@ Da $d \neq 0$ kann dies nur erfüllt sein, wenn die Ableitung null wird.
 \end{align*}
 
 Also hat $f'(x)$ mindestens eine Nullstelle im Intervall $[x_0, \infty[$. Damit
-ist der Beweis erbracht.
+ist der Beweis erbracht. Für $]-\infty, x_0]$ analog.
+
+Nun beweisen wir per Induktion, dass $a_n(x)$ genau $n$ reelle Nullstellen.
 
 Wir beginnen mit der Feststellung, dass an der Nullstelle $a_n(x_i) = 0$ nur
 erfüllt werden kann, wenn $h_n(x_i) = 0$, denn $e^{-x^2} \neq 0 \forall x$.
 
-Nun beweisen wir per Induktion, dass $h_n(x)$ genau $n$ reele Nullstellen hat
-(und damit $a_n(x)$).
-
 Induktionsvoraussetzung: Für die Anwendung des Satzes von Rolle und des
-modifizierten Satzes von Rolle auf $a_0(x)$ prüfen wir zuerst die wichtigen
-Vorraussetzungen:
+``modifizierten Satzes von Rolle'' (siehe oben) auf $a_0(x)$ prüfen wir zuerst
+die wichtigen Vorraussetzungen:
 
 \begin{itemize}
   \item Es müssen $a$ und $b$ existieren, für die $a_0(x_1) = a_0(x_2)$
@@ -118,8 +119,9 @@ Vorraussetzungen:
   \item $a_0(x)$ muss differenzierbar in $]a,b[$ sein
 \end{itemize}
 
-Die letzte Vorraussetzung erfüllt. Alle $a_n(x)$ sind überall differenzierbar.
-Da sie überall differenzierbar sind, müssen sie auch stetig sein.
+Die letzte Vorraussetzung ist erfüllt. Alle $a_n(x)$ sind überall
+differenzierbar. Da nur Polynome und die $e$-Funktion enthalten sind, beide die
+stetig sind, sind auch alle $a_n(x)$ stetig.
 
 Die Funktion $a_0(x)$ ist symmetrisch, denn
 
