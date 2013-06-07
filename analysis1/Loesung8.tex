@@ -231,4 +231,40 @@ Für $x=0$ haben wir den Zusammenhang gezeigt. Damit gilt insgesamt:
 
 Genau das war zu beweisen.
 
+\section*{Aufgabe 8.4}
+
+\subsection*{Teil a}
+Sei
+
+\begin{align*}
+  f_1(x) = \frac{t}{1+t}, \quad f_2(x) = \ln(1+t), \quad f_3(x) = t
+\end{align*}
+
+Wir zeigen, dass die Funktionen alle vom selben Punkt bei $t=0$ starten, aber
+jeweils langsamer steigen.
+
+\begin{align*}
+  f_1(0) &= \frac{0}{1} = 0 \\
+  f_2(0) &= \ln(1) = 0 \\
+  f_3(0) &= 0
+\end{align*}
+
+Somit $f_1(0) = f_2(0) = f_3(0)$.
+
+Unter der Vorraussetzung $t>0$:
+
+\begin{align*}
+&f_1'(x) < f_2(x) < f_3'(x) \\
+\Leftrightarrow\quad&\frac{1}{(1+t)^2} < \frac{1}{1+t} < 1 \\
+\Leftrightarrow\quad&\frac{1}{(1+t)} < 1 < 1+t
+\end{align*}
+
+Die zweite Hälfte ist wahr. Die erste Hälfte ist wahr, weil die zweite Hälfte
+wahr ist.
+
+Wenn also alle Funktionen vom selben Punkt starten, aber jeweils langsamer
+steigen, muss die gegebene Ungleichung gelten.
+
+\subsection*{Teil b}
+
 \end{document}
