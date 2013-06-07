@@ -151,6 +151,39 @@ aus dem Polynom $h_{n+1}(x)$ kommen und jedes Polynom vom Grad $n+1$ höchstens
 $n+1$ Nullstellen haben kann, hat das Polynom $a_{n+1}(x)$ genau $n+1$
 Nullstellen. Das war zu beweisen.
 
+\section*{Aufgabe 8.2}
+Sei $f(x) = \arctan \frac{1+x}{1-x}$ und $g(x) = \arctan x$. Die Ableitung von
+$g(x)$ lässt sich ablesen:
+
+\begin{align*}
+  g'(x) = \frac{1}{x^2+1}
+\end{align*}
+
+Die Ableitung von $f(x)$ kann man ausrechnen (sofern $x \neq 1$, denn dort ist
+eine Definitionslücke). Wir wenden die Kettenregel an:
+
+\begin{align*}
+  f'(x) &= \frac{1}{\left(\frac{1+x}{1-x}\right)^2+1} \cdot \frac{d}{dx} \frac{1+x}{1-x} \\
+        &= \frac{1}{\left(\frac{1+x}{1-x}\right)^2+1} \cdot \frac{d}{dx} \frac{1}{1-x} + \frac{x}{1-x} \\
+        &= \frac{1}{\left(\frac{1+x}{1-x}\right)^2+1} \cdot \frac{1}{(x-1)^2} + \frac{1}{(1-x)^2} \\
+        &= \frac{1}{\frac{1+2x+x^2+(1-2x+x^2)}{1-2x+x^2}} \cdot \frac{2}{x^2-2x+1} \\
+        &= \frac{1-2x+x^2}{2+2x^2} \cdot \frac{2}{x^2-2x+1} \\
+        &= \frac{1}{(1+x^2)} \\
+\end{align*}
+
+Man sieht, dass $f'(x) - g'(x) = 0$. Die Steigung ist also jeweils von
+$]-\infty, 1[$ bis $]1, +\infty[$ konstant. In $x = 1$ ist sie undefiniert. Da
+die Steigung konstant ist, sind dort alle Werte identisch. Wir berechnen also
+den Wert für $x=0$:
+
+\begin{align*}
+  \arctan \frac{1}{1} - \arctan 0 = \frac{\pi}{4} - 0 = \frac{\pi}{4}
+\end{align*}
+
+Dieser Wert gilt für alle $x \in ]-\infty, 1[$, also insbesondere auch für $x
+\leq 0$. Für $x > 1$ dann ein anderer Wert. Von der Berechnung sehen wir ab, da
+diese in der Aufgabenstellung nicht gefordert ist.
+
 \section*{Aufgabe 8.3}
 
 Wir machen einen Fallunterscheidung in $x = 0$ und $x > 0$.
@@ -266,5 +299,14 @@ Wenn also alle Funktionen vom selben Punkt starten, aber jeweils langsamer
 steigen, muss die gegebene Ungleichung gelten.
 
 \subsection*{Teil b}
+
+Sei $f(x) = \left(1+\frac{1}{x}\right)^x$. Zu beweisen: $f'(x) > 0 \forall x > 0$.
+
+Wir berechnen die Ableitung:
+
+\begin{align*}
+  f'(x) &= \frac{d}{dx} \left(1+\frac{1}{x}\right)^x \\
+        &= \ln\left(1+\frac{1}{x}\right)
+\end{align*}
 
 \end{document}
