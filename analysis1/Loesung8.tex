@@ -214,5 +214,21 @@ Zu zeigen:
 
 Die Stelle ist also nur ein Maximum, wenn $a > 1$. Dies ist gegeben.
 
+Jetzt berechnen wir noch den Maximalwert $f(x_0)$:
+
+\begin{align*}
+  f(x_0) &= \frac{1}{1+\frac{1}{\sqrt{a}}} - \frac{1}{1+\frac{a}{\sqrt{a}}} \\
+         &= \frac{\sqrt{a}}{\sqrt{a}+1} - \frac{1}{1+\sqrt{a}} \\
+         &= \frac{\sqrt{a} - 1}{\sqrt{a}+1}
+\end{align*}
+
+Für alle $x \in ]0, +\infty[$ ist $f(x)$ also kleiner oder gleich diesem Wert.
+Für $x=0$ haben wir den Zusammenhang gezeigt. Damit gilt insgesamt:
+
+\begin{align*}
+  \frac{1}{1+x} - \frac{1}{1+ax} \leq \frac{\sqrt{a} - 1}{\sqrt{a}+1} \qquad \forall\; x \geq 0, a > 1
+\end{align*}
+
+Genau das war zu beweisen.
 
 \end{document}
