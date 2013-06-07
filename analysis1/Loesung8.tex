@@ -150,4 +150,69 @@ Somit hat $a_{n+1}(x)$ mindestens $n+1$ Nullstellen. Da die Nullstellen alle
 aus dem Polynom $h_{n+1}(x)$ kommen und jedes Polynom vom Grad $n+1$ höchstens
 $n+1$ Nullstellen haben kann, hat das Polynom $a_{n+1}(x)$ genau $n+1$
 Nullstellen. Das war zu beweisen.
+
+\section*{Aufgabe 8.3}
+
+Wir machen einen Fallunterscheidung in $x = 0$ und $x > 0$.
+
+Fall 1: $x=0$
+
+Dann ist
+\begin{align*}
+  &\frac{1}{1+x} - \frac{1}{1+ax} \leq \frac{\sqrt{a} - 1}{\sqrt{a} + 1} \\
+  \Leftrightarrow\quad& 0 \leq \frac{\sqrt{a} - 1}{\sqrt{a} + 1} \\
+  \Rightarrow\quad&     0 \leq \sqrt{a} - 1
+\end{align*}
+
+Da $a > 1$ gegeben ist, ist dies immer wahr.
+
+Fall 2: $x > 0$
+
+Wir suchen den Extremwert von $f(x) = \frac{1}{1+x} - \frac{1}{1+ax}$, indem
+wir die Ableitung null setzen $f'(x) \overset{!}{=} 0$. Anschließend müssen wir
+nachsehen, ob die gefunden Lösung $x_0$ ein Maximum ist, indem wir $f''(x_0) <
+0$ zeigen.
+
+\begin{align*}
+  &f'(x) \overset{!}{=} 0 \\
+  \Leftrightarrow\quad& \frac{a}{(ax+1)^2} - \frac{1}{(x+1)^2} = 0 \\
+  \Leftrightarrow\quad& \frac{a}{(ax+1)^2} = \frac{1}{(x+1)^2} \\
+  \Leftrightarrow\quad& a(x+1)^2 = (ax+1)^2 \\
+  \Leftrightarrow\quad& a(x^2+2x+1) = a^2x^2+2ax+1 \\
+  \Leftrightarrow\quad& ax^2+2ax+a = a^2x^2+2ax+1 \\
+  \Leftrightarrow\quad& ax^2+a = a^2x^2+1 \\
+  \Leftrightarrow\quad& ax^2-a^2x^2 = 1-a \\
+  \Leftrightarrow\quad& x^2(a-a^2) = 1-a \\
+  \Leftrightarrow\quad& x^2 = \frac{1-a}{a(1-a)} \\
+  \Leftrightarrow\quad& x^2 = \frac{1}{a} \\
+  \Leftrightarrow\quad& x = \pm \frac{1}{\sqrt{a}} \\
+\end{align*}
+
+Da $x > 0$, fällt die negative Lösung weg. Die Extremstelle liegt also bei $x_0
+= \frac{1}{\sqrt{a}}$.
+
+Die zweite Ableitung ist:
+
+\begin{align*}
+  &f''(x) = \frac{2}{(x+1)^3} - \frac{2a^2}{(ax+1)^3}
+\end{align*}
+
+Zu zeigen:
+
+\begin{align*}
+  &f''(x_0) < 0\\
+  \Leftrightarrow\quad&\frac{2}{(\frac{1}{\sqrt{a}}+1)^3} - \frac{2a^2}{(\frac{a}{\sqrt{a}}+1)^3} < 0 \\
+  \Leftrightarrow\quad&\frac{2}{(\frac{1}{\sqrt{a}}+1)^3} < \frac{2a^2}{(\sqrt{a}+1)^3} \\
+  \Leftrightarrow\quad&\frac{2}{(\frac{1}{\sqrt{a}}(1+\sqrt{a}))^3} < \frac{2a^2}{(\sqrt{a}+1)^3} \\
+  \Leftrightarrow\quad&\frac{2}{\sqrt{a}^3 (1+\sqrt{a})^3} < \frac{2a^2}{(\sqrt{a}+1)^3} \\
+  \Leftrightarrow\quad&\frac{2}{\sqrt{a}^3} < 2a^2 \\
+  \Leftrightarrow\quad&\frac{1}{\sqrt{a}^3} < a^2 \\
+  \Leftrightarrow\quad& 1 < a^3 \\
+  \Leftrightarrow\quad& a^3 > 1\\
+  \Leftrightarrow\quad& a > 1
+\end{align*}
+
+Die Stelle ist also nur ein Maximum, wenn $a > 1$. Dies ist gegeben.
+
+
 \end{document}
