@@ -306,7 +306,27 @@ Wir berechnen die Ableitung:
 
 \begin{align*}
   f'(x) &= \frac{d}{dx} \left(1+\frac{1}{x}\right)^x \\
-        &= \ln\left(1+\frac{1}{x}\right)
+        &= \frac{d}{dx} e^{x \ln\left(1+\frac{1}{x}\right)} \\
+        &= \left(1+\frac{1}{x}\right)^x \frac{d}{dx} x \ln\left(1+\frac{1}{x}\right)  \\
+        &= \left(1+\frac{1}{x}\right)^x \left( \ln\left(1+\frac{1}{x}\right) + x \frac{d}{dx} \ln\left(1+\frac{1}{x}\right) \right) \\
+        &= \left(1+\frac{1}{x}\right)^x \left( \ln\left(1+\frac{1}{x}\right) + x \frac{1}{1+\frac{1}{x}} \frac{d}{dx} \left(1+\frac{1}{x}\right) \right) \\
+        &= \left(1+\frac{1}{x}\right)^x \left( \ln\left(1+\frac{1}{x}\right) + x \frac{1}{1+\frac{1}{x}} \frac{-1}{x^2} \right) \\
+        &= \left(1+\frac{1}{x}\right)^x \left( \ln\left(1+\frac{1}{x}\right) - \frac{1}{1+\frac{1}{x}} \frac{1}{x} \right) \\
+        &= \left(1+\frac{1}{x}\right)^x \left( \ln\left(1+\frac{1}{x}\right) - \frac{1}{x+1} \right) \\
 \end{align*}
+
+Zu zeigen: Wenn $x > 0$, dann gilt:
+
+\begin{align*}
+  &\underbrace{\left(1+\frac{1}{x}\right)^x}_{> 1} \left( \ln\left(1+\frac{1}{x}\right) - \frac{1}{x+1} \right) > 0 \\
+  \Leftrightarrow\quad& \ln\left(1+\frac{1}{x}\right) - \frac{1}{x+1} > 0 \\
+  \Leftrightarrow\quad& \ln\left(1+\frac{1}{x}\right) > \frac{1}{x+1} \\
+  \Leftrightarrow\quad& \underbrace{(x+1)}_{>1} \ln\left(1+\frac{1}{x}\right) > 1 \\
+  \Leftrightarrow\quad& \ln\underbrace{\left(1+\frac{1}{x}\right)}_{>1} > 1
+\end{align*}
+
+Der natürliche Logarithmus von einer Zahl die größer als 1 ist, ist immer
+größer als 1. Also stimmt die Aussage. Womit bewiesen ist, dass
+$\left(1+\frac{1}{x}\right)$ im Intervall $]0,+\infty[$ streng monoton wächst.
 
 \end{document}
