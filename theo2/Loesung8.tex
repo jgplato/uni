@@ -1,0 +1,68 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 8. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 3: Yukawa-Potential}
+
+Da im Rest der Aufgabenstellung nur von einem Drehimpuls die Rede ist und die
+$p_z$-Impulserhaltung (die in 3D-Zylinderkoordinaten auftreten würde) für das
+Problem egal ist, stellen wir die Lagrange-Gleichung in 2D-Polarkoordinaten
+auf.
+
+\begin{align*}
+  T &= \frac{m}{2} \left(\dot{r}^2 + r^2\dot{\phi}^2\right) \\
+  V &= -\frac{k}{r} e^{-\frac{r}{a}}
+\end{align*}
+
+Dies resultiert in der Lagrangefunktion
+
+\begin{align*}
+  L &= T - V \\
+    &= \frac{m}{2} \left(\dot{r}^2 + r^2\dot{\phi}^2\right) + \frac{k}{r} e^{-\frac{r}{a}}
+\end{align*}
+
+Es ergeben sich die Bewegungsgleichungen:
+
+\begin{align*}
+  m\ddot{r} &= \frac{1}{r^2} e^{-\frac{r}{a}} +  \frac{k}{ra} e^{-\frac{r}{a}} \\
+            &= \left(\frac{1}{r^2} + \frac{k}{ra}\right) e^{-\frac{r}{a}} \\
+  mr^2\ddot{\phi} &= 0 \\
+\end{align*}
+
+Es gibt also eine Drehimpulserhaltung:
+
+\begin{align*}
+  L_{\phi} &= mr^2\dot{\phi}
+\end{align*}
+
+Damit können wir die Gesamtenergie umschreiben und ein effektives Potential
+$V'(r)$ aufstellen.
+
+\begin{align*}
+  E &= V(r) + \frac{L_{\phi}^2}{2mr^2} + \frac{m\dot{r}^2}{2} \\
+  E &= V'(r) + \frac{m\dot{r}^2}{2} \\
+  V'(r) &= V(r) + \frac{L_{\phi}^2}{2mr^2}
+\end{align*}
+ 
+
+
+\end{document}
