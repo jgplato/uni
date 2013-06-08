@@ -61,7 +61,7 @@ Feld $\vec{E}$.
 Das Ampere-Maxwell-Gesetz lautet:
 
 \begin{align*}
-  \oint \vec{B} \cdot d\vec{s} = \mu_0 I + \mu_i \epsilon_0 \frac{d\Phi_{E}}{dt} \qquad\text{bzw.}\qquad \nabla \times B = \mu_0 \vec{j} + \mu_0 \vec{\epsilon_0} \frac{d}{dt} \vec{E}
+  \oint \vec{B} \cdot d\vec{s} = \mu_0 I + \mu_i \epsilon_0 \frac{d\Phi_{E}}{dt} \qquad\text{bzw.}\qquad \nabla \times B = \mu_0 \vec{j} + \mu_0 \epsilon_0 \frac{d}{dt} \vec{E}
 \end{align*}
 
 Ein durch eine Fläche laufender Strom $I$ erzeugt, genau wie ein sich zeitlich
@@ -98,6 +98,56 @@ Laplace-Gleichung:
   \Delta \Phi_{E}(\vec{r}) = 0
 \end{align*}
 
+\subsection*{Teil c}
+Im statischen Fall, also $\frac{d}{dt} \vec{E} = \frac{d}{dt} \vec{B} = 0$,
+erhält man dies aus den Maxwell-Gleichungen. Für das elektrische Feld:
 
+\begin{align*}
+  &\nabla \vec{E} = \frac{\rho}{\epsilon_0} \\
+  &\nabla \times \vec{E} = 0
+\end{align*}
+
+Das elektrische Feld wird also zum elektrostatischen konservativen
+Potentialfeld, das nicht an das Magnetfeld gekoppelt ist.
+
+Für das Magnetische Feld gilt dann:
+\begin{align*}
+  &\nabla \vec{B} = 0 \\
+  &\nabla \times \vec{B} = \mu_0 \vec{j}
+\end{align*}
+
+Das magnetische Feld hängt also nicht mehr mit dem elektrischen Feld zusammen.
+
+\subsection*{Teil d}
+
+Der maxwellsche Verschiebungsstrom löst das Paradoxon, dass durch die Anwendung
+des Ampereschen Gesetzes an einem ladenden Kondensator auftritt.
+
+Um zu beweisen, dass die Kontinuitätsgleichung gilt, benutzen wir das
+Ampere-Maxwell-Gesetz:
+
+\begin{align*}
+  \nabla \times B = \mu_0 \vec{j} + \mu_0 \epsilon_0 \frac{d}{dt} \vec{E} \\
+  \nabla(\nabla \times B) = \nabla \mu_0 \vec{j} + \nabla \mu_0 \epsilon_0 \frac{d}{dt} \vec{E} \\
+\end{align*}
+
+Für jeden beliebigen Vektor $\vec{a}$ verschwindet $\nabla(\nabla \times \vec{a})$, also:
+
+\begin{align*}
+  \nabla \mu_0 \vec{j} + \nabla \mu_0 \epsilon_0 \frac{d}{dt} \vec{E} = 0
+\end{align*}
+
+Aus dem ersten Maxwell-Gesetz erhalten wir $\rho = \epsilon_0 \nabla \vec{E}$.
+Eingesetzt:
+
+\begin{align*}
+  \nabla \mu_0 \vec{j} + \mu_0 \frac{d}{dt} \rho = 0
+\end{align*}
+
+Wir kürzen $\mu_0$ und erhalten die Kontinuitätsgleichung:
+
+\begin{align*}
+  \frac{d \rho}{d t} + \nabla \vec{j} = 0
+\end{align*}
 
 \end{document}
