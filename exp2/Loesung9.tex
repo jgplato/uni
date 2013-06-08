@@ -1,0 +1,103 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 9. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 2: Maxwellgleichungen}
+
+Das Gaußsche Gesetz des elektrischen Feldes lautet:
+
+\begin{align*}
+  \oint \vec{E} \cdot d\vec{A} = \frac{1}{\epsilon_0} \int \rho\;dV \qquad\text{bzw.}\qquad \nabla \vec{E} = \frac{\rho}{\epsilon_0}
+\end{align*}
+
+Das Volumen $V$ habe die geschlossene Oberfläche $A$. Der elektrische Fluss
+durch die Oberfläche ist proportional zu der im Volumen $V$ eingeschlossenen
+elektrischen Ladung mit der Ladungsdichte $\rho$. Die elektrische Ladung ist
+Quelle es Quelle des elektrischen Feldes.
+
+Das Gaußsche Gesetz des Magnetfeldes lautet:
+
+\begin{align*}
+  \oint \vec{B} \cdot d\vec{A} = 0 \qquad\text{bzw.}\qquad \nabla \vec{B} = 0
+\end{align*}
+
+Der magnetische Fluss durch die Oberfläche $A$ verschwindet. Das Magnetfeld
+wird als quellenfrei angenommen, es gäbe keine magnetischen Monopole.
+Tatsächlich wurden magnetische Monopole bis jetzt nicht beobachtet.
+
+Das Faradaysche Gesetz (Induktionsgesetz) lautet:
+
+\begin{align*}
+  \oint \vec{E} \cdot d\vec{s} = -\frac{d}{dt} \int \vec{B} \cdot d\vec{A} \qquad\text{bzw.}\qquad \nabla \times \vec{E} = -\frac{d}{dt} \vec{B}
+\end{align*}
+
+Ein sich zeitlich änderndes Magnetfeld induziert ein elektrisches Feld. Wenn
+die Fläche $A$ von einem sich zeitlich ändernden Magnetfeld $\dot{\vec{B}}$
+durchstoßen wird, erzeugt dies auf dem Rand dieser Fläche (charakterisiert
+durch das tangentiale Linienelement $d\vec{s}$ ein umlaufendes elektrisches
+Feld $\vec{E}$.
+
+Das Ampere-Maxwell-Gesetz lautet:
+
+\begin{align*}
+  \oint \vec{B} \cdot d\vec{s} = \mu_0 I + \mu_i \epsilon_0 \frac{d\Phi_{E}}{dt} \qquad\text{bzw.}\qquad \nabla \times B = \mu_0 \vec{j} + \mu_0 \vec{\epsilon_0} \frac{d}{dt} \vec{E}
+\end{align*}
+
+Ein durch eine Fläche laufender Strom $I$ erzeugt, genau wie ein sich zeitlich
+änderndes elektrisches Feld $\dot{\Phi_{E}}$ ein auf der Randkurve, die
+charakterisiert ist durch das tangentiale Linienelement $d\vec{s}$, ein
+Magnetfeld $\vec{B}$.
+
+\subsection*{Teil b}
+
+Im elektrostatischen Fall ist $\vec{E}$ ein konservatives Feld. Es kann dann
+also als Gradient des Potentials $\Phi_{E}$ geschrieben werden:
+
+\begin{align*}
+  \vec{E}(\vec{r}) = -\nabla \Phi_{E}(\vec{r}) \\
+  \Leftrightarrow\quad&\nabla \vec{E}(\vec{r}) = -\Delta \Phi_{E}(\vec{r}) \\
+\end{align*}
+
+Die erste Maxwell-Gleichung lautet:
+
+\begin{align*}
+  &\nabla \vec{E} = \frac{\rho}{\epsilon_0}
+\end{align*}
+
+Wenn man diese einsetzt erhält man die Poisson-Gleichung:
+
+\begin{align*}
+  \Delta \Phi_{E}(\vec{r}) = -\frac{\rho(\vec{r}}{\epsilon_0}
+\end{align*}
+
+Für den Fall, dass die Quellendichte $\rho = 0$ ist, erhält man die
+Laplace-Gleichung:
+
+\begin{align*}
+  \Delta \Phi_{E}(\vec{r}) = 0
+\end{align*}
+
+
+
+\end{document}
