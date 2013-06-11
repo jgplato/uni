@@ -21,6 +21,31 @@ Analytische Mechanik, Sommersemester 2013, 8. Blatt \\
 Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
+\section*{Aufgabe 2: Zentralkraft}
+\subsection*{Teil a}
+Wenn $F(r) = a \cdot \frac{1}{r^5}$ sein soll, folgt aus $F(r) =
+-\frac{\partial}{\partial r} V(r)$ und unter Benutzung des Hinweises:
+
+\begin{align*}
+  V(r) = - \frac{2R^2L^2}{m} r^{-4}
+\end{align*}
+
+Zusammen mit der kinetischen Energie in Polarkoordinaten ergibt dies die
+Lagrangefunktion:
+
+\begin{align*}
+  L &= T - V \\
+    &= \frac{m}{2}(\dot{r}^2 + r^2\dot{\phi}^2) + \frac{2R^2L^2}{m} r^{-4}
+\end{align*}
+
+Durch Anwendung der Lagrange-Gleichung:
+
+\begin{align*}
+  m\ddot{r} &= -\frac{8R^2L^2}{m}r^{-5} \\
+  mr^2\ddot{\phi} &= 0
+\end{align*}
+
+
 \section*{Aufgabe 3: Yukawa-Potential}
 
 Da im Rest der Aufgabenstellung nur von einem Drehimpuls die Rede ist und die
@@ -60,9 +85,9 @@ $V'(r)$ aufstellen.
 \begin{align*}
   E &= V(r) + \frac{L_{\phi}^2}{2mr^2} + \frac{m\dot{r}^2}{2} \\
   E &= V'(r) + \frac{m\dot{r}^2}{2} \\
-  V'(r) &= V(r) + \frac{L_{\phi}^2}{2mr^2}
+  V'(r) &= V(r) + \frac{L_{\phi}^2}{2mr^2} \\
+        &= \frac{L_{\phi}^2}{2mr^2} - \frac{k}{r} e^{-\frac{r}{a}}
 \end{align*}
- 
 
 
 \end{document}
