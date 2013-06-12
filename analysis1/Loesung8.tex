@@ -76,23 +76,34 @@ Polynom. Da $h_n(x)$ ein Polynom ist und $\lim_{x \to \pm \infty} e^{x^2} =
 \subsection*{Teil c}
 
 Wir beweisen zuerst, das der Satz von Rolle nicht nur für für echte Nullstellen
-gilt, sondern auch für ``Nullstellen im Unendlichen ($f(\pm\infty) = 0$)'' (alles
-in Anführungszeichen weil mathematisch betrachtet hochgradig obszön - aber so
-ist nachvollziehbar, was wir meinen).
+gilt, sondern auch für ``eine Nullstelle im Unendlichen ($f(\infty) = 0$)'' (in
+Anführungszeichen, weil eigentlich keine richtige Mathematik, allerdings drückt
+es aus, was wir meinen).
 
-Behauptung: Sei $f(x)$ eine im Intervall $[x_0, \infty[$ differenzierbare, im
-Intervall $]x_0, \infty[$ stetige Funktion mit einer Nullstelle $f(x_0) = 0$
-und einem Grenzwert $\lim_{x \to \infty} f(x) = 0$. Dann existiert mindestens
-ein $c \in (x_0, \infty)$ für das gilt, dass $f'(c) = 0$.
+\textbf{Behauptung:} Sei $f(x)$ eine im Intervall $[x_0, \infty[$
+differenzierbare, im Intervall $]x_0, \infty[$ stetige Funktion mit einer
+Nullstelle $f(x_0) = 0$ und einem Grenzwert $\lim_{x \to \infty} f(x) = 0$.
+Dann existiert mindestens ein $c \in ]x_0, \infty[$ für das gilt, dass $f'(c) =
+0$.
 
-Beweis: Sei $g(x) = f\left(x_0 - 1 + \frac{1}{x}\right)$ für $x \in ]0, 1]$ und $g(x) =
-0$. Dann ist $g(x)$ stetig in $[0,1]$ und differenzierbar in $]0, 1[$. Außerdem
+\textbf{Beweis:} Wir bilden einfach das Intervall $[1, 0]$ auf $[x_0, \infty]$
+ab.
+
+Sei
+\begin{align*}
+  g(x) = \begin{cases}
+    f\left(x_0 - 1 + \frac{1}{x}\right) & \text{wenn } x \in ]0,1] \\
+    0                                   & \text{wenn } x = 0
+  \end{cases}
+\end{align*}
+
+Dann ist $g(x)$ stetig in $[0,1]$ und differenzierbar in $]0, 1[$. Außerdem
 ist $g(0) = g(1) = 0$. Nach dem Satz von Rolle muss mindestens ein $d \in ]0,1[$
 existieren für das gilt, dass $g'(d) = 0$. Daraus folgt 
 
 \begin{align*}
-  &0 = g'(d) \\
-  \Leftrightarrow\quad&0 = -\frac{1}{d^2} f'\left(x_0 - 1 + \frac{1}{x}\right)(d)
+  &g'(d) = 0 \\
+  \Leftrightarrow\quad&-\frac{1}{d^2} \cdot f'\left(x_0 - 1 + \frac{1}{d}\right) = 0
 \end{align*}
 
 Da $d \neq 0$ kann dies nur erfüllt sein, wenn die Ableitung null wird.
@@ -102,28 +113,32 @@ Da $d \neq 0$ kann dies nur erfüllt sein, wenn die Ableitung null wird.
 \end{align*}
 
 Also hat $f'(x)$ mindestens eine Nullstelle im Intervall $[x_0, \infty[$. Damit
-ist der Beweis erbracht. Für $]-\infty, x_0]$ analog.
+ist der Beweis erbracht. Der Beweis gilt für $]-\infty, x_0]$ analog, daher
+sparen wir uns den.
 
-Nun beweisen wir per Induktion, dass $a_n(x)$ genau $n$ reelle Nullstellen.
+Mit diesem Werkzeug beweisen wir nun per Induktion, dass $a_n(x)$ genau $n$
+reelle Nullstellen hat.
 
-Wir beginnen mit der Feststellung, dass an der Nullstelle $a_n(x_i) = 0$ nur
-erfüllt werden kann, wenn $h_n(x_i) = 0$, denn $e^{-x^2} \neq 0 \forall x$.
+Die Nullstellen bezeichnen wir mit $x_0, x_1, \dots, x_n$. Sei $x_i$ eine
+beliebige Nullstelle. Wir beginnen mit der Feststellung, dass an der Nullstelle
+$x_i$ die Bedingung $a_n(x_i) = 0$ nur erfüllt werden kann, wenn $h_n(x_i) =
+0$, denn $e^{-x^2} \neq 0\;\forall x$.
 
 Induktionsvoraussetzung: Für die Anwendung des Satzes von Rolle und des
 ``modifizierten Satzes von Rolle'' (siehe oben) auf $a_0(x)$ prüfen wir zuerst
 die wichtigen Vorraussetzungen:
 
 \begin{itemize}
-  \item Es müssen $a$ und $b$ existieren, für die $a_0(x_1) = a_0(x_2)$
+  \item Es müssen $a$ und $b$ existieren, für die $a_0(a) = a_0(b)$ gilt.
   \item $a_0(x)$ muss stetig in $[a,b]$ sein
   \item $a_0(x)$ muss differenzierbar in $]a,b[$ sein
 \end{itemize}
 
 Die letzte Vorraussetzung ist erfüllt. Alle $a_n(x)$ sind überall
-differenzierbar. Da nur Polynome und die $e$-Funktion enthalten sind, beide die
+differenzierbar. Da nur Polynome und die $e$-Funktion enthalten sind, die beide
 stetig sind, sind auch alle $a_n(x)$ stetig.
 
-Die Funktion $a_0(x)$ ist symmetrisch, denn
+Die Funktion $a_0(x)$ ist symmetrisch an der $y$-Achse, denn
 
 \begin{align*}
   &a_0(x) = a_0(-x) \\
@@ -131,10 +146,10 @@ Die Funktion $a_0(x)$ ist symmetrisch, denn
   \Leftrightarrow\quad &e^{-x^2} = e^{-x^2}
 \end{align*}
 
-Das bedeutet, dass die erste Vorraussetzung erfüllt ist. Deswegen hat $a_1(x)$
-eine Nullstelle, und zwar nur eine, denn $a_1(x)$ kann nur null werden, wenn
-$h_1(x)$ null wird. Dies ist ein Polynom $1$ Grades, dass maximal einen
-Nullstelle haben kann.
+Das bedeutet, dass die erste Vorraussetzung erfüllt ist. Es gibt mindestens ein
+$a_0(a) = a_0(b)$. Deswegen hat $a_1(x)$ eine Nullstelle, und zwar nur eine,
+denn $a_1(x)$ kann nur null werden, wenn $h_1(x)$ null wird. Dies ist ein
+Polynom $1$ Grades, dass maximal einen Nullstelle haben kann.
 
 Induktionsschritt: Angenommen $a_n(x)$ habe $n$ Nullstellen, dann bedeutet das,
 dass zwischen diesen Nullstellen nach dem Satz von Rolle insgesamt mindestens $n-1$
@@ -142,14 +157,14 @@ Nullstellen liegen.
 
 Seien die Nullstellen von $a_n(x)$ jeweils bei $x_0, x_1, \dots, x_n$. Dann
 gilt $a_n(x_0) = \lim_{x \to -\infty} a_n(x) = 0$ und $a_n(x_n) = \lim_{x \to
-\infty} = 0$. Nach obigem Beweis des Satzes von Rolle für Grenzwerte muss $a_{n+1}(x)$
-in den Intervallen $]-\infty,x_0]$ und $[x_n,\infty[$ jeweils mindestens eine
-Nullstelle haben.
+\infty} = 0$. Nach obigem Beweis des ``Satzes von Rolle für Grenzwerte'' muss
+$a_{n+1}(x)$ in den Intervallen $]-\infty,x_0]$ und $[x_n,\infty[$ jeweils
+mindestens eine Nullstelle haben.
 
-Somit hat $a_{n+1}(x)$ mindestens $n+1$ Nullstellen. Da die Nullstellen alle
-aus dem Polynom $h_{n+1}(x)$ kommen und jedes Polynom vom Grad $n+1$ höchstens
-$n+1$ Nullstellen haben kann, hat das Polynom $a_{n+1}(x)$ genau $n+1$
-Nullstellen. Das war zu beweisen.
+Somit hat $a_{n+1}(x)$ \textit{mindestens} $n+1$ Nullstellen. Da die
+Nullstellen alle aus dem Polynom $h_{n+1}(x)$ kommen und jedes Polynom vom Grad
+$n+1$ \textit{höchstens} $n+1$ Nullstellen haben kann, hat das Polynom
+$a_{n+1}(x)$ \textit{genau} $n+1$ Nullstellen. Das war zu beweisen.
 
 \section*{Aufgabe 8.2}
 Sei $f(x) = \arctan \frac{1+x}{1-x}$ und $g(x) = \arctan x$. Die Ableitung von
@@ -287,13 +302,12 @@ Somit $f_1(0) = f_2(0) = f_3(0)$.
 Unter der Vorraussetzung $t>0$:
 
 \begin{align*}
-&f_1'(x) < f_2(x) < f_3'(x) \\
-\Leftrightarrow\quad&\frac{1}{(1+t)^2} < \frac{1}{1+t} < 1 \\
-\Leftrightarrow\quad&\frac{1}{(1+t)} < 1 < 1+t
+&f_1'(x) < f_2'(x) < f_3'(x) \\
+\Leftrightarrow\quad&\frac{1}{(1+t)^2} < \frac{1}{1+t} < 1 \qquad\qquad | \cdot (1+t) \\
+\Leftrightarrow\quad&\frac{1}{1+t} < 1 < 1+t
 \end{align*}
 
-Die zweite Hälfte ist wahr. Die erste Hälfte ist wahr, weil die zweite Hälfte
-wahr ist.
+Da $t > 0$ ist dies wahr.
 
 Wenn also alle Funktionen vom selben Punkt starten, aber jeweils langsamer
 steigen, muss die gegebene Ungleichung gelten.
