@@ -1,0 +1,77 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analytische Mechanik, Sommersemester 2013, 9. Blatt \\
+Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+\section*{Exercise 1}
+\subsection*{Part a}
+
+Let $c_{ij} = a_{ik} b_{kj}$ (which is the definition of matrix multiplication)
+then
+
+\begin{align*}
+  x_i'' &= a_{ik} x'_k \\
+         = a_{ik} b_{kj} x_j \\
+         = c_{ij} x_j
+\end{align*}
+
+\subsection*{Part b}
+
+It's obiously true that
+
+\begin{align*}
+  a_{ik} b_{kj} \neq b_{ik} a_{kj}
+\end{align*}
+
+if $a_{ik} \neq a_{ki}$
+
+
+\section*{Exercise 2}
+
+Let
+
+\begin{align*}
+  r_i  &= a^{-1}_{ij} r_j'
+  r_j' &= a_{jk} r_k \\
+\end{align*}
+
+Then
+
+\begin{align*}
+   r_i  &= \underbrace_{a^{-1}_{ij} a_{jk}}_{\text{must $= \delta_{ik}$}} r_k \\
+   \Leftrightarrow
+\end{align*}
+
+Because $r_i$ should equal $r_k$ iff $i = k$, otherwise $a^{-1}_{ij} a_{jk}$
+should be zero, we can write
+
+\begin{align*}
+  a^{-1}_{ij} a_{jk} = \delta_{ik}
+\end{align*}
+
+which is the identity matrix. This works in both directions $r \to r' \ro r$ as
+well as $r' \to r \to r'$. Thus $AA^{-1} = A^{-1}A = I$.
+
+An orthogal transformation is defined as 
+
+
+
+\end{document}
