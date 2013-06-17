@@ -35,9 +35,9 @@ f(x) = \lim_{t \searrow 0} f\left(\frac{1}{t}\right)$.
 \begin{align*}
   \lim_{x \to \infty} \left(2-a^\frac{1}{x}\right)^x &= \exp \lim_{x \to \infty} x \cdot \log \left(2-a^\frac{1}{x}\right) \\
   &= \exp \lim_{t \searrow 0} \frac{\log (2-a^t)}{t} \\
-  &= \exp \lim_{t \searrow 0} \frac{a^t \cdot \log a}{2-a^t} \\
-  &= \exp \frac{a^0 \cdot \log a}{2-a^0} \\
-  &= \exp \frac{1 \cdot \log a}{2-1} \\
+  &= \exp \lim_{t \searrow 0} \frac{-a^t \cdot \log a}{2-a^t} \\
+  &= \exp \frac{-a^0 \cdot \log a}{2-a^0} \\
+  &= \exp \frac{-1 \cdot \log a}{2-1} \\
   &= \exp (-\log a) \\
   &= \frac{1}{a}
 \end{align*}
