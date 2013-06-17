@@ -84,6 +84,17 @@ Reihenglied.
 
 Also ist die Folge konvergent für alle $x$.
 
+\subsection*{Teil b}
+Wir bilden die Ableitung durch gliedweise Ableitung der Folge.
+
+\begin{align*}
+  \frac{d}{dx} f(x) &= \sum_{n=0}^\infty \frac{d}{dx} \left(\frac{1+x}{1+n}\right)^n \\
+  &= \sum_{n=0}^\infty \frac{\frac{d}{dx} (1+x)^n}{(1+n)^n} \\
+  &= \sum_{n=0}^\infty \frac{n (1+x)^{n-1}}{(1+n)^n}
+\end{align*}
+
+Wenn eine Folge konvergiert, konvergiert auch ihre Ableitung (wissen wir aus
+dem Zusatztutorium).  Also konvergiert diese Folge.
 
 
 \end{document}
