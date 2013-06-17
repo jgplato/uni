@@ -67,5 +67,23 @@ $2k-4 = 0$, beachten also nur $k=2$ und werfen den Rest weg.
    &= -\frac{1}{12}
 \end{align*}
 
+\section*{Aufgabe 9.2}
+\subsection*{Teil a}
+
+Wir zeigen die Konvergenz mittels Wurzelkriterium, dazu sei $a_n$ ein
+Reihenglied.
+
+\begin{align*}
+  \lim_{n \to \infty} \sqrt[n]{|a_n|} &= \lim_{n \to \infty} \sqrt[n]{\left|\left(\frac{1+x}{1+n}\right)^n\right|} \\
+  &= \lim_{n \to \infty} \left|\frac{1+x}{1+n}\right| \\
+  &\le \lim_{n \to \infty} \left|\frac{1}{1+n}\right| + \left|\frac{x}{1+n}\right|\\
+  &= \lim_{n \to \infty} \left|\frac{1}{1+n}\right| + \lim_{n \to \infty} \left|\frac{x}{1+n}\right|\\
+  &= 0 + x \cdot \lim_{n \to \infty} \left|\frac{1}{1+n}\right|\\
+  &= 0 < 1
+\end{align*}
+
+Also ist die Folge konvergent für alle $x$.
+
+
 
 \end{document}
