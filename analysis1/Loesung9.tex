@@ -42,5 +42,31 @@ f(x) = \lim_{t \searrow 0} f\left(\frac{1}{t}\right)$.
   &= \frac{1}{a}
 \end{align*}
 
+\section*{Aufgabe 9.2}
+
+Die Berechnung mit L'Hospital ist möglich, aber langweilig. Wir folgen dem
+Hinweis der Aufgabenstellung und schreiben die Funktionen als Reihen um.
+
+\begin{align*}
+  \lim_{x \to 0} \frac{\cos x - e^{-\frac{x^2}{2}}}{x^4} &= \lim_{x \to 0} \frac{\left(\sum_{k=0}^\infty (-1)^k \frac{x^{2k}}{(2k)!}\right) - \left(\sum_{k=0}^{\infty} \frac{\left(-\frac{x^2}{2}\right)^k}{k!} \right)}{x^4} \\
+   &= \lim_{x \to 0} \frac{\left(\sum_{k=0}^\infty (-1)^k \frac{x^{2k}}{(2k)!} - \sum_{k=0}^{\infty} \frac{\left(-\frac{x^2}{2}\right)^k}{k!} \right)}{x^4} \\
+   &= \lim_{x \to 0} \frac{\sum_{k=0}^\infty (-1)^k \frac{x^{2k}}{(2k)!} - \frac{\left(-\frac{x^2}{2}\right)^k}{k!} }{x^4} \\
+   &= \lim_{x \to 0} \frac{\sum_{k=0}^\infty (-1)^k \left(\frac{x^{2k}}{(2k)!} - \frac{\left(\frac{x^2}{2}\right)^k}{k!}\right)}{x^4} \\
+\end{align*}
+\begin{align*}
+   &= \lim_{x \to 0} \frac{\sum_{k=0}^\infty (-1)^k \frac{x^{2k}\cdot k! \cdot 2^k - x^{2k} \cdot (2k)!}{(2k)! \cdot 2^k \cdot k!}}{x^4} \\
+   &= \lim_{x \to 0} \frac{\sum_{k=0}^\infty (-1)^k \frac{k! \cdot 2^k -  (2k)!}{(2k)! \cdot 2^k \cdot k!} x^{2k}}{x^4} \\
+   &= \lim_{x \to 0} \sum_{k=0}^\infty (-1)^k \frac{k! \cdot 2^k -  (2k)!}{(2k)! \cdot 2^k \cdot k!} x^{2k-4} \\
+\end{align*}
+    Da $x \to 0$, ist klar, dass in der Reihe alle Glieder verschwinden, außer die
+    $x^0$-Summanden, diese werden zu $x^0 = 1$. Die $x^0$-Glieder erhalten wir bei
+    $2k-4 = 0$, beachten also nur $k=2$ und werfen den Rest weg.
+
+\begin{align*}
+   &= (-1)^2 \frac{2! \cdot 2^2 -  (2\cdot2)!}{(2\cdot2)! \cdot 2^2 \cdot 2!} \\
+   &= \frac{8 - 24}{192} \\
+   &= -\frac{1}{12}
+\end{align*}
+
 
 \end{document}
