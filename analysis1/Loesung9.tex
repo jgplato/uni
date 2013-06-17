@@ -1,0 +1,46 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{wrapfig}
+\usepackage{pdflscape}
+\pagenumbering{gobble}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis I, Sommersemester 2013, 9. Übungsblatt \\
+Luis Herrmann und Markus Fenske, Tutor: Adam Schienle
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 9.1}
+
+Wir benutzen die Stetigkeit der Exponential- und der Logarithmusfunktion (denn
+dann dürfen wir den Limes in die Funktion ziehen), außerdem, dass $\exp \log a
+= a$ und die Regel von L'Hospital. Und natürlich, dass $\lim_{x \to \infty}
+f(x) = \lim_{t \searrow 0} f\left(\frac{1}{t}\right)$.
+
+\begin{align*}
+  \lim_{x \to \infty} \left(2-a^\frac{1}{x}\right)^x &= \exp \lim_{x \to \infty} x \cdot \log \left(2-a^\frac{1}{x}\right) \\
+  &= \exp \lim_{t \searrow 0} \frac{\log (2-a^t)}{t} \\
+  &= \exp \lim_{t \searrow 0} \frac{a^t \cdot \log a}{2-a^t} \\
+  &= \exp \frac{a^0 \cdot \log a}{2-a^0} \\
+  &= \exp \frac{1 \cdot \log a}{2-1} \\
+  &= \exp (-\log a) \\
+  &= \frac{1}{a}
+\end{align*}
+
+
+\end{document}
