@@ -21,11 +21,10 @@ Analytische Mechanik, Sommersemester 2013, 9. Blatt \\
 Luis Herrmann und Markus Fenske, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
-\section*{Exercise 1}
-\subsection*{Part a}
+\section*{Aufgabe 1}
+\subsection*{Teil a}
 
-Let $c_{ij} = a_{ik} b_{kj}$ (which is the definition of matrix multiplication)
-then
+Wir nutzen die gegebenen Gleichungen und schreiben $c_{ij} = a_{ik} b_{kj}$
 
 \begin{align*}
   x_i'' &= a_{ik} x'_k \\
@@ -33,46 +32,60 @@ then
          = c_{ij} x_j
 \end{align*}
 
-\subsection*{Part b}
+Dann ist klar, dass $C = AB$ die Transformation $\vec{r} \to \vec{r}''$ ist.
 
-It's obiously true that
+Wenn $A$ eine orthogonale Transformation ist, dann gilt $|Ar| = |r|$ (Länge
+bleibt erhalten). Analog gilt für $B$: $|Br| = |r|$. Also:
+
+\begin{align*}
+  |r''| = |Ar'| = |r'| = |Br| = |r|
+\end{align*}
+
+Da $r'' = Cr$ und $|r''| = |r|$ muss $C$ eine orthogonale Transformation sein.
+
+\subsection*{Teil b}
+
+Es ist offensichtlich wahr, dass allgemein gilt:
 
 \begin{align*}
   a_{ik} b_{kj} \neq b_{ik} a_{kj}
 \end{align*}
 
-if $a_{ik} \neq a_{ki}$
+Also $[A,B] \neq 0$, wie gefordert.
 
 
-\section*{Exercise 2}
+\section*{Aufgabe 2}
 
-Let
+Sei
 
 \begin{align*}
   r_i  &= a^{-1}_{ij} r_j'
   r_j' &= a_{jk} r_k \\
 \end{align*}
 
-Then
-
-% make it compile
-%\begin{align*}
-%   r_i  &= \underbrace_{a^{-1}_{ij} a_{jk}}_{\text{must $= \delta_{ik}$}} r_k \\
-%   \Leftrightarrow
-%\end{align*}
-
-Because $r_i$ should equal $r_k$ iff $i = k$, otherwise $a^{-1}_{ij} a_{jk}$
-should be zero, we can write
+Dann folgt
 
 \begin{align*}
-  a^{-1}_{ij} a_{jk} = \delta_{ik}
+   r_i  &= a^{-1}_{ij} a_{jk} r_k
 \end{align*}
 
-which is the identity matrix. This works in both directions $r \to r' \to r$ as
-well as $r' \to r \to r'$. Thus $AA^{-1} = A^{-1}A = I$.
+Da $r_i = r_k\;\forall r$, muss $a^{-1}_{ij} a_{jk} = \delta_{ik}$.
 
-An orthogal transformation is defined as 
+Für die Rücktransformation gilt dies analog, woraus folgt, dass $a_{ij}
+a^{-1}_{jk} = \delta_{ik}$.
 
+Also ist $[A, A^{-1}] = E_n - E_n = 0$.
 
+Sei $A$ orthogonal, dann bilden die Zeilen- und die Spaltenvektoren eine Orthonormalbasis. Es ist also:
+
+\begin{align*}
+  AA^T = A^TA = E_n
+\end{align*}
+
+Daraus folgt
+
+\begin{align*}
+  AA^T = E_n \Leftrightarrow A^T = A^{-1}
+\end{align*}
 
 \end{document}
