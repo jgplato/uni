@@ -60,7 +60,7 @@ Also $[A,B] \neq 0$, wie gefordert.
 Sei
 
 \begin{align*}
-  r_i  &= a^{-1}_{ij} r_j'
+  r_i  &= a^{-1}_{ij} r_j' \\
   r_j' &= a_{jk} r_k \\
 \end{align*}
 
@@ -102,9 +102,9 @@ Inverse zu $AB$. Es muss also gelten:
 
 \begin{align*}
   (AB)(B^{-1}A^{-1}) = E_n \\
-  \Leftrightarrow\quad A(BB^{-1)}A^{-1}) = E_n \\
-  \Leftrightarrow\quad AE_nA^{-1}) = E_n \\
-  \Leftrightarrow\quad AA^{-1}) = E_n \\
+  \Leftrightarrow\quad A(BB^{-1)}A^{-1} = E_n \\
+  \Leftrightarrow\quad AE_nA^{-1} = E_n \\
+  \Leftrightarrow\quad AA^{-1} = E_n \\
 \end{align*}
 
 Was wahr ist (Assoziativgesetz).
@@ -124,10 +124,9 @@ Also ist $\det A = 0$.
 
 Das steht im Skript Lineare Algebra, Satz 5.7.3. Kurz zusammengefasst wird von
 dem Ergebnis für $2\times2$-Matrizen ausgegangen und dann per Laplace'schem
-Entwicklungssatz gezeigt, dass dies für $n\times n$-Matrizen gilt. Ich sehe
-keinen Sinn darin, das abzutippen.
+Entwicklungssatz gezeigt, dass dies für $n\times n$-Matrizen gilt.
 
-\section{Aufgabe 4}
+\section*{Aufgabe 4}
 \begin{align*}
   &AA^T = E_n\\
   \Leftrightarrow\quad&|AA^T| = |E_n| \\
@@ -138,26 +137,26 @@ keinen Sinn darin, das abzutippen.
 
 Also muss $|A| = 1$ oder $|A| = -1$ gelten.
 
-\section{Aufgabe 5}
+\section*{Aufgabe 5}
 Nicht bearbeitet.
 
-\section{Aufgabe 6}
+\section*{Aufgabe 6}
 Die Drehung ist eine linare Abbildung (weil durch eine Matrix definierbar). Es
 reicht also, die Basisvektoren zu transformieren um die Drehmatrix zu erhalten.
 
-Sei $R$ die Drehmatrix mit $\vec{r}' = R\vec{r}$. Seien $\widehat{x_n}$ bzw.
-$\widehat{x_n}'$ die Basisvektoren, $x_n$ die jeweiligen Komponenten, es gelte
+Sei $R$ die Drehmatrix mit $\vec{r}' = R\vec{r}$. Seien $\widehat{x}_n$ bzw.
+$\widehat{x}_n'$ die Basisvektoren, $x_n$ die jeweiligen Komponenten, es gelte
 Summenkonvention.
 
 \begin{align*}
   \vec{x}' &= R \vec{x} \\
-  x_n\widehat{x_n}' &= R(x_n\widehat{x_n}') \\
+  x_n\widehat{x}_n' &= R(x_n\widehat{x}_n') \\
 \end{align*}
 
 Aufgrund der Linearität der Abbildung kann man $x_n$ kürzen:
 
 \begin{align*}
-  \widehat{x_n}' &= R\widehat{x_n} \\
+  \widehat{x}_n' &= R\widehat{x}_n \\
 \end{align*}
 
 Wenn nun $x_n$ ein kartesisches Koordinatensystem mit Basisvektoren
@@ -165,9 +164,9 @@ $(1,0,0)^T$, $(0,1,0)^T$ und $(0,0,1)^T$ ist, transformieren sich die
 Basisvektoren bei Drehung um $\phi$ (in der $x_1$-$x_2$-Ebene) wie folgt.
 
 \begin{align*}
-  (1, 0, 0)^T \mapsto (\cos \phi, \sin \phi)^T \\
-  (0, 1, 0)^T \mapsto (-\sin \phi, \cos \phi)^T \\
-  (0, 0, 1)^T \mapsto (0,0,1)^T \\
+  (1, 0, 0)^T &\mapsto (\cos \phi, \sin \phi)^T \\
+  (0, 1, 0)^T &\mapsto (-\sin \phi, \cos \phi)^T \\
+  (0, 0, 1)^T &\mapsto (0,0,1)^T \\
 \end{align*}
 
 Daraus kann man direkt die Drehmatrix R ablesen. Sie nimmt die geforderte Form
