@@ -12,6 +12,7 @@
 \geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
 \linespread{1.5}
 \setlength\parindent{0pt}
+\DeclareMathOperator{\tr}{tr}
 \begin{document}
 \begin{center}
 \bfseries % Fettdruck einschalten
@@ -87,5 +88,52 @@ Daraus folgt
 \begin{align*}
   AA^T = E_n \Leftrightarrow A^T = A^{-1}
 \end{align*}
+
+\section*{Aufgabe 3}
+\subsection*{Teil a}
+
+\begin{align*}
+  \tr AB = a_{ij}b_{ji} = b_{ji}a_{ij} = b_{ij}a_{ji} = \tr BA
+\end{align*}
+
+\subsection*{Teil b}
+Wenn $(AB)^{-1} = B^{-1}A^{-1}$ gilt, dann muss ist $(B^{-1}A^{-1})$ also das
+Inverse zu $AB$. Es muss also gelten:
+
+\begin{align*}
+  (AB)(B^{-1}A^{-1}) = E_n \\
+  \Leftrightarrow\quad A(BB^{-1)}A^{-1}) = E_n \\
+  \Leftrightarrow\quad AE_nA^{-1}) = E_n \\
+  \Leftrightarrow\quad AA^{-1}) = E_n \\
+\end{align*}
+
+Was wahr ist (Assoziativgesetz).
+
+\subsection*{Teil c}
+Die Determinante ändert sich nicht, wenn eine Zeile (Spalte) durch das Ergebnis
+der Addition oder Subtraktion mit einer anderen Zeile (Spalte) ersetz wird.
+
+Wenn wir nun auf diese Zeile (Spalte) den Laplace'schen Entwicklungssatz
+anwenden, ergibt sich eine Determinante der Form $\det A = 0 \cdot \det S_1 + 0
+\cdot \det S_2 + \dots + 0 \cdot \det S_n$, wobei $S_n$ die jeweilige
+Streichungsmatrix ist.
+
+Also ist $\det A = 0$.
+
+\subsection*{Teil d}
+
+Das steht im Skript Lineare Algebra, Satz 5.7.3. Überhaupt sieht das ganze
+Aufgabenblatt aus, wie eins aus dem letzten Semester.
+
+\section{Aufgabe 4}
+\begin{align*}
+  &AA^T = E_n\\
+  \Leftrightarrow\quad&|AA^T| = |E_n| \\
+  \Leftrightarrow\quad&|AA^T| = 1 \\
+  \Leftrightarrow\quad&|A||A^T| = 1 \\
+  \Leftrightarrow\quad&|A||A| = 1 \\
+\end{align*}
+
+Also muss $|A| = 1$ oder $|A| = -1$ gelten.
 
 \end{document}
