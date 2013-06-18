@@ -124,7 +124,8 @@ Also ist $\det A = 0$.
 
 Das steht im Skript Lineare Algebra, Satz 5.7.3. Kurz zusammengefasst wird von
 dem Ergebnis für $2\times2$-Matrizen ausgegangen und dann per Laplace'schem
-Entwicklungssatz gezeigt, dass dies für $n\times n$-Matrizen gilt.
+Entwicklungssatz gezeigt, dass dies für $n\times n$-Matrizen gilt. Ich sehe
+keinen Sinn darin, das abzutippen.
 
 \section{Aufgabe 4}
 \begin{align*}
@@ -136,5 +137,41 @@ Entwicklungssatz gezeigt, dass dies für $n\times n$-Matrizen gilt.
 \end{align*}
 
 Also muss $|A| = 1$ oder $|A| = -1$ gelten.
+
+\section{Aufgabe 5}
+Nicht bearbeitet.
+
+\section{Aufgabe 6}
+Die Drehung ist eine linare Abbildung (weil durch eine Matrix definierbar). Es
+reicht also, die Basisvektoren zu transformieren um die Drehmatrix zu erhalten.
+
+Sei $R$ die Drehmatrix mit $\vec{r}' = R\vec{r}$. Seien $\widehat{x_n}$ bzw.
+$\widehat{x_n}'$ die Basisvektoren, $x_n$ die jeweiligen Komponenten, es gelte
+Summenkonvention.
+
+\begin{align*}
+  \vec{x}' &= R \vec{x} \\
+  x_n\widehat{x_n}' &= R(x_n\widehat{x_n}') \\
+\end{align*}
+
+Aufgrund der Linearität der Abbildung kann man $x_n$ kürzen:
+
+\begin{align*}
+  \widehat{x_n}' &= R\widehat{x_n} \\
+\end{align*}
+
+Wenn nun $x_n$ ein kartesisches Koordinatensystem mit Basisvektoren
+$(1,0,0)^T$, $(0,1,0)^T$ und $(0,0,1)^T$ ist, transformieren sich die
+Basisvektoren bei Drehung um $\phi$ (in der $x_1$-$x_2$-Ebene) wie folgt.
+
+\begin{align*}
+  (1, 0, 0)^T \mapsto (\cos \phi, \sin \phi)^T \\
+  (0, 1, 0)^T \mapsto (-\sin \phi, \cos \phi)^T \\
+  (0, 0, 1)^T \mapsto (0,0,1)^T \\
+\end{align*}
+
+Daraus kann man direkt die Drehmatrix R ablesen. Sie nimmt die geforderte Form
+an.
+
 
 \end{document}
