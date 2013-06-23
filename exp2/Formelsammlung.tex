@@ -24,11 +24,92 @@ Markus Fenske
 \vspace{-10pt}
 \end{center}
 
-\section{Einleitung}
+\section*{Einleitung}
 
 Zur Klausur darf ein handgeschriebenes Blatt DIN-A4 (Vorder- und Rückseite)
 mitgebracht werden. Dieses Blatt dient als Anhaltspunkt, was darauf sollte. Es
 orientiert sich an den Vorlesungsunterlagen und den Übungsaufgaben und ist grob
 chronologisch sortiert.
 
+\section{Elektrostatik}
+Elementarladung: $e = 1{,}6022 \cdot 10^{-19} \;\coulomb$. Ladung des Elektrons:
+$-e$. $1 \;\coulomb = 1 \;\ampere \second$ (Coulomb = Ampere-Sekunde).
+
+Erzeugung von Ladungstrennung in Nicht-Leitern: Reibung. In Leitern: Influenz.
+
+Kraft zwischen zwei Punktladungen: $\vec{F}(r) = \frac{Q_1 \cdot Q_2}{4 \pi
+\epsilon_0 r^2} \widehat{r}$ mit $Q_1$, $Q_2$ $\widehat{=}$ Ladungen,
+$\epsilon_0 = 8{,}854 \cdot 10^{-12} \;\ampere^2 \second^4 \kilogram^{-1}
+\meter^{-3}$, $r \widehat{=}$ Abstand. Bei ungleichnamigen Ladungen anziehend, sonst abstoßend.
+
+Bei mehreren Punktladungen: Superpositionsprinzip.
+
+Für kontinuerliche Ladungsverteilungen: $\vec{F}(\vec{R}) = \frac{q}{4 \pi
+\epsilon_0} \int_{V} \frac{\vec{R} - \vec{r}}{|\vec{R} - \vec{r}|^3}
+\rho(\vec{r}) dV$ ($\vec{F}(\vec{R})$: Kraft am Punkt $\vec{R}$, $q$: Probeladung, $\rho$: Ladungsdichte in $\vec{r}$.
+
+Elektrisches Feld: $E = \frac{F}{q}$ ($q$: Probeladung)
+
+\textbf{Hier Grafik: Feldlinien}
+
+Elektrische Felder verschiedener Körper (dabei $\lambda$: Linienladungsdichte,
+$\sigma$: Flächenladungsdichte). Linienladung (Draht): $\vec{E} =
+\frac{\lambda}{2 \pi \epsilon_0 \epsilon_r r} \widehat{r}$, dabei $\widehat{r}$
+senkrecht zum Draht. Flächenladung (Platte): $E = \frac{\sigma}{2 \epsilon_0
+\epsilon_r}$, senkrecht zur Platte. Kugel: Von außen wie Punktladung.
+
+(Elektrischer Fluss durch Oberfläche: $\phi_{\text{el}} = \int \vec{E} \cdot d\vec{A}$).
+
+Gaußscher Satz: Siehe Maxwell-Gleichungen.
+
+Elektrisches Potential (Spannung): Arbeit im Feld nötig zur Verschiebung der
+Ladung: $W = \int_A^B F \cdot ds = q \int_A^B \vec{E} \cdot ds$. Daraus
+Spannung (Potential): $\phi(P) = \int_P^\infty \vec{E} \cdot ds$. Spannung:
+Potentialdifferenz zwischen zwei Punkten: $U = \phi_1 - \phi_2$.
+
+Spiegelladung: Ladung vor leitender Platte.
+
+\subsection{Kondensatoren}
+Kapazität: 1 Farad = $\frac{1 \text{Coulomb}}{1 \text{Volt}}$. 
+
+Plattenkondensator: Kapazität: $C =\frac{Q}{U}$, Feld: $E = \frac{U}{d}$ $\Rightarrow$ $C = \epsilon_0 \frac{A}{d}$.
+
+Schaltungen: Parallel: $C_{\text{ges}} = C_1 + \dots + C_n$. Reihe: $\frac{1}{C_{\text{ges}}} = \frac{1}{C_1} + \dots + \frac{1}{C_n}$
+
+Energie: $W = \frac{1}{2} \frac{Q^2}{C} = \frac{1}{2} CU^2$. Energiedichte (Energie pro Volumen): $\frac{W_{\text{el}}}{V} = \frac{1}{2} \epsilon_0 E^2$
+
+Dielektrikum: Einschieben führt zu größerer Kapazität $C_{\text{diel}} =
+\epsilon_r C_{\text{vak}}$. Feldstärke veringert sich $E_{\text{diel}} =
+\frac{1}{\epsilon_r} E_{\text{vak}}$.
+
+\textbf{Hier Folie vom 23.4.13, Thema Polarisation noch einfügen}
+\textbf{Kugelkondensator, etc. Übungsblätter müssen hier noch rein}
+
+\section{Strom}
+Strom: $I = \frac{dQ}{dt}\; [\ampere\text{ (Ampere)}]$. Stromdichte:
+\textbf{Nochmal nachchecken, verstehe ich nicht, 24.4.13}.
+\textbf{Widerstände:} Ohmsches Gesetz: $U = IR$. Leistung am Widerstand:
+$P=UI$. Kirchhoffsche Gesetze: Siehe Schaltungen. Nochmal lernen wie geht.
+Reihenschaltung: $R_{\text{ges}} = R_1 + \dots + R_n$. Parallelschaltung:
+$\frac{1}{R_{\text{ges}}} = \sum_i \frac{1}{R_i}$.
+
+Laden eines Kondensators: $U(t) = U_0 \cdot (1 - e^{-\frac{t}{RC}})$, $I(t) =
+I_0 \cdot e^{-\frac{t}{RC}}$.
+Entladen: $U(t) = U_0 \cdot e^{-\frac{t}{RC}}$, $I(t) =
+I_0 \cdot e^{-\frac{t}{RC}}$.
+
+\section{Magnetostatik}
+Magnetische Flussdichte: $\vec{B} = \mu_0 \vec{H}$, $\vec{H} = \lim_{p_2 \to 0}
+\frac{\vec{F}}{p_2}$, $\vec{F} = \frac{1}{4\pi\mu_0} \frac{p_1p_2}{r^2} \widehat{r}$.
+$\mu_0 = 4 \pi \cdot 10^{-7} \frac{\volt \second}{\ampere \meter}$.
+Magnetischer Fluss: $\phi_{m} = \int_{A} \vec{B} \cdot d\vec{A}$. Siehe auch
+Maxwellsche Gesetze. Magnetfeld eines Drahtes: $B(r) = \frac{\mu_0 I}{2 \i r}$.
+Spule: $B = \mu_0 n I$ (Richtung: Durch die Spule). Gesetz von Biot-Savart:
+$B(r) = - \frac{\mu_0}{4 \pi} I \int \frac{(\vec{r} - \vec{r'}) \times
+ds}{|\vec{r} - \vec{r'}|^3}$. \textbf{Folie 08.05.13 nochmal Herleitung checken}.
+
+Lorenztkraft: $\vec{F} = q(\vec{v} \times \vec{B})$ (Rechte-Hand-Regel
+lernen!). Auf Leiter: $d\vec{F} = I (d\vec{L} \times \vec{B})$.
+
+Hall-Effekt nachtragen und lernen.
 \end{document}
