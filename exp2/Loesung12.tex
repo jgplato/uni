@@ -1,0 +1,50 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Elektrodynamik und Optik, Sommersemester 2013, 12. Blatt \\
+Markus Fenske, Tutor: Dr. Marko Wietstruk
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 5: Totalreflexion}
+
+Skizze: Siehe Vorlesungsfolie vom 26.06, dritte Seite oder in so ziemlich jedem
+Physikbuch.
+
+Es gilt das Snelliussche Brechungsgesetz:
+
+\begin{align*}
+  \frac{\sin \alpha}{\sin \beta} = \frac{n_2}{n_1}
+\end{align*}
+
+Ab einem gewissen Einfallswinkel $\alpha$ wird der Ausfallswinkel $\beta$
+größer als $\frac{\pi}{2}$. Ab diesem Punkt passiert eine Totalreflexion, da
+der Strahl nicht mehr in das optisch dünnere Medium eintaucht. Wir setzen $\beta = \frac{\pi}{2}$ und lösen nach Einfallswinkel $\alpha$ auf.
+
+
+\begin{align*}
+  &\frac{\sin \alpha}{\sin \frac{\pi}{2}} = \frac{n_2}{n_1} \\
+  \Leftrightarrow\quad&\frac{\sin \alpha}{1} = \frac{n_2}{n_1} \\
+  \Leftrightarrow\quad&\alpha = \arcsin \frac{n_2}{n_1}
+\end{align*}
+
+Sobald also $\alpha > \arcsin \frac{n_2}{n_1}$ passiert Totalreflexion.
+
+\end{document}
