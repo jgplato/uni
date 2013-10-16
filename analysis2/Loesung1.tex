@@ -96,18 +96,22 @@ Was zu beweisen war.
 
 \begin{equation*}
   f_n(x) = \begin{cases} 
-    0                                & \mbox{wenn} \; x = 0 \\
-    \frac{1}{n} \frac{1}{\sqrt{x}}   & \mbox{wenn} \; x > 0
+    0           & \mbox{wenn} \; x = 0 \\
+    \frac{1}{x} & \mbox{wenn} \; x \neq 0
   \end{cases}
 \end{equation*}
 
-Es ist klar, dass die Funktion innerhalbe des Definitionsbereiches $[0,1]$
-gegen $f(x) = 0$ konvergiert. Hingegen ist für $x>0$ die Funktion $f_1(x)$
-unbeschränkt, denn
+Es ist klar, dass die Funktion konvergiert, denn sie enthält überhaupt kein
+$n$. Trotzdem ist $f$ unbeschränkt, denn
 
 \begin{equation*}
-  \lim_{x \to 0} \frac{1}{\sqrt{x}} = \infty
+  \lim_{x \to 0} \frac{1}{x} = \infty
 \end{equation*}
+
+\item Gegenbeispiel. Siehe oben. Die Funktion konvergiert gleichmäßig,
+  weil sie mit ihrer Grenzfunktion identisch ist. Trotzdem ist sie
+  unbeschränkt.
+
 \end{enumerate}
 
 \section*{Aufgabe 1.4}
