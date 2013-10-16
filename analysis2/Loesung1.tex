@@ -84,7 +84,15 @@ Was zu beweisen war.
     = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
   \end{equation*}
 
-  \textbf{TODO:} Gleichmäßige Stetigkeit zeigen!
+  Damit ist auch klar, dass gleichmäßige Konvergenz vorliegt. Sei $g(x)$ die
+  Grenzfunktion und $g_n(x)$ die oben aufgeführte Reihe, dann ist zu zeigen
+  (siehe Skript 9.1.2, Aussage 2) dass
+
+  \begin{equation*}
+    \lim_{n \to \infty} |g_n(x) - g(x)| = 0
+  \end{equation*}
+
+  Da $\lim_{n \to \infty} g_n(x) = g(x)$, ist das klar.
 
 \item \textbf{TODO:} WTF? Bitte was?
 \end{enumerate}
