@@ -1,0 +1,114 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 1. Übungsblatt
+
+Markus Fenske, Tutor: undefined
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1.1}
+
+Wir folgen dem Hinweis aus der Aufgabenstellung und zeigen zuerst für $k=0$:
+
+\begin{equation*}
+  \int_0^\infty e^{-nx} \; dx = \left[ -\frac{1}{n} e^{-nx} \right]_0^\infty = \underbrace{\left(\lim_{x \to \infty} - \frac{1}{n} e^{-nx} \right)}_{=0} + \frac{e^0}{n} = \frac{1}{n}
+\end{equation*}
+
+Anschließend für $k > 0$:
+
+\begin{equation*}
+  \int_0^\infty x^k \cdot e^{-nx} \; dx = \text{?}
+\end{equation*}
+
+Wir benutzen partielle Integration (Kurzschreibweise)
+
+\begin{equation*}
+  \int_a^b f' \cdot g = \left[f \cdot g\right]_a^b - \int_a^b f \cdot g'
+\end{equation*}
+
+mit
+
+\begin{align*}
+  f'(x) &= e^{-nx}              & g(x) &= x^k \\
+        &\Downarrow             &      &\Downarrow\\
+  f(x)  &= -\frac{1}{n} e^{-nx} & g'(x) &= kx^{k-1}
+\end{align*}
+
+und erhalten:
+
+\begin{align*}
+  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+                                         &= \int_0^\infty \frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+                                         &= \frac{k}{n} \int_0^\infty e^{-nx} \cdot x^{k-1} \; dx
+\end{align*}
+
+Daraus ergibt sich die Rekursionsformel:
+
+\begin{equation*}
+  \int_0^\infty x^k \cdot e^{-nx} \; dx = \frac{1}{n} \cdot \underbrace{\frac{k}{n} \cdot \frac{k-1}{n} \cdot \frac{k-2}{n} \cdot \dots \cdot \frac{k-k}{n}}_{k\text{ Faktoren}} = \frac{k!}{n^{k+1}}
+\end{equation*}
+
+Was zu beweisen war.
+
+\section*{Aufgabe 1.2}
+
+\begin{enumerate}[(1)]
+\item Stimmt.
+\item Es gilt
+  \begin{equation*}
+    \sum_{n=1}^\infty \frac{x}{e^{nx}} = x \cdot \left(\sum_{n=1}^\infty \left(e^{-x}\right)^n\right) = x \cdot \left(\left(\sum_{n=0}^\infty \left(e^{-x}\right)^n\right) - 1\right)
+  \end{equation*}
+
+  Wenn $x>0$ ist, gilt die Geometrische Reihe, weil dann $|e^{-x}| < 0$ ist.
+
+  \begin{equation*}
+    = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
+  \end{equation*}
+
+  \textbf{TODO:} Gleichmäßige Stetigkeit zeigen!
+
+\item \textbf{TODO:} WTF? Bitte was?
+\end{enumerate}
+
+\section*{Aufgabe 1.3}
+
+\begin{enumerate}[(1)]
+\item Gegenbeispiel. Sei
+
+\begin{equation*}
+  f_n(x) = \begin{cases} 
+    0                                & \mbox{wenn} \; x = 0 \\
+    \frac{1}{n} \frac{1}{\sqrt{x}}   & \mbox{wenn} \; x > 0
+  \end{cases}
+\end{equation*}
+
+Es ist klar, dass die Funktion innerhalbe des Definitionsbereiches $[0,1]$
+gegen $f(x) = 0$ konvergiert. Hingegen ist für $x>0$ die Funktion $f_1(x)$
+unbeschränkt, denn
+
+\begin{equation*}
+  \lim_{x \to 0} \frac{1}{\sqrt{x}} = \infty
+\end{equation*}
+\end{enumerate}
+
+
+\end{document}
