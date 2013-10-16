@@ -110,5 +110,48 @@ unbeschränkt, denn
 \end{equation*}
 \end{enumerate}
 
+\section*{Aufgabe 1.4}
+
+Die Funktionenfolge $f_n(x)$ konvergiert punktweise gegen $f(x) = 0$.
+
+\begin{equation*}
+  \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{x}{1+nx^2} = \lim_{n \to \infty} \frac{x}{n \left(\frac{1}{n} + x^2\right)} = \lim_{n \to \infty} \frac{1}{n} \cdot \lim_{n \to \infty} \frac{x}{\frac{1}{n} + x^2} = 0 \cdot x = 0
+\end{equation*}
+
+Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuche ich zuerst die Beschränktheit von $f_n(x)$. Dazu berechne ich die Ableitung per Quotientenregel
+
+\begin{equation*}
+  f'_n(x) = \frac{1 \cdot (1+nx^2) - x \cdot 2nx}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2}
+\end{equation*}
+
+die Extremwerte finden sich bei $f'_n(x) \overset{!}{=} 0$. Da der Zähler für
+alle $x$ im Definitionsberech positiv ist, muss also der Nenner verschwinden
+
+\begin{equation*}
+  1-nx^2 \overset{!}{=} 0
+\end{equation*}
+
+Dies ist gegeben bei
+
+\begin{equation}
+  x = \pm \sqrt{\frac{1}{n}}
+\end{equation}
+
+Maximum und Minimum finden sich also bei
+
+\begin{equation*}
+  f_n\left(\pm\sqrt{\frac{1}{n}}\right) = \frac{\pm\sqrt{\frac{1}{n}}}{1+n\frac{1}{n}} = \pm\frac{1}{2\sqrt{n}}
+\end{equation*}
+
+Nun zeige ich gleichmäßige Konvergenz. Dafür muss ich beweisen, dass sich zu
+jedem $\epsilon$ ein $n$ finden lässt, derart, dass $\left| f(x) - f_n(x)
+\right| < \epsilon$. Mit dem errechneten Extremwerten kann ich nun eine
+Abschätzung machen.
+
+\begin{equation*}
+  \left| f(x) - f_n(x) \right| = \left|0-\frac{x}{1+nx^2}\right| < \frac{1}{2\sqrt{n}} < \epsilon
+\end{equation*}
+
+Da $\frac{1}{2\sqrt{n}}$ Nullfolge ist, ist gleichmäßige Konvergenz gegeben.
 
 \end{document}
