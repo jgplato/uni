@@ -94,7 +94,29 @@ Was zu beweisen war.
 
   Da $\lim_{n \to \infty} g_n(x) = g(x)$, ist das klar.
 
-\item \textbf{TODO:} WTF? Bitte was?
+\item
+  Der Satz über die majorisierte Konvergenz besagt: Wenn alle Funktionen
+  $f_n$ stetig sind (das ist gegeben, denn $f_n$ ist als Verkettung stetiger
+  Funktionen stetig) und die Folge konvergiert auf jedem kompakten
+  Teilintervall $[0,\infty[$ gleichmäßig gegen $f$ (habe ich gerade gezeigt),
+  und wenn es eine Funktion gibt, die auf $[0,\infty[$ im
+  uneigentlichen Sinn integrierbar ist und alle $|f_n|$ majorisiert
+  (das gilt für $f$, denn $|f_n(x)| < f(x)$ und $\int_0^\infty f(x) \; dx$
+  existiert), dann
+
+  \begin{equation*}
+    \lim_{n \to \infty} \int_0^\infty f_n(x) \; dx = \int_0^\infty f(x) \; dx
+  \end{equation*}
+
+  Damit ist Anwendbarkeit gegeben. Nun schrittweise die Gleichung zeigen.
+  Folgende Gleichung ist klar, sie folgt aus (1)
+
+  \begin{equation*}
+    \sum_{n=1}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \int_0^\infty \frac{x}{e^{nx}} \; dx
+  \end{equation*}
+
+  \textbf{TODO:} Schritte $2 \to 3$, $3 \to 4$
+
 \end{enumerate}
 
 \section*{Aufgabe 1.3}
