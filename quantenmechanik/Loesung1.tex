@@ -98,6 +98,45 @@ Markus Fenske
       \nu \approx 341 \; \tera\hertz
     \end{equation*}
 
+  \item
+    Given the wire is a long cylinder with diameter $d$ and length $l$, then
+    the emitted total power (ignoring the cylinder top and bottom) is
+
+    \begin{equation*}
+      P_\gamma = \sigma A T^4 = \sigma \pi d l T^4
+    \end{equation*}
+
+    The required electrical power is
+    \begin{equation*}
+      P_\text{el} = UI = I^2R
+    \end{equation*}
+
+    The electrical resitance of the wire (cylinder) is
+    \begin{equation*}
+      R = \rho \frac{l}{A} = \rho \frac{4l}{\pi d^2}
+    \end{equation*}
+
+    So the electrical power becomes
+    \begin{equation*}
+      P_\text{el} = I^2 \rho \frac{4l}{\pi d^2}
+    \end{equation*}
+
+    The supplied eletrical power must equal the emitted raditation power ($P_\text{el} = P_\gamma$)
+    \begin{align*}
+      &\quad I^2 \rho \frac{4l}{\pi d^2} = \sigma \pi d l T^4 \\
+      %\Leftrightarrow&\quad I^2 = \frac{\sigma \pi d l T^4 \pi d^2}{\rho 4l} \\
+      \Leftrightarrow&\quad I = \sqrt{\frac{\sigma \pi^2 d^3 T^4}{4 \rho}}
+    \end{align*}
+
+    Using the given values this results in a required current of
+    \begin{equation*}
+      I \approx 148 \; \mu\ampere
+    \end{equation*}
+
+    Specifing a specfify resistance for a hot wire is nonsense, because hot
+    wires do not obey Ohm's law. So if any of the above calculation is be
+    wrong, it's not our fault. It would be wrong anyway. (Hint: We like bonus
+    points).
 \end{enumerate}
 
 \section*{Problem 3: Solar radiation}
