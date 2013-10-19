@@ -1,0 +1,58 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 1
+
+Markus Fenske
+\vspace{-10pt}
+\end{center}
+
+\section*{Problem 1: Raditation and photons}
+
+\begin{enumerate}[a)]
+
+\item
+  Using $E = hf = \frac{hc}{\lambda}$ I get the following values ($1$ eV $\approx 1.6\cdot10^{-19}\;\joule$).
+  \vspace{7mm}
+
+  \begin{tabular}{r | r | r | c}
+    $\lambda$ & $E\;\text{[eV]}$ & $E\;\text{[J]}$ & spectrum \\
+    \hline
+    140.2 nm  & 8.8 eV & $1.4 \cdot 10^{-18}$ J & UV \\
+    313.2 nm  & 4.0 eV & $6.4 \cdot 10^{-19}$ J & UV \\
+    546.0 nm  & 2.3 eV & $3.7 \cdot 10^{-19}$ J & V \\
+    1207.2 nm  & 1.0 eV & $1.6 \cdot 10^{-19}$ J & IR \\
+  \end{tabular}
+
+\item 
+  Using the given surface power density $S = 10^{-10}\;\watt\per\meter^2$
+  and the surface $A = 5\cdot10^{-5}\;\meter^2$ I calulate the required power
+  as $P = AS = 5 \cdot 10^{-15}\;\joule\per\second$. With the given photon
+  energy $E=3.7 \cdot 10^{-19} J$ and the time interval $\Delta t =
+  1\;\second$, this leads to the required number of photons.
+
+  \begin{equation*}
+    N = \frac{P}{E} \cdot \Delta t \approx 13500
+  \end{equation*}
+
+\end{enumerate}
+
+\end{document}
