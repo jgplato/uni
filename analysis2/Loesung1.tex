@@ -264,4 +264,26 @@ Abschätzung machen.
 
 Da $\frac{1}{2\sqrt{n}}$ Nullfolge ist, ist gleichmäßige Konvergenz gegeben.
 
+Für die Ableitung der Grenzfunktion gilt $f'(x) = 0$. Die Ableitung von $f_n(x)$ ist:
+
+\begin{equation*}
+  f_n'(x) = \frac{x(2nx) + (1+nx^2)}{(1+nx^2)^2} = \frac{1+ 3nx^2}{1+2nx^2 + n^2x^4}
+\end{equation*}
+
+Fallunterscheidung.
+
+\begin{enumerate}[a)]
+  \item
+    Wenn $x=0$ ist $f_n'(x) = 1$, unabhängig von $n$
+
+  \item
+    Wenn $x\neq0$ ist $\lim_{n \to \infty} f_n(x) = 0$. Man sieht das (ohne
+    $n$ bzw. $n^2$ explizit auszuklammern und zu kürzen an der höheren Potenz
+    von $n$ um Nenner-Polynom.
+
+    Aufgrund der höheren $x$-Potenz im Nenner-Polynom gilt dies auch für
+    Grenzwertbetrachtungen von $x$, ohne diese explizit durchführen zu wollen.
+\end{enumerate}
+
+$f_n'$ konvergiert also nur für alle $x \neq 0$ gegen $f'$
 \end{document}
