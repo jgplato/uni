@@ -177,92 +177,50 @@ Was zu beweisen war.
   Was zu zeigen war.
 \end{enumerate}
 \section*{Aufgabe 1.3}
-
-Im den Argumentationsfluss nicht zu unterbrechen, beginnen wir mit dem Beweis für Aussage 2.\\
-Nehmen wir an, $f$ ist nicht beschränkt. Das heißt, für mindestens ein $x=x_0$ auf dem geschlossenen Intervall $I=[0,1]$ muss gelten:
+\begin{enumerate}[(1)]
+\item Gegenbeispiel. Sei
 
 \begin{equation*}
-\lim\limits_{x \to x_0} f(x)=\infty
+  f_n(x) = \begin{cases} 
+    0           & \mbox{wenn} \; x = 0 \\
+    \frac{1}{x + \frac{1}{n}} & \mbox{wenn} \; x \neq 0
+  \end{cases}
 \end{equation*}
 
- Wir wollen beweisen, dass $f$ gleichmäßig konvergiert. Dazu müssen wir zeigen:
+
+Man sieht die Grenzfunktion sofort als
 
 \begin{equation*}
-\forall \epsilon \ge 0 \exists N: \forall n \geq N |f_n(x)-f(x)| \le \epsilon \forall x
-\end{equation*}
-
-Verbal ausgedrückt: Wenn wir ein endlich großes $\epsilon>0$ vorgeben, finden wir ein $N$ sodass:
-
-\begin{equation*}
-|f_n(x)-f(x)| \le \epsilon 
-\end{equation*}
-
-... erfüllt wird, und zwar für alle $x$. Da $\epsilon$ endlich ist, müssen wir fordern, dass auch $|f_n(x)-f(x)|$ für alle $x$ endlich ist. Da aber mindestens für $x_0$ gelten muss, dass:
-
-\begin{equation*}
-\lim\limits_{x \to x_0} f(x)=\infty
-\end{equation*}
-
-Wird auch gelten:
-
-\begin{equation*}
-\lim\limits_{x \to x_0} |f_n(x)-f(x)|=|f_n(x)-\lim\limits_{x \to x_0} f(x)|=\infty
-\end{equation*}
-
-Womit die Bedingung für gleichmäßige Konvergenz unmöglich für alle $x \in I$ erfüllt wird.\\
-
-Wir müssen also folgern, dass wenn $f_n(x) \rightrightarrows f(x)$ und $f_n(x)$ beschränkt ist auch $f(x)$ beschränkt sein muss.\\
-
-Anders sieht es für punktweise Konvergenz aus. Wir nehmen erneut an, dass $f$ nicht beschränkt ist und demnach für mindestens ein $x=x_0$ aus dem Definitionsbereich $f_n(x) \rightarrow \infty$. 
-Um punktweise Konvergenz von $f_n$ für ein bestimmtes x zu beweisen, müssen wir zeigen:
-
-\begin{equation*}
-\forall \epsilon \le 0 \exists N: |f_n(x)-f(x)| \le \epsilon \forall n \geq N
-\end{equation*}
-
-Ausformuliert: Geben wir ein beliebiges $\epsilon$ vor und betrachten ein bestimmtes $x$, so müssen wir ein $N$ finden können, ab dem $|f_n(x)-f(x)|$ das $\epsilon$ unterbietet. Dies ist jeweils für alle $x \in I$ demonstrieren.\\
-
-Offensichtlich kann jeweils für alle $x \neq x_0$ ein hinreichend großes $N \in \mathbb{N}$ gefunden werden, sodass:
-
-\begin{equation*}
-|f_n(x)-f(x)| \le \epsilon \quad \forall n \ge N
-\end{equation*}
-
-Für $x=x_0$ ist diese Formulierung zum Beweis der Konvergenz jedoch problematisch, da $f(x)$ hier divergiert. Allerdings können wir uns mit der alternativen Grenzwertdefinition behelfen, wonach $f_n$ punktweise gegen $f:I \rightarrow \mathbb{R}$ konvergiert, wenn:
-
-\begin{equation*}
-\lim\limits_{n \to \infty}f_n(x)=f(x) \quad \forall x \in I
-\end{equation*} 
-
-Also insbesondere auch für $x=x_0$. Dann muss für $x_0$ gelten:
-
-\begin{equation*}
-\lim\limits_{n \to \infty}f_n(x_0) = \infty
-\end{equation*}
-
-Das ist eine Bedingung die sehr wohl unter unserer Voraussetzung erfüllt werden kann, dass $f_n(x)$ auf dem geschlossenen Intervall $I=[0,1]$ für alle $n$ beschränkt sein und somit nur endlich Werte annehmen darf.\\
-
-Also muss bei punktweiser Konvergenz einer beschränkten Folge $f_n(x) \rightarrow f(x)$ auf einem geschlossenen Intervall $I$ (hier $I=[0,1]$) die Grenzwertfunktion nicht notwendigerweise beschränkt sein.\\
-
-Beispiel: Sei
-
-\begin{equation*}
-  f_n(x) = \begin{cases}
-    0 & \mbox{wenn} \; x = 0 \\
+  f(x) = \begin{cases} 
+    0           & \mbox{wenn} \; x = 0 \\
     \frac{1}{x} & \mbox{wenn} \; x \neq 0
   \end{cases}
 \end{equation*}
 
-Es ist klar, dass die Funktion konvergiert, denn sie enthält überhaupt kein
-$n$. Trotzdem ist $f$ unbeschränkt, denn
+Die Grenzfunktion $f$ ist ganz klar unbeschränkt ($\lim_{x \to 0} f(x) = \infty$), während alle $f_n(x)$ beschränkt sind ($\lim_{x \to 0} f_n = n$).
 
-\begin{equation*}
-  \lim_{x \to 0} \frac{1}{x} = \infty
-\end{equation*}
+\item
+  Seien alle $f_n$ für alle $x_0$ im Definitionsbereich beschränkt:
 
+  \begin{equation*}
+    \lim_{x \to x_0} |f_n(x)| \neq \infty
+  \end{equation*}
+
+  Konvergiere außerdem $f_n$ gleichmäßig gegen $f$:
+
+  \begin{align*}
+    &\quad \lim_{x \to x_0} \lim_{n \to \infty} |f_n(x) - f(x)| = 0 \\
+    \Leftrightarrow&\quad \lim_{x \to x_0} \lim_{n \to \infty} |f_n(x)| = \lim_{x \to x_0} |f(x)| \\
+  \end{align*}
+
+  Daraus folgt
+  \begin{equation*}
+    \lim_{x \to x_0} |f(x)| \neq \infty
+  \end{equation*}
+
+  Also muss $f$ beschränkt sein.
+\end{enumerate}
 \section{Aufgabe 1.4}
-
-
 Es ist sinnvoll, $f_n(x)$ gleich auf gleichmäßige Konvergenz zu prüfen, da Beobachtung auf 9.1.2 im Skript zufolge aus gleichmäßiger Konvergenz stets punktweise Konvergenz gegen die selbe Grenzfunktion folgt.\\
 
 Sei ein beliebig kleines $\epsilon>0$ vorgegeben, so muss es ein $N \in \mathbb{N}$ geben, sodass:
