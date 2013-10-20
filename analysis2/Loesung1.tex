@@ -126,106 +126,56 @@ Was zu beweisen war.
   \end{align*}
 
   Was für $x > 0$ immer wahr ist. Somit konvergiert die Reihe gleichmäßig.
+
+  \item 
+  Besteht aus 3 Teilschritten.
+  Der erste Teiilschritt 
+  \begin{equation*}
+    \sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}
+  \end{equation*}
+  ist einfaches Einsetzen von Teil (1).
+
+  Der zweite Teilschritt
+
+  \begin{equation*}
+    \dots %=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
+  \end{equation*}
+
+  ist die Anwendung des Satzes der majorisierten Konvergenz. Dieser besagt, dass
+
+  \begin{equation*}
+    \lim_{n \to \infty} \int_0^\infty f_n(x) \; dx = \int_0^\infty f(x) \; dx
+  \end{equation*}
+
+  erlaubt ist, wenn
+  \begin{enumerate}[a)]
+    \item Alle Partialsummenfunktionen $f_n$ stetig sind.
+    \item Die Folge auf jedem kompakten Teilintervall von $[0,\infty[$ gleichmäßig gegen $f$ konvergiert.
+    \item Eine Funktion $g$ existiert, für die gilt $|f_n(x)| \le g(x)$, $\int_0^\infty g(x)$ existiert
+  \end{enumerate}
+
+  Für $f_n(x) = \sum_{n=1}^\infty xe^{-nx}$ und $f(x) = x/(e^x - 1)$ gilt:
+  \begin{enumerate}[a)]
+    \item Alle $f_n$ sind als Verknüpfung stetiger Funktionen stetig.
+    \item Haben wir in (2) bewiesen
+    \item Es gilt $|f_n(x)| \le f(x)$ (haben wir in (2) auch bewiesen) und $\int_0^\infty f(x)$ existiert.
+  \end{enumerate}
+
+  Deswegen gilt
+  \begin{equation*}
+    \sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}
+    =\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
+    =\lim\limits_{m \to \infty} \int_{0}^{\infty} \left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right) \; dx
+    =\lim\limits_{m \to \infty} \int_{0}^{\infty} f_m(x) \; dx
+  \end{equation*}
+
+  Nach Satz der majorisierten Konvergenz (deren Anwendbarkeit wir gerade begründet haben) ist
+  \begin{equation*}
+    \lim\limits_{m \to \infty} \int_{0}^{\infty} f_m(x) \; dx = \int_0^\infty f(x) \; dx = \int_0^\infty \frac{x \; dx}{e^x-1}
+  \end{equation*}
+
+  Was zu zeigen war.
 \end{enumerate}
-\subsection*{Teilaufgabe 3}
-
-Unter Verwendung von (1) können wir ohne weiteres feststellen:
-\begin{equation*}
-\sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
-\end{equation*}
-
-Nenne $f_n(x)=\frac{x}{e^{nx}}:$
-\begin{equation*}
-\Leftrightarrow \quad \sum_{n=1}^{\infty}\frac{1}{n^2}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}f_n(x)dx\right)
-\end{equation*}
-
-Wir definieren eine Partialsummen-Funktionsfolge $g_m(x)$:
-\begin{equation*}
-g_m(x):=\sum_{n=1}^{m}f_n(x)dx\\
-\end{equation*}
-
-Falls wir zeigen können, dass die so definierte Folge gleichmäßig konvergiert und dass ferner:
-\begin{equation*}
-\lim\limits_{n \to \infty}\int_{0}^{\infty}g_m(x)dx=\int_{0}^{\infty}g(x)dx
-\end{equation*}
-
-...dann dürfen wir Summe und Integration vertauschen und schließen:
-\begin{align*}
-\Leftrightarrow \quad \sum_{n=1}^{\infty}\frac{1}{n^2}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}f_n(x)dx\right)=\lim\limits_{m \to \infty}\left(\int_{0}^{\infty}\sum_{n=1}^{m}f_n(x)dx\right)\\
-=\lim\limits_{m \to \infty}\left(\int_{0}^{\infty}g_m(x)dx\right)=\int_{n=1}^{\infty}g(x)dx
-\end{align*}
-
-Dazu benutzen wir den Satz über die majorisierte Konvergenz. Nehmen wir an, alle Glieder der Folge $g_m(x)$ sind stetig und besagte Folge konvergiert auf jedem kompakten Teilintervall von $[0,\infty]$ gleichmäßig gegen ein Funktion $g(x)$. Dann gilt die zu beweisende Gleichung, wenn wir eine Funktion $h(x)$ finden, welche die Bedingungen erfüllt:
-
-\begin{align*}
-(1)\quad h(x)\geq |g_m(x)| \quad \forall x\\
-(2)\quad \int_{0}^{\infty}h(x) \text \quad \text{existiert}
-\end{align*}
-Prüfen wir zunächst, ob die Voraussetzungen erfüllt sind. Die Stetigkeit aller $g_m(x)$ ist gegeben, denn:
-\begin{equation*}
-g_m(x):=\sum_{n=1}^{m}\frac{x}{e^{nx}}
-\end{equation*}
-
-...ist eine Komposition stetiger Funktionen und somit selbst stetig (siehe letztes Semester).\\
-Die gleichmäßige Konvergenz ist ebenfalls gegeben, wie wir in Teil (2) der Aufgabe gezeigt haben. Es gilt:
-\begin{equation*}
-\lim\limits_{m \to \infty} g_m(x)=\sum_{n=1}^{\infty}\frac{x}{e^{nx}}=x\sum_{n=1}^{\infty}\left(\frac{1}{e^x}\right)^ndx=\frac{x}{e^x-1}=g(x)
-\end{equation*}
-
-Wir können nun noch eine wichtige Aussage treffen, die uns die Rechnung erleichtern wird, nämlich dass die Folge $g_m(x)$ von unten gegen $g(x)$ konvergiert. Denn:
-
-\begin{equation*}
-\sum_{n=1}^{M}\frac{x}{e^{nx}} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \text{für $M>m$}
-\end{equation*}
-
-Damit gilt unweigerlich:
-\begin{equation*}
-\frac{x}{e^x-1} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \forall m\\
-\Rightarrow \quad g(x)>g_m(x) \;\; \forall m
-\end{equation*}
-
-Um eine Funktion $h(x)$ zu finden, welche der Bedingung:
-\begin{equation*}
-h(x) \geq |g_m(x)| \;\; \forall m
-\end{equation*}
-
-...gerecht wird, genügt es, eine solche zu finden, die:
-\begin{equation*}
-h(x)\geq g(x)=\left|\frac{x}{e^x-1}\right| \;\; \forall x \in I
-\end{equation*}
-
-...erfüllt. Da aber $g(x)$ auf einem beliebigen, geschlossenen Teilintervall von I nur endliche Werte liefert und demnach auch das Integral über ein geschlossenes Teilintervall endlich sein muss, genügt es zu zeigen:
-
-\begin{equation*}
-h(x) \geq |g(x)| \;\; \forall x>X, \; x,X\in I
-\end{equation*}
-
-Ein naheliegender Ansatz ist:
-\begin{equation*}
-h(x):=\frac{x}{e^x}
-\end{equation*}
-
-Wir prüfen:
-\begin{align*}
-\frac{x}{e^x} \geq \frac{1}{e^x-1} \quad \forall x\geq X, \; x,X\in I\\
-\frac{x(e^x-1)}{e^x} \geq 1 \quad \forall x\geq X, \; x,X\in I\\
-x-\frac{x}{e^x} \geq 1 \quad \forall x\geq X, \; x,X\in I\\
-x-\underbrace{\frac{x}{e^x}}_{\rightarrow 0} \geq 1 \quad \forall x\geq X, \; x,X\in I
-\end{align*}
-
-...für hinreichend große $x$. Wählen wir $X$ also groß genug, so wird die obige Bedingung erfüllt.\\
-Damit bleibt nur noch zu prüfen, ob das uneingentliche Integral von $h(x)$ existiert. Das ist aber gemäß der Formel aus Aufgabe (1):
-
-\begin{equation*}
-\int_{0}^{\infty}\frac{xdx}{e^x}=1
-\end{equation*}
-
-Damit sind alle Voraussetzungen erfüllt und wir können schließen:
-\begin{equation*}
-\sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}=x\sum_{n=1}^{\infty}\left(\frac{1}{e^x}\right)^ndx=\frac{x}{e^x-1}
-\end{equation*}
-
-
 \section*{Aufgabe 1.3}
 
 Im den Argumentationsfluss nicht zu unterbrechen, beginnen wir mit dem Beweis für Aussage 2.\\
