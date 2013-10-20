@@ -1,4 +1,4 @@
-\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\documentclass[a4paper,german,12pt]{scrartcl}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
@@ -27,6 +27,12 @@ Markus Fenske, Tutor: undefined
 
 \section*{Aufgabe 1.1}
 
+Vorab soll geklärt werden: Mit $\int_{a}^{\infty}$ und $\left[\cdots\right]_a^\infty$ sind stets:
+\begin{equation*}
+\lim\limits_{b \to \infty}\int_{a}^{b} \quad \quad \lim\limits_{b \to \infty}\left[\cdots\right]_a^b
+\end{equation*}
+
+gemeint, in der Annahme, dass diese Grenzwerte existieren.
 Wir folgen dem Hinweis aus der Aufgabenstellung und zeigen zuerst für $k=0$:
 
 \begin{equation*}
@@ -48,85 +54,322 @@ Wir benutzen partielle Integration (Kurzschreibweise)
 mit
 
 \begin{align*}
-  f'(x) &= e^{-nx}              & g(x) &= x^k \\
-        &\Downarrow             &      &\Downarrow\\
-  f(x)  &= -\frac{1}{n} e^{-nx} & g'(x) &= kx^{k-1}
+  f'(x) &= e^{-nx} & g(x) &= x^k \\
+        &\Downarrow & &\Downarrow\\
+  f(x) &= -\frac{1}{n} e^{-nx} & g'(x) &= kx^{k-1}
 \end{align*}
 
 und erhalten:
 
 \begin{align*}
-  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+  \int_0^\infty x^k \cdot e^{-nx} \; dx &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0\; (1)} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \int_0^\infty \frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \frac{k}{n} \int_0^\infty e^{-nx} \cdot x^{k-1} \; dx
 \end{align*}
 
-Daraus ergibt sich die Rekursionsformel:
+(1) Falls dieser Schritt zu schnell ging hier nochmal die Nebenrechnung:
+\begin{equation*}
+\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) + \frac{0^k}{e^{n\cdot 0}}=0 + 0
+\end{equation*}
+
+Nach k-facher Rekursion erhalten wir demnach:
 
 \begin{equation*}
-  \int_0^\infty x^k \cdot e^{-nx} \; dx = \frac{1}{n} \cdot \underbrace{\frac{k}{n} \cdot \frac{k-1}{n} \cdot \frac{k-2}{n} \cdot \dots \cdot \frac{k-k}{n}}_{k\text{ Faktoren}} = \frac{k!}{n^{k+1}}
+  \int_0^\infty x^k \cdot e^{-nx} \; dx = \underbrace{\frac{k}{n} \cdot \frac{k-1}{n} \cdot \frac{k-2}{n} \cdot \dots \cdot \frac{1}{n}}_{k\text{ Faktoren}} \cdot  \int_{0}^{\infty} \frac{x^0dx}{e^{nx}}= \frac{k!}{n^k}\cdot\left[-\frac{1}{ne^{nx}}\right]_0^\infty=\frac{k!}{n^{k+1}}
 \end{equation*}
 
 Was zu beweisen war.
 
+
 \section*{Aufgabe 1.2}
 
-\begin{enumerate}[(1)]
-\item Stimmt.
-\item Es gilt
-  \begin{equation*}
+Gemäß vorheriger Aufgabe ist:
+
+\begin{equation*}
+\int_{0}^{\infty}\frac{x^kdx}{e^{nx}}=\frac{k!}{n^{k+1}}
+\end{equation*}
+
+Für k=1:
+\begin{equation*}
+\int_{0}^{\infty}\frac{xdx}{e^{nx}}=\frac{1}{n^2}
+\end{equation*}
+
+Zu zeigen ist:
+
+\begin{equation*}
+\sum_{n=1}^{\infty}=\sum_{n=1}^{\infty}x\cdot\left(\frac{1}{e^x}\right)^n=\frac{x}{e^x-1}
+\end{equation*}
+
+Offensichtlich ist:
+\begin{equation*}
     \sum_{n=1}^\infty \frac{x}{e^{nx}} = x \cdot \left(\sum_{n=1}^\infty \left(e^{-x}\right)^n\right) = x \cdot \left(\left(\sum_{n=0}^\infty \left(e^{-x}\right)^n\right) - 1\right)
-  \end{equation*}
+\end{equation*}
 
-  Wenn $x>0$ ist, gilt die Geometrische Reihe, weil dann $|e^{-x}| < 0$ ist.
+Wir erkennen die Geometrische Reihe mit $q=\frac{1}{e^x}$. Wie wir wissen, konvergiert die Geometrische Reihe für $|q|<1$. Für Konvergenz müssen wir also fordern, dass:
 
-  \begin{equation*}
+\begin{equation*}
+\frac{1}{e^x}<1
+\end{equation*}
+
+Und erhalten dann:
+
+\begin{equation*}
     = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
-  \end{equation*}
+\end{equation*}
 
-  Damit ist auch klar, dass gleichmäßige Konvergenz vorliegt. Sei $g(x)$ die
-  Grenzfunktion und $g_n(x)$ die oben aufgeführte Reihe, dann ist zu zeigen
-  (siehe Skript 9.1.2, Aussage 2) dass
+Dies gilt jedoch nur unter oben genannter Voraussetzung. Offensichtlich gilt:
+\begin{align*}
+\frac{1}{e^x}\geq 1 \quad \forall x\leq 0\\
+\frac{1}{e^x}\le 1 \quad \forall x\ge 0\\
+\end{align*}
 
-  \begin{equation*}
-    \lim_{n \to \infty} |g_n(x) - g(x)| = 0
-  \end{equation*}
+Wir müssen fordern: $x\in I$ mit $I=]a,b[$ und $0<a<b<\infty$\\
+Zuletzt wollen wir zeigen, dass die über diese Reihe definierte Partialsummen-Funktionsfolge $g_m(x)$ auf I gleichmäßig konvergiert. Wir definieren:
 
-  Da $\lim_{n \to \infty} g_n(x) = g(x)$, ist das klar.
+\begin{equation*}
+g_m(x):=\sum_{n=1}^{m}\frac{x}{e^{nx}} \quad x\in I
+\end{equation*}
 
-\item
-  Der Satz über die majorisierte Konvergenz besagt: Wenn alle Funktionen
-  $f_n$ stetig sind (das ist gegeben, denn $f_n$ ist als Verkettung stetiger
-  Funktionen stetig) und die Folge konvergiert auf jedem kompakten
-  Teilintervall $[0,\infty[$ gleichmäßig gegen $f$ (habe ich gerade gezeigt),
-  und wenn es eine Funktion gibt, die auf $[0,\infty[$ im
-  uneigentlichen Sinn integrierbar ist und alle $|f_n|$ majorisiert
-  (das gilt für $f$, denn $|f_n(x)| < f(x)$ und $\int_0^\infty f(x) \; dx$
-  existiert), dann
+Um die gleichmäßige Konvergenz zu beweisen schreiben wir wieder ein beliebiges $\epsilon>0$ vor und suchen ein M, sodass:
 
-  \begin{equation*}
-    \lim_{n \to \infty} \int_0^\infty f_n(x) \; dx = \int_0^\infty f(x) \; dx
-  \end{equation*}
+\begin{equation}
+|g_m(x)-g(x)|<\epsilon \quad \forall m\geq M, \;\; \forall x\in I
+\end{equation}
 
-  Damit ist Anwendbarkeit gegeben. Nun schrittweise die Gleichung zeigen.
-  Folgende Gleichung ist klar, sie folgt aus (1)
+...erfüllt wird. Wie wir wissen, ist:
 
-  \begin{equation*}
-    \sum_{n=1}^\infty \frac{1}{n^2} = \sum_{n=1}^\infty \int_0^\infty \frac{x}{e^{nx}} \; dx
-  \end{equation*}
+\begin{equation*}
+\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right)=\sum_{n=1}^{\infty}\frac{x}{e^{nx}}=\frac{x}{e^x-1} \quad x\in I
+\end{equation*}
 
-  \textbf{TODO:} Schritte $2 \to 3$, $3 \to 4$
+Wir müssen also zeigen:
+\begin{align*}
+\left|\sum_{n=1}^{m}\frac{x}{e^{nx}}-\sum_{n=1}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I\\
+\Leftrightarrow \quad \left|-\sum_{n=m}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I
+\end{align*}
 
-\end{enumerate}
+Die Grenzfunktion $g(x)=\frac{x}{e^x-1}$ kann auf $I$ nur endliche Werte zwischen $0$ und $1$ annehmen, da diese die Grenzwerte auf dem offenen Intervall $[0,\infty[$ sind (von dem I ein Teilintervall ist) und $g(x)$ streng monoton fällt.\\
+
+Beweisen wir zunächst die Monotonie (streng fallend). Dazu muss $g'(x)<0 \; \forall x$ gelten. $g'(x)$ ist:
+\begin{equation*}
+g'(x)=\frac{(e^x-1)-xe^x}{(e^x-1)^2}=-\frac{e^x(x-1)+1}{(e^x-1)^2} \forall x\in I
+\end{equation*}
+
+Tatsächlich wird die Bedingung für strenge Monotonie erfüllt:
+\begin{align*}
+(1)\;\; (e^x-1)^2 > 0 \quad \forall x\in\mathbb{R}\; \text{mit}\; I\subset\mathbb{R}\\
+(2)\;\; e^x(x-1)+1 > 0 \quad \forall x \in I\\
+\Rightarrow \quad -\frac{e^x(x-1)+1}{(e^x-1)^2}<0
+\end{align*}
+
+Als nächstes betrachten wir die Grenzwerte:
+\begin{align*}
+\lim\limits_{x \to \infty}\left(\frac{x}{e^x-1}\right)=0\\
+\lim\limits_{x \to 0}\left(\frac{x}{e^x-1}\right)=?\\
+\end{align*}
+Um den letzten Grenzwert herauszufinden nehmen wir eine Substitution vor:
+\begin{align*}
+t=e^x-1\\
+\Leftrightarrow e^x=1+\frac{1}{t}\\
+\Leftrightarrow \quad x=\ln(1+\frac{1}{t})\\
+\end{align*}
+Wegen $\ln(1)=0$ gilt offensichtlich:
+\begin{equation*}
+x\rightarrow0 \Rightarrow t\rightarrow \infty
+\end{equation*}
+
+Und somit:
+\begin{align*}
+\lim\limits_{x \to 0}\left(\frac{x}{e^x-1}\right)=\lim\limits_{t \to \infty}\left(\frac{\ln(1+\frac{1}{t})}{\left(1+\frac{1}{t}\right)-1}\right)=\lim\limits_{t\to\infty}\left(t\ln(1+\frac{1}{t})\right)\\
+=\lim\limits_{t\to\infty}\left(\ln\left(\left(1+\frac{1}{t}\right)^t\right)\right)=\ln\left(\lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^t\right)=ln(e)=1
+\end{align*}
+Der drittletzte Schritt ist legitim, da $ln(x)$ die Umkehrfunktion einer stetigen Funktion ($e^x$) und somit selbst stetig ist.\\
+Wenn $g(x)$ auf $I$ stets Werte zwischen 0 und 1 annimmt, dann muss jedes Glied der Folge $g_m(x)$ das ebenfalls tun, denn $g_m(x) > 0 \; \forall x\in I \; \forall m$ und $g_m(x) < g(x) \forall x\in I \; \forall m$. Das geht unmittelbar hervor aus:
+
+\begin{align*}
+\sum_{n=1}^{M}\frac{x}{e^{nx}} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \text{für $M>m$}\\
+\Rightarrow \quad \frac{x}{e^x-1} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \forall m \in \mathbb{N}
+\end{align*}
+
+Daraus folgt aber auch, dass die Glieder der Folge mit zunehmendem $m$ für alle $x\in I$ größer werden, also muss die Differenz zwischen Grenzfunktion und Gliedern der Folge für alle $x \in I$ kleiner werden.\\
+Wählen wir also ein hinreichend großes $M$, so wird die Rest-Funktionsreihe auf dem ganzen Intervall für dieses und alle nachfolgenden $m$ einen bestimmten Wert unterschreiten. Dann gilt aber gerade:
+
+\begin{equation*}
+\left|-\sum_{n=m}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I
+\end{equation*}
+
+\subsection*{Teilaufgabe 3}
+
+Unter Verwendung von (1) können wir ohne weiteres feststellen:
+\begin{equation*}
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
+\end{equation*}
+
+Nenne $f_n(x)=\frac{x}{e^{nx}}:$
+\begin{equation*}
+\Leftrightarrow \quad \sum_{n=1}^{\infty}\frac{1}{n^2}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}f_n(x)dx\right)
+\end{equation*}
+
+Wir definieren eine Partialsummen-Funktionsfolge $g_m(x)$:
+\begin{equation*}
+g_m(x):=\sum_{n=1}^{m}f_n(x)dx\\
+\end{equation*}
+
+Falls wir zeigen können, dass die so definierte Folge gleichmäßig konvergiert und dass ferner:
+\begin{equation*}
+\lim\limits_{n \to \infty}\int_{0}^{\infty}g_m(x)dx=\int_{0}^{\infty}g(x)dx
+\end{equation*}
+
+...dann dürfen wir Summe und Integration vertauschen und schließen:
+\begin{align*}
+\Leftrightarrow \quad \sum_{n=1}^{\infty}\frac{1}{n^2}=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}f_n(x)dx\right)=\lim\limits_{m \to \infty}\left(\int_{0}^{\infty}\sum_{n=1}^{m}f_n(x)dx\right)\\
+=\lim\limits_{m \to \infty}\left(\int_{0}^{\infty}g_m(x)dx\right)=\int_{n=1}^{\infty}g(x)dx
+\end{align*}
+
+Dazu benutzen wir den Satz über die majorisierte Konvergenz. Nehmen wir an, alle Glieder der Folge $g_m(x)$ sind stetig und besagte Folge konvergiert auf jedem kompakten Teilintervall von $[0,\infty]$ gleichmäßig gegen ein Funktion $g(x)$. Dann gilt die zu beweisende Gleichung, wenn wir eine Funktion $h(x)$ finden, welche die Bedingungen erfüllt:
+
+\begin{align*}
+(1)\quad h(x)\geq |g_m(x)| \quad \forall x\\
+(2)\quad \int_{0}^{\infty}h(x) \text \quad \text{existiert}
+\end{align*}
+Prüfen wir zunächst, ob die Voraussetzungen erfüllt sind. Die Stetigkeit aller $g_m(x)$ ist gegeben, denn:
+\begin{equation*}
+g_m(x):=\sum_{n=1}^{m}\frac{x}{e^{nx}}
+\end{equation*}
+
+...ist eine Komposition stetiger Funktionen und somit selbst stetig (siehe letztes Semester).\\
+Die gleichmäßige Konvergenz ist ebenfalls gegeben, wie wir in Teil (2) der Aufgabe gezeigt haben. Es gilt:
+\begin{equation*}
+\lim\limits_{m \to \infty} g_m(x)=\sum_{n=1}^{\infty}\frac{x}{e^{nx}}=x\sum_{n=1}^{\infty}\left(\frac{1}{e^x}\right)^ndx=\frac{x}{e^x-1}=g(x)
+\end{equation*}
+
+Wir können nun noch eine wichtige Aussage treffen, die uns die Rechnung erleichtern wird, nämlich dass die Folge $g_m(x)$ von unten gegen $g(x)$ konvergiert. Denn:
+
+\begin{equation*}
+\sum_{n=1}^{M}\frac{x}{e^{nx}} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \text{für $M>m$}
+\end{equation*}
+
+Damit gilt unweigerlich:
+\begin{equation*}
+\frac{x}{e^x-1} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \forall m\\
+\Rightarrow \quad g(x)>g_m(x) \;\; \forall m
+\end{equation*}
+
+Um eine Funktion $h(x)$ zu finden, welche der Bedingung:
+\begin{equation*}
+h(x) \geq |g_m(x)| \;\; \forall m
+\end{equation*}
+
+...gerecht wird, genügt es, eine solche zu finden, die:
+\begin{equation*}
+h(x)\geq g(x)=\left|\frac{x}{e^x-1}\right| \;\; \forall x \in I
+\end{equation*}
+
+...erfüllt. Da aber $g(x)$ auf einem beliebigen, geschlossenen Teilintervall von I nur endliche Werte liefert und demnach auch das Integral über ein geschlossenes Teilintervall endlich sein muss, genügt es zu zeigen:
+
+\begin{equation*}
+h(x) \geq |g(x)| \;\; \forall x>X, \; x,X\in I
+\end{equation*}
+
+Ein naheliegender Ansatz ist:
+\begin{equation*}
+h(x):=\frac{x}{e^x}
+\end{equation*}
+
+Wir prüfen:
+\begin{align*}
+\frac{x}{e^x} \geq \frac{1}{e^x-1} \quad \forall x\geq X, \; x,X\in I\\
+\frac{x(e^x-1)}{e^x} \geq 1 \quad \forall x\geq X, \; x,X\in I\\
+x-\frac{x}{e^x} \geq 1 \quad \forall x\geq X, \; x,X\in I\\
+x-\underbrace{\frac{x}{e^x}}_{\rightarrow 0} \geq 1 \quad \forall x\geq X, \; x,X\in I
+\end{align*}
+
+...für hinreichend große $x$. Wählen wir $X$ also groß genug, so wird die obige Bedingung erfüllt.\\
+Damit bleibt nur noch zu prüfen, ob das uneingentliche Integral von $h(x)$ existiert. Das ist aber gemäß der Formel aus Aufgabe (1):
+
+\begin{equation*}
+\int_{0}^{\infty}\frac{xdx}{e^x}=1
+\end{equation*}
+
+Damit sind alle Voraussetzungen erfüllt und wir können schließen:
+\begin{equation*}
+\sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}=x\sum_{n=1}^{\infty}\left(\frac{1}{e^x}\right)^ndx=\frac{x}{e^x-1}
+\end{equation*}
+
 
 \section*{Aufgabe 1.3}
 
-\begin{enumerate}[(1)]
-\item Gegenbeispiel. Sei
+Im den Argumentationsfluss nicht zu unterbrechen, beginnen wir mit dem Beweis für Aussage 2.\\
+Nehmen wir an, $f$ ist nicht beschränkt. Das heißt, für mindestens ein $x=x_0$ auf dem geschlossenen Intervall $I=[0,1]$ muss gelten:
 
 \begin{equation*}
-  f_n(x) = \begin{cases} 
-    0           & \mbox{wenn} \; x = 0 \\
+\lim\limits_{x \to x_0} f(x)=\infty
+\end{equation*}
+
+ Wir wollen beweisen, dass $f$ gleichmäßig konvergiert. Dazu müssen wir zeigen:
+
+\begin{equation*}
+\forall \epsilon \ge 0 \exists N: \forall n \geq N |f_n(x)-f(x)| \le \epsilon \forall x
+\end{equation*}
+
+Verbal ausgedrückt: Wenn wir ein endlich großes $\epsilon>0$ vorgeben, finden wir ein $N$ sodass:
+
+\begin{equation*}
+|f_n(x)-f(x)| \le \epsilon 
+\end{equation*}
+
+... erfüllt wird, und zwar für alle $x$. Da $\epsilon$ endlich ist, müssen wir fordern, dass auch $|f_n(x)-f(x)|$ für alle $x$ endlich ist. Da aber mindestens für $x_0$ gelten muss, dass:
+
+\begin{equation*}
+\lim\limits_{x \to x_0} f(x)=\infty
+\end{equation*}
+
+Wird auch gelten:
+
+\begin{equation*}
+\lim\limits_{x \to x_0} |f_n(x)-f(x)|=|f_n(x)-\lim\limits_{x \to x_0} f(x)|=\infty
+\end{equation*}
+
+Womit die Bedingung für gleichmäßige Konvergenz unmöglich für alle $x \in I$ erfüllt wird.\\
+
+Wir müssen also folgern, dass wenn $f_n(x) \rightrightarrows f(x)$ und $f_n(x)$ beschränkt ist auch $f(x)$ beschränkt sein muss.\\
+
+Anders sieht es für punktweise Konvergenz aus. Wir nehmen erneut an, dass $f$ nicht beschränkt ist und demnach für mindestens ein $x=x_0$ aus dem Definitionsbereich $f_n(x) \rightarrow \infty$. 
+Um punktweise Konvergenz von $f_n$ für ein bestimmtes x zu beweisen, müssen wir zeigen:
+
+\begin{equation*}
+\forall \epsilon \le 0 \exists N: |f_n(x)-f(x)| \le \epsilon \forall n \geq N
+\end{equation*}
+
+Ausformuliert: Geben wir ein beliebiges $\epsilon$ vor und betrachten ein bestimmtes $x$, so müssen wir ein $N$ finden können, ab dem $|f_n(x)-f(x)|$ das $\epsilon$ unterbietet. Dies ist jeweils für alle $x \in I$ demonstrieren.\\
+
+Offensichtlich kann jeweils für alle $x \neq x_0$ ein hinreichend großes $N \in \mathbb{N}$ gefunden werden, sodass:
+
+\begin{equation*}
+|f_n(x)-f(x)| \le \epsilon \quad \forall n \ge N
+\end{equation*}
+
+Für $x=x_0$ ist diese Formulierung zum Beweis der Konvergenz jedoch problematisch, da $f(x)$ hier divergiert. Allerdings können wir uns mit der alternativen Grenzwertdefinition behelfen, wonach $f_n$ punktweise gegen $f:I \rightarrow \mathbb{R}$ konvergiert, wenn:
+
+\begin{equation*}
+\lim\limits_{n \to \infty}f_n(x)=f(x) \quad \forall x \in I
+\end{equation*} 
+
+Also insbesondere auch für $x=x_0$. Dann muss für $x_0$ gelten:
+
+\begin{equation*}
+\lim\limits_{n \to \infty}f_n(x_0) = \infty
+\end{equation*}
+
+Das ist eine Bedingung die sehr wohl unter unserer Voraussetzung erfüllt werden kann, dass $f_n(x)$ auf dem geschlossenen Intervall $I=[0,1]$ für alle $n$ beschränkt sein und somit nur endlich Werte annehmen darf.\\
+
+Also muss bei punktweiser Konvergenz einer beschränkten Folge $f_n(x) \rightarrow f(x)$ auf einem geschlossenen Intervall $I$ (hier $I=[0,1]$) die Grenzwertfunktion nicht notwendigerweise beschränkt sein.\\
+
+Beispiel: Sei
+
+\begin{equation*}
+  f_n(x) = \begin{cases}
+    0 & \mbox{wenn} \; x = 0 \\
     \frac{1}{x} & \mbox{wenn} \; x \neq 0
   \end{cases}
 \end{equation*}
@@ -138,54 +381,153 @@ $n$. Trotzdem ist $f$ unbeschränkt, denn
   \lim_{x \to 0} \frac{1}{x} = \infty
 \end{equation*}
 
-\item Gegenbeispiel. Siehe oben. Die Funktion konvergiert gleichmäßig,
-  weil sie mit ihrer Grenzfunktion identisch ist. Trotzdem ist sie
-  unbeschränkt.
+\section{Aufgabe 1.4}
 
-\end{enumerate}
 
-\section*{Aufgabe 1.4}
+Es ist sinnvoll, $f_n(x)$ gleich auf gleichmäßige Konvergenz zu prüfen, da Beobachtung auf 9.1.2 im Skript zufolge aus gleichmäßiger Konvergenz stets punktweise Konvergenz gegen die selbe Grenzfunktion folgt.\\
 
-Die Funktionenfolge $f_n(x)$ konvergiert punktweise gegen $f(x) = 0$.
+Sei ein beliebig kleines $\epsilon>0$ vorgegeben, so muss es ein $N \in \mathbb{N}$ geben, sodass:
 
 \begin{equation*}
-  \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{x}{1+nx^2} = \lim_{n \to \infty} \frac{x}{n \left(\frac{1}{n} + x^2\right)} = \lim_{n \to \infty} \frac{1}{n} \cdot \lim_{n \to \infty} \frac{x}{\frac{1}{n} + x^2} = 0 \cdot x = 0
+|f_n(x)-f(x)|<\epsilon \quad \forall n \geq N, \quad \forall x
 \end{equation*}
 
-Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuche ich zuerst die Beschränktheit von $f_n(x)$. Dazu berechne ich die Ableitung per Quotientenregel
+Wir prüfen zunächst, ob eine Grenzfunktion zu:
+\begin{equation*}
+f_n(x):= \frac{x}{1+nx^2}
+\end{equation*}
+
+...existiert. Ohne Mühe (und ohne formalen Beweis) erkennen wir:
+\begin{equation*}
+\lim\limits_{n \to \infty} \left(\frac{x}{1+nx^2}\right)=0 \quad \forall x
+\end{equation*}
+
+...denn $f_n(x)$ verhält sich für hinreichend große $n$ in etwa wie $\frac{1}{n}$. Die Grenzfunktion ist folglich die Nullfunktion. Zu finden ist ein N, sodass:
 
 \begin{equation*}
-  f'_n(x) = \frac{1 \cdot (1+nx^2) - x \cdot 2nx}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2}
+|f_n(x)-0|=|f_n(x)|<\epsilon \quad \forall n \geq N, \;\; \forall x
 \end{equation*}
 
-die Extremwerte finden sich bei $f'_n(x) \overset{!}{=} 0$. Da der Zähler für
-alle $x$ im Definitionsberech positiv ist, muss also der Nenner verschwinden
+Alle Funktionen der Folge $f_n(x)$ konvergieren:
 
 \begin{equation*}
-  1-nx^2 \overset{!}{=} 0
+\lim\limits_{x \to \infty} \left(\frac{x}{1+nx^2}\right)=0
 \end{equation*}
 
-Dies ist gegeben bei
+...denn für hinreichend große $x$ verhält sich eine beliebige Funktion der Folge wie $\frac{1}{x} \rightarrow 0$.
 
-\begin{equation}
-  x = \pm \sqrt{\frac{1}{n}}
-\end{equation}
-
-Maximum und Minimum finden sich also bei
+Die Ableitung einer beliebigen Funktion der Folge ist:
 
 \begin{equation*}
-  f_n\left(\pm\sqrt{\frac{1}{n}}\right) = \frac{\pm\sqrt{\frac{1}{n}}}{1+n\frac{1}{n}} = \pm\frac{1}{2\sqrt{n}}
+f_n'(x)=\frac{(1+nx^2)- x\cdot 2nx}{\left(1+nx^2\right)^2}=\frac{1-nx^2}{\left(1+nx^2\right)^2}\\
 \end{equation*}
 
-Nun zeige ich gleichmäßige Konvergenz. Dafür muss ich beweisen, dass sich zu
-jedem $\epsilon$ ein $n$ finden lässt, derart, dass $\left| f(x) - f_n(x)
-\right| < \epsilon$. Mit dem errechneten Extremwerten kann ich nun eine
-Abschätzung machen.
+Lokale Extrema erhält man somit für:
+\begin{align*}
+f_n'(x)=0\\
+\Leftrightarrow \quad \frac{1-nx^2}{\left(1+nx^2\right)^2}=0\\
+\Leftrightarrow \quad 1-nx^2=0\\
+\Leftrightarrow \quad x=\overset{+}{-}\sqrt{\frac{1}{n}}
+\end{align*}
+
+Einsetzen in $f_n(x)$:
+\begin{equation*}
+f_n(x)=\frac{\sqrt{\frac{1}{n}}}{1+n\cdot\frac{1}{n}}=\frac{1}{2\sqrt{n}}
+\end{equation*}
+
+Geben wir also ein $\epsilon>0$ vor, so finden wir ein hinreichend großes $n$, sodass:
 
 \begin{equation*}
-  \left| f(x) - f_n(x) \right| = \left|0-\frac{x}{1+nx^2}\right| < \frac{1}{2\sqrt{n}} < \epsilon
+\frac{1}{2\sqrt{n}} < \epsilon
 \end{equation*}
 
-Da $\frac{1}{2\sqrt{n}}$ Nullfolge ist, ist gleichmäßige Konvergenz gegeben.
+Und nennen dieses $N$. Offensichtlich ist dann:
+
+\begin{equation*}
+|f_n(x)|\leq\left|\frac{1}{2\sqrt{n}}\right| < \epsilon \quad \forall n\geq N, \;\;\forall x
+\end{equation*}
+
+Damit ist der Beweis für gleichmäßige Konvergenz erbracht und es liegt auch punktweise Konvergenz vor.\\
+\\
+
+Als nächstes betrachten wir die Ableitungsfolge $f_n'(x)$. Für ein beliebiges Glied der Folge gilt:
+
+\begin{equation*}
+f_n'(x)=\frac{1-nx^2}{\left(1+nx^2\right)^2}
+\end{equation*}
+
+Die Ableitung der Grenzfunktion $f(x)=0$ lautet:
+\begin{equation*}
+f'(x)=0
+\end{equation*}
+
+Zu prüfen ist, für welche $x$ erfüllt wird:
+
+\begin{equation*}
+\lim\limits_{n \to \infty}f_n'(x)=f'(x)=0
+\end{equation*}
+
+Dazu nehmen wir eine Fallunterscheidung vor:
+
+\subsection*{$|x|\ge0:$}
+Ohne großen Aufwand sehen wir, dass bei fixiertem x und hinreichend großem n sich $f_n'(x)$ im wesentlichen wie $\left(\frac{-1}{n}\right)\rightarrow 0$ verhält.\\
+Ohne formalen Beweis folgern wir:
+
+\begin{equation*}
+\lim\limits_{n \to \infty}f_n'(x)=f_n(x)
+\end{equation*}
+
+\subsection*{$x=0:$}
+\begin{equation*}
+f_n'(x)=\left(\frac{1-0}{\left(1+0^2\right)^2}\right)=1 \quad \forall n\in\mathbb{N}
+\end{equation*}
+
+$f_n'(x)$ ist stationäre Folge und konvergiert als solche:
+
+\begin{equation*}
+\lim\limits_{n \to \infty} f_n'(x)=1 \neq f'(x)
+\end{equation*}
+
+Wir finden also, dass $f_n'(x)$ auf den offenen Teilintervallen $I_1=]-\infty,0[$ und $I_2=]0,\infty[$ konvergiert. Zu prüfen bleibt, ob innerhalb aller kompakten Teilintervalle von diesen lediglich punktweise oder doch gleichmäßige Konvergenz vorliegt.\\
+Läge gleichmäßige Konvergenz vor, müssten ein $N$ finden, sodass bei gegebenem $\epsilon>0$:
+
+\begin{equation*}
+|f_n'(x)-f'(x)|=|f_n'(x)-0|=|f_n'(x)|<\epsilon \quad \forall n\ge N, \;\; \forall x\in I_{1/2}
+\end{equation*}
+
+Dazu gehen wie vor wie beim letzten Mal und ermitteln Extrema.\\
+Unter Anwendung der Quotientenregel ermitteln wir:
+\begin{align*}
+f_n''(x)=\frac{-2nx\left(1+nx^2\right)^2-\left(1-nx^2\right)\cdot 2nx\left(1+nx^2\right)\cdot 2}{\left(1+nx^2\right)^4}\\
+\Leftrightarrow \quad f_n''(x)=\frac{-2nx\left(1+nx^2\right)\left(\left(1+nx^2\right)+2\left(1-nx^2\right)\right)}{\left(1+nx^2\right)^4}\\
+\Leftrightarrow \quad f_n''(x)=\frac{2nx\left(nx^2-3\right)}{\left(1+nx^2\right)^3}
+\end{align*}
+
+Bedingung für Extrema:
+\begin{align*}
+f_n''(x)=\frac{2nx\left(nx^2-3\right)}{\left(1+nx^2\right)^3}=0\\
+\Rightarrow \quad 2nx\left(nx^2-3\right)=0\\
+\Leftrightarrow \quad (1)\;x=0\notin I_{1/2} \quad \quad (2)\;nx^2-3=0\\
+\Rightarrow \quad x=\overset{+}{-}\sqrt{\frac{3}{n}} 
+\end{align*}
+
+Einsetzen in $fn'(x)$:
+\begin{equation*}
+fn'(x)=\frac{1-3}{\left(1+3\right)^2}=-\frac{1}{8}
+\end{equation*}
+
+Unabhängig von der Wahl von n erhalten wir jeweils auf $I_1$ und $I_2$ als globale Extrema von $fn'(x)=-\frac{1}{8}$. Es gilt:
+
+\begin{equation*}
+|fn'(x)|\leq\left|-\frac{1}{8}\right| \quad \forall x\in I_{1/2} \forall n
+\end{equation*}
+
+Das heißt aber: Geben wir ein $\epsilon>0$ vor, welches $\epsilon<-\frac{1}{8}$ erfüllt, so finden wir kein einziges n, sodass:
+
+\begin{equation*}
+|fn'(x)|\le\epsilon \quad \forall x \in I_{1/2}
+\end{equation*}
+
+Damit kann $f_n'(x)$ auf den entsprechenden Intervallen unmöglich gleichmäßig gegen $f'(x)$ konvergieren.
 
 \end{document}
