@@ -22,7 +22,7 @@
 \vspace{-40pt}
 Analysis II, Wintersemester 2013/2013, 1. Übungsblatt
 
-Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+Markus Fenske\footnote[1]{In Zusammenarbeit mit: Luis Herrmann}, Tutor: Sebastian Bierke
 \vspace{-10pt}
 \end{center}
 
@@ -70,12 +70,12 @@ mit
 und erhalten:
 
 \begin{align*}
-  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0+0\footnotemark[1]} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0+0\footnotemark[2]} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \int_0^\infty \frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \frac{k}{n} \int_0^\infty e^{-nx} \cdot x^{k-1} \; dx
 \end{align*}
 
-\footnotetext[1]{
+\footnotetext[2]{
   Falls das nicht offensichtlich sein sollte, gilt das wegen
   \begin{equation*}
   \left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) - \frac{0^k}{e^{n\cdot 0}}=0 + 0
