@@ -218,153 +218,50 @@ Die Grenzfunktion $f$ ist ganz klar unbeschränkt ($\lim_{x \to 0} f(x) = \infty
     \lim_{x \to x_0} |f(x)| \neq \infty
   \end{equation*}
 
-  Also muss $f$ beschränkt sein.
+  Also muss $f$ im Definitionsbereich beschränkt sein.
 \end{enumerate}
-\section{Aufgabe 1.4}
-Es ist sinnvoll, $f_n(x)$ gleich auf gleichmäßige Konvergenz zu prüfen, da Beobachtung auf 9.1.2 im Skript zufolge aus gleichmäßiger Konvergenz stets punktweise Konvergenz gegen die selbe Grenzfunktion folgt.\\
+\section*{Aufgabe 1.4}
 
-Sei ein beliebig kleines $\epsilon>0$ vorgegeben, so muss es ein $N \in \mathbb{N}$ geben, sodass:
-
-\begin{equation*}
-|f_n(x)-f(x)|<\epsilon \quad \forall n \geq N, \quad \forall x
-\end{equation*}
-
-Wir prüfen zunächst, ob eine Grenzfunktion zu:
-\begin{equation*}
-f_n(x):= \frac{x}{1+nx^2}
-\end{equation*}
-
-...existiert. Ohne Mühe (und ohne formalen Beweis) erkennen wir:
-\begin{equation*}
-\lim\limits_{n \to \infty} \left(\frac{x}{1+nx^2}\right)=0 \quad \forall x
-\end{equation*}
-
-...denn $f_n(x)$ verhält sich für hinreichend große $n$ in etwa wie $\frac{1}{n}$. Die Grenzfunktion ist folglich die Nullfunktion. Zu finden ist ein N, sodass:
+Die Funktionenfolge $f_n(x)$ konvergiert punktweise gegen $f(x) = 0$.
 
 \begin{equation*}
-|f_n(x)-0|=|f_n(x)|<\epsilon \quad \forall n \geq N, \;\; \forall x
+  \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{x}{1+nx^2} = \lim_{n \to \infty} \frac{x}{n \left(\frac{1}{n} + x^2\right)} = \lim_{n \to \infty} \frac{1}{n} \cdot \lim_{n \to \infty} \frac{x}{\frac{1}{n} + x^2} = 0 \cdot x = 0
 \end{equation*}
 
-Alle Funktionen der Folge $f_n(x)$ konvergieren:
+Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuche ich zuerst die Beschränktheit von $f_n(x)$. Dazu berechne ich die Ableitung per Quotientenregel
 
 \begin{equation*}
-\lim\limits_{x \to \infty} \left(\frac{x}{1+nx^2}\right)=0
+  f'_n(x) = \frac{1 \cdot (1+nx^2) - x \cdot 2nx}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2}
 \end{equation*}
 
-...denn für hinreichend große $x$ verhält sich eine beliebige Funktion der Folge wie $\frac{1}{x} \rightarrow 0$.
-
-Die Ableitung einer beliebigen Funktion der Folge ist:
+die Extremwerte finden sich bei $f'_n(x) \overset{!}{=} 0$. Da der Zähler für
+alle $x$ im Definitionsberech positiv ist, muss also der Nenner verschwinden
 
 \begin{equation*}
-f_n'(x)=\frac{(1+nx^2)- x\cdot 2nx}{\left(1+nx^2\right)^2}=\frac{1-nx^2}{\left(1+nx^2\right)^2}\\
+  1-nx^2 \overset{!}{=} 0
 \end{equation*}
 
-Lokale Extrema erhält man somit für:
-\begin{align*}
-f_n'(x)=0\\
-\Leftrightarrow \quad \frac{1-nx^2}{\left(1+nx^2\right)^2}=0\\
-\Leftrightarrow \quad 1-nx^2=0\\
-\Leftrightarrow \quad x=\overset{+}{-}\sqrt{\frac{1}{n}}
-\end{align*}
+Dies ist gegeben bei
 
-Einsetzen in $f_n(x)$:
-\begin{equation*}
-f_n(x)=\frac{\sqrt{\frac{1}{n}}}{1+n\cdot\frac{1}{n}}=\frac{1}{2\sqrt{n}}
-\end{equation*}
+\begin{equation}
+  x = \pm \sqrt{\frac{1}{n}}
+\end{equation}
 
-Geben wir also ein $\epsilon>0$ vor, so finden wir ein hinreichend großes $n$, sodass:
+Maximum und Minimum finden sich also bei
 
 \begin{equation*}
-\frac{1}{2\sqrt{n}} < \epsilon
+  f_n\left(\pm\sqrt{\frac{1}{n}}\right) = \frac{\pm\sqrt{\frac{1}{n}}}{1+n\frac{1}{n}} = \pm\frac{1}{2\sqrt{n}}
 \end{equation*}
 
-Und nennen dieses $N$. Offensichtlich ist dann:
+Nun zeige ich gleichmäßige Konvergenz. Dafür muss ich beweisen, dass sich zu
+jedem $\epsilon$ ein $n$ finden lässt, derart, dass $\left| f(x) - f_n(x)
+\right| < \epsilon$. Mit dem errechneten Extremwerten kann ich nun eine
+Abschätzung machen.
 
 \begin{equation*}
-|f_n(x)|\leq\left|\frac{1}{2\sqrt{n}}\right| < \epsilon \quad \forall n\geq N, \;\;\forall x
+  \left| f(x) - f_n(x) \right| = \left|0-\frac{x}{1+nx^2}\right| < \frac{1}{2\sqrt{n}} < \epsilon
 \end{equation*}
 
-Damit ist der Beweis für gleichmäßige Konvergenz erbracht und es liegt auch punktweise Konvergenz vor.\\
-\\
-
-Als nächstes betrachten wir die Ableitungsfolge $f_n'(x)$. Für ein beliebiges Glied der Folge gilt:
-
-\begin{equation*}
-f_n'(x)=\frac{1-nx^2}{\left(1+nx^2\right)^2}
-\end{equation*}
-
-Die Ableitung der Grenzfunktion $f(x)=0$ lautet:
-\begin{equation*}
-f'(x)=0
-\end{equation*}
-
-Zu prüfen ist, für welche $x$ erfüllt wird:
-
-\begin{equation*}
-\lim\limits_{n \to \infty}f_n'(x)=f'(x)=0
-\end{equation*}
-
-Dazu nehmen wir eine Fallunterscheidung vor:
-
-\subsection*{$|x|\ge0:$}
-Ohne großen Aufwand sehen wir, dass bei fixiertem x und hinreichend großem n sich $f_n'(x)$ im wesentlichen wie $\left(\frac{-1}{n}\right)\rightarrow 0$ verhält.\\
-Ohne formalen Beweis folgern wir:
-
-\begin{equation*}
-\lim\limits_{n \to \infty}f_n'(x)=f_n(x)
-\end{equation*}
-
-\subsection*{$x=0:$}
-\begin{equation*}
-f_n'(x)=\left(\frac{1-0}{\left(1+0^2\right)^2}\right)=1 \quad \forall n\in\mathbb{N}
-\end{equation*}
-
-$f_n'(x)$ ist stationäre Folge und konvergiert als solche:
-
-\begin{equation*}
-\lim\limits_{n \to \infty} f_n'(x)=1 \neq f'(x)
-\end{equation*}
-
-Wir finden also, dass $f_n'(x)$ auf den offenen Teilintervallen $I_1=]-\infty,0[$ und $I_2=]0,\infty[$ konvergiert. Zu prüfen bleibt, ob innerhalb aller kompakten Teilintervalle von diesen lediglich punktweise oder doch gleichmäßige Konvergenz vorliegt.\\
-Läge gleichmäßige Konvergenz vor, müssten ein $N$ finden, sodass bei gegebenem $\epsilon>0$:
-
-\begin{equation*}
-|f_n'(x)-f'(x)|=|f_n'(x)-0|=|f_n'(x)|<\epsilon \quad \forall n\ge N, \;\; \forall x\in I_{1/2}
-\end{equation*}
-
-Dazu gehen wie vor wie beim letzten Mal und ermitteln Extrema.\\
-Unter Anwendung der Quotientenregel ermitteln wir:
-\begin{align*}
-f_n''(x)=\frac{-2nx\left(1+nx^2\right)^2-\left(1-nx^2\right)\cdot 2nx\left(1+nx^2\right)\cdot 2}{\left(1+nx^2\right)^4}\\
-\Leftrightarrow \quad f_n''(x)=\frac{-2nx\left(1+nx^2\right)\left(\left(1+nx^2\right)+2\left(1-nx^2\right)\right)}{\left(1+nx^2\right)^4}\\
-\Leftrightarrow \quad f_n''(x)=\frac{2nx\left(nx^2-3\right)}{\left(1+nx^2\right)^3}
-\end{align*}
-
-Bedingung für Extrema:
-\begin{align*}
-f_n''(x)=\frac{2nx\left(nx^2-3\right)}{\left(1+nx^2\right)^3}=0\\
-\Rightarrow \quad 2nx\left(nx^2-3\right)=0\\
-\Leftrightarrow \quad (1)\;x=0\notin I_{1/2} \quad \quad (2)\;nx^2-3=0\\
-\Rightarrow \quad x=\overset{+}{-}\sqrt{\frac{3}{n}} 
-\end{align*}
-
-Einsetzen in $fn'(x)$:
-\begin{equation*}
-fn'(x)=\frac{1-3}{\left(1+3\right)^2}=-\frac{1}{8}
-\end{equation*}
-
-Unabhängig von der Wahl von n erhalten wir jeweils auf $I_1$ und $I_2$ als globale Extrema von $fn'(x)=-\frac{1}{8}$. Es gilt:
-
-\begin{equation*}
-|fn'(x)|\leq\left|-\frac{1}{8}\right| \quad \forall x\in I_{1/2} \forall n
-\end{equation*}
-
-Das heißt aber: Geben wir ein $\epsilon>0$ vor, welches $\epsilon<-\frac{1}{8}$ erfüllt, so finden wir kein einziges n, sodass:
-
-\begin{equation*}
-|fn'(x)|\le\epsilon \quad \forall x \in I_{1/2}
-\end{equation*}
-
-Damit kann $f_n'(x)$ auf den entsprechenden Intervallen unmöglich gleichmäßig gegen $f'(x)$ konvergieren.
+Da $\frac{1}{2\sqrt{n}}$ Nullfolge ist, ist gleichmäßige Konvergenz gegeben.
 
 \end{document}
