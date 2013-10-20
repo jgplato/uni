@@ -128,7 +128,7 @@ Was zu beweisen war.
   Was für $x > 0$ immer wahr ist. Somit konvergiert die Reihe gleichmäßig.
 
   \item 
-  Besteht aus 3 Teilschritten.
+  Besteht aus 2 Teilschritten.
   Der erste Teiilschritt 
   \begin{equation*}
     \sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}
@@ -138,7 +138,7 @@ Was zu beweisen war.
   Der zweite Teilschritt
 
   \begin{equation*}
-    \dots %=\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
+    \sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}} = \int_0^\infty \frac{x \; dx}{e^x-1}
   \end{equation*}
 
   ist die Anwendung des Satzes der majorisierten Konvergenz. Dieser besagt, dass
@@ -200,13 +200,13 @@ Man sieht die Grenzfunktion sofort als
 Die Grenzfunktion $f$ ist ganz klar unbeschränkt ($\lim_{x \to 0} f(x) = \infty$), während alle $f_n(x)$ beschränkt sind ($\lim_{x \to 0} f_n = n$).
 
 \item
-  Seien alle $f_n$ für alle $x_0$ im Definitionsbereich beschränkt:
+  Beweis: Wenn alle $f_n$ für alle $x_0 \in [0,1]$ beschränkt sind, bedeutet dies, dass
 
   \begin{equation*}
     \lim_{x \to x_0} |f_n(x)| \neq \infty
   \end{equation*}
 
-  Konvergiere außerdem $f_n$ gleichmäßig gegen $f$:
+  Wenn $f_n$ gleichmäßig gegen $f$ konvergiert, heißt dies, dass
 
   \begin{align*}
     &\quad \lim_{x \to x_0} \lim_{n \to \infty} |f_n(x) - f(x)| = 0 \\
@@ -218,7 +218,7 @@ Die Grenzfunktion $f$ ist ganz klar unbeschränkt ($\lim_{x \to 0} f(x) = \infty
     \lim_{x \to x_0} |f(x)| \neq \infty
   \end{equation*}
 
-  Also muss $f$ im Definitionsbereich beschränkt sein.
+  Also ist $f$ im Definitionsbereich beschränkt.
 \end{enumerate}
 \section*{Aufgabe 1.4}
 
@@ -228,7 +228,7 @@ Die Funktionenfolge $f_n(x)$ konvergiert punktweise gegen $f(x) = 0$.
   \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{x}{1+nx^2} = \lim_{n \to \infty} \frac{x}{n \left(\frac{1}{n} + x^2\right)} = \lim_{n \to \infty} \frac{1}{n} \cdot \lim_{n \to \infty} \frac{x}{\frac{1}{n} + x^2} = 0 \cdot x = 0
 \end{equation*}
 
-Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuche ich zuerst die Beschränktheit von $f_n(x)$. Dazu berechne ich die Ableitung per Quotientenregel
+Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuchen wir zuerst die Beschränktheit von $f_n(x)$. Dazu berechnen wir die Ableitung per Quotientenregel
 
 \begin{equation*}
   f'_n(x) = \frac{1 \cdot (1+nx^2) - x \cdot 2nx}{(1+nx^2)^2} = \frac{1-nx^2}{(1+nx^2)^2}
@@ -253,9 +253,9 @@ Maximum und Minimum finden sich also bei
   f_n\left(\pm\sqrt{\frac{1}{n}}\right) = \frac{\pm\sqrt{\frac{1}{n}}}{1+n\frac{1}{n}} = \pm\frac{1}{2\sqrt{n}}
 \end{equation*}
 
-Nun zeige ich gleichmäßige Konvergenz. Dafür muss ich beweisen, dass sich zu
+Nun zeigen wir gleichmäßige Konvergenz. Dafür müssen wir beweisen, dass sich zu
 jedem $\epsilon$ ein $n$ finden lässt, derart, dass $\left| f(x) - f_n(x)
-\right| < \epsilon$. Mit dem errechneten Extremwerten kann ich nun eine
+\right| < \epsilon$. Mit dem errechneten Extremwerten können wir nun eine
 Abschätzung machen.
 
 \begin{equation*}
