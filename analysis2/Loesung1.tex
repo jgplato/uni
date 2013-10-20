@@ -93,121 +93,40 @@ Was zu beweisen war.
 
 \section*{Aufgabe 1.2}
 
-Gemäß vorheriger Aufgabe ist:
-
-\begin{equation*}
-\int_{0}^{\infty}\frac{x^kdx}{e^{nx}}=\frac{k!}{n^{k+1}}
-\end{equation*}
-
-Für k=1:
-\begin{equation*}
-\int_{0}^{\infty}\frac{xdx}{e^{nx}}=\frac{1}{n^2}
-\end{equation*}
-
-Zu zeigen ist:
-
-\begin{equation*}
-\sum_{n=1}^{\infty}=\sum_{n=1}^{\infty}x\cdot\left(\frac{1}{e^x}\right)^n=\frac{x}{e^x-1}
-\end{equation*}
-
-Offensichtlich ist:
-\begin{equation*}
+\begin{enumerate}[(1)]
+\item Stimmt.
+\item Es gilt
+  \begin{equation*}
     \sum_{n=1}^\infty \frac{x}{e^{nx}} = x \cdot \left(\sum_{n=1}^\infty \left(e^{-x}\right)^n\right) = x \cdot \left(\left(\sum_{n=0}^\infty \left(e^{-x}\right)^n\right) - 1\right)
-\end{equation*}
+  \end{equation*}
 
-Wir erkennen die Geometrische Reihe mit $q=\frac{1}{e^x}$. Wie wir wissen, konvergiert die Geometrische Reihe für $|q|<1$. Für Konvergenz müssen wir also fordern, dass:
+  Dies enthält die Geometrische Reihe mit $q=e^{-x}$, sie konvergiert
+  für $|q|<1$.  Da wir auf einem Interval $[a,b]$ mit $a > 0$ operieren und
+  $e^{-x} < 1$ für $x>0$, ist $|q| < 1$, also konvergiert die Reihe.
 
-\begin{equation*}
-\frac{1}{e^x}<1
-\end{equation*}
+  \begin{equation*}
+      = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
+  \end{equation*}
 
-Und erhalten dann:
+  Für gleichmäßige Konvergenz muss für alle $x \in [a,b], 0 < a < b < \infty$ gegeben sein:
 
-\begin{equation*}
-    = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
-\end{equation*}
+  \begin{align*}
+    & \quad \lim_{m \to \infty} \left| g_m(x) - g(x) \right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} \left|\left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right) - x \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\sum_{n=1}^{m} \left(e^{-x}\right)^n \right) - \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{1-e^{-x(m+1)}}{1-e^{-x}} - 1 \right)- \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{1-e^{-x(m+1)}}{1-e^{-x}} \right)- \left(\frac{1}{1-e^{-x}} \right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{-e^{-x(m+1)}}{1-e^{-x}} \right)\right| = 0 \\
+  \end{align*}
 
-Dies gilt jedoch nur unter oben genannter Voraussetzung. Offensichtlich gilt:
-\begin{align*}
-\frac{1}{e^x}\geq 1 \quad \forall x\leq 0\\
-\frac{1}{e^x}\le 1 \quad \forall x\ge 0\\
-\end{align*}
+  Da $x > 0$ bleibt der Nenner stets größer als $0$. Es muss also gelten
 
-Wir müssen fordern: $x\in I$ mit $I=]a,b[$ und $0<a<b<\infty$\\
-Zuletzt wollen wir zeigen, dass die über diese Reihe definierte Partialsummen-Funktionsfolge $g_m(x)$ auf I gleichmäßig konvergiert. Wir definieren:
+  \begin{align*}
+    \lim_{n \to \infty} x e^{-xn} = 0 \\
+  \end{align*}
 
-\begin{equation*}
-g_m(x):=\sum_{n=1}^{m}\frac{x}{e^{nx}} \quad x\in I
-\end{equation*}
-
-Um die gleichmäßige Konvergenz zu beweisen schreiben wir wieder ein beliebiges $\epsilon>0$ vor und suchen ein M, sodass:
-
-\begin{equation}
-|g_m(x)-g(x)|<\epsilon \quad \forall m\geq M, \;\; \forall x\in I
-\end{equation}
-
-...erfüllt wird. Wie wir wissen, ist:
-
-\begin{equation*}
-\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right)=\sum_{n=1}^{\infty}\frac{x}{e^{nx}}=\frac{x}{e^x-1} \quad x\in I
-\end{equation*}
-
-Wir müssen also zeigen:
-\begin{align*}
-\left|\sum_{n=1}^{m}\frac{x}{e^{nx}}-\sum_{n=1}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I\\
-\Leftrightarrow \quad \left|-\sum_{n=m}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I
-\end{align*}
-
-Die Grenzfunktion $g(x)=\frac{x}{e^x-1}$ kann auf $I$ nur endliche Werte zwischen $0$ und $1$ annehmen, da diese die Grenzwerte auf dem offenen Intervall $[0,\infty[$ sind (von dem I ein Teilintervall ist) und $g(x)$ streng monoton fällt.\\
-
-Beweisen wir zunächst die Monotonie (streng fallend). Dazu muss $g'(x)<0 \; \forall x$ gelten. $g'(x)$ ist:
-\begin{equation*}
-g'(x)=\frac{(e^x-1)-xe^x}{(e^x-1)^2}=-\frac{e^x(x-1)+1}{(e^x-1)^2} \forall x\in I
-\end{equation*}
-
-Tatsächlich wird die Bedingung für strenge Monotonie erfüllt:
-\begin{align*}
-(1)\;\; (e^x-1)^2 > 0 \quad \forall x\in\mathbb{R}\; \text{mit}\; I\subset\mathbb{R}\\
-(2)\;\; e^x(x-1)+1 > 0 \quad \forall x \in I\\
-\Rightarrow \quad -\frac{e^x(x-1)+1}{(e^x-1)^2}<0
-\end{align*}
-
-Als nächstes betrachten wir die Grenzwerte:
-\begin{align*}
-\lim\limits_{x \to \infty}\left(\frac{x}{e^x-1}\right)=0\\
-\lim\limits_{x \to 0}\left(\frac{x}{e^x-1}\right)=?\\
-\end{align*}
-Um den letzten Grenzwert herauszufinden nehmen wir eine Substitution vor:
-\begin{align*}
-t=e^x-1\\
-\Leftrightarrow e^x=1+\frac{1}{t}\\
-\Leftrightarrow \quad x=\ln(1+\frac{1}{t})\\
-\end{align*}
-Wegen $\ln(1)=0$ gilt offensichtlich:
-\begin{equation*}
-x\rightarrow0 \Rightarrow t\rightarrow \infty
-\end{equation*}
-
-Und somit:
-\begin{align*}
-\lim\limits_{x \to 0}\left(\frac{x}{e^x-1}\right)=\lim\limits_{t \to \infty}\left(\frac{\ln(1+\frac{1}{t})}{\left(1+\frac{1}{t}\right)-1}\right)=\lim\limits_{t\to\infty}\left(t\ln(1+\frac{1}{t})\right)\\
-=\lim\limits_{t\to\infty}\left(\ln\left(\left(1+\frac{1}{t}\right)^t\right)\right)=\ln\left(\lim\limits_{t \to \infty}\left(1+\frac{1}{t}\right)^t\right)=ln(e)=1
-\end{align*}
-Der drittletzte Schritt ist legitim, da $ln(x)$ die Umkehrfunktion einer stetigen Funktion ($e^x$) und somit selbst stetig ist.\\
-Wenn $g(x)$ auf $I$ stets Werte zwischen 0 und 1 annimmt, dann muss jedes Glied der Folge $g_m(x)$ das ebenfalls tun, denn $g_m(x) > 0 \; \forall x\in I \; \forall m$ und $g_m(x) < g(x) \forall x\in I \; \forall m$. Das geht unmittelbar hervor aus:
-
-\begin{align*}
-\sum_{n=1}^{M}\frac{x}{e^{nx}} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \text{für $M>m$}\\
-\Rightarrow \quad \frac{x}{e^x-1} \ge \sum_{n=1}^{m}\frac{x}{e^{nx}} \;\; \forall m \in \mathbb{N}
-\end{align*}
-
-Daraus folgt aber auch, dass die Glieder der Folge mit zunehmendem $m$ für alle $x\in I$ größer werden, also muss die Differenz zwischen Grenzfunktion und Gliedern der Folge für alle $x \in I$ kleiner werden.\\
-Wählen wir also ein hinreichend großes $M$, so wird die Rest-Funktionsreihe auf dem ganzen Intervall für dieses und alle nachfolgenden $m$ einen bestimmten Wert unterschreiten. Dann gilt aber gerade:
-
-\begin{equation*}
-\left|-\sum_{n=m}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I
-\end{equation*}
-
+  Was für $x > 0$ immer wahr ist. Somit konvergiert die Reihe gleichmäßig.
+\end{enumerate}
 \subsection*{Teilaufgabe 3}
 
 Unter Verwendung von (1) können wir ohne weiteres feststellen:
