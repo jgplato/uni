@@ -11,6 +11,7 @@
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 \restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
 \linespread{1.5}
 \setlength\parindent{0pt}
@@ -69,15 +70,17 @@ mit
 und erhalten:
 
 \begin{align*}
-  \int_0^\infty x^k \cdot e^{-nx} \; dx &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0\; (1)} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0\footnotemark[1]} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \int_0^\infty \frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \frac{k}{n} \int_0^\infty e^{-nx} \cdot x^{k-1} \; dx
 \end{align*}
 
-(1) Falls dieser Schritt zu schnell ging hier nochmal die Nebenrechnung:
-\begin{equation*}
-\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) + \frac{0^k}{e^{n\cdot 0}}=0 + 0
-\end{equation*}
+\footnotetext[1]{
+  Falls das nicht offensichtlich sein sollte, gilt das wegen
+  \begin{equation*}
+  \left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) - \frac{0^k}{e^{n\cdot 0}}=0 + 0
+  \end{equation*}
+}
 
 Nach k-facher Rekursion erhalten wir demnach:
 
