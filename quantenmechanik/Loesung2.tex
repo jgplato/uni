@@ -59,6 +59,58 @@ Markus Fenske, Tutor: Earl Campbell
       I = \frac{\Delta Q}{\Delta t} = \frac{5.437 \; \text{e}}{1 \; \milli\second} \approx 8.71 \cdot 10^{-16} \; \ampere
     \end{equation*}
 
+  \item
+    An electron cannot absorb a photon, because the electron has a spin of $\pm
+    \frac{1}{2} \hbar$, while a photon has a spin of $\pm \hbar$. Because spin
+    is conserved, the photon cannot be destroyed.
+
+    Unfortunately the assignment is to show this using conservation of energy
+    and momentum, which takes a few lines.
+
+    Assuming non-relativistic speeds. Before the interaction, energy and momentum of photon and electron are:
+    \begin{align*}
+      \gamma: \quad \quad & p = \frac{E_\gamma}{c}  &\quad e^-: \quad \quad & p = 0 \\
+                          & E = E_\gamma &                & E = m_ec^2 \\
+    \end{align*}
+
+    After the interaction, the photon has vanished. Energy and momentum of the
+    electron are:
+    \begin{align*}
+      &p = \frac{m_ev}{\sqrt{1-\frac{v^2}{c^2}}} \\
+      &E = \sqrt{p_e^2c^2 + m_e^2 c^4}
+    \end{align*}
+
+    \textbf{FIXME: Mistake!} Missing $m_ec^2$ in left hand side.
+
+    Using energy and momentum conservation:
+    \begin{align*}
+      \frac{E_\gamma}{c} &= \frac{mv}{\sqrt{1- \frac{v^2}{c^2}}} \\
+      E_\gamma &= \sqrt{p_e^2c^2 + m_e^2c^4}
+    \end{align*}
+
+    Insert $p_e^2$:
+    \begin{align*}
+      E_\gamma &= \sqrt{\frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4}
+    \end{align*}
+
+    Equalize on $E_\gamma$
+    \begin{equation*}
+      \frac{mvc}{\sqrt{1 - \frac{v^2}{c^2}}} = \sqrt{\frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4}
+    \end{equation*}
+
+    Square it:
+    \begin{align*}
+      \frac{m^2v^2c^2}{1 - \frac{v^2}{c^2}} &= \frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4 \\
+    \end{align*}
+
+    By subtracting on both sides:
+    \begin{equation*}
+      m_e^2c^4 = 0
+    \end{equation*}
+
+    Because $c \neq 0$, it must be that $m_e = 0$, which is not the case. The electron is not a
+    massless particle. Therefore, a free electron cannot absorb a photon.
+
 
 \end{enumerate}
 
