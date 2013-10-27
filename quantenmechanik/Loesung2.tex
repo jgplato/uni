@@ -65,51 +65,41 @@ Markus Fenske, Tutor: Earl Campbell
     is conserved, the photon cannot be destroyed.
 
     Unfortunately the assignment is to show this using conservation of energy
-    and momentum, which takes a few lines.
+    and momentum, which takes a few more lines.
 
-    Assuming non-relativistic speeds. Before the interaction, energy and momentum of photon and electron are:
+    Assuming non-relativistic speeds. Before the interaction, energy and
+    momentum of photon and electron are:
     \begin{align*}
       \gamma: \quad \quad & p = \frac{E_\gamma}{c}  &\quad e^-: \quad \quad & p = 0 \\
-                          & E = E_\gamma &                & E = m_ec^2 \\
+                          & E = E_\gamma &                & E_\text{kin} = 0 \\
     \end{align*}
 
     After the interaction, the photon has vanished. Energy and momentum of the
     electron are:
     \begin{align*}
-      &p = \frac{m_ev}{\sqrt{1-\frac{v^2}{c^2}}} \\
-      &E = \sqrt{p_e^2c^2 + m_e^2 c^4}
+      &p = mv \\
+      &E = \frac{1}{2} mv^2
     \end{align*}
-
-    \textbf{FIXME: Mistake!} Missing $m_ec^2$ in left hand side.
 
     Using energy and momentum conservation:
     \begin{align*}
-      \frac{E_\gamma}{c} &= \frac{mv}{\sqrt{1- \frac{v^2}{c^2}}} \\
-      E_\gamma &= \sqrt{p_e^2c^2 + m_e^2c^4}
+      \frac{E_\gamma}{c} &= mv\\
+      E_\gamma &= \frac{1}{2} mv^2
     \end{align*}
 
-    Insert $p_e^2$:
-    \begin{align*}
-      E_\gamma &= \sqrt{\frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4}
-    \end{align*}
-
-    Equalize on $E_\gamma$
+    From momentum, we get:
     \begin{equation*}
-      \frac{mvc}{\sqrt{1 - \frac{v^2}{c^2}}} = \sqrt{\frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4}
+      v = \frac{E_\gamma}{mc}
     \end{equation*}
 
-    Square it:
-    \begin{align*}
-      \frac{m^2v^2c^2}{1 - \frac{v^2}{c^2}} &= \frac{m^2v^2c^2}{1-\frac{v^2}{c^2}} + m_e^2c^4 \\
-    \end{align*}
-
-    By subtracting on both sides:
+    From energy:
     \begin{equation*}
-      m_e^2c^4 = 0
+      v = \sqrt{\frac{2 E_\gamma}{m}}
     \end{equation*}
 
-    Because $c \neq 0$, it must be that $m_e = 0$, which is not the case. The electron is not a
-    massless particle. Therefore, a free electron cannot absorb a photon.
+    These two equations are not compatible ($v \neq v$). Therefore, a free
+    electron cannot absorb a photon.
+
 
 
 \end{enumerate}
