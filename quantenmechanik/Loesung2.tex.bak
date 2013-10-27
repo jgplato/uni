@@ -45,10 +45,10 @@ Markus Fenske, Tutor: Earl Campbell
     \end{equation*}
 
     The energy is calculated by $E = h \nu$ where $\nu = \frac{c}{\lambda}$,
-    which leads to $E = \frac{hc}{\lambda}$. With the Compton wavelength, this
+    which leads to $E = \frac{hc}{\lambda}$. With the compton wavelength, this
     results in $E=mc^2$.
 
-    So the Compton energy \textbf{equals the rest energy} and is
+    So the compton energy \textbf{equals the rest energy} and is
     \begin{equation*}
       E \approx 511 \; \kilo\electronvolt
     \end{equation*}
