@@ -60,4 +60,23 @@ Nullfolge sein. Das bedeutet, dass das Würfelvolumen gegen 0 geht.
 \begin{equation*}
   \lim_{n \to \infty} (2w_n)^n = 0
 \end{equation*}
+
+\section*{Aufgabe 2.2}
+
+Wir schätzen ab:
+
+\begin{equation*}
+  0 <
+  \left| \frac{xy}{\sqrt{|x| + y^2}}          \right| =
+  \left| \frac{x}{\sqrt{\frac{|x|}{y^2} + 1}} \right| <
+  \left| \frac{x}{\sqrt{\frac{|x|}{y^2}}}     \right| =
+  \left| \frac{xy}{\sqrt{|x|}}                \right| =
+  \left| y\sqrt{|x|}                          \right|
+\end{equation*}
+
+Da $\lim_{(x,y) \to (0,0)} y\sqrt{|x|} = 0$, ist nach Sandwich-Theorem
+
+\begin{equation*}
+  \lim_{(x,y) \to (0,0)} \frac{xy}{\sqrt{|x| + y^2}} = 0
+\end{equation*}
 \end{document}
