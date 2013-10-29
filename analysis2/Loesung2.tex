@@ -104,20 +104,41 @@ Da $\lim_{(x,y) \to (0,0)} y\sqrt{|x|} = 0$, ist nach Sandwich-Theorem
 
 \section*{Aufgabe 2.4}
 
+Sei ohne Beschränkung der Allgemeinheit $a > b$.
+
 Abgeschlossen ist eine Menge, deren Komplementärmenge offen ist. Offen ist eine
-Menge, wenn sie durch Grenzübergang verlassen werden kann.
+Menge, wenn sie keine Randpunkte hat, also durch Grenzübergang verlassen werden
+kann. Als potentielle Randpunkte in Frage kommen nur der $a$-Rand, der die
+Menge links abschließt, der $b$-Rand, der die Menge rechts abschließt und die
+beiden Funktionengraphen.
 
-Sei ohne Beschränkung der Allgemeinheit $a < b$. Sei $a_n = a - \frac{1}{n}$.
-Dann liegt der Punkt $(a_n, f(a))$ innerhalb der Komplementärmenge. Der Punkt
-$(a, f(a))$ liegt hingegen außerhalb der Komplementärmenge, weil er innerhalb
-der gegebenen Menge liegt.
+Wir prüfen:
 
-Die Komplementärmenge kann durch Grenzübergang verlassen werden.
+Sei $(x,y) = (a,y)$ mit $y \in [f(a), g(a)]$ ein potentieller $a$-Randpunkt.
+Sei außerdem $a_n = a - \frac{1}{n}$. Dann kann ich die Komplementärmenge am $a$-Rand durch
+Grenzübergang verlassen.
 
 \begin{equation*}
-  \lim_{n \to \infty} (a_n, f(a)) = (a, f(a))
+  \lim_{n \to \infty} (a_n, y) = (a, y)
 \end{equation*}
 
-Somit ist die gegebene Menge abgeschlossen.
+Für den $b$-Rand analog.
+
+Nun prüfen wir den $f$-Rand:
+
+Sei $(x,y)$ = $(x, f(x)$ mit $x \in [a,b]$ ein potentieller $f$-Randpunkt. Gelte
+außerdem ohne Beschränkung der Allgemeinheit an dieser Stelle $x$, dass $f(x) > g(x)$.
+Sei $f_n = f(x) + \frac{1}{n}$. Dann kann man auch an dieser Stelle die
+Komplementärmenge durch Grenzübergang verlassen.
+
+\begin{equation*}
+  \lim_{n \to \infty} (x, f_n) = (x, f(x))
+\end{equation*}
+
+Für $g$ analog.
+
+Die Stetigkeit von $f$ und $g$ garantiert uns, dass es am $f$- bzw. $g$-Rand
+keine weiteren zu berücksichtigenden Punkte gibt.
+
 
 \end{document}
