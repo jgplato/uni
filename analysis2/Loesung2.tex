@@ -1,0 +1,63 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 2. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 2.1}
+Die Punkte, die am weitesten vom Mittelpunkt des Würfels entfernt sind, sind
+seine Ecken (das kann man sich ohne Beweis überlegen). Der größte
+abgeschlossene Würfel, der noch in die abgeschlossene Kugel passt, ist also der
+Würfel, dessen Ecken auf der Oberfläche der Kugel liegen. Da Mittelpunkt der
+Kugel und Mittelpunkt des Würfels zusammenfallen, ist das Problem symmetrisch,
+es muss also nur eine Ecke betrachtet werden.
+
+Sei $\overline{e}$ eine beliebige Ecke. Der größte Würfel erfüllt also die Beziehung:
+\begin{equation}
+  d(\overline{e},\overline{0}) = 1
+\end{equation}
+
+Mit der euklidischen Metrik ergibt dies:
+\begin{equation*}
+  \sqrt{\sum_{i=1}^n w_n^2} = \sqrt{n} w_n = 1
+\end{equation*}
+
+Das bedeutet, die maximale halbe Kantenlänge ist:
+\begin{equation*}
+  w_n = \frac{1}{\sqrt{n}}
+\end{equation*}
+
+Der Grenzwert des Würfelvolumens ist dann:
+\begin{equation*}
+  \lim_{n \to \infty} (2w_n)^n = \lim_{n \to \infty} \left(\frac{2}{\sqrt{n}}\right)^n
+\end{equation*}
+
+Da ab $n > 4$ gilt, dass $\sqrt{n} > 2$, muss diese Folge eine
+Nullfolge sein. Das bedeutet, dass das Würfelvolumen gegen 0 geht.
+
+\begin{equation*}
+  \lim_{n \to \infty} (2w_n)^n = 0
+\end{equation*}
+\end{document}
