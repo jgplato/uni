@@ -104,41 +104,37 @@ Da $\lim_{(x,y) \to (0,0)} y\sqrt{|x|} = 0$, ist nach Sandwich-Theorem
 
 \section*{Aufgabe 2.4}
 
-Sei ohne Beschränkung der Allgemeinheit $a > b$.
-
 Abgeschlossen ist eine Menge, deren Komplementärmenge offen ist. Offen ist eine
 Menge, wenn sie keine Randpunkte hat, also durch Grenzübergang verlassen werden
 kann. Als potentielle Randpunkte in Frage kommen nur der $a$-Rand, der die
 Menge links abschließt, der $b$-Rand, der die Menge rechts abschließt und die
-beiden Funktionengraphen.
+beiden Funktionengraphen ($f$-Rand unten und $g$-Rand oben).
 
 Wir prüfen:
 
 Sei $(x,y) = (a,y)$ mit $y \in [f(a), g(a)]$ ein potentieller $a$-Randpunkt.
-Sei außerdem $a_n = a - \frac{1}{n}$. Dann kann ich die Komplementärmenge am $a$-Rand durch
-Grenzübergang verlassen.
+Sei außerdem $a_n = a - \frac{1}{n}$. Dann kann man die Komplementärmenge am
+$a$-Rand durch Grenzübergang verlassen.
 
 \begin{equation*}
   \lim_{n \to \infty} (a_n, y) = (a, y)
 \end{equation*}
 
-Für den $b$-Rand analog.
+Für den $b$-Rand analog mit $b_n = b + \frac{1}{n}$.
 
-Nun prüfen wir den $f$-Rand:
+Nun prüfen wir den $g$-Rand (oben - da $f(x) \le g(x)$ gegeben ist):
 
-Sei $(x,y)$ = $(x, f(x)$ mit $x \in [a,b]$ ein potentieller $f$-Randpunkt. Gelte
-außerdem ohne Beschränkung der Allgemeinheit an dieser Stelle $x$, dass $f(x) \ge g(x)$.
-Sei $f_n = f(x) + \frac{1}{n}$. Dann kann man auch an dieser Stelle die
+Sei $(x,y)$ = $(x, g(x)$ mit $x \in [a,b]$ ein potentieller $g$-Randpunkt. Sei
+$g_n = g(x) + \frac{1}{n}$. Dann kann man auch an dieser Stelle die
 Komplementärmenge durch Grenzübergang verlassen.
 
 \begin{equation*}
-  \lim_{n \to \infty} (x, f_n) = (x, f(x))
+  \lim_{n \to \infty} (x, g_n) = (x, g(x))
 \end{equation*}
 
-Für $g$ analog.
+Für den $f$-Rand analog mit $f_n = f(x) - \frac{1}{n}$
 
 Die Stetigkeit von $f$ und $g$ garantiert uns, dass es am $f$- bzw. $g$-Rand
 keine weiteren zu berücksichtigenden Punkte gibt.
-
 
 \end{document}
