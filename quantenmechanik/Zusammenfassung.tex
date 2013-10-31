@@ -1,4 +1,4 @@
-\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\documentclass[a4paper,german,10pt,smallheadings]{scrartcl}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
@@ -65,5 +65,80 @@ Stefan-Boltzmann-Gesetz: Gibt die Gesamtstrahlungsleistung eines schwarzen Strah
 \begin{equation}
   P = \sigma A T^4 \qquad \text{mit} \qquad \sigma = 5{,}67 \cdot 10^{-8} \;\watt\meter^{-2}\kelvin^{-4}
 \end{equation}
+
+\newpage
+
+\section{Welle-Teilchen-Dualismus}
+
+Alle Teilchen (Photonen, Elektronen, \dots) haben sowohl Teilchen- als auch
+Welleneigenschaften.
+
+\section{Photoelektrischer Effekt (Photoeffekt)}
+\begin{equation*}
+  E_\text{kin,max} = h \nu - W_A
+  \quad\quad\quad\qquad
+  \quad\quad\quad\qquad
+  U_\text{Brems} = \frac{E_\text{kin,max}}{\text{e}}
+\end{equation*}
+
+Elektronen werden von Photonen mit ausreichender Frequenz $\nu$ aus Metallen
+ausgelöst. Zeigt die Quantennatur des Lichtes (Erhöhung der Intensität bringt
+nichts, wenn Frequenz zu niedrig). Tritt nicht bei freien Elektronen auf,
+sondern nur bei Elektronen in Leitern (wegen Impulserhaltung).
+
+\section{Compton-Streuung}
+
+Photonen werden unter Verringerung der Frequenz an Elektronen gestreut.
+Herleitung über Energie- und Impulserhaltung. (Es folgt: Dem Photon muss ein
+Impuls zugeschrieben werden).
+
+\begin{equation*}
+  \Delta \lambda = \lambda_C \left( 1 - \cos \phi \right)
+  \quad\quad\quad\qquad
+  \quad\quad\quad\qquad
+  \quad\quad\quad
+  \lambda_C = \frac{h}{mc}
+\end{equation*}
+
+\section{Beugung am Doppelspalt mit Wellenfunktion}
+
+\begin{equation*}
+  P = |\psi_1 + \psi_2|^2 = |\psi_1|^2 + |\psi_2|^2 + \underbrace{2 |\psi_1| |\psi_2| \cos \delta}_\text{Interferenzterm}
+\end{equation*}
+
+\section{De Broglie Wellenlänge}
+Ordnet jedem Teilchen eine Wellenlänge zu. Wird benutzt um Interferenzen und
+Streuverhalten zu erklären, die nach klassischer Physik nicht erklärbar wären.
+
+\begin{equation*}
+  \lambda = \frac{h}{p} = \frac{h}{mv} = \frac{h}{\sqrt{2 m E_\text{kin}}}
+\end{equation*}
+
+\textbf{Thermische De-Broglie-Wellenlänge}: Setze mittlere (quantenmechanische!) kinetische Energie
+ein.
+
+\vspace{-20pt}
+\begin{equation*}
+  E_\text{kin} = \pi k_B T
+  \quad\quad\Rightarrow\quad\quad
+  \lambda = \frac{h}{\sqrt{2 \pi k_B T m}} 
+\end{equation*}
+
+\section{Bragg-Gleichung}
+
+Streuung von Elektronen am Kristall. Dadurch wurde die Wellennatur der
+Elektronen ersichtlich. \textbf{Gleichungen fehlen - nicht verstanden!}
+
+
+\section{Matrizenmechanik, Dirac-Notation (Bra-Ket-Notation)}
+
+$|+>, |->, |0>, |1>, |\times>, \dots$: Zustandsvektoren (im komplexen Vektorraum)
+
+$\sigma_x, \sigma_y, \sigma_z$: Messungen (hermiteische Operatoren)
+
+$\sigma_x|0> = |0>, \sigma_x |1> = -|1>$: Eigenwerte $1, -1$ sind beobachtbar.
+
+Bloch-Kugel für Spins.
+
 
 \end{document}
