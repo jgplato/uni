@@ -145,14 +145,13 @@ Markus Fenske, Tutor: Earl Campbell
 
     The change of photon energy is calculated by
     \begin{equation*}
-      p = \frac{E_\text{after}}{E_\text{before}} - 1 = - E_{\text{before}} \frac{\Delta\lambda}{hc} \approx - 5.73 \cdot 10^{-4}
+      p = \frac{E_\text{after}}{E_\text{before}} - 1 = \frac{\frac{hc}{\lambda + \Delta \lambda}}{\frac{hc}{\lambda}} - 1 = \frac{\lambda}{\lambda + \Delta \lambda} - 1
+      = \frac{hc/E_0}{hc/E_0 + \Delta \lambda} - 1
     \end{equation*}
 
-    so the photon energy decreases by $0.0573$ \%.
+    For $E_0 = 10^3 \; \electronvolt$ the photon energy decreases by $0.0573$ \%.
 
-    With $E_{\text{before}} = 10^3 \; \kilo\electronvolt$, the energy would
-    decrease by $57.3$ \% (as seen from the formula, percentage increases
-    proportionally).
+    For $E_0 = 10^6 \; \electronvolt$, the photon energy decreases by $36.43$ \%.
 
     According to energy conservation, the energy lost by the photon results in
     a kinetic energy of the electron. With the values calculated above, the
