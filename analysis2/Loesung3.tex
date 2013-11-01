@@ -62,5 +62,30 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     zwei beliebigen Punkten in der Ebene komplett in der Ebene liegt.
 \end{enumerate}
 
+\section*{Aufgabe 3.2}
+
+Zur Bonusaufgabe:
+
+Sei die Menge $A := \{(x,y): y = \frac{1}{x}, x \ge 1\}$. Wir
+haben in Aufgabe $2.9$ bewiesen, dass die Graphen stetiger Funktionen $f:
+\mathbb{R} \to \mathbb{R}$ im $\mathbb{R}^2$ abgeschlossene Mengen sind. Da der
+Graph im Punkt $(1,1)$ abgeschnitten ist und dieser Punkt ein Randpunkt ist,
+handelt es sich bei $A$ um eine abgeschlossene Menge.
+
+Sei die Menge $B$ die $x$-Achse. Diese kann auch als Graph der Funktion $f(x) =
+0$ interpretiert werden und ist daher ebenfalls abgeschlossen.
+
+Sei $t \in \mathbb{R}, t > 1$. Dann ist $a = (t, \frac{1}{t}) \in A$. Außerdem
+$b = (-t, 0) \in B$. Dann muss $a+b = (0, \frac{1}{t}) \in A+B$ sein.
+
+Dann gilt
+\begin{equation*}
+  \lim_{t \to \infty} (a+b) = (0,0) \notin A+B
+\end{equation*}
+
+Ich kann die Menge also durch Grenzübergang verlassen, also ist $A+B$ nicht
+abgeschlossen. Daraus folgt: $A + B$ muss nicht abgeschlossen sein, wenn $A$
+und $B$ beide abgeschlossen sind.
+
 
 \end{document}
