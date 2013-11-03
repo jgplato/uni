@@ -70,4 +70,36 @@ Markus Fenske, Tutor: Adam Nagy
     This matrix is neither symmetric, nor hermitian.
 
 \end{enumerate}
+
+\section*{Exercise 3: Hilbert spaces and trace}
+\begin{enumerate}[a)]
+  \item
+    \begin{align*}
+      \braket{x, \alpha y + z} &=
+      \sum_{k=1}^d \overline{x}_k (\alpha y + z)_k =
+      \sum_{k=1}^d \overline{x}_k \alpha y_k + \overline{x}_k z_k \\
+      &= \alpha \sum_{k=1}^d \overline{x}_k y_k + \sum_{k=1}^d \overline{x}_k z_k =
+      \alpha \braket{x,y} + \braket{x,z}
+    \end{align*}
+  \item
+    \begin{equation*}
+      \overline{\braket{y,x}} =
+      \overline{\sum_{k=1}^d \overline{y_k} x_k} =
+      \sum_{k=1}^d \overline{\overline{y_k}}\; \overline{x_k} =
+      \sum_{k=1}^d \overline{x_k} y_k =
+      \braket{x,y}
+    \end{equation*}
+  \item
+    Let $x_n = a_n+b_ni$ where all $a_n,b_n \in \mathbb{R}$.
+
+    \begin{equation*}
+      \braket{x,x} =
+      \sum_{k=1}^d \overline{x_k} x_k =
+      \sum_{k=1}^d (a_k-b_ki)(a_k+b_ki) =
+      \sum_{k=1}^d a_k^2 - b_k^2i^2 =
+      \sum_{k=1}^d a_k^2 + b_k^2 \ge 0
+    \end{equation*}
+
+    If $x = 0$, then $a_n = b_n = 0$, which results in $\braket{x, x} = 0$.
+\end{enumerate}
 \end{document}
