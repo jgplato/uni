@@ -15,6 +15,7 @@
 \geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
 \linespread{1.5}
 \setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
 \begin{document}
 \begin{center}
 \bfseries % Fettdruck einschalten
@@ -101,5 +102,42 @@ Markus Fenske, Tutor: Adam Nagy
     \end{equation*}
 
     If $x = 0$, then $a_n = b_n = 0$, which results in $\braket{x, x} = 0$.
+\end{enumerate}
+
+\section*{Exercise 4: Matrices and trace}
+Using Einstein summation convention.
+
+\begin{enumerate}[a)]
+  \item
+    \begin{equation*}
+      \braket{A^\dagger x, y} =
+      \braket{(\overline{A_{ji}} x_j), y} =
+      \overline{\overline{A_{ji}} x_j} y_i =
+      A_{ji} \overline{x_j} y_i =
+      \overline{x_j} A_{ji} y_i =
+      \braket{x, Ay}
+    \end{equation*}
+  \item
+    \begin{equation*}
+      (AB)^\dagger = 
+      (A_{ij}B_{jk})^\dagger =
+      \overline{A_{kj}B_{ji}} =
+      \overline{B_{ji}}\;\overline{A_{kj}} =
+      B^\dagger_{ij} A^\dagger_{jk} =
+      B^\dagger A^\dagger
+    \end{equation*}
+  \item
+    It's obvious that
+    \begin{equation*}
+      \Tr(AB) = A_{ij}B_{ji} = \Tr(BA)
+    \end{equation*}
+
+    Which leads to
+    \begin{equation*}
+      \Tr(S(AS^{-1})) = \Tr(A (S^{-1}S)) = \Tr(A)
+    \end{equation*}
+
+    Because $SAS^{-1}$ is the base transformation of $A$, the trace is
+    invariant under base transformations.
 \end{enumerate}
 \end{document}
