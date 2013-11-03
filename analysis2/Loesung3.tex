@@ -64,28 +64,70 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
 
 \section*{Aufgabe 3.2}
 
-Zur Bonusaufgabe:
+\begin{enumerate}[(1)]
+  \item
+    Wenn $A$ offen ist, kann ich sie durch Grenzübergang verlassen. Sei $a
+    \notin A$ ein beliebiger Randpunkt von $A$. Sei $a_n \in A$ eine Folge, die
+    für diesen Grenzübergang benutzt werden kann. Dann gilt:
 
-Sei die Menge $A := \{(x,y): y = \frac{1}{x}, x \ge 1\}$. Wir
-haben in Aufgabe $2.9$ bewiesen, dass die Graphen stetiger Funktionen $f:
-\mathbb{R} \to \mathbb{R}$ im $\mathbb{R}^2$ abgeschlossene Mengen sind. Da der
-Graph im Punkt $(1,1)$ abgeschnitten ist und dieser Punkt ein Randpunkt ist,
-handelt es sich bei $A$ um eine abgeschlossene Menge.
+    \begin{equation*}
+      \lim_{n \to \infty} a_n = a
+    \end{equation*}
 
-Sei die Menge $B$ die $x$-Achse. Diese kann auch als Graph der Funktion $f(x) =
-0$ interpretiert werden und ist daher ebenfalls abgeschlossen.
+    Für $b$ gilt das gleiche:
+    \begin{equation*}
+      \lim_{n \to \infty} b_n = b
+    \end{equation*}
 
-Sei $t \in \mathbb{R}, t > 1$. Dann ist $a = (t, \frac{1}{t}) \in A$. Außerdem
-$b = (-t, 0) \in B$. Dann muss $a+b = (0, \frac{1}{t}) \in A+B$ sein.
+    Also ist:
+    \begin{equation*}
+      \lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n = (a + b) \notin A + B
+    \end{equation*}
 
-Dann gilt
-\begin{equation*}
-  \lim_{t \to \infty} (a+b) = (0,0) \notin A+B
-\end{equation*}
+    Also ist $A+B$ offen.
+  \item
+    Wenn $A$ zusammenhängen ist, kann ich durch zwei Punkte $a_1, a_2 \in A$
+    mindestens eine Kurve $k_a(t), t \in [0,1], k_a(0) = a_1, k_a(1) = a_2$
+    finden, so dass alle Punkte dieser Kurve in $A$ liegen: $k_a(t) \in A$.
 
-Ich kann die Menge also durch Grenzübergang verlassen, also ist $A+B$ nicht
-abgeschlossen. Daraus folgt: $A + B$ muss nicht abgeschlossen sein, wenn $A$
-und $B$ beide abgeschlossen sind.
+    Für $B$ analog mit analogen Bezeichnungen
+
+    \begin{align*}
+      k_a(t) + k_b(t) \in A+B
+    \end{align*}
+
+    Seien $C = A+B$. Seien $c_1, c_2 \in C$. Dann kann ich die beiden Punkte schreiben als:
+
+    \begin{align*}
+      c_1 = a_1 + b_1 \\
+      c_2 = a_2 + b_2
+    \end{align*}
+  \item
+
+  \item
+    Zur Bonusaufgabe:
+
+    Sei die Menge $A := \{(x,y): y = \frac{1}{x}, x \ge 1\}$. Wir
+    haben in Aufgabe $2.9$ bewiesen, dass die Graphen stetiger Funktionen $f:
+    \mathbb{R} \to \mathbb{R}$ im $\mathbb{R}^2$ abgeschlossene Mengen sind. Da der
+    Graph im Punkt $(1,1)$ abgeschnitten ist und dieser Punkt ein Randpunkt ist,
+    handelt es sich bei $A$ um eine abgeschlossene Menge.
+
+    Sei die Menge $B$ die $x$-Achse. Diese kann auch als Graph der Funktion $f(x) =
+    0$ interpretiert werden und ist daher ebenfalls abgeschlossen.
+
+    Sei $t \in \mathbb{R}, t > 1$. Dann ist $a = (t, \frac{1}{t}) \in A$. Außerdem
+    $b = (-t, 0) \in B$. Dann muss $a+b = (0, \frac{1}{t}) \in A+B$ sein.
+
+    Dann gilt
+    \begin{equation*}
+      \lim_{t \to \infty} (a+b) = (0,0) \notin A+B
+    \end{equation*}
+
+    Ich kann die Menge also durch Grenzübergang verlassen, also ist $A+B$ nicht
+    abgeschlossen. Daraus folgt: $A + B$ muss nicht abgeschlossen sein, wenn $A$
+    und $B$ beide abgeschlossen sind.
+\end{enumerate}
 
 
 \end{document}
