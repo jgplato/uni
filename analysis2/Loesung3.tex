@@ -65,15 +65,17 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
 
 \begin{enumerate}[(1)]
   \item
-    Wenn $A$ offen ist, kann ich sie durch Grenzübergang verlassen. Sei $a
-    \notin A$ ein beliebiger Randpunkt von $A$. Sei $a_n \in A$ eine Folge, die
-    für diesen Grenzübergang benutzt werden kann. Dann gilt:
+    Wenn $A$ offen ist, kann ich sie durch Grenzübergang verlassen. Seien $a
+    \notin A$ ein beliebiger Randpunkt von $A$ (der nicht in der Menge liegt,
+    weil die Menge offen ist). Es existiert auf jeden Fall eine Folge $a_n \in
+    A \forall n$, für die gilt:
 
     \begin{equation*}
       \lim_{n \to \infty} a_n = a
     \end{equation*}
 
-    Für $b$ gilt das gleiche:
+    Analog gilt für eine Folge $b_n$ mit den gleichen Eigenschaften wie oben
+    und $b \notin B$:
     \begin{equation*}
       \lim_{n \to \infty} b_n = b
     \end{equation*}
@@ -83,24 +85,21 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
       \lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n = (a + b) \notin A + B
     \end{equation*}
 
-    Also ist $A+B$ offen.
+    Also enthält $A+B$ keinen ihrer Randpunkte und ist daher offen.
+
   \item
-    Wenn $A$ zusammenhängen ist, kann ich durch zwei Punkte $a_1, a_2 \in A$
+    Wenn $A$ zusammenhängend ist, kann man durch zwei Punkte $a_1, a_2 \in A$
     mindestens eine Kurve $k_a(t), t \in [0,1], k_a(0) = a_1, k_a(1) = a_2$
     finden, so dass alle Punkte dieser Kurve in $A$ liegen: $k_a(t) \in A$.
 
-    Für $B$ analog mit analogen Bezeichnungen
+    Für $B$ analog mit analogen Bezeichnungen.
 
-    \begin{align*}
-      k_a(t) + k_b(t) \in A+B
-    \end{align*}
+    Sei $C = A+B$ die Summe. Seien $c_1$ und $c_2$ beliebige Elemente aus $C$.
+    Dann kann man $c_1 = a_1 + b_1$ und $c_2 = a_2 + b_2$ schreiben. Diese
+    beiden Elemente werden durch die Kurve $k_c(t) = k_a(t) + k_b(t)$
+    verbunden. Alle Punkte liegen in $C$.
 
-    Seien $C = A+B$. Seien $c_1, c_2 \in C$. Dann kann ich die beiden Punkte schreiben als:
-
-    \begin{align*}
-      c_1 = a_1 + b_1 \\
-      c_2 = a_2 + b_2
-    \end{align*}
+    Also ist $A+B$ zusammenhängend.
   \item
 
   \item
