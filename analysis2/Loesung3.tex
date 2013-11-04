@@ -139,6 +139,65 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     und $B$ beide abgeschlossen sind.
 \end{enumerate}
 
-\section*{Aufgabe 3.2}
+\section*{Aufgabe 3.3}
+
+\begin{enumerate}[(1)]
+  \item
+    Sei $D = [0,23]$, sei $E = ]23,42]$ (das sind Teilmengen des
+    $\mathbb{R}^1$).  Sei $f(x) = 23$, Sei $g(x) = 42$. Dann ist es
+    offensichtlich, dass $h(x)$ nicht stetig ist.
+
+  \item
+    Wenn sich $D$ und $E$ nicht schneiden, ist offensichtlich, dass $h$ stetig
+    ist, denn die Funktion ist auf keinem Randpunkt definiert. Es gibt immer
+    eine Definitionslücke zwischen $f$ und $g$.
+
+    Wenn sich $D$ und $E$ schneiden, gibt es eine Schnittmenge $\empty \neq S = D \cap E$.
+    Für $x \in S$ gilt laut Aufgabenstellung $f(x) = g(x)$.
+
+    Die Stetigkeit außerhalb der Schnittmenge steht außer Frage, das $f$ und
+    $g$ stetig sind.
+
+    Die Stetigkeit innerhalb der Schnittmenge steht ebenfalls außer Frage (aus
+    obigen Gründen).
+
+    Interessant sind also nur die Randpunkte der Schnittmenge. Sei $d \in D$
+    Randpunkt von $S$ ($S$ ist offen, deswegen $d \neq S$). An diesem Punkt hat
+    $f$ den Wert $f(d)$. Sei $s_n$ eine Folge in $S$ mit dem Grenzwert $d$.
+    Dann gilt aufgrund der Stetigkeit von $f$.
+
+    \begin{equation*}
+      \lim_{n \to \infty} f(s_n) = f(\lim s_n) = f(d)
+    \end{equation*}
+
+    Und weil $f$ und $g$ im Bereich von $S$ übereinsteimmen:
+
+    \begin{equation*}
+      \lim_{n \to \infty} f(s_n) = g(d)
+    \end{equation*}
+
+    Also geht es an dieser Stelle nahtlos weiter, die Funktion $h$ ist stetig.
+\end{enumerate}
+
+\section*{Aufgabe 3.4}
+Wenn $D$ stetig wäre, müsste gelten ($\lim$ ist hier immer $\lim_{n \to \infty}$)
+
+\begin{equation*}
+  \lim D(f_n)(x) = D(\lim f_n)(x) \;\forall x \in [0, 2 \pi]
+\end{equation*}
+
+Wir nutzen die gegebene Funktionsfolge $f_n(x) = \frac{\sin nx}{n}$ und $x=0$
+um das zu widerlegen.
+
+\begin{equation*}
+  \lim D(f_n)(0) = \lim \cos(n \cdot 0) = 1
+\end{equation*}
+
+Hingegen
+\begin{equation*}
+  D(\lim f_n)(0) = D(0) = 0
+\end{equation*}
+
+Also ist $D$ nicht stetig.
 
 \end{document}
