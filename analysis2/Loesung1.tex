@@ -11,6 +11,7 @@
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 \restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
 \linespread{1.5}
 \setlength\parindent{0pt}
@@ -21,18 +22,34 @@
 \vspace{-40pt}
 Analysis II, Wintersemester 2013/2013, 1. Übungsblatt
 
-Markus Fenske, Tutor: undefined
+Markus Fenske\footnote[1]{In Zusammenarbeit mit: Luis Herrmann}, Tutor: Sebastian Bierke
 \vspace{-10pt}
 \end{center}
 
 \section*{Aufgabe 1.1}
 
+<<<<<<< HEAD
 Vorab soll geklärt werden: Mit $\int_{a}^{\infty}$ und $\left[\cdots\right]_a^\infty$ sind stets:
 \begin{equation*}
 \lim\limits_{b \to \infty}\int_{a}^{b} \quad \quad \lim\limits_{b \to \infty}\left[\cdots\right]_a^b
 \end{equation*}
 
 gemeint, in der Annahme, dass diese Grenzwerte existieren.
+=======
+%\textbf{Voraberklärung:} Die lockeren Schreibweisen $\int_{a}^{\infty} \dots$ und
+%$\left[\dots\right]_a^\infty$ sind hier und in allen folgenden Übungsblättern
+%wie folgt definiert, in der Annahme, dass diese Grenzwerte existieren.
+%\begin{equation*}
+%  \int_{a}^{\infty} \dots \; := \lim\limits_{b \to \infty}\int_{a}^{b} \dots \qquad \qquad 
+%  \text{und}
+%  \qquad \qquad \left[\dots\right]_a^\infty := \lim\limits_{b \to \infty}\left[\dots\right]_a^b
+%\end{equation*}
+%
+%\rule{\textwidth}{0.4pt}
+%\vspace{4mm}
+
+
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 Wir folgen dem Hinweis aus der Aufgabenstellung und zeigen zuerst für $k=0$:
 
 \begin{equation*}
@@ -62,11 +79,16 @@ mit
 und erhalten:
 
 \begin{align*}
+<<<<<<< HEAD
   \int_0^\infty x^k \cdot e^{-nx} \; dx &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0-0\; (1)} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+=======
+  \int_0^\infty x^k \cdot e^{-nx} \; dx  &= \overbrace{\left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty}^{=0+0\footnotemark[2]} - \int_0^\infty -\frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
                                          &= \int_0^\infty \frac{1}{n}e^{-nx} \cdot kx^{k-1} \; dx \\
                                          &= \frac{k}{n} \int_0^\infty e^{-nx} \cdot x^{k-1} \; dx
 \end{align*}
 
+<<<<<<< HEAD
 (1) Falls dieser Schritt zu schnell ging hier nochmal die Nebenrechnung:
 \begin{equation*}
 \left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) + \frac{0^k}{e^{n\cdot 0}}=0 + 0
@@ -76,6 +98,19 @@ Nach k-facher Rekursion erhalten wir demnach:
 
 \begin{equation*}
   \int_0^\infty x^k \cdot e^{-nx} \; dx = \underbrace{\frac{k}{n} \cdot \frac{k-1}{n} \cdot \frac{k-2}{n} \cdot \dots \cdot \frac{1}{n}}_{k\text{ Faktoren}} \cdot  \int_{0}^{\infty} \frac{x^0dx}{e^{nx}}= \frac{k!}{n^k}\cdot\left[-\frac{1}{ne^{nx}}\right]_0^\infty=\frac{k!}{n^{k+1}}
+=======
+\footnotetext[2]{
+  Falls das nicht offensichtlich sein sollte, gilt das wegen
+  \begin{equation*}
+  \left[-\frac{1}{n} e^{-nx} \cdot x^k\right]_0^\infty = \lim\limits_{x \to \infty}\left(-\frac{1}{e^{nx}}\right) - \frac{0^k}{e^{n\cdot 0}}=0 + 0
+  \end{equation*}
+}
+
+Nach $k$-facher Rekursion erhalten wir demnach:
+
+\begin{equation*}
+  \int_0^\infty x^k \cdot e^{-nx} \; dx = \underbrace{\frac{k}{n} \cdot \frac{k-1}{n} \cdot \frac{k-2}{n} \cdot \dots \cdot \frac{1}{n}}_{k\text{ Faktoren}} \cdot \frac{1}{n} = \frac{k!}{n^{k+1}}
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 \end{equation*}
 
 Was zu beweisen war.
@@ -107,6 +142,7 @@ Offensichtlich ist:
 
 Wir erkennen die Geometrische Reihe mit $q=\frac{1}{e^x}$. Wie wir wissen, konvergiert die Geometrische Reihe für $|q|<1$. Für Konvergenz müssen wir also fordern, dass:
 
+<<<<<<< HEAD
 \begin{equation*}
 \frac{1}{e^x}<1
 \end{equation*}
@@ -131,6 +167,50 @@ g_m(x):=\sum_{n=1}^{m}\frac{x}{e^{nx}} \quad x\in I
 \end{equation*}
 
 Um die gleichmäßige Konvergenz zu beweisen schreiben wir wieder ein beliebiges $\epsilon>0$ vor und suchen ein M, sodass:
+=======
+  Dies enthält die Geometrische Reihe mit $q=e^{-x}$, sie konvergiert
+  für $|q|<1$.  Da wir auf einem Interval $[a,b]$ mit $a > 0$ operieren und
+  $e^{-x} < 1$ für $x>0$, ist $|q| < 1$, also konvergiert die Reihe.
+
+  \begin{equation*}
+      = x \cdot \left( \frac{1}{1-e^{-x}} - 1 \right) = x \frac{1 - (1-e^{-x})}{1-e^{-x}} = x \frac{e^{-x}}{e^{-x} (e^x - 1)} = \frac{x}{e^x-1}
+  \end{equation*}
+
+  Für gleichmäßige Konvergenz muss für alle $x \in [a,b], 0 < a < b < \infty$ gegeben sein:
+
+  \begin{align*}
+    & \quad \lim_{m \to \infty} \left| g_m(x) - g(x) \right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} \left|\left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right) - x \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\sum_{n=1}^{m} \left(e^{-x}\right)^n \right) - \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{1-e^{-x(m+1)}}{1-e^{-x}} - 1 \right)- \left(\frac{1}{1-e^{-x}} - 1\right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{1-e^{-x(m+1)}}{1-e^{-x}} \right)- \left(\frac{1}{1-e^{-x}} \right)\right| = 0 \\
+    \Leftrightarrow & \quad \lim_{m \to \infty} x \left|\left(\frac{-e^{-x(m+1)}}{1-e^{-x}} \right)\right| = 0 \\
+  \end{align*}
+
+  Da $x > 0$ bleibt der Nenner stets größer als $0$. Es muss also gelten
+
+  \begin{align*}
+    \lim_{n \to \infty} x e^{-xn} = 0 \\
+  \end{align*}
+
+  Was für $x > 0$ immer wahr ist. Somit konvergiert die Reihe gleichmäßig.
+
+  \item 
+  Besteht aus 2 Teilschritten.
+  Der erste Teiilschritt 
+  \begin{equation*}
+    \sum_{n=1}^{\infty}\frac{1}{n^2}=\sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}
+  \end{equation*}
+  ist einfaches Einsetzen von Teil (1).
+
+  Der zweite Teilschritt
+
+  \begin{equation*}
+    \sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}} = \int_0^\infty \frac{x \; dx}{e^x-1}
+  \end{equation*}
+
+  ist die Anwendung des Satzes der majorisierten Konvergenz. Dieser besagt, dass
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 
 \begin{equation}
 |g_m(x)-g(x)|<\epsilon \quad \forall m\geq M, \;\; \forall x\in I
@@ -142,6 +222,7 @@ Um die gleichmäßige Konvergenz zu beweisen schreiben wir wieder ein beliebiges
 \lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right)=\sum_{n=1}^{\infty}\frac{x}{e^{nx}}=\frac{x}{e^x-1} \quad x\in I
 \end{equation*}
 
+<<<<<<< HEAD
 Wir müssen also zeigen:
 \begin{align*}
 \left|\sum_{n=1}^{m}\frac{x}{e^{nx}}-\sum_{n=1}^{\infty}\frac{x}{e^{nx}}\right| < \epsilon \quad \forall m\geq M, \;\; \forall x \in I\\
@@ -371,20 +452,89 @@ Beispiel: Sei
   f_n(x) = \begin{cases}
     0 & \mbox{wenn} \; x = 0 \\
     \frac{1}{x} & \mbox{wenn} \; x \neq 0
+=======
+  erlaubt ist, wenn
+  \begin{enumerate}[a)]
+    \item Alle Partialsummenfunktionen $f_n$ stetig sind.
+    \item Die Folge auf jedem kompakten Teilintervall von $[0,\infty[$ gleichmäßig gegen $f$ konvergiert.
+    \item Eine Funktion $g$ existiert, für die gilt $|f_n(x)| \le g(x)$, $\int_0^\infty g(x)$ existiert
+  \end{enumerate}
+
+  Für $f_n(x) = \sum_{n=1}^\infty xe^{-nx}$ und $f(x) = x/(e^x - 1)$ gilt:
+  \begin{enumerate}[a)]
+    \item Alle $f_n$ sind als Verknüpfung stetiger Funktionen stetig.
+    \item Haben wir in (2) bewiesen
+    \item Es gilt $|f_n(x)| \le f(x)$ (haben wir in (2) auch bewiesen) und $\int_0^\infty f(x)$ existiert.
+  \end{enumerate}
+
+  Deswegen gilt
+  \begin{equation*}
+    \sum_{n=1}^{\infty}\int_{0}^{\infty}\frac{xdx}{e^{nx}}
+    =\lim\limits_{m \to \infty}\left(\sum_{n=1}^{m}\int_{0}^{\infty}\frac{xdx}{e^{nx}}\right)
+    =\lim\limits_{m \to \infty} \int_{0}^{\infty} \left(\sum_{n=1}^{m}\frac{x}{e^{nx}}\right) \; dx
+    =\lim\limits_{m \to \infty} \int_{0}^{\infty} f_m(x) \; dx
+  \end{equation*}
+
+  Nach Satz der majorisierten Konvergenz (deren Anwendbarkeit wir gerade begründet haben) ist
+  \begin{equation*}
+    \lim\limits_{m \to \infty} \int_{0}^{\infty} f_m(x) \; dx = \int_0^\infty f(x) \; dx = \int_0^\infty \frac{x \; dx}{e^x-1}
+  \end{equation*}
+
+  Was zu zeigen war.
+\end{enumerate}
+\section*{Aufgabe 1.3}
+\begin{enumerate}[(1)]
+\item Gegenbeispiel. Sei
+
+\begin{equation*}
+  f_n(x) = \begin{cases} 
+    0           & \mbox{wenn} \; x = 0 \\
+    \frac{1}{x + \frac{1}{n}} & \mbox{wenn} \; x \neq 0
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
   \end{cases}
 \end{equation*}
 
-Es ist klar, dass die Funktion konvergiert, denn sie enthält überhaupt kein
-$n$. Trotzdem ist $f$ unbeschränkt, denn
+
+Man sieht die Grenzfunktion sofort als
 
 \begin{equation*}
-  \lim_{x \to 0} \frac{1}{x} = \infty
+  f(x) = \begin{cases} 
+    0           & \mbox{wenn} \; x = 0 \\
+    \frac{1}{x} & \mbox{wenn} \; x \neq 0
+  \end{cases}
 \end{equation*}
 
+<<<<<<< HEAD
 \section{Aufgabe 1.4}
 
 
 Es ist sinnvoll, $f_n(x)$ gleich auf gleichmäßige Konvergenz zu prüfen, da Beobachtung auf 9.1.2 im Skript zufolge aus gleichmäßiger Konvergenz stets punktweise Konvergenz gegen die selbe Grenzfunktion folgt.\\
+=======
+Die Grenzfunktion $f$ ist ganz klar unbeschränkt ($\lim_{x \to 0} f(x) = \infty$), während alle $f_n(x)$ beschränkt sind ($\lim_{x \to 0} f_n = n$).
+
+\item
+  Beweis: Wenn alle $f_n$ für alle $x_0 \in [0,1]$ beschränkt sind, bedeutet dies, dass
+
+  \begin{equation*}
+    \lim_{x \to x_0} |f_n(x)| \neq \infty
+  \end{equation*}
+
+  Wenn $f_n$ gleichmäßig gegen $f$ konvergiert, heißt dies, dass
+
+  \begin{align*}
+    &\quad \lim_{x \to x_0} \lim_{n \to \infty} |f_n(x) - f(x)| = 0 \\
+    \Leftrightarrow&\quad \lim_{x \to x_0} \lim_{n \to \infty} |f_n(x)| = \lim_{x \to x_0} |f(x)| \\
+  \end{align*}
+
+  Daraus folgt
+  \begin{equation*}
+    \lim_{x \to x_0} |f(x)| \neq \infty
+  \end{equation*}
+
+  Also ist $f$ im Definitionsbereich beschränkt.
+\end{enumerate}
+\section*{Aufgabe 1.4}
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 
 Sei ein beliebig kleines $\epsilon>0$ vorgegeben, so muss es ein $N \in \mathbb{N}$ geben, sodass:
 
@@ -392,10 +542,14 @@ Sei ein beliebig kleines $\epsilon>0$ vorgegeben, so muss es ein $N \in \mathbb{
 |f_n(x)-f(x)|<\epsilon \quad \forall n \geq N, \quad \forall x
 \end{equation*}
 
+<<<<<<< HEAD
 Wir prüfen zunächst, ob eine Grenzfunktion zu:
 \begin{equation*}
 f_n(x):= \frac{x}{1+nx^2}
 \end{equation*}
+=======
+Un zu untersuchen, ob die Funktionenfolge gleichmäßig konvergiert, untersuchen wir zuerst die Beschränktheit von $f_n(x)$. Dazu berechnen wir die Ableitung per Quotientenregel
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 
 ...existiert. Ohne Mühe (und ohne formalen Beweis) erkennen wir:
 \begin{equation*}
@@ -522,7 +676,14 @@ Unabhängig von der Wahl von n erhalten wir jeweils auf $I_1$ und $I_2$ als glob
 |fn'(x)|\leq\left|-\frac{1}{8}\right| \quad \forall x\in I_{1/2} \forall n
 \end{equation*}
 
+<<<<<<< HEAD
 Das heißt aber: Geben wir ein $\epsilon>0$ vor, welches $\epsilon<-\frac{1}{8}$ erfüllt, so finden wir kein einziges n, sodass:
+=======
+Nun zeigen wir gleichmäßige Konvergenz. Dafür müssen wir beweisen, dass sich zu
+jedem $\epsilon$ ein $n$ finden lässt, derart, dass $\left| f(x) - f_n(x)
+\right| < \epsilon$. Mit dem errechneten Extremwerten können wir nun eine
+Abschätzung machen.
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed
 
 \begin{equation*}
 |fn'(x)|\le\epsilon \quad \forall x \in I_{1/2}
@@ -530,4 +691,30 @@ Das heißt aber: Geben wir ein $\epsilon>0$ vor, welches $\epsilon<-\frac{1}{8}$
 
 Damit kann $f_n'(x)$ auf den entsprechenden Intervallen unmöglich gleichmäßig gegen $f'(x)$ konvergieren.
 
+<<<<<<< HEAD
 \end{document}
+=======
+Für die Ableitung der Grenzfunktion gilt $f'(x) = 0$. Die Ableitung von $f_n(x)$ ist:
+
+\begin{equation*}
+  f_n'(x) = \frac{x(2nx) + (1+nx^2)}{(1+nx^2)^2} = \frac{1+ 3nx^2}{1+2nx^2 + n^2x^4}
+\end{equation*}
+
+Fallunterscheidung.
+
+\begin{enumerate}[a)]
+  \item
+    Wenn $x=0$ ist $f_n'(x) = 1$, unabhängig von $n$
+
+  \item
+    Wenn $x\neq0$ ist $\lim_{n \to \infty} f_n(x) = 0$. Man sieht das (ohne
+    $n$ bzw. $n^2$ explizit auszuklammern und zu kürzen) an der höheren Potenz
+    von $n$ um Nenner-Polynom.
+
+    Aufgrund der höheren $x$-Potenz im Nenner-Polynom gilt dies auch für
+    Grenzwertbetrachtungen von $x$, ohne diese explizit durchführen zu wollen.
+\end{enumerate}
+
+$f_n'$ konvergiert also nur für alle $x \neq 0$ gegen $f'$
+\end{document}
+>>>>>>> 8d545abbe5ab44ad20e182fdf8b4a2769d73d6ed

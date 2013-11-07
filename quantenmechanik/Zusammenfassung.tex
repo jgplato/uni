@@ -1,0 +1,69 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantenmechanics: Semesterzusammenfassung
+
+Markus Fenske
+\vspace{-10pt}
+\end{center}
+
+\section{Doppelspaltexperiment}
+
+Ist klar.
+
+\section{Planck'sches Strahlungsgesetz}
+
+Ein Problem der klassischen Physik ist die Berechnung der Strahlung in einem
+hohlen Körper mit kleiner Öffnung (sogenannte Hohlraumstrahlung). Wird dieses
+klassisch gelöst, konvergiert die Strahlungsleistung für kleine Wellenlängen
+gegen unendlich (sog. Ultraviolettkatastrophe).
+
+Max Planck stellte die Hypothese auf, dass die Energie gequantelt ist (d.h. sie
+tritt in kleinsten Einheiten auf). Daraus folgt das Planck'sche
+Strahlungsgesetz, dass die Hohlraumstrahlung korrekt wiedergibt. Es erklärt das
+Strahlungsverhalten eines sog. Schwarzen Strahlers.
+
+Ein Schwarzer Strahler ist ein Körper, der jegliche ihn treffende Strahlung
+absorbiert und gemäß seiner Temperatur strahlt.
+
+\subsection{Wichtige Begriffe} 
+
+Schwarzer Strahler, Planck'sches Wirkungsquantum, Energie des Photons, Licht:
+Sichtbare Wellenlänge etwa (violett) 380 nm - 780 nm (rot), Elektronenvolt (eV)
+
+\subsection{Wichtige Formeln}
+
+Planck'sches Strahlungsgesetz: Beschreibt die Modenverteilung (Wellenlängenverteilung) eines Schwarzen Strahlers.
+\begin{equation}
+  \omega(\nu) \; d \nu  = \frac{8 \pi h \nu^3}{c^3} \frac{1}{e^\frac{h \nu}{kT} - 1} \; d \nu
+\end{equation}
+
+Wien'sches Verschiebungsgesetz: Setzt das Wellenlängenmaximum eines Schwarzen Strahlers in Bezug zur Temperatur.
+\begin{equation}
+  T \cdot \lambda_\mathrm{max} = \mathrm{const} = 2897{,}8 \, \mathrm{\mu m \mathrm{K}}
+\end{equation}
+
+Stefan-Boltzmann-Gesetz: Gibt die Gesamtstrahlungsleistung eines schwarzen Strahlers in Abhängigkeit von der Temperatur an.
+\begin{equation}
+  P = \sigma A T^4 \qquad \text{mit} \qquad \sigma = 5{,}67 \cdot 10^{-8} \;\watt\meter^{-2}\kelvin^{-4}
+\end{equation}
+
+\end{document}

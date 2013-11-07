@@ -21,7 +21,7 @@
 \vspace{-40pt}
 Quantum Mechanics, winter term 2013/2014, exercise sheet 1
 
-Markus Fenske
+Markus Fenske, Luis Herrmann, Tutor: Earl Campbell
 \vspace{-10pt}
 \end{center}
 
@@ -53,6 +53,90 @@ Markus Fenske
     N = \frac{P}{E} \cdot \Delta t \approx 13500
   \end{equation*}
 
+\end{enumerate}
+
+\section*{Problem 2: Planck's law}
+\begin{enumerate}[a)]
+  \item
+    Planck's law is
+    \begin{equation*}
+      \omega(\nu) = \frac{8 \pi h \nu^3}{c^3} \frac{1}{e^\frac{h \nu}{kT} - 1}
+    \end{equation*}
+
+    Substitute with $x = \frac{h \nu}{kT}$
+    \begin{equation*}
+      \omega(x) = \frac{8 \pi h}{c^3} \left(\frac{kT}{h}\right)^3 \frac{x^3}{e^x - 1}
+    \end{equation*}
+
+    Differentiate.
+    \begin{equation*}
+      \frac{d \omega}{dx} = \frac{8 \pi h}{c^3} \left(\frac{kT}{h}\right)^3 \frac{3x^2(e^x-1) - x^3e^x}{(e^x - 1)^2}
+    \end{equation*}
+
+    For $d \omega / dx \overset{!}{=} 0$, it must be that
+    \begin{equation*}
+      3x^2(e^x-1) - x^3e^x = 0
+    \end{equation*}
+
+    Because $x \neq 0$ and $e^x \neq 0$
+    \begin{align*}
+      &\quad 3(e^x-1) - xe^x = 0 \\
+      \Leftrightarrow&\quad 3(e^x-1) = xe^x \\
+      \Leftrightarrow&\quad 3(1 - e^{-x}) = x
+    \end{align*}
+
+    The solution is given as $x \approx 2.8215$, which leads to Wien's
+    displacement law in the frequency dependent formulation.
+    \begin{align*}
+      \nu = 2.8215 \cdot \frac{kT}{h}
+    \end{align*}
+
+  \item
+    By using above equation, we obtain
+
+    \begin{equation*}
+      \nu \approx 341 \; \tera\hertz
+    \end{equation*}
+
+  \item
+    Given the wire is a long cylinder with diameter $d$ and length $l$, then
+    the emitted total power (ignoring the cylinder top and bottom) is
+
+    \begin{equation*}
+      P_\gamma = \sigma A T^4 = \sigma \pi d l T^4
+    \end{equation*}
+
+    The required electrical power is
+    \begin{equation*}
+      P_\text{el} = UI = I^2R
+    \end{equation*}
+
+    The electrical resitance of the wire (cylinder) is
+    \begin{equation*}
+      R = \rho \frac{l}{A} = \rho \frac{4l}{\pi d^2}
+    \end{equation*}
+
+    So the electrical power becomes
+    \begin{equation*}
+      P_\text{el} = I^2 \rho \frac{4l}{\pi d^2}
+    \end{equation*}
+
+    The supplied eletrical power must equal the emitted raditation power ($P_\text{el} = P_\gamma$)
+    \begin{align*}
+      &\quad I^2 \rho \frac{4l}{\pi d^2} = \sigma \pi d l T^4 \\
+      %\Leftrightarrow&\quad I^2 = \frac{\sigma \pi d l T^4 \pi d^2}{\rho 4l} \\
+      \Leftrightarrow&\quad I = \sqrt{\frac{\sigma \pi^2 d^3 T^4}{4 \rho}}
+    \end{align*}
+
+    Using the given values this results in a required current of
+    \begin{equation*}
+      I \approx 1.48 \; \ampere
+    \end{equation*}
+
+    %Specifing a specfify resistance for a hot wire is nonsense, because hot
+    %wires do not obey Ohm's law. So if any of the above calculation may be
+    %wrong, it is not our fault. It would be wrong anyway. (Hint: We like bonus
+    %points).
 \end{enumerate}
 
 \section*{Problem 3: Solar radiation}
@@ -101,7 +185,7 @@ Markus Fenske
       T = \frac{\sqrt[4]{P_\text{solar}}}{2\sqrt{d} \sqrt[4]{\pi \sigma}} = 93.8\;\kelvin
     \end{equation*}
 
-    where $d \approx 1.429 \cdot 10^{12} \meter$
+    where $d \approx 1.429 \cdot 10^{12} \;\meter$
 
   \item
     Using Stefan-Boltzmann law as above, the total power irridiated by the sun is
