@@ -27,6 +27,55 @@ Markus Fenske, Tutor: Adam Nagy
 \vspace{-10pt}
 \end{center}
 
+\section*{Exercise 1: Wave packets and uncertainty principle}
+
+\begin{enumerate}[a)]
+  \item
+    Because the wave functions looks like the Fourier transformation of a
+    rectangular function of width $\sigma_k$ and height $C_0$ I try
+
+    \begin{equation*}
+    C(k,t) = \begin{cases}
+      C_0 &\text{if } - \frac{\sigma_k}{2} \le k \le \frac{\sigma_k}{2} \\
+      0   &\text{elsewhere}
+      \end{cases}
+    \end{equation*}
+
+    The wave function with these amplitudes is
+    \begin{align*}
+      \psi(x,t) &= \int_{- \infty}^{+ \infty} C(k) \cdot e^{iku} \; dk \\
+      &= C_0 \int_{- \frac{\sigma_k}{2}}^{+\frac{\sigma_k}{2}} e^{iku} \; dk \\
+      &= \frac{C_0}{iu} \left[ e^{iu \frac{\sigma_k}{2}} - e^{-iu \frac{\sigma_k}{2}} \right] \\
+      &= 2 C_0\frac{\sin \left(u \frac{\sigma_k}{2}\right)}{u}
+    \end{align*}
+
+    Which is exactly, what I was looking for
+
+  \item
+    A normalized wave function must meet the following condition.
+
+    \begin{equation*}
+      \int_{-\infty}^{\infty} |\psi(x,t)|^2 \; dx = 1
+    \end{equation*}
+
+    I solve for $C_0$ (using $dx = -du$, because $u = v_gt - x$):
+
+    \begin{align*}
+      &\int_{-\infty}^{\infty} -\left|2C_0 \frac{\sin\left(u \frac{\sigma_k}{2}\right)}{u}\right|^2 \; du = 1 \\
+      \Leftrightarrow\quad&
+      -4C_0^2 \int_{-\infty}^{\infty} \frac{\sin^2\left(u \frac{\sigma_k}{2}\right)}{u^2} \; du = 1 \\
+      \Leftrightarrow\quad&
+      -4C_0^2 \pi \frac{\sigma_k}{2} = 1 \\
+      \Leftrightarrow\quad&
+      C_0^2 = -\frac{1}{2\pi \sigma_k}  \\
+      \Leftrightarrow\quad&
+      C_0 = i \sqrt{\frac{1}{2 \pi \sigma_k}} \\
+    \end{align*}
+
+
+
+\end{enumerate}
+
 \section*{Exercise 2: Bra-Ket Notation}
 
 \begin{enumerate}[a)]
