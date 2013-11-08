@@ -1,0 +1,248 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 3. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 3.1}
+\begin{enumerate}[a)]
+  \item
+    \textbf{falsch}
+
+    Es reicht, sich einen kleinen Schritt (beliebig kleines
+    $\epsilon$) senkrecht zur Ebene zu bewegen um die Ebene zu verlassen.
+    Die Menge besteht also ganz offensichtlich nur aus Randpunkten
+    besteht und ist daher nicht offen.
+  \item
+    \textbf{wahr}
+
+    Die Menge ist abgeschlossen, weil sie nur aus Randpunkten besteht (siehe
+    oben).
+  \item
+    \textbf{wahr}
+
+    Die Menge ist offensichtlich zusammenhängend, weil konvex (siehe unten) und
+    nicht leer.
+
+  \item
+    \textbf{falsch}
+
+    Die Menge ist unbeschränkt (da sie nicht in eine Kugel endlicher Größe passt).
+  \item
+    \textbf{falsch}
+
+    Die Menge kann nicht kompakt sein, weil sie unbeschränkt ist.
+  \item
+    \textbf{wahr}
+
+    Die Menge ist konvex, weil bekanntermaßen die Verbindungsgerade zwischen
+    zwei beliebigen Punkten in der Ebene komplett in der Ebene liegt.
+\end{enumerate}
+
+\section*{Aufgabe 3.2}
+
+\begin{enumerate}[(1)]
+  \item
+    Wenn $A$ offen ist, kann ich sie durch Grenzübergang verlassen. Seien $a
+\notin A$ ein beliebiger Randpunkt von $A$ (der nicht in der Menge liegt,
+    weil die Menge offen ist). Es existiert auf jeden Fall eine Folge $a_n \in
+A \forall n$, für die gilt:
+
+    \begin{equation*}
+      \lim_{n \to \infty} a_n = a
+    \end{equation*}
+
+	Fall 1: \\
+	Der offensichtliche Fall: Sei B offen. Analog zu $A$ gilt für eine Folge $b_n$ mit den gleichen Eigenschaften wie oben
+    und $b \notin B$:
+    \begin{equation*}
+      \lim_{n \to \infty} b_n = b
+    \end{equation*}
+
+    Also ist:
+    \begin{equation*}
+      \lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n = a + b, \quad a\notin A,b\notin B \Rightarrow (a+b)\notin A + B
+    \end{equation*}
+
+    Also enthält $A+B$ keinen ihrer Randpunkte und ist daher offen.\\
+    
+    Fall 2:\\
+    Sei $B$ geschlossen und $b$ ein Randpunkt von $B$, dann findet man eine Folge $b_n$ die gegen $b$ konvergiert:
+    \begin{equation*}
+    \lim(b_n)=b, \; b\in B
+    \end{equation*}
+    
+    Dann gibt es konvergente Punktfolgen aus $A+B$, für die:
+    \begin{equation*}
+    \lim_{n \to \infty} (a_n + b_n) = \lim_{n \to \infty} a_n + \lim_{n \to \infty} b_n = a + b, \quad a\notin A,b\in B \Rightarrow (a+b)\notin A + B
+    \end{equation*}
+	Der Grenzwert $(a+b)$ ist Randpunkt, aber kein Element der Menge $A+B$, denn dafür müsste auch $a\in A$ sein. ?
+
+  \item
+    Wenn $A$ zusammenhängend ist findet man für beliebige Puntke $a_1, a_2 \in A$
+    mindestens eine stetige Kurve $k_a(t)$ mit $ t \in [0,1]$, sodass:
+    \begin{equation*}
+     k_a(0) = a_1 \quad k_a(1) = a_2 \quad \quad k_a(t) \in A \forall t\in[0,1]
+     \end{equation*},
+	Für $B$ analog mit entsprechenden Bezeichnungen.\\
+
+    Sei $C = A+B$ und $c_1, c_2$ beliebige Elemente aus $C$.
+    Dann kann man für diese schreiben:
+    \begin{equation*}
+    c_1 = a_1 + b_1 \quad \quad c_2 = a_2 + b_2
+    \end{equation*}
+    Nach Voraussetzung erfüllen die Kurven:
+    \begin{equation*}
+    c_1 = k_a(0) + k_b(0) \quad \quad c_2=k_a(1)+k_b(1)
+    \end{equation*} 
+   	
+   	Die Kurve $\gamma(t)=k_a(t)+k_b(t)$ verbindet also beliebige Punkte $c_1,c_2\in C$. Als Summe stetiger Kurven ist sie selbst stetig. Zu prüfen bleibt also nur noch, ob:
+   	\begin{equation*}
+   	\gamma(t)\in C \quad \forall t\in[0,1]
+   	\end{equation*}
+   	
+   	Das ist trivial und leicht zu zeigen. Für beliebiges t:
+   	\begin{equation*}
+   	\gamma(t)=\underbrace{k_a(t)}_{\in A\forall t\in[0,1]}+\underbrace{k_b(t)}_{\in B\forall t\in[0,1]}
+   	\end{equation*}
+	
+	...erfüllt $\gamma(t) \forall t\in[0,1]$ die Mengendefinition von $C$, bzw $A+B$.
+    Also ist $A+B$ zusammenhängend.
+  \item
+    Wenn $A$/$B$ kompakt ist, heißt das, dass jede Folge $a_m$/$b_m$ von Punkten aus
+    $A$/$B$ eine Teilfolge enthält, die gegen einen Grenzwert aus $A$ konvergiert.\\
+    Sei $a_{m_k}$ konvergente Teilfolge von $a_m$, $b_{mk}$ konvergente Teilfolge von $b_m$, mit:
+    \begin{equation*}
+    \lim(a_{mk})=a, \; a\in A \quad \quad \lim(b_{mk})=b, \; b\in B
+    \end{equation*}
+    
+    Betrachte eine Punktfolge $c_m\in C\forall n$. Wir können diese auch schreiben als:
+    \begin{equation*}
+    c_m=a_m+b_m
+    \end{equation*}
+    
+    Um die Kompaktheit von $C$ zu prüfen, zeigen wir, für alle $c_{m}$ existiert eine in $C$ konvergente Teilfolge $c_{mk}$:
+    \begin{equation*}
+    \lim(c_{mk})=\lim(a_{mk}+b_{mk})=\lim({a_{mk}})+\lim({b_{mk}})=a + b,\quad a\in A,\; b\in B \Rightarrow a+b \in A + B
+    \end{equation*}
+
+    Die obigen Schritte sind aufgrund der Stetigkeit der Vektoraddition legitim und es wir haben die Kompaktheit von $C$, bzw. $A+B$ gezeigt.
+  \item
+    Sei die Menge:
+    \begin{equation*}
+    A := \{(x,y): y = \frac{1}{x}, x \ge 1\}
+    \end{equation*}
+    
+    Wir
+    haben in Aufgabe $2.9$ bewiesen, dass die Graphen beschränkter, stetiger Funktionen $f:
+\mathbb{R} \to \mathbb{R}$ im $\mathbb{R}^2$ abgeschlossene Mengen sind. Da der
+    Graph im Punkt $(1,1)$ abgeschnitten ist und dieser Punkt ein Randpunkt ist,
+    handelt es sich bei $A$ um eine abgeschlossene Menge.
+    Sei ferner:
+    \begin{equation*}
+    B:=\{(x,y): y=0 \forall x\in \mathbb(R)\}
+    \end{equation*}
+    Das ist der Graph der stetigen, beschränkten Funktion $f(x) =
+0$ auf $\mathbb{R}$. Auch dieser ist abgeschlossen.
+
+    Betrachte die Punktfolgen $a_n = (n, \frac{1}{n}) \in A$ und $b_n = (-n, 0) \in B$ für $n > 1$. Dann definieren wir hierauf eine Punktfolge $(a_n+b_n)\in A+B$.\\
+    Falls $A+B$ abgeschlossen ist, konvergieren alle Punktfolgen aus $A+B$ wieder in der Menge. Unsere definierte Punktfolge konvergiert:
+    \begin{equation*}
+    \lim\limits_{n\to\infty}(a_n+b_n)=\lim\limits_{n\to\infty}\left(n-n,\frac{1}{n}\right)=\lim\limits_{n\to\infty}\left(0,\frac{1}{n}\right)=(0,0)
+    \end{equation*}
+	
+	Aber $(0,0)$ ist offensichtlich nicht Element der Menge $A+B$, denn es gibt keine Punkte $a\in A,b\in B$, aus deren Summe sich der Punkt ergeben könnte, da $b_y>0 \forall b\in B$. Also ist die Menge nicht abgeschlossen.
+\end{enumerate}
+
+\section*{Aufgabe 3.3}
+
+\begin{enumerate}[(1)]
+  \item
+    Sei $D = [0,23]$, sei $E = ]23,42]$ (das sind Teilmengen des
+    $\mathbb{R}^1$). Sei $f(x) = 23$, Sei $g(x) = 42$. Dann ist es
+    offensichtlich, dass $h(x)$ nicht stetig ist.
+
+  \item
+    Wenn sich $D$ und $E$ nicht schneiden, ist offensichtlich, dass $h$ stetig
+    ist, denn die Funktion ist auf keinem Randpunkt definiert. Es gibt immer
+    eine Definitionslücke zwischen $f$ und $g$.
+
+    Wenn sich $D$ und $E$ schneiden, gibt es eine Schnittmenge $\empty \neq S = D \cap E$.
+    Für $x \in S$ gilt laut Aufgabenstellung $f(x) = g(x)$.
+
+    Die Stetigkeit außerhalb der Schnittmenge steht außer Frage, da $f$ und
+    $g$ stetig sind.
+
+    Die Stetigkeit innerhalb der Schnittmenge steht ebenfalls außer Frage (aus
+    obigen Gründen).
+
+    Interessant sind also nur die Randpunkte der Schnittmenge. Sei $d \in D$
+    Randpunkt von $S$ ($S$ ist offen, deswegen $d \neq S$). An diesem Punkt hat
+    $f$ den Wert $f(d)$. Sei $s_n$ eine Folge in $S$ mit dem Grenzwert $d$.
+    Dann gilt aufgrund der Stetigkeit von $f$.
+
+    \begin{equation*}
+      \lim_{n \to \infty} f(s_n) = f(\lim s_n) = f(d)
+    \end{equation*}
+
+    Und weil $f$ und $g$ im Bereich von $S$ übereinsteimmen:
+
+    \begin{equation*}
+      \lim_{n \to \infty} f(s_n) = g(d)
+    \end{equation*}
+
+    Also geht es an dieser Stelle nahtlos weiter, die Funktion $h$ ist stetig.
+\end{enumerate}
+
+\section*{Aufgabe 3.4}
+
+Eine Grenzwertbetrachtung mit Limes erscheint legitim, da die Metrik des Funktionsraumes $(C,d)$ mit $C=C[0,2\pi]$ als eine sinnvolle Abstandsfunktion zwischen Funktionen definiert ist:
+\begin{equation*}
+d(f,g)=\sqrt{\int_{0}^{2\pi}\left(f(t)-g(t)\right)^2dt}
+\end{equation*}
+
+Wenn $D$ stetig wäre, müsste für jede Grenzfunktion $g$ gelten:
+\begin{equation*}
+  \lim\limits_{f\to g} D(f) = D\left(\lim\limits_{f\to g} f\right)=D(g)
+\end{equation*}
+
+Dem ist aber nicht so. Betrachten wir die gegebene Funktionsfolge $f_n(x) = \frac{\sin nx}{n}$. Nehmen wir einen beliebigen Grenzwert der Folge, z.B.: 
+\begin{equation*}
+\lim\limits_{n\to\infty}(f_n)=\lim\limits_{n\to\infty}\frac{\overbrace{\sin(nx)}^{\le 1\forall n,x}}{n}=0
+\end{equation*}
+
+Dann ist also der Limes zu betrachten:
+\begin{equation*}
+ \lim\limits_{f_n\to 0} D(f_n) =  \lim\limits_{n\to \infty} D\left(\frac{\sin(nx)}{n}\right)= \lim\limits_{n\to \infty} \cos(nx)
+\end{equation*}
+
+Dieser Ausdruck divergiert und es gilt sicherlich:
+\begin{equation*}
+  \lim\limits_{f_n\to 0} D(f) \neq D\left(\lim\limits_{f_n\to 0}f\right)=D(0)=0
+\end{equation*}
+
+Also ist $D$ nicht stetig.
+
+\end{document}
