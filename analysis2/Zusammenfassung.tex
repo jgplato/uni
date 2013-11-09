@@ -1,0 +1,59 @@
+\documentclass[a4paper,german,10pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis 2: Rezepte
+
+Markus Fenske
+\vspace{-10pt}
+\end{center}
+
+\section{Altes Zeug}
+
+Kompletter Stoff von Analysis 1
+
+\section{Grenzwert von mehrdimensionalen Funktionen zeigen/widerlegen}
+
+\textbf{Zum Widerlegen:} Zwei Grenzwerte auf verschiedenen Kurven finden, die
+ungleich sind.
+
+Beispiel:
+\begin{equation*}
+  \lim_{(x,y) \to (0,0)} \frac{x-y+x^2+y^2}{x+y}
+\end{equation*}
+
+Mit $k(t) = (t,0), t \to 0$ ist Grenzwert $1$. Mit $k(t) = (0,t), t \to 0$ ist
+Grenzwert $-1$. Also existiert kein Grenzwert.
+
+\textbf{Zum Beweisen:} Umformen und/oder abschätzen mit Sandwich-Kriterium.
+Umformen in Polarkoordinaten, wenn nur $x^2+y^2 = r^2$ Terme auftauchen. Regel
+von L'Hospital (Wenn im Bruch oben und unten bei Grenzwert 0, dann oben und
+unten durch Ableitung ersetzen) ist nützlich.
+
+Beispiel:
+\begin{equation*}
+  \lim \frac{x^2+y^2}{\sqrt{x^2+y^2+1}-1} = \lim \frac{r^2}{\sqrt{r^2+1}-1} \overset{\text{L'Hospital}}{=} \lim 2\sqrt{r^2+1} = 2
+\end{equation*}
+
+
+
+
+
+\end{document}

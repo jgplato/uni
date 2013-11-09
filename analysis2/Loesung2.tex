@@ -1,0 +1,141 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 2. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 2.1}
+Die Punkte, die am weitesten vom Mittelpunkt des Würfels entfernt sind, sind
+seine Ecken (das kann man sich ohne Beweis überlegen). Der größte
+abgeschlossene Würfel, der noch in die abgeschlossene Kugel passt, ist also der
+Würfel, dessen Ecken auf der Oberfläche der Kugel liegen. Da Mittelpunkt der
+Kugel und Mittelpunkt des Würfels zusammenfallen, ist das Problem symmetrisch,
+es muss also nur eine Ecke betrachtet werden.
+
+Sei $\overline{e}$ eine beliebige Ecke. Der größte Würfel erfüllt also die Beziehung:
+\begin{equation*}
+  d(\overline{e},\overline{0}) = 1
+\end{equation*}
+
+Mit der euklidischen Metrik ergibt dies:
+\begin{equation*}
+  \sqrt{\sum_{i=1}^n w_n^2} = \sqrt{n} w_n = 1
+\end{equation*}
+
+Das bedeutet, die maximale halbe Kantenlänge ist:
+\begin{equation*}
+  w_n = \frac{1}{\sqrt{n}}
+\end{equation*}
+
+Der Grenzwert des Würfelvolumens ist dann:
+\begin{equation*}
+  \lim_{n \to \infty} (2w_n)^n = \lim_{n \to \infty} \left(\frac{2}{\sqrt{n}}\right)^n
+\end{equation*}
+
+Da ab $n > 4$ gilt, dass $\sqrt{n} > 2$, muss diese Folge eine
+Nullfolge sein. Das bedeutet, dass das Würfelvolumen gegen 0 geht.
+
+\begin{equation*}
+  \lim_{n \to \infty} (2w_n)^n = 0
+\end{equation*}
+
+\section*{Aufgabe 2.2}
+
+Wir schätzen ab:
+
+\begin{equation*}
+  0 <
+  \left| \frac{xy}{\sqrt{|x| + y^2}}          \right| =
+  \left| \frac{x}{\sqrt{\frac{|x|}{y^2} + 1}} \right| <
+  \left| \frac{x}{\sqrt{\frac{|x|}{y^2}}}     \right| =
+  \left| \frac{xy}{\sqrt{|x|}}                \right| =
+  \left| y\sqrt{|x|}                          \right|
+\end{equation*}
+
+Da $\lim_{(x,y) \to (0,0)} y\sqrt{|x|} = 0$, ist nach Sandwich-Theorem
+
+\begin{equation*}
+  \lim_{(x,y) \to (0,0)} \frac{xy}{\sqrt{|x| + y^2}} = 0
+\end{equation*}
+
+\section*{Aufgabe 2.3}
+
+\begin{enumerate}[(1)]
+  \item
+    \begin{equation*}
+      \lim_{x \to 0} \left( \lim_{y \to 0} \frac{x-y+x^2+y^2}{x+y} \right) =
+      \lim_{x \to 0} \frac{x+x^2}{x}  =
+      \lim_{x \to 0} 1+x =
+      1
+    \end{equation*}
+  \item
+    \begin{equation*}
+      \lim_{y \to 0} \left( \lim_{x \to 0} \frac{x-y+x^2+y^2}{x+y} \right) =
+      \lim_{y \to 0} \frac{y^2-y}{y} =
+      \lim_{y \to 0} y-1 =
+      -1
+    \end{equation*}
+  \item
+    Da zwei unterschiedliche Grenzwerte herauskommen, existiert der Grenzwert
+    nicht (Skript 1.2.4: ``Alle Wege müssen zum Grenzwert führen'')
+\end{enumerate}
+
+\section*{Aufgabe 2.4}
+
+Abgeschlossen ist eine Menge, deren Komplementärmenge offen ist. Offen ist eine
+Menge, wenn sie an allen Randpunkten durch Grenzübergang verlassen werden
+kann. Als potentielle Randpunkte in Frage kommen nur der $a$-Rand, der die
+Menge links abschließt, der $b$-Rand, der die Menge rechts abschließt und die
+beiden Funktionengraphen ($f$-Rand unten und $g$-Rand oben).
+
+Wir prüfen:
+
+Sei $(x,y) = (a,y)$ mit $y \in [f(a), g(a)]$ ein potentieller $a$-Randpunkt.
+Sei außerdem $a_n = a - \frac{1}{n}$. Dann kann man die Komplementärmenge am
+$a$-Rand durch Grenzübergang verlassen.
+
+\begin{equation*}
+  \lim_{n \to \infty} (a_n, y) = (a, y)
+\end{equation*}
+
+Für den $b$-Rand analog mit $b_n = b + \frac{1}{n}$, $(x,y) = (b,y)$ mit $y \in
+[f(b), g(b)]$.
+
+Nun prüfen wir den $g$-Rand (oben - da $f(x) \le g(x)$ gegeben ist):
+
+Sei $(x,y)$ = $(x, g(x)$ mit $x \in [a,b]$ ein potentieller $g$-Randpunkt. Sei
+$g_n = g(x) + \frac{1}{n}$. Dann kann man auch an dieser Stelle die
+Komplementärmenge durch Grenzübergang verlassen.
+
+\begin{equation*}
+  \lim_{n \to \infty} (x, g_n) = (x, g(x))
+\end{equation*}
+
+Für den $f$-Rand analog mit $f_n = f(x) - \frac{1}{n}$
+
+Die Stetigkeit von $f$ und $g$ garantiert uns, dass es am $f$- bzw. $g$-Rand
+keine weiteren zu berücksichtigenden Punkte gibt.
+
+\end{document}

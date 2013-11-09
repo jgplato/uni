@@ -1,0 +1,86 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 2
+
+Markus Fenske, Tutor: Earl Campbell
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 2: Compton effect}
+
+\begin{enumerate}[a)]
+  \item
+    The Compton wavelength is calculated by
+    \begin{equation*}
+      \lambda = \frac{h}{mc}
+    \end{equation*}
+
+    The electron mass is not given. I will use the literature value for now,
+    because deriving the electron mass is beyond the scope of this exercise
+    sheet.
+
+    With $m \approx 9.11 \cdot 10^{-31} \; \kilogram$ I get
+
+    \begin{equation*}
+      \lambda \approx 2.4 \; \pico\meter
+    \end{equation*}
+
+    The energy is calculated by $E = h \nu$ where $\nu = \frac{c}{\lambda}$,
+    which leads to $E = \frac{hc}{\lambda}$. With the compton wavelength, this
+    results in $E=mc^2$.
+
+    So the compton energy \textbf{equals the rest energy} and is
+    \begin{equation*}
+      E \approx 511 \; \kilo\electronvolt
+    \end{equation*}
+
+  \item
+    Using
+    \begin{equation*}
+      \Delta \lambda = \lambda_{\text{C}} \left( 1 - \cos \phi \right)
+    \end{equation*}
+
+    we get
+    \begin{equation*}
+      \Delta \lambda \approx 710.6 \; \femto\meter
+    \end{equation*}
+
+    The change of photon energy is calculated by
+    \begin{equation*}
+      p = \frac{E_\text{after}}{E_\text{before}} - 1 = - E_{\text{before}} \frac{\Delta\lambda}{hc} \approx - 5.73 \cdot 10^{-4}
+    \end{equation*}
+
+    so the photon energy decreases by $0.0573$ \%.
+
+    With $E_{\text{before}} = 10^3 \; \kilo\electronvolt$, the energy would
+    decrease by $57.3$ \% (as seen from the formula, percentage increases
+    proportionally).
+
+    According to energy conservation, the energy lost by the photon results in
+    a kinetic energy of the electron. With the values calculated above, the
+    kinetic energy of the electron is
+
+    \begin{equation*}
+      E_\text{kin} = 0.573 \; \electronvolt
+    \end{equation*}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,242 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 2
+
+Markus Fenske, Tutor: Earl Campbell
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Photoelectric effect}
+
+\begin{enumerate}[a)]
+  \item
+    The maximum kinetic energy of an ejected electron is
+    \begin{equation*}
+      E_\text{kin} = h \nu - W_A = \frac{hc}{\lambda} - W_A \approx 1.44 \; \electronvolt
+    \end{equation*}
+
+    Because of $E_\text{kin} = q U$, the voltage $U$ required to stop the electron is
+    \begin{equation*}
+      \frac{E_\text{kin}}{e} = 1.44 \; \volt
+    \end{equation*}
+
+    Electrons with different energies are emitted, because not only movable
+    electrons can be emitted, but also electrons bound to atoms. These need
+    more energy to be ejected, therefore have less kinetic energy.
+
+  \item
+    Each photon has an energy of
+    \begin{equation*}
+      E = \frac{hc}{\lambda}
+    \end{equation*}
+
+    The amount of electrons ejected is
+    \begin{equation*}
+      n = \frac{S A t}{E} = \frac{S A t \lambda}{hc} \approx 5.437
+    \end{equation*}
+
+    The current is
+    \begin{equation*}
+      I = \frac{\Delta Q}{\Delta t} = \frac{5.437 \; \text{e}}{1 \; \milli\second} \approx 8.71 \cdot 10^{-16} \; \ampere
+    \end{equation*}
+
+  \item
+    An electron cannot absorb a photon, because the electron has a spin of $
+    \frac{\sqrt{3}}{2} \hbar$, while a photon has a spin of $\pm \hbar$. Because spin
+    is conserved, the photon cannot be destroyed.
+
+    Unfortunately the assignment is to show this using conservation of energy
+    and momentum, which takes a few more lines.
+
+    Assuming non-relativistic speeds. Before the interaction, energy and
+    momentum of photon and electron are:
+    \begin{align*}
+      \gamma: \quad \quad & p = \frac{E_\gamma}{c}  &\quad e^-: \quad \quad & p = 0 \\
+                          & E = E_\gamma &                & E_\text{kin} = 0 \\
+    \end{align*}
+
+    After the interaction, the photon has vanished. Energy and momentum of the
+    electron are:
+    \begin{align*}
+      &p = mv \\
+      &E = \frac{1}{2} mv^2
+    \end{align*}
+
+    Using energy and momentum conservation:
+    \begin{align*}
+      \frac{E_\gamma}{c} &= mv\\
+      E_\gamma &= \frac{1}{2} mv^2
+    \end{align*}
+
+    From momentum, we get:
+    \begin{equation*}
+      v = \frac{E_\gamma}{mc}
+    \end{equation*}
+
+    From energy:
+    \begin{equation*}
+      v = \sqrt{\frac{2 E_\gamma}{m}}
+    \end{equation*}
+
+    These two equations are not compatible ($v \neq v$). Therefore, a free
+    electron cannot absorb a photon.
+
+
+
+\end{enumerate}
+
+\section*{Exercise 2: Compton effect}
+
+\begin{enumerate}[a)]
+  \item
+    The Compton wavelength is calculated by
+    \begin{equation*}
+      \lambda = \frac{h}{mc}
+    \end{equation*}
+
+    The electron mass is not given. I will use the literature value for now,
+    because deriving the electron mass is beyond the scope of this exercise
+    sheet.
+
+    With $m \approx 9.11 \cdot 10^{-31} \; \kilogram$ I get
+
+    \begin{equation*}
+      \lambda \approx 2.4 \; \pico\meter
+    \end{equation*}
+
+    The energy is calculated by $E = h \nu$ where $\nu = \frac{c}{\lambda}$,
+    which leads to $E = \frac{hc}{\lambda}$. With the Compton wavelength, this
+    results in $E=mc^2$.
+
+    So the Compton energy \textbf{equals the rest energy} and is
+    \begin{equation*}
+      E \approx 511 \; \kilo\electronvolt
+    \end{equation*}
+
+  \item
+    Using
+    \begin{equation*}
+      \Delta \lambda = \lambda_{\text{C}} \left( 1 - \cos \phi \right)
+    \end{equation*}
+
+    we get
+    \begin{equation*}
+      \Delta \lambda \approx 710.6 \; \femto\meter
+    \end{equation*}
+
+    The change of photon energy is calculated by
+    \begin{equation*}
+      p = \frac{E_\text{after}}{E_\text{before}} - 1 = \frac{\frac{hc}{\lambda + \Delta \lambda}}{\frac{hc}{\lambda}} - 1 = \frac{\lambda}{\lambda + \Delta \lambda} - 1
+      = \frac{hc/E_0}{hc/E_0 + \Delta \lambda} - 1
+    \end{equation*}
+
+    For $E_0 = 10^3 \; \electronvolt$ the photon energy decreases by $0.0573$ \%.
+
+    For $E_0 = 10^6 \; \electronvolt$, the photon energy decreases by $36.43$ \%.
+
+    According to energy conservation, the energy lost by the photon results in
+    a kinetic energy of the electron. With the values calculated above, the
+    kinetic energy of the electron is
+
+    \begin{equation*}
+      E_\text{kin} = 0.573 \; \electronvolt
+    \end{equation*}
+\end{enumerate}
+
+\section*{Exercise 3: de Broglie wavelength}
+
+\begin{enumerate}[a)]
+  \item
+    The energy of the photon is
+    \begin{equation*}
+      E = h \nu = \frac{hc}{\lambda} \Leftrightarrow \lambda = \frac{hc}{E}
+    \end{equation*}
+
+    The de Broglie wavelength for the electron is (in case of non-relativistic particle speeds):
+    \begin{equation*}
+      \lambda = \frac{h}{p} = \frac{h}{m_e v}
+    \end{equation*}
+
+    Which leads to
+    \begin{equation*}
+      \frac{hc}{E} = \frac{h}{m_e v} \Leftrightarrow v = \frac{E}{m_e c}
+    \end{equation*}
+
+    (With the given values this results in $v \approx 0.0978 c$, so a
+    non-relativistic calculation is appropriate, because $\sqrt{1 -
+    \frac{v^2}{c^2}} \approx 1$)
+
+    The kinetic energy of the electrons then must be
+    \begin{equation*}
+      E = \frac{1}{2} m_ev^2 = \frac{1}{2} \frac{E_\gamma^2}{m_e c^2} \approx 4.89 \; \kilo\electronvolt
+    \end{equation*}
+  \item
+    The momentum of a particle with kinetic energy $E$ is:
+    \begin{equation*}
+      E = \frac{p^2}{2m} \Leftrightarrow p = \sqrt{2 E m}
+    \end{equation*}
+
+    The average kinetic energy $E$ of a particle at temperature $T$ is in the
+    quantum mechanical case:
+    \begin{equation*}
+      E = \pi k_B T
+    \end{equation*}
+
+    This leads to a momentum $p$:
+    \begin{equation*}
+      p = \sqrt{2 \pi k_B T m}
+    \end{equation*}
+
+    And a de Broglie wavelength:
+    \begin{equation*}
+      \lambda = \frac{h}{p} = \frac{h}{\sqrt{2 \pi k_B T m}} \approx 50.38 \; \pico\meter
+    \end{equation*}
+
+  \item
+    A FIFA approved football ball weights between 420 and 445 grams. According
+    to the Guinness book of world records web page, the fastest football kick
+    ($129 \;\kilo\meter\per\second$) was achieved by Francisco Javier Galan
+    Màrin at the studios of El Show de los Récords in Madrid on 29 October
+    2001.
+
+    The slowest ball would probably be a ball cooled by liquid helium
+    to approximately $4 \; \kelvin$.
+
+    The fastest, heaviest ball has a de Broglie wavelength of
+    \begin{equation*}
+      \lambda = \frac{h}{mv} \approx 4 \cdot 10^{-35} \; \meter \approx 2.5 l_P
+    \end{equation*}
+
+    where $l_P$ is Planck's length.
+
+    The slowest, lightest balls wavelength can be calculated by the thermal de
+    Broglie formula derived earlier (assuming the ball is a particle).
+
+    \begin{equation*}
+      \lambda = \frac{h}{p} = \frac{h}{\sqrt{2 \pi k_B T m}} \approx 5.5 \cdot 10^{-23} \; \meter
+    \end{equation*}
+
+    The wavelengths are by orders of magnitude to small to be detected, so
+    assigning a de Broglie wavelength to a ball does not make sense. A ball can
+    be described by classical mechanics.
+\end{enumerate}
+\end{document}
