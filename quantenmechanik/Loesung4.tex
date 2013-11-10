@@ -1,0 +1,59 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 4
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 3: Commutators and eigenvalues of hermitian $2 \times 2$ matricies}
+
+\begin{enumerate}[a)]
+  \item
+    \begin{align*}
+      &[A, BC] =
+      ABC - BCA =
+      ABC - BCA + (BAC-BAC) =
+      BAC - BCA + ABC - BAC = \\
+      &B(AC-CA) + (AB-BA)C =
+      B[A,C] + [A,B]C
+    \end{align*}
+    \begin{align*}
+      &[A, [B,C]] + [B, [C,A]] + [C, [A,B]] = \\
+      &[A, (BC-CB)] + [B, (CA-AC)] + [C, (AB-BA)] = \\
+      &A(BC-CB)-(BC-CB)A + B(CA-AC)-(CA-AC)B + C(AB-BA)-(AB-BA)C = \\
+      &\colul[red]{ABC}\colul[green]{-ACB}\colul[blue]{-BCA}\colul[yellow]{+CBA} \;\;
+      \colul[blue]{+BCA}\colul[magenta]{-BAC}\colul[cyan]{-CAB}\colul[green]{+ACB} \;\;
+      \colul[cyan]{+ CAB}\colul[yellow]{-CBA}\colul[red]{-ABC}\colul[magenta]{+BAC} = 0
+    \end{align*}
+\end{enumerate}
+\end{document}
