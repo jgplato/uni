@@ -39,6 +39,7 @@ Markus Fenske, Tutor: Adam Nagy
 
 \begin{enumerate}[a)]
   \item
+    (i)
     \begin{align*}
       &[A, BC] =
       ABC - BCA =
@@ -47,6 +48,7 @@ Markus Fenske, Tutor: Adam Nagy
       &B(AC-CA) + (AB-BA)C =
       B[A,C] + [A,B]C
     \end{align*}
+    (ii)
     \begin{align*}
       &[A, [B,C]] + [B, [C,A]] + [C, [A,B]] = \\
       &[A, (BC-CB)] + [B, (CA-AC)] + [C, (AB-BA)] = \\
@@ -151,6 +153,56 @@ Markus Fenske, Tutor: Adam Nagy
     0$, therefore the sum should vanish. The Levi-Civita symbol will
     become $\epsilon_{iik} = 0$. Therefore the equation is true for $i = j$ as
     well.
+  \item
+    To prove that the Pauli matrices are a orthogonal base of $\mathbb{C}^{2
+    \times 2}$ is to show that there exists a unique solution to this equation
+    for every $M$:
+
+    \begin{equation*}
+    M = \sum_{i=0}^3 c_i \sigma_i
+    \end{equation*}
+
+    This can be written as:
+    \begin{equation*}
+      \begin{pmatrix}
+        \alpha & \beta \\ \gamma & \delta
+      \end{pmatrix}
+      =
+      c_0
+      \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+      \end{pmatrix}
+      +
+      c_1
+      \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+      \end{pmatrix}
+      +
+      c_2
+      \begin{pmatrix}
+        0 & -i \\
+        i & 0
+      \end{pmatrix}
+      +
+      c_3
+      \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+      \end{pmatrix}
+    \end{equation*}
+
+    Which is just a system of linear equations and can be solved to
+    \begin{equation*}
+      c_0 = \frac{\alpha + \delta}{2}, \qquad
+      c_1 = \frac{\beta + i \gamma}{2}, \qquad
+      c_2 = \frac{\beta - i \gamma}{2}, \qquad
+      c_3 = \frac{\alpha - \delta}{2}
+    \end{equation*}
+
+    Therefore the Pauli matrices create a orthgonal basis of $\mathbb{C}^{2
+    \times 2}$. This also solves the second part of the exercise.
 \end{enumerate}
 
 \end{document}
