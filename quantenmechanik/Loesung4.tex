@@ -55,5 +55,29 @@ Markus Fenske, Tutor: Adam Nagy
       \colul[blue]{+BCA}\colul[magenta]{-BAC}\colul[cyan]{-CAB}\colul[green]{+ACB} \;\;
       \colul[cyan]{+ CAB}\colul[yellow]{-CBA}\colul[red]{-ABC}\colul[magenta]{+BAC} = 0
     \end{align*}
+  \item
+    Determinant:
+    \begin{equation*}
+      \det M = \alpha\beta - \gamma\gamma^* = \alpha\beta - |\gamma|^2
+    \end{equation*}
+
+    Trace:
+    \begin{equation*}
+      \operatorname{tr} M = \alpha\beta
+    \end{equation*}
+
+    Eigenvalues:
+    \begin{align*}
+      &\det(M-\lambda I) = (\alpha - \lambda)(\beta - \lambda) - |\gamma|^2 \overset{!}{=} 0 \\
+      \Leftrightarrow\quad& \alpha\beta - \alpha\lambda - \beta\lambda + \lambda^2 - |\gamma|^2 = 0 \\
+      \Leftrightarrow\quad& \lambda^2 - \lambda(\alpha + \beta) - |\gamma|^2 + \alpha\beta = 0 \\
+      \Leftrightarrow\quad& \lambda_{1,2} = \frac{\alpha+\beta}{2} \pm \sqrt{\frac{(\alpha + \beta)^2}{4} + |\gamma|^2 - \alpha\beta} \\
+      & \quad\;\;\, = \frac{\alpha+\beta}{2} \pm \sqrt{\frac{\alpha^2 + 2\alpha\beta + \beta^2}{4} + |\gamma|^2 - \alpha\beta} \\
+      & \quad\;\;\, = \frac{\alpha+\beta}{2} \pm \sqrt{\frac{\alpha^2 - 2\alpha\beta + \beta^2}{4} + |\gamma|^2} \\
+      & \quad\;\;\,= \frac{\alpha+\beta}{2} \pm \sqrt{\frac{(\alpha - \beta)^2}{4} + |\gamma|^2} \\
+    \end{align*}
+
+    The term under the square root is $\ge 0$, because $\alpha, \beta,
+    |\gamma|$ are real numbers. So the eigenvalues must be real numbers.
 \end{enumerate}
 \end{document}
