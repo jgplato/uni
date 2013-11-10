@@ -80,4 +80,57 @@ Markus Fenske, Tutor: Adam Nagy
     The term under the square root is $\ge 0$, because $\alpha, \beta,
     |\gamma|$ are real numbers. So the eigenvalues must be real numbers.
 \end{enumerate}
+
+\section*{Exercise 4: Pauli matricies}
+\begin{enumerate}[a)]
+  \item
+    Traces:
+    \begin{equation*}
+      \operatorname{tr} \sigma_0 = 1, \qquad
+      \operatorname{tr} \sigma_1 = 0, \qquad
+      \operatorname{tr} \sigma_2 = 0, \qquad
+      \operatorname{tr} \sigma_3 = 0
+    \end{equation*}
+
+    Determinants:
+    \begin{equation*}
+      \det \sigma_0 = 0, \qquad
+      \det \sigma_1 = -1, \qquad
+      \det \sigma_2 = -1, \qquad
+      \det \sigma_1 = -1
+    \end{equation*}
+
+    Eigenvalues (using the formula from 3b):
+    \begin{equation*}
+      \lambda_{\sigma_0} = \{1,1\}, \qquad
+      \lambda_{\sigma_1} = \{-1,1\}, \qquad
+      \lambda_{\sigma_2} = \{-1,1\}, \qquad
+      \lambda_{\sigma_3} = \{-1,1\}
+    \end{equation*}
+
+    The matricies are obviously hermitian (because $\sigma_n = \sigma_n^\dagger$).
+  \item
+    \begin{align*}
+      \delta_{12} = 0, \epsilon_{123} = 1 \qquad\Rightarrow\qquad
+      &\sigma_1\sigma_2 =
+      \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+      \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
+      =
+      \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix} = i\sigma_3 \\
+      \delta_{23} = 0, \epsilon_{231} = 1 \qquad\Rightarrow\qquad
+      &\sigma_2\sigma_3 =
+      \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}
+      \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}
+      =
+      \begin{pmatrix} 0 & i \\ i & 0\end{pmatrix} = i\sigma_1 \\
+      \delta_{23} = 0, \epsilon_{132} = -1 \qquad\Rightarrow\qquad
+      &\sigma_1\sigma_3 =
+      \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+      \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}
+      =
+      \begin{pmatrix} 0 & -1 \\ 1 & 0\end{pmatrix}
+      = -i\sigma_2
+    \end{align*}
+\end{enumerate}
+
 \end{document}
