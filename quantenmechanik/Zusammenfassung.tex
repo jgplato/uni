@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{enumerate}
+\usepackage{braket}
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 \restylefloat{table}
@@ -139,6 +140,115 @@ $\sigma_x, \sigma_y, \sigma_z$: Messungen (hermiteische Operatoren)
 $\sigma_x|0> = |0>, \sigma_x |1> = -|1>$: Eigenwerte $1, -1$ sind beobachtbar.
 
 Bloch-Kugel für Spins.
+
+\newpage
+\section{Fouriertransformation}
+Transformiert eine Funktion in die Spektralzerlegung. In der Quantenmechanik
+benutzt um Wellenfunktionen vom Orts- in den Impulsraum zu transformieren.
+Kleine Impulse im Ortsraum werden im Impulsraum breit und umgekehrt. $\to$
+``Herleitung'' der Heisenbergschen Unschärferelation. Ortsraum: $f(x)$,
+Impulsraum $g(k)$. Literatur: Forster, Analysis III.
+
+\begin{equation*}
+  g(k) = \int_{-\infty}^{\infty} f(x) \; e^{-ikx} \;\text{d}x 
+  \qquad
+  \qquad
+  \qquad
+  f(x) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} g(k) \; e^{ikx} \;\text{d}k
+\end{equation*}
+
+\section{Heisenbergsche Unschärferelation}
+\begin{equation*}
+  \Delta x \Delta p \ge \frac{\hbar}{2}
+\end{equation*}
+
+\section{Bohrsches Atommodell}
+Beobachtung: Diskrete Linienspektren. Erklärung von Bohr: Drehimpulsquantelung.
+Aus den Differenzen der kinetischen
+Energien der Elektronen auf diskreten Bahnen (Coulomb-Potential mit Kernladung $Z$) Herleitung der Rydberg-Formel für
+das Wasserstoffatom. (Hier: Grafik: Elektron wechselt Bahn, Abstrahlung von Photon)
+
+\begin{equation*}
+  L = n \hbar
+  \qquad \Rightarrow \qquad
+  \frac{1}{\lambda} = R_y \left( \frac{1}{m^2} - \frac{1}{n^2} \right) \quad \text{mit} \quad n,m = 1, 2, 3, \dots
+\end{equation*}
+
+Nachteile des Bohrschen Atommodells: Gilt nur für Atome mit einem Elektron,
+erklärt nicht die Intensitäten der Spektrallinien, Drehimpulsquantelung ist ein
+Postulat, Erklärt nicht die Feinstruktur der Spektrallinien.
+
+\section{Charakteristische Röntgenstrahlung}
+
+Empirische von Moseley: Bohrsches Atommodell mit Abschirmkonstante (Abschirmung
+durch besetzte Schalen):
+
+\begin{equation*}
+  E = R (Z-S)^2 \left( \frac{1}{m^2} - \frac{1}{n^2} \right)
+\end{equation*}
+
+\section{Matritzenmechanik 1: Vektorraum}
+Quantenmechanik (genauer Matritzenmechanik) operiert auf einem
+$d$-dimensionalen komplexen normierten Hilbertraum ($\mathcal{H} = \mathbb{C}^d$) der Basis $\ket{0}, \ket{1}, \dots$ mit
+Dualraum $\bra{0}, \bra{1}, \dots$ und orthonormalen Basisvektoren.
+
+\begin{equation*}
+  \text{Ket: } \ket{\psi} = \sum_{j=0}^{d-1} \alpha_j \ket{j} = \begin{pmatrix} \alpha_0 \\ \vdots \\ \alpha_{d-1} \end{pmatrix}
+  \qquad \Rightarrow \qquad
+  \text{Bra: } \bra{\psi} = \sum_{j=0}^{d-1} \overline{\alpha_j} \bra{j} = (\overline{\alpha_0}, \dots, \overline{\alpha_{d-1}})
+\end{equation*}
+
+Skalarprodukt und Normierung:
+
+\begin{equation*}
+  \braket{\phi|\psi} = \sum_{j=1}^{d-1} \overline{\beta_j} \alpha_j = \braket{\psi|\phi}^*
+\qquad \text{und} \qquad
+  || \ket{\psi} ||^2 = \braket{\psi|\psi} = \sum_{j=0}^{d-1} |\alpha_j|^2 = 1
+\end{equation*}
+
+\newpage
+
+\section{Matritzenmechanik 2: Overservablen}
+
+Observablen sind hermitische (invariant wenn nacheinander transponiert und
+komplex konjugiert) Operatoren $A = A^\dagger$, die in Matrixform geschrieben
+werden können: $A_{jk} = \braket{j|A|k}$. Sie haben reelle Eigenwerte.
+
+Pauli-Matritzen:
+
+\begin{equation*}
+  \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}, \quad
+  \sigma_y = \begin{pmatrix} 0 & -i \\ i & 0\end{pmatrix}, \quad
+  \sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix}, \quad
+  I = \begin{pmatrix} 1 & 0 \\ 0 & 1\end{pmatrix}, \quad
+\end{equation*}
+
+Jede $2\times2$-Matrix lässt sisch schreiben als
+\begin{equation*}
+  A = \alpha \sigma_x + \beta \sigma_y + \gamma \sigma_z + \delta I
+\end{equation*}
+
+Kommutator ($[A,B] = 0$ heißt die Operatoren kommutieren, heißt die Observablen sind kompatibel):
+
+\begin{equation*}
+  [\sigma_x, \sigma_z] = \sigma_x\sigma_z - \sigma_z\sigma_x
+\end{equation*}
+
+Jede Observable kann über ihre Eigenwerte ($\lambda_n$) und Eigenvektoren
+($\ket{\phi_n}$ bzw. $\bra{\phi_n}$) geschrieben werden
+
+\begin{equation*}
+  A = \sum_{j=0}^{d-1} \lambda_j \ket{\phi_j} \bra{\phi_j}
+\end{equation*}
+
+Jede Observable kann diagnonalisiert werden:
+
+\begin{equation*}
+  A = UDU^\dagger \; \text{mit} \; D = \operatorname{diag}(\lambda_0, \lambda_1, \dots, \lambda_{d-1}) \; \text{und U unitär}
+\end{equation*}
+
+
+
 
 
 \end{document}
