@@ -65,6 +65,33 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     Dieser Grenzwert divergiert, also existiert $\vec{f}'(t_0)$ nicht.
 \end{enumerate}
 
+\section*{Aufgabe 4.2}
+
+Diese Kurve ist offenbar symmetrisch (Begründung: siehe Fußnote auf dem
+Aufgabenblatt) und beim Quadrantenübergang nicht differenzierbar. Aufgrund der
+Symmetrie ist die Länge in allen 4 Quadranten gleich. Es gilt also
+
+\begin{align*}
+  L &= 4 \int\limits_{\overline{\gamma}}  ds \qquad \text{(wobei }\overline{\gamma}\text{ die Kurve im 1. Quadranten ist)} \\
+    &= 4 \int_0^{\frac{\pi}{2}} \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} dt
+\end{align*}
+
+Mit der gegebenen Parametrisierung $x=a \cos^3 t$, $y = a \sin^3 t$:
+
+\begin{align*}
+  &= 4 \int_0^{\frac{\pi}{2}}   \sqrt{\left(-3a \sin(t) \cos^2(t) \right)^2 + \left(3a \sin^2(t) \cos(t)\right)^2} \; dt \\
+  &= 12a \int_0^{\frac{\pi}{2}} \sqrt{\sin^2(t) \cos^4(t) + \sin^4(t) \cos^2(t)} \; dt \\
+  &= 12a \int_0^{\frac{\pi}{2}} \sqrt{(\sin^2(t) + \cos^2(t)) \sin^2(t)\cos^2(t)} \; dt \\
+  &= 12a \int_0^{\frac{\pi}{2}} \sqrt{\sin^2(t)\cos^2(t)} \; dt \\
+  &= 6a \int_0^{\frac{\pi}{2}}  \sqrt{\sin^2(2t)} \; dt \\
+  &= 6a \int_0^{\frac{\pi}{2}}  \sin(2t) \; dt \qquad \text{(weil $\sin(2t) > 0$ für $0 \le t \le \frac{\pi}{2}$)} \\
+  &= 3a \int_0^{\pi}            \sin(t) \; dt \\
+  &= 6a
+\end{align*}
+
+
+\begin{equation*}
+\end{equation*}
 
 
 \end{document}
