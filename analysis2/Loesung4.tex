@@ -1,0 +1,70 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 4. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 4.1}
+\begin{enumerate}[(1)]
+  \item
+    Wir arbeiten hier im euklidischen Raum, also ist die Norm definiert über den
+    Satz des Pythagoras in $n$ Dimensionen. Wir wenden die Kettenregel an, nutzen
+    die Definition des Skalarproduktes, das Ausklammern in Summen, usw.
+
+    \begin{align*}
+      \frac{d}{dt} ||\vec{f}(t)|| &= \frac{d}{dt} \sqrt{\sum_{i=1}^n f_i(t)^2}
+       = \frac{1}{2 \sqrt{\sum_{i=1}^n f_i(t)^2}} \sum_{i=1}^n 2 f_i(t) f_I'(t)
+       = \frac{\vec{f}'(t) \bullet \vec{f}(t)}{||\vec{f}(t)||}
+    \end{align*}
+  \item
+    Seien alle Komponenten des $k$-dimensionalen Vektorfeldes gleich (das spart Arbeit). Die
+    Komponenten sollen $f_1(t), f_2(t), \dots, f_n(t), \dots, f_k(t)$ heißen. Da sich der
+    Grenzwert in den Vektor ziehen lässt, reduziert sich das Problem darauf,
+    Funktionen derart zu finden, dass $f_n(t_0) = 0$, aber $f_n'(t_0)$
+    definiert bzw.  $f_n'(t_0)$ undefiniert.
+
+    Beispiel für Ersteres: $\vec{f}(t) = \vec{0}$. Es gilt für jede Komponente:
+
+    \begin{equation*}
+      f_n'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} = \lim_{h \to 0} \frac{0}{h} = 0
+    \end{equation*}
+
+    Also ist $\vec{f}'(t) = \vec{0}$, insbesondere auch an der Stelle $t = t_0$.
+
+    Beispiel für Zweiteres: $f_n(t) = \sqrt{t_0-t}$. Es gilt $f_n(t_0) =
+    \sqrt{0} = 0$ und damit $\vec{f}(t_0) = \vec{0}$. Die Wurzelfunktion ist
+    bekanntlich im Nullpunkt nicht differenzierbar:
+
+    \begin{equation*}
+      \lim_{h \to 0} f_n'(t_0) = \lim_{h \to 0} \frac{f_n(t_0 + h) - f_n(t_0)}{h} = 
+      \lim_{h \to 0} \frac{\sqrt{h} - 0}{h} = \lim_{h \to 0} \frac{1}{\sqrt{h}}
+    \end{equation*}
+
+    Dieser Grenzwert divergiert, also existiert $\vec{f}'(t_0)$ nicht.
+\end{enumerate}
+
+
+
+\end{document}
