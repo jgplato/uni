@@ -37,7 +37,65 @@ Markus Fenske, Tutor: Adam Nagy
 
 \section*{Exercise 1: Uncertainty principle}
 \begin{enumerate}[a)]
-  \item To be done.
+  \item
+    When the electrons passes through a slit of width $d$, the uncertainty on the $x$-Axis is
+
+    \begin{equation*}
+      \Delta x = d
+    \end{equation*}
+
+    Therefore the uncertainty in momentum is
+    \begin{equation*}
+      \Delta p_x = \frac{\hbar}{2 \Delta x}
+    \end{equation*}
+
+    Using the non-relativistic momentum, we obtain for $\Delta v \ll v$
+
+    \begin{equation*}
+      \Delta p_x = \gamma m_e \Delta v_x
+    \end{equation*}
+
+    Therefore the uncertainty in speed is
+    \begin{equation*}
+      \Delta v_x = \frac{\hbar}{2 \gamma m_e \Delta x}
+    \end{equation*}
+
+    If the electrons need a time $t$ from the slit to the wall, the spatial uncertainty will be
+    \begin{equation*}
+      b = \Delta v_x \cdot t = \frac{\hbar}{2 \gamma m_e \Delta x} t
+    \end{equation*}
+
+    The time needed for a distance $d$ at speed $v$ is
+    \begin{equation*}
+      t = \frac{d}{v}
+    \end{equation*}
+
+    Using the relativistic equations for energy and momentum ($E_0 = mc^2$)
+    \begin{equation*}
+      E_\text{kin} = (\gamma - 1) E_0
+    \end{equation*}
+
+    We obtain
+    \begin{equation*}
+      v = c \sqrt{1- \frac{E_0^2}{(E_\text{kin} - E_0)^2}}
+    \end{equation*}
+
+    Therefore the complete equation is
+    \begin{equation*}
+      b = \frac{\hbar}{2 m_e \Delta x} \frac{d}{c \alpha} \sqrt{1 - \alpha},\qquad \alpha = \sqrt{1 - \frac{E_0^2}{(E_\text{kin} + E_0)^2}}
+    \end{equation*}
+
+    We get $\alpha \approx 0.4127$ ($v = 0.4127 c$) and therefore an additional beam width of
+    \begin{equation*}
+      b = 0.0251 \;\micro \meter
+    \end{equation*}
+
+    Therefore the total beam width should be
+    \begin{equation*}
+      w = 50 \pm 0.0251 \; \micro \meter
+    \end{equation*}
+
+
   \item
     \textbf{TODO:} Relativistic calculation, because of the huge energy.
 
