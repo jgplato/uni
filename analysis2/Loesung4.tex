@@ -244,4 +244,55 @@ Die Länge der Tangente berechnet sich dann als
     \end{align*}
 \end{enumerate}
 
+\section*{Aufgabe 4.3}
+Gesucht ist die Menge aller Punkte, die in beiden Mengen gleichzeitig enthalten
+ist, also die Menge aller Punkte $(x,y,z)$ die folgende Gleichungen erfüllen.
+
+\begin{align*}
+  x^2+y^2+z^2 = 4 \\
+  z \ge 0 \\
+  (x-1)^2 + y^2 = 1
+\end{align*}
+
+Diese Ausdrücke können wir vereinfachen. Für ein gegebenes $z \ge 0$ ist
+\begin{align*}
+  \text{I}  \qquad &x^2+y^2+z^2 = 4 \\
+  \text{II} \qquad &x^2 - 2x + 1 + y^2 = 1 \\
+  \text{I}  \qquad &x^2+y^2 = 4 -z^2 \\
+  \text{II} \qquad &x^2 +y^2 - 2x = 0 \\
+  \text{I}  \qquad &x^2+y^2 = 4 - z^2 \\
+  \text{II} \qquad &4-z^2-2x = 0 \\
+  \text{I}  \qquad &x^2+y^2 = 4 -z^2 \\
+  \text{II} \qquad &x = 2 - \frac{z^2}{2} \\
+  \text{I}  \qquad &4 - 2z^2 + \frac{z^4}{4} + y^2 = 4 -z^2 \\
+  \text{II} \qquad &x = 2 - \frac{z^2}{2} \\
+  \text{I}  \qquad &y^2 = z^2 - \frac{z^4}{4} = z^2(1- \frac{z^2}{4}) \\
+  \text{II} \qquad &x = 2-\frac{z^2}{2} \\
+  \text{I}  \qquad &y = \pm z \sqrt{1 - \frac{z^2}{4}} \\
+  \text{II} \qquad &x = 2 - \frac{z^2}{2}
+\end{align*}
+
+Damit ist die Kurve also gegeben durch
+\begin{equation*}
+  \overline{\gamma}(t) = (x(z(t)), y(z(t)), z(t)) = \left(2-\frac{z^2}{2}, \sqrt{1 - \frac{z^2}{4}}, z(t)\right)
+\end{equation*}
+
+Wir benötigen noch eine geeignete zeitliche Parametrisierung für $z(t)$. Wir
+wissen, dass der niedrigste Wert, den $z$ annehmen kann $0$ ist (weil wir nur
+die obere Halbkugel wählen). Der höchste Wert wird am ``\textit{Nordpol}''
+erreicht, dann dort ist der Abstand vom Nullpunkt maximal und entspricht dem
+Radius der Kugel $r=4$.
+
+Wir wählen also
+\begin{equation*}
+  z(t) = t \qquad \text{wobei} \qquad t \in [0,4]
+\end{equation*}
+
+Und erhalten für die Kurve
+
+\begin{equation*}
+  \overline{\gamma}(t) = (x(t),y(t),z(t) = \left(2-\frac{t^2}{2}, \sqrt{1 - \frac{t^2}{4}}, t\right), t \in [0,4]
+\end{equation*}
+
+
 \end{document}
