@@ -139,9 +139,109 @@ Die Länge der Tangente berechnet sich dann als
       &= a \cos(2 t_0)
 \end{align*}
 
+\section*{Aufgabe 4.3}
+\begin{enumerate}[(1)]
+  \item Keine Abgabe gefordert
+  \item
+    \begin{equation*}
+      L = \int_a^b || \dot{\overline{\gamma}}(t) || dt
+    \end{equation*}
 
-\begin{equation*}
-\end{equation*}
+    Mit
+    \begin{equation*}
+      \dot{\overline{\gamma}}(t) = \begin{pmatrix}
+        e^{ct} (c \cos t - \sin t) \\
+        e^{ct} (c \sin t - \cos t)
+      \end{pmatrix}
+    \end{equation*}
 
+    folgt
+
+    \begin{align*}
+      L &= \int_a^b \sqrt{e^{2ct} (c \cos t - \sin t)^2 + e^{2ct} (c \sin t + \cos t)}^2 \; dt \\
+        &= \int_a^b e^{ct} \sqrt{c^2 \cos^2 t - 2c\cos t \sin t + \sin^2 t + c^2 \sin^2t + 2c \cos t \sin t + \cos^2 t} \; dt \\
+        &= \int_a^b e^{ct} \sqrt{1+c^2} \; dt \\
+        &= \sqrt{1+c^2} \int_a^b e^{ct} \; dt \\
+        &= \sqrt{1+c^2} \frac{e^{bt} - e^{at}}{c} \\
+        &= \frac{e^c \sqrt{1+c^2}}{c} (e^b - e^a)
+    \end{align*}
+
+    Das ist die Länge der Kurve.
+
+    Für den Grenzübergang $a \to -\infty$ ist:
+
+    \begin{equation*}
+      \lim_{a \to -\infty} \frac{e^c\sqrt{1+c^2}}{c} (e^b - e^a) = \frac{e^c\sqrt{1+c^2}}{c} e^b - \frac{e^c\sqrt{1+c^2}}{c} \underbrace{\lim_{a \to -\infty} e^a}_{=0} = \frac{e^{c+b} \sqrt{1+c^2}}{c}
+    \end{equation*}
+
+  \item
+    Der Kreis ist definiert als
+    \begin{equation*}
+      \overline{K}_{\overline{0}}(r) = \{(x,y) \in \mathbb{R}^2: d((x,y), \overline{0}) = r \}
+    \end{equation*}
+
+    Zu zeigen ist also:
+    \begin{equation*}
+      \forall r \; \exists \overline{x} \in \overline{K}_{\overline{0}}(r): \overline{x} = \overline{\gamma}(t), t \in \mathbb{R}
+    \end{equation*}
+
+    Sei ein beliebiger Radius $r$ vorgegeben. Nach Behauptung exisitiert $\overline{x}, t$ derart, dass
+    \begin{equation*}
+      \overline{x} = \overline{\gamma}(t)
+    \end{equation*}
+
+    Es erscheint sinnvoll, die Punktmenge $\overline{K}$ als Kurve $\overline{\nu}(t)$ zu definieren mit der Parametrisierung
+    \begin{equation}
+      (x,y) = (r \cos t, r \sin t)
+    \end{equation}
+
+    Zu zeigen ist also
+    \begin{align*}
+      r \cos s &= e^{ct} \cos t \\
+      r \sin s &= e^{ct} \sin t
+    \end{align*}
+
+    Das ist erfüllt für
+    \begin{equation*}
+      r = e^{ct} \Rightarrow t = \frac{\ln r}{c} \qquad \text{und} \qquad s=t
+    \end{equation*}
+
+    $\ln r$ ist für alle $r > 0$ definiert, also findet man zu jedem Radius $r$
+    einen Zeitpunkt $t$, zu dem die Kurve den Kreis schneidet. Da die
+    Gleichung(en) nur eine Lösung für $t$ haben, wird der Kreis nur exakt
+    einmal geschnitten.
+
+    Zum Schluss ermitteln wir den Kosinus des Schnittwinkels. Dieser ist gegeben durch
+    \begin{equation*}
+      \cos \phi = \frac{\dot{\overline{\nu}}(s) \bullet \dot{\overline{\gamma}}(t)}{||\dot{\overline{\nu}}(s)|| \cdot ||\dot{\overline{\gamma}}}
+    \end{equation*}
+
+    Wir haben gefunden, dass $s=t$. Die Ableitung von $\overline{\gamma}(t)$
+    haben wir berechnet, die Ableitung von $\overline{\nu}(t)$ ist
+
+    \begin{equation*}
+      \dot{\overline{\nu}}(t) = \begin{pmatrix}
+        -r \sin t \\
+        r \cos t 
+      \end{pmatrix}
+    \end{equation*}
+
+    Daraus ergibt sich die Norm
+    \begin{equation*}
+      ||\dot{\overline{\nu}}(t) = \sqrt{r^2 \sin^2 t + r^2 \cos^2 t} = r
+    \end{equation*}
+
+    Und für $\overline{\nu}$ haben wir weiter oben im Längenintegral bereits gezeigt, dass
+    \begin{equation*}
+      ||\dot{\overline{\nu}}(t)|| = e^{ct} \sqrt{1+c^2}
+    \end{equation*}
+
+    Damit ergibt sich
+    \begin{align*}
+      \cos \phi &= \frac{e^{ct} (c \cos t - \sin t)(-r \sin t) + e^{ct} (c \sin t + \cos t)(r \cos t)}{re^{ct}\sqrt{1+c^2}} \\
+                &= \frac{re^{ct} (-c\cos t \sin t + \sin^2 t + c \cos t \sin t + \cos^2 t)}{re^{ct} \sqrt{1+c^2}} \\
+                &= \frac{1}{\sqrt{1+c^2}}
+    \end{align*}
+\end{enumerate}
 
 \end{document}
