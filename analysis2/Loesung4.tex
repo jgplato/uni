@@ -89,6 +89,56 @@ Mit der gegebenen Parametrisierung $x=a \cos^3 t$, $y = a \sin^3 t$:
   &= 6a
 \end{align*}
 
+Sei $\overline{\nu}(t)$ die Kurventangente zu $\overline{\gamma}(t)$ im
+(Zeit)punkt $t_0$, dann ist diese definiert durch
+
+\begin{equation*}
+  \overline{\nu}(t) = \overline{\gamma}(t_0) + (t - t_0) \dot{\overline{\gamma}}(t_0)
+\end{equation*}
+
+Mit Einsetzen der Ableitungen die wir weiter oben bereits bestimmt haben,
+erhalten wir folgende Gleichung, bei der wir die in der Vorlesung übliche
+Unterscheidung zwischen Punkten und Vektoren beibehalten.
+
+\begin{equation*}
+  \overline{\nu}(t) = (a \cos^3 t_0, a \sin^3 t_0) + (t-t_0) \begin{pmatrix} -3a \cos^2(t_0) \sin(t_0) \\ 3a \sin^2(t_0) \cos(t_0) \end{pmatrix}
+\end{equation*}
+
+Um die Länge der Strecke zwischen den Schnittpunkten mit den Koordinatenachsen
+zu berechnen, lösen wir zuerst, bei welchen Zeitpunkt $t$ der Schnitt mit der
+$x$- und der $y$-Achse stattfindet.
+
+$x$-Achse:
+\begin{align*}
+  &0 \overset{!}{=} a \cos^3(t_0) + (t-t_0)(-3a \cos^2(t_0) \sin(t_0)) \\
+  \Leftrightarrow\qquad &0 = \cos^3(t_0) + (t-t_0)(-3 \cos^2(t_0) \sin(t_0)) \qquad \text{(erlaubt wegen $a>0$)}\\
+  \Leftrightarrow\qquad &0 = \cos(t_0) + (t-t_0)(-3 \sin(t_0)) \qquad \text{(erlaubt wegen $t_0 > 0$)}\\
+  \Leftrightarrow\qquad &0 = \frac{1}{3} \cot(t_0) - (t - t_0) \\
+  \Leftrightarrow\qquad &t_x = t_0 - \frac{1}{3} \cot(t_0)
+\end{align*}
+
+$y$-Achse:
+\begin{align*}
+  &0 \overset{!}{=} a \sin^3(t_0) + (t-t_0)(3a \sin^2(t_0) \cos(t_0)) \\
+  \Leftrightarrow\qquad &t_y = t_0 - \frac{1}{3} \tan(t_0)
+\end{align*}
+
+Die Länge der Tangente berechnet sich dann als
+\begin{align*}
+  L_T &= \int_{t_x}^{t_y} ||\dot{\overline{\nu}}(t)|| dt \\
+      &= \int_{t_x}^{t_y} \sqrt{\dot{\overline{\nu}}_1(t)^2 + \dot{\overline{\nu}}_2(t)^2} dt \\
+      &= \int_{t_x}^{t_y} 3a \sqrt{\cos^4(t_0)\sin^2(t_0) + \sin^4(t_0) \cos^2(t_0)} dt \\
+      &= \int_{t_x}^{t_y} 3a \sqrt{(\cos^2(t_0)\sin^2(t_0) (\cos^2(t_0) + \sin^2(t_0))} dt \\
+      &= \int_{t_x}^{t_y} 3a \sqrt{\cos^2(t_0)\sin^2(t_0)} dt \\
+      &= 3a \cos(t_0)\sin(t_0) \int_{t_x}^{t_y} dt \\
+      &= 3a \cos(t_0)\sin(t_0) (t_y - t_x) \\
+      &= 3a \cos(t_0)\sin(t_0) (\frac{1}{3} \cot t_0 - \frac{1}{3} \tan t_0) \\
+      &= a \cos(t_0) \sin(t_0) (\cot t_0 - \tan t_0) \\
+      &= a \cos^2(t_0) - a \sin^2(t_0) \\
+      &= a (\cos^2(t_0) - \sin^2(t_0)) \\
+      &= a \cos(2 t_0)
+\end{align*}
+
 
 \begin{equation*}
 \end{equation*}
