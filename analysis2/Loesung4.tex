@@ -254,45 +254,65 @@ ist, also die Menge aller Punkte $(x,y,z)$ die folgende Gleichungen erfüllen.
   (x-1)^2 + y^2 = 1
 \end{align*}
 
-Diese Ausdrücke können wir vereinfachen. Für ein gegebenes $z \ge 0$ ist
+Wir lösen zuerst die Gleichungen nach $x^2+y^2$
+
 \begin{align*}
-  \text{I}  \qquad &x^2+y^2+z^2 = 4 \\
-  \text{II} \qquad &x^2 - 2x + 1 + y^2 = 1 \\
-  \text{I}  \qquad &x^2+y^2 = 4 -z^2 \\
-  \text{II} \qquad &x^2 +y^2 - 2x = 0 \\
-  \text{I}  \qquad &x^2+y^2 = 4 - z^2 \\
-  \text{II} \qquad &4-z^2-2x = 0 \\
-  \text{I}  \qquad &x^2+y^2 = 4 -z^2 \\
-  \text{II} \qquad &x = 2 - \frac{z^2}{2} \\
-  \text{I}  \qquad &4 - 2z^2 + \frac{z^4}{4} + y^2 = 4 -z^2 \\
-  \text{II} \qquad &x = 2 - \frac{z^2}{2} \\
-  \text{I}  \qquad &y^2 = z^2 - \frac{z^4}{4} = z^2(1- \frac{z^2}{4}) \\
-  \text{II} \qquad &x = 2-\frac{z^2}{2} \\
-  \text{I}  \qquad &y = \pm z \sqrt{1 - \frac{z^2}{4}} \\
-  \text{II} \qquad &x = 2 - \frac{z^2}{2}
+  &x^2 + y^2 = 4 - z^2 \\
+  &(x-1)^2 + y^2 = 1 \Leftrightarrow x^2 - 2x + 1 + y^2 = 1 \Leftrightarrow x^2+y^2 = 2x
 \end{align*}
 
-Damit ist die Kurve also gegeben durch
+Durch Gleichsetzen erhalten wir
 \begin{equation*}
-  \overline{\gamma}(t) = (x(z(t)), y(z(t)), z(t)) = \left(2-\frac{z^2}{2}, \sqrt{1 - \frac{z^2}{4}}, z(t)\right)
+  2x = 4 - z^2 \Leftrightarrow x = 2 - \frac{z^2}{2}
 \end{equation*}
 
-Wir benötigen noch eine geeignete zeitliche Parametrisierung für $z(t)$. Wir
-wissen, dass der niedrigste Wert, den $z$ annehmen kann $0$ ist (weil wir nur
-die obere Halbkugel wählen). Der höchste Wert wird am ``\textit{Nordpol}''
-erreicht, dann dort ist der Abstand vom Nullpunkt maximal und entspricht dem
-Radius der Kugel $r=4$.
+Durch Einsetzen in die umgeformte Kugelgleichung
+\begin{align*}
+  &\left(z - \frac{z^2}{2}\right)^2 + y^2 = 4 - z^2 \\
+  \Leftrightarrow\qquad &y^2 = 4 - z^2 - \left(2 - \frac{z^2}{2}\right)^2 \\
+  \Leftrightarrow\qquad &y^2 = 4 - z^2 - \left(4 - 2\cdot2\cdot\frac{z^2}{2} + \frac{z^2}{4}\right) \\
+  \Leftrightarrow\qquad &y^2 = - z^2 + 2z^2 - \frac{z^2}{4} \\
+  \Leftrightarrow\qquad &y = \pm \sqrt{z^2 - \frac{z^4}{4}} \\
+\end{align*}
 
-Wir wählen also
-\begin{equation*}
-  z(t) = t \qquad \text{wobei} \qquad t \in [0,4]
-\end{equation*}
-
-Und erhalten für die Kurve
+Die Schnittkurve ist also die Menge aller Punkte, die folgende Gleichung erfüllen
 
 \begin{equation*}
-  \overline{\gamma}(t) = (x(t),y(t),z(t) = \left(2-\frac{t^2}{2}, \sqrt{1 - \frac{t^2}{4}}, t\right), t \in [0,4]
+  \overline{\gamma}(t) = (x(z(t)), y(z(t)), z(t)) = (2 - \frac{z(t)^2}{2}, \pm \sqrt{z(t)^2 - \frac{z(t)^4}{4}}, z(t))
 \end{equation*}
 
+Wir benötigen nur noch eine geeingete Parametrisierung von $z(t)$, derart, dass
+ein Minimum und ein Maximum von $z(t)$ festgelegt ist, denn die Schnittkurve
+kann nicht unendlich lang sein. Sie muss einen Anfangs und einen Endpunkt
+haben.
+
+Der maximale Wert, den $z$ einnehmen kann, ist entsprechend des Kugelradius
+$z_\text{max}=2$. An dieser Stelle ist nach Kugelgleichung $x^2+y^2=0$. Dies
+ist nur erfüllt für $x=y=0$, was auch vom Zylinder efüllt wird ($(0-1)^2 + 0^2
+= 1$).
+
+Der minimale Wert, den $z$ einnehmen kann ist $z_\text{min} = 0$. Der Wert wird
+von der Kugel erfüllt, dort ist $x^2 + y^2 = 4 \Leftrightarrow y^2 = 4 - x^2$.
+Eingesetzt in die Zylindergleichung ergibt sich $x^2 + (4-x^2) = 2x
+\Leftrightarrow x = 2$. Also stimmt auch dieser Wert.
+
+Also lässt sich die Kurve parametrisieren durch die Zusammenstückung der beiden
+Halbkurven $\gamma_1$ und $\gamma_2$ $z(t) = t, t \in [0,2]$. Diese durchlaufen
+einmal die positive und einmal die negative $y$-Seite.
+
+\begin{align*}
+  \overline{\gamma}_1(t) &= \left(2 - \frac{t^2}{2}, -\sqrt{t^2 - \frac{t^4}{4}}, t\right), t \in [0,2] \\
+  \overline{\gamma}_2(t) &= \left(2 - \frac{t^2}{2}, \sqrt{t^2 - \frac{t^4}{4}}, t\right), t \in [0,2] \\
+\end{align*}
+
+Um nun noch Stetigkeit zu erhalten, definieren wir kurzerhand
+
+\begin{equation*}
+  \overline{\gamma}(t) =
+  \begin{cases}
+    \left(2 - \frac{(2-t)^2}{2}, -\sqrt{(2-t)^2 - \frac{(t-2)^4}{4}}, (2-t)\right) &\mbox{für } t \in [0,2]  \\
+    \left(2 - \frac{(t-2)^2}{2}, \sqrt{(t-2)^2 - \frac{(t-2)^4}{4}}, (t-2)\right) &\mbox{für } t \in [2,4]  \\
+  \end{cases}
+\end{equation*}
 
 \end{document}
