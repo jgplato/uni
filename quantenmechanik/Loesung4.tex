@@ -156,24 +156,99 @@ Markus Fenske, Tutor: Adam Nagy
     It would be easier to determine the frequency of a tone of higher pitch,
     because the percentual uncertainty is lower.
 \end{enumerate}
+
+
 \section*{Exercise 2: Fourier transformation}
+(This part has been created in cooperation with Luis Herrmann and is identical)
+
 \begin{enumerate}[a)]
-  \item
-    We are looking for the values of $c_1, c_2$ in
-    \begin{equation*}
-      \phi(x) = c_1c_2 \int\limits_{-\infty}^{\infty} dk e^{-ikx} \int\limits_{-\infty}^{\infty} dx e^{ikx} \phi(x)
-    \end{equation*}
+\item \begin{align*}
+&\hat{\psi}(k)=(\mathcal{F_\phi})(k)=c_1\int_{-\infty}^{\infty}\hat{\phi}(x)e^{ikx}dx\\
+&\hat{\phi}(x)=(\mathcal{F^{-1}_\psi})(x)=c_2\int_{-\infty}^{\infty}\hat{\psi}(k)e^{-ikx}dk
+\end{align*}
+In order to determine the relation between integration constants $c_1$ and $c_2$, we insert our integral expression for $\hat{\psi}$ in $\hat{\phi}$:
+\begin{align*}
+\hat{\phi}(x)&=c_2\int_{-\infty}^{\infty}\left(c_1\int_{-\infty}^{\infty}\hat{\phi}(x)e^{ikx'}dx'\right)e^{-ikx}dk\\
+&=c_2c_1\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}\hat{\phi}(x)e^{ikx'}dx'\right)e^{-ikx}dk
+\end{align*}
+This is an iterative integral. Generally, the order of integration of an iterative integral cannot lightheartedly be inverted, particularly not for improper integrals.\\
 
-    Because we know that $c_1, c_2$ are constant, it is sufficient to
-    sufficient to calculate it for a single function. We choose $\phi(x) =
-    e^{-\frac{x^2}{2}}$ which should be invariant under Fourier transformations.
+However, since we require both Fourier transformations to exist, the corresponding iterative integral over two variables must also exist and, according to Fubini's law, we can change the integration order. \\
 
-    \begin{equation*}
-      \phi(x) = c_1c_2 \int\limits_{-\infty}^{\infty} dk e^{-ikx} \int\limits_{-\infty}^{\infty} dx e^{ikx} e^{-\frac{x^2}{2}}
-    \end{equation*}
+
+Changing the order of integration:
+\begin{equation*}
+\hat{\phi}(x)=c_2c_1\int_{-\infty}^{\infty}\hat{\phi}(x')\left(\int_{-\infty}^{\infty}e^{ik(x'-x)}dk\right)dx'
+\end{equation*}
+
+The first integral is equivalent to the delta function:
+\begin{equation*}
+\int_{-\infty}^{\infty}e^{ik(x'-x)}=2\pi\delta(x-x')
+\end{equation*}
+
+Inserting this back into our main equation, we get:
+\begin{equation*}
+\hat{\phi}(x)=2\pi c_2c_1\int_{-\infty}^{\infty}\hat{\phi}(x')\delta(x-x')dx'
+\end{equation*}
+
+According to [http://mathworld.wolfram.com/DeltaFunction.html], the delta function has the fundamental property:
+\begin{equation*}
+\int_{- \infty}^{\infty}f(x')\delta(x-x')dx'=f(x)
+\end{equation*}
+
+This will also apply for $\hat{\phi}(x)$ and we obtain the following relation:
+\begin{align*}
+&\hat{\phi}(x)=2\pi c_2c_1\hat{\phi}(x)\\
+\Leftrightarrow & c_1c_2=\frac{1}{2\pi}
+\end{align*}
+
+\item
+
+The $\mathcal{L}^2$ scalar product is defined as:
+\begin{equation*}
+\braket{\psi\,\phi}=\int\overline{\psi}(x)\phi(x)dx
+\end{equation*}
+Let:
+\begin{equation*}
+\mathcal{F}_{\psi}(k)=c_1\int_{-\infty}^{\infty}e^{-ikx}\psi(x)dx \quad \text{and} \quad \mathcal{F}_{\phi}(k)=c_1\int_{-\infty}^{\infty}e^{-ikx}\phi(x)dx
+\end{equation*}
+We require the Fourier transformation to be unitarian, such that:
+\begin{equation*}
+\braket{\psi,\phi}=\braket{\mathcal{F}_{\psi},\mathcal{F}_{\phi}}
+\end{equation*}
+... is fulfilled. Let us consider the $\mathcal{L}^2$ scalar product of the Fourier transformations:
+\begin{align*}
+\braket{\mathcal{F}_{\psi},\mathcal{F}_{\phi}}&=\int_{-\infty}^{\infty}\overline{\mathcal{F}_{\psi}(k)}\mathcal{F}_{\phi}(k)dk\\
+&=\int_{-\infty}^{\infty}\left(\overline{c_1\int_{-\infty}^{\infty}e^{-ikx}\psi(x)dx}\right)\left(c_1\int_{-\infty}^{\infty}e^{-ikx'}\phi(x')dx'\right)dk\\
+&=\overline{c_1}c_1\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}e^{ikx}\overline{\psi(x)}dx\right)\left(\int_{-\infty}^{\infty}e^{-ikx'}\phi(x')dx'\right)dk
+\end{align*}
+Applying the same argumentation as for (a), we may change the order of integration:
+\begin{equation*}
+\braket{\mathcal{F}_{\psi},\mathcal{F}_{\phi}}=\overline{c_1}c_1\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}\overline{\psi(x)}\phi(x')\right)\left(\int_{-\infty}^{\infty}e^{ik(x-x')}\right)dkdxdx'
+\end{equation*}
+Again, the first iteration of the integral is equivalent to $2\pi$ times the delta function and we get:
+\begin{align*}
+\braket{\mathcal{F}_{\psi},\mathcal{F}_{\phi}}&=2\pi\overline{c_1}c_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\overline{\psi(x)}\phi(x')\delta(x-x')dxdx'\\
+&=2\pi \overline{c_1}c_1\int_{-\infty}^{\infty}\overline{\psi(x)}\phi(x)dx \quad \text{()see above}\\
+&=2\pi\overline{c_1}c_1\braket{\psi,\phi}\\
+&=2\pi|c_1|^2\braket{\psi,\phi} \quad \quad \text{since} \quad \overline{c_1}c_1=|c_1|^2 \quad \forall c_1\in\mathbb{C}
+\end{align*}
+
+Using our initial condition of the scalar product being unitarian, we finally obtain:
+\begin{align*}
+&\braket{x,y}=\braket{\mathcal{F}_{\psi},\mathcal{F}_{\phi}}\\
+\Leftrightarrow \quad &\braket{\psi,\phi}=2\pi|c_1|^2\braket{\psi,\phi}\\
+\Leftrightarrow \quad &|c_1|=\frac{1}{\sqrt{2\pi}}
+\end{align*}
+
+Thus, using our results from (a), the inverse transformation constant must be:
+\begin{equation*}
+|c_2|=\frac{1}{2\pi |c_1|} \quad \Leftrightarrow \quad |c_2|=\frac{1}{\sqrt{2\pi}}
+\end{equation*}
+
 \end{enumerate}
-\section*{Exercise 3: Commutators and eigenvalues of hermitian $2 \times 2$ matricies}
 
+\section*{Exercise 3: Commutators and eigenvalues of hermitian $2 \times 2$ matricies}
 \begin{enumerate}[a)]
   \item
     (i)
