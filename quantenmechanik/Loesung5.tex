@@ -1,0 +1,64 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 5
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Measurements}
+\begin{enumerate}[a)]
+  \item
+    \begin{equation*}
+      \braket{\psi|A|\psi} =
+      \frac{1}{\sqrt{18}}
+      \begin{pmatrix}
+        2 & 1 & 2 & 3
+      \end{pmatrix}
+      \begin{pmatrix}
+         9 & -6 & -1 &  0 \\
+        -6 &  9 &  0 & -1 \\
+        -1 &  0 &  9 & -6 \\
+         0 & -1 & -6 &  9
+      \end{pmatrix}
+      \frac{1}{\sqrt{18}}
+      \begin{pmatrix}
+       2 \\
+       1 \\
+       2 \\
+       3
+      \end{pmatrix}
+      = \frac{52}{\sqrt{18}^2} = \frac{26}{9}
+    \end{equation*}
+\end{enumerate}
+
+\end{document}
