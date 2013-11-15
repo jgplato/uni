@@ -322,4 +322,22 @@ Um nun noch Stetigkeit zu erhalten, definieren wir kurzerhand
   \end{cases}
 \end{equation*}
 
+Alternativ lässt sich auch eine geschlossene Kurve angeben, die alle Punkte beliebig oft durchläuft. Man fordert eine Parametrisierung der Form:
+\begin{align*}
+z(t+\tau)=z(t) \quad \text{für gegebenes $\tau$}\\
+z_{max}=2\\
+z_{min}=0
+\end{align*}
+
+Es bietet sich folgender Ansatz an:
+\begin{equation*}
+z(t)=(z_{max}-z_{min})\sin^2(t)+z_{min}=2\sin^2(t)
+\end{equation*}
+
+Damit wird:
+\begin{equation*}
+\overline{\gamma}(t)=\left(2\sin^2(t)\sqrt{1-\sin^4(t)},2-\sin^4(t),2\sin^2(t)\right)
+\end{equation*}
+
+
 \end{document}
