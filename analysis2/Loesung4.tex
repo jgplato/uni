@@ -34,10 +34,17 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     die Definition des Skalarproduktes, das Ausklammern in Summen, usw.
 
     \begin{align*}
-      \frac{d}{dt} ||\vec{f}(t)|| &= \frac{d}{dt} \sqrt{\sum_{i=1}^n f_i(t)^2}
-       = \frac{1}{2 \sqrt{\sum_{i=1}^n f_i(t)^2}} \sum_{i=1}^n 2 f_i(t) f_I'(t)
-       = \frac{\vec{f}'(t) \bullet \vec{f}(t)}{||\vec{f}(t)||}
+      &||\vec{f}(t)||^2 = \sum_{i=1}^{n}f_i(t)^2\\
+      \Rightarrow\quad &\frac{d}{dt}\left(||\vec{f}(t)||^2\right)=\frac{d}{dt}\sum_{i=1}^{n}f_i(t)^2\\
+      \Leftrightarrow \quad & 2||\vec{f}(t)||\frac{d}{dt}||\vec{f}(t)||=\sum_{i=1}^{n}\frac{d}{dt}(f_i(t)^2)\\
+      \Leftrightarrow \quad & 2||\vec{f}(t)||\frac{d}{dt}||\vec{f}(t)||=\sum_{i=1}^{n}2f_i(t)f_i'(t)\\
+      \Leftrightarrow \quad & ||\vec{f}(t)||\frac{d}{dt}||\vec{f}(t)||=\underbrace{\sum_{i=1}^{n}f_i(t)f_i'(t)}_{\vec{f}(t)\bullet\vec{f'}(t)}
     \end{align*}
+    Unter der Bedingung $||\vec{f}(t)||\neq 0 \Rightarrow \vec{f}(t)\neq 0$:
+    \begin{equation*}
+    \frac{d}{dt}||\vec{f}(t)||=\frac{\vec{f}(t)\bullet\vec{f'}(t)}{||\vec{f}(t)||}
+    \end{equation*}
+    
   \item
     Seien alle Komponenten des $k$-dimensionalen Vektorfeldes gleich (das spart Arbeit). Die
     Komponenten sollen $f_1(t), f_2(t), \dots, f_n(t), \dots, f_k(t)$ heißen. Da sich der
@@ -228,7 +235,7 @@ Die Länge der Tangente berechnet sich dann als
 
     Daraus ergibt sich die Norm
     \begin{equation*}
-      ||\dot{\overline{\nu}}(t) = \sqrt{r^2 \sin^2 t + r^2 \cos^2 t} = r
+      ||\dot{\overline{\nu}}(t)|| = \sqrt{r^2 \sin^2 t + r^2 \cos^2 t} = r
     \end{equation*}
 
     Und für $\overline{\nu}$ haben wir weiter oben im Längenintegral bereits gezeigt, dass
@@ -278,7 +285,7 @@ Durch Einsetzen in die umgeformte Kugelgleichung
 Die Schnittkurve ist also die Menge aller Punkte, die folgende Gleichung erfüllen
 
 \begin{equation*}
-  \overline{\gamma}(t) = (x(z(t)), y(z(t)), z(t)) = (2 - \frac{z(t)^2}{2}, \pm \sqrt{z(t)^2 - \frac{z(t)^4}{4}}, z(t))
+  \overline{\gamma}(t) = (x(z(t)), y(z(t)), z(t)) = \left(2 - \frac{z(t)^2}{2}, \pm \sqrt{z(t)^2 - \frac{z(t)^4}{4}}, z(t)\right)
 \end{equation*}
 
 Wir benötigen nur noch eine geeingete Parametrisierung von $z(t)$, derart, dass
