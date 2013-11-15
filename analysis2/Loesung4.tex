@@ -52,7 +52,7 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     Funktionen derart zu finden, dass $f_n(t_0) = 0$, aber $f_n'(t_0)$
     definiert bzw.  $f_n'(t_0)$ undefiniert.
 
-    Beispiel für Ersteres: $\vec{f}(t) = \vec{0}$. Es gilt für jede Komponente:
+    Beispiel für Ersteres ($f(t_0) = \overline{0}$, aber differenzierbar): $\vec{f}(t) = \vec{0}$. Es gilt für jede Komponente:
 
     \begin{equation*}
       f_n'(t) = \lim_{h \to 0} \frac{f(t + h) - f(t)}{h} = \lim_{h \to 0} \frac{0}{h} = 0
@@ -60,16 +60,16 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
 
     Also ist $\vec{f}'(t) = \vec{0}$, insbesondere auch an der Stelle $t = t_0$.
 
-    Beispiel für Zweiteres: $f_n(t) = \sqrt{t_0-t}$. Es gilt $f_n(t_0) =
-    \sqrt{0} = 0$ und damit $\vec{f}(t_0) = \vec{0}$. Die Wurzelfunktion ist
+    Beispiel für Zweiteres ($g(t_0) = \overline{0}$), nicht differenzierbar): $g_n(t) = \sqrt{t_0-t}$. Es gilt $g_n(t_0) =
+    \sqrt{0} = 0$ und damit $\vec{g}(t_0) = \vec{0}$. Die Wurzelfunktion ist
     bekanntlich im Nullpunkt nicht differenzierbar:
 
     \begin{equation*}
-      \lim_{h \to 0} f_n'(t_0) = \lim_{h \to 0} \frac{f_n(t_0 + h) - f_n(t_0)}{h} = 
+      \lim_{h \to 0} g_n'(t_0) = \lim_{h \to 0} \frac{g_n(t_0 + h) - g_n(t_0)}{h} = 
       \lim_{h \to 0} \frac{\sqrt{h} - 0}{h} = \lim_{h \to 0} \frac{1}{\sqrt{h}}
     \end{equation*}
 
-    Dieser Grenzwert divergiert, also existiert $\vec{f}'(t_0)$ nicht.
+    Dieser Grenzwert divergiert, also existiert $\vec{g}'(t_0)$ nicht.
 \end{enumerate}
 
 \section*{Aufgabe 4.2}
