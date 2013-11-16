@@ -135,4 +135,37 @@ Markus Fenske, Tutor: Adam Nagy
     So the eigenvalues of the matrix are $\{2,4,14,16\}$.
 \end{enumerate}
 
+\section*{Exercise 2: Repeated measurements}
+\begin{enumerate}[a)]
+  \item
+    By rewriting $\ket{\psi}$ in a canonical basis, we see that
+    \begin{equation*}
+      \ket{\psi} 
+      = \frac{1}{\sqrt{2}} \left( \ket{+} + \ket{-} \right)
+      = \frac{1}{\sqrt{2}} \left( \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1\end{pmatrix} + \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \right) = \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \ket{0}
+    \end{equation*}
+
+    The Pauli matrix $\sigma_z$ can be written as a $\sigma_z = \ket{0}\bra{0}
+    - \ket{1}\bra{1}$. So the average value of the measurement is
+    \begin{equation*}
+      \braket{0|\sigma_z|0} 
+      = \bra{0}(\ket{0}\bra{0} - \ket{1}\bra{1})\ket{0}
+      = \braket{0|0}\braket{0|0} - \braket{0|1}\braket{1|0}
+      = 1\cdot1 - 0 \cdot 0
+      = 1
+    \end{equation*}
+
+    The eigenvectors of $\sigma_z$ are the canonical base vectors. Using these,
+    we calculate the probabilities as
+    \begin{align*}
+      p_0 = \left|\braket{0|0}\right|^2 = 1 \\
+      p_1 = \left|\braket{1|0}\right|^2 = 0
+    \end{align*}
+
+    The measurement does not modifiy the state of the system
+    \begin{equation*}
+      \ket{\psi_0} = \frac{1}{\sqrt{1}} \braket{0|0} \ket{0} = \ket{0}
+    \end{equation*}
+\end{enumerate}
+
 \end{document}
