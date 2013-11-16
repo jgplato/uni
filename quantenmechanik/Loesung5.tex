@@ -199,8 +199,32 @@ Markus Fenske, Tutor: Adam Nagy
     \begin{equation*}
       p_0 \lambda_0 + p_1\lambda_1 = 
       \left(\frac{\sqrt{3}}{6}+\frac{1}{2}\right)\sqrt{3} + 
-      \left(\frac{1}{2} + \frac{\sqrt{3}}{6}\right)\left(-\sqrt{3}\right)
+      \left(\frac{1}{2} - \frac{\sqrt{3}}{6}\right)\left(-\sqrt{3}\right)
       = 1
+    \end{equation*}
+  \item
+    When the measured value is $-\sqrt{3}$, the system is now in the state of
+    the corresponding eigenvector.
+
+    \begin{equation*}
+      \ket{\psi} = \ket{\phi_1}
+    \end{equation*}
+
+    The eigenvectors of $\sigma_z$ again are $\ket{0}$ and $\ket{1}$, so the
+    probabilities for each of these states are
+
+    \begin{align*}
+      p_0 &= |\braket{0|\psi}|^2 = \frac{1}{2} - \frac{\sqrt{3}}{6} \approx 0.21 \qquad \text{(as calculated above)} \\
+      p_1 &= |\braket{1|\psi}|^2 = 1-p_0 = \frac{\sqrt{3}}{6} + \frac{1}{2} \approx 0.79 \qquad \text{(because I am lazy)}
+    \end{align*}
+
+    The probabilities are the same as above, but the eigenvalues differ. So the
+    average expected value is
+    \begin{equation*}
+      p_0 \lambda_0 + p_1\lambda_1 = 
+      \left(\frac{\sqrt{3}}{6}+\frac{1}{2}\right)\cdot1 + 
+      \left(\frac{1}{2} - \frac{\sqrt{3}}{6}\right) \cdot (-1) =
+      \frac{\sqrt{3}}{3}
     \end{equation*}
 \end{enumerate}
 
