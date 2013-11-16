@@ -107,7 +107,7 @@ Markus Fenske, Tutor: Adam Nagy
     this is the characteristic polynomial of a $4 \times 4$ hermitian matrix,
     it has 4 real roots.
 
-    We are calculating the roots by clever guessing. This polynomial is normalized
+    We are calculationg the roots by clever guessing. This polynomial is normalized
     (no coefficient in front of the largest exponent), therefore the
     coefficient in front of the second largest exponent ($x^3$) is the sum of
     all roots, while the $x^0$ coefficient is the sum of the roots.
@@ -162,7 +162,7 @@ Markus Fenske, Tutor: Adam Nagy
       p_1 = \left|\braket{1|0}\right|^2 = 0
     \end{align*}
 
-    The measurement does not modify the state of the system
+    The measurement does not modifiy the state of the system
     \begin{equation*}
       \ket{\psi_0} = \frac{1}{\sqrt{1}} \braket{0|0} \ket{0} = \ket{0}
     \end{equation*}
@@ -173,7 +173,7 @@ Markus Fenske, Tutor: Adam Nagy
       A = \sigma_x + \sigma_y + \sigma_z = \begin{pmatrix} 1 & 1-i \\ 1+i & -1\end{pmatrix}
     \end{equation*}
 
-    The eigenvalues and corresponding eigenvectors are
+    The eigenvalues and corrosponding eigenvectors are
     \begin{align*}
     \lambda_0 = \sqrt{3} \qquad
     &\Rightarrow \qquad \ket{\phi_0'} = \begin{pmatrix} \frac{\sqrt{3}+1}{2}(1-i) \\ 1\end{pmatrix} \\
