@@ -232,4 +232,26 @@ Markus Fenske, Tutor: Adam Nagy
     measurement would be the same as the previous result.
 \end{enumerate}
 
+\section*{Exercise 3: Repeated measurements}
+\begin{enumerate}[a)]
+  \item
+    The wave function are orthogonal of $\braket{\psi_0|\psi_1} = 0$.
+
+    \begin{equation*}
+      \braket{\psi_0|\psi_1} 
+      = \int\limits_{- \infty}^{\infty} \overline{\psi_0} \psi_1 \; \text{d}x
+      = \int\limits_{- 1}^{1} \cos\left(\frac{\pi}{2}x\right) \sin(\pi x) \; \text{d}x
+    \end{equation*}
+
+    Using the trigonometric identity $\sin a \cos b = \frac{1}{2} \left( \sin(a
+    -b) + \sin(a+b) \right)$ we can write this as
+
+    \begin{equation*}
+      = \int\limits_{-1}^{1} \left(\frac{1}{2} \sin\left(\frac{\pi}{2} x\right) + \sin \left( \frac{3 \pi}{2} x\right)\right) \;\text{d}x
+    \end{equation*}
+
+    Because $\sin$ is an odd function ($\sin(x) = -\sin(x)$) this integral is
+    obviously zero. Therefore $\ket{0}$ and $\ket{1}$ are orthogonal.
+
+\end{enumerate}
 \end{document}
