@@ -188,6 +188,20 @@ Markus Fenske, Tutor: Adam Nagy
       || \ket{\phi_1'} ||^2 = 3 - \sqrt{3} \qquad
     &\Rightarrow \qquad \ket{\phi_1} = \begin{pmatrix} \frac{\sqrt{3}-1}{2\sqrt{3-\sqrt{3}}}(i-1) \\ \frac{1}{\sqrt{3-\sqrt{3}}} \end{pmatrix} \\
     \end{align*}
+
+    Now we cancalculate the probabilities.
+    \begin{align*}
+      p_0 &= |\braket{0|\phi_0}|^2 = \left|\frac{\sqrt{3}+1}{2\sqrt{3+\sqrt{3}}}(1-i)\right|^2 = \frac{\sqrt{3}}{6} + \frac{1}{2} \approx 0.79 \\
+      p_1 &= |\braket{0|\phi_1}|^2 = \left|\frac{\sqrt{3}-1}{2\sqrt{3-\sqrt{3}}}(i-1)\right|^2 = \frac{1}{2} - \frac{\sqrt{3}}{6} \approx 0.21
+    \end{align*}
+
+    The average expected value is
+    \begin{equation*}
+      p_0 \lambda_0 + p_1\lambda_1 = 
+      \left(\frac{\sqrt{3}}{6}+\frac{1}{2}\right)\sqrt{3} + 
+      \left(\frac{1}{2} + \frac{\sqrt{3}}{6}\right)\left(-\sqrt{3}\right)
+      = 1
+    \end{equation*}
 \end{enumerate}
 
 \end{document}
