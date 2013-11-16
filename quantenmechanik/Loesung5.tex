@@ -59,6 +59,49 @@ Markus Fenske, Tutor: Adam Nagy
       \end{pmatrix}
       = \frac{52}{\sqrt{18}^2} = \frac{26}{9}
     \end{equation*}
+  \item
+    In order to diagonalize the matrix, we first need to calculate the
+    eigenvalues by solving the characteristic polynomial. 
+    \begin{align*}
+      &\begin{vmatrix}
+        9-\lambda & -6        & -1        &  0         \\
+        -6        & 9-\lambda & 0         & -1         \\
+        -1        & 0         & 9-\lambda & -6         \\
+        0         & -1        & -6        &  9-\lambda
+      \end{vmatrix} 
+      \quad\text{(Expanding the determinant along the first row)}
+      \\
+      = &(9-\lambda)
+      \begin{vmatrix}
+        9-\lambda & 0         & -1       \\
+        0         & 9-\lambda & -6       \\
+        -1        & -6        & 9-\lambda
+      \end{vmatrix}
+      +6
+      \begin{vmatrix}
+       -6 & 0         & -1         \\
+       -1 & 9-\lambda & -6         \\
+       0  & -6        & 9 - \lambda
+      \end{vmatrix}
+      -1
+      \begin{vmatrix}
+        -6 & 9 - \lambda & -1        \\
+        -1 & 0           & -6        \\
+        0  & -1          & 9-\lambda
+      \end{vmatrix} \\
+      &\text{(Using rule of Saurus)} \\
+      = &(9-\lambda)((9-\lambda)^3+0+0-(9-\lambda)-36(9-\lambda)-0) \\
+        &+6(-6(9-\lambda)^2+0-6-0+6^3-0) \\
+        &-1(0+9-1-0+36+(9-\lambda)^2) \\
+      = &(9-\lambda)^4-37(9-\lambda)^2
+        -6^2(9-\lambda)^2-6^2+6^4
+        -35-(9-\lambda)^2 \\
+      = &(9-\lambda)^4-74(9-\lambda)^2+1225 
+        \qquad\text{(Expanding the polynomial)} \\
+      = &9^4-4\cdot9^3 \lambda + 6\cdot9^2\lambda^2-4\cdot9\lambda^3+\lambda^4-74(81-18\lambda+\lambda)^2+1225 \\
+      = &6561-2916\lambda+486\lambda^2-36\lambda^3+\lambda^4-5994+1332\lambda-74\lambda^2+1225 \\
+      = &\lambda^4-36\lambda^3+412\lambda-1584\lambda+1792
+    \end{align*}
 \end{enumerate}
 
 \end{document}
