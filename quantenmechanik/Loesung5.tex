@@ -166,6 +166,28 @@ Markus Fenske, Tutor: Adam Nagy
     \begin{equation*}
       \ket{\psi_0} = \frac{1}{\sqrt{1}} \braket{0|0} \ket{0} = \ket{0}
     \end{equation*}
+
+  \item
+    We write $A$ as a matrix
+    \begin{equation*}
+      A = \sigma_x + \sigma_y + \sigma_z = \begin{pmatrix} 1 & 1-i \\ 1+i & -1\end{pmatrix}
+    \end{equation*}
+
+    The eigenvalues and corrosponding eigenvectors are
+    \begin{align*}
+    \lambda_0 = \sqrt{3} \qquad
+    &\Rightarrow \qquad \ket{\phi_0'} = \begin{pmatrix} \frac{\sqrt{3}+1}{2}(1-i) \\ 1\end{pmatrix} \\
+    \lambda_1 = -\sqrt{3} \qquad
+    &\Rightarrow \qquad \ket{\phi_1'} = \begin{pmatrix} \frac{\sqrt{3}-1}{2}(i-1) \\ 1\end{pmatrix}
+    \end{align*}
+
+    The eigenvectors need to be normalized.
+    \begin{align*}
+      || \ket{\phi_0'} ||^2 = 3 + \sqrt{3} \qquad
+    &\Rightarrow \qquad \ket{\phi_0} = \begin{pmatrix} \frac{\sqrt{3}+1}{2\sqrt{3+\sqrt{3}}}(1-i) \\ \frac{1}{\sqrt{3+\sqrt{3}}} \end{pmatrix} \\
+      || \ket{\phi_1'} ||^2 = 3 - \sqrt{3} \qquad
+    &\Rightarrow \qquad \ket{\phi_1} = \begin{pmatrix} \frac{\sqrt{3}-1}{2\sqrt{3-\sqrt{3}}}(i-1) \\ \frac{1}{\sqrt{3-\sqrt{3}}} \end{pmatrix} \\
+    \end{align*}
 \end{enumerate}
 
 \end{document}
