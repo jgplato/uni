@@ -100,8 +100,39 @@ Markus Fenske, Tutor: Adam Nagy
         \qquad\text{(Expanding the polynomial)} \\
       = &9^4-4\cdot9^3 \lambda + 6\cdot9^2\lambda^2-4\cdot9\lambda^3+\lambda^4-74(81-18\lambda+\lambda)^2+1225 \\
       = &6561-2916\lambda+486\lambda^2-36\lambda^3+\lambda^4-5994+1332\lambda-74\lambda^2+1225 \\
-      = &\lambda^4-36\lambda^3+412\lambda-1584\lambda+1792
+      = &\lambda^4-36\lambda^3+412\lambda^2-1584\lambda+1792
     \end{align*}
+
+    The roots of this polynomial are the eigenvalues of the matrix. Because
+    this is the characteristic polynomial of a $4 \times 4$ hermitian matrix,
+    it has 4 real roots.
+
+    We are calculationg the roots by clever guessing. This polynomial is normalized
+    (no coefficient in front of the largest exponent), therefore the
+    coefficient in front of the second largest exponent ($x^3$) is the sum of
+    all roots, while the $x^0$ coefficient is the sum of the roots.
+    This trick works, because
+    \begin{equation*}
+      (x-a)(x-b)(x-c)(x-d) = x^4 -(a+b+c+d)x^3 + \cdots + abcd
+    \end{equation*}
+
+
+    Therefore the sum of the roots is $a+b+c+d = 36$, while the product is
+    $abcd = 1792$. Because $abcd$ factorizes to $2^8 \cdot 7$, we begin
+    guessing with small numbers: $a=2$, $b=4$, which is correct:
+    \begin{align*}
+      2^4 -36\cdot2^3+ 412\cdot2^2 - 1584\cdot2 + 1792 = 0 \\
+      4^4 -36\cdot4^3+ 412\cdot4^2 - 1584\cdot4 + 1792 = 0 \\
+    \end{align*}
+
+    The remaining roots must fulfill $cd = 2^5 \cdot 7$, $c+d = 30$. We guess
+    $c=2^4$ and $d=2\cdot7$ and we are done.
+    \begin{align*}
+      16^4 -36\cdot16^3+ 412\cdot16^2 - 1584\cdot16 + 1792 = 0 \\
+      14^4 -36\cdot14^3+ 412\cdot14^2 - 1584\cdot14 + 1792 = 0 \\
+    \end{align*}
+
+    So the eigenvalues of the matrix are $\{2,4,14,16\}$.
 \end{enumerate}
 
 \end{document}
