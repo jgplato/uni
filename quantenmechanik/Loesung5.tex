@@ -172,11 +172,86 @@ Markus Fenske, Tutor: Adam Nagy
         0 & 0 & 84 & -84 \\
         0  & 0 & -84 & 84 \\
       \end{pmatrix}
-      \xrightarrow{\text{chose $x_1$, results in}}
+      \xrightarrow{\text{choose $x_1$, results in}}
       \vec{v}_1' = \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
       \xrightarrow{\text{normalize}}
       \vec{v}_1 = \frac{1}{2} \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
     \end{align*}
+
+    For $\lambda_2 = 4$:
+
+    \begin{align*}
+      &\begin{pmatrix}
+        5 & -6 & -1 & 0 \\
+        -6 & 5 & 0 & -1 \\
+        -1 & 0 & 5 & -6 \\
+        0 & -1 & -6 & 5 \\
+      \end{pmatrix}
+      \xrightarrow{II -= 6 \cdot III, I += 5 \cdot III}
+      \begin{pmatrix}
+        0 & -6 & 24 & -30 \\
+        0 & 5 & -30 & 35 \\
+        -1 & 0 & 5 & -6 \\
+        0 & -1 & -6 & 5\\
+      \end{pmatrix}
+      \xrightarrow{\text{exchange III, I}} \\
+      &\begin{pmatrix}
+        -1 & 0 & 5 & -6 \\
+        0 & 5 & -30 & 35 \\
+        0 & -6 & 24 & -30 \\
+        0 & -1 & -6 & 5\\
+      \end{pmatrix}
+      \xrightarrow{II += 5 \cdot IV, III-=6 \cdot IV}
+      \begin{pmatrix}
+        -1 & 0 & 5 & -6 \\
+        0 & 0 & -60 & 60 \\
+        0 & 0 & 60 & -60 \\
+        0 & -1 & -6 & 5\\
+      \end{pmatrix}
+    \end{align*}
+
+    From this, we get the normalized eigenvector
+    \begin{equation*}
+    \vec{v}_2 = \frac{1}{2} \begin{pmatrix} -1 \\ -1 \\ 1 \\ 1 \end{pmatrix}
+    \end{equation*}
+
+    For $\lambda_4 = 16$:
+
+    \begin{align*}
+      &\begin{pmatrix}
+        -7 & -6 & -1 & 0 \\
+        -6 & -7 & 0 & -1 \\
+        -1 & 0 & -7 & -6 \\
+        0 & -1 & -6 & -7 \\
+      \end{pmatrix}
+      \xrightarrow{\cdot (-1),\text{ exchange I, III}}
+      \begin{pmatrix}
+        1 & 0 & 7 & 6 \\
+        6 & 7 & 0 & 1 \\
+        7 & 6 & 1 & 0 \\
+        0 & 1 & 6 & 7 \\
+      \end{pmatrix}
+      \xrightarrow{II-=6\cdot I, III -= 7 \cdot I} \\
+      &\begin{pmatrix}
+        1 & 0 & 7 & 6 \\
+        0 & 7 & -42 & -35 \\
+        0 & 6 & -48 & -42 \\
+        0 & 1 & 6 & 7 \\
+      \end{pmatrix}
+      \xrightarrow{II-=7 \cdot IV, III -= 6 \cdot III}
+      \begin{pmatrix}
+        1 & 0 & 7 & 6 \\
+        0 & 0 & -84 & -84 \\
+        0 & 0 & -84 & -84 \\
+        0 & 1 & 6 & 7
+      \end{pmatrix}
+    \end{align*}
+
+    Therefore we get
+    \begin{equation*}
+      \vec{v}_4 = \frac{1}{2} \begin{pmatrix} 1 \\ -1 \\ -1 \\ 1\end{pmatrix}
+    \end{equation*}
+
 \end{enumerate}
 
 \section*{Exercise 2: Repeated measurements}
