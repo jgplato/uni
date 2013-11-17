@@ -312,6 +312,146 @@ Markus Fenske, Tutor: Adam Nagy
       \vec{v}_4 = \frac{1}{2} \begin{pmatrix} 1 \\ -1 \\ -1 \\ 1\end{pmatrix}
     \end{equation*}
 
+    Using the eigenvectors, we can determine the transformation matrix as
+    \begin{equation*}
+      S = \frac{1}{2}
+      \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        1 & -1 & 1 & -1 \\
+        1 & 1 & -1 & -1 \\
+        1 & 1 & 1 & 1
+      \end{pmatrix}
+    \end{equation*}
+
+    Using the Gauß-Jordan algorithm, we calculate the inverse $S^{-1}$.
+
+    \begin{align*}
+      &\left(
+        \begin{array}{cccc|cccc}
+          1 & -1 & -1 &  1   &   1 & 0 & 0 & 0 \\
+          1 & -1 &  1 & -1   &   0 & 1 & 0 & 0 \\
+          1 &  1 & -1 & -1   &   0 & 0 & 1 & 0 \\
+          1 &  1 &  1 &  1   &   0 & 0 & 0 & 1
+        \end{array}
+      \right)
+      \xrightarrow[\text{and reorder}]{II, III, IV - I}
+      \left(
+        \begin{array}{cccc|cccc}
+          1 & -1 & -1 &  1   &    1 & 0 & 0 & 0 \\
+          0 &  2 &  0 & -2   &   -1 & 1 & 0 & 0 \\
+          0 &  2 &  2 &  0   &   -1 & 0 & 1 & 0 \\
+          0 &  0 &  2 & -2   &   -1 & 0 & 0 & 1
+        \end{array}
+      \right)
+      \xrightarrow{III = III - II}
+      \\
+      &\left(
+        \begin{array}{cccc|cccc}
+          1 & -1 & -1 &  1   &    1 & 0 & 0  & 0 \\
+          0 &  2 &  0 & -2   &   -1 & 1 & 0  & 0 \\
+          0 &  0 &  2 &  2   &    0 & 0 & -1 & 1 \\
+          0 &  0 &  2 & -2   &   -1 & 0 & 0  & 1
+        \end{array}
+      \right)
+      \xrightarrow{IV - III}
+      \left(
+        \begin{array}{cccc|cccc}
+          1 & -1 & -1 &  1   &    1 & 0 & 0  & 0 \\
+          0 &  2 &  0 & -2   &   -1 & 1 & 0  & 0 \\
+          0 &  0 &  2 &  2   &    0 & 0 & -1 & 1 \\
+          0 &  0 &  0 & -4   &   -1 & 1 & 1  & -1
+        \end{array}
+      \right)
+      \xrightarrow[IV \cdot (-1)]{I \cdot 4, II, III \cdot 2} \\
+      &\left(
+        \begin{array}{cccc|cccc}
+          4 & -4 & -4 &  4   &    4 &  0 &  0  & 0 \\
+          0 &  4 &  0 & -4   &   -2 &  2 &  0  & 0 \\
+          0 &  0 &  4 &  4   &    0 &  0 & -2  & 2 \\
+          0 &  0 &  0 &  4   &    1 & -1 & -1  & 1
+        \end{array}
+      \right)
+      \xrightarrow{III - IV}
+      \left(
+        \begin{array}{cccc|cccc}
+          4 & -4 & -4 &  4   &    4 &  0 &  0  & 0 \\
+          0 &  4 &  0 & -4   &   -2 &  2 &  0  & 0 \\
+          0 &  0 &  4 &  0   &   -1 &  1 & -1  & 1 \\
+          0 &  0 &  0 &  4   &    1 & -1 & -1  & 1
+        \end{array}
+      \right)
+      \xrightarrow{II + IV} \\
+      &\left(
+        \begin{array}{cccc|cccc}
+          4 & -4 & -4 &  4   &    4 & 0  &  0  & 0 \\
+          0 &  4 &  0 &  0   &   -1 & -1 &  1  & 1 \\
+          0 &  0 &  4 &  0   &   -1 &  1 & -1  & 1 \\
+          0 &  0 &  0 &  4   &    1 & -1 & -1  & 1
+        \end{array}
+      \right)
+      \xrightarrow{I + II}
+      \left(
+        \begin{array}{cccc|cccc}
+          4 &  0 & -4 &  4   &    3 & -1 &  1 & 1 \\
+          0 &  4 &  0 &  0   &   -1 & -1 &  1 & 1 \\
+          0 &  0 &  4 &  0   &   -1 &  1 & -1 & 1 \\
+          0 &  0 &  0 &  4   &    1 & -1 & -1 & 1
+        \end{array}
+      \right)
+      \xrightarrow{I + III} \\
+      &\left(
+        \begin{array}{cccc|cccc}
+          4 &  0 & 0 & 4  &    2 &  0 &  0 & 2 \\
+          0 &  4 & 0 & 0  &   -1 & -1 &  1 & 1 \\
+          0 &  0 & 4 & 0  &   -1 &  1 & -1 & 1 \\
+          0 &  0 & 0 & 4  &    1 & -1 & -1 & 1
+        \end{array}
+      \right)
+      \xrightarrow{I - IV}
+      \left(
+        \begin{array}{cccc|cccc}
+          4 &  0 & 0 & 0  &    1 &  1 &  1 & 1 \\
+          0 &  4 & 0 & 0  &   -1 & -1 &  1 & 1 \\
+          0 &  0 & 4 & 0  &   -1 &  1 & -1 & 1 \\
+          0 &  0 & 0 & 4  &    1 & -1 & -1 & 1
+        \end{array}
+      \right)
+    \end{align*}
+
+    Therefore the inverse matrix is
+    \begin{equation*}
+      S^{-1} = \frac{1}{2}\begin{pmatrix}
+         1 &  1 &  1 & 1 \\
+        -1 & -1 &  1 & 1 \\
+        -1 &  1 & -1 & 1 \\
+         1 & -1 & -1 & 1
+      \end{pmatrix}
+    \end{equation*}
+
+    Using the transformation matrices and the eigenvectors, we can now diagonalize the matrix as
+    \begin{equation*}
+      SAS^{-1} =
+      \frac{1}{2}
+      \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        1 & -1 & 1 & -1 \\
+        1 & 1 & -1 & -1 \\
+        1 & 1 & 1 & 1
+      \end{pmatrix}
+      \begin{pmatrix}
+        2 & 0 & 0 & 0 \\
+        0 & 4 & 0 & 0 \\
+        0 & 0 & 14 & 0 \\
+        0 & 0 & 0 & 16
+      \end{pmatrix}
+      \frac{1}{2}\begin{pmatrix}
+         1 &  1 &  1 & 1 \\
+        -1 & -1 &  1 & 1 \\
+        -1 &  1 & -1 & 1 \\
+         1 & -1 & -1 & 1
+      \end{pmatrix}
+    \end{equation*}
+
 \end{enumerate}
 
 \section*{Exercise 2: Repeated measurements}
