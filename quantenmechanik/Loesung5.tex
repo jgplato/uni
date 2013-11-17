@@ -657,10 +657,46 @@ Markus Fenske, Tutor: Adam Nagy
       &= \int_{-1}^0 \text{d}x \; |\ket{\psi}|^2
       = \int_{-1}^0 \text{d}x \; \left|\alpha\cos\left(\frac{\pi}{2} x\right) + \beta\sin(\pi x)\right|^2 \\
       &= |\alpha|^2\int_{-1}^0 \text{d}x \; \cos^2\left(\frac{\pi}{2} x\right)
-       + |\alpha||\beta|\int_{-1}^0 \text{d}x \; \cos\left(\frac{\pi}{2} x\right)\sin(\pi x)
+       + |\alpha||\beta| \left|\int_{-1}^0 \text{d}x \; \cos\left(\frac{\pi}{2} x\right)\sin(\pi x)\right|
        + |\beta|^2\int_{-1}^0 \text{d}x \; \sin^2\left(\pi x\right) \\
-     &= \frac{1}{2} |\alpha|^2 - \frac{4\pi}{3} |\alpha| |\beta| + \frac{1}{2} |\beta|^2
+     &= \frac{1}{2} |\alpha|^2 + \frac{4\pi}{3} |\alpha| |\beta| + \frac{1}{2} |\beta|^2
     \end{align*}
+
+  \item
+    % FIXME: Something is odd here. p(xi) may be greater than 1, which must be
+    % wrong...
+    In order to get valid superpositions, we must demand that $|\alpha|^2 + |\beta|^2
+    = 1$, which results in
+    \begin{equation*}
+      |\beta|^2 = 1-|\alpha|^2
+    \end{equation*}
+
+    When subustituting into $p(\alpha, \beta)$, we can eliminate one variable
+    \begin{equation*}
+      p(\alpha) = \frac{1}{2} |\alpha|^2 + \frac{4 \pi}{3} |\alpha| \sqrt{1-|\alpha|^2} + \frac{1}{2}(1 - |\alpha|^2)
+    \end{equation*}
+
+    To simplify things even more, we can substitute $\xi = |\alpha|^2$
+    \begin{equation*}
+      p(\xi) = \frac{\xi}{2} + \frac{4 \pi}{3} \sqrt{\xi - \xi^2} + \frac{1- \xi}{2}
+    \end{equation*}
+
+    To search for a possible maximum, set $\text{d}p / \text{d} \xi \overset{!}{=} 0$
+    \begin{align*}
+      &\frac{\text{d}p}{\text{d} \xi} = \frac{4 \pi}{3} \frac{\text{d}p}{\text{d} \xi} \sqrt{\xi - \xi^2} \overset{!}{=} 0 \\
+      \Leftrightarrow\qquad
+      &\frac{1 - 2 \xi}{2\sqrt{\xi - \xi^2}} = 0 \\
+      \Leftrightarrow\qquad
+      &1 - 2 \xi = 0 \\
+      \Leftrightarrow\qquad
+      &\xi = \frac{1}{2} \\
+    \end{align*}
+
+    So the maximum is at $|\alpha|^2 = \frac{1}{2}$, which results in
+    \begin{equation*}
+      |\alpha| = \frac{1}{\sqrt{2}}, |\beta| = \frac{1}{\sqrt{2}}
+    \end{equation*}
+
 
 \end{enumerate}
 \end{document}
