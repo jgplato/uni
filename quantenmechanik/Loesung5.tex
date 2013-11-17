@@ -621,6 +621,34 @@ Markus Fenske, Tutor: Adam Nagy
 
     Because $\sin$ is an odd function ($\sin(x) = -\sin(x)$) this integral is
     obviously zero. Therefore $\ket{0}$ and $\ket{1}$ are orthogonal.
+  \item
+    If the state is $\ket{0}$, then the probability to find the particle on the
+    left side ($x \in [-1, 0]$) is
+
+    \begin{align*}
+      p
+      &= \int_{-1}^0 \text{d}x \; |\ket{0}|^2
+      = \int_{-1}^0 \text{d}x \; \cos\left(\frac{\pi}{2} x\right)^2
+      = \frac{2}{\pi} \int_{-\frac{\pi}{2}}^0 \text{d}u \; \cos^2(u) \\
+      &= \frac{2}{\pi} \int_{-\frac{\pi}{2}}^0 \text{d}u \; \frac{1}{2} \left( 1+ \cos(2u) \right)
+      = \frac{1}{\pi} \int_{-\frac{\pi}{2}}^0 \text{d}u \; \left(1+ \cos(2u) \right) \\
+      &= \frac{1}{\pi} \left[u\right]_{u=-\frac{\pi}{2}}^0 + \frac{1}{\pi} \int_{-\frac{\pi}{2}}^0 \text{d}u \; \cos(2u)
+      = \frac{1}{2} + \frac{1}{2 \pi} \underbrace{\int_{-\pi}^0 \text{d}v \cos(v)}_{= 0 \text{ (geometrically)}} \\
+      &= \frac{1}{2}
+    \end{align*}
+
+    If the state is $\ket{1}$, then the probability to find the particle on the
+    left side is
+    \begin{align*}
+      p
+      &= \int_{-1}^0 \text{d}x \; |\ket{1}|^2
+      = \int_{-1}^0 \text{d}x \; \sin(\pi x)^2
+      = \frac{1}{\pi} \int_{-\pi}^0 \text{d}u \; \sin^2(u) \\
+      &= \frac{1}{\pi} \int_{-\pi}^0 \text{d}u \; \frac{1}{2} \left(1- \cos(2u) \right)
+      = \frac{1}{\pi} \int_{-\frac{\pi}{2}}^0 \text{d}u \; \left(1+ \cos(2u) \right) \\
+      &= \frac{1}{2\pi} \left[u\right]_{u=-\pi}^0 - \frac{1}{\pi} \underbrace{\int_{-\frac{\pi}{2}}^0 \text{d}u \; \cos(2u)}_{=0\text{ (as above)}}
+      = \frac{1}{2}
+    \end{align*}
 
 \end{enumerate}
 \end{document}
