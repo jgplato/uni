@@ -771,14 +771,14 @@ Markus Fenske, Tutor: Adam Nagy
 
     The conjugate transpose is
     \begin{equation*}
-      \left(e^{itH}\right)^*
-      = \left(U \operatorname{diag}(e^{it\lambda_n}) U^{-1}\right)^*
-      = U^* \operatorname{diag}(e^{it\lambda_n})^* U^{-1*}
+      \left(e^{itH}\right)^\dagger
+      = \left(U \operatorname{diag}(e^{it\lambda_n}) U^{-1}\right)^\dagger
+      = U^\dagger \operatorname{diag}(e^{it\lambda_n})^\dagger U^{-1\dagger}
       = U^{-1} \operatorname{diag}(e^{-it\lambda_n}) U
     \end{equation*}
 
 
-    While the inverse is
+    While the inverse is the same
     \begin{equation*}
       \left(e^{itH}\right)^{-1}
       = \left(U \operatorname{diag}(e^{it\lambda_n}) U^{-1}\right)^{-1}
@@ -788,9 +788,42 @@ Markus Fenske, Tutor: Adam Nagy
 
     So they are identical
     \begin{equation*}
-      \left(e^{itH}\right)^* = \left(e^{itH}\right)^{-1}
+      \left(e^{itH}\right)^\dagger = \left(e^{itH}\right)^{-1}
     \end{equation*}
 
     Which means $e^{itH}$ is unitary.
+  \item
+    Lets first prove that the product of unitary matrices is unitary. Let $U,S$ be
+    unitary.
+    \begin{equation*}
+      (US)^{-1} = S^{-1}U^{-1} = S^\dagger U^\dagger = (US)^\dagger
+    \end{equation*}
+
+    Now, if $A$ is a diagonalizable matrix, then $A=SDS^{-1}$, where $S,
+    S^{-1}$ are unitary. Also $U$ is unitary, which results in $U^\dagger =
+    U^{-1}$.
+
+    Therefore
+    \begin{equation*}
+      f(UAU^\dagger)
+      = f(UAU^{-1})
+      = f(USDS^{-1}U^{-1})
+    \end{equation*}
+
+    Let $X = US$. Then $X^{-1} = S^{-1}U^{-1}$ and $X$ unitary. Therefore, this can be written as
+    \begin{equation*}
+      =f(XDX^{-1})
+    \end{equation*}
+
+    In a) we have shown that this is
+    \begin{equation*}
+      = Xf(D)X^{-1}
+      = USf(D)S^{-1}U^{-1}
+    \end{equation*}
+
+    We have also shown that $f(A) = Sf(D)S^{-1}$. And therefore
+    \begin{equation*}
+      = Uf(A)U^{-1} = Uf(A)U^\dagger
+    \end{equation*}
 \end{enumerate}
 \end{document}
