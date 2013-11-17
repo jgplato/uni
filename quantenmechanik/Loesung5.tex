@@ -701,67 +701,49 @@ Markus Fenske, Tutor: Adam Nagy
 \section*{Exercise 4: Functions of matrices}
 \begin{enumerate}[a)]
   \item
-    When the matrix can be diagonalized, the functions can be written as
-    \begin{equation*}
-      f(A)
-      = \sum_{k=0}^{\infty} a_k A^k 
-      = \sum_{k=0}^{\infty} a_k (UDU^{-1})^k
-    \end{equation*}
+    When the matrix can be diagonalized, it can be written as $A = UDU^{-1}$,
+    where $D$ is a diagonal matrix containing the eigenvalues and $U$ is
+    unitary matrix, containing the eigenvectors.
 
-    But
-    \begin{equation*}
-      A^k = (UDU^{-1})^k
-      = \underbrace{(UDU^{-1})\cdot(UDU^{-1})\cdot\dots\cdot(UDU^{-1})}_{k\text{ times}} 
-      = U D^k U^{-1}
-    \end{equation*}
-    because the $UU^{-1}$ cancel.
-
-    For a diagonalized matrix it is that
+    So we can write $f(A)$ as:
     \begin{align*}
-      D^k &= 
-      \underbrace{
-        \begin{pmatrix} 
-          \lambda_1 &  &  \\
-           & \lambda_2 & &  \\
-           & & \ddots &  \\
-           &&& \lambda_n \\
-        \end{pmatrix}
-        \begin{pmatrix} 
-          \lambda_1 &  &  \\
-           & \lambda_2 & &  \\
-           & & \ddots &  \\
-           &&& \lambda_n \\
-        \end{pmatrix}
-        \dots
-        \begin{pmatrix} 
-          \lambda_1 &  &  \\
-           & \lambda_2 & &  \\
-           & & \ddots &  \\
-           &&& \lambda_n \\
-        \end{pmatrix}
-      }_{k\text{ times}} \\
-      &=
+      f(A)
+      &= \sum_{k=0}^{\infty} a_k A^k 
+      = \sum_{k=0}^{\infty} a_k (UDU^{-1})^k
+      = \sum_{k=0}^{\infty} a_k \underbrace{UDU^{-1}UDU^{-1} \dots UDU^{-1}}_{k\text{ times}} \\
+      &= \sum_{k=0}^{\infty} a_k UD^kU^{-1}
+      = \sum_{k=0}^{\infty} a_k U 
       \begin{pmatrix} 
-        \lambda_1^k &  &  \\
-         & \lambda_2^k & &  \\
-         & & \ddots &  \\
-         &&& \lambda_n^k \\
-      \end{pmatrix}
+        \lambda_1^k &             & \\
+                   & \ddots      & \\
+                   &             & \lambda_n^k & \\
+      \end{pmatrix} 
+      U^{-1} \\
+      &= \sum_{k=0}^{\infty} U 
+      \begin{pmatrix} 
+        a_k \lambda_1^k &             & \\
+                   & \ddots      & \\
+                   &             & a_k\lambda_n^k & \\
+      \end{pmatrix} 
+      U^{-1}
+      = U
+      \begin{pmatrix} 
+        \sum_{k=0}^{\infty }a_k \lambda_1^k &             & \\
+                   & \ddots      & \\
+                   &             & \sum_{k=0}^{\infty} a_k\lambda_n^k & \\
+      \end{pmatrix} 
+      U^{-1} \\
+      &= U
+      \begin{pmatrix} 
+        f(\lambda_1) &             & \\
+                   & \ddots      & \\
+                   &             & f(\lambda_n) & \\
+      \end{pmatrix} 
+      U^{-1} = \sum_l f(\lambda_l) \ket{\phi_n}\bra{\phi_n}
     \end{align*}
+    In the first line, the $UU^{-1}$ cancel out (because $UU^{-1} = I$)
 
-    So we can rewrite the sum of all $a_k A^k$ as
-    \begin{equation*}
-      f(A) = \sum_{k} a_k UD^kU^{-1}
-    \end{equation*}
-
-    The $U$ contain the eigenvectors and the $D$ contain the eigenvalues. So
-    this is the same as
-    \begin{equation*}
-      f(A) 
-      = \sum_{k}^{\infty} a_k \sum_{l} \lambda_l^k \ket{\phi_l}\bra{\phi_l}
-      = \sum_{l} f(\lambda_l) \ket{\phi_l}\bra{\phi_l}
-    \end{equation*}
-
-
+    The third line is true only if the sum converges. Which is the case for
+    functions, because they converge by definition.
 \end{enumerate}
 \end{document}
