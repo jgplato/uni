@@ -133,6 +133,50 @@ Markus Fenske, Tutor: Adam Nagy
     \end{align*}
 
     So the eigenvalues of the matrix are $\{2,4,14,16\}$.
+
+    The eigenvectors can be calculated by solving $A - \lambda I = 0$. For $\lambda_1 = 2$
+    \begin{align*}
+      &\begin{pmatrix}
+        7 & -6 & -1 & 0 \\
+        -6 & 7 & 0 & -1 \\
+        -1 & 0 & 7 & -6 \\
+        0 & -1 & -6 & 7 \\
+      \end{pmatrix}
+      \xrightarrow{\text{exchange I, III}}
+      \begin{pmatrix}
+        -1 & 0 & 7 & -6 \\
+        -6 & 7 & 0 & -1 \\
+        7 & -6 & -1 & 0 \\
+        0 & -1 & -6 & 7 \\
+      \end{pmatrix}
+      \xrightarrow{III += 7 \cdot I, II -= 6 \cdot I} \\
+      &
+      \begin{pmatrix}
+        -1 & 0 & 7 & -6 \\
+        0  & 7 & -42 & 35 \\
+        0 & -6 & 48 & -42 \\
+        0 & -1 & -6 & 7 \\
+      \end{pmatrix}
+      \xrightarrow{\text{exchange IV, II}}
+      \begin{pmatrix}
+        -1 & 0 & 7 & -6 \\
+        0 & -1 & -6 & 7 \\
+        0 & -6 & 48 & -42 \\
+        0  & 7 & -42 & 35 \\
+      \end{pmatrix}
+      \xrightarrow{IV+=7\cdot II, III-=6 \cdot II} \\
+      &
+      \begin{pmatrix}
+        -1 & 0 & 7 & -6 \\
+        0 & -1 & -6 & 7 \\
+        0 & 0 & 84 & -84 \\
+        0  & 0 & -84 & 84 \\
+      \end{pmatrix}
+      \xrightarrow{\text{chose $x_1$, results in}}
+      \vec{v}_1' = \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
+      \xrightarrow{\text{normalize}}
+      \vec{v}_1 = \frac{1}{2} \begin{pmatrix} 1 \\ 1 \\ 1 \\ 1 \end{pmatrix}
+    \end{align*}
 \end{enumerate}
 
 \section*{Exercise 2: Repeated measurements}
