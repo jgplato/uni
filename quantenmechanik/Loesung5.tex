@@ -745,5 +745,52 @@ Markus Fenske, Tutor: Adam Nagy
 
     The third line is true only if the sum converges. Which is the case for
     functions, because they converge by definition.
+  \item
+    We define
+    \begin{equation*}
+      \operatorname{diag}(f(\lambda_n)) :=
+      \begin{pmatrix} 
+        f(\lambda_1) &             & \\
+                   & \ddots      & \\
+                   &             & f(\lambda_n) & \\
+      \end{pmatrix} 
+    \end{equation*}
+    to make the following explications shorter.
+
+    If $H$ is hermitian, it has real eigenvalues $\lambda_n$, so we can write
+    according to the previous section and using the definition from above:
+
+    \begin{equation*}
+      e^{itH} = U \operatorname{diag}(e^{it\lambda_n}) U^{-1}
+    \end{equation*}
+
+    Note that $U$ and $U^{-1}$ are unitary.
+
+    For $e^{itH}$ to be unitary, its conjugate transpose must be identical to
+    its inverse.
+
+    The conjugate transpose is
+    \begin{equation*}
+      \left(e^{itH}\right)^*
+      = \left(U \operatorname{diag}(e^{it\lambda_n}) U^{-1}\right)^*
+      = U^* \operatorname{diag}(e^{it\lambda_n})^* U^{-1*}
+      = U^{-1} \operatorname{diag}(e^{-it\lambda_n}) U
+    \end{equation*}
+
+
+    While the inverse is
+    \begin{equation*}
+      \left(e^{itH}\right)^{-1}
+      = \left(U \operatorname{diag}(e^{it\lambda_n}) U^{-1}\right)^{-1}
+      = U^{-1} \operatorname{diag}(e^{it\lambda_n})^{-1} U
+      = U^{-1} \operatorname{diag}(e^{-it\lambda_n}) U
+    \end{equation*}
+
+    So they are identical
+    \begin{equation*}
+      \left(e^{itH}\right)^* = \left(e^{itH}\right)^{-1}
+    \end{equation*}
+
+    Which means $e^{itH}$ is unitary.
 \end{enumerate}
 \end{document}
