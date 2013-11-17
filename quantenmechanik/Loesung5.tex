@@ -451,6 +451,56 @@ Markus Fenske, Tutor: Adam Nagy
          1 & -1 & -1 & 1
       \end{pmatrix}
     \end{equation*}
+  \item
+    The probabilities for the values $\lambda_n = \{2, 4, 14, 16\}$ are
+    \begin{align*}
+      &p_1
+      = |\braket{\psi|v_1}|^2
+      = \left| \frac{1}{\sqrt{18}}
+        \begin{pmatrix} 2 & 1 & 2 & 3 \end{pmatrix}
+         \frac{1}{2} \begin{pmatrix}1 \\ 1 \\ 1 \\ 1\end{pmatrix} \right|^2
+      = \frac{1}{18} \frac{1}{4} (2+1+2+3)^2
+      = \frac{16}{18} \\
+      &p_2
+      = |\braket{\psi|v_2}|^2
+      = \left| \frac{1}{\sqrt{18}}
+        \begin{pmatrix} 2 & 1 & 2 & 3 \end{pmatrix}
+         \frac{1}{2} \begin{pmatrix}-1 \\ -1 \\ 1 \\ 1\end{pmatrix} \right|^2
+      = \frac{1}{18} \frac{1}{4} (-2-1+2+3)^2
+      = \frac{1}{18} \\
+      &p_3
+      = |\braket{\psi|v_3}|^2
+      = \left| \frac{1}{\sqrt{18}}
+        \begin{pmatrix} 2 & 1 & 2 & 3 \end{pmatrix}
+         \frac{1}{2} \begin{pmatrix}-1 \\ 1 \\ -1 \\ 1\end{pmatrix} \right|^2
+      = \frac{1}{18} \frac{1}{4} (-2+1-2+3)^2
+      = 0 \\
+      &p_4
+      = |\braket{\psi|v_4}|^2
+      = \left| \frac{1}{\sqrt{18}}
+        \begin{pmatrix} 2 & 1 & 2 & 3 \end{pmatrix}
+         \frac{1}{2} \begin{pmatrix}1 \\ -1 \\ -1 \\ 1\end{pmatrix} \right|^2
+      = \frac{1}{18} \frac{1}{4} (2-1-2+3)^2
+      = \frac{1}{18}
+    \end{align*}
+
+    The average expected value is therefore
+    \begin{equation*}
+      \sum \lambda_n p_n = 2 \cdot \frac{16}{18} + 4 \cdot \frac{1}{18} + 14 \cdot 0 + 16 \cdot \frac{1}{18} = \frac{26}{9}
+    \end{equation*}
+
+    Which is exactly the same result as calculated in a).
+
+  \item
+    After the measurement, the system is in a state corresponding to the
+    eigenvector. So for a result $\lambda_n$, the state is $\ket{\psi_n}$.
+
+    \begin{align*}
+      \lambda_1 =  2 \qquad &\Rightarrow \qquad \ket{\psi_1} =  \phantom{-}\ket{1} + \ket{2} + \ket{3} + \ket{4} \\
+      \lambda_2 =  4 \qquad &\Rightarrow \qquad \ket{\psi_2} = -\ket{1} - \ket{2} + \ket{3} + \ket{4} \\
+      \lambda_3 = 14 \qquad &\Rightarrow \qquad \ket{\psi_3} = -\ket{1} + \ket{2} - \ket{3} + \ket{4} \\
+      \lambda_4 = 16 \qquad &\Rightarrow \qquad \ket{\psi_4} =  \phantom{-}\ket{1} - \ket{2} - \ket{3} + \ket{4} \\
+    \end{align*}
 
 \end{enumerate}
 
