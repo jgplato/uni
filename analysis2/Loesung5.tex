@@ -1,0 +1,75 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 5. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 5.1}
+Der Halbkreisbogen (den wir hier $\overline{\gamma}(\phi)$ nennen wollen) ist
+parametrisiert durch
+\begin{equation*}
+  x = R \sin \phi,\quad y = R \cos \phi, \quad \phi \in [0, \pi]
+\end{equation*}
+
+Das führt auf die Ableitungen
+\begin{equation*}
+  \frac{d}{d \phi} x= \cos \phi,\quad \frac{d}{d \phi} y = -\sin \phi
+\end{equation*}
+
+Die Länge ist folglich
+\begin{align*}
+  L &= \int_{\overline{\gamma}} ds \\ 
+    &= \int_0^\pi \sqrt{\left(\frac{dx}{d\phi}\right)^2 + \left(\frac{dy}{d \phi}\right)^2} \; d\phi \\
+    &= \int_0^\pi \sqrt{R^2 \cos(\phi)^2 + R^2 \sin(\phi)^2} \; d\phi \\
+    &= \int_0^\pi \sqrt{R^2 \underbrace{(\cos(\phi)^2 + \sin(\phi)^2)}_{=1}} \; d\phi \\
+    &= \int_0^\pi |R| \; d\phi \\
+    &= R \int_0^\pi \; d\phi \qquad \text{(weil $R$ immmer $>0$)} \\
+    &= \pi R
+\end{align*}
+
+Der Schwerpunkt auf der $x$-Achse ist dann
+\begin{align*}
+  x_s &= \frac{1}{L} \int_{\overline{\gamma}} x \; ds \\
+      &= \frac{1}{\pi R} \int_0^\pi x \; ds \\
+      &= \frac{1}{\pi \cancel{R}} \int_0^\pi \cancel{R} \cos(\phi) \sqrt{R^2 \cos(\phi)^2 + R^2 \sin(\phi)^2} \; d\phi \\
+      &= \frac{1}{\pi} \int_0^\pi \cos(\phi) \sqrt{R^2 \underbrace{(\cos(\phi)^2 + \sin(\phi)^2)}_{=1}} \; d\phi \\
+      &= \frac{1}{\pi} \int_0^\pi \cos(\phi) |R| \; d\phi \\
+      &= \frac{R}{\pi} \int_0^\pi \cos \phi  \; d\phi \qquad \text{(weil $R$ immer $>0$)}\\
+      &= \frac{R}{\pi} \left[ \sin \phi\right]_0^\pi \\
+      &= \frac{2R}{\pi}
+\end{align*}
+
+Die Oberfläche einer Sphäre berechnet sich dann gemäß der \textsc{Guldin}schen
+Regel über die Mantelfläche der Kurve $\overline{\gamma}$. Diese wollen wir
+hier $M$ nennen.
+
+\begin{equation*}
+  M = 2 \pi L x_s = 2 \pi \cdot \cancel{\pi} R \cdot \frac{2R}{\cancel{\pi}} = 4 \pi R^2
+\end{equation*}
+
+
+
+\end{document}
