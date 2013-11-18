@@ -224,6 +224,51 @@ hier $M$ nennen.
                                             &= b(c-a)+a(b-d) +\int_0^1 (b-c)\underbrace{((c-a) + (a-c))}_{=0}t \; dt \\
                                             &= b(c-a)+a(b-d) = bc\cancel{-ab}+\cancel{ab}-ad = bc-ad
     \end{align*}
+  \item
+    Wie im Tutorium angesprochen, verstehen wir die Aufgabe so: Die Kurve
+    besteht aus drei Teilen: Zuerst vom Nullpunkt nach $(1,0)$ (diese Kurve
+    nennen wir $\overline{\xi}$, dann auf der Kurve $(\cosh t, \sinh t)$
+    entlang mit $t \in [0, u]$ (diese Kurve nennen wir $\overline{\gamma}$ und
+    dann dort aus zurück zum Nullpunkt (diese Kurve nennen wir
+    $\overline{\eta}$)
+
+    Die Integrale für die zwei Geraden verschwinden direkt, denn wir haben in
+    Teil (1) berechnet, dass für Geraden gilt:
+
+    \begin{equation*}
+      \int_{(a,b)}^{(c,d)} \vec{f} \; d\vec{s} = bc-ad
+    \end{equation*}
+
+    Beide Geraden starten oder enden im Nullpunkt (heißt $(a,b) = (0,0)$ oder $(c,d) =
+    (0,0)$). Für beide Fälle verschwindet das Integral. Somit
+    \begin{equation*}
+      \int_{\overline{\xi}} \vec{f} \; d\vec{s} = \int_{\overline{\eta}} \vec{f} \; d\vec{s} = 0
+    \end{equation*}
+
+    Zu Berechnen bleibt also noch das Integral für $\overline{\gamma}$. Diese ist parametrisiert durch
+    \begin{equation*}
+      x = \cosh(t),\qquad y = \sinh(t), \qquad t \in [0,u]
+    \end{equation*}
+
+    Mit den Ableitungen
+    \begin{equation*}
+      \frac{dx}{dt} = \sinh(t), \qquad \frac{dy}{dt} = \cosh(t)
+    \end{equation*}
+
+    ergibt das
+    \begin{align*}
+      \int_{\overline{\gamma}} \vec{f} \; d\vec{s} &=  \int_{\overline{\gamma}} -y dx + x dy \\ 
+                                                   &= \int_0^u \left(-y \frac{dx}{dt} + x \frac{dy}{dt}\right) \; dt \\
+                                                   &= \int_0^u \left(-\sinh(t) \sinh(t) + \cosh(t) \cosh(t)\right) \; dt \\
+                                                   &= \int_0^u \underbrace{\left(\cosh^2(t) - \sinh^2(t)\right)}_{=1} \; dt \\
+                                                   &= \int_0^u dt \\
+                                                   &= u
+    \end{align*}
+
+    Also gilt für das gesamte \textit{Dreieck}
+    \begin{equation*}
+      \int_{\overline{\gamma}\overline{\xi}\overline{\eta}} \vec{f} \; d\vec{s} = u
+    \end{equation*}
 \end{enumerate}
 
 \end{document}
