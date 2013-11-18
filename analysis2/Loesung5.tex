@@ -73,7 +73,7 @@ hier $M$ nennen.
   M = 2 \pi L x_s = 2 \pi \cdot \cancel{\pi} R \cdot \frac{2R}{\cancel{\pi}} = 4 \pi R^2
 \end{equation*}
 
-\section*{Aufgabe 5.1}
+\section*{Aufgabe 5.2}
 \begin{enumerate}[a)]
   \item
     Folgende Skizze zeigt die (nicht ganz so \textit{grobe}) Form und die
@@ -200,5 +200,30 @@ hier $M$ nennen.
 
 \end{enumerate}
 
+\section*{Aufgabe 5.3}
+\begin{enumerate}[(1)]
+  \item
+    Zuerst brauchen wir eine Kurvendarstellung für die Gerade von Punkt $(a,b)$
+    zum Punkt $(c,d)$, um dann das Vektorfeld entlang dieser Kurve zu
+    integrieren. Diese Kurve sei $\overline{\gamma}$. Diese ist natürlich
+    definiert als
+    \begin{equation*}
+      x = a + (a-c)t, \qquad y = b + (b-d)t, \qquad t \in [0,1]
+    \end{equation*}
+
+    Mit den Ableitungen
+    \begin{equation*}
+      \frac{dx}{dt} = (a-c), \qquad \frac{dy}{dt} = (b-d)
+    \end{equation*}
+
+    Damit können wir nun das Feld entlang der Kurve integrieren
+    \begin{align*}
+      \int_{\overline{\gamma}} -y dx + x dy &= \int_0^1 \left(-y \frac{dx}{dt} + x \frac{dy}{dt}\right) \; dt \\
+                                            &= \int_0^1 \left(-(b + (b-d)t)(a-c) + (a+(a-c)t)(b-d)\right) \; dt \\
+                                            &= \int_0^1 b(c-a) + (b-d)(c-a)t + a(b-d)+(a-c)(b-d)t \; dt \\
+                                            &= b(c-a)+a(b-d) +\int_0^1 (b-c)\underbrace{((c-a) + (a-c))}_{=0}t \; dt \\
+                                            &= b(c-a)+a(b-d) = bc\cancel{-ab}+\cancel{ab}-ad = bc-ad
+    \end{align*}
+\end{enumerate}
 
 \end{document}
