@@ -154,12 +154,39 @@ hier $M$ nennen.
               &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \sqrt{1- \sin \phi} \; d\phi \\
               &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \sqrt{\left(\cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right)^2} \; d\phi  \qquad \text{(unter Benutzung der Formel vom Aufgabenblatt)}\\
               &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \left|\cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right| \; d\phi\\
-              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right| \\
-              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \sqrt{2}\int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2}\right| \\
-              &= \sqrt{2} \left|\int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2}\right| \\
+              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right| \; d\phi \\
+              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} \; d\phi - \sqrt{2}\int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2} \; d\phi \right| \\
+              &= \sqrt{2} \left|\int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} \; d\phi - \int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2} \; d\phi \right| \\
               &= \sqrt{2} \left|\left[2\sin \frac{\phi}{2}\right]_{-\pi/2}^{\pi/2} + \left[2\cos \frac{\phi}{2}\right]_{-\pi/2}^{\pi/2} \right| \\
               &= \sqrt{2} \left|2 \sqrt{2} + 0\right| \\
               &= 4
+    \end{align*}
+  \item
+    Der Schwerpunkt auf der $x$-Achse ist
+    \begin{align*}
+      x_s &= \frac{1}{L} \int x \; ds \\
+          &= \frac{1}{4} \int\limits_{-\pi/2}^{\pi/2} (1-\sin \phi)\cos(\phi)\sqrt{2(1- \sin \phi)} \; d\phi \\
+          &= \frac{\sqrt{2}}{4} \int\limits_{-\pi/2}^{\pi/2} \cos(\phi)(1- \sin \phi)^{3/2} \; d\phi \\
+    \end{align*}
+
+    Wir substitutieren mit
+    \begin{align*}
+      &u(\phi) = 1 - \sin \phi \\
+      \Rightarrow\quad& du = - \cos \phi \; d\phi \qquad \Leftrightarrow \qquad d\phi = -\frac{1}{\cos \phi} du
+    \end{align*}
+
+    Und erhalten weiter
+    \begin{align*}
+      x_s &= \frac{\sqrt{2}}{4} \int\limits_{u(-\pi/2}^{u(\pi/2)} \cancel{\cos(\phi)} u^{3/2} \left(-\cancel{\frac{1}{\cos \phi}}\right) \; d\phi \\
+          &= -\frac{\sqrt{2}}{4} \int\limits_{u(-\pi/2)}^{u(\pi/2)} u^{3/2} \; d\phi \\
+          &= -\frac{\sqrt{2}}{4} \frac{2}{5} \left[u^{5/2}\right]_{u(-\pi/2)}^{u(\pi/2)} \\
+          &= -\frac{\sqrt{2}}{10}\left[(1-\sin \phi)\right]_{-\pi/2}^{\pi/2} \\
+          &= -\frac{\sqrt{2}}{10} \left(\left(1-\sin \frac{\pi}{2}\right)^{5/2} - \left(1-\sin \frac{-\pi}{2}\right)^{5/2}\right) \\
+          &= -\frac{\sqrt{2}}{10} \left(\cancel{\left(1-1\right)^{5/2}} - \left(1+1\right)^{5/2}\right) \\
+          &= \frac{\sqrt{2}}{10} 2^{5/2} \\
+          &= \frac{\sqrt{2}}{10} \left(2\cdot2\cdot\sqrt{2}\right) \\
+          &= \frac{8}{10} \\
+          &= \frac{4}{5} \\
     \end{align*}
 
 \end{enumerate}
