@@ -29,7 +29,7 @@ Analysis II, Wintersemester 2013/2013, 5. Übungsblatt
 Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
 \vspace{-10pt}
 \end{center}
-
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
 \section*{Aufgabe 5.1}
 Der Halbkreisbogen (den wir hier $\overline{\gamma}(\phi)$ nennen wollen) ist
 parametrisiert durch
@@ -100,6 +100,67 @@ hier $M$ nennen.
           \end{axis}
       \end{tikzpicture}
     \end{figure*}
+  \item
+    Gegeben ist die Parametrisierung
+    \begin{equation*}
+      x = (1 - \sin \phi)\cos \phi,\quad y = (1-\sin \phi)\sin \phi, \quad \phi \in [-\frac{\pi}{2},\frac{\pi}{2}]
+    \end{equation*}
+
+    Für die Ableitungen folgt durch die Kettenregel
+    \begin{align*}
+      \frac{dx}{d\phi} &= -\cos(\phi)\cos(\phi) + (1-\sin(\phi))(-\sin(\phi)) \\
+                       &= -\cos^2(\phi) - (1-\sin(\phi))\sin(\phi) \\
+                       &= -\cos^2(\phi) - (\sin(\phi) + \sin^2(\phi)) \\
+                       &= -\cos^2(\phi) - \sin(\phi) - \sin^2(\phi) \\
+      \frac{dy}{d\phi} &= -\cos(\phi)\sin(\phi) + (1-\sin(\phi))\cos(\phi) \\
+                       &= -\cos(\phi)\sin(\phi) + \cos(\phi) - \sin(\phi)\cos(\phi) \\
+                       &= -2\cos(\phi)\sin(\phi) + \cos(\phi)
+    \end{align*}
+
+    Für die Ableitungsquadrate damit:
+    \begin{align*}
+      \left(\frac{dx}{d\phi}\right)^2
+      &= (-\cos^2(\phi) - \sin(\phi) - \sin^2(\phi))^2 \\
+      &= (-\cos^2(\phi) - (\sin(\phi)+\sin^2(\phi))^2 \\
+      &= \cos^4(\phi) + 2(-\cos^2(\phi))(-(\sin(\phi)-\sin^2(\phi))+(\sin(\phi)-\sin^2(\phi))^2 \\
+      &= \cos^4(\phi) + 2\cos^2(\phi)\sin(\phi)-2\cos^2(\phi)\sin^2(\phi) + \sin^2(\phi)-2\sin^3(\phi)+\sin^4(\phi) \\
+      \left(\frac{dy}{d\phi}\right)^2
+      &= (\cos(\phi)-2\cos(\phi)\sin(\phi))^2 \\
+      &= \cos^2(\phi)-4\cos^2(\phi)\sin(\phi)+4\cos^2(\phi)\sin^2(\phi)
+    \end{align*}
+
+    Die Summe davon ist
+    \begin{align*}
+      \left(\frac{dx}{d\phi}\right)^2 + \left(\frac{dy}{d\phi}\right)^2
+      &= &&\cos^4(\phi) + 2\cos^2(\phi)\sin(\phi)-2\cos^2(\phi)\sin^2(\phi) + \cancel{\sin^2(\phi)}-2\sin^3(\phi)+\sin^4(\phi) \\
+      &&&  + \cancel{\cos^2(\phi)}-4\cos^2(\phi)\sin(\phi)+4\cos^2(\phi)\sin^2(\phi) \\
+      &= &&\cos^4(\phi) + \cancel{2\cos^2(\phi)\sin(\phi)}-2\cos^2(\phi)\sin^2(\phi) + 2\sin^3(\phi)+\sin^4(\phi) \\
+      &&&  \cancel{-4\cos^2(\phi)\sin(\phi)}+4\cos^2(\phi)\sin^2(\phi)+1 \\
+      &= &&\cos^4(\phi) - 2\cos^2(\phi)\sin(\phi)\cancel{-2\cos^2(\phi)\sin^2(\phi)} + 2\sin^3(\phi)+\sin^4(\phi) \\
+      &&&  +\cancel{4\cos^2(\phi)\sin^2(\phi)}+1 \\
+      &= &&\cancel{\cos^4(\phi)} - 2\cos^2(\phi)\sin(\phi) + 2\sin^3(\phi) \cancel{+\sin^4(\phi)} \cancel{+2\cos^2(\phi)\sin^2(\phi)}+1 \\
+      &= &&\cancel{(\cos^2(\phi)+\sin^2(\phi))^2} - 2\cos^2(\phi)\sin(\phi) + 2\sin^3(\phi) +1 \\
+      &= &&\cancel{1} - 2\cos^2(\phi)\sin(\phi) + 2\sin^3(\phi) \cancel{+1} \\
+      &= &&2 - 2\cos^2(\phi)\sin(\phi) + 2\sin^3(\phi) \\
+      &= &&2 - 2\cancel{(\cos^2(\phi) + \sin^2(\phi))}\sin(\phi) \\
+      &= &&2 - 2\sin(\phi) \\
+      &= &&2\cdot(1- \sin(\phi))
+    \end{align*}
+
+    Nach diesen simplen Umformungen können wir nun die Länge berechnen.
+    \begin{align*}
+      L = \int ds &= \int\limits_{-\pi/2}^{\pi/2} \sqrt{\left(\frac{dx}{d\phi}\right)^2 + \left(\frac{dy}{d\phi}\right)^2} \; d\phi \\
+              &= \int\limits_{-\pi/2}^{\pi/2} \sqrt{2\cdot(1- \sin(\phi))} \; d\phi \\
+              &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \sqrt{1- \sin \phi} \; d\phi \\
+              &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \sqrt{\left(\cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right)^2} \; d\phi  \qquad \text{(unter Benutzung der Formel vom Aufgabenblatt)}\\
+              &= \sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \left|\cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right| \; d\phi\\
+              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \sin\frac{\phi}{2}\right| \\
+              &= \left|\sqrt{2} \int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \sqrt{2}\int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2}\right| \\
+              &= \sqrt{2} \left|\int\limits_{-\pi/2}^{\pi/2} \cos\frac{\phi}{2} - \int\limits_{-\pi/2}^{\pi/2} \sin\frac{\phi}{2}\right| \\
+              &= \sqrt{2} \left|\left[2\sin \frac{\phi}{2}\right]_{-\pi/2}^{\pi/2} + \left[2\cos \frac{\phi}{2}\right]_{-\pi/2}^{\pi/2} \right| \\
+              &= \sqrt{2} \left|2 \sqrt{2} + 0\right| \\
+              &= 4
+    \end{align*}
 
 \end{enumerate}
 
