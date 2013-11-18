@@ -9,6 +9,9 @@
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{cancel}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usepgfplotslibrary{polar}
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 \restylefloat{table}
@@ -70,6 +73,35 @@ hier $M$ nennen.
   M = 2 \pi L x_s = 2 \pi \cdot \cancel{\pi} R \cdot \frac{2R}{\cancel{\pi}} = 4 \pi R^2
 \end{equation*}
 
+\section*{Aufgabe 5.1}
+\begin{enumerate}[a)]
+  \item
+    Folgende Skizze zeigt die (nicht ganz so \textit{grobe}) Form und die
+    Schnittpunkte mit den Achsen.
+
+    \begin{figure*}[h]
+      \begin{tikzpicture}
+        \begin{axis}[
+          ymax=0.5,          % Den ganzen Kram etwas skalieren, damit die
+          ymin=-2.5,         % Achsenbeschriftungen und die Markierungen
+          xmax=1.8,          % noch richtig drauf sind.
+          xmin=-1.8,         %
+          samples=120,          % Kurve ohne Kanten
+          axis lines=middle,    % Achsen durch den Ursprung
+          xlabel=$x$,           % X-Achse labeln
+          ylabel=$y$,           % D'oh!
+          xtick={-1, 0,1},           % Wir markieren an den Stellen x=-1 und x=1
+          xticklabels={$-a$, 0,$a$}, % dass dort -a und a ist.
+          ytick={0,-2},              % Wir markieren an der Stelle y=-2
+          yticklabels={0,$-2a$},     % dass dort -2a ist.
+          every tick/.style={line width=1pt, black} % Markierungen groß und fett, damit sichtbar
+        ]
+          \addplot[variable=\t, domain=0:2*pi] ({(1-sin(deg(t)))*cos(deg(t))}, {(1-sin(deg(t)))*sin(deg(t))});
+          \end{axis}
+      \end{tikzpicture}
+    \end{figure*}
+
+\end{enumerate}
 
 
 \end{document}
