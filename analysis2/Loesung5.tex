@@ -196,87 +196,48 @@ hier $M$ nennen.
     \end{align*}
   \item
     \textbf{Bonusaufgabe:}
+    Wir nehmen an, der Schwerpunkt genau der selben halben Herzkurve sei
+    gemeint, weil nichts anderes gegeben ist. Obwohl es sinnvoller wäre, den
+    Schwerpunkt für die Kurve oberhalb oder unterhalb der $x$-Achse zu
+    berechnen (bei einer Rotation um dieselbige). Da aber nichts dergleichen
+    gegeben ist (wir müssten ja wissen, ob Ober- oder Unterseite), nehmen wir
+    den Schwerpunkt für genau die selbe Kurve.
+
     Der Schwerpunkt liegt bei
-    \begin{equation*}
-      y_s = \int_{-\pi/2}^{\pi/2} \sin(t)(1-\sin t)^{3/2} dt
-    \end{equation*}
-
-    Wir stellen die gegebene Formel etwas um
     \begin{align*}
-      &1-\sin t = \left(\cos \frac{t}{2} - \sin \frac{t}{2}\right)^2 \\
-      \Leftrightarrow\quad&\sin t = 1- \left(\cos \frac{t}{2} - \sin \frac{t}{2}\right)^2 \\
+      y_s &= \frac{1}{L} \int y \; ds \\
+          &= \frac{1}{4} \int_{-\pi/2}^{\pi/2} \sin(t)(1-\sin t)^{3/2} dt
     \end{align*}
 
-    Und setzen die Ergebnisse ein
-    \begin{equation*}
-      y_s = \int_{-\pi/2}^{\pi/2} \left(\cos \frac{t}{2} - \sin \frac{t}{2}\right)^3 \left(1-\left(\cos \frac{t}{2} - \sin \frac{t}{2}\right)^2\right) \; dt
-    \end{equation*}
-
-    Wir substituieren, damit das hübscher wird, mit
+    Wir substituieren:
     \begin{align*}
-      x &= \frac{t}{2} \\
-      dx &= \frac{1}{2} dt \Leftrightarrow dt = 2dx
+      &x = \sin(t) \\
+      \Rightarrow\quad&dx = \cos(t) dt \\
+      \Leftrightarrow\quad& dt = \frac{dx}{\cos(t)} = \frac{dx}{\sqrt{1-\sin(t)^2}} = \frac{dx}{\sqrt{1-x^2}}
     \end{align*}
 
-    und erhalten
+    Und erhalten:
     \begin{align*}
-      y_s &= 2\int_{-\pi/4}^{\pi/4} \left(\cos x - \sin x\right)^3 \left(1-\left(\cos x - \sin x\right)^2\right) \; dx \\
-          &= 2\int_{-\pi/4}^{\pi/4} \left(\cos x - \sin x\right)^3 \; dx - 2\int_{-\pi/4}^{\pi/4} \left(\cos x - \sin x\right)^5 \; dx
+      y_s &= \frac{1}{4} \int_{-1}^{1} \frac{x(1-x)^{3/2}}{\sqrt{1-x^2}} dx \\
+          &= \frac{1}{4} \int_{-1}^{1} \frac{x(1-x)^{3/2}}{\sqrt{1-x}\sqrt{1+x}} dx \\
+          &= \frac{1}{4} \int_{-1}^{1} \frac{x(1-x)}{\sqrt{1+x}} dx
     \end{align*}
 
-    Wir setzen nun die Identität $\cos(x) - \sin(x) = \sqrt{2}
-    \sin\left(\frac{\pi}{4} - x\right)$ in beide Integrale ein und erhalten
-
+    Wir substituieren erneut:
     \begin{align*}
-      y_s &= 2\sqrt{2}\int_{-\pi/4}^{\pi/4} \sin^3\left(\frac{\pi}{4} - x\right) \; dx 
-           - 2\sqrt{2}\int_{-\pi/4}^{\pi/4} \sin^5\left(\frac{\pi}{4} - x\right) \; dx
+      y &= 1+x, \qquad dy = dx
     \end{align*}
 
-    Mit der Substitution $u(x) = \frac{\pi}{4} - x, du = -dx$ in beiden
-    Integralen erhalten wir dann:
-
+    Und erhalten nun
     \begin{align*}
-      y_s &= - 2\sqrt{2}\int_{\pi/2}^{0} \sin^3(u) \; du
-             + 2\sqrt{2}\int_{\pi/2}^{0} \sin^5(u) \; du \\
-             &= 2\sqrt{2}\int\limits_{0}^{\pi/2} \sin^3(u) \; du
-             - 2\sqrt{2}\int\limits_{0}^{\pi/2} \sin^5(u) \; du
+      y_s &= \frac{1}{4} \int_{0}^{2} \frac{(y-1)(2-y)}{\sqrt{y}} dy \\
+          &= \frac{1}{4} \int_{0}^{2} \frac{-y^2+3y-2}{\sqrt{y}} dy \\
+          &= \frac{1}{4} \left(-\int_0^2 \frac{y^2}{\sqrt{y}} dy + 3 \int_0^2 \frac{y}{\sqrt{y}} dy - 2 \int_0^2 \frac{1}{\sqrt{y}} dy\right) \\
+          &= \frac{1}{4} \left(-\int_0^2 y^{3/2} + 3 \int_0^2 y^{1/2} dy - 2 \int_0^2 y^{-1/2} dy\right) \\
+          &= \frac{1}{4} \left(-\left[\frac{2}{5} y^{5/2}\right]_0^2 + 3 \left[\frac{2}{3} y^{3/2}\right]_0^2 - 2 \left[2\sqrt{y}\right]_0^2\right) \\
+          &= \frac{1}{4} \left(-\frac{2}{5}4\sqrt{2} + 3 \frac{2}{3} 2 \sqrt{2} - 2 \cdot 2\sqrt{2}\right) \\
+          &= - \frac{2\sqrt{2}}{5}
     \end{align*}
-
-    Wir kennen die folgenden trigonometrischen Identitäten
-
-    \begin{align*}
-      \sin^3(x) &= \frac{3}{4}\sin(x) - \frac{1}{4} \sin(3x)
-    \end{align*}
-
-    Und
-    \begin{align*}
-      \sin^5(x) &= \frac{10}{16} \sin(x) - \frac{5}{16} \sin(3x) + \frac{1}{16}\sin(5x)
-    \end{align*}
-
-    Somit
-    \begin{equation*}
-      \sin^3(x) - \sin^5(x) = \frac{1}{8}\sin(x) + \frac{1}{16} \sin(3x) - \frac{1}{16}\sin(5x)
-    \end{equation*}
-
-    Damit werden die Integrale zu
-    \begin{align*}
-      y_s &= 2\sqrt{2} \left(
-        \frac{1}{8} \int_{\pi/2}^{0} \sin(a) \; da
-        + \frac{1}{16} \int_{\pi/2}^{0} \sin(3b) \; db 
-      - \frac{1}{16} \int_{\pi/2}^{0} \sin(5c) \; dc\right)
-    \end{align*}
-
-    Die sind gelöst:
-    \begin{align*}
-      y_s &= 2\sqrt{2} \left(
-      - \frac{1}{8} \left[\cos(x)\right]_{0}^{\pi/2}
-      - \frac{3}{16} \frac{1}{3} \left[\cos(3x)\right]_{0}^{\pi/2}
-      + \frac{5}{16} \frac{1}{5} \left[\cos(5x)\right]_{0}^{\pi/2}
-    \right) \\
-    &= 2\sqrt{2} \left(- \frac{1}{8}- \frac{3}{16}\frac{1}{3}+ \frac{5}{16}\frac{1}{5}\right) \\
-    \end{align*}
-
-    Was Quatsch ist. Rauskommen müsste $y_s = \frac{4 \sqrt{2}}{15}$
 
 
 
