@@ -108,4 +108,19 @@ Markus Fenske, Tutor: Adam Nagy
     The projections are? \textbf{TODO}
 
 \end{enumerate}
+
+\section*{Exercise 3: Tensor product}
+\begin{enumerate}[a)]
+  \item
+    \begin{equation*}
+      d^2
+    \end{equation*}
+  \item
+    \begin{align*}
+      \ket{\psi} \otimes \del{\ket{\phi} + \ket{\xi}} &= \sum_{ij=1}^d \braket{i|\psi} \bra{j} \del{\ket\phi + \ket\xi} \ket{ij} \\
+      &= \sum_{ij=1}^d \braket{i|\psi} \braket{j|\phi}\ket{ij} + \braket{i|\psi} \braket{j|\xi} \ket{ij} \\
+      &= \sum_{ij=1}^d \braket{i|\psi} \braket{j|\phi}\ket{ij} + \sum_{ij=1}^d \braket{i|\psi} \braket{j|\xi} \ket{ij} \\
+      &= \ket\psi \otimes \ket\phi + \ket\psi \otimes \ket\xi
+    \end{align*}
+\end{enumerate}
 \end{document}
