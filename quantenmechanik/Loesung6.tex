@@ -108,6 +108,33 @@ Markus Fenske, Tutor: Adam Nagy
     The projections are? \textbf{TODO}
 
 \end{enumerate}
+\section*{Exercise 2: Time dependence in a box}
+\begin{enumerate}[a)]
+  \item
+    Iff $m \neq n$
+    \begin{align*}
+      \braket{\psi_m|\psi_n} &= \int_0^1 \sin\del{m \pi x} \sin\del{n \pi x} \dif x \\
+                             &= \int_0^1 \frac{1}{2} \del{\cos\del{\del{m-n}\pi x} - \cos\del{\del{m+n}\pi x}} \dif x \\
+                             &= \frac{1}{2} \sbr{\frac{\sin\del{\del{m-n}\pi x}}{\del{m-n} \pi}}_0^1
+                                - \frac{1}{2} \sbr{\frac{\sin\del{\del{m+n}\pi x}}{\del{m+n} \pi}}_0^1 \\
+                             &= \frac{1}{2} \frac{\sin\del{\del{m-n}\pi}}{\del{m-n} \pi}
+                                - \frac{1}{2} \frac{\sin\del{\del{m+n}\pi x}}{\del{m+n} \pi} \\
+                             &= 0 \qquad\qquad \text{(Because $\sin n \pi = 0, n \in \mathbb{N}$)}
+    \end{align*}
+    Therefore the vectors are orthogonal.
+
+    Iff $m = n$
+    \begin{align*}
+      \braket{\psi_m|\psi_n} &= \int_0^1 C^2 \sin^2\del{n \pi x} \dif x \\
+                             &= \int_0^1 C^2 \frac{1}{2}\del{1 - \cos\del{2n \pi x}} \dif x \\
+                             &= \frac{1}{2}C^2 - C^2 \frac{\sin\del{2n \pi}}{2n} \\
+                             &= \frac{1}{2}C^2 \overset{!}{=} 0
+    \end{align*}
+
+    Therefore $C = \sqrt{2}$.
+
+
+\end{enumerate}
 
 \section*{Exercise 3: Tensor product}
 \begin{enumerate}[a)]
