@@ -27,6 +27,7 @@
 \setlength\parindent{0pt}
 \DeclareMathOperator{\Tr}{Tr}
 \begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
 \begin{center}
 \bfseries % Fettdruck einschalten
 \sffamily % Serifenlose Schrift
@@ -132,6 +133,26 @@ Markus Fenske, Tutor: Adam Nagy
     \end{align*}
 
     Therefore $C = \sqrt{2}$.
+  \item
+    We are looking for stationary solutions to the Schr"odinger equation.
+    \begin{align*}
+      \hat H\ket{\psi_n} = E\ket{\psi_n}
+    \end{align*}
+
+    We get
+    \begin{align*}
+      \hat H\ket{\psi_n} &= \del{\frac{1}{2m} \hat{p}^2 + V\del{\hat{x}}} \sin\del{n \pi x} \\
+                         &= \del{\frac{1}{2m} \del{-i\hbar \pd{}{x}}^2 + C} \sin\del{n \pi x} \\
+                         &= \del{-\frac{1}{2m} \hbar^2 \pd[2]{}{x} + C} \sin\del{n \pi x} \\
+                         &= \frac{1}{2m} \hbar^2 n^2\pi^2 \sin\del{n \pi x} + C \sin\del{n \pi x} \\
+                         &= \underbrace{\del{\frac{\hbar^2 n^2 \pi^2}{2m} + C}}_{=E} \sin\del{n \pi x} \\
+                         &= E \ket{\psi}
+    \end{align*}
+
+    We can see, that the eigenvalues of the Hamilton operator are
+    \begin{equation*}
+      E = \frac{\hbar^2 n^2 \pi^2}{2m} + C
+    \end{equation*}
 
 
 \end{enumerate}
