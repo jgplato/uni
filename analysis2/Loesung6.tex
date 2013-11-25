@@ -44,5 +44,20 @@ Durch Einsetzen von $x=1, y=1$:
   = \frac{\frac{\pi}{2} + \frac{1}{2}}{\sqrt{5}} + \frac{3}{\sqrt{5}} = \del{\pi+7}\frac{\sqrt{5}}{10}
 \end{equation*}
 
+\section*{Aufgabe 6.2}
+Sei $d$ die Dimension dieses (euklidischen, kartesischen) Raumes. Seien
+$\vec{e}_i$ die Einheitsvektoren.
+
+\begin{align*}
+  \vec{\operatorname{grad}} \frac{1}{r^k} &= \vec{\operatorname{grad}} \frac{1}{\sqrt{\sum_{i=1}^d x_i^2}^k} \\
+                                          &= \sum_{i=1}^d \vec{e}_i \pd{}{x_i} \del{\sum_{i=1}^d x_i^2}^{-\frac{k}{2}} \\
+                                          &= \sum_{i=1}^d \vec{e}_i \frac{-k}{\cancel{2}} \del{\sum_{i=1}^d x_i^2}^{-\frac{k}{2}-1} \cdot \cancel{2} x_i \\
+                                          &= \sum_{i=1}^d \vec{e}_i \frac{-kx_i}{\sqrt{\sum_{i=1}^d x_i^2}^{k-1}}
+\end{align*}
+
+Es ist also die $i$-te Komponente des Gradientenvektorfeldes genau
+\begin{equation*}
+  = \frac{-k x_i}{r^{k-1}}
+\end{equation*}
 
 \end{document}
