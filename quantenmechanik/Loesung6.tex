@@ -51,7 +51,7 @@ Markus Fenske, Tutor: Adam Nagy
     H = B \begin{pmatrix} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta \end{pmatrix}
     \end{equation*}
 
-    The eigenvalues are
+    The eigenvalues of the matrix dived by $B$ are
     \begin{align*}
     &B \begin{vmatrix} \cos(\theta) - \lambda & \sin \theta \\ \sin \theta & -\cos(\theta) - \lambda \end{vmatrix} \overset{!}{=} 0 \\
       \Leftrightarrow\quad&B \del{-\del{\cos\del{\theta} - \lambda}^2-\sin^2\del{\theta}}  = 0\\
@@ -60,6 +60,11 @@ Markus Fenske, Tutor: Adam Nagy
       \Leftrightarrow\quad&B \del{-1+\lambda^2} = 0\\
       \Rightarrow\quad &\lambda_+ = 1,\quad \lambda_- = -1
     \end{align*}
+
+    Because we divided by $B$, the eigenvalues are
+    \begin{equation*}
+      \lambda_+ = B,\quad \lambda_- = -B
+    \end{equation*}
 
     Calculatring the eigenvectors (assuming $\sin\theta \neq 0$)
     \begin{align*}
@@ -150,7 +155,28 @@ Markus Fenske, Tutor: Adam Nagy
       \end{pmatrix}
     \end{align*}
 
-    So the given projections are wrong.
+    So the given projections are wrong. The correct projections would be
+    \begin{equation*}
+      \ket{\psi_\pm} \bra{\psi_\pm} = \frac{1}{2} \begin{pmatrix}
+        1 \pm \cos \theta & \pm \sin \theta \\
+        \pm \sin \theta & 1 \mp \cos \theta
+      \end{pmatrix}
+    \end{equation*}
+  \item
+    Using the correct projections, we can now calculate the matrix exponential.
+    As proven in the last exercise sheet, we just need to calculate the
+    exponential of the eigenvalues, as the projects are idempontent ($P^2 =
+    P$).
+    \begin{align*}
+      \exp\del{\frac{-itH}{\hbar}} &= \exp\del{\lambda_+} \ket{\psi_+}\bra{\psi_+} + \exp\del{\lambda_-} \ket{\psi_-}\bra{\psi_-} \\
+                                   &= 
+      \begin{pmatrix}
+        \frac{\cos(\theta) + 1}{2} \exp\del{-B\frac{it}{\hbar}} + \frac{\cos(\theta) - 1}{2} \exp\del{B\frac{it}{\hbar}} &
+        \frac{\sin\theta}{2} \exp\del{-B\frac{it}{\hbar}} - \frac{\sin\theta}{2} \exp\del{B\frac{it}{\hbar}} \\
+        \frac{\sin\theta}{2} \exp\del{-B\frac{it}{\hbar}} - \frac{\sin\theta}{2} \exp\del{B\frac{it}{\hbar}} &
+        \frac{\cos(\theta) - 1}{2} \exp\del{-B\frac{it}{\hbar}} + \frac{\cos(\theta) + 1}{2} \exp\del{B\frac{it}{\hbar}}
+      \end{pmatrix}
+    \end{align*}
 
 
 \end{enumerate}
