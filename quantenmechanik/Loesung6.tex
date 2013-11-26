@@ -291,7 +291,7 @@ Markus Fenske, Tutor: Adam Nagy
 \node[right=36pt,below=8pt] at (X) {$\frac{1}{\sqrt{2}} \del{\ket{0} + \ket{1}}$};
 \end{tikzpicture}
 
-The states oscillate between $\ket{0}$ and $\frac{1}{\sqrt{2}} \del{\ket{0} + \ket{1}}$.
+The states oscillate between $\ket{0}$ and $\frac{1}{\sqrt{2}} \del{\ket{0} + \ket{1}}$ and values in between.
 
 
 
@@ -350,7 +350,7 @@ The states oscillate between $\ket{0}$ and $\frac{1}{\sqrt{2}} \del{\ket{0} + \k
                     &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{itH}{\hbar}} \ket{\psi_0} + \exp\del{\frac{itH}{\hbar}} \ket{\psi_1}} \\
       \intertext{Using the eigenvalues of $\ket{\psi_0}$ and $\ket{\psi_1}$ (computed by the formula above), we get}
       &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{it}{\hbar} C} \ket{\psi_0} + \exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \ket{\psi_1}} \\
-      &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \sin\del{\pi x}} \\
+      &= \frac{1}{\sqrt{2}} \del{0+ \exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \sin\del{\pi x}} \\
       &= \frac{1}{\sqrt{2}} \exp\del{\frac{it}{\hbar} C} \exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x} \\
     \end{align*}
 
@@ -363,29 +363,14 @@ The states oscillate between $\ket{0}$ and $\frac{1}{\sqrt{2}} \del{\ket{0} + \k
                        &\cancel{\frac{1}{\sqrt{2}}} \cancel{\exp\del{\frac{it}{\hbar} C}} \del{\exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
                         \dif x \\
                     &=
-                       \int_0^1 \frac{x}{2} \del{\exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \dif x
-                       \del{\exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \\
+                       \int_0^1 \frac{x}{2} \del{\exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
+                       \del{\exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \dif x \\
                        &= \int_0^1 \frac{x}{2}\del{\sin^2\del{\pi x}} \dif x \\
                        &= \frac{1}{2 \pi}
                      \end{align*}
   \item
-    The probability is highest, when the expected value is lowest. This is the
-    case if $\cos$ has the lowest value of $-1$ which is when the argument a an
-    odd multiple of $\pi$.
-
-    \begin{align*}
-      &\frac{-t \hbar \pi^2}{2m} \overset{!}{=} \del{2n + 1} \pi \\
-      \Leftrightarrow\quad
-      &\frac{-t \hbar \pi}{2m} = 2n + 1 \\
-      \Leftrightarrow\quad
-      &-t = \frac{\del{2n + 1}2m}{\hbar \pi} \\
-      \Leftrightarrow\quad
-      &t = \frac{\del{1-2n}2m}{\hbar \pi}, n \in \mathbb{N} \\
-    \end{align*}
-
-
-
-
+    Because the wave squared wave function is symmetric around in
+    $\frac{1}{2}$, the probability does not change. There is no highest value.
 \end{enumerate}
 
 \section*{Exercise 3: Tensor product}
