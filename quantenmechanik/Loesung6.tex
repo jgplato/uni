@@ -152,7 +152,7 @@ Markus Fenske, Tutor: Adam Nagy
       \quad x_2 = \frac{\sin\theta}{\cos\del\theta - \lambda_\pm}
     \end{align*}
 
-    So the eigenvectors are (by multiplying with $\cos\del\delta \mp 1$):
+    So the eigenvectors are (by multiplying with $\cos\del\theta \mp 1$):
     \begin{equation*}
     \ket{\psi_\pm} = \begin{pmatrix} \cos\del\theta \mp 1 \\ \sin\theta \end{pmatrix}
     \end{equation*}
@@ -350,45 +350,24 @@ The states oscillate between $\ket{0}$ and $\frac{1}{\sqrt{2}} \del{\ket{0} + \k
                     &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{itH}{\hbar}} \ket{\psi_0} + \exp\del{\frac{itH}{\hbar}} \ket{\psi_1}} \\
       \intertext{Using the eigenvalues of $\ket{\psi_0}$ and $\ket{\psi_1}$ (computed by the formula above), we get}
       &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{it}{\hbar} C} \ket{\psi_0} + \exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \ket{\psi_1}} \\
-      &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{it}{\hbar} C} + \exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \sin\del{\pi x}} \\
-      &= \frac{1}{\sqrt{2}} \exp\del{\frac{it}{\hbar} C} \del{1 + \exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \\
+      &= \frac{1}{\sqrt{2}} \del{\exp\del{\frac{it}{\hbar} \del{\frac{\hbar^2 \pi^2}{2m} + C}} \sin\del{\pi x}} \\
+      &= \frac{1}{\sqrt{2}} \exp\del{\frac{it}{\hbar} C} \exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x} \\
     \end{align*}
 
     The expected value is
     \begin{align*}
       \braket{x}(t) &= \int_{0}^{1} \psi(t)^* x \psi(t) \dif x \\
                     &= \int_{0}^{1}
-      \cancelto{\frac{1}{2}}{\frac{1}{\sqrt{2}}} \cancel{\exp\del{\frac{-it}{\hbar} C}} \del{1 + \exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
+      \cancelto{\frac{1}{2}}{\frac{1}{\sqrt{2}}} \cancel{\exp\del{\frac{-it}{\hbar} C}} \del{\exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
                        x \\
-                       &\cancel{\frac{1}{\sqrt{2}}} \cancel{\exp\del{\frac{it}{\hbar} C}} \del{1 + \exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
+                       &\cancel{\frac{1}{\sqrt{2}}} \cancel{\exp\del{\frac{it}{\hbar} C}} \del{\exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}}
                         \dif x \\
                     &=
-                       \int_0^1 \frac{x}{2} \del{1 + \exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \dif x
-                       \del{1 + \exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \\
-                       &= \int_0^1 \frac{x}{2}\del{1 + 2\cos\del{\frac{-t \hbar \pi^2}{2m}} + \sin^2\del{\pi x}} \dif x \\
-                       &= \frac{1}{4} + \cos\del{\frac{-t \hbar \pi^2}{2m}} \int_0^1 x \sin\del{\pi x} \dif x + \int_0^1 \frac{x}{2} \sin^2\del{\pi x} \dif x\\
-                       &= \frac{1}{4} + \cos\del{\frac{-t \hbar \pi^2}{2m}} \int_0^1 x \sin\del{\pi x} \dif x + \frac{1}{2} \int_0^1 x \sin^2\del{\pi x} \dif x\\
-    \end{align*}
-
-    Solving the first integral:
-    \begin{align*}
-      \int_0^1 x \sin\del{\pi x} \dif x  &= \sbr{-\frac{x\cos\del{\pi x}}{\pi}}_0^1 + \frac{1}{\pi} \int_0^1 \cos\del{\pi x} \\
-                                         &= \frac{1}{\pi} + 0
-    \end{align*}
-
-    Solving the second integral:
-    \begin{align*}
-      \int_0^1 x \sin^2\del{\pi x} \dif x  &= \int_0^1 x \frac{1}{2} \del{1- \cos\del{2 \pi x}} \dif x \\
-                                           &= \frac{1}{4} + \frac{1}{2} \int_0^1 x \cos\del{2 \pi x} \\
-                                           &= \frac{1}{4} + \sbr{x \frac{\sin\del{2 \pi x}}{2 \pi}}_0^1 - \int_0^1 \frac{\sin\del{2 \pi x}}{2 \pi} \dif x \\
-                                           &= \frac{1}{4}
-    \end{align*}
-
-    Leads to:
-    \begin{align*}
-      \braket{x}(t) &= \frac{1}{4} + \cos\del{\frac{-t \hbar \pi^2}{2m}} \frac{1}{\pi} + \frac{1}{2} \cdot \frac{1}{4} \\
-                    &= \frac{3}{8} + \frac{1}{\pi} \cos\del{\frac{-t \hbar \pi^2}{2m}}
-    \end{align*}
+                       \int_0^1 \frac{x}{2} \del{\exp\del{\frac{-it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \dif x
+                       \del{\exp\del{\frac{it}{\hbar} \frac{\hbar^2 \pi^2}{2m}} \sin\del{\pi x}} \\
+                       &= \int_0^1 \frac{x}{2}\del{\sin^2\del{\pi x}} \dif x \\
+                       &= \frac{1}{2 \pi}
+                     \end{align*}
   \item
     The probability is highest, when the expected value is lowest. This is the
     case if $\cos$ has the lowest value of $-1$ which is when the argument a an
