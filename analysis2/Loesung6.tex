@@ -41,7 +41,7 @@ Für die Richtungsableitung gilt in diesem Fall einfach
 
 Durch Einsetzen von $x=1, y=1$:
 \begin{equation*}
-  = \frac{\frac{\pi}{2} + \frac{1}{2}}{\sqrt{5}} + \frac{3}{\sqrt{5}} = \del{\pi+7}\frac{\sqrt{5}}{10}
+  = \frac{\frac{\pi}{2} + \frac{1}{2}}{\sqrt{5}} + \frac{3}{\sqrt{5}} = \frac{\pi+7}{2\sqrt{5}}
 \end{equation*}
 Im Nachhinein rechtfertigt sich unsere Herangehensweise, denn die angewendete Formel für die Richtungsableitungen ist bei totaler Differenzierbarkeit anwendbar. $f$ ist aber total differenzierbar, denn die partiellen Ableitungen existieren auf dem ganzen Definitionsbereich und sind als Kompositionen stetiger Funktionen stetig.
 
@@ -133,6 +133,8 @@ Es folgt also, dass die Richtungsableitung unter den gegeben Bedingungen nur fü
 \end{pmatrix}
 \end{equation*}
 
+\item Gemäß Beobachtung nach 3.3.6 im Skript folgt aus der totalen Differenzierbarkeit eines Skalarfelds die Existenz aller Richtungsableitungen. Wie wir in (c) gesehen haben, ist das nicht der Fall. Folglich kann per Umkehrschluss das Skalarfeld nicht total differenzierbar sein.
+
 \end{enumerate}
 
 \section*{Aufgabe 6.4}
@@ -192,12 +194,12 @@ Das Integral lässt sich als Kurvenintegral über $\overline{\gamma}(t)$ auffass
 \begin{equation*}
 \overline{\gamma}(t)=\overline{a}+\vec{v}t \quad \quad \overline{\gamma}(0)=\overline{a}; \;\; \overline{\gamma}(1)=\overline{a}+\vec{v}
 \end{equation*}
-Dann führt uns auf:
+Das führt uns auf:
 \begin{align*}
 \vec{f}(\overline{a}+\vec{v})-\vec{f}(\overline{a})&=\int_{0}^{1}J_{\vec{f}}(\overline{\gamma}(t))\cdot \dot{\overline{\gamma}}(t)dt\\
 &=\int_{0}^{1}J_{\vec{f}}(\overline{a}t+\vec{v})\vec{v}dt\\
 &=\left(\int_{0}^{1}J_{\vec{f}}\left(\overline{a}t+\vec{v}\right)dt\right)\vec{v}
 \end{align*}
-...da $\vec{v}$ nicht von $t$ abhängt, kann dieser aus dem Integral rausgezoegen werden und wir kommen auf das gewünschte Ergebnis.
+...da $\vec{v}$ nicht von $t$ abhängt, kann dieser aus dem Integral rausgezogen werden und wir kommen auf das gewünschte Ergebnis.
 
 \end{document}
