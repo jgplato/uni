@@ -43,21 +43,161 @@ Durch Einsetzen von $x=1, y=1$:
 \begin{equation*}
   = \frac{\frac{\pi}{2} + \frac{1}{2}}{\sqrt{5}} + \frac{3}{\sqrt{5}} = \del{\pi+7}\frac{\sqrt{5}}{10}
 \end{equation*}
+Im Nachhinein rechtfertigt sich unsere Herangehensweise, denn die angewendete Formel für die Richtungsableitungen ist bei totaler Differenzierbarkeit anwendbar. $f$ ist aber total differenzierbar, denn die partiellen Ableitungen existieren auf dem ganzen Definitionsbereich und sind als Kompositionen stetiger Funktionen stetig.
 
 \section*{Aufgabe 6.2}
-Sei $d$ die Dimension dieses (euklidischen, kartesischen) Raumes. Seien
-$\vec{e}_i$ die Einheitsvektoren.
-
+Sei $d$ die Dimension dieses (euklidischen, kartesischen) Raumes und $\vec{e}_i$ die Einheitsvektoren. Dann erhalten wir für den Gradienten der betrachteten Funktion $\frac{1}{r^k}$ den folgenden Ausdruck:
 \begin{align*}
   \vec{\operatorname{grad}} \frac{1}{r^k} &= \vec{\operatorname{grad}} \frac{1}{\sqrt{\sum_{i=1}^d x_i^2}^k} \\
                                           &= \sum_{i=1}^d \vec{e}_i \pd{}{x_i} \del{\sum_{i=1}^d x_i^2}^{-\frac{k}{2}} \\
                                           &= \sum_{i=1}^d \vec{e}_i \frac{-k}{\cancel{2}} \del{\sum_{i=1}^d x_i^2}^{-\frac{k}{2}-1} \cdot \cancel{2} x_i \\
-                                          &= \sum_{i=1}^d \vec{e}_i \frac{-kx_i}{\sqrt{\sum_{i=1}^d x_i^2}^{k-1}}
+                                          &= \sum_{i=1}^d \vec{e}_i \frac{-kx_i}{\sqrt{\sum_{i=1}^d x_i^2}^{k+2}}
 \end{align*}
 
-Es ist also die $i$-te Komponente des Gradientenvektorfeldes genau
+Die $i$-te Komponente des Gradientenvektorfeldes ist also genau $\frac{-k x_i}{r^{k+2}}$.
+Über alle $i$ summiert ergibt sich also:
 \begin{equation*}
-  = \frac{-k x_i}{r^{k-1}}
+\vec{\operatorname{grad}} \frac{1}{r^k} = \sum_{i=1}^{d}\vec{e_i} \frac{-k x_i}{r^{k+2}}=\frac{-k}{r^{k+2}}\sum_{i=1}^{d}\vec{e_i}x_i=\frac{-k}{r^{k+2}}\overline{x}
 \end{equation*}
+
+\section*{Aufgabe 6.3}
+
+\begin{enumerate}[(1)]
+
+\item
+Berechne $\frac{\partial f}{\partial x}$ und $\frac{\partial f}{\partial y}$ unter besonderer Rücksicht auf $(0,0)$.
+\begin{align*}
+\partial_xf(\overline{a}): \quad \frac{\partial f}{\partial x}&=\lim\limits_{h\to 0}\frac{f(x+h,y)-f(x,y)}{h}\\
+&=\lim\limits_{h\to 0}\frac{\sqrt[3]{(x+h)^3+y^3}-\sqrt[3]{x^3+y^3}}{h}
+\end{align*}
+Für alle $x,y\neq 0$ können wir bedenkenlos (unter Anwendung der Kettenregel) davon ausgehen, dass die partielle Ableitung definiert ist als:
+\begin{align*}
+\frac{\partial f}{\partial x}(\overline{a})&=\frac{\partial \sqrt[3]{x^3+y^3}}{\partial x}=3x^2\cdot\left(x^3+y^3\right)^{-\frac{2}{3}}\cdot \frac{1}{3}\\
+&=\frac{x^2}{(x^3+y^3)^{\frac{2}{3}}}\\
+&=\left(\frac{x}{\sqrt[3]{x^3+y^3}}\right)^2
+\end{align*}
+
+Punkte $(x,0)$ erfordern dagegen eine genauere Untersuchung:
+\begin{align*}
+\frac{\partial f}{\partial x}(x,0)&=\lim\limits_{h\to 0}\frac{\sqrt[3]{(x+h)^3+0^3}-\sqrt[3]{x^3+0^3}}{h}\\
+&=\lim\limits_{h\to 0}\frac{\sqrt[3]{(x+h)^3}-\sqrt[3]{x^3}}{h}\\
+&=\lim\limits_{h\to 0}\frac{x+h-x}{h}=1
+\end{align*}
+Das stimmt mit der oben hergeleiteten Ableitungsfunktion überein, denn:
+\begin{align*}
+\lim\limits_{y\to 0}\left(\frac{x}{\sqrt[^3]{x^3+y^3}}\right)^2=\left(\frac{x}{\sqrt[3]{x^3}}\right)^2=1
+\end{align*}
+Eine Ausnahme bildet der Punkt $(0,0)$, denn hier ist die oben hergeleitete Ableitungsfunktion nicht definiert.\\
+
+Für die partielle Ableitung nach y sind die Überlegungen und Rechnungen genau analog. Ich beschränke mich daher darauf, festzustellen:
+\begin{align*}
+\frac{\partial f}{\partial y}(\overline{a})&=\frac{\partial \sqrt[3]{x^3+y^3}}{\partial x}=3x^2\cdot\left(x^3+y^3\right)^{-\frac{2}{3}}\cdot \frac{1}{3}\\
+&=\frac{y^2}{(x^3+y^3)^{\frac{2}{3}}}\\
+&=\left(\frac{y}{\sqrt[3]{x^3+y^3}}\right)^2
+\end{align*}
+
+\item Eine Funktion heißt $C^1$-Funktion, wenn sie in jedem Punkt ihres Definitionsbereiches alle partiellen Ableitungen besitzt und diese als Funktionen stetig sind.\\
+\\
+Wie wir in Aufgabe (1) gesehen haben, sind beide Partielle Ableitungsfunktionen an einem Punkt des Definitionsbereiches von $f$, nämlich $(0,0)$, nicht definiert. $f$ ist also nicht $C^1$-Funktion.
+
+\item Die Richtungsableitung an der Stelle $(0,0)$ für $\vec{e}=\begin{pmatrix}
+a\\b
+\end{pmatrix}$ ist gegeben durch:
+\begin{align*}
+\frac{\partial f}{\partial \vec{e}}(0,0)&=\lim\limits_{h\to 0}\frac{f(\overline{a}+h\vec{e})-f(\overline{a})}{h}\\
+&=\lim\limits_{h\to 0}\frac{\sqrt[3]{(0+a)^3+(0+b)^3}}{h}\\
+&=\lim\limits_{h\to 0}\sqrt[3]{\frac{a^3+b^3}{h^3}}=\sqrt[3]{\lim\limits_{h\to 0}\frac{a^3+b^3}{h^3}}\\
+\end{align*}
+Damit der Ausdruck konvergiert, müssen wir fordern:
+\begin{equation*}
+a^3+b^3=0
+\end{equation*}
+In der Aufgabenstellung ist gefordert, dass:
+\begin{equation*}
+a^2+b^2=1 \quad \Leftrightarrow \quad b^2=1-a^2 \quad \Leftrightarrow \quad b=\pm\sqrt{1-a^2}
+\end{equation*}
+Wir müssen also fordern:
+\begin{align*}
+& a^3+(\sqrt{1-a^2})^3=0\\
+\Leftrightarrow \quad & (\sqrt{1-a^2})^3=-a^3\\
+\Leftrightarrow \quad & (-a)^3=(\sqrt{1-a^2})^3\\
+\Leftrightarrow \quad & -a=\sqrt{1-a^2}\\
+\Leftrightarrow \quad & a^2=1-a^2\\
+\Leftrightarrow \quad & a=\pm\frac{1}{\sqrt{2}} \quad \Rightarrow \quad b=\pm\sqrt{1-\frac{1}{\sqrt{2}^2}}=\pm\frac{1}{\sqrt{2}}
+\end{align*}
+
+Es folgt also, dass die Richtungsableitung unter den gegeben Bedingungen nur für die Richtungsvektoren konvergiert:
+\begin{equation*}
+\vec{e}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+\pm1\\\mp1
+\end{pmatrix}
+\end{equation*}
+
+\end{enumerate}
+
+\section*{Aufgabe 6.4}
+Der für Skalarfelder normalerweise gültige Mittelwertsatz kann nicht einfach auf Vektorfelder übertragen werden.\\
+Der Grund ist folgender: Zum Nachweis des Mittelwertsatzes für Skalarfelder hatten wir eine skalare Hilfsfunktion $\phi(t)$ eingeführt:
+\begin{equation*}
+\phi(t)=f\left(\gamma_1(t),...,\gamma_n(t)\right)
+\end{equation*}
+... und anschließend den Mittelwertsatz der Differentialrechnung aus dem letzten Semester angewandt. Für ein Vektorfeld $\vec{f}$ ist unser Argument aber nicht mehr gültig.\\
+
+Wir können aber einen alternativen Ausdruck über den Hauptsatz der Differentialrechnung herleiten. Dazu überlegen wir uns zunächst, dass der Hauptsatz auch für Vektorfelder gilt. Für eine Funktion $f(x)$:
+\begin{equation*}
+f(b)-f(a)=\int_{a}^{b}f'(x)dx
+\end{equation*}
+Wobei mit $f'(x)$ gerade die Ableitungsfunktion von $f(x)$ gemeint ist. Betrachten wir $n$ solcher Gleichungen:
+\begin{equation*}
+f_i(b)-f_i(a)=\int_{a}^{b}f_i'(x)dx
+\end{equation*}
+Dann kann man sich überlegen, dass die $f_i(x)$ den Komponenten eines Vektors entsprechen:
+\begin{align*}
+&\begin{pmatrix}
+f_1(b)-f_1(a)\\\vdots\\ f_n(b)-f_n(a)\end{pmatrix}
+=\begin{pmatrix}
+\int_{a}^{b}f_1'(x)dx\\\vdots\\\int_{a}^{b}f_n'(x)dx
+\end{pmatrix}\\
+\Leftrightarrow \quad &\begin{pmatrix}
+f_1(b)\\\vdots\\f_n(b)
+\end{pmatrix}-\begin{pmatrix}
+f_1(a)\\\vdots\\f_n(a)
+\end{pmatrix}=\int_{a}^{b}\begin{pmatrix}
+f_1'(x)dx\\\vdots\\f_n'(x)
+\end{pmatrix}
+dx\\
+\Leftrightarrow \quad &\vec{f}(b)-\vec{f}(a)=\int_{a}^{b}\vec{f'}(x)dx\\
+\end{align*}
+Das gilt für $C^1$-Vektorfelder genauso, wenn sich eine geeignete Parametrisierung $t$ finden lässt. Durch die Voraussetzung von $C^1$ existiert $\vec{f'}(x)$, welcher gerade die Jacobi-Matrix ist, welche aus den Partiellen Ableitungen der Funktion auf dem Definitionsbereich von $f$ besteht; durch die Parametrisierung kommt noch ein Vektor dazu, welcher wieder dafür sorgt, dass auf der rechten Seite der Gleichung ein Vektor steht, wie wir gleich sehen werden.
+
+Es gilt:
+\begin{equation*}
+\vec{f}\left(\overline{a}+\vec{v}\right)-\vec{f}(a)=\int_{\overline{a}}^{\overline{a}+\vec{v}}  \vec{f'}(\overline{x})ds
+\end{equation*}
+
+$\vec{f'}(\overline{x})$ meint die totale Ortsableitung der Vektorfunktion. Diese ist aber gerade gegeben durch die entsprechende Jacobi-Matrix:
+\begin{equation*}
+J_{\vec{f}}(\overline{x})=\begin{pmatrix}
+\frac{\partial f_1}{\partial x_1}(\overline{x}) & \dots & \frac{\partial f_1}{\partial x_n}(\overline{x})\\ \vdots & \ddots & \vdots\\ \frac{\partial f_n}{\partial x_1}(\overline{x}) &
+\dots & \frac{\partial f_n}{\partial x_n}(\overline{x})
+\end{pmatrix}
+\end{equation*}
+
+Wir schreiben also:
+\begin{equation*}
+\vec{f}\left(\overline{a}+\vec{v}\right)-\vec{f}(a)=\int_\gamma J_{\vec{f}}(\overline{x})ds
+\end{equation*}
+
+Das Integral lässt sich als Kurvenintegral über $\overline{\gamma}(t)$ auffassen, womit die gerade Verbindungsstrecke zwischen den Punkten $\overline{a}$ und $\overline{a}+\vec{v}$ gemeint ist:
+\begin{equation*}
+\overline{\gamma}(t)=\overline{a}+\vec{v}t \quad \quad \overline{\gamma}(0)=\overline{a}; \;\; \overline{\gamma}(1)=\overline{a}+\vec{v}
+\end{equation*}
+Dann führt uns auf:
+\begin{align*}
+\vec{f}(\overline{a}+\vec{v})-\vec{f}(\overline{a})&=\int_{0}^{1}J_{\vec{f}}(\overline{\gamma}(t))\cdot \dot{\overline{\gamma}}(t)dt\\
+&=\int_{0}^{1}J_{\vec{f}}(\overline{a}t+\vec{v})\vec{v}dt\\
+&=\left(\int_{0}^{1}J_{\vec{f}}\left(\overline{a}t+\vec{v}\right)dt\right)\vec{v}
+\end{align*}
+...da $\vec{v}$ nicht von $t$ abhängt, kann dieser aus dem Integral rausgezoegen werden und wir kommen auf das gewünschte Ergebnis.
 
 \end{document}
