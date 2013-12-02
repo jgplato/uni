@@ -1,0 +1,69 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 7
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Continuity equation}
+We know that $\rho = \envert{\psi}^2 = \psi^*\psi$. So the time derivative is
+\begin{align*}
+  \od{}{t} \rho &= \od{}{t} \psi^*\psi \\
+                         &= \del{\od{}{t} \psi^*} \psi + \psi^* \del{\od{}{t} \psi} \\
+  \intertext{Substituting the Schrödinger equation $i \hbar \od{}{t} \psi = H \psi$:}
+  &= \del{-\frac{1}{i\hbar} H \psi^*} \psi + \psi^* \del{\frac{1}{i \hbar} H \psi} \\
+  \intertext{Substituting the Hamiltonian $H = \frac{p^2}{2m} + V = -\frac{\hbar^2}{2m} \nabla^2 + V$:}
+  &= \del{-\frac{1}{i\hbar} \del{-\frac{\hbar^2}{2m} \nabla^2 + V} \psi^*} \psi + \psi^* \del{\frac{1}{i \hbar} \del{-\frac{\hbar^2}{2m} \nabla^2 + V} \psi} \\
+  &= \del{\frac{\hbar}{2 mi} \nabla^2 \psi^*}\psi \cancel{- \del{\frac{1}{i \hbar} V \psi^*}\psi} - \psi^* \del{\frac{\hbar}{2 mi} \nabla^2 \psi} \cancel{+ \psi^* \del{\frac{1}{i \hbar} V \psi}} \\
+  &= \frac{\hbar}{2 mi} \del{\del{\nabla^2 \psi^*}\psi - \psi^* \del{\nabla^2 \psi}}
+\end{align*}
+
+The gradient of the probability current density is
+\begin{align*}
+  \nabla j &= \nabla \frac{\hbar}{2mi} \del{\psi^* \del{\nabla \psi} - \del{\nabla \psi^*} \psi} \\
+           &= \frac{\hbar}{2mi} \nabla \del{\psi^* \del{\nabla \psi} - \del{\nabla \psi^*} \psi} \\
+           &= \frac{\hbar}{2mi} \del{\del{\del{\cancel{\nabla \psi^* \del{\nabla \psi}} + \psi^* \del{\nabla^2 \psi}} - \del{\del{\nabla^2 \psi^*} \psi + \cancel{\del{\nabla \psi^*} \nabla \psi}}}} \\
+           &= \frac{\hbar}{2mi} \del{\psi^* \del{\nabla^2 \psi} - \del{\nabla^2 \psi^*} \psi} \\
+           &= -\frac{\hbar}{2mi} \del{\del{\nabla^2 \psi^*}\psi - \psi^* \del{\nabla^2 \psi}} \\
+           &= -\od{}{t} \rho
+\end{align*}
+
+Therefore
+\begin{equation*}
+  \od{}{t} \rho + \nabla j = 0
+\end{equation*}
+
+
+\end{document}
