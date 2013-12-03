@@ -65,5 +65,31 @@ Therefore
   \od{}{t} \rho + \nabla j = 0
 \end{equation*}
 
+\section*{Exercise 3: Time dependence in the Heisenberge picture}
+\begin{enumerate}[a)]
+  \item
+    Using mathematical induction.
 
+    For $n=1$
+    \begin{equation*}
+      [x,p^n] = [x,p] = i \hbar = i \hbar n p^{n-1}
+    \end{equation*}
+
+    For the inductive step, we use the identitity from excercise sheet 4:
+    \begin{equation*}
+      [A,BC] = B[A,C] + [A,B]C
+    \end{equation*}
+
+    We have to show that if $[x,p^n] = i \hbar n p^{n-1}$, then $[x,p^{n+1}] =
+    i \hbar \del{n+1} p^n$.
+
+    \begin{align*}
+      [x,p^{n+1}] &= p^n[x,p] + [x,p^n]p \\
+                  &= p^n i \hbar + \del{i \hbar n p^{n-1}} p \\
+                  &= i \hbar \del{p^n + n p^{n-1} p} \\
+                  &= i \hbar (n+1) p^n
+    \end{align*}
+
+    Therefore the relation is true.
+\end{enumerate}
 \end{document}
