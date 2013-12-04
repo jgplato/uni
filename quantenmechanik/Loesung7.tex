@@ -90,6 +90,16 @@ Therefore
                   &= \braket{A^2} - 2\braket{A}^2 + \braket{A}^2 \\
                   &= \braket{A^2} - \braket{A}^2
     \end{align*}
+  \item
+    \begin{align*}
+      \sbr[x,p]\ket{\psi} &= \del{xp - px}\ket{\psi} \\
+                          &= \del{x \frac{\hbar}{i} \od{}{x} - \frac{\hbar}{i} \od{}{x} x} \ket{\psi} \\
+                          &= \del{-x \hbar i \od{}{x} + \hbar i \od{}{x} x} \ket{\psi} \\
+                          &= -x \hbar i \od{}{x} \ket{\psi} + \hbar i \od{}{x} x \ket{\psi} \\
+                          &= -x \hbar i \od{}{x} \ket{\psi} + \hbar i \del{\ket{\psi} + x \od{}{x}\ket{\psi}} \\
+                          &= \del{\cancel{-x \hbar i \od{}{x}} + \hbar i \cancel{+ x \hbar i \od{}{x}}} \ket{\psi} \\
+                          &= i \hbar \ket{\psi}
+    \end{align*}
 \end{enumerate}
 
 \section*{Exercise 3: Time dependence in the Heisenberge picture}
