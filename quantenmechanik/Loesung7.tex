@@ -128,5 +128,20 @@ Therefore
     \end{align*}
 
     Therefore the relation is true.
+  \item
+    \begin{align*}
+      \sbr{x, e^{-iHt}} &= x \exp\del{-iHt} - \exp\del{-iHt}x \\
+                        &= x \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} H^k - \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} H^k x \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} xH^k - \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} H^k x \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} \del{xH^k - H^kx} \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} \del{x \del{\frac{p^2}{2m}}^k - \del{\frac{p^2}{2m}}^k x} \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} \frac{1}{\del{2m}^k} \del{x p^{2k} - p^{2k} x} \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} \frac{1}{\del{2m}^k} \sbr{x,p^{2k}} \\
+                        &= \sum_{k=0}^\infty \frac{\del{-it}^k}{k!} \frac{1}{\del{2m}^k} i \hbar 2k p^{2k-1} \\
+                        &= 2 \hbar i \sum_{k=0}^\infty \frac{\del{-it}^k}{\del{k-1}!} \frac{p^{2k-1}}{\del{2m}^k} \\
+                        &= \frac{\del{2 \hbar i}\del{-it}}{2m} \sum_{k=0}^\infty \frac{\del{-it}^{k-1}}{\del{k-1}!} \frac{p^{2(k-1)}}{\del{2m}^{k-1}} p \\
+                        &= \frac{\hbar}{m} \exp\del{-it \frac{p^2}{2m}} p \\
+                        &= \frac{\hbar}{m} \exp\del{-it H} p
+    \end{align*}
 \end{enumerate}
 \end{document}
