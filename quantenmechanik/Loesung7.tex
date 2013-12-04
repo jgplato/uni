@@ -152,5 +152,21 @@ Therefore
            &= \frac{\hbar t}{m} \exp\del{iHt} p \exp\del{-iHt} + x \\
            &= \frac{\hbar t}{m} p(t) + x
     \end{align*}
+  \item
+    In the assignment, the time evolution operator is $\exp iHt$, therefore we
+    assume that per definition $\hbar = 1$. The correct time evoltion operator would be
+    $\exp \frac{iHt}{\hbar}$, so in the derivative an $\hbar$ would appear. We
+    just add the $\hbar$ in the middle.
+
+    \begin{align*}
+      \od{}{t} x(t) &= \od{}{t} \del{\exp\del{iHt} x \exp\del{-iHt}} \\
+                    &= \del{\pd{}{t} \exp\del{iHt}} x \exp\del{-iHt} +
+                       \exp\del{iHt} \underbrace{\del{\pd{}{t} x}}_{=0} \exp\del{-iHt} +
+                       \exp\del{iHt} x \del{\pd{}{t} \exp\del{-iHt}} \\
+                    &= \exp\del{iHt} \del{iH} x \exp\del{-iHt} + \exp\del{iHt}x \del{-iH} \exp\del{-iHt} \\
+                    &= -\frac{i}{\hbar}\del{\exp\del{iHt} H x \exp\del{-iHt} - \exp{iHt}xH\exp\del{-iHt}} \\
+                    &= -\frac{i}{\hbar}\del{H(t)x(t) - x(t)H(t)} \\
+                    &= -\frac{i}{\hbar} \sbr{H(t), x(t)}
+    \end{align*}
 \end{enumerate}
 \end{document}
