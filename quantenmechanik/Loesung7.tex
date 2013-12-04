@@ -226,7 +226,82 @@ Therefore
       &= p_0^2 + \frac{\hbar^2}{2\sigma_x^2}
     \end{align*}
 
+    \begin{align*}
+      \braket{p}^2 &= \del{
+                        \int\limits_{-\infty}^\infty 
+                        (2\pi\sigma_x^2)^{-1/4} \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} - \frac{ip_0x}{\hbar}}
+                        \frac{\hbar}{i} \pd{}{x}
+                        (2\pi\sigma_x^2)^{-1/4} \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} + \frac{ip_0x}{\hbar}}
+                        \dif x
+                       }^2 \\
+                    &= \del{
+                       (2\pi\sigma_x^2)^{-1/2} \frac{\hbar}{i}
+                        \int\limits_{-\infty}^\infty
+                        \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} - \frac{ip_0x}{\hbar}}
+                        \pd{}{x}
+                        \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} + \frac{ip_0x}{\hbar}}
+                        \dif x
+                       }^2
+    \end{align*}
+
+    Solving the integral:
+    \begin{align*}
+      \quad&\int\limits_{-\infty}^\infty
+      \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} - \frac{ip_0x}{\hbar}}
+      \pd{}{x}
+      \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} + \frac{ip_0x}{\hbar}}
+      \dif x \\
+      &=
+      \int\limits_{-\infty}^\infty
+      \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} - \frac{ip_0x}{\hbar}}
+      \del{\frac{-(x-x_0)}{2\sigma_x^2} + \frac{ip_0}{\hbar}}
+      \exp\del{-\frac{-(x-x_0)}{4\sigma_x^2} + \frac{ip_0x}{\hbar}}
+      \dif x \\
+      &=
+      \int\limits_{-\infty}^\infty
+      \del{\frac{-(x-x_0)}{2\sigma_x^2} + \frac{ip_0}{\hbar}}
+      \exp\del{-\frac{-(x-x_0)}{2\sigma_x^2}}
+      \dif x \\
+    \end{align*}
+
+    First part:
+    \begin{align*}
+      \int\limits_{-\infty}^\infty
+      \frac{-(x-x_0)}{2\sigma_x^2}
+      \exp\del{-\frac{-(x-x_0)}{2\sigma_x^2}}
+      \dif x
+      &= 0
+    \end{align*}
+
+    Second part:
+    \begin{align*}
+      \int\limits_{-\infty}^\infty
+      \frac{ip_0}{\hbar}
+      \exp\del{-\frac{-(x-x_0)}{2\sigma_x^2}}
+      \dif x \\
+      &= \frac{ip_0}{\hbar} \sqrt{2\sigma_x \pi}
+    \end{align*}
+
+    Which results in:
+    \begin{align*}
+      \braket{p}^2 &= \del{2 \pi \sigma_x^2}^{-1} \frac{\hbar}{i^2} \frac{i^2p_0^2}{\hbar^2} \del{2 \pi \sigma_x^2} \\
+                   &= p_0^2
+    \end{align*}
+
+    So we get
+    \begin{align*}
+      \braket{p^2} - \braket{p}^2 = p_0^2 + \frac{\hbar^2}{2\sigma_x^2} - p_0^2 = \frac{\hbar^2}{2\sigma_x^2}
+    \end{align*}
+
+    And the final result is
+    \begin{equation*}
+      \Var(x)\Var(p) = \sigma_x^2 \frac{\hbar^2}{2 \sigma_x^2} = \frac{\hbar^2}{2}
+    \end{equation*}
+
   \item
+    \begin{align*}
+      \sbr{a,a^\dagger} &= aa^\dagger - a^\dagger a
+    \end{align*}
 
 \end{enumerate}
 
