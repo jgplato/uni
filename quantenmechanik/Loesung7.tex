@@ -137,6 +137,95 @@ Therefore
     \begin{align*}
       \Var\del{x} = \braket{x^2} - \braket{x}^2 = \sigma_x^2
     \end{align*}
+
+    \begin{align*}
+      \Var(p) = \braket{p^2} - \braket{p}^2
+    \end{align*}
+
+    \begin{align*}
+      \braket{p^2} &= 
+        \int\limits_{-\infty}^\infty
+        \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} - \frac{ip_0x}{\hbar}}
+        \del{\frac{\hbar^2}{i^2} \pd[2]{}{x}}
+        \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} + \frac{ip_0x}{\hbar}}
+        \dif x \\
+        &= \frac{\hbar^2}{i^2} \del{2 \pi \sigma_x^2}^{-1/2} \int\limits_{-\infty}^\infty
+        \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} - \frac{ip_0x}{\hbar}}
+        \pd[2]{}{x}
+        \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} + \frac{ip_0x}{\hbar}}
+        \dif x \\
+    \end{align*}
+
+    Solving the derivative:
+    \begin{align*}
+      \quad&\pd[2]{}{x} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} + \frac{ip_0x}{\hbar}} \\
+      &= \pd{}{x} \del{-\frac{2(x-x_0)}{4\sigma_x^2} + \frac{ip_0}{\hbar} \exp\del{-\frac{(x-x_0)^2}{4\sigma_x} + \frac{ip_0x}{\hbar}}} \\
+      &= -\frac{1}{2 \sigma_x^2} \exp\del{-\frac{(x-x_0)^2}{4\sigma_x} + \frac{ip_0x}{\hbar}} +
+      \del{\del{-\frac{2(x-x_0)}{4\sigma_x^2} + \frac{ip_0}{\hbar}}^2 \exp\del{-\frac{(x-x_0)^2}{4\sigma_x} + \frac{ip_0x}{\hbar}}} \\
+      &= \del{-\frac{1}{2 \sigma_x^2} +
+      \del{-\frac{2(x-x_0)}{4\sigma_x^2} + \frac{ip_0}{\hbar}}^2} 
+      \exp\del{-\frac{(x-x_0)^2}{4\sigma_x} + \frac{ip_0x}{\hbar}}
+    \end{align*}
+
+    Results in the integral
+    \begin{align*}
+      \frac{\hbar^2}{i^2} \del{2 \pi \sigma_x^2}^{-1/2} \int\limits_{-\infty}^\infty 
+      \del{\frac{(x-x_0)^2}{4\sigma_x^4} - \frac{ip_0(x-x_0)}{\hbar^2} - \frac{p_0^2}{\hbar^2} - \frac{1}{2\sigma_x^2}}
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x
+    \end{align*}
+
+    Solving the integrals over the first bracket. Part 1:
+    \begin{align*}
+      \quad&\int\limits_{-\infty}^\infty
+      \frac{(x-x_0)^2}{4\sigma_x^4}
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &=
+      \frac{1}{2\sigma_x^2} \int\limits_{-\infty}^\infty
+      \frac{(x-x_0)^2}{2\sigma_x^2}
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &=
+      \frac{1}{2 \sigma_x^2} \frac{\sqrt{2 \sigma_x \pi}}{2} \\
+      &= \frac{\sqrt{2 \sigma_x \pi}}{4 \sigma_x^2}
+    \end{align*}
+    Part 2:
+    \begin{align*}
+      \quad&\int\limits_{-\infty}^\infty
+      \frac{-ip_0(x-x_0)}{\hbar^2}
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &=
+      \frac{-ip_0}{\hbar^2} \int\limits_{-\infty}^\infty
+      (x-x_0)
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &= 0
+    \end{align*}
+
+    Part 3:
+    \begin{align*}
+      \quad&\int\limits_{-\infty}^\infty
+      -\del{\frac{p_0}{\hbar^2} + \frac{1}{2\sigma_x^2}}
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &=
+      -\del{\frac{p_0}{\hbar^2} + \frac{1}{2\sigma_x^2}}
+      \int\limits_{-\infty}^\infty
+      \exp\del{-\frac{(x-x_0)^2}{2\sigma_x^2}} \dif x \\
+      &=
+      -\del{\frac{p_0}{\hbar^2} + \frac{1}{2\sigma_x^2}}
+      \sqrt{2 \sigma_x^2 \pi}
+    \end{align*}
+
+    Which results in
+    \begin{align*}
+      \braket{p^2} &= \frac{\hbar^2}{i^2}(2 \pi \sigma_x^2)^{-1/2} \del{
+        \frac{\sqrt{2 \sigma_x \pi}}{4 \sigma_x^2} +
+        0 -
+        \del{\frac{p_0}{\hbar^2} + \frac{1}{2\sigma_x^2}} \sqrt{2 \sigma_x^2 \pi}
+      } \\
+      &=
+      \frac{\hbar^2}{i^2} \del{\frac{1}{4\sigma_x^2} - \frac{p_0^2}{\hbar^2} - \frac{1}{2 \sigma_x^2}} \\
+      &= \frac{\hbar^2}{i^2} \del{\frac{-p_0^2}{\hbar^2} - \frac{1}{2\sigma_x^2}} \\
+      &= p_0^2 + \frac{\hbar^2}{2\sigma_x^2}
+    \end{align*}
+
   \item
 
 \end{enumerate}
