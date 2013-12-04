@@ -100,6 +100,45 @@ Therefore
                           &= \del{\cancel{-x \hbar i \od{}{x}} + \hbar i \cancel{+ x \hbar i \od{}{x}}} \ket{\psi} \\
                           &= i \hbar \ket{\psi}
     \end{align*}
+  \item
+    \begin{align*}
+      \Var\del{x} = \braket{x^2} - \braket{x}^2
+    \end{align*}
+
+    \begin{align*}
+      \braket{x^2} &= \braket{\psi|x^2|\psi^2} \\
+                   &= \int\limits_{-\infty}^{\infty} \psi^* x^2 \psi \dif x \\
+                   &= \int\limits_{-\infty}^\infty
+      \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} - \frac{ip_0x}{\hbar}}
+      x^2
+      \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} + \frac{ip_0x}{\hbar}}
+      \dif x \\
+                   &=
+      \del{2 \pi \sigma_x^2}^{-1/2}
+      \int\limits_{-\infty}^\infty x^2 \exp\del{\frac{-(x-x_0)^2}{2 \sigma_x^2}} \dif x \\
+      &= \del{2 \pi \sigma_x^2}^{-1/2} 2 \sigma_x^2
+      \int\limits_{-\infty}^\infty \frac{x^2}{2 \sigma_x^2} \exp\del{\frac{-(x-x_0)^2}{2 \sigma_x^2}} \dif x \\
+      &= \cancel{\del{2 \pi \sigma_x^2}^{-1/2}} \cancel{2} \sigma_x^2 \frac{\cancel{\sqrt{2 \sigma_x^2 \pi}}}{\cancel{2}} \\
+      &= \sigma_x^2
+    \end{align*}
+
+    \begin{align*}
+      \braket{x}^2 &= 
+      \del{\int\limits_{-\infty}^\infty
+      \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} - \frac{ip_0x}{\hbar}}
+      x
+      \del{2 \pi \sigma_x^2}^{-1/4} \exp\del{\frac{-(x-x_0)^2}{4 \sigma_x^2} + \frac{ip_0x}{\hbar}}
+      \dif x}^2 \\
+      &= \del{\del{2 \pi \sigma_x^2}^{-1/4} \int\limts_{-\infty}^\infty x \exp\del{\frac{-(x-x_0)^2}{2\sigma_x^2} \diff x}}^2 \\
+      &= \del{\del{2 \pi \sigma_x}^2 \cdot 0}^2 = 0
+    \end{align*}
+
+    Therefore
+    \begin{align*}
+      \Var\del{x} = \braket{x^2} - \braket{x}^2 = \sigma_x^2
+    \end{align*}
+  \item
+
 \end{enumerate}
 
 \section*{Exercise 3: Time dependence in the Heisenberge picture}
