@@ -25,6 +25,7 @@
 \linespread{1.5}
 \setlength\parindent{0pt}
 \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
 \begin{document}
 \allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
 \begin{center}
@@ -64,6 +65,32 @@ Therefore
 \begin{equation*}
   \od{}{t} \rho + \nabla j = 0
 \end{equation*}
+
+\section*{Exercise 2: Uncertainty principle}
+\begin{enumerate}[a)]
+  \item
+    To be shown
+    \begin{equation*}
+      \Var\del{A} = \braket{A^2} - \braket{A}^2
+    \end{equation*}
+    It is
+    \begin{equation*}
+      \braket{A} = \braket{\psi|A|\psi}
+    \end{equation*}
+    Therefore
+    \begin{align*}
+      \Var\del{A} &= \braket{\del{A - \braket{A}}^2} \\
+                  &= \braket{A^2 - A\braket{A} - \braket{A}A + \braket{A}^2} \\
+                  &= \braket{A^2 - 2A\braket{A} + \braket{A}^2} \\
+                  &= \braket{\psi|\del{A^2 - 2A\braket{A} + \braket{A}^2}|\psi} \\
+                  &= \braket{\psi|A^2|\psi} + \braket{\psi|\del{-2A\braket{A}}|\psi}+ \braket{\psi|\braket{A}^2|\psi} \\
+                  &= \braket{A^2} - 2\braket{A}\braket{\psi|A|\psi} + \braket{\psi|\braket{A}^2|\psi} \\
+                  &= \braket{A^2} - 2\braket{A}\braket{A} + \braket{\psi|\braket{A}^2|\psi} \\
+                  &= \braket{A^2} - 2\braket{A}\braket{A} + \braket{A}^2 \cancelto{1}{\braket{\psi|\psi}} \\
+                  &= \braket{A^2} - 2\braket{A}^2 + \braket{A}^2 \\
+                  &= \braket{A^2} - \braket{A}^2
+    \end{align*}
+\end{enumerate}
 
 \section*{Exercise 3: Time dependence in the Heisenberge picture}
 \begin{enumerate}[a)]
