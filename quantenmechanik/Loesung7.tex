@@ -73,11 +73,7 @@ Therefore
     \begin{equation*}
       \Var\del{A} = \braket{A^2} - \braket{A}^2
     \end{equation*}
-    It is
-    \begin{equation*}
-      \braket{A} = \braket{\psi|A|\psi}
-    \end{equation*}
-    Therefore
+    Using $\braket{A} = \braket{\psi|A|\psi}$:
     \begin{align*}
       \Var\del{A} &= \braket{\del{A - \braket{A}}^2} \\
                   &= \braket{A^2 - A\braket{A} - \braket{A}A + \braket{A}^2} \\
@@ -278,14 +274,14 @@ Therefore
       \int\limits_{-\infty}^\infty
       \frac{ip_0}{\hbar}
       \exp\del{-\frac{-(x-x_0)}{2\sigma_x^2}}
-      \dif x \\
+      \dif x
       &= \frac{ip_0}{\hbar} \sqrt{2\sigma_x \pi}
     \end{align*}
 
     Which results in:
     \begin{align*}
-      \braket{p}^2 &= \del{2 \pi \sigma_x^2}^{-1} \frac{\hbar}{i^2} \frac{i^2p_0^2}{\hbar^2} \del{2 \pi \sigma_x^2} \\
-                   &= p_0^2
+      \braket{p}^2 &= \del{2 \pi \sigma_x^2}^{-1} \frac{\hbar^2}{i^2} \frac{i^2p_0^2}{\hbar^2} \del{2 \pi \sigma_x^2}
+                   = p_0^2
     \end{align*}
 
     So we get
