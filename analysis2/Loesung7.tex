@@ -31,7 +31,7 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
 \vspace{-10pt}
 \end{center}
 \allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
-\section*{Aufgabe 6.1}
+\section*{Aufgabe 7.1}
 \begin{enumerate}[(1)]
   \item
     \begin{align*}
@@ -125,7 +125,89 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     \end{align*}
 \end{enumerate}
 
+\section*{Aufgabe 7.2}
+\begin{enumerate}[(1)]
+  \item Dazu pr"ufen wir zun"achst:
+    \begin{align*}
+      (1,2): &1\cdot e^{0+0} + 2 \cdot 0 \cdot 0 = 1 &&\Rightarrow \text{ wahre Aussage} \\
+             &2\cdot e^{0+0} - \frac{0}{1+0} = 2     &&\Rightarrow \text{ wahre Aussage}
+    \end{align*}
+
+    Ferner gilt:
+    \begin{align*}
+                           &ye^{u-v} - \frac{u}{1+v} = 2x \\
+      \Leftrightarrow\quad &ye^{2u} - \frac{ue^{u+v}}{1+v} = 2xe^{u+v} \\
+      \Leftrightarrow\quad &\frac{ye^{2u}}{2} - \frac{ue^{u+v}}{2\del{1+v}} = xe^{u+v} \\
+    \end{align*}
+
+    ...WTF? Luis, was ist da los?
+\end{enumerate}
 
 
+\section*{Aufgabe 7.3}
+  $a<b, a,b \in \mathbb{R}^+$. Suche $x,y$ sodass $a < x < y < b$ und
+  $\frac{xy}{(a+x)(x+y)(y+b)}$ maximal wird. Das hei"st das Skalarfeld $f(x,y)$
 
+  \begin{equation}
+    f(x,y) = \frac{xy}{(a+x)(x+y)(y+b)}
+  \end{equation}
+  ist unter gegebenen Nebenbedingungen zu maximieren. % Luis schreibt "minimieren", ist nicht richtig, oder?
+
+  Notwendige Bedingung: $\vec{\operatorname{grad}} f(x,y) = \vec{0}$.
+  \begin{equation}
+    \begin{pmatrix}
+      \pd{f}{x}(x,y) \\
+      \pd{f}{y}(x,y)
+    \end{pmatrix}
+    =
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+  \end{equation}
+
+  Wir l"osen mit Quotientenregel
+  \begin{enumerate}[(1)]
+    \item
+      \begin{align*}
+        \pd{f}{x}(x,y) &= \frac{y(x+a)(y+x)(y+b) - xy(y+b)\del{(y+x)+(x+a)}}{(x+a)^2(y+x)^2(y+b)^2} \\
+                       &= \frac{ay^2 -yx^2}{(a+x)^2(b+y)(x+y)^2}
+      \end{align*}
+      \item
+        Aus Symmetriegr"unden (vertauschen von $a,b$ und $x,y$ gilt
+        \begin{align*}
+        \pd{f}{x}(x,y) &= \frac{bx^2 -xy^2}{(b+y)^2(a+x)(x+y)^2}
+        \end{align*}
+  \end{enumerate}
+
+  Um nun den Extremwert zu finden, setzen wir den Gradienten Null. Dazu müssen die Zähler null werden. Wir erhalten das Gleichungssystem:
+  \begin{align*}
+    ay^2 - yx^2 &= 0\\
+    bx^2 - xy^2 &= 0
+  \end{align*}
+
+  Da $y > 0$ erhalten wir aus der ersten Gleichung
+  \begin{equation*}
+    y = \frac{x^2}{a}
+  \end{equation*}
+
+  Einsetzen in die zweite Gleichung liefert
+  \begin{align*}
+                         & bx = \frac{x^4}{a^2} \\
+    \Leftrightarrow\quad & x^3 = a^2b \\
+    \Leftrightarrow\quad & x   = \sqrt[3]{a^2b}
+  \end{align*}
+
+  Aus Symmetriegründen (siehe oben) folgt damit das Minimum
+  \begin{align*}
+    x = \sqrt[3]{a^2 b}, y = \sqrt[3]{ab^2}
+  \end{align*}
+
+  Prüfen, ob dies $a<x<y<b$ erfüllt:
+  \begin{align*}
+    a<x : a = \sqrt[3]{a^3} < \sqrt[3]{a^2b} = x \\
+    x<y : y = \sqrt[3]{a^2b} < \sqrt[3]{ab^2} = y \\
+    y<b : y = \sqrt[3]{a^2b} < \sqrt[3]{b^3} = b
+  \end{align*}
+
+  Dieser Punkt ist also stark maximumsverdächtig (weil Extremwert). Zu prüfen,
+  ob es sich wirklich um ein Maximum oder ein Minimum handelt war nicht mehr
+  Teil der Aufgabenstellung.
 \end{document}
