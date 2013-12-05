@@ -1,0 +1,107 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{commath}
+\pgfplotsset{compat=1.7}
+\usepgfplotslibrary{polar}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 7. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\section*{Aufgabe 6.1}
+\begin{enumerate}[(1)]
+  \item
+    \begin{align*}
+                            &x^2 + y^2 + z^2 = 3xyz \\
+      \Leftrightarrow\quad  &x^2 + y^2 + z^2 - 3xyz = 0 \\
+      \Rightarrow\quad      &F(x,y,z) = x^2 + y^2 + z^2 - 3xyz \\
+    \end{align*}
+
+    Wir prüfen $\pd{F}{z}\del{1,1,1} \neq 0$:
+    \begin{align*}
+                          &\pd{F}{z} = 2z - 3xy \\
+      \Rightarrow\quad    &\pd{F}{z}(1,1,1) = 2-3 = -1
+    \end{align*}
+
+    Also gilt nach dem Satz über implizite Funktionen:
+    \begin{align*}
+      \pd{f}{x}(1,1) = \frac{\pd{F}{x}(1,1,f(1))}{\pd{F}{z}(1,1,f(1))}
+    \end{align*}
+
+    Nach dem Satz über implizite Funktionen gilt:
+    \begin{align*}
+      \pd{f}{x}(x,y) = \frac{\pd{F}{x}\del{x,y,f(x,y)}}{\pd{F}{z}\del{x,y,f(x,y)}}
+    \end{align*}
+
+    Dabei muss $f(x,y)$ bei $(x,y,z) = (1,1,1)$ erfüllen $f(1,1) = 1$. Wir rechnen also nach:
+
+    \begin{align*}
+      \pd{f}{x}\del{x,y,f(x,y)} = \pd{}{x} \del{x^2 + y^2 + f(x,y)^2 - 3xyf(x,y)} = 2x
+    \end{align*}
+
+    Durch Ableiten ergibt sich:
+    \begin{align*}
+                           &\pd{F}{x}\del{x,y,f(x,y)} = 0 \\
+      \Leftrightarrow\quad &\pd{}{x}(x^2 + y^2 + f(x,y)^2 - 3xyf(x,y)) = 0 \\
+      \Leftrightarrow\quad &2x +2f(x,y) \pd{}{x} f(x,y) - 3y f(x,y) - 3xy \pd{}{x} f(x,y) = 0 \\
+      \Leftrightarrow\quad &2f(x,y)\pd{}{x}f(x,y) - 3xy \pd{}{x}f(x,y) = 3yf(x,y) - 2x \\
+      \Leftrightarrow\quad &\pd{}{x}f(x,y) \del{2f(x,y) - 3xy} = 3yf(x,y) - 2x \\
+      \Leftrightarrow\quad &\pd{}{x}f(x,y) = \frac{3yf(x,y) - 2x}{2f(x,y) - 3xy}
+    \end{align*}
+
+    Nun setzen wir ein: $x=1, y=1, f(x,y) = 1$:
+
+    \begin{align*}
+      \pd{}{x} f(1,1) = \frac{3-2}{2-3} = -1
+    \end{align*}
+
+    Wir verfahren analog für $g$. Sei $y = g(x,z)$. Prüfe:
+    \begin{align*}
+      \pd{F}{y}(x,y,z) = \pd{}{x}(x^2 + y^2+z^2-3xyz) = 2y-3xz
+    \end{align*}
+
+    Im Punkt $(1,1,1)$:
+    \begin{align*}
+      \pd{F}{y}(1,1,1) = 2-3 = -1 \neq 0
+    \end{align*}
+
+    Damit berechnen wir:
+    \begin{align*}
+      \pd{g}{x}(x,z) &= \frac{\pd{F}{x}(x, g(x,z), z)}{\pd{F}{y}(x,y,z)} \\
+                     &= \frac{\pd{}{x}(x^2+y^2+z^2 - 3xyz}{\pd{}{y} (x^2+y^2+z^2 - 3xyz} \\
+                     &= \frac{-(2x-3yz)}{2y - 3xz}
+    \end{align*}
+
+    Für $(x,y,z) = (1,1,1)$:
+    \begin{align*}
+      \pd{g}{x}(1,1) = \frac{-(2-3)}{2-3} = -1
+    \end{align*}
+\end{enumerate}
+
+
+
+
+\end{document}
