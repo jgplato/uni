@@ -99,6 +99,30 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
     \begin{align*}
       \pd{g}{x}(1,1) = \frac{-(2-3)}{2-3} = -1
     \end{align*}
+  \item
+    Wir betrachten $h(x,y,z = xy^2z^3 \Rightarrow h(x,y,f(x,y)) = xy^2f(x,y)^3$.
+
+    \begin{align*}
+      \pd{}{x} h(x,y,f(x,y)) &= \pd{}{x}(xy^2f(x,y)^3) \\
+                             &= y^2f(x,y)^3 + xy^2 \pd{}{x}f(x,y)^3 \\
+                             &= y^2f(x,y)^3 + 3xy^2f(x,y)^2 \pd{}{x} f(x,y)
+    \end{align*}
+
+    Im Punkt $(1,1)$:
+    \begin{align*}
+      \pd{}{x} h(x,y,f(x,y))(1,1) = \pd{}{x} h(1,1,f(1,1)) = 1^2\cdot 1^3 + 3 \cdot 1 \cdot 1 \cdot 1 \cdot (-1) = 1-3 = 2
+    \end{align*}
+
+    Analog verfahren wir im zweiten Fall:
+    \begin{align*}
+      \pd{}{x}h(x,g(x,z),z) &= \pd{}{x}(xg(x,z)^2z^3) \\
+                            &= g(x,z)^2z^3 + x2g(x,z) \pd{}{x} g(x,z) z^3
+    \end{align*}
+
+    Demnach ist
+    \begin{align*}
+      \pd{}{x} h(1,g(1,1),1) = 1^21^2 + 1 \cdot 2 \cdot 1 \cdot (-1) \cdot 1^3 = 1-2 = -1
+    \end{align*}
 \end{enumerate}
 
 
