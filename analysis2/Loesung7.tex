@@ -210,4 +210,72 @@ Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
   Dieser Punkt ist also stark maximumsverdächtig (weil Extremwert). Zu prüfen,
   ob es sich wirklich um ein Maximum oder ein Minimum handelt war nicht mehr
   Teil der Aufgabenstellung.
+\section*{Aufgabe 7.4}
+
+Die Kreisgleichung von $K_{(0,1)}(r)$ ist $r^2 = x^2 + (y-1)^2$. Der Radius ist:
+\begin{equation}
+  r(x,y) = \sqrt{x^2 + (y-1)^2}
+\end{equation}
+
+Nebenbedingung für die Extremierung des Radius ist:
+\begin{equation}
+  (x,y) \in \{(x,y): \frac{x^2}{4} + \frac{y^2}{9} < 1\}
+\end{equation}
+
+Also müssen wir fordern:
+\begin{align*}
+  g(x,y) = \frac{x^2}{4} + \frac{y^2}{9} - 1 = 0
+\end{align*}
+
+\begin{align*}
+  I   \qquad &\pd{r}{x}(x,y) = \lambda \pd{g}{x}(x,y) \\
+  II  \qquad &\pd{r}{y}(x,y) = \lambda \pd{g}{y}(x,y) \\
+  III \qquad &\frac{x^2}{4} + \frac{y^2}{9} - 1 = 0
+\end{align*}
+
+\begin{align*}
+  I   \qquad &2x \sqrt{x^2 + (y-1)^2} = \lambda \frac{x}{2} \\
+  II  \qquad &2(y-1) \sqrt{x^2 + (y-1)^2} = \lambda \frac{2y}{9} \\
+\end{align*}
+
+\begin{align*}
+  I \qquad &  \sqrt{x^2 + (y-1)^2} = \frac{\lambda}{4} \\
+  \Rightarrow II  \qquad &2(y-1) \frac{\lambda}{4}  = \lambda \frac{2y}{9} \\
+  \Leftrightarrow\qquad & \frac{y \lambda}{2} - \frac{\lambda}{2}  = \lambda \frac{2y}{9} \\
+  \Leftrightarrow\qquad & y \lambda - \lambda  = \lambda \frac{4}{9}\lambda y \\
+  \Leftrightarrow\qquad & y \lambda\del{1 - \frac{4}{9}}  = \lambda \\
+  \Leftrightarrow\qquad & \frac{5}{9} y = 1 \Leftrightarrow y = \frac{9}{5} \\
+  \Rightarrow III \qquad &\frac{x^2}{4} + \del{\frac{9}{5}}^2 \cdot \frac{1}{9} - 1 = 0 \\
+  \Leftrightarrow\qquad & \frac{x^2}{4} + \frac{9}{25} - 1 = 0 \\
+  \Leftrightarrow\qquad & \frac{x^2}{4} - \frac{16}{25} = 0 \\
+  \Leftrightarrow\qquad & x^2 - \frac{64}{25} = 0 \\
+  \Leftrightarrow\qquad & x^2  = \pm\sqrt{\frac{64}{25}} \\
+  \Leftrightarrow\qquad & x  = \pm \frac{8}{5} \\
+  \Rightarrow\qquad & x  = \frac{8}{5} \text{ (weil $x \in \mathbb{R}^+$)} \\
+\end{align*}
+
+Damit ist $r(x,y)$ klar ($\lambda$ interessiert uns nicht):
+\begin{align*}
+  r(x,y) &= \sqrt{\del{\frac{8}{5}}^2 + \del{\frac{9}{5} - 1}^2} \\
+         &= \sqrt{\frac{64}{25} + \frac{16}{25}} \\
+         &= \sqrt{\frac{80}{25}} \\
+         &= \sqrt{\frac{80}{25}} = \frac{4\sqrt{5}}{5}
+\end{align*}
+
+Wir prüfen noch die Gradientenbedingung:
+\begin{align*}
+  \operatorname{grad} g = \begin{pmatrix}
+    \pd{g}{x}(x,y) \\
+    \pd{g}{y}(x,y)
+  \end{pmatrix} = \begin{pmatrix}
+    \frac{x}{2} \\
+    \frac{2y}{9}
+  \end{pmatrix}
+\end{align*}
+
+Da dies nur gilt, wenn $(x,y) = (0,0)$ ist unser gefundener Punkt legitim.
+
+Ob es sich um ein Maximum oder ein Minimum handelt müssen wir nicht prüfen. Das
+Minimum liegt ganz geometrisch anschaulich bei $r=0$, weitere Minima gibt es
+nicht, also handelt es sich um ein Maximum.
 \end{document}
