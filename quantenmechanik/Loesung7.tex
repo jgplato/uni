@@ -300,7 +300,27 @@ Therefore
 
   \item
     \begin{align*}
-      \sbr{a,a^\dagger} &= aa^\dagger - a^\dagger a
+      \sbr{a,a^\dagger} &= aa^\dagger - a^\dagger a \\
+      &= \frac{\del{\omega m x + i p}\del{\omega m x - ip}}{2 \omega m \hbar} - \frac{\del{\omega m x - ip}\del{\omega m x + i p}}{2 \omega m \hbar} \\
+      &= \frac{\cancel{\omega^2 m^2 x^2} - i \omega m \del{xp -px} \cancel{+ p^2}}{2 \omega m \hbar} -
+          \frac{\cancel{\omega^2 m^2 x^2} - i \omega m \del{px-xp} \cancel{+ p^2}}{2 \omega m \hbar} \\
+          &= \frac{-i \omega m \del{\del{xp-px} - \del{px-xp}}}{2 \omega m \hbar} \\
+          &= \frac{-i \omega m \del{[x,p] - [p,x]}}{2 \omega m \hbar} \\
+          \intertext{Because $[a,b] = -[b,a]$:}
+          &= \frac{-i \omega m 2\del{[x,p]}}{2 \omega m \hbar} \\
+          &= \frac{-i \omega m 2 i \hbar}{2 \omega m \hbar} \\
+          &= \frac{2 \omega m \hbar}{2 \omega m \hbar} \\
+          &= 1
+    \end{align*}
+
+    \begin{align*}
+      H &= \hbar \omega \del{a^\dagger a + \frac{1}{2}} \\
+        &= \hbar \omega \del{\frac{\omega m x - i p}{\sqrt{2 \omega m \hbar}} \frac{\omega m x + i p}{\sqrt{2 \omega m \hbar}} + \frac{1}{2}} \\
+        &= \hbar \omega \del{\frac{\omega^2m^2x^2 + \omega m x ip - ip\omega m x + p^2}{2 \omega m \hbar} + \frac{1}{2}} \\
+        &= \frac{\omega^2 m^2 x^2}{2 m} + \frac{\omega m x i p + i p \omega m x}{2m} + \frac{p^2}{2m} + \frac{\hbar \omega}{2} \\
+        &= \frac{\omega^2 m^2 x^2}{2 m} + \frac{\omega m i [x,p]}{2m} + \frac{p^2}{2m} + \frac{\hbar \omega}{2} \\
+        &= \frac{\omega^2 m^2 x^2}{2 m} \cancel{- \frac{\omega \hbar}{2}} + \frac{p^2}{2m} + \cancel{\frac{\hbar \omega}{2}} \\
+        &= \frac{m \omega^2 x^2}{2} + \frac{p^2}{2m}
     \end{align*}
 
 \end{enumerate}
