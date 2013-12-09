@@ -1,0 +1,44 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{commath}
+\pgfplotsset{compat=1.7}
+\usepgfplotslibrary{polar}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2013, 8. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\section*{Aufgabe 8.1}
+Da $f(x,y) = 2y$ linear nur von $y$ abhängig ist (und daher bei größer
+werdendem $y$ monoton steigt), muss das Minimum, falls existent, an dem, durch
+die Nebenbedingung gegebenen, kleinstmöglichen $y$ liegen.
+
+Die Nebenbedingung kann parametrisiert werden durch $y(x) = \sqrt[5]{3x^2}$.
+Wegen der Monotonie der Wurzel suchen wir das Minimum von $3x^2$, das liegt
+bekanntermaßen bei $x=0$. Daraus folgt $y(x) = 0$.
+
+Daher gibt es ein Minimum und dieses liegt bei $(x,y) = (0,0)$.
+\end{document}
