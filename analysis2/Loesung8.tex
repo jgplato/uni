@@ -41,4 +41,24 @@ Wegen der Monotonie der Wurzel suchen wir das Minimum von $3x^2$, das liegt
 bekanntermaßen bei $x=0$. Daraus folgt $y(x) = 0$.
 
 Daher gibt es ein Minimum und dieses liegt bei $(x,y) = (0,0)$.
+\section*{Aufgabe 8.4}
+
+Wir berechnen zuerst die benötigten partiellen Ableitungen (und den
+Funktionswert) von $f(x,y) = \sin \frac{x}{y}$ an der Stelle $(\pi,1)$.
+
+\begin{align*}
+  f(x,y)              &=                  \sin \frac{x}{y}                                    &&= 0          \\
+  \pd{f}{x}           &=  \frac{1}{y}     \cos \frac{x}{y}                                    &&= -1         \\
+  \pd{f}{y}           &= -\frac{x}{y^2}   \cos \frac{x}{y}                                    &&= - \pi      \\
+  \pd[2]{f}{x}        &= - \frac{1}{y^2}  \sin \frac{x}{y}                                    &&= 0          \\
+  \md{f}{2}{x}{}{y}{} &= -\frac{1}{y^2}   \cos \frac{x}{y} + \frac{x}{y^3}   \sin \frac{x}{y} &&= 1 + 0      \\
+  \pd[2]{f}{y}        &=  \frac{2x}{y^3}  \cos \frac{x}{y} - \frac{x^2}{y^4} \sin \frac{x}{y} &&= -2 \pi - 0 \\
+\end{align*}
+
+Damit schreiben wir nun das Taylorpolynom auf.
+
+\begin{align*}
+  \sin \frac{\pi + u}{1 + v} = -(u - \pi) + \pi(v-1) + (u-\pi)(v-1) - \pi (v-1)^2 + \dots
+\end{align*}
+
 \end{document}
