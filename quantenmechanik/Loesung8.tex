@@ -56,5 +56,55 @@ we get
 \begin{equation*}
   H = \hbar \omega \del{a^\dagger a + \frac{1}{2}} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m} \del{a + a^\dagger}
 \end{equation*}
+
+\item
+Inserting $\tilde x = x + x_0 \Leftrightarrow x = \tilde x - x_0$ into the
+given Hamiltonian leads:
+
+\begin{align*}
+  H &= \frac{1}{2m} p^2 + \frac{m \omega^2}{2} \del{\tilde x - x_0}^2 + \lambda \del{\tilde x - x_0} \\
+    &= \frac{1}{2m} p^2 + \underbrace{\frac{m \omega^2}{2} \tilde x^2}_{= U_0(\tilde x} + \underbrace{\del{\lambda - m\omega^2 x_0}}_{= \tilde \lambda} \tilde x + \underbrace{\frac{m \omega^2}{2} x_0^2 - \lambda x_0}_{=u_0} \\
+    &= \frac{1}{2m} p^2 + U_0(\tilde x) + \tilde \lambda \tilde x + u_0
+\end{align*}
+
+In order to find the $b$ and $b^\dagger$ operators, we write the Hamiltonian as
+\begin{align*}
+  H &= \hbar \omega \del{a^\dagger a + \frac{1}{2} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} \del{a + a^\dagger}} \\
+    &\overset{?}{=} k_1 \del{b^\dagger b + k_2}
+\end{align*}
+
+We see that $k_1 = \hbar \omega$. We then define $b = a + c$ and $b = a^\dagger + c^\dagger$. Which leads to
+
+\begin{align*}
+  &a^\dagger a + \frac{1}{2} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} \del{a + a^\dagger} = b^\dagger b + k_2 \\
+  \Leftrightarrow\quad
+  &a^\dagger a + \frac{1}{2} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} \del{a + a^\dagger} = \del{a^\dagger + c^\dagger}\del{a + c} + k_2 \\
+  \Leftrightarrow\quad
+  &\cancel{a^\dagger a} + \frac{1}{2} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} \del{a + a^\dagger} = \cancel{a^\dagger a} + a^\dagger c + c^\dagger a + c^\dagger c + k_2
+  \intertext{Setting $c = c^\dagger = \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}$:}
+  \Leftrightarrow\quad
+  &\frac{1}{2} + \cancel{\lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} a} + \cancel{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} a^\dagger} = \cancel{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} a^\dagger}  + \cancel{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} a} + \del{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}}^2 + k_2 \\
+  \Leftrightarrow\quad
+  &\frac{1}{2} = \del{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}}^2 + k_2 \\
+  \Leftrightarrow\quad
+  &k_2 = \frac{1}{2} - \del{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}}^2
+\end{align*}
+
+So we get
+\begin{equation*}
+  H = k_1 \del{b^\dagger b + k_2}
+\end{equation*}
+
+with
+\begin{align*}
+  k_1 &= \hbar \omega \\
+  k_2 &= \frac{1}{2} - \del{\frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}}^2 \\
+  b   &= a + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}
+\end{align*}
+
+Because $b$ is just $a$ plus a constant, they satisfy the same commutator
+relations as $a$ and $a^\dagger$ and so are real creation and anhiliation
+operators.
+
 \end{enumerate}
 \end{document}
