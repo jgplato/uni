@@ -73,7 +73,7 @@ In order to find the $b$ and $b^\dagger$ operators, we write the Hamiltonian as
     &\overset{?}{=} k_1 \del{b^\dagger b + k_2}
 \end{align*}
 
-We see that $k_1 = \hbar \omega$. We then define $b = a + c$ and $b = a^\dagger + c^\dagger$. Which leads to
+We see that $k_1 = \hbar \omega$. We then define $b = a + c$ and $b^\dagger = a^\dagger + c^\dagger$. Which leads to
 
 \begin{align*}
   &a^\dagger a + \frac{1}{2} + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega} \del{a + a^\dagger} = b^\dagger b + k_2 \\
@@ -120,15 +120,38 @@ operators.
 
 \begin{enumerate}[i)]
   \item
-    Because $b$ and $b^\dagger$ satisfy the same commutation relations as $a$
-    and $a^\dager$, we can write according to (3.61) and (3.62) of the script.
-    If $N\ket{\xi} = \eta \ket{\xi}$, then
+    We see that
+    \begin{equation*}
+      \sbr{b,b^\dagger} = \sbr{a+c,a^\dagger+c} = \sbr{a,a^\dagger} = 1
+    \end{equation*}
+
+    And therefore
+    \begin{align*}
+      &bb^\dagger = bb^\dagger - b^\dagger b + b^\dagger b = 1 + b^\dagger b \\
+      \Leftrightarrow\quad &b^\dagger b = bb^\dagger - 1
+    \end{align*}
+
+    Using these relations, we see that if $N\ket{\xi} = \eta \ket{\xi}$, then
     \begin{align*}
       N b \ket{\xi} &= \del{bN -b} \ket{\xi} = \del{\eta - 1} b \ket{\xi} \\
       N b^\dagger \ket{\xi} &= \del{b^\dagger N -b^\dagger} \ket{\xi} = \del{\eta + 1} b \ket{\xi} \\
     \end{align*}
   \item
-    Because the same relations apply, this is trivial.
+    We show that $N$ is positive definite. Let $\ket{\xi}$ be an eigenvector of
+    $N$ with eigenvalue $\eta$.
+
+    \begin{align*}
+      \underbrace{\envert{b \ket{\xi}2}^2}_{>0} = \braket{\xi|a^\dagger a|\xi} = \braket{\xi|N|\xi} = \eta \underbrace{\braket{\xi|\xi}}_{> 0}
+    \end{align*}
+    Therefore $\eta > 0$.
+
+    Let $\ket{\phi}$ be an eigenvector of $N$ with eigenvalue $\phi$, where
+    $\phi$ is not integer. Let $n$ be the smallest integer greater than $\phi$.
+    Then $b^m \ket{\phi}$ is an eigenvector of $N$ with eigenvalue $\phi - n <
+    0$. But because $N$ is positive definite, its eigenvalues best be greater
+    or equal zero. This is a contraduction. Therefore all eigenvalues must be
+    integer. Therefore the smalles eigenvalue is $0$.
+
 \end{enumerate}
 
 \item Trivial.
