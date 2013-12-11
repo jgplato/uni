@@ -134,7 +134,7 @@ operators.
     Using these relations, we see that if $N\ket{\xi} = \eta \ket{\xi}$, then
     \begin{align*}
       N b \ket{\xi} &= \del{bN -b} \ket{\xi} = \del{\eta - 1} b \ket{\xi} \\
-      N b^\dagger \ket{\xi} &= \del{b^\dagger N -b^\dagger} \ket{\xi} = \del{\eta + 1} b \ket{\xi} \\
+      N b^\dagger \ket{\xi} &= \del{b^\dagger N -b^\dagger} \ket{\xi} = \del{\eta + 1} b^\dagger \ket{\xi} \\
     \end{align*}
   \item
     We show that $N$ is positive definite. Let $\ket{\xi}$ be an eigenvector of
@@ -150,11 +150,39 @@ operators.
     Then $b^m \ket{\phi}$ is an eigenvector of $N$ with eigenvalue $\phi - n <
     0$. But because $N$ is positive definite, its eigenvalues best be greater
     or equal zero. This is a contraduction. Therefore all eigenvalues must be
-    integer. Therefore the smalles eigenvalue is $0$.
+    integer. Therefore the smallest eigenvalue is $0$.
 
 \end{enumerate}
 
-\item Trivial.
+\item 
+\begin{enumerate}[i)]
+  \item
+    Insert long and boring proof by induction here.
+  \item
+    \begin{align*}
+      b \ket{n}
+      &= b \frac{1}{\sqrt{n!}} \del{b^\dagger}^n \ket{0} 
+      = bb^\dagger \frac{1}{\sqrt{n}} \del{\frac{1}{\sqrt{(n-1)!}} \del{b^\dagger}^{n-1} \ket{0}} 
+      = \frac{1}{\sqrt{n}} bb^\dagger \ket{n-1} \\
+      &= \frac{1}{\sqrt{n}} \del{1 + b^\dagger b} \ket{n-1}
+      = \frac{1}{\sqrt{n}} \del{1 + N} \ket{n-1}
+      = \frac{1}{\sqrt{n}} \del{1 + (n-1)} \ket{n-1} \\
+      &= \frac{n}{\sqrt{n}} \ket{n-1}
+      = \sqrt{n} \ket{n-1}
+    \end{align*}
+
+    \begin{align*}
+      b^\dagger \ket{n} 
+      &= b^\dagger \frac{1}{\sqrt{n!}} \del{b^\dagger}^n \ket{0}
+      = \sqrt{n+1} \frac{1}{\sqrt{(n+1)!}} \del{b^\dagger}^{n+1} \ket{0}
+      = \sqrt{n+1} \ket{n+1}
+    \end{align*}
+
+    \begin{align*}
+      N \ket{n} = b^\dagger b \ket{n} = \sqrt{n} b^\dagger \ket{n-1} = \sqrt{n} \sqrt{(n-1)+1} \ket{n} = n \ket{n}
+    \end{align*}
+
+\end{enumerate}
 \item Trivial.
 
 \end{enumerate}
