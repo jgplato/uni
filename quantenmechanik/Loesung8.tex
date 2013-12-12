@@ -157,7 +157,46 @@ operators.
 \item 
 \begin{enumerate}[i)]
   \item
-    Insert long and boring proof by induction here.
+    From c) we know that there exists a lowest eigenvalue corresponding to a
+    lowest eigenvector. Let $\ket{0}$ be the lowest normalized eigenvector, let $\ket{1}$
+    be the next normalized eigenvector, let $\ket{n}$ be the $n$-th normalized
+    eigenvector. From the commutator relations in c), we see that
+
+    \begin{align*}
+      b \ket{n} = c \ket{n-1}
+    \end{align*}
+
+    We determine the constant $c$:
+    \begin{align*}
+      \braket{n|N|n} = \braket{n|b^\dagger b|n} = |c|^2 = n
+    \end{align*}
+
+    Because $n$ is real and positive:
+    \begin{align*}
+      c = \sqrt{n}
+    \end{align*}
+
+    And therefore
+    \begin{align*}
+      b \ket{n} = \sqrt{n} \ket{n-1}
+    \end{align*}
+
+    Because $N \ket{n} = n \ket{n}$ we see that
+    \begin{align*}
+      N \ket{n} = b^\dagger b \ket{n} = b^\dagger \sqrt{n} \ket{n-1} = n \ket{n}
+    \end{align*}
+
+    And therefore
+    \begin{align*}
+      b^\dagger \ket{n} = \sqrt{n+1} \ket{n+1}
+    \end{align*}
+
+    It follows directly that
+    \begin{align*}
+      &\del{b^\dagger }^n \ket{0} = \sqrt{1\cdot2\cdot\dots\cdot n} \ket{n} = \sqrt{n!} \ket{n} \\
+      \quad\Leftrightarrow &\frac{1}{\sqrt{n!}} \del{b^\dagger }^n \ket{0} = \ket{n}
+    \end{align*}
+
   \item
     \begin{align*}
       b \ket{n}
