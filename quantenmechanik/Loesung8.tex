@@ -235,6 +235,47 @@ operators.
           &= \del{\frac{\omega m x + i p}{\sqrt{2 \omega m \hbar}} + \frac{\lambda}{\sqrt{2 \omega m \hbar} \omega}} \psi_0(x) \\
           &= \del{\frac{\omega m}{\sqrt{2 \omega m \hbar}} x + \frac{\hbar}{\sqrt{2 \omega m \hbar}} \frac{d}{dx} + \frac{\lambda}{\sqrt{2 \omega m \hbar} \omega}} \psi_0(x)
       \end{align*}
+
+      \begin{align*}
+        \Leftrightarrow\quad&
+        \frac{d}{dx} \psi_0(x) = \del{\frac{\omega m}{\hbar} x + \frac{\lambda}{\hbar \sqrt{\omega}}} \psi_0(x)
+      \end{align*}
+
+      The solution to $f'(x) = (Ax+B) f(x)$ is $f(x) = C \cdot \exp\del{\frac{Ax^2}{2} + Bx}$. Therefore:
+
+      \begin{align*}
+        \psi_0(x) = C \cdot \exp \del{-\frac{\omega m}{2 \hbar} x^2 - \frac{\lambda}{\hbar \sqrt{\omega}} x}
+      \end{align*}
+
+      In order to normalize this, we substitute $x \mapsto x' + D$ to bring
+      this to the form of a Gaussian function, then set $C'$ to the
+      normalization constant for the gaussian function. Because the integral
+      $\int_{-\infty}^\infty$ is invariant under this transformation we get $C'
+      = C$.
+
+      To find $D$, we find the maximum of $\psi_0(x)$ by setting $\psi_0'(x) =
+      0$. Because $\psi_0'(x) = (Ax+B) \psi_0(x)$ and $\psi_0(x) \neq 0$, this
+      is at $Ax+B = 0$.
+
+      \begin{align*}
+        &-\frac{\omega m}{\hbar} x = \frac{\lambda}{\hbar\sqrt{\omega}} \\
+        \Leftrightarrow\quad& x = -\frac{\lambda}{\hbar \sqrt{\omega}} \frac{\hbar}{\omega m} = -\frac{\lambda}{\omega^{3/2} m}
+      \end{align*}
+
+      Inserting $x = x' + \frac{\lambda}{\omega^{3/2} m}$:
+      \begin{align*}
+        \psi_0(x') &= C \cdot \exp \del{-\frac{\omega m}{2 \hbar} \del{x' + \frac{\lambda}{\omega^{3/2} m}}^2 - \frac{\lambda}{\hbar \sqrt{\omega}} \del{x' + \frac{\lambda}{\omega^{3/2} m}}} \\
+                   &= \dots
+      \end{align*}
+    \item
+      We just calculate
+      \begin{align*}
+        \psi_1(x)  &= b^\dagger \psi_0(x) \\
+                   &= \del{a^\dagger + \lambda \frac{\sqrt{2 \omega m \hbar}}{2 \omega m \hbar \omega}} \psi_0(x) \\
+                   &= \del{\frac{\omega m x - i p}{\sqrt{2 \omega m \hbar}} + \frac{\lambda}{\sqrt{2 \omega m \hbar} \omega}} \psi_0(x) \\
+                   &= \del{\frac{\omega m}{\sqrt{2 \omega m \hbar}} x - \frac{\hbar}{\sqrt{2 \omega m \hbar}} \frac{d}{dx} + \frac{\lambda}{\sqrt{2 \omega m \hbar} \omega}} \psi_0(x) \\
+                   &= \del{\frac{\omega m}{\sqrt{2 \omega m \hbar}} x - \frac{\hbar}{\sqrt{2 \omega m \hbar}} \frac{d}{dx} + \frac{\lambda}{\sqrt{2 \omega m \hbar} \omega}} C \cdot \exp \del{-\frac{\omega m}{2 \hbar} x^2 - \frac{\lambda}{\hbar \sqrt{\omega}} x}
+      \end{align*}
   \end{enumerate}
 
 \end{enumerate}
