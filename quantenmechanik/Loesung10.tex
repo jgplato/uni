@@ -1,0 +1,110 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 10
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Time evolution of coherent state}
+\begin{enumerate}[a)]
+  \item
+    It is to be shown that if $\ket{\psi(0)} = \ket{\alpha}$ (where
+    $\ket{\alpha}$ is a coherent state) it follows that
+    \begin{equation*}
+      \ket{\psi(t)} = e^{-\frac{i \omega t}{2}} \ket{\alpha e^{-i \omega t}}
+    \end{equation*}
+
+    From the excercise sheet, we know that
+    \begin{equation}
+      \ket{\alpha} = \exp\del{-\frac{1}{2} \envert{\alpha}^2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \ket{n}
+      \label{from_ex}
+    \end{equation}
+
+    Inserting
+    \begin{equation*}
+      \ket{n} = \frac{1}{\sqrt{n!}} \del{a^\dagger}^n \ket{0}
+    \end{equation*}
+
+    we get
+    \begin{align*}
+      \ket{\alpha} &= \exp\del{-\frac{1}{2} \envert{\alpha}^2} \sum_{n=0}^\infty \frac{\del{\alpha a^\dagger}^n}{n!} \ket{0} \\
+                   &= \exp\del{-\frac{1}{2} \envert{\alpha}^2} \exp\del{\alpha a^\dagger} \ket{0} \\
+                   % &= \exp\del{-\frac{1}{2} \envert{\alpha}^2 + \alpha a^\dagger} \ket{0}
+    \end{align*}
+
+    And therefore
+    \begin{equation}
+      \ket{\alpha} = \exp\del{-\frac{1}{2} \envert{\alpha}^2 + \alpha a^\dagger} \ket{0}
+      \label{coherent_state}
+    \end{equation}
+
+    Now for the time evolution of $\ket{\alpha}$:
+
+    \begin{equation*}
+      \ket{\psi(t)} = U(t,0) \ket{\alpha} = \exp\del{-\frac{i H t}{\hbar}} \ket{\alpha}
+    \end{equation*}
+
+    Using equation (\ref{from_ex}):
+
+    \begin{align*}
+      \ket{\psi(t)} &= \exp\del{-\frac{i H t}{\hbar}} \exp\del{-\frac{1}{2} \envert{\alpha}^2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2} \exp\del{-\frac{i H t}{\hbar}} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \exp\del{-\frac{i H t}{\hbar}} \ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \sum_{m=0}^\infty \del{\frac{-iHt}{\hbar}}^m \frac{1}{m!} \ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \sum_{m=0}^\infty \del{\frac{-it}{\hbar}}^m \frac{1}{m!} H^m \ket{n} \\
+      \intertext{
+        We know that $\ket{n}$ are eigenvectors of the Hamiltonian satisfying $H
+        \ket{n} = \hbar \omega \del{n + \frac{1}{2}} \ket{n}$. This leads to
+      }
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \sum_{m=0}^\infty \del{\frac{-it}{\hbar}}^m \frac{1}{m!} \del{\hbar \omega \del{n + \frac{1}{2}}}^m \ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \exp\del{-i \omega t \del{n + \frac{1}{2}}}\ket{n} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \exp\del{-\frac{i \omega t}{2}} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \exp\del{-i \omega t n}\ket{n} \\
+      \intertext{
+        Inserting (\ref{from_ex}), we get
+      }
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \exp\del{-\frac{i \omega t}{2}} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \exp\del{-i \omega t n} \frac{1}{\sqrt{n!}} \del{a^\dagger}^n \ket{0} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \exp\del{-\frac{i \omega t}{2}} \sum_{n=0}^\infty \frac{\del{\alpha e^{-i \omega t} a^\dagger}^n}{n!} \ket{0} \\
+      &= \exp\del{-\frac{1}{2}  \envert{\alpha}^2}  \exp\del{-\frac{i \omega t}{2}} \exp \del{\alpha e^{-i \omega t} a^\dagger} \ket{0} \\
+      &= \exp\del{-\frac{i \omega t}{2}} \underbrace{\exp\del{-\frac{1}{2}  \envert{\alpha}^2  + \alpha e^{-i \omega t} a^\dagger} \ket{0}}_{\text{Looks similar to equation (\ref{coherent_state})}} \\
+      &= \exp\del{-\frac{i \omega t}{2}} \ket{\alpha e^{-i \omega t}}
+    \end{align*}
+
+
+
+    
+
+\end{enumerate}
+\end{document}
