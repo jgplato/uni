@@ -101,10 +101,30 @@ Markus Fenske, Tutor: Adam Nagy
       &= \exp\del{-\frac{i \omega t}{2}} \underbrace{\exp\del{-\frac{1}{2}  \envert{\alpha}^2  + \alpha e^{-i \omega t} a^\dagger} \ket{0}}_{\text{Looks similar to equation (\ref{coherent_state})}} \\
       &= \exp\del{-\frac{i \omega t}{2}} \ket{\alpha e^{-i \omega t}}
     \end{align*}
+  \item
+    From the definition of the anhilation and creation operators
+    \begin{equation*}
+      a = \frac{1}{\sqrt{2 m \omega \hbar}} \del{m \omega x + ip} \qquad
+      a^\dagger = \frac{1}{\sqrt{2 m \omega \hbar}} \del{m \omega x - ip}
+    \end{equation*}
 
+    we get
+    \begin{equation*}
+      x = \sqrt{\frac{\hbar}{2 m \omega}} \del{a + a^\dagger} \qquad
+      p = -i\sqrt{\frac{m \omega \hbar}{2}} \del(a - a^\dagger}
+    \end{equation*}
 
+    So the expected values are
+    \begin{align*}
+      \braket{x} &= \sqrt{\frac{\hbar}{2 m \omega}} \braket{\alpha e^{-i \omega t}|\del{a + a^\dagger}|\alpha e^{-i \omega t}} \\
+                 &= \sqrt{\frac{\hbar}{2 m \omega}} \del{ \braket{\alpha e^{-i \omega t}|a|\alpha e^{-i \omega t}} +
+                                                          \braket{\alpha e^{-i \omega t}|a^\dagger|\alpha e^{-i \omega t}}} \\
+                 &= \sqrt{\frac{\hbar}{2 m \omega}} \del{ \alpha e^{-i \omega t} + \alpha^* e^{i \omega t}} \\
+    \end{align*}
 
-    
-
+    and (as above)
+    \begin{align*}
+      \braket{p} &= -i\sqrt{\frac{m \hbar \omega}{2}} \del{\alpha e^{-i \omega t} - \alpha^* e^{i \omega t}}
+    \end{align*}
 \end{enumerate}
 \end{document}
