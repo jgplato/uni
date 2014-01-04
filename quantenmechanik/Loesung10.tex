@@ -160,5 +160,39 @@ Markus Fenske, Tutor: Adam Nagy
                             &= \frac{\hbar}{2 m \omega}
     \end{align*}
 
+    For the momentum operator we have
+    \begin{align*}
+      \operatorname{Var}(p) &= \braket{p^2} - \braket{p}^2
+    \end{align*}
+
+    With
+    \begin{align*}
+      \braket{p^2} &= - \frac{m \omega \hbar}{2} \braket{\del{a - a^\dagger}^2} \\
+                   &= - \frac{m \omega \hbar}{2} \del{\braket{a^2} - \braket{aa^\dagger} - \braket{a^\dagger a} + \braket{{a^\dagger}^2}} \\
+                   &= - \frac{m \omega \hbar}{2} \del{\alpha^2 e^{-2i \omega t} - 2\envert{\alpha}^2 - 1 + {\alpha^*}^2 e^{2 i \omega t}}
+    \end{align*}
+
+    We get
+    \begin{align*}
+      \braket{p^2} - \braket{p}^2 &= 
+                   - \frac{m \omega \hbar}{2} \del{\alpha^2 e^{-2i \omega t} - 2\envert{\alpha}^2 - 1 + {\alpha^*}^2 e^{2 i \omega t}}
+                   + \frac{m \omega \hbar}{2} \del{\alpha^2 e^{-2i \omega t} - 2\envert{\alpha}^2 + {\alpha^*}^2 e^{2 i \omega t}} \\
+                   &= \frac{m \omega \hbar}{2}
+    \end{align*}
+
+    The uncertainties are
+    \begin{equation*}
+      \Delta x = \sqrt{\frac{\hbar}{2 m \omega}} 
+      \qquad \text{and} \qquad 
+      \Delta p = \sqrt{\frac{m \omega \hbar}{2}}
+    \end{equation*}
+
+    Which leads to an uncertainty relation of
+    \begin{equation*}
+      \Delta x \Delta p = \frac{\hbar}{2}
+    \end{equation*}
+
+    So coherent states are states of minimum uncertainty.
+
 \end{enumerate}
 \end{document}
