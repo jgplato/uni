@@ -126,5 +126,39 @@ Markus Fenske, Tutor: Adam Nagy
     \begin{align*}
       \braket{p} &= -i\sqrt{\frac{m \hbar \omega}{2}} \del{\alpha e^{-i \omega t} - \alpha^* e^{i \omega t}}
     \end{align*}
+
+    The variance of the position operator is
+    \begin{equation*}
+      \operatorname{Var}(x) = \braket{x^2} - \braket{x}^2
+    \end{equation*}
+
+    where
+    \begin{align*}
+      \braket{x^2} &= \frac{\hbar}{2 m \omega} \braket{\alpha e^{-i \omega t}|\del{a + a^\dagger}^2|\alpha e^{-i \omega t}} \\
+                   &= \frac{\hbar}{2 m \omega} \del{\braket{a^2} + \braket{aa^\dagger} + \braket{a^\dagger a} + \braket{\del{a^\dagger}^2}}
+    \end{align*}
+
+    Evaluating the operator values
+    \begin{align*}
+      \braket{a^2} &= \braket{\alpha e^{-i \omega t}|a^2|\alpha e^{-i \omega t}} = \alpha^2 e^{-2i \omega t} \\
+      \braket{{a^\dagger}^2} &= \braket{\alpha e^{-i \omega t}|{a^\dagger}^2|\alpha e^{-i \omega t}} = {\alpha^*}^2 e^{2i \omega t} \\
+      \braket{a^\dagger a} &= \alpha^* e^{i \omega t} \alpha e^{-i \omega t} = \envert{\alpha}^2 \\
+      \braket{aa^\dagger} &= \braket{a^\dagger a + 1} = \envert{\alpha}^2 + 1
+      \quad \text{(Because $[a, a^\dagger] = 1$)} \\
+    \end{align*}
+
+    Inserting into the original equation, we get
+    \begin{align*}
+      \braket{x^2} &= \frac{\hbar}{2 m \omega} \del{\alpha^2 e^{-2i \omega t} + 2\envert{\alpha}^2 + 1 + {\alpha^*}^2 e^{2 i \omega t}}
+    \end{align*}
+
+    This leads to
+    \begin{align*}
+      \operatorname{Var}(x) &= \braket{x^2} - \braket{x}^2 \\
+                            &= \frac{\hbar}{2 m \omega} \del{\alpha^2 e^{-2i \omega t} + 2\envert{\alpha}^2 + 1 + {\alpha^*}^2 e^{2 i \omega t}} -
+                               \frac{\hbar}{2 m \omega} \del{\alpha^2 e^{-2i \omega t} + 2\envert{\alpha}^2 + {\alpha^*}^2 e^{2 i \omega t}} \\
+                            &= \frac{\hbar}{2 m \omega}
+    \end{align*}
+
 \end{enumerate}
 \end{document}
