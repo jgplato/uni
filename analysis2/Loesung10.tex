@@ -1,0 +1,46 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{commath}
+\pgfplotsset{compat=1.7}
+\usepgfplotslibrary{polar}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2014, 10. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\section*{Aufgabe 10.1}
+\begin{align*}
+  & \int\limits_0^2 \dif x \int\limits_1^2 \dif y \; y \sin\del{\pi x y} \overset{\text{\textsc{Fubini}}}{=}
+    \int\limits_1^2 \dif y \int\limits_0^2 \dif x \; y \sin\del{\pi x y} =
+    \int\limits_1^2 \dif y \; y \int\limits_0^2 \dif x \; \sin\del{\pi x y} \\ =
+  & \int\limits_1^2 \dif y \; y \sbr{- \frac{\cos\del{\pi x y}}{\pi y}}_0^2 =
+    \int\limits_1^2 \dif y \; y \del{\frac{1}{\pi y} - \frac{\cos\del{2 \pi y}}{\pi y}} =
+    \int\limits_1^2 \dif y \; \del{\frac{1}{\pi} - \frac{\cos\del{2 \pi y}}{\pi}} \\ =
+  & \int\limits_1^2 \dif y \; \frac{1}{\pi} - \int\limits_1^2 \dif y \; \frac{\cos\del{2 \pi y}}{\pi}
+    \frac{1}{\pi} - \frac{1}{\pi} \underbrace{\sbr{\frac{\sin\del{2 \pi y}}{2 \pi}}_1^2}_{=0} = \frac{1}{\pi}
+\end{align*}
+
+\end{document}
