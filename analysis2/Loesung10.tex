@@ -56,12 +56,22 @@ Wegen $x > 0$ folgt aus $4x = y^2$, dass $x = 2 \sqrt{x}$. Somit ist die Masse
 
 Und die Koordinate des Schwerpunkts ist
 \begin{align*}
-  x_c 
+  x_c
   = \frac{1}{M} \int\limits_0^4 \dif x \int\limits_0^{2\sqrt{x}} \dif y \; x \mu
   = \frac{3}{32} \int\limits_0^4 \dif x \; x \cdot 2 \sqrt{x}
   = \frac{3}{16} \int\limits_0^4 x^\frac{3}{2}
   = \frac{3}{16} \sbr{\frac{2}{5} x^\frac{5}{2}}_0^4
   = \frac{12}{5}
+\end{align*}
+
+\begin{align*}
+  y_c
+  = \frac{1}{M} \int\limits_0^4 \dif x \int\limits_0^{2 \sqrt{x}} \dif y \; y \mu
+  = \frac{3}{32} \int\limits_0^4 \sbr{\frac{1}{2} y^2}_0^{2\sqrt{x}}
+  = \frac{3}{32} \int\limits_0^4 \frac{1}{2} 4 x
+  = \frac{3}{16} \int\limits_0^4 x
+  = \frac{3}{16} \sbr{\frac{1}{2} x^2}_0^4
+  = \frac{3}{2}
 \end{align*}
 
 \end{document}
