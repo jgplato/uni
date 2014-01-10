@@ -1,0 +1,52 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 11
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Squeezed states}
+\begin{enumerate}[a)]
+  \item
+    From $S(\xi) = \exp\del{\xi^* a^2 - \xi {a^\dagger}^2}$ we get:
+    \begin{align*}
+      S(\xi)^\dagger = \exp\del{\xi {a^\dagger}^2 - \xi^* a^2} = S(-\xi)
+    \end{align*}
+
+    We immediatly see that $S(\xi)S(-\xi) = I$ (because $e^a e^{-a} = 1$).
+    Therefore $S(\xi)^\dagger = S(\xi)^{-1}$.
+\end{enumerate}
+\end{document}
