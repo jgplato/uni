@@ -65,5 +65,46 @@ Markus Fenske, Tutor: Adam Nagy
       = \braket{0|P e^{\xi}|0}
       = 0
     \end{align*}
+
+    And the following variances
+    \begin{align*}
+      \operatorname{Var}(X)
+      &= \braket{X^2} - \braket{X}^2
+      = \braket{X^2}
+      = \braket{\xi|X^2|\xi}
+      = \braket{0|(\del{^\dagger(\xi)XS(\xi)}^2|0}
+      = \braket{0|\del{Xe^{-\xi}}^2|0} \\
+      &= \braket{0|X^2|0} e^{-2\xi}
+      = \frac{\hbar}{2 m \omega} \braket{0|(a^\dagger + a)^2|0} e^{-2\xi}
+      = \frac{\hbar}{2 m \omega} \braket{0|{a^\dagger}^2 + a^\dagger a + aa^\dagger + a^2|0} e^{-2\xi} \\
+      &= \frac{\hbar}{2 m \omega} \del{\braket{0|{a^\dagger}^2|0} + \braket{0|N|0} + \braket{0|N+1|0} + \braket{0|a^2|0}} e^{-2\xi}
+      = \frac{\hbar}{2 m \omega} e^{-2 \xi} \\
+      \operatorname{Var}(P)
+      &= \braket{P^2} - \braket{P}^2
+      = \braket{P^2}
+      = \braket{\xi|P^2|\xi}
+      = \braket{0|(\del{^\dagger(\xi)PS(\xi)}^2|0}
+      = \braket{0|\del{Pe^{\xi}}^2|0} \\
+      &= \braket{0|P^2|0} e^{2\xi}
+      = -\frac{m \omega \hbar}{2} \braket{0|(a^\dagger - a)^2|0} e^{2\xi}
+      = -\frac{m \omega \hbar}{2} \braket{0|{a^\dagger}^2 - a^\dagger a - aa^\dagger + a^2|0} e^{2\xi} \\
+      &= -\frac{m \omega \hbar}{2} \del{\braket{0|{a^\dagger}^2|0} - \braket{0|N|0} - \braket{0|N+1|0} + \braket{0|a^2|0}} e^{2\xi}
+      = \frac{m \omega \hbar}{2} e^{2 \xi} \\
+    \end{align*}
+
+    Which leads to the following uncertainties
+    \begin{align*}
+      \Delta x = \sqrt{\operatorname{Var}(X)} = \sqrt{\frac{\hbar}{2 m \omega}} e^{-\xi}
+      \qquad\qquad
+      \Delta p = \sqrt{\operatorname{Var}(P)} = \sqrt{\frac{m \omega \hbar}{2}} e^{\xi}
+    \end{align*}
+
+    So obviously these states are termed \textit{squeezed states}, because the
+    are squeezed in space, which leads to a spread in momentum, so the
+    uncertainty relation is not violated.
+
+    \begin{align*}
+      \Delta x \Delta p = \frac{\hbar}{2}
+    \end{align*}
 \end{enumerate}
 \end{document}
