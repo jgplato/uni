@@ -49,6 +49,76 @@ Markus Fenske, Tutor: Adam Nagy
     We immediatly see that $S(\xi)S(-\xi) = I$ (because $e^a e^{-a} = 1$).
     Therefore $S(\xi)^\dagger = S(\xi)^{-1}$.
   \item
+    As given in the excerise sheet, we know that $\xi \in \mathbb{R}$, so
+    $\xi^* = \xi$. This leads to
+
+    \begin{align*}
+      S(\xi) = \exp\del{\frac{1}{2} \xi \del{a^2 + {a^\dagger}^2}}
+    \end{align*}
+
+    We define
+    \begin{align*}
+      B := \frac{1}{2} \xi \del{a^2 + {a^\dagger}^2}
+    \end{align*}
+
+    Therefore
+    \begin{align*}
+      F(\xi) = S^\dagger(\xi) X S(\xi) = e^{-B} X e^B
+    \end{align*}
+
+    The derivative is
+    \begin{equation}
+      \od{F}{\xi} = -\frac{B}{\xi}e^{-B}Xe^B + e^{-B}X \frac{B}{\xi}e^B
+      \label{deriv}
+    \end{equation}
+
+    We define $k := \sqrt{\frac{\hbar}{2 m \omega}}$, so the $X$ operator can be written as
+    \begin{align*}
+      X = k\del{a + a^\dagger}
+    \end{align*}
+
+    In order to rewrite (\ref{deriv}) we solve the following commutator using
+    the identities $[A,B] = -[B,A]$ and $[AB,C] = A[B,C] + [A,C]B$.
+    \begin{align*}
+      [X,B] &= \frac{1}{2} \xi k \left[\del{a+a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
+            &= \frac{1}{2} \xi k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
+            &= \frac{1}{2} \xi k \del{[{a^\dagger}^2, a] - [a^2, a^\dagger]} \\
+            &= \frac{1}{2} \xi k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger - a\underbrace{[a,a^\dagger]}_{=1} - \underbrace{[a,a^\dagger]}_{=1}a} \\
+            &= \frac{1}{2} \xi k \del{-2a^\dagger -2a} \\
+            &= -\xi k \del{a^\dagger + a} \\
+            &= -\xi X
+    \end{align*}
+
+    Therefore $XB = BX - \xi X$. Inserting this into (\ref{deriv}) leads
+    \begin{equation}
+      \od{F}{\xi} = -\frac{B}{\xi}e^{-B}Xe^B + e^{-B} \del{BX - \xi X} \frac{1}{\xi}e^B
+    \end{equation}
+
+    Also note that $[B,e^{-B}] = 0$ (can be seen if you wrote $e^{-B}$ as series). Therefore
+    \begin{align*}
+      \od{F}{\xi} &= -\frac{B}{\xi}e^{-B}Xe^B + \frac{1}{\xi} e^{-B} \del{BX - \xi X} e^B \\
+                  &= -\frac{B}{\xi}e^{-B}Xe^B + \frac{B}{\xi} e^{-B}Xe^B - e^{-B}Xe^{B} \\
+                  &= -F(\xi)
+    \end{align*}
+
+    A solution for this differential equation is $F(\xi) = A e^{-\xi}$ where $A$
+    is constant. So we can write $F(\xi) = Xe^{-\xi}$.
+
+    For the $P$ operator, the solution is equivalent. We define $k := -i
+    \sqrt{\frac{m \omega \hbar}{2}}$. Because $P = k(a^\dagger - a)$, we get
+
+    \begin{align*}
+      [P,B] &= \frac{1}{2} \xi k \left[\del{a-a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
+            &= \frac{1}{2} \xi k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
+            &= \frac{1}{2} \xi k \del{[{a^\dagger}^2, a] + [a^2, a^\dagger]} \\
+            &= \frac{1}{2} \xi k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger + a\underbrace{[a,a^\dagger]}_{=1} + \underbrace{[a,a^\dagger]}_{=1}a} \\
+            &= \frac{1}{2} \xi k \del{-2a^\dagger+2a} \\
+            &= \xi k \del{a - a^\dagger} \\
+            &= \xi P
+    \end{align*}
+
+    The rest stays the same, so the solution is to the differential equation is $F(\xi) = P e^\xi$.
+
   \item
     We get the following an expectation values.
 
