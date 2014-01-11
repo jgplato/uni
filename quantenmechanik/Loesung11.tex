@@ -177,6 +177,78 @@ Markus Fenske, Tutor: Adam Nagy
       \Delta x \Delta p = \frac{\hbar}{2}
     \end{align*}
 \end{enumerate}
+\section*{Exercise 2: Rotational symmetric problems and Bohr model}
+\begin{enumerate}[a)]
+  \item
+  \item
+  \item
+    Bohr postulated a quantization of the angualr momentum: $L = n \hbar$. The
+    angular momentum is defined as $L = r \times p = r \times mv$. We assume,
+    that electrons move on circular orbits, where radius vector and velocity
+    vector are orthogonal. So $r || v$ leads to $L = mvr$. So we get from $n
+    \hbar = mvr$.
+
+    \begin{equation*}
+      v = \frac{n \hbar}{mr}
+    \end{equation*}
+
+    We assume a Coulomb potential which can be written using $e_0^2 =
+    \frac{e^2}{4 \pi \epsilon_0}$ as
+    \begin{equation*}
+      V(r) = - \frac{e_0^2}{r}
+    \end{equation*}
+
+    Which leads to a Coulomb force
+    \begin{equation*}
+      F_{el} = \frac{e_0^2}{r^2}
+    \end{equation*}
+
+    There is also a centripetal force of
+    \begin{equation*}
+      F_{z} = \frac{mv^2}{r}
+    \end{equation*}
+
+    For the electron to be in a stable orbit, they have to be equal, so
+    \begin{equation*}
+      \frac{e_0^2}{r^2} = \frac{m}{r} \del{\frac{n \hbar}{m r}}^2
+    \end{equation*}
+
+    Leads to a orbit radius of
+    \begin{equation*}
+      r = \frac{n^2\hbar^2}{me_0^2}
+    \end{equation*}
+
+    Using this, we can calculate the possible energy levels
+    \begin{align*}
+      E_n &= V + T \\
+          &= -\frac{e_0^2}{r^2} + \frac{1}{2} m v^2 \\
+          &= -e_0^2 \frac{me_0^2}{n^2 \hbar^2} + \frac{1}{2} \frac{n^2 \hbar^2}{m^2 r^2} \\
+          &= -\frac{me_0^4}{n^2 \hbar^2} + \frac{1}{2} \frac{n^2 \hbar^2}{m^2} \frac{m^2e_0^4}{n^2 \hbar^2} \\
+          &= -\frac{me_0^4}{n^2 \hbar^2} + \frac{1}{2} \frac{me_0^4}{n^2 \hbar^2} \\
+          &= -\frac{1}{2} \frac{me_0^4}{n^2 \hbar^2}
+    \end{align*}
+
+    Which is exactly the result that can be obtained quantum mechanically (see
+    script 5.97).
+
+  \item
+    The idea is that electrons create standing waves around the orbit. The
+    orbit circumference is $2 \pi r$ and it must be multiples of the wavelength
+    $\lambda$.
+    \begin{equation*}
+      n \lambda = 2 \pi r
+    \end{equation*}
+
+    Substituting the De-Broglie wavelength $\lambda = \frac{h}{p}$ gives
+    \begin{align*}
+                           &n \frac{h}{mv} = 2 \pi r \\
+      \Leftrightarrow\quad &n \hbar = mvr = L
+    \end{align*}
+
+    Which is Bohrs ansatz. So the quantization of the angular momentum can be
+    explained using De-Broglies wavelength.
+
+\end{enumerate}
 \section*{Exercise 3: Rotation operator}
 \begin{enumerate}[a)]
   \item
