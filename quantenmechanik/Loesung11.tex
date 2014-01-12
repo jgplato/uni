@@ -49,6 +49,16 @@ Markus Fenske, Tutor: Adam Nagy
     We immediatly see that $S(\xi)S(-\xi) = I$ (because $e^a e^{-a} = 1$).
     Therefore $S(\xi)^\dagger = S(\xi)^{-1}$.
   \item
+    First of all, since we are lazy we define a combined position and momentum
+    operator $U_\pm$, so we do not have to do the same thing twice.
+
+    \begin{align*}
+      U_+ &= k_+ \del{a + a^\dagger} \qquad \text{(where $k_+ := \sqrt{\frac{\hbar}{2 m \omega}}$)} \\
+      U_- &= k_- \del{a - a^\dagger} \qquad \text{(where $k_- := -i\sqrt{\frac{m \omega \hbar}{2}}$)} \\
+    \end{align*}
+
+    So we have $U_+ = X$, $U_- = P$.
+
     As given in the excerise sheet, we know that $\xi \in \mathbb{R}$, so
     $\xi^* = \xi$. This leads to
 
@@ -63,43 +73,39 @@ Markus Fenske, Tutor: Adam Nagy
 
     Therefore
     \begin{align*}
-      F(\xi) = S^\dagger(\xi) X S(\xi) = e^{-\xi B} X e^{\xi B}
+      F(\xi) = S^\dagger(\xi) U_\pm S(\xi) = e^{-\xi B} U_\pm e^{\xi B}
     \end{align*}
 
     The derivative is
     \begin{equation}
-      \od{F}{\xi} = -Be^{-\xi B}Xe^{\xi B} + e^{-\xi B}X B e^{\xi B}
+      \od{F}{\xi} = -Be^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B}U_\pm B e^{\xi B}
       \label{deriv}
     \end{equation}
-
-    We define $k := \sqrt{\frac{\hbar}{2 m \omega}}$, so the $X$ operator can be written as
-    \begin{align*}
-      X = k\del{a + a^\dagger}
-    \end{align*}
 
     In order to rewrite (\ref{deriv}) we solve the following commutator using
     the identities $[A,B] = -[B,A]$ and $[AB,C] = A[B,C] + [A,C]B$.
     \begin{align*}
-      [X,B] &= \frac{1}{2} k \left[\del{a+a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
-            &= \frac{1}{2} k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
-            &= \frac{1}{2} k \del{[{a^\dagger}^2, a] - [a^2, a^\dagger]} \\
-            &= \frac{1}{2} k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger - a\underbrace{[a,a^\dagger]}_{=1} - \underbrace{[a,a^\dagger]}_{=1}a} \\
-            &= \frac{1}{2} k \del{-2a^\dagger -2a} \\
-            &= -k \del{a^\dagger + a} \\
-            &= - X
+      [U_\pm,B] &= \frac{1}{2} k_\pm \left[\del{a \pm a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
+            &= \frac{1}{2} k_\pm \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] \pm [a^\dagger, a^2] \mp \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
+            &= \frac{1}{2} k_\pm \del{[{a^\dagger}^2, a] \pm [a^2, a^\dagger]} \\
+            &= \frac{1}{2} k_\pm \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger \pm a\underbrace{[a,a^\dagger]}_{=1} \pm \underbrace{[a,a^\dagger]}_{=1}a} \\
+            &= \frac{1}{2} k_\pm \del{\pm2a^\dagger -2a} \\
+            &= \mp k_\pm \del{a^\dagger \pm a} \\
+            &= \mp U_\pm
     \end{align*}
 
-    Therefore $XB = BX - X$. Inserting this into (\ref{deriv}) leads
+    Therefore $U\pm B = BU_\pm \mp U_\pm$. Inserting this into (\ref{deriv}) leads
     \begin{equation}
-      \od{F}{\xi} = -Be^{-\xi B}Xe^{\xi B} + e^{-\xi B} \del{BX - X} e^{\xi B}
+      \od{F}{\xi} = -Be^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B} \del{B U_\pm \mp X} e^{\xi B}
     \end{equation}
 
     Also note that $[B,e^{\pm B}] = 0$ (can be seen if you wrote $e^{\pm B}$ as series). Therefore
+
     \begin{align*}
-      \od{F}{\xi} &= -B e^{-\xi B}Xe^{\xi B} + e^{-\xi B} \del{BX - X} e^{\xi B} \\
-                  &= -B e^{-\xi B}Xe^{\xi B} + B e^{-\xi B}Xe^{\xi B} - e^{-\xi B}Xe^{\xi B} \\
-                  &= -e^{-\xi B}Xe^{\xi B} \\
-                  &= -F(\xi)
+      \od{F}{\xi} &= -B e^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B} \del{BU_\pm \mp U_\pm} e^{\xi B} \\
+                  &= -B e^{-\xi B}U_\pm e^{\xi B} + B e^{-\xi B} U_\pm e^{\xi B} \mp e^{-\xi B}Xe^{\xi B} \\
+                  &= \mp e^{-\xi B}U_\pm e^{\xi B} \\
+                  &= \mp F(\xi)
     \end{align*}
 
     We now write $F(\xi)$ as Taylor series in $\xi = 0$
@@ -108,39 +114,25 @@ Markus Fenske, Tutor: Adam Nagy
       F(\xi) = \sum_{n=0}^\infty \frac{1}{n!} \od[n]{F}{\xi}(0) \del{\xi - 0}^n
     \end{equation*}
 
-    From the differential equation, we immediatly see that $\od[n]{F}{\xi} = (-1)^n F(\xi)$.
+    From the differential equation, we immediatly see that $\od[n]{F}{\xi} = (\mp1)^n F(\xi)$.
 
     \begin{equation*}
-      F(\xi) = \sum_{n=0}^\infty \frac{(-1)^n}{n!} F(0) \xi^n
+      F(\xi) = \sum_{n=0}^\infty \frac{(\mp 1)^n}{n!} F(0) \xi^n
     \end{equation*}
 
     We also see that $F(0) = e^0Xe^0 = X$. Therefore
 
     \begin{equation*}
-      F(\xi) = X \sum_{n=0}^\infty \frac{(-\xi)^n}{n!}
+      F(\xi) = X \sum_{n=0}^\infty \frac{(\mp \xi)^n}{n!}
     \end{equation*}
 
     The series is just $e^{-\xi}$, so the solution is
 
     \begin{equation}
-      F(\xi) = X e^{-\xi}
+      F(\xi) = U_\pm e^{\mp \xi}
     \end{equation}
 
-
-    For the $P$ operator, the solution is equivalent. We define $k := -i
-    \sqrt{\frac{m \omega \hbar}{2}}$. Because $P = k(a^\dagger - a)$, we get
-
-    \begin{align*}
-      [P,B] &= \frac{1}{2} \xi k \left[\del{a-a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
-            &= \frac{1}{2} \xi k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
-            &= \frac{1}{2} \xi k \del{[{a^\dagger}^2, a] + [a^2, a^\dagger]} \\
-            &= \frac{1}{2} \xi k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger + a\underbrace{[a,a^\dagger]}_{=1} + \underbrace{[a,a^\dagger]}_{=1}a} \\
-            &= \frac{1}{2} \xi k \del{-2a^\dagger+2a} \\
-            &= \xi k \del{a - a^\dagger} \\
-            &= \xi P
-    \end{align*}
-
-    The rest stays the same, so the solution is to the differential equation is $F(\xi) = P e^\xi$.
+    Because $U_+ = X, U_- = P$ we have \textbf{TODO: What have we done? Nothing. :)}
 
   \item
     We get the following an expectation values.
