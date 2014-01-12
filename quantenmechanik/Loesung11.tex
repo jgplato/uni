@@ -96,14 +96,14 @@ Markus Fenske, Tutor: Adam Nagy
 
     Therefore $U\pm B = BU_\pm \mp U_\pm$. Inserting this into (\ref{deriv}) leads
     \begin{equation}
-      \od{F}{\xi} = -Be^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B} \del{B U_\pm \mp X} e^{\xi B}
+      \od{F}{\xi} = -Be^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B} \del{B U_\pm \mp U_\pm} e^{\xi B}
     \end{equation}
 
     Also note that $[B,e^{\pm B}] = 0$ (can be seen if you wrote $e^{\pm B}$ as series). Therefore
 
     \begin{align*}
       \od{F}{\xi} &= -B e^{-\xi B}U_\pm e^{\xi B} + e^{-\xi B} \del{BU_\pm \mp U_\pm} e^{\xi B} \\
-                  &= -B e^{-\xi B}U_\pm e^{\xi B} + B e^{-\xi B} U_\pm e^{\xi B} \mp e^{-\xi B}Xe^{\xi B} \\
+                  &= -B e^{-\xi B}U_\pm e^{\xi B} + B e^{-\xi B} U_\pm e^{\xi B} \mp e^{-\xi B}U_\pm e^{\xi B} \\
                   &= \mp e^{-\xi B}U_\pm e^{\xi B} \\
                   &= \mp F(\xi)
     \end{align*}
@@ -120,10 +120,10 @@ Markus Fenske, Tutor: Adam Nagy
       F(\xi) = \sum_{n=0}^\infty \frac{(\mp 1)^n}{n!} F(0) \xi^n
     \end{equation*}
 
-    We also see that $F(0) = e^0Xe^0 = X$. Therefore
+    We also see that $F(0) = e^0 U_\pm e^0 = U_\pm$. Therefore
 
     \begin{equation*}
-      F(\xi) = X \sum_{n=0}^\infty \frac{(\mp \xi)^n}{n!}
+      F(\xi) = U_\pm \sum_{n=0}^\infty \frac{(\mp \xi)^n}{n!}
     \end{equation*}
 
     The series is just $e^{-\xi}$, so the solution is
@@ -142,8 +142,6 @@ Markus Fenske, Tutor: Adam Nagy
     \begin{equation}
       S^\dagger P S = Pe^{\xi}
     \end{equation}
-
-    
 
   \item
     We get the following an expectation values.
