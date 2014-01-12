@@ -101,8 +101,30 @@ Markus Fenske, Tutor: Adam Nagy
                   &= -F(\xi)
     \end{align*}
 
-    A solution for this differential equation is $F(\xi) = A e^{-\xi}$ where $A$
-    is constant. So we can write $F(\xi) = Xe^{-\xi}$.
+    We now write $F(\xi)$ as Taylor series in $\xi = 0$
+
+    \begin{equation*}
+      F(\xi) = \sum_{n=0}^\infty \frac{1}{n!} \od[n]{F}{\xi}(0) \del{\xi - 0}^n
+    \end{equation*}
+
+    From the differential equation, we immediatly see that $\od[n]{F}{\xi} = (-1)^n F(\xi)$.
+
+    \begin{equation*}
+      F(\xi) = \sum_{n=0}^\infty \frac{(-1)^n}{n!} F(0) \xi^n
+    \end{equation*}
+
+    We also see that $F(0) = e^0Xe^0 = X$. Therefore
+
+    \begin{equation*}
+      F(\xi) = X \sum_{n=0}^\infty \frac{(-\xi)^n}{n!}
+    \end{equation*}
+
+    The series is just $e^{-\xi}$, so the solution is
+
+    \begin{equation}
+      F(\xi) = X e^{-\xi}
+    \end{equation}
+
 
     For the $P$ operator, the solution is equivalent. We define $k := -i
     \sqrt{\frac{m \omega \hbar}{2}}$. Because $P = k(a^\dagger - a)$, we get
