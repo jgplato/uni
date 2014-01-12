@@ -283,5 +283,34 @@ Markus Fenske, Tutor: Adam Nagy
      A rotation by angle $\beta$, then by angle $\alpha$ is the same as a
      rotation by angle $\alpha + \beta$. Therefore $R(\mathbf{n}, \alpha) R(\mathbf{n}, \beta) =
      R(\mathbf{n}, \alpha + \beta)$.
+
+   \item
+     As given in the exercise sheet, we assume a rotation around the $z$ axis:
+     $\mathbf{n} = \begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix}$
+
+     \begin{align*}
+       R(\mathbf{n}, \epsilon) \mathbf{x} &= \del{1 - \frac{i}{\hbar} \epsilon \mathbf{n} \cdot \mathbf{L} + \mathcal{O}(\epsilon^2)} \mathbf{x} \\
+                                          &= \mathbf{x} - \frac{i}{\hbar} \epsilon L_z \mathbf{x} + \mathcal{O}(\epsilon^2)
+       \intertext{Inserting $L_z = - i \hbar \del{x_1 \partial_2 - x_2 \partial_1}$:}
+                                          &= \mathbf{x} - \epsilon \del{x_1 \partial_2 - x_2 \partial_1} \mathbf{x} + \mathcal{O}(\epsilon^2) \\
+                                          &= \mathbf{x} - \epsilon \begin{pmatrix} - x_2 \\ x_1 \\ 0 \end{pmatrix}  + \mathcal{O}(\epsilon^2) \\
+                                          &= \mathbf{x} - \epsilon \mathbf{n} \times \mathbf{x} + \mathcal{O}(\epsilon^2)
+     \end{align*}
+
+     Despite the sign mistake in the excercise sheet this is a rotation matrix
+     for small rotations with angle $\epsilon$.
+
+   \item
+     To rotate by angle $\theta$, we just need $N$ small rotations by
+     $\epsilon$, where $N = \frac{\theta}{\epsilon}$. Since we have a formula
+     for infinetismally small rotations, we must have $\epsilon \to 0$, so $N
+     \to \infty$. So we can write:
+
+     \begin{align*}
+       R(\mathbf{n}, \theta) &= \lim_{N \to \infty} R\del{\mathbf{n}, \frac{\theta}{N}}^N \\
+                             &= \lim_{N \to \infty} \del{1 - \frac{i}{\hbar} \frac{\theta}{N} \mathbf{n} \mathbf{L}}^N \\
+       \intertext{Analogous to $\lim_{n \to \infty} (1 - \frac{x}{n})^n = e^{-x}$, we can solve this limit as}
+                               &= e^{-\frac{i}{\hbar} \theta \mathbf{n} \mathbf{L}}
+     \end{align*}
 \end{enumerate}
 \end{document}
