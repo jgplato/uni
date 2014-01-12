@@ -58,17 +58,17 @@ Markus Fenske, Tutor: Adam Nagy
 
     We define
     \begin{align*}
-      B := \frac{1}{2} \xi \del{a^2 + {a^\dagger}^2}
+      B := \frac{1}{2} \del{a^2 + {a^\dagger}^2}
     \end{align*}
 
     Therefore
     \begin{align*}
-      F(\xi) = S^\dagger(\xi) X S(\xi) = e^{-B} X e^B
+      F(\xi) = S^\dagger(\xi) X S(\xi) = e^{-\xi B} X e^{\xi B}
     \end{align*}
 
     The derivative is
     \begin{equation}
-      \od{F}{\xi} = -\frac{B}{\xi}e^{-B}Xe^B + e^{-B}X \frac{B}{\xi}e^B
+      \od{F}{\xi} = -Be^{-\xi B}Xe^{\xi B} + e^{-\xi B}X B e^{\xi B}
       \label{deriv}
     \end{equation}
 
@@ -80,24 +80,25 @@ Markus Fenske, Tutor: Adam Nagy
     In order to rewrite (\ref{deriv}) we solve the following commutator using
     the identities $[A,B] = -[B,A]$ and $[AB,C] = A[B,C] + [A,C]B$.
     \begin{align*}
-      [X,B] &= \frac{1}{2} \xi k \left[\del{a+a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
-            &= \frac{1}{2} \xi k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
-            &= \frac{1}{2} \xi k \del{[{a^\dagger}^2, a] - [a^2, a^\dagger]} \\
-            &= \frac{1}{2} \xi k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger - a\underbrace{[a,a^\dagger]}_{=1} - \underbrace{[a,a^\dagger]}_{=1}a} \\
-            &= \frac{1}{2} \xi k \del{-2a^\dagger -2a} \\
-            &= -\xi k \del{a^\dagger + a} \\
-            &= -\xi X
+      [X,B] &= \frac{1}{2} k \left[\del{a+a^\dagger}, \del{a^2 - {a^\dagger}^2}\right] \\
+            &= \frac{1}{2} k \del{\underbrace{[a,a^2]}_{=0} - [a,{a^\dagger}^2] + [a^\dagger, a^2] - \underbrace{[a^\dagger, {a^\dagger}^2]}_{=0}} \\
+            &= \frac{1}{2} k \del{[{a^\dagger}^2, a] - [a^2, a^\dagger]} \\
+            &= \frac{1}{2} k \del{a^\dagger \underbrace{[a^\dagger,a] }_{=-1}+ \underbrace{[a^\dagger, a]}_{=-1}a^\dagger - a\underbrace{[a,a^\dagger]}_{=1} - \underbrace{[a,a^\dagger]}_{=1}a} \\
+            &= \frac{1}{2} k \del{-2a^\dagger -2a} \\
+            &= -k \del{a^\dagger + a} \\
+            &= - X
     \end{align*}
 
-    Therefore $XB = BX - \xi X$. Inserting this into (\ref{deriv}) leads
+    Therefore $XB = BX - X$. Inserting this into (\ref{deriv}) leads
     \begin{equation}
-      \od{F}{\xi} = -\frac{B}{\xi}e^{-B}Xe^B + e^{-B} \del{BX - \xi X} \frac{1}{\xi}e^B
+      \od{F}{\xi} = -Be^{-\xi B}Xe^{\xi B} + e^{-\xi B} \del{BX - X} e^{\xi B}
     \end{equation}
 
-    Also note that $[B,e^{-B}] = 0$ (can be seen if you wrote $e^{-B}$ as series). Therefore
+    Also note that $[B,e^{\pm B}] = 0$ (can be seen if you wrote $e^{\pm B}$ as series). Therefore
     \begin{align*}
-      \od{F}{\xi} &= -\frac{B}{\xi}e^{-B}Xe^B + \frac{1}{\xi} e^{-B} \del{BX - \xi X} e^B \\
-                  &= -\frac{B}{\xi}e^{-B}Xe^B + \frac{B}{\xi} e^{-B}Xe^B - e^{-B}Xe^{B} \\
+      \od{F}{\xi} &= -B e^{-\xi B}Xe^{\xi B} + e^{-\xi B} \del{BX - X} e^{\xi B} \\
+                  &= -B e^{-\xi B}Xe^{\xi B} + B e^{-\xi B}Xe^{\xi B} - e^{-\xi B}Xe^{\xi B} \\
+                  &= -e^{-\xi B}Xe^{\xi B} \\
                   &= -F(\xi)
     \end{align*}
 
