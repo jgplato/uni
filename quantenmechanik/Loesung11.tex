@@ -204,6 +204,64 @@ Markus Fenske, Tutor: Adam Nagy
 \section*{Exercise 2: Rotational symmetric problems and Bohr model}
 \begin{enumerate}[a)]
   \item
+    From the known commutation relation
+    \begin{equation*}
+      [L_i, P_j] = i \hbar \sum_{k} \epsilon_{ijk} P_k
+    \end{equation*}
+
+    We get
+    \begin{align*}
+      [L_x, P_x] &= 0 \\
+      [L_x, P_y] &= i \hbar P_z \\
+      [L_x, P_z] &= -i \hbar P_y \\
+    \end{align*}
+
+    Because we can rotate the coordinate system into a position we like without
+    changing anything, we see that
+    \begin{align*}
+      [L_x^2, P^2] = [L_y^2, P^2] = [L_z^2, P^2]
+    \end{align*}
+
+    So it is sufficient to show $[L_x^2, P^2] = 0$
+    \begin{align*}
+      [L_x^2, P^2] &= [L_x^2, P_x^2 + P_y^2 + P_z^2] \\
+                   &= L_x[L_x, P_x^2 + P_y^2 + P_z^2] + [L_x, P_x^2 + P_y^2 + P_z^2]L_x
+    \end{align*}
+
+    We calculate the terms separately. It's obvious that $[L_x, P_x^2] = 0$
+    because $[L_x, P_x] = 0$. We also get
+
+    \begin{align*}
+      [L_x, P_y^2] &= -[P_y^2, L_x] \\ 
+                   &= -\del{P_y[P_y, L_x] + [P_y, L_x]P_y} \\
+                   &= P_y[L_x, P_y] + [L_x, P_y]P_y \\
+                   &= i \hbar P_y P_z + \i \hbar P_z P_y
+    \end{align*}
+
+    and
+
+    \begin{align*}
+      [L_x, P_z^2] &= -[P_z^2, L_x] \\ 
+                   &= -\del{P_z[P_z, L_x] + [P_z, L_x]P_z} \\
+                   &= P_z[L_x, P_z] + [L_x, P_z]P_z \\
+                   &= -i \hbar P_z P_y - \i \hbar P_y P_z \\
+                   &= -[L_x, P_y^2]
+    \end{align*}
+
+    Inserting into the original equation leads
+    \begin{align*}
+      [L_x, P^2] &= L_x\del{[L_x ,P_y^2] - [L_x, P_y^2]} + \del{[L_x ,P_y^2] - [L_x, P_y^2]}L_x \\
+                 &= 0
+    \end{align*}
+
+    Since the commuation relations for $X$ are the same as for $P$ and we did
+    not use any special properties of $P$, the same holds for $X$. Therefore
+
+    \begin{align*}
+      [L^2, P^2] = [L_2, X^2] = 0
+    \end{align*}
+
+
   \item
     It follows that
     \begin{equation*}
