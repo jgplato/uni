@@ -310,5 +310,40 @@ Also ist folgendes Integral zu lösen:
   &= \frac{3a^2 \pi}{8}
 \end{align*}
 
+\section*{Aufgabe 11.5}
+
+\begin{align*}
+  r = \sqrt{x^2 + y^2} = a \sqrt{\cos^6 \phi + \sin^6 \phi}
+\end{align*}
+
+\begin{align*}
+  \envert{M} &= \frac{1}{2}   \int\limits_0^{2 \pi} r^2 \dif \phi \\
+             &= \frac{a^2}{2} \int\limits_0^{2 \pi} \del{\cos^6 \phi + \sin^6 \phi} \dif \phi \\
+             &= a^2 \int\limits_0^{2 \pi} \cos^6 \phi \dif \phi \\
+             &= \frac{5}{8} \pi a^2
+\end{align*}
+
+Voraussetzung ist, dass die Funktionaldeterminante r ist. Dazu wird
+vorausgesetzt, dass die Koordinatentransformation die Form $x = r \cos \phi$,
+$y = r \sin \phi$ hat, so dass die Kurve folgende Form hat
+
+\begin{equation*}
+  \overline{\gamma}(t) = \begin{pmatrix} r(t) \cos(\phi(t)) \\ r(t) \sin(\phi(t)) \end{pmatrix}
+\end{equation*}
+
+Das funktioniert für die Astroide nicht, denn
+\begin{align*}
+  x &= a \cos^3(t)\\
+  y &= a\sin^3(t) \\
+  r(t) = a\sqrt{\cos^6(t) + \sin^6(t)}
+\end{align*}
+
+Wir müssten vorraussetzen:
+\begin{align*}
+  r(t) = a \cos^2(t) = \sqrt{\cos^6(t) + \sin^6(t)} \\
+  r(t) = a \sin^2(t) = \sqrt{\cos^6(t) + \sin^6(t)} \\
+\end{align*}
+
+Was schon allein daran scheitert, dass $a \cos^2(t) \neq a \sin^2(t)$.
 
 \end{document}
