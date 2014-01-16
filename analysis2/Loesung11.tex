@@ -256,4 +256,59 @@ Ausgangskugel.
 
 \section*{Aufgabe 11.4}
 
+\begin{equation*}
+  x^\frac{2}{3} + y^\frac{2}{3} = a^\frac{2}{3} \quad a > 0
+\end{equation*}
+
+Parametrisierung: Für $r=a$: $x = a \cos^3\del{t}$, $y = a \sin^3\del{t}$, $t \in \sbr{0, 2 \pi}$
+
+Sei $\overline{g}$ die Vorschrift der Koordinatentransformation $\overline{g}:
+(x,y) \mapsto (r,t)$ mit $t \in \sbr{0, 2\pi}$, $r \in \sbr{0, a}$.
+
+Das heist:
+
+\begin{equation*}
+  \iint\limits_{M} \dif(x,y) = \iint\limits_{M} \envert{\det J_{\overline{g}}\del{r,t}} \dif(r,t)
+\end{equation*}
+
+mit $M = \cbr{(r,t): 0 \le r \le a, 0 \le t \le 2 \pi}$
+
+Für die Determinate der Jacobi-Matrix ergibt sich
+
+\begin{align*}
+  \det J_{\overline{g}} &=
+  \envert{\begin{pmatrix}
+    \cos^3(t) &- 3r \cos^2(t)\sin(t) \\
+    \sin^3(t) &= 3r \sin^2(t)\cos(t)
+  \end{pmatrix}} \\
+  &= 3r \cos^4(t) \sin^2(t) + 3 r \sin^4(t) \cos^2(t) \\
+  &= 3r \sin^2(t) \cos^2(t) \del{\cos^2(t) + \sin^2(t)} \\
+  &= 3r \sin^2(t) \cos^2(t)
+\end{align*}
+
+Also ist folgendes Integral zu lösen:
+
+\begin{align*}
+  \int\limits_0^{2 \pi}
+  \int\limits_0^{a}
+  3 r \sin^2(t) \cos^2(t) \dif r \dif t 
+  &=
+  \int\limits_0^{2 \pi}
+  \frac{3 a^2}{2} \sin^2(t) \cos^2(t) \dif t\\
+  \intertext{
+    Aus dem Quadrat des triginometrischen Additionstheorems $\sin(t) \cos(t) = \frac{1}{2}
+    \sin(2 t)$ erhalten wir $\sin^2(t)\cos^2(t) = \frac{1}{4} \sin^2(2 t)$.
+    Außerdem ist $\sin^2(t) = \frac{1}{2} \del{1 - \cos(2 t)}$. Somit $\frac{1}{4}
+    \sin^2(2t) = \frac{1}{8} \del{1 - \cos(4 t)}$. Damit erhalten wir
+  }
+  &=
+  \int\limits_0^{2 \pi}
+  \frac{3 a^2}{2}
+  \del{1 - \cos(4 t)} \dif t\\
+  &=
+  \sbr{\frac{3 a^2}{16} \del{t - \frac{\sin(4 t)}{4}}}_0^{2 \pi} \\
+  &= \frac{3a^2 \pi}{8}
+\end{align*}
+
+
 \end{document}
