@@ -108,7 +108,7 @@ Entsprechend folgt
 
 \begin{align*}
   \envert{\operatorname{Sim}\del{n,1}} &= \int_0^1 \envert{\operatorname{Sim}\del{n-1,1}} (1-t) \dif t \\
-                                       &= \int_0^1 \del{{\int \dots \int}\limits_{\operatorname{Sim}\del{n-1,1} (1-t)} 1 \dif x} \dif t \\
+                                       &= \int_0^1 \del{{\int \dots \int}_{\operatorname{Sim}\del{n-1,1} (1-t)} 1 \dif x} \dif t \\
     &= \envert{\operatorname{Sim}\del{n-1, 1}} \int_0^1 \del{1-t} \dif t \\
     &= \frac{1}{2} \envert{\operatorname{Sim}\del{n-1, 1}}
 \end{align*}
@@ -138,9 +138,9 @@ Daraus folgt für $n \to \infty$:
                                                               &= a \lim\limits_{n \to \infty} \del{\frac{a}{2}}^{n}
 \end{align*}
 
-Für $\all a < 2$ ist der Grenzwert offensichtlich existent und verschwindet. % Ich mag die Formulierung.
+Für $a < 2$ ist der Grenzwert offensichtlich existent und verschwindet. % Ich mag die Formulierung.
 Für $a = 2$ ist der innere Grenzwert $1$, also geht der ganze Term gegen $a$.
-Für $\all a > 2$ divergert die Folge gegen $+ \infty$.
+Für $a > 2$ divergert die Folge gegen $+ \infty$.
 
 Also ist
 \begin{align*}
