@@ -79,6 +79,77 @@ Entsprechend
   &= \frac{16}{3} r^3
 \end{align*}
 
+\section*{Aufgabe 11.2}
 
+Das Simplex $\operatorname{Sim}\del{n, a}$ entsteht aus dem Einheitssimplex
+$\operatorname{Sim}\del{n,1}$ durch Skalierung. Dabei muss dieses wenn $a$ die
+Kantenlänge ist, offensichtlich mit $a^n$ skalieren.
+
+\begin{equation*}
+  \envert{\operatorname{Sim}\del{n, a}} = a^n \envert{\operatorname{Sim}\del{n, 1}}
+\end{equation*}
+
+Es genügt also $\envert{\operatorname{Sim}\del{n, 1}}$ zu ermitteln.
+
+Alle Koordinaten variieren zwischen $0$ und $1$.
+
+Der Schnitt von $\operatorname{Sim}\del{n,1}$ in Höhe $t$ ist:
+
+\begin{equation*}
+  \cbr{\overline{x} \in \mathbb{R}^{n-1}: x_1 + \dots + x_{n-1} + t \le 1} =
+  \cbr{\overline{x} \in \mathbb{R}^{n-1}: \sum_{i=1}^{n-1} x_i\le 1 - t}
+\end{equation*}
+
+\begin{equation*}
+  \operatorname{Sim}\del{n,1}^t = \operatorname{Sim}\del{n-1, 1}^t (1-t)
+\end{equation*}
+
+Entsprechend folgt
+
+\begin{align*}
+  \envert{\operatorname{Sim}\del{n,1}} &= \int_0^1 \envert{\operatorname{Sim}\del{n-1,1}} (1-t) \dif t \\
+                                       &= \int_0^1 \del{{\int \dots \int}\limits_{\operatorname{Sim}\del{n-1,1} (1-t)} 1 \dif x} \dif t \\
+    &= \envert{\operatorname{Sim}\del{n-1, 1}} \int_0^1 \del{1-t} \dif t \\
+    &= \frac{1}{2} \envert{\operatorname{Sim}\del{n-1, 1}}
+\end{align*}
+
+Dann ergibt sich rasch die gesuchte Formel.
+
+\begin{align*}
+  n = 1: \qquad &\envert{\operatorname{Sim}(1,1)} = 1 \\
+  n = 2: \qquad &\envert{\operatorname{Sim}(2,1)} = \frac{1}{2} \envert{\operatorname{Sim}(1,1)} = \frac{1}{2} \\
+  n = 3: \qquad &\envert{\operatorname{Sim}(3,1)} = \frac{1}{2} \envert{\operatorname{Sim}(2,1)} = \frac{1}{4} \\
+  \vdots \qquad \quad \;\;  & \qquad \qquad \quad \, \vdots \\
+  n = n: \qquad &\envert{\operatorname{Sim}(n,1)} = \frac{1}{2^{n-1}}
+\end{align*}
+
+% FIXME: Beweis über vollständige Induktion trivial. Muss ich das wirklich abtippen?
+
+Also gilt
+\begin{equation*}
+  \envert{\operatorname{Sim}(n,a)} = a^n \envert{\operatorname{Sim}(n,1)} = \frac{a^n}{2^{n-1}}
+\end{equation*}
+
+Daraus folgt für $n \to \infty$:
+
+\begin{align*}
+  \lim\limits_{n \to \infty} \envert{\operatorname{Sim}(n,a)} &= \lim\limits_{n \to \infty} \frac{a^n}{2^{n-1}} \\
+                                                              &= a \lim\limits_{n \to \infty} \del{\frac{a}{2}}^{n-1} \\
+                                                              &= a \lim\limits_{n \to \infty} \del{\frac{a}{2}}^{n}
+\end{align*}
+
+Für $\all a < 2$ ist der Grenzwert offensichtlich existent und verschwindet. % Ich mag die Formulierung.
+Für $a = 2$ ist der innere Grenzwert $1$, also geht der ganze Term gegen $a$.
+Für $\all a > 2$ divergert die Folge gegen $+ \infty$.
+
+Also ist
+\begin{align*}
+  \lim\limits_{n \to \infty} \envert{\operatorname{Sim}(n,a)} =
+  \begin{cases} 
+    0 &\mbox{für } a < 2 \\
+    2 & \mbox{für } a = 2 \\
+    \infty & \mbox{für } a > 2 \\
+    \end{cases}
+\end{align*}
 
 \end{document}
