@@ -152,4 +152,90 @@ Also ist
     \end{cases}
 \end{align*}
 
+\section*{Aufgabe 11.3}
+
+In Zylinderkoordinaten $(r, \phi, z)$ gilt für den Zylinder
+$K_{\overline{0}}(R)$ und die Kugel $Z(a)$ (wir entschuldigen uns für die
+Vertauschung der Namen und Variablen und korrigieren das am Ende):
+
+\begin{align*}
+  K_{\overline{0}}(R) &= \cbr{(r, \phi, z): r^2 + z^2 \le R} \\
+  Z(a) &= \cbr{(r, \phi, z): r \le a} \\
+\end{align*}
+
+Entsprechend ist
+\begin{align*}
+  S = K_{\overline{0}} \backslash Z(a) = \cbr{(r, \phi, z): r^2+z^2 \le R^2 \text{ oder } a \le r \le R} \\
+  \Rightarrow z^2 \le R^2 - r^2
+\end{align*}
+
+Dann ist klar: $z^2: \cbr{R^2 - R^2, R^2 - a} = [0,R^2 -a^2] \Leftrightarrow z: \sbr{-\sqrt{R^2-r^2}, \sqrt{R^2- r^2}}$.
+
+Sei $g: (x,y,z) \to (r, \phi, z)$. Dann ist das gesuchte Volumenintegral
+
+\begin{align*}
+  \iiint\limits_{S} 1 \dif(x,y,z) &= \iiint\limits_{S} \det J_g(r, \phi, z) \dif(r, \phi, z)
+\end{align*}
+
+Mit $x = r \cos \phi, y = r \sin \phi, z = z$ ist die Jacobi-Matrix:
+
+\begin{align*}
+  J_g = \begin{pmatrix}
+    \cos \phi & -r \sin \phi & 0 \\
+    \sin \phi & r \cos \phi & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}
+\end{align*}
+
+Damit ist $\det J_g$ nach Saruss
+\begin{align*}
+  \det J_g = r cos^2 \phi - \del{-r \sin^2 \phi} = r
+\end{align*}
+
+Das führt dann auf
+\begin{align*}
+  \iiint\limits_{S} r \dif(r, \phi, z)
+\end{align*}
+
+mit der Parametrisierung
+\begin{align*}
+  &\phi: [0, 2\pi] \\
+  &r: [a, R] \\
+  &z: [-\sqrt{R^2 - r^2}, \sqrt{R^2 - r^2}]
+\end{align*}
+
+wird das zu
+
+\begin{align*}
+  \int\limits_{0}^{2 \pi}
+  \int\limits_{a}^{R}
+  \int\limits_{-\sqrt{R^2 - r^2}}^{\sqrt{R^2 - r^2}}
+  r
+  \dif z
+  \dif r
+  \dif \phi
+  &=
+  \int\limits_{0}^{2 \pi}
+  \int\limits_{a}^{R}
+  2r \sqrt{R^2 - r^2}
+  \dif r
+  \dif \phi
+  \intertext{
+    Substitution $u = R^2 - r^2 \Rightarrow \dif r = \frac{\dif u}{-2 r}$
+  }
+  &=
+  \int\limits_{0}^{2 \pi}
+  \int\limits_{R^2-a^2}^{0}
+  \frac{2r}{-2r} \sqrt{u}
+  \dif u
+  \dif \phi \\
+  &=
+  \int\limits_{0}^{2 \pi}
+  \frac{2}{3}\del{R^2 -a^2}^\frac{3}{2}
+  \dif \phi \\
+  &=
+  \frac{4 \pi}{3}\del{R^2 -a^2}^\frac{3}{2}
+\end{align*}
+
+
 \end{document}
