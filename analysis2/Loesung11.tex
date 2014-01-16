@@ -1,0 +1,84 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{pgfplots}
+\usepackage{commath}
+\pgfplotsset{compat=1.7}
+\usepgfplotslibrary{polar}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\restylefloat{table}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{a4paper, top=15mm, left=20mm, right=40mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Analysis II, Wintersemester 2013/2014, 11. Übungsblatt
+
+Markus Fenske, Luis Herrmann, Tutor: Sebastian Bierke
+\vspace{-10pt}
+\end{center}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\section*{Aufgabe 11.1}
+\begin{align*}
+  Z_1 &= \cbr{(x,y,z): x^2+y^2 \le r^2} \\
+  Z_2 &= \cbr{(x,y,z): y^2+z^2 \le r^2}
+\end{align*}
+
+Zu berechnen ist
+\begin{equation*}
+  \iiint\limits_{Z_1 \cap Z_2} 1 \dif\del{x,y,z}
+\end{equation*}
+
+Dabei sind die Integrationsgrenzen wie folgt zu wählen. Da $y^2 \le r^2 - x^2
+\Rightarrow y^2 \le r^2$ ist $\envert{y_\text{max}} = r$. Und $\envert{y_\text{min}} = 0$, nämlich genau dann wenn
+\begin{equation*}
+  x = r
+\end{equation*}
+
+Entsprechend
+\begin{align*}
+  x^2 \le r^2 - y^2 \Rightarrow \envert{x} &\le \sqrt{r^2 - y^2} \\
+  z^2 \le r^2 - y^2 \Rightarrow \envert{z} &\le \sqrt{r^2 - y^2} \\
+\end{align*}
+
+\begin{align*}
+  \Rightarrow \qquad &x: \sbr{- \sqrt{r^2 - y^2}, + \sqrt{r^2 - y^2}} \\
+              &z: \sbr{- \sqrt{r^2 - y^2}, + \sqrt{r^2 - y^2}} \\
+\end{align*}
+
+\begin{align*}
+  \int\limits_{-r}^r
+  \int\limits_{-\sqrt{r^2 - y^2}}^{\sqrt{r^2 - y^2}}
+  \int\limits_{-\sqrt{r^2 - y^2}}^{\sqrt{r^2 - y^2}}
+  \dif x \dif z \dif y
+  &=
+  \int\limits_{-r}^r
+  \int\limits_{-\sqrt{r^2 - y^2}}^{\sqrt{r^2 - y^2}}
+  2 \sqrt{r^2 - y^2}
+  \dif z \dif y \\
+  &=
+  \int\limits_{-r}^r
+  4 \del{r^2 - y^2}
+  \dif y \\
+  &= \sbr{4r^2y - \frac{y^3}{3}}_{-r}^{r} \\
+  &= 4 \del{\del{r^3 - \frac{r^3}{3}} - \del{-r^3 + \frac{r^3}{3}}} \\
+  &= 4 \del{\frac{2}{3}r^2 + \frac{2}{3}r^3} \\
+  &= \frac{16}{3} r^3
+\end{align*}
+
+
+
+\end{document}
