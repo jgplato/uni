@@ -107,5 +107,45 @@ Markus Fenske, Tutor: Adam Nagy
 
     To get the corrected energy, one would still have to add the $E_n^{(0)}$
     term.
+
+    For the second order energies we have to calculate
+    \begin{align*}
+      E_n^{(2)} = \sum_{m (\neq n)} \frac{\envert{\braket{m|V|n}}^2}{E^{(0)}_n - E^{(0)}_m}
+    \end{align*}
+
+    In order to shorten the notation, we define the \textit{falling factorial}
+    denoted by an underlined exponent:
+    \begin{equation*}
+      n^{\underline{m}} := \prod_{i=0}^{m-1} (n-i)
+    \end{equation*}
+
+    Examples: $n^{\underline{4}} = n (n-1) (n-2) (n-3)$, or for the anhilation
+    operator $a^m \ket{n} = \sqrt{n^{\underline{m}}} \ket{n}$
+
+    We also define the rising factorial, denoted by an overlined exponent.
+    \begin{equation*}
+      n^{\overline{m}} := \prod_{i=0}^{m-1} (n+i)
+    \end{equation*}
+
+    Using this, we calculate $\braket{m|V|n}$, where we know that $m \neq n$.
+    So we get to the same point as above, but remove the balanced terms
+    containing the same number of anhilation as creation operators, because
+    they will vanish.
+
+    \begin{align*}
+      \braket{m|x^4|n} &= \frac{1}{4} \braket{m|(a^4 + 2a^2N + 2a^2 + 2Na^2 + 2N{a^\dagger}^2 + 2{a^\dagger}^2 N + 2{a^\dagger}^2 + {a^\dagger}^4)|n} \\
+                                   &= \frac{1}{4} \left(\sqrt{n^{\underline{4}}} \braket{m|n-4} + 2 n \sqrt{n^{\underline{2}}} \braket{m|n-2} \right.
+      + 2 \sqrt{n^{\underline{2}}} \braket{m|n-2} + 2 (n-2) \sqrt{n^{\underline{2}}} \braket{m|n-2} \\
+    & \left. \quad + 2n \sqrt{n^{\overline 2}} \braket{m|n+2}+ 2(n+2) \sqrt{n^{\overline 2}} \braket{m|n+2} + 2 \sqrt{n^{\overline 2}} \braket{m|n+2} + \sqrt{n^{\overline 4}} \braket{m|n+4} \right) \\
+    &=  \frac{\sqrt{n^{\underline 4}}}{4}            \braket{m|n-4}
+      + \frac{\sqrt{n^{\underline 2}}}{2} \del{n-1}  \braket{m|n-2}
+      + \frac{\sqrt{n^{\overline  2}}}{2} \del{2n+3} \braket{m|n+2}
+      + \frac{\sqrt{n^{\overline  4}}}{4}            \braket{m|n+4}
+    \end{align*}
+
+    The only non-zero terms are for $m=n+4$, $m=n+2$, $m=n-2$ and $m=n-4$, so
+    we can write the sum as
+
+
 \end{enumerate}
 \end{document}
