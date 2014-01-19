@@ -44,17 +44,68 @@ Markus Fenske, Tutor: Adam Nagy
     When setting $\lambda = 0$, we get the Hamiltonian for the harmonic
     oscillator where $m = \hbar = \omega = 1$.
     \begin{equation*}
-      H = - \frac{1}{2} \pd[2]{}{x} + \frac{1}{2} x^2
+      H^{(0)} = - \frac{1}{2} \pd[2]{}{x} + \frac{1}{2} x^2
     \end{equation*}
 
     The eigenstates are know as
     \begin{equation*}
-      \psi_n(x) = \frac{1}{\sqrt[4]{\pi}} \frac{1}{\sqrt{2^n n!}} H_n(x) x e^{-\frac{x^2}{2}}
+      \psi_n^{(0)}(x) = \frac{1}{\sqrt[4]{\pi}} \frac{1}{\sqrt{2^n n!}} H_n(x) x e^{-\frac{x^2}{2}}
     \end{equation*}
 
     The eigenenergies are
     \begin{equation*}
-      E_n = n + \frac{1}{2}
+      E^{(0)}_n = n + \frac{1}{2}
     \end{equation*}
+
+  \item
+    The pertubed Hamiltonian is
+    \begin{equation*}
+      H = H^{(0)} + \lambda V \; \text{ where } \; V = x^4
+    \end{equation*}
+
+    So the first order energy is
+    \begin{align*}
+      \braket{\psi_n^{(0)}|V|\psi_n^{(0)}} &= \braket{n|x^4|n} \\
+      \intertext{The $x$-operator is in this case $x = \frac{1}{\sqrt{2}} (a+a^\dagger)$, so we get}
+      &= \frac{1}{4} \braket{n|(a+a^\dagger)^4|n} \\
+      &= \frac{1}{4} \braket{n|(a^2 + 2N + 1 +{a^\dagger}^2)^2|n} \\
+      &= \frac{1}{4} \bra{n}(a^4 + 2a^2N + a^2 + a^2{a^\dagger}^2 + 2Na^2 +4N^2 + 2N +\\ & \quad\; 2N{a^\dagger}^2 + a^2 + 2N+1+{a^\dagger}^2 + {a^\dagger}^2a^2 + 2{a^\dagger}^2N + {a^\dagger}^2 + {a^\dagger}^4)\ket{n}
+      \intertext{To clear this up, we can remove all terms that contain an unbalanced number of $a$ and $a^\dagger$, because they will vanish.}
+      &= \frac{1}{4} \braket{n|(a^2{a^\dagger}^2 + 4 N^2 + 2N + 2N + 1 + {a^\dagger}^2a^2)|n}
+    \end{align*}
+
+    Now for some operator transformations using the known relations.
+
+    \begin{align*}
+      a^2{a^\dagger}^2 &= aaa^\dagger a^\dagger \\
+                       &= a(N+1)a^\dagger \\
+                       &= aNa^\dagger + aa^\dagger \\
+                       &= (Na + a)a^\dagger + N + 1 \\
+                       &= Naa^\dagger + aa^\dagger + N + 1 \\
+                       &= N(N+1) + (N+1) + N + 1 \\
+                       &= N^2 + 3N + 2
+    \end{align*}
+
+    \begin{align*}
+      {a^\dagger}^2 a^2 &= a^\dagger N a \\
+                        &= a^\dagger (aN - a) \\
+                        &= N^2 - N
+    \end{align*}
+
+    Substituting this into the original equation leads
+    \begin{align*}
+      \frac{1}{4} \braket{n|(a^2{a^\dagger}^2 + 4 N^2 + 4N + 1 + {a^\dagger}^2a^2)|n} 
+      &= \frac{1}{4} \braket{n|(N^2 + 3N + 2 + 4N^2 + 4N + 1 + N^2 - N)|n} \\
+      &= \frac{1}{4} \braket{n|(6N^2 + 6N + 3)|n} \\
+      &= \frac{6n^2 + 6n +3}{4}
+    \end{align*}
+
+    So the first-order energy correction is
+    \begin{align*}
+      E_n^{(1)}(\lambda) = \lambda \frac{6n^2 + 6n + 3}{4}
+    \end{align*}
+
+    To get the corrected energy, one would still have to add the $E_n^{(0)}$
+    term.
 \end{enumerate}
 \end{document}
