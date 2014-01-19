@@ -173,5 +173,21 @@ Markus Fenske, Tutor: Adam Nagy
       E_n^{(2)}(\lambda)  = -\frac{1}{2} \lambda^2 \del{\frac{3}{8}n^4 + \frac{29}{8}n^3 + \frac{53}{8}n^2 + \frac{59}{8} n + \frac{21}{8}}
     \end{equation*}
 
+  \item
+    The first order eigenstates are defined by
+    \begin{align*}
+      \ket{\psi_n^{(1)}} &= \sum_{k (\neq n)} \frac{\braket{k|V|n}}{E_n - E_k} \ket{k} \\
+      &=
+      \frac{\braket{n+4|V|n}}{E^{(0)}_{n+4} - E^{(0)}_{m}} \ket{n+4} +
+      \frac{\braket{n+2|V|n}}{E^{(0)}_{n+2} - E^{(0)}_{m}} \ket{n+2} +
+      \frac{\braket{n-2|V|n}}{E^{(0)}_{n-2} - E^{(0)}_{m}} \ket{n-2} +
+      \frac{\braket{n-4|V|n}}{E^{(0)}_{n-4} - E^{(0)}_{m}} \ket{n-4} \\
+      &= 
+      \frac{\sqrt{n^{\underline 4}}}{16} \ket{n+4}
+      +\frac{\sqrt{n^{\underline 2}}(n-1)}{8} \ket{n+2}
+      -\frac{\sqrt{(n+1)^{\overline 2}}(2n+3)}{8} \ket{n-2}
+      -\frac{\sqrt{(n+1)^{\overline 4}}}{16} \ket{n-4} \\\
+    \end{align*}
+
 \end{enumerate}
 \end{document}
