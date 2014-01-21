@@ -268,6 +268,216 @@ Markus Fenske, Tutor: Adam Nagy
 
     Thus we have constructed all eigenvectors.
 
+  \item
+    We know that
+    \begin{align*}
+      S_i = \frac{\hbar}{2} \sigma_i
+    \end{align*}
+
+    where $\sigma_i$ are the Pauli matrices. So we already know the matrix
+    representation of $S_x$, $S_y$, $S_z$ in the basis $\{\ket{\tfrac{1}{2},
+    \tfrac{1}{2}}, \ket{\tfrac{1}{2}, -\tfrac{1}{2}}\}$:
+
+    \begin{align*}
+      S_x = \frac{\hbar}{2} \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+      \end{pmatrix}, \quad
+      S_y = \frac{\hbar}{2} \begin{pmatrix}
+        0 & -i \\
+        i & 0
+      \end{pmatrix}, \quad
+      S_z = \frac{\hbar}{2} \begin{pmatrix}
+        1 & 0 \\
+        0 & -1
+      \end{pmatrix},
+    \end{align*}
+
+    For $L_z$ we directly see that $L_z \ket{j, m} = \hbar m \ket{j,m}$. So we
+    have in basis $\{\ket{1,1}, \ket{1,0}, \ket{1,-1}\}$:
+
+    \begin{align*}
+      L_z = \hbar \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & 1
+      \end{pmatrix}
+    \end{align*}
+
+    We also know the ladder operators and calculate
+    \begin{align*}
+      L_+ \ket{1,1} &= 0 \\
+      L_+ \ket{1,0} &= \hbar \sqrt{2} \ket{1,1} \\
+      L_+ \ket{1,-1} &= \hbar \sqrt{2} \ket{1,0} \\
+      L_- \ket{1,1} &= \hbar \sqrt{2} \ket{1,0} \\
+      L_- \ket{1,0} &= \hbar \sqrt{2} \ket{1,-1} \\
+      L_- \ket{1,-1} &= 0 \\
+    \end{align*}
+
+    So the matricies are
+    \begin{align*}
+      L_+ = \hbar \sqrt{2} \begin{pmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0 
+      \end{pmatrix}, \quad
+      L_- = \hbar \sqrt{2} \begin{pmatrix}
+        0 & 0 & 0 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 
+      \end{pmatrix}
+    \end{align*}
+
+    From $L_x = \frac{1}{2} \del{L_+ + L_-}$ and $L_y = \frac{1}{2i} \del{L_+ -
+    L_-}$ we construct
+    \begin{align*}
+      L_x = \hbar \frac{\sqrt{2}}{2} \begin{pmatrix}
+        0 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 0
+      \end{pmatrix}, \quad
+      L_y = \hbar \frac{\sqrt{2}}{2i} \begin{pmatrix}
+        0 & 1 & 0 \\
+        -1 & 0 & 1 \\
+        0 & -1 & 0
+      \end{pmatrix}
+    \end{align*}
+
+    So in the basis $
+    \{
+      \ket{1,1} \otimes \ket{\tfrac{1}{2}, \tfrac{1}{2}},
+      \ket{1,0} \otimes \ket{\tfrac{1}{2}, \tfrac{1}{2}},
+      \ket{1,-1} \otimes \ket{\tfrac{1}{2}, \tfrac{1}{2}},
+      \ket{1,1} \otimes \ket{\tfrac{1}{2}, -\tfrac{1}{2}},
+      \ket{1,0} \otimes \ket{\tfrac{1}{2}, -\tfrac{1}{2}},
+      \ket{1,-1} \otimes \ket{\tfrac{1}{2}, -\tfrac{1}{2}}
+    \}
+    $ we can write the matrices as
+
+    \begin{align*}
+      L_x \otimes S_x &= \frac{\hbar^2}{2} \sqrt{2}
+        \begin{pmatrix}
+          0
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              1 & 0 & 1 \\
+              0 & 1 & 0
+            \end{pmatrix}
+           &
+          1
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              1 & 0 & 1 \\
+              0 & 1 & 0
+            \end{pmatrix}
+            \\
+          1
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              1 & 0 & 1 \\
+              0 & 1 & 0
+            \end{pmatrix}
+           &
+          0
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              1 & 0 & 1 \\
+              0 & 1 & 0
+            \end{pmatrix}
+          \end{pmatrix}
+          =
+          \frac{\hbar^2}{2} \sqrt{2}
+          \begin{pmatrix}
+            0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 & 0 & 0 \\
+            1 & 0 & 1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 & 0 & 0
+          \end{pmatrix} \\
+      L_y \otimes S_y &= \frac{\hbar^2}{2} \sqrt{2}
+        \begin{pmatrix}
+          0
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              -1 & 0 & 1 \\
+              0 & -1 & 0
+            \end{pmatrix}
+           &
+          -1
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              -1 & 0 & 1 \\
+              0 & -1 & 0
+            \end{pmatrix}
+            \\
+          1
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              -1 & 0 & 1 \\
+              0 & -1 & 0
+            \end{pmatrix}
+           &
+          0
+            \begin{pmatrix}
+              0 & 1 & 0 \\
+              -1 & 0 & 1 \\
+              0 & -1 & 0
+            \end{pmatrix}
+          \end{pmatrix}
+          =
+          \frac{\hbar^2}{2} \sqrt{2}
+          \begin{pmatrix}
+            0 & 0 & 0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & 1 & 0 & -1 \\
+            0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 0 & 0 & 0 \\
+            -1 & 0 & 1 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 & 0 & 0
+          \end{pmatrix} \\
+      L_z \otimes S_z &= \frac{\hbar^2}{2}
+        \begin{pmatrix}
+          1
+            \begin{pmatrix}
+              1 & 0 & 0 \\
+              0 & 0 & 0 \\
+              0 & 0 & -1
+            \end{pmatrix}
+           &
+          0
+            \begin{pmatrix}
+              1 & 0 & 0 \\
+              0 & 0 & 0 \\
+              0 & 0 & -1
+            \end{pmatrix}
+            \\
+          0
+            \begin{pmatrix}
+              1 & 0 & 0 \\
+              0 & 0 & 0 \\
+              0 & 0 & -1
+            \end{pmatrix}
+           &
+          -1
+            \begin{pmatrix}
+              1 & 0 & 0 \\
+              0 & 0 & 0 \\
+              0 & 0 & -1
+            \end{pmatrix}
+          \end{pmatrix}
+          =
+          \frac{\hbar^2}{2}
+          \begin{pmatrix}
+            1 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & -1
+          \end{pmatrix}
+    \end{align*}
+
+
 
 \end{enumerate}
 \end{document}
