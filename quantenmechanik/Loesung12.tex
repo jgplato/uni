@@ -38,7 +38,7 @@ Markus Fenske, Tutor: Adam Nagy
 \vspace{-10pt}
 \end{center}
 
-\section*{Exercise 1: Pertubation theory}
+\section*{Exercise 1: Perturbation theory}
 \begin{enumerate}[a)]
   \item
     When setting $\lambda = 0$, we get the Hamiltonian for the harmonic
@@ -191,6 +191,30 @@ Markus Fenske, Tutor: Adam Nagy
 
 \end{enumerate}
 
+\section*{Exercise 2: Time-dependent perturbation theory}
+\begin{enumerate}[a)]
+  \item
+    See script, 6.2.2
+  \item
+    The transition amplitude $A$ is
+    \begin{align*}
+      A = \frac{\lambda}{i \hbar} \int_0^t e^{\frac{i \omega_0 s}{2}} \cos \del{\omega_L s} \dif s =
+      \lambda
+      \del{
+        -\frac{2 \omega_0 e^\frac{i \omega_0 t}{2} \cos\del{\omega_L t}}{\hbar\del{\omega_0^2 - 4 \omega_L^2}}
+        +i\frac{4 \omega_L e^\frac{i \omega_0 t}{2} \sin\del{\omega_L t}}{\hbar\del{\omega_0^2 - 4 \omega_L^2}}
+      }
+    \end{align*}
+
+    The transition probability is therefore
+    \begin{align*}
+      P &= \envert{A}^2 \\
+       &= \frac{4 \omega_0^2 \cos^2\del{\omega_L t} + 16 \omega_L^2 \sin\del{\omega_L t}}{\hbar^2\del{\omega_0^2 - 4 \omega_L^2}^2}
+    \end{align*}
+  \item
+    We obtain a result by deriving $\pd{P}{\omega_L}$ and $\pd{P}{t}$ to get a maximum.
+  \item
+\end{enumerate}
 \section*{Exercise 3: Coupling of spin and angular momentum}
 \begin{enumerate}[a)]
   \item
