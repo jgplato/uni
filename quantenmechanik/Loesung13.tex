@@ -1,0 +1,133 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{braket} % Teh quantum stuff
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Quantum Mechanics, winter term 2013/2014, exercise sheet 13
+
+Markus Fenske, Tutor: Adam Nagy
+\vspace{-10pt}
+\end{center}
+
+\section*{Exercise 1: Knowledge Questions}
+\begin{enumerate}[a)]
+  \item
+    \begin{align*}
+      a^\dagger \ket{n} &= \sqrt{n+1} \ket{n+1} \\
+      a         \ket{n} &= \sqrt{n}   \ket{n-1}
+    \end{align*}
+
+    Eselsbrücken dafür habe ich noch keine gefunden. Es ist ganz anders als man
+    es erwartet. Der Erzeugungsoperator hat ein $\dagger$ dran, obwohl man den
+    \textit{dagger} (engl. Dolch) eher beim Vernichtungsoperator erwarten
+    würde.
+
+    Die Wurzeln merkt man sich am besten, indem man $N = a^\dagger a$ auf
+    $\ket{0}$ und $\ket{1}$ anwendet und sieht, dass mit den falschen nicht die
+    Eigenwerte $0$ und $1$ rauskommen.
+
+  \item $\mathcal{H}_A \otimes \mathcal{H}_B$
+
+  \item
+    Dichteoperatoren werden für gemischte Zustände benötigt, also bei
+    klassischen Zufallsexperimenten. Wenn ich aus einer Kiste rote und blaue
+    Murmeln ziehe, aber nicht weiß, was ich habe. Nicht zu verwechseln mit der
+    Superposition! Das wäre, wenn ich eine Kiste voller Murmeln habe, aber alle
+    in einer Superposition von rot und blau sind.
+
+    Beispiel wäre ein Atomofen des Stern-Gernach-Experiments. Die
+    Spin-Orientierungen der Silberatome sind völlig unbekannt, können also nur
+    durch eine Dichtematrix beschrieben werden.
+
+  \item
+    Der Zustand ist gemischt. Reine Zustände hätten nämlich ausschließlich
+    Diagonaleinträge.
+
+  \item
+    \textbf{TODO: Tabelle der 4 Quantenzahlen}
+
+  \item
+    \textbf{TODO: Ich weiß nicht, wie ich das mache}
+
+  \item
+    Sei $A$ eine Obervable, sei $\psi(t)$ ein Zustand. $U$ ist der
+    Zeitentwicklungsoperator. Dann ist der Erwartungswert von $A$
+
+    \begin{align*}
+      \underbrace{\braket{\psi(t)|A|\psi(t)}}_{\text{Schrödingerbild}}
+      = \braket{\psi(0)|U^\dagger(t)AU(t)|\psi(0)}
+      = \underbrace{\braket{\psi|A(t)|\psi}}_{\text{Heisenbergbild}}
+    \end{align*}
+
+    Im Schrödingerbild sind die Zustandsvektoren zeitabhängig und die
+    Observablen fest, während im Heisenbergbild die Zustandsvektoren fest sind,
+    aber die Observablen zeitabhängig. Der Unterschied ist in diesem Fall rein
+    psychologisch. Mathematisch ist das äquivalent (so, als ob der Zug vom
+    Bahnsteig oder der Bahnsteig vom Zug abfährt).
+
+  \item
+    Die Strahlungsleistung ist proportional zur vierten Potenz der Temperatur
+    (und natürlich zur Fläche des Strahlers).
+
+    \begin{align*}
+      P = \sigma A T^4
+    \end{align*}
+
+  \item
+    Bei der \textbf{Gasentladung in Wasserstoff} (Wasserstoff wird in einer
+    Gasentladungslampe zum Leuchten angeregt), erhält man ein diskretes
+    Linienspektrum. Dies ist im Rahmen der frühen halbklassischen Quantenphysik
+    durch eine Drehimpulsquantelung (Bohrsches Atommodell, 1913) erklärbar.
+    Erst 13 Jahre später konnten dann Pauli und Schrödinger das Wasserstoffatom
+    vollständig erklären.
+
+    \textit{Andere Antwortmöglichkeiten:}
+
+    Beim \textbf{photoelektrischen Effekt} wird ein negativ geladener
+    Metallkörper mit Licht verschiedener Wellenlänge bestrahlt. Der Körper
+    entlädt sich erst, wenn er mit Licht einer bestimmten Wellenlänge bestrahlt
+    wird, darunter gibt es keinen Effekt. Klassisch würde man vermuten, dass
+    ein Elektron auch von zwei Photonen niedrigerer Energie ausgelöst werden
+    würde, was jedoch nicht der Fall ist.
+
+    Beim \textbf{Doppelspaltversuch} werden Elektronen durch einen Doppelspalt
+    geschickt. Es ergibt sich ein Interferenzmuster, dass man klassisch nicht
+    erwarten würde. Dieser wurde allerdings erst 1961 mit Elektronen
+    durchgeführt.
+
+    Außerdem \textbf{Stern-Gerlach} (würde ich nicht nehmen, zu viel Text, zu
+    komplex).
+
+  \item
+    $\lambda_C = \frac{h}{mc}$
+\end{enumerate}
+\end{document}
