@@ -61,11 +61,11 @@ Damit ergeben sich die Integrale
 \begin{align*}
   \int_{\mathcal{C}_1} \vec{\omega}_1 \cdot \dif\vec{r}
   &= \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \vec{\omega}(\vec{r}(t)) \cdot \frac{\dif\vec{r}}{\dif t} \dif t
-  = \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \begin{pmatrix} A(\sin(t) + \cos(t)) \\ -A(\sin(t) + \cos(t)) \\ 0 \end{pmatrix} \cdot \begin{pmatrix} a\cos(t) \\ a\sin(t) \\ 0 \end{pmatrix} \dif t \\
-  &= Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin(t)\cos(t) + \cos^2(t) - \sin^2(t) - \sin(t)\cos(t) \dif t \\
-  &= Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^2(t) - \sin^2(t) \dif t
-   = Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} -\frac{1}{2} \sin(2t) \dif t
-   = 0 \text{ (weil $\sin t$ ungerade)}
+  = \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \begin{pmatrix} Aa(\sin(t) + \cos(t)) \\ -Aa(\sin(t) + \cos(t)) \\ 0 \end{pmatrix} \cdot \begin{pmatrix} a\cos(t) \\ -a\sin(t) \\ 0 \end{pmatrix} \dif t \\
+  &= Aa^2 \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin(t)\cos(t) + \cos^2(t) + \sin^2(t) + \sin(t)\cos(t) \dif t \\
+  &= Aa^2 \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 1 + 2\cos(t)\sin(t) \dif t
+  = Aa^2 \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 1 + \sin(2t) \dif t
+  = Aa^2 \pi \text{ (weil $\sin$ ungerade)}
 \end{align*}
 
 und
