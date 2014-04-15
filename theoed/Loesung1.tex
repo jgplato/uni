@@ -80,7 +80,7 @@ und
 Das Feld $\vec{\omega}_2$ ist hingegen konservativ (weil Gradient eines Skalarpotentials)
 
 \begin{align*}
-  \vec{\omega}_2 = \vec{\nabla} \left( \frac{A}{2} (x+y)^2 + \frac{B}{2} z^2 \right)
+  \vec{\omega}_2 = \vec{\nabla} \underbrace{\left( \frac{A}{2} (x+y)^2 + \frac{B}{2} z^2 \right)}_{=: \Phi}
 \end{align*}
 
 Damit ist die Integration wegunabhängig, die beiden Integrale sind also gleich.
@@ -91,9 +91,9 @@ Das Ergebnis ergibt sich als Potentialdifferenz $\Phi(-a, 0, 0) - \Phi(a, 0, 0)
 
 Über die Anwendung des Gaußschen Satzes erhalten wir
 
-\begin{equation}
+\begin{equation*}
   \oint\limits_\text{$\partial$ Würfel} \vec{r} \dif \vec{a} = \int\limits_\text{Würfel} \nabla \vec{r} \dif V = 3 \int\limits_\text{Würfel} \dif V = 3
-\end{equation}
+\end{equation*}
 
 \section*{Aufgabe 3: Gradient, Divergenz und Rotation}
 
@@ -105,11 +105,24 @@ Wir benutzen hier auch den Gradienten in Kugelkoordinaten ($\nabla = \hat{r}
   \item $\vec{\nabla} U = 2 \vec{r}$ mit $\vec{r} = (x,y,z)$
   \item $\vec{\nabla} U = -2ab \exp(-br^2) \vec{r}$
   \item $\vec{\nabla} U = mr^{m-1} \hat{r} = mr^{m-2} \vec{r}$
-  \item $\dots$
+  \item
+    Für die $x$-Komponente
+    \begin{align*}
+      \frac{\partial}{\partial x} \frac{p_x x}{(x^2+y^2+z^2)^\frac{3}{2}}
+      &= \frac{p_x(x^2+y^2+z^2)^\frac{3}{2} - 3p_xx^2\sqrt{x^2+y^2+z^2}}{(x^2+y^2+z^2)^3} \\
+      &= \frac{p_x r^3}{r^6} - \frac{3p_x x^2 r}{r^6} \\
+      &= \frac{p_x}{r^3} - 3 \frac{p_x x}{r^5} x
+    \end{align*}
+
+    Für die anderen Komponenten analog. Somit
+    \begin{align*}
+      \nabla U = \frac{\vec{p}}{r^3} - 3 \frac{\vec{p} \cdot \vec{r}}{r^5} \vec{r}
+    \end{align*}
 \end{enumerate}
 
 
-Hier nutzen wir auch die Divergenz in Kugelkoordinaten: $\nabla \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 v_r + \dots$
+Für den nächsten Teil nutzen wir auch die Divergenz in Kugelkoordinaten:
+$\nabla \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 v_r + \dots$
 
 \begin{enumerate}[a)]
   \setcounter{enumi}{4}
