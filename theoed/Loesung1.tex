@@ -52,7 +52,7 @@ Daher existiert kein Skalarpotential und die Integration ist wegabhängig.
 Wir parametrisieren:
 
 \begin{align*}
-\mathcal{C}_1: \vec{r}(t) = \begin{pmatrix} \sin(t) \\ \cos(t) \\ 0\end{pmatrix} \text{ mit } t \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right], \;\;\;
+  \mathcal{C}_1: \vec{r}(t) = \begin{pmatrix} a \sin(t) \\ a \cos(t) \\ 0\end{pmatrix} \text{ mit } t \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right], \;\;\;
   \mathcal{C}_2: \vec{r}(t) = \begin{pmatrix} t \\ 0 \\ 0\end{pmatrix} \text{ mit } t \in [-a,a]
 \end{align*}
 
@@ -61,10 +61,10 @@ Damit ergeben sich die Integrale
 \begin{align*}
   \int_{\mathcal{C}_1} \vec{\omega}_1 \cdot \dif\vec{r}
   &= \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \vec{\omega}(\vec{r}(t)) \cdot \frac{\dif\vec{r}}{\dif t} \dif t
-  = \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \begin{pmatrix} A(\sin(t) + \cos(t)) \\ -A(\sin(t) + \cos(t)) \\ 0 \end{pmatrix} \cdot \begin{pmatrix} \cos(t) \\ \sin(t) \\ 0 \end{pmatrix} \dif t \\
-  &= A \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin(t)\cos(t) + \cos^2(t) - \sin^2(t) - \sin(t)\cos(t) \dif t \\
-  &= A \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^2(t) - \sin^2(t) \dif t
-   = A \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} -\frac{1}{2} \sin(2t) \dif t
+  = \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \begin{pmatrix} A(\sin(t) + \cos(t)) \\ -A(\sin(t) + \cos(t)) \\ 0 \end{pmatrix} \cdot \begin{pmatrix} a\cos(t) \\ a\sin(t) \\ 0 \end{pmatrix} \dif t \\
+  &= Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \sin(t)\cos(t) + \cos^2(t) - \sin^2(t) - \sin(t)\cos(t) \dif t \\
+  &= Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \cos^2(t) - \sin^2(t) \dif t
+   = Aa \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} -\frac{1}{2} \sin(2t) \dif t
    = 0 \text{ (weil $\sin t$ ungerade)}
 \end{align*}
 
