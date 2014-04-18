@@ -56,6 +56,43 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
     = f \partial_i v_i + \delta_{ij} v_i \partial_j f
     = f \partial_i v_i + \hat{e}_iv_i \hat{e}_j \partial_j f
     = f \nabla \vec{v} + \vec{v} \cdot \nabla f$
+  \item $\vec{w} \cdot (\nabla \times \vec{v}) - \vec{v} \cdot (\nabla \times \vec{w})
+    = \epsilon_{ijk}w_i\partial_jv_k - \epsilon_{ijk} v_i \partial_j w_k
+    = -\epsilon_{ijk} w_j \partial_ iv_k + \epsilon_{ijk} v_j \partial_i w_k \\
+    =  \epsilon_{ijk} v_j \partial_i w_k - \epsilon_{ijk} w_j \partial_i v_k
+    =  \epsilon_{ijk} v_j \partial_i w_k + \epsilon_{ijk} w_k \partial_i v_j
+    =  \epsilon_{ijk} (v_j \partial_i w_k + w_k \partial_i v_j) \\
+    =  \epsilon_{ijk} (\partial_i v_j w_k)
+    = \nabla (\vec{v} \times \vec{w})$
+  \item $\dots$
+  \item Folgt aus $\epsilon_{ijk} = \delta_\text{irgendwas} \pm
+    \delta_{irgendwas}$. Ist trivial, aber die Relation mit dem Epsilon-Tensor
+    sollte bewiesen werden.
 \end{enumerate}
+
+\section*{Aufgabe 2: Vektoranalysis: Zweite Ableitung}
+
+\begin{align*}
+     \nabla \times (\nabla \times \vec{v})
+     &= \epsilon_{lmn} \hat{e}_l \partial_m \hat{e}_n (\epsilon_{ijk} \hat{e}_i \partial_j v_k) \\
+     &= \epsilon_{lmn} \hat{e}_l \partial_m \epsilon_{njk} \partial_j v_k \\
+     &= \hat{e}_l \epsilon_{lmn} \epsilon_{njk} \partial_m \partial_j v_k
+\end{align*}
+
+\textbf{Nebenrechnung:} Für die Iteration des Epsilon-Tensors gilt hier
+
+\begin{align*}
+  \epsilon_{lmn} \epsilon_{njk} &= -\epsilon_{nml} \epsilon_{njk} \\
+  &= \epsilon_{nlm} \epsilon_{njk} \\
+  &= \delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}
+\end{align*}
+
+Eingesetzt in die Ausgangsgleichung erhält man
+
+\begin{align*}
+  &= \hat{e}_l (\delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}) \partial_m \partial_j v_k \\
+  &= \hat{e}_l \partial_l \partial_m v_m - \partial_m^2 v_l \\
+  &= \nabla(\nabla \vec{v}) - \nabla^2 \vec{v}
+\end{align*}
 
 \end{document}
