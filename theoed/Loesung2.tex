@@ -96,11 +96,9 @@ klar, dass $\nabla f := \partial_i f$ für $f$ skalar bzw. $\nabla \vec{v} :=
   \item
     \begin{align}
       &\vec{w} \cdot (\nabla \times \vec{v}) - \vec{v} \cdot (\nabla \times \vec{w}) \\
-      =  &\epsilon_{ijk}w_i\partial_jv_k - \epsilon_{ijk} v_i \partial_j w_k \\
-      = &-\epsilon_{ijk} w_j \partial_ iv_k + \epsilon_{ijk} v_j \partial_i w_k \\
-      =  &\epsilon_{ijk} v_j \partial_i w_k - \epsilon_{ijk} w_j \partial_i v_k \\
-      =  &\epsilon_{ijk} v_j \partial_i w_k + \epsilon_{ijk} w_k \partial_i v_j \\
-      =  &\epsilon_{ijk} (v_j \partial_i w_k + w_k \partial_i v_j) \\
+      =  &\epsilon_{ijk} w_i \partial_j v_k - \epsilon_{ijk} v_i \partial_j w_k \\
+      =  &\epsilon_{ijk} w_k \partial_i v_j + \epsilon_{ijk} v_j \partial_i w_k \\
+      =  &\epsilon_{ijk} (w_k \partial_i v_j + v_j \partial_i w_k) \\
       =  &\epsilon_{ijk} (\partial_i v_j w_k) \\
       =  &\nabla (\vec{v} \times \vec{w})
     \end{align}
@@ -108,7 +106,7 @@ klar, dass $\nabla f := \partial_i f$ für $f$ skalar bzw. $\nabla \vec{v} :=
     \begin{align}
       &f(\nabla \times \vec{v}) - \vec{v} \times (\nabla f) \\
       = &f \epsilon_{ijk} \partial_j v_k - \epsilon_{ijk} v_j \partial_k f \\
-      = &f \epsilon_{ijk} \partial_j v_k + \epsilon_{ijk} v_k \partial_j f \\
+      = &\epsilon_{ijk} f \partial_j v_k + \epsilon_{ijk} v_k \partial_j f \\
       = &\epsilon_{ijk} (f \partial_j v_k + v_k \partial_j f) \\
       = &\epsilon_{ijk} (\partial_j f v_k) \\
       = &\nabla \times (f \vec{v})
