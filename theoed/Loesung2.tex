@@ -73,10 +73,25 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
     =  \epsilon_{ijk} (v_j \partial_i w_k + w_k \partial_i v_j) \\
     =  \epsilon_{ijk} (\partial_i v_j w_k)
     = \nabla (\vec{v} \times \vec{w})$
-  \item $\dots$
-  \item Folgt aus $\epsilon_{ijk} = \delta_\text{irgendwas} \pm
-    \delta_{irgendwas}$. Ist trivial, aber die Relation mit dem Epsilon-Tensor
-    sollte bewiesen werden.
+  \item
+    \begin{align*}
+      f(\nabla \times \vec{v}) - \vec{v} \times (\nabla f)
+      &= f \epsilon_{ijk} \partial_j v_k - \epsilon_{ijk} v_j \partial_k f \\
+      &= f \epsilon_{ijk} \partial_j v_k + \epsilon_{ijk} v_k \partial_j f \\
+      &= \epsilon_{ijk} (f \partial_j v_k + v_k \partial_j f) \\
+      &= \epsilon_{ijk} (\partial_j f v_k) \\
+      &= \nabla \times (f \vec{v})
+    \end{align*}
+  \item
+    \begin{align*}
+      \nabla \times (\vec{v} \times \vec{w})
+       &= \epsilon_{ijk} \partial_j \epsilon_{klm} v_l w_m \\
+       &= \epsilon_{kij} \epsilon_{klm} \partial_j v_l w_m \\
+       &= (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) \partial_j v_l w_m \\
+       &= \partial_j v_i w_j - \partial_j v_j w_i \\
+       &= w_j \partial_j v_i + v_i \partial_j w_j - \partial_j v_j w_i - v_j \partial_j w_i \\
+       &= (w \cdot \nabla) v + (\nabla \cdot w) v - (\nabla \cdot v) w - (v \cdot \nabla) w
+    \end{align*}
 \end{enumerate}
 
 \section*{Aufgabe 2: Vektoranalysis: Zweite Ableitung}
