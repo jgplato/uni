@@ -3,12 +3,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{geometry}
-\usepackage{amsmath}
+\usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
 \usepackage{cancel}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 
@@ -48,42 +53,51 @@ Damit ist $\nabla f = \hat{e}_i \partial_i f$ für $f$ skalar bzw. $\nabla
 v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
 
 \begin{enumerate}[a)]
-  \item $\nabla fg = \partial_i f g = f \partial_i g + g \partial_i f = f \nabla g + g \nabla f$
   \item
-    \begin{align*}
+    \begin{equation}
+      \nabla fg = \partial_i f g = f \partial_i g + g \partial_i f = f \nabla g + g \nabla f
+    \end{equation}
+  \item
+    \begin{align}
       &\vec{v} \times (\nabla \times \vec{w}) + (\vec{v} \cdot \nabla) \vec{w} + \vec{w} \times (\nabla \times \vec{v}) + (\vec{w} \cdot \nabla) \vec{v} \\
-      &= \epsilon_{ijk} v_j \epsilon_{klm} \partial_l w_m + v_j \partial_j w_i + \epsilon_{ijk} w_j \epsilon_{klm} \partial_l v_m + w_j \partial_j v_i\\
-      &= \epsilon_{kij} \epsilon_{klm} v_j \partial_l w_m + v_j \partial_j w_i + \epsilon_{kij} \epsilon_{klm} w_j \partial_l v_m + w_j \partial_j v_i\\
-      &= (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) v_j \partial_l w_m + v_j \partial_j w_i + (\delta_{il} \delta_{jm} - \delta_{im}\delta_{jl}) w_j \partial_l v_m + w_j \partial_j v_i\\
-      &= v_j \partial_i w_j + w_j \partial_i v_i\\
-      &= \partial_i v_j w_j\\
-      &= \nabla(\vec{v} \cdot \vec{w})
-    \end{align*}
-  \item $\nabla f \vec{v}
-    = \partial_i f v_i
-    = f \partial_i v_i + v_i \partial_i f
-    = f \partial_i v_i + \delta_{ij} v_i \partial_j f
-    = f \partial_i v_i + \hat{e}_iv_i \hat{e}_j \partial_j f
-    = f \nabla \vec{v} + \vec{v} \cdot \nabla f$
-  \item $\vec{w} \cdot (\nabla \times \vec{v}) - \vec{v} \cdot (\nabla \times \vec{w})
-    = \epsilon_{ijk}w_i\partial_jv_k - \epsilon_{ijk} v_i \partial_j w_k
-    = -\epsilon_{ijk} w_j \partial_ iv_k + \epsilon_{ijk} v_j \partial_i w_k \\
-    =  \epsilon_{ijk} v_j \partial_i w_k - \epsilon_{ijk} w_j \partial_i v_k
-    =  \epsilon_{ijk} v_j \partial_i w_k + \epsilon_{ijk} w_k \partial_i v_j
-    =  \epsilon_{ijk} (v_j \partial_i w_k + w_k \partial_i v_j) \\
-    =  \epsilon_{ijk} (\partial_i v_j w_k)
-    = \nabla (\vec{v} \times \vec{w})$
+      = &\epsilon_{ijk} v_j \epsilon_{klm} \partial_l w_m + v_j \partial_j w_i + \epsilon_{ijk} w_j \epsilon_{klm} \partial_l v_m + w_j \partial_j v_i\\
+      = &\epsilon_{kij} \epsilon_{klm} v_j \partial_l w_m + v_j \partial_j w_i + \epsilon_{kij} \epsilon_{klm} w_j \partial_l v_m + w_j \partial_j v_i\\
+      = &(\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) v_j \partial_l w_m + v_j \partial_j w_i + (\delta_{il} \delta_{jm} - \delta_{im}\delta_{jl}) w_j \partial_l v_m + w_j \partial_j v_i\\
+      = &v_j \partial_i w_j + w_j \partial_i v_i\\
+      = &\partial_i v_j w_j\\
+      = &\nabla(\vec{v} \cdot \vec{w})
+    \end{align}
   \item
-    \begin{align*}
+    \begin{equation}
+      \nabla f \vec{v}
+      = \partial_i f v_i
+      = f \partial_i v_i + v_i \partial_i f
+      = f \partial_i v_i + \delta_{ij} v_i \partial_j f
+      = f \partial_i v_i + \hat{e}_iv_i \hat{e}_j \partial_j f
+      = f \nabla \vec{v} + \vec{v} \cdot \nabla f
+    \end{equation}
+  \item
+    \begin{align}
+      &\vec{w} \cdot (\nabla \times \vec{v}) - \vec{v} \cdot (\nabla \times \vec{w}) \\
+      =  &\epsilon_{ijk}w_i\partial_jv_k - \epsilon_{ijk} v_i \partial_j w_k \\
+      = &-\epsilon_{ijk} w_j \partial_ iv_k + \epsilon_{ijk} v_j \partial_i w_k \\
+      =  &\epsilon_{ijk} v_j \partial_i w_k - \epsilon_{ijk} w_j \partial_i v_k \\
+      =  &\epsilon_{ijk} v_j \partial_i w_k + \epsilon_{ijk} w_k \partial_i v_j \\
+      =  &\epsilon_{ijk} (v_j \partial_i w_k + w_k \partial_i v_j) \\
+      =  &\epsilon_{ijk} (\partial_i v_j w_k) \\
+      =  &\nabla (\vec{v} \times \vec{w})
+    \end{align}
+  \item
+    \begin{align}
       f(\nabla \times \vec{v}) - \vec{v} \times (\nabla f)
       &= f \epsilon_{ijk} \partial_j v_k - \epsilon_{ijk} v_j \partial_k f \\
       &= f \epsilon_{ijk} \partial_j v_k + \epsilon_{ijk} v_k \partial_j f \\
       &= \epsilon_{ijk} (f \partial_j v_k + v_k \partial_j f) \\
       &= \epsilon_{ijk} (\partial_j f v_k) \\
       &= \nabla \times (f \vec{v})
-    \end{align*}
+    \end{align}
   \item
-    \begin{align*}
+    \begin{align}
       \nabla \times (\vec{v} \times \vec{w})
        &= \epsilon_{ijk} \partial_j \epsilon_{klm} v_l w_m \\
        &= \epsilon_{kij} \epsilon_{klm} \partial_j v_l w_m \\
@@ -91,17 +105,17 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
        &= \partial_j v_i w_j - \partial_j v_j w_i \\
        &= w_j \partial_j v_i + v_i \partial_j w_j - \partial_j v_j w_i - v_j \partial_j w_i \\
        &= (w \cdot \nabla) v + (\nabla \cdot w) v - (\nabla \cdot v) w - (v \cdot \nabla) w
-    \end{align*}
+    \end{align}
 \end{enumerate}
 
 \section*{Aufgabe 2: Vektoranalysis: Zweite Ableitung}
 
-\begin{align*}
+\begin{align}
      \nabla \times (\nabla \times \vec{v})
      &= \epsilon_{lmn} \hat{e}_l \partial_m \hat{e}_n (\epsilon_{ijk} \hat{e}_i \partial_j v_k) \\
      &= \epsilon_{lmn} \hat{e}_l \partial_m \epsilon_{njk} \partial_j v_k \\
      &= \hat{e}_l \epsilon_{lmn} \epsilon_{njk} \partial_m \partial_j v_k
-\end{align*}
+\end{align}
 
 \textbf{Nebenrechnung:} Für die Iteration des Epsilon-Tensors gilt hier $
   \epsilon_{lmn} \epsilon_{njk} = -\epsilon_{nml} \epsilon_{njk}
@@ -109,10 +123,10 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
   = \delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}
 $, somit folgt
 
-\begin{align*}
+\begin{align}
   &= \hat{e}_l (\delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}) \partial_m \partial_j v_k \\
   &= \hat{e}_l \partial_l \partial_m v_m - \partial_m^2 v_l \\
   &= \nabla(\nabla \vec{v}) - \nabla^2 \vec{v}
-\end{align*}
+\end{align}
 
 \end{document}
