@@ -49,7 +49,16 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
 
 \begin{enumerate}[a)]
   \item $\nabla fg = \partial_i f g = f \partial_i g + g \partial_i f = f \nabla g + g \nabla f$
-  \item $\dots$
+  \item
+    \begin{align*}
+      &\vec{v} \times (\nabla \times \vec{w}) + (\vec{v} \cdot \nabla) \vec{w} + \vec{w} \times (\nabla \times \vec{v}) + (\vec{w} \cdot \nabla) \vec{v} \\
+      &= \epsilon_{ijk} v_j \epsilon_{klm} \partial_l w_m + v_j \partial_j w_i + \epsilon_{ijk} w_j \epsilon_{klm} \partial_l v_m + w_j \partial_j v_i\\
+      &= \epsilon_{kij} \epsilon_{klm} v_j \partial_l w_m + v_j \partial_j w_i + \epsilon_{kij} \epsilon_{klm} w_j \partial_l v_m + w_j \partial_j v_i\\
+      &= (\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) v_j \partial_l w_m + v_j \partial_j w_i + (\delta_{il} \delta_{jm} - \delta_{im}\delta_{jl}) w_j \partial_l v_m + w_j \partial_j v_i\\
+      &= v_j \partial_i w_j + w_j \partial_i v_i\\
+      &= \partial_i v_j w_j\\
+      &= \nabla(\vec{v} \cdot \vec{w})
+    \end{align*}
   \item $\nabla f \vec{v}
     = \partial_i f v_i
     = f \partial_i v_i + v_i \partial_i f
@@ -79,15 +88,11 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
      &= \hat{e}_l \epsilon_{lmn} \epsilon_{njk} \partial_m \partial_j v_k
 \end{align*}
 
-\textbf{Nebenrechnung:} Für die Iteration des Epsilon-Tensors gilt hier
-
-\begin{align*}
-  \epsilon_{lmn} \epsilon_{njk} &= -\epsilon_{nml} \epsilon_{njk} \\
-  &= \epsilon_{nlm} \epsilon_{njk} \\
-  &= \delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}
-\end{align*}
-
-Eingesetzt in die Ausgangsgleichung erhält man
+\textbf{Nebenrechnung:} Für die Iteration des Epsilon-Tensors gilt hier $
+  \epsilon_{lmn} \epsilon_{njk} = -\epsilon_{nml} \epsilon_{njk}
+  = \epsilon_{nlm} \epsilon_{njk}
+  = \delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}
+$, somit folgt
 
 \begin{align*}
   &= \hat{e}_l (\delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}) \partial_m \partial_j v_k \\
