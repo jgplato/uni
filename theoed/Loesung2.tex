@@ -110,12 +110,12 @@ v_j = \partial_i v_i$ für einen Vektor $\vec{v}$.
 
 \begin{align}
   &\nabla \times (\nabla \times \vec{v}) \\
-  = &\epsilon_{lmn} \hat{e}_l \partial_m \hat{e}_n (\epsilon_{ijk} \hat{e}_i \partial_j v_k) \\
-  = &\epsilon_{lmn} \hat{e}_l \partial_m \epsilon_{njk} \partial_j v_k \\
-  = &\hat{e}_l \epsilon_{lmn} \epsilon_{njk} \partial_m \partial_j v_k \\
-  = &\hat{e}_l (\delta_{lj}\delta_{mk} - \delta_{lk}\delta_{mj}) \partial_m \partial_j v_k \\
-  = &\hat{e}_l \partial_l \partial_m v_m - \partial_m^2 v_l \\
-  = &\nabla(\nabla \vec{v}) - \nabla^2 \vec{v}
+  = &\epsilon_{ijk} \partial_j \epsilon_{klm} \partial_l v_m \\
+  = &\epsilon_{ijk} \epsilon_{klm} \partial_j \partial_l v_m \\
+  = &(\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) \partial_j \partial_l v_m \\
+  = &\partial_j \partial_i v_j - \partial_j \partial_j v_i \\
+  = &\partial_i \partial_j v_j - \partial_i^2 v_j \\
+  = &\nabla (\nabla \cdot \vec{v}) - \nabla^2 \vec{v}
 \end{align}
 
 \end{document}
