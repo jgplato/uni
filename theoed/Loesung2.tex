@@ -75,10 +75,11 @@ klar, dass $\nabla f := \partial_i f$ für $f$ skalar bzw. $\nabla \vec{v} :=
     \end{equation}
   \item
     \begin{align}
-      &\vec{v} \times (\nabla \times \vec{w}) + (\vec{v} \cdot \nabla) \vec{w} + \vec{w} \times (\nabla \times \vec{v}) + (\vec{w} \cdot \nabla) \vec{v} \\
-      = &\epsilon_{ijk} v_j \epsilon_{klm} \partial_l w_m + v_j \partial_j w_i + \epsilon_{ijk} w_j \epsilon_{klm} \partial_l v_m + w_j \partial_j v_i\\
-      = &\epsilon_{kij} \epsilon_{klm} v_j \partial_l w_m + v_j \partial_j w_i + \epsilon_{kij} \epsilon_{klm} w_j \partial_l v_m + w_j \partial_j v_i\\
-      = &(\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) v_j \partial_l w_m + v_j \partial_j w_i + (\delta_{il} \delta_{jm} - \delta_{im}\delta_{jl}) w_j \partial_l v_m + w_j \partial_j v_i\\
+      &\vec{v} \times (\nabla \times \vec{w}) + \vec{w} \times (\nabla \times \vec{v}) + (\vec{v} \cdot \nabla) \vec{w} + (\vec{w} \cdot \nabla) \vec{v} \\
+      = &\epsilon_{ijk} v_j \epsilon_{klm} \partial_l w_m + \epsilon_{ijk} w_j \epsilon_{klm} \partial_l v_m + v_j \partial_j w_i + w_j \partial_j v_i\\
+      = &\epsilon_{kij} \epsilon_{klm} v_j \partial_l w_m + \epsilon_{kij} \epsilon_{klm} w_j \partial_l v_m + v_j \partial_j w_i + w_j \partial_j v_i\\
+      = &(\delta_{il} \delta_{jm} - \delta_{im} \delta_{jl}) v_j \partial_l w_m + (\delta_{il} \delta_{jm} - \delta_{im}\delta_{jl}) w_j \partial_l v_m + v_j \partial_j w_i + w_j \partial_j v_i\\
+      = &v_j \partial_i w_j \cancel{- v_j \partial_j w_i} + w_j \partial_i v_j \cancel{- w_j \partial_j v_i} \cancel{+ v_j \partial_j w_i} \cancel{+ w_j \partial_j v_i}\\
       = &v_j \partial_i w_j + w_j \partial_i v_i\\
       = &\partial_i v_j w_j\\
       = &\nabla(\vec{v} \cdot \vec{w})
