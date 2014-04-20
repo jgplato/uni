@@ -1,0 +1,67 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Atom- und Molekülphysik, Sommersemester 2014, Aufgabenblatt 1
+
+Markus Fenske, Luis Herrmann, Tutor: Michael Kleinert
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Potentialtopf I}
+
+\textbf{FIXME:} Kurze Herleitung Potentialtopf (Wellenfunktion mit Normierung, Energie)
+
+\begin{enumerate}[a)]
+  \item
+    Die Übergangsenergie ist $E_2 - E_1 = \frac{3 \hbar^2 \pi^2}{2 m_e L^2}$.
+    Für $L = 1 \; \nano\meter$ ergibt sich eine Energie von $752 \;
+    \milli\electronvolt$, für $L = 1 \; \centi\meter$ entsprechend $7{,}52 \cdot
+    10^{-15} \;\electronvolt$.
+  \item
+    Wir nehmen an, dass mit ``mittlere Hälfte'' das Intervall $[\frac{1}{4} L,
+    \frac{3}{4} L]$ gemeint ist. Die Aufenthaltswahrscheinlichkeit ist dann
+    \begin{align}
+        &\int\limits_{\frac{1}{4} L}^{\frac{3}{4} L} \dif x\; \envert{\psi(x)}^2
+      =  \frac{2}{L} \int\limits_{\frac{1}{4} L}^{\frac{3}{4} L} \dif x\; \sin^2 \frac{\pi x}{L}
+      =  \frac{1}{L} \int\limits_{\frac{1}{4} L}^{\frac{3}{4} L} \dif x\; 1 - \cos \frac{2 \pi x}{L}
+      =  \frac{1}{L} \del{ \frac{L}{2} - \sbr{\frac{L}{2 \pi} \sin \frac{2 \pi x}{L}}_{\frac{L}{4}}^{\frac{3L}{4}} } \\
+      = \;&\frac{1}{L} \del{\frac{L}{2} + \frac{L}{\pi}}
+      = \frac{\pi + 2}{2 \pi}
+      \approx 81{,}83 \; \%
+    \end{aligned}
+\end{enumerate}
+\end{document}
