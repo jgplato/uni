@@ -75,6 +75,7 @@ motion
 
 \begin{equation}
   -mg s \sin \phi = I \frac{d^2 \phi}{d t^2}
+  \label{diff_eq}
 \end{equation}
 
 $\sin \phi$ can be written as Taylor series
@@ -109,6 +110,22 @@ equation becomes analogous to the mathematical pendulum
 
 \begin{equation}
   T_0 = 2 \pi \sqrt{\frac{L}{g}}
+\end{equation}
+
+% FIXME: Das Herleiten, wenn ich Zeit dazu habe. Entsprechende Literatur zitieren.
+
+If the angle $\phi$ is not small, we need to use eq. \ref{diff_eq}. To solve
+this equation, one needs more advanced knowledge of differential equations,
+which is beyond the scope of this lab course. From the GP1 script we obtain
+
+\begin{equation}
+  T = T_0 \del{1 + \frac{1}{4} \sin^2 \frac{\phi_0}{2} + \del{\frac{1 \cdot 3}{2 \cdot 4}}^2 \sin^4 \frac{\phi_0}{2} + \dots}
+\end{equation}
+
+Again using the first order expansion of $\sin$ and using only the first term, we can approximate
+
+\begin{equation}
+  T \approx T_0 \del{1 + \frac{\phi_0^2}{16}}
 \end{equation}
 
 
