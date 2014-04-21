@@ -103,6 +103,7 @@ We see that the period $T_0$ (that is where $\phi(t) = \phi(t + T_0)$) of the mo
 
 \begin{equation}
   T_0 = 2 \pi \sqrt{\frac{I}{mgs}}
+  \label{period}
 \end{equation}
 
 By introducting the reduced pendulum length $L = \frac{I}{ms}$, the
@@ -128,5 +129,36 @@ Again using the first order expansion of $\sin$ and using only the first term, w
   T \approx T_0 \del{1 + \frac{\phi_0^2}{16}}
 \end{equation}
 
+In order to calculate the gravitational constant we need to measure the initial
+amplitude $\phi_0$ (or keep it relatively small and neglect it), the period
+$T$, and the reduced pendulum length $L$. Instead of determining the moment of
+inertia, the mass $m$, and $s$ (for which we need the center of mass its
+distance from the pivot), we use the experiment known as Kater's pendulum.
+
+By substituting the parallel axis theorem into eq. \ref{period}, we obtain
+
+\begin{equation}
+  T_{0} = 2 \pi \sqrt{\frac{I_s + ms^2}{mgs}}
+\end{equation}
+
+where $I_s$ is the moment of inertia at the center of mass and $s$ is the
+distance from it. Given the pendulum has exchangeble pivots at distances $s_1$
+and $s_2$ and given the periods are the same for those points, we get a
+quadratic equation with the solutions
+
+\begin{equation}
+  s_1 = s_2 \quad \cup \quad s_2 = \frac{I_s}{m s_1}
+\end{equation}
+
+The first solution is not useful, but using the second solution, we obtain the
+reduced pendulum length
+
+\begin{equation}
+  s_1 + s_2 = \frac{I_s}{ms_1} + s_1 = \frac{I_s + ms_1^2}{ms_1} = \frac{I}{ms} = L
+\end{equation}
+
+So if we have two pivots on a line through the center of mass, each with a
+different distance to the center of mass and a swing around both pivots gives
+the period, the distance between the pivots equals the reduced length $L$.
 
 \end{document}
