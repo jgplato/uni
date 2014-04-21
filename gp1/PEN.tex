@@ -131,9 +131,22 @@ Again using the first order expansion of $\sin$ and using only the first term, w
 
 In order to calculate the gravitational constant we need to measure the initial
 amplitude $\phi_0$ (or keep it relatively small and neglect it), the period
-$T$, and the reduced pendulum length $L$. Instead of determining the moment of
-inertia, the mass $m$, and $s$ (for which we need the center of mass its
-distance from the pivot), we use the experiment known as Kater's pendulum.
+$T$, and the reduced pendulum length $L$. So we would need to determining the
+moment of inertia $I$, the mass $m$, and $s$ (for which we need the center of
+mass its distance from the pivot).
+
+If we knew the mass $m$ of the pendulum and its volume and it had been
+manifactured of a homogenious material with density $\rho$, we could calculate
+its moment of inertia by
+
+\begin{equation}
+  I = \int_V r^2 \rho \dif V
+\end{equation}
+
+where $r^2$ is the perpendicular distance from the pivot. For this however, we
+need to know the exact form of the pendulum. Even a regularily shaped body (say
+a steel bar) would have some production tolerance, so this is not practical.
+Instead we use the setup known as Kater's pendulum.
 
 By substituting the parallel axis theorem into eq. \ref{period}, we obtain
 
