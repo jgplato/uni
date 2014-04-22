@@ -3,12 +3,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{geometry}
-\usepackage{amsmath}
+\usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
 \usepackage{cancel}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+\mathtoolsset{showonlyrefs}
 %\usepackage{wrapfig}
 \usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
 
@@ -41,24 +45,24 @@ Markus Fenske, Tutor: Clemens Meyer zu Rheda
 
 Man sieht, dass das Feld $\vec{\omega}_1$ nicht konservativ ist:
 
-\begin{align*}
+\begin{align}
   \nabla \times \vec{\omega}_1
 = \begin{pmatrix} \partial_y \omega_z - \partial_z \omega_y \\ \partial_z \omega_x - \partial_x \omega_z \\ \partial_x \omega_y - \partial_y \omega_x \end{pmatrix}
 = \begin{pmatrix} 0 \\ 0 \\ -2A \end{pmatrix}
-\end{align*}
+\end{align}
 
 Daher existiert kein Skalarpotential und die Integration ist wegabhängig.
 
 Wir parametrisieren:
 
-\begin{align*}
+\begin{align}
   \mathcal{C}_1: \vec{r}(t) = \begin{pmatrix} a \sin(t) \\ a \cos(t) \\ 0\end{pmatrix} \text{ mit } t \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right], \;\;\;
   \mathcal{C}_2: \vec{r}(t) = \begin{pmatrix} t \\ 0 \\ 0\end{pmatrix} \text{ mit } t \in [-a,a]
-\end{align*}
+\end{align}
 
 Damit ergeben sich die Integrale
 
-\begin{align*}
+\begin{align}
   \int_{\mathcal{C}_1} \vec{\omega}_1 \cdot \dif\vec{r}
   &= \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \vec{\omega}(\vec{r}(t)) \cdot \frac{\dif\vec{r}}{\dif t} \dif t
   = \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \begin{pmatrix} Aa(\sin(t) + \cos(t)) \\ -Aa(\sin(t) + \cos(t)) \\ 0 \end{pmatrix} \cdot \begin{pmatrix} a\cos(t) \\ -a\sin(t) \\ 0 \end{pmatrix} \dif t \\
@@ -66,22 +70,22 @@ Damit ergeben sich die Integrale
   &= Aa^2 \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 1 + 2\cos(t)\sin(t) \dif t
   = Aa^2 \int\limits_{-\frac{\pi}{2}}^{\frac{\pi}{2}} 1 + \sin(2t) \dif t
   = Aa^2 \pi \text{ (weil $\sin$ ungerade)}
-\end{align*}
+\end{align}
 
 und
 
-\begin{align*}
+\begin{align}
   \int_{\mathcal{C}_2} \vec{\omega}_1 \cdot \dif\vec{r}
   &= \int\limits_{-a}^{a} \vec{\omega}(\vec{r}(t)) \cdot \frac{\dif\vec{r}}{\dif t} \dif t
   = \int\limits_{-a}^{a} \begin{pmatrix} At \\ -At \\ 0  \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix} \dif t
   = \int\limits_{-a}^{a} At \dif t = 0
-\end{align*}
+\end{align}
 
 Das Feld $\vec{\omega}_2$ ist hingegen konservativ (weil Gradient eines Skalarpotentials)
 
-\begin{align*}
+\begin{align}
   \vec{\omega}_2 = \vec{\nabla} \underbrace{\left( \frac{A}{2} (x+y)^2 + \frac{B}{2} z^2 \right)}_{=: \Phi}
-\end{align*}
+\end{align}
 
 Damit ist die Integration wegunabhängig, die beiden Integrale sind also gleich.
 Das Ergebnis ergibt sich als Potentialdifferenz $\Phi(-a, 0, 0) - \Phi(a, 0, 0)
@@ -91,9 +95,9 @@ Das Ergebnis ergibt sich als Potentialdifferenz $\Phi(-a, 0, 0) - \Phi(a, 0, 0)
 
 Über die Anwendung des Gaußschen Satzes erhalten wir
 
-\begin{equation*}
+\begin{equation}
   \oint\limits_\text{$\partial$ Würfel} \vec{r} \dif \vec{a} = \int\limits_\text{Würfel} \nabla \vec{r} \dif V = 3 \int\limits_\text{Würfel} \dif V = 3
-\end{equation*}
+\end{equation}
 
 \section*{Aufgabe 3: Gradient, Divergenz und Rotation}
 
@@ -107,17 +111,17 @@ Wir benutzen hier auch den Gradienten in Kugelkoordinaten ($\nabla = \hat{r}
   \item $\vec{\nabla} U = mr^{m-1} \hat{r} = mr^{m-2} \vec{r}$
   \item
     Für die $x$-Komponente
-    \begin{align*}
+    \begin{align}
       \frac{\partial}{\partial x} \frac{p_x x}{(x^2+y^2+z^2)^\frac{3}{2}}
       &= \frac{p_x(x^2+y^2+z^2)^\frac{3}{2} - 3p_xx^2\sqrt{x^2+y^2+z^2}}{(x^2+y^2+z^2)^3} \\
       &= \frac{p_x r^3}{r^6} - \frac{3p_x x^2 r}{r^6} \\
       &= \frac{p_x}{r^3} - 3 \frac{p_x x}{r^5} x
-    \end{align*}
+    \end{align}
 
     Für die anderen Komponenten analog. Somit
-    \begin{align*}
+    \begin{align}
       \nabla U = \frac{\vec{p}}{r^3} - 3 \frac{\vec{p} \cdot \vec{r}}{r^5} \vec{r}
-    \end{align*}
+    \end{align}
 \end{enumerate}
 
 
@@ -129,16 +133,16 @@ $\nabla \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 v_r + \dots$
   \item $\vec{\nabla} \vec{v} = 3$
   \item $\vec{\nabla} \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 \frac{r}{r^3} = 0$
   \item
-    \begin{align*}
+    \begin{align}
       \nabla \vec{c}(\vec{r} \cdot \vec{c})
       &= \nabla \vec{c}(r_1c_1 + r_2c_2 + r_3c_3) \\
       & = \partial_1 c_1 (r_1c_1 + r_2c_2 + r_3c_3) +
       \partial_2 c_2 (r_1c_1 + r_2c_2 + r_3c_3) +
       \partial_3 c_3 (r_1c_1 + r_2c_2 + r_3c_3) \\
       &= c_1^2 + c_2^2 + c_3^2 = c^2
-    \end{align*}
+    \end{align}
   \item
-    \begin{align*}
+    \begin{align}
       \nabla \vec{c} \times (\vec{r} \times \vec{c})
       &= \nabla \vec{c} \times \begin{pmatrix}
         r_2c_3 - r_3c_2 \\
@@ -152,11 +156,11 @@ $\nabla \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 v_r + \dots$
       \end{pmatrix} \\
       &= c_2^2 + c_3^2 + c_3^2 + c_1^2 + c_1^2 + c_2^2 \\
       &= 2c^2
-    \end{align*}
+    \end{align}
 
   \item $(0,0,2)$
   \item
-    \begin{align*}
+    \begin{align}
     \nabla \times (\vec{c} \times \vec{r})
     &= \vec{c} \underbrace{(\nabla \vec{r})}_{=3}
       - \vec{r} \underbrace{(\nabla \vec{c})}_{=0}
@@ -164,7 +168,7 @@ $\nabla \vec{v} = \frac{1}{r^2} \frac{\partial}{\partial r} r^2 v_r + \dots$
       - (\vec{c} \nabla) \vec{r} \\
     &= 3\vec{c} - \underbrace{(c_1\partial_1 + c_2\partial_2 + c_3\partial_3) \vec{r}}_{= \vec{c}} \\
     &= 2\vec{c}
-    \end{align*}
+    \end{align}
 \end{enumerate}
 
 \end{document}
