@@ -2,6 +2,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
+\usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{geometry}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
@@ -62,8 +64,42 @@ Markus Fenske, Luis Herrmann, Tutor: Michael Kleinert
       = \;&\frac{1}{L} \del{\frac{L}{2} + \frac{L}{\pi}}
       = \frac{\pi + 2}{2 \pi}
       \approx 81{,}83 \; \%
-    \end{aligned}
-  \item \textbf{FIXME:} Hinmalen oder Gnuplot.
+    \end{align}
+  \item
+    Die Funktion mit einem Maximum einspricht $n=1$, die mit zwei Maxima $n=2$, usw.
+
+    \begin{tikzpicture}
+    \begin{axis}
+        [% options
+        xlabel=$x$,
+        ylabel={$\envert{\psi}^2$},
+        axis x line = middle,
+        axis y line = left,
+        xmin=0,
+        xmax=1,
+        ymin=0,
+        ymax=0.7,
+        ]
+    \addplot[
+        domain=0:1,
+        samples=90,
+        line width = 1pt,
+        ]
+        {1/2*sin(1*deg(x)*pi)^2};
+    \addplot[
+        domain=0:1,
+        samples=90,
+        line width = 1pt,
+        ]
+        {1/2*sin(2*deg(x)*pi)^2};
+    \addplot[
+        domain=0:1,
+        samples=90,
+        line width = 1pt,
+        ]
+        {1/2*sin(3*deg(x)*pi)^2};
+    \end{axis}
+    \end{tikzpicture}
 \end{enumerate}
 
 \section*{Aufgabe 2: Potentialtopf II}
