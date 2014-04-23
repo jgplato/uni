@@ -156,5 +156,35 @@ sondern gewinkelt ist. Damit könnten sich Längen in der Größenordnung 1-3
         \node at (axis cs:100,0.0025) [pin={40:$1s$},inner sep=0pt] {};
     \end{axis}
     \end{tikzpicture}
+  \item $\phantom{.}$
+
+    \begin{tikzpicture}
+    \begin{axis}
+        [% options
+        xlabel=$r \text{ [pm]}$,
+        ylabel={$\envert{R(r)}^2$},
+        axis x line = middle,
+        axis y line = left,
+        xmin=0,
+        xmax=1000,
+        ymin=0,
+        ymax=0.000005,
+        ]
+    \addplot[
+        domain=0.1:1000,
+        samples=90,
+        line width = 1pt,
+        ]
+        {4*(1/52.9)^3*exp(-2*x/52.9)*1/0.274981};
+    \addplot[
+        domain=0.1:1000,
+        samples=90,
+        line width = 1pt,
+        ]
+        {(1/2*sqrt(2)*(1/52.9)^(3/2))^2*(2-x/52.9)^2*exp(-2*x/(2*52.9))*1/0.274981};
+      \node at (axis cs:100,0.000002) [pin={40:$1s$},inner sep=0pt] {};
+      \node at (axis cs:250,0.0000008) [pin={40:$2s$},inner sep=0pt] {};
+    \end{axis}
+    \end{tikzpicture}
 \end{enumerate}
 \end{document}
