@@ -135,4 +135,40 @@ klar, dass $\nabla f := \partial_i f$ für $f$ skalar bzw. $\nabla \vec{v} :=
   = &\nabla (\nabla \cdot \vec{v}) - \nabla^2 \vec{v}
 \end{align}
 
+\section*{Aufgabe 3: Krummlinige Koordinaten}
+\begin{enumerate}[a)]
+  \item
+    Wir wissen, dass die Divergenz Kugelkoordinaten gegeben ist durch
+    \begin{equation}
+      \operatorname{div} \vec{F} = \frac{1}{r^2} \partial_r r^2 F_r + \frac{1}{r \sin \theta} \partial_\theta F_\theta \sin \theta + \frac{1}{r \sin \theta} \partial_\phi F_\phi
+    \end{equation}
+    und der Gradient durch
+    \begin{equation}
+      \operatorname{grad} = \partial_r \hat{e}_r + \frac{1}{r} \partial_\theta \hat{e}_\theta + \frac{1}{r \sin \theta} \partial_\phi \hat{e}_\phi
+    \end{equation}
+
+    Somit ist
+    \begin{equation}
+        \operatorname{grad} \operatorname{div} \hat{e}_r
+      = \operatorname{grad} \frac{1}{r^2} \partial_r r^2
+      = \operatorname{grad} \frac{2}{r}
+      = \hat{e}_r \partial_r \frac{2}{r}
+      = -\frac{2}{r^2} \hat{e}_r
+    \end{equation}
+
+    Die Rotation ist
+    \begin{align}
+      \operatorname{rot} \vec{F} =
+      &\frac{1}{r \sin \theta} \del{\partial_\theta F_\theta \sin \theta - \partial_\phi F_\theta} \hat{e}_r + \\
+      &\del{\frac{1}{r \sin \theta} \partial_\phi F_r - \frac{1}{r} \partial_r r F_\phi} \hat{e}_\theta + \\
+      &\frac{1}{r} \del{\partial_r r F_\theta - \partial_\theta} \hat{e}_\phi
+    \end{align}
+
+    Somit
+    \begin{equation}
+      \operatorname{rot} \hat{e}_\theta = \hat{e}_\phi \frac{1}{r} \partial_r r = \frac{\hat{e}_\phi}{r}
+    \end{equation}
+
+\end{enumerate}
+
 \end{document}
