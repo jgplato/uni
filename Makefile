@@ -1,6 +1,6 @@
 LATEX := pdflatex
 
-MODULES   := analysis1 exp1 exp2 linalg theo1 theo2 analysis2 quantenmechanik
+MODULES   := analysis1 exp1 exp2 linalg theo1 theo2 analysis2 quantenmechanik fkp amol theoed gp1
 SRC_DIR   := $(addprefix ,$(MODULES))
 BUILD_DIR := $(addprefix build/,$(MODULES))
 
