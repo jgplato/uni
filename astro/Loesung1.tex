@@ -1,0 +1,104 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Stupid units for astronomy
+\DeclareSIUnit\day{d}
+\DeclareSIUnit\year{yr}
+% Astronomy-Style angles (hours, minutes, seconds)
+\newcommand*{\ra}[2][]{{
+  \def\SIUnitSymbolDegree{\textsuperscript{h}}%
+  \def\SIUnitSymbolArcminute{\textsuperscript{m}}%
+  \def\SIUnitSymbolArcsecond{\textsuperscript{s}}%
+  \ang[#1]{#2}}%
+}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Aufgabenblatt 1
+
+Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Beobachtung am Teleskop}
+
+\begin{enumerate}[a)]
+  \item
+    Wir rechnen die Zeit in Jahre um:
+    \begin{equation}
+      t = 2014 + \frac{\SI{31}{\day} + \SI{28}{\day} + \SI{31}{\day} + \SI{30}{\day}}{\SI{365,2422}{\day\per\year}} \approx \SI{2014.33}{\year}
+    \end{equation}
+
+    und sehen, dass für Mars keine Präzessionskorrekturen notwendig sind. Für
+    Beteigeuze rechnen wir zuerst die Koordinaten in Grad um:
+
+    \begin{equation}
+      \alpha = \ra{5;55;5.4} = \SI{15}{\degree\per\hour} \del{
+        \SI{5}{\hour} +
+        \frac{\SI{55}{\minute}}{\SI{60}{\minute\per\hour}} +
+        \frac{\SI{5.4}{\second}}{\SI{60}{\minute\per\hour}\SI{60}{\second\per\minute}}
+      } \approx \ang{88.77}
+    \end{equation}
+
+    \begin{equation}
+      \delta = \ang{7;24;25} = \ang{7} + \frac{\SI{24}{\arcminute}}{\SI{60}{\arcminute\per\degree}} + \frac{\SI{25}{\arcsecond}}{\SI{60}{\arcsecond\per\arcminute} \SI{60}{\arcminute\per\degree}} \approx \ang{7.41}
+    \end{equation}
+
+    Anhand der gegebenen Formeln
+    \begin{equation}
+      \Delta \alpha(t) = \del{
+        \SI{46}{\arcsecond\per\year} +
+        \SI{20}{\arcsecond\per\year} \tan \delta \sin \alpha
+      } \Delta t
+    \end{equation}
+    und
+    \begin{equation}
+      \Delta \delta(t) = \SI{20}{\arcsecond\per\year} \cos \alpha \cdot \Delta t
+    \end{equation}
+
+    Erhalten wir mit $\Delta t \approx \SI{15.83}{\year}$ die Korrekturen
+    \begin{equation}
+      \Delta \alpha \approx \SI{769.3}{\arcsecond} \cdot \frac{1}{\SI{15}{\arcsecond\per\second}} \approx \SI{51.29}{\second}
+    \end{equation}
+    und
+    \begin{equation}
+      \Delta \delta \approx \SI{6.80}{\arcsecond}
+    \end{equation}
+\end{enumerate}
+\end{document}
