@@ -287,6 +287,9 @@ Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
     \vspace{0.4cm}
 
     \begin{tikzpicture}[scale=2.5]
+      \coordinate [label=above:$N$] (N) at (0,1); % Nordpol
+      \coordinate [label=below:$S$] (S) at (0,-1); % Südpol
+
       \coordinate [label=below:$M$] (M) at (0,0); % Erdmittelpunkt
       \coordinate [label=below right:$A$] (A) at (1,0); % Äquator
       \coordinate (B) at (1,1); % Hilfspunkt (Berlin)
@@ -339,7 +342,5 @@ Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
       h &= \ang{29.34} \\
       A &= \ang{-6.71}
     \end{align}
-
 \end{enumerate}
-
 \end{document}
