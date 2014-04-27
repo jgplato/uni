@@ -3,6 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
 \usepackage{pgfplots}
 \usepackage{geometry}
 \usepackage[fleqn]{amsmath}
@@ -269,4 +272,74 @@ Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
     (Sonne $\ang{18}$ unter dem Horizont) setzt um 3:03 Ortszeit ein (Quelle:
     Google Calendar), so dass also knapp 4 Stunden für Beobachtungen bleiben.
 \end{enumerate}
+\section*{Aufgabe 2: Satellitenempfänger}
+\begin{enumerate}[a)]
+  \item
+    Der Stundenwinkel des Satelliten ist über Greenwich genau $\ang{19.2}$, in
+    Berlin also entsprechend geringer.
+    \begin{equation}
+      \tau = \lambda_\text{Sat} - \lambda_\text{Berlin}
+    \end{equation}
+
+    Für die Deklination betrachten wir folgende Zeichnung, in der $M$ der
+    Erdmittelpunkt ist, $A$ der Punkt auf dem Äquator und $S$ die Position des
+    Satelliten.
+    \vspace{0.4cm}
+
+    \begin{tikzpicture}[scale=2.5]
+      \coordinate [label=below:$M$] (M) at (0,0); % Erdmittelpunkt
+      \coordinate [label=below right:$A$] (A) at (1,0); % Äquator
+      \coordinate (B) at (1,1); % Hilfspunkt (Berlin)
+      \coordinate [label=below:$S$] (S) at (5.7,0); % Satellit
+
+      \tkzDrawCircle(M,A); % Erde
+
+      % Dreieck 1: Erdmittelpunkt, Äq, Hilfspunkt Berlin
+      \draw (M) -- (A) -- (B) -- (M);
+      \tkzMarkAngle[fill=red,opacity=.5,size=.5](A,M,B);
+      \tkzLabelAngle[pos=.3](A,M,B){$\phi_{B}$};
+
+      % Dreieck 2: Hilfspunkt, Satellit, Äq.
+      \draw (A) -- (S) -- (B);
+      \tkzMarkAngle[fill=blue,mkpos=.2,opacity=.5,size=1.3](B,S,A);
+      \tkzLabelAngle[pos=.9](B,S,A){$\delta$}
+
+      % Strecken
+      \tkzDefMidPoint(M,A) \tkzGetPoint{MA}
+      \tkzLabelPoint[below](MA){$r_\text{Erde}$};
+
+      \tkzDefMidPoint(A,S) \tkzGetPoint{AS}
+      \tkzLabelPoint[below](AS){$r_\text{Sat}$};
+
+      \tkzDefMidPoint(A,B) \tkzGetPoint{AB}
+      \tkzLabelPoint[right](AB){$a$};
+    \end{tikzpicture}
+
+    Dann ergibt sich
+    \begin{equation}
+      \sin \phi_B = \frac{a}{r_\text{Erde}} \qquad \text{und} \qquad
+      \tan \delta = \frac{a}{r_\text{Sat}}
+    \end{equation}
+
+    Ineinander eingesetzt und umgeformt, wobei natürlich die Deklination in
+    Richtung Äquator zeigt, deswegen negativ ist, erhält man
+    \begin{equation}
+      \delta = - \arctan \frac{r_\text{Erde}}{r_\text{Sat}} \sin \phi_\text{Berlin}
+    \end{equation}
+
+    Mit den entsprechenden Werten für Erdradius und Bahnhöhe erhält man für Stundenwinkel und Deklination
+    \begin{align}
+      \tau &= \ang{5.9032} \\
+      \delta &= \ang{-7.9955}
+    \end{align}
+
+    Durch Einsetzen in die im Skript gegebene Formeln für die Höhe und Azimut
+    erhält man dann
+    \begin{align}
+      h &= \ang{29.34} \\
+      A &= \ang{-6.71}
+    \end{align}
+
+\end{enumerate}
+
 \end{document}
