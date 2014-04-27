@@ -164,6 +164,57 @@ erhält man
     Abweichung für Krypton -2{,}85 \% beträgt.
 \end{enumerate}
 
+\section*{Aufgabe 3: Ionenkristall in zwei Dimensionen}
+
+Zu berechnen ist die Madelung-Konstante
+\begin{equation}
+  \alpha_R = \sum_{j \neq i} \frac{\pm 1}{P_{ij}} = R \cdot \sum_{j \neq i} \frac{\pm 1}{r_{ij}}
+\end{equation}
+
+\begin{equation}
+  \alpha =  \sum_{j \neq i} \frac{\pm 1}{r_{ij}}
+\end{equation}
+
+Ansatz:
+
+\begin{equation}
+  \alpha = r  \sum_{j \neq i} \frac{1}{r_{ij}} + \frac{r}{\sqrt{2}} \sum_{k \neq i} \frac{1}{r_{ik}}
+\end{equation}
+
+mit $\del{\frac{r}{2}}^2 = R^2 \Rightarrow r = R \sqrt{2}$.
+
+Damit die Schalen jeweils neutral sind wählen wir konzentrische quadratische
+Schalen entlang der Diagonalen.
+
+% FIXME: Skizze mit PGF/Tikz?
+
+Jede Schale hat eine Seitenlänge von $n \cdot \sqrt{2}R$
+
+Dementsprechend hat die $n$-te Schale $4n$ Ionen.
+
+Pro Schale tauchen $n$ unterschiedliche Radien auf
+
+\begin{equation}
+  \sigma = \sqrt{(mR)^2 + ((n-m)R)^2} = R \sqrt{m^2 + (n-m)^2}, m \in \mathrm{N}, m \le n
+\end{equation}
+
+In jeder Schale nehmen 4 Ionen diesen Radius ein. Somit erhält man für die Summe in der $n$-ten Schale
+
+\begin{equation}
+  \sum_{m=1}^n \frac{4 (-1)^n}{R \sqrt{m^2 + (n-m)^2}}
+\end{equation}
+
+Über alle $l$ Schalen summiert:
+
+\begin{align}
+  \alpha &= R \sum_{n=1}^l \sum_{m=1}^n \frac{4 (-1)^n}{R \sqrt{m^2 + (n-m)^2}} \\
+         &= 4 \sum_{n=1}^l \sum_{m=1}^n \frac{(-1)^n}{R \sqrt{m^2 + (n-m)^2}} \\
+\end{align}
+
+Für $l=1000$ erhalten wir $\alpha_+ \approx 0{,}8774$, für $l=1001: \alpha_- \approx -4{,}1084$.
+
+
+
 \section*{Aufgabe 4: NaCl- CsCl-Struktur}
 
 Sei $r_A \ge r_b$ und $r_A$ und $r_B$ bekannt. Für ein primitives Gitter
