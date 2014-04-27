@@ -43,8 +43,58 @@ Festkörperphysik, Sommersemester 2014, Aufgabenblatt 1
 Markus Fenske, Tutor: Marko Wietstruk
 \vspace{-10pt}
 \end{center}
-\section*{Aufgabe 2: Gleichgewichtsabstand der van-der-Waals-Kraft}
+\section*{Aufgabe 1: Van-der-Waals-Kräfte: Klassische Betrachtung}
+\begin{align}
+  &W = -\frac{1}{2} \vec{p}' \vec{E}(\vec{r}), \vec{p}' = \alpha \vec{E} \\
+  \Rightarrow \quad &W = - \frac{1}{2} \alpha \vec{E}(\vec{r}) \cdot \vec{E}(\vec{r}) \\
+                    &\;\;\;\, = - \frac{\alpha}{2} E(r)^2 \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \del{
+    \vec{p}{r^3} - 3 \frac{\vec{p} \cdot \vec{r}}{r^5} \vec{r}
+  }^2 \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \del{
+    \frac{p^2}{r^6} + 9 \frac{(\vec{p} \cdot \vec{r})^2}{r^{10}} r^2
+    - 6 \frac{\del{\vec{p} \cdot \vec{r}} \del{\vec{p} \cdot \vec{r}}}{r^8}
+  } \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \del{
+    \frac{p^2}{r^6} - \frac{6p^2r^2 \cos^2 \beta}{r^8} + \frac{9 p^2 r^2 \cos^2 \beta}{r^8}
+  } \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \del{
+    \frac{p^2}{r^6} + \frac{3p^2r^2 \cos^2 \beta}{r^8}
+  } \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \del{
+    \frac{p^2}{r^6} + \frac{3p^2 \cos^2 \beta}{r^6}
+  } \\
+  &\;\;\;\,
+  = \frac{\alpha}{32 \pi^2 \epsilon_0^2} \frac{p^2}{r^6} \del{
+    1 + 3 \cos^2 \beta
+  } \\
+\end{align}
+wobei $\beta$ der Winkel zwischen $\vec{r}$ und $\vec{p}$ sei.
 
+Winkelabhängig ergeben sich die Extrema
+\begin{align}
+  \text{Minimum: } & \alpha = \frac{\pi}{2} \; \text{ wenn } \vec{r} \perp \vec{p} \\
+  \text{Maximum: } & \alpha = \pi \;\; \text{ wenn } \vec{r} \parallel \vec{p} \\
+\end{align}
+
+Mit den Werten
+\begin{equation}
+  p = 10^{-29} \; \ampere \second \meter, \alpha = 10^{-40} \ampere \second \meter^2 \volt^{-1}, r = 10^{-9} \meter
+\end{equation}
+
+erhält man
+\begin{equation}
+  V(r)' = 10^{-40} \ampere \second \meter^2 \volt^{-1} \cdot \frac{10^{-58} \ampere^2 \second^2 \meter^2}{10^{-54} \meter^6}
+  \cdot \frac{1}{32 \pi^2 \del{8{,}854 \cdot 10^{-12}}^2 \ampere^2 \second^2 \volt^{-2} \meter^{-2}}
+  \approx 4{,}039 \; \coulomb \volt = 4{,}039 \; \joule
+\end{equation}
+
+\section*{Aufgabe 2: Gleichgewichtsabstand der van-der-Waals-Kraft}
 \begin{enumerate}[a)]
   \item
     Die Taylorreihe hier ist
