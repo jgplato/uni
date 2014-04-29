@@ -1,0 +1,103 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Theoretische Elektrodynamik, Sommersemester 2014, Aufgabenblatt 3
+
+Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1: Delta-Funktion I}
+
+Die $\delta$-Funktion verschwindet an allen Stellen an denen das Argument $\neq
+0$ ist. Seien $x_i$ die Nullstellen der Funktion $f(x)$, dann müssen wir also
+nur alle $\epsilon$-Umgebungen um die Nullstellen betrachten.
+
+\begin{equation}
+  \int\limits_{-\infty}^\infty \dif x \; \delta(f(x)) g(x) = \sum_{i} \int\limits_{x_i - \epsilon}^{x_i + \epsilon} \dif x \; \delta(f(x)) g(x)
+\end{equation}
+
+Wir können den Integrationsbereich auch so verschieben, dass nur genau um die
+Nullstellen integriert wird. Das geschieht durch Transformation $v = x - x_i$,
+$\dif v = \dif x$.
+
+\begin{equation}
+  = \sum_{i} \int\limits_{ -\epsilon}^{+\epsilon} \dif v \; \delta(f(v + x_i) g(v + x_i)
+\end{equation}
+
+An diesen Stellen können wir $f(v + x_i)$ in eine Taylor-Reihe entwickeln: $f(v +
+x_i) = f(x_i) + f'(x_i) v + \mathcal{O}(v^2)$, wobei $f(x_i)$ eine Nullstelle
+ist, also $f(x_i + v) = f'(x_i) v + \mathcal{O}(v^2)$. Der Quadratische Term
+fällt natürlich in beliebig kleinen $\epsilon$-Umgebungen nicht ins Gewicht,
+kann also weggelassen werden.
+
+\begin{equation}
+  = \sum_{i} \int\limits_{- \epsilon}^{+ \epsilon} \dif v \; \delta(f'(x_i) v) g(v + x_i)
+\end{equation}
+
+Wir wissen außerdem, dass $\delta(ax) = \frac{1}{\envert{a}} \delta(x)$.
+
+\begin{equation}
+  = \sum_{i} \int\limits_{- \epsilon}^{+ \epsilon} \dif v \; \frac{1}{\envert{f'(x_i)}} \delta(v) g(v + x_i)
+\end{equation}
+
+Nun machen wir die Verschiebung rückgängig, transformieren also $x = v + x_i$:
+
+\begin{equation}
+  = \sum_{i} \int\limits_{x_i - \epsilon}^{x_i + \epsilon} \dif x \; \frac{1}{\envert{f'(x_i)}} \delta(x - x_i) g(x)
+\end{equation}
+
+Der Integrationsbereich ist natürlich beliebig, da alle Werte, außer die
+Nullstellen, verschwinden (\textbf{Achtung}: Das funktioniert natürlich nicht,
+wenn doppelte Nullstellen vorhanden sind).
+
+
+\begin{equation}
+  = \sum_{i} \int\limits_{- \infty}^{+ \infty} \dif x \; \frac{1}{\envert{f'(x_i)}} \delta(x - x_i) g(x)
+\end{equation}
+
+Die Summe von Integralen ist das Integral der Summe.
+
+\begin{equation}
+  = \int\limits_{- \infty}^{+ \infty} \dif x \; \sum_i \frac{1}{\envert{f'(x_i}} \delta(x - x_i) g(x)
+\end{equation}
+
+Das ist, was zu beweisen war.
+
+
+\end{document}
