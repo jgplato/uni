@@ -26,7 +26,7 @@
 
 \restylefloat{table}
 \geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
-\linespread{1.5}
+\linespread{1.2}
 \setlength\parindent{0pt}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Var}{Var}
@@ -195,14 +195,80 @@ Das ist, was zu beweisen war.
     \begin{equation}
       = \frac{Q}{4 \pi \epsilon_0 L} \sbr[2]{\ln\del{ \sqrt{r^2 + u^2} + z}}_{-\frac{L}{2} + z}^{\frac{L}{2} + z}
       = \frac{Q}{4 \pi \epsilon_0 L} \ln \frac{
-        \sqrt{r^2 + \del{\frac{L}{2} + z}^2 + \frac{L}{2} + z}
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} + \frac{L}{2} + z
       }{
-        \sqrt{r^2 + \del{\frac{L}{2} + z}^2 - \frac{L}{2} + z}
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} - \frac{L}{2} + z
       }
     \end{equation}
 
     Dies ist schon die Darstellung in Zylinderkoordinaten. Mit der
     Rücksubstitution $r^2 = x^2 + y^2$ erhält man die Darstellung in
     kartesischen Koordinaten.
+  \item
+    Wir formen um
+    \begin{align}
+      &\frac{
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} + \frac{L}{2} + z
+      }{
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} - \frac{L}{2} + z
+      } \\
+      =
+      &\frac{
+        \sqrt{r^2 + \del{\frac{L}{2} + \frac{z}{L} L}^2} + \frac{L}{2}  + \frac{z}{L} L
+      }{
+        \sqrt{r^2 + \del{\frac{L}{2} + \frac{z}{L} L}^2} - \frac{L}{2} + \frac{z}{L} L
+      } \\
+      =
+      &\frac{
+        \sqrt{r^2 + L^2 \del{\frac{1}{2} + \frac{z}{L}}^2} + L \del{\frac{1}{2}  + \frac{z}{L}}
+      }{
+        \sqrt{r^2 + L^2 \del{\frac{1}{2} + \frac{z}{L}}^2} - L \del{\frac{1}{2} + \frac{z}{L}}
+      } \\
+      =
+      &\frac{
+        L \del{\sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} + \del{\frac{1}{2} + \frac{z}{L}}}
+      }{
+        L \del{\sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}}
+      } \\
+      =
+      &\frac{
+        \sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} + \del{\frac{1}{2} + \frac{z}{L}}
+      }{
+        \sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}
+      } \\
+    \end{align}
+
+    und berechnen mit maxima die Taylor-Reihe (\texttt{z} und \texttt{r} sind hier
+    die reskalierten Variablen)
+\begin{verbatim}
+[...]
+                                      2    1     2        1
+                                sqrt(r  + (- + z) ) + z + -
+                                           2              2
+(%o1)         phi(z, r) := log(-----------------------------)
+                                     2    1     2        - 1
+                               sqrt(r  + (- + z) ) + z + ---
+                                          2               2
+(%i2) taylor(phi(z,r), [z,r], 0, 1);
+                                            2    2
+                                       4 z  - r
+(%o2)/T/           - log(z) - log(2) + --------- + . . .
+                                          2 z
+\end{verbatim}
+
+    Somit ist die Taylorreihe also
+
+    \begin{equation}
+      \phi(r, z) \approx \ln \frac{1}{2z} + \frac{4z^2 - r^2}{2z}
+    \end{equation}
+
+    %FIXME
+
+    Wir sehen, dass das Potential zwar im unendlichen ($z,r \to \infty$) vom negativen Bereich
+    gegen $0$ geht, aber entlang des Stabes für $r=0$ und $z \to \infty$
+    abfällt. Das erscheint uns unplausibel. Vielleicht gibt es da irgendwo
+    einen Vorzeichenfehler in der Berechnung des Integrals?
+
+
 \end{enumerate}
 \end{document}
