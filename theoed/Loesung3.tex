@@ -269,6 +269,19 @@ Das ist, was zu beweisen war.
     abfällt. Das erscheint uns unplausibel. Vielleicht gibt es da irgendwo
     einen Vorzeichenfehler in der Berechnung des Integrals?
 
+% FIXME: Sollte folgendes rauskommen. Nochmal Integral checken.
+%                                          1 2    2    1
+%                          - z + sqrt((z - -)  + r ) + -
+%                                          2           2
+%(%o141)               log(-----------------------------)
+%                                     1 2    2        1
+%                           sqrt((z + -)  + r ) - z - -
+%                                     2               2
+%(%i142) taylor(phi(z,r), [r,z], 0, 2);
+%                                       2      2
+%(%o142)/T/            - 2 log(r) + (2 r  - 4 z ) + . . .
+
+
 
 \end{enumerate}
 \end{document}
