@@ -160,4 +160,49 @@ Das ist, was zu beweisen war.
       \int\limits_{-\infty}^{\infty} \dif x \; \ln(x) \delta'(x-a) = \sbr[2]{\ln(x) \delta(x-a)}_{-\infty}^{\infty} - \int\limits_{-\infty}^{\infty} \dif x \; \frac{1}{x} \delta(x-a) = -\frac{1}{a}, \; a \neq 0
     \end{equation}
 \end{enumerate}
+
+\section*{Aufgabe 3: Geladener Stab}
+\begin{enumerate}[a)]
+  \item
+    Der Stab liege entlang der $z$-Achse von $-\frac{L}{2}$ bis $\frac{L}{2}$.
+    Dann ist die Ladungsdichte in kartesischen Koordinaten:
+    \begin{equation}
+      \rho(\vec{r}) = \begin{cases}
+        \frac{Q}{L} &\mbox{für } x = y = 0, -\frac{L}{2} < x < \frac{L}{2} \\
+        0           &\mbox{sonst}
+      \end{cases}
+    \end{equation}
+
+    (Oder auch $\rho(\vec{r}) = \delta(x) \delta(y) \Theta\del{z + \frac{L}{2}}
+    \Theta\del{-z + \frac{L}{2}} \frac{Q}{L}$, aber das ist hässlich).
+
+    Somit ist das Integral
+    \begin{equation}
+      \phi(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \int \dif^3\vec{r}' \; \frac{\rho(\vec{r}}{\envert{\vec{r} - \vec{r}'}}
+      =
+      \frac{Q}{4 \pi \epsilon_0 L} \int\limits_{-\frac{L}{2}}^{\frac{L}{2}} \dif z' \; \frac{1}{\sqrt{x^2 + y^2 + (z - z')^2}}
+    \end{equation}
+
+    Mit der Substitution $r^2 = x^2 + y^2$ und $u = z - z'$, $\dif z' = - \dif u$ erhalten wir
+
+    \begin{equation}
+      = \frac{Q}{4 \pi \epsilon_0 L} \int\limits_{\frac{L}{2}+z}^{-\frac{L}{2}+z} \dif u \; \frac{-1}{\sqrt{r^2 + u^2}}
+      = \frac{Q}{4 \pi \epsilon_0 L} \int\limits_{-\frac{L}{2}+z}^{\frac{L}{2}+z} \dif u \; \frac{1}{\sqrt{r^2 + u^2}}
+    \end{equation}
+
+    Dieses Integral ist bekannt.
+
+    \begin{equation}
+      = \frac{Q}{4 \pi \epsilon_0 L} \sbr[2]{\ln\del{ \sqrt{r^2 + u^2} + z}}_{-\frac{L}{2} + z}^{\frac{L}{2} + z}
+      = \frac{Q}{4 \pi \epsilon_0 L} \ln \frac{
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2 + \frac{L}{2} + z}
+      }{
+        \sqrt{r^2 + \del{\frac{L}{2} + z}^2 - \frac{L}{2} + z}
+      }
+    \end{equation}
+
+    Dies ist schon die Darstellung in Zylinderkoordinaten. Mit der
+    Rücksubstitution $r^2 = x^2 + y^2$ erhält man die Darstellung in
+    kartesischen Koordinaten.
+\end{enumerate}
 \end{document}
