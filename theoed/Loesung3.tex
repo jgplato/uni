@@ -99,5 +99,48 @@ Die Summe von Integralen ist das Integral der Summe.
 
 Das ist, was zu beweisen war.
 
+\section*{Aufgabe 2: Delta-Funktion II}
+\begin{enumerate}[a)]
+  \item
+    \begin{equation}
+      \lim_{\epsilon \to 0} \int\limits_{-\infty}^{\infty} \dif x \; \delta_\epsilon(x - x_0) h(x)
+      =
+      \lim_{\epsilon \to 0} \int\limits_{-\infty}^{\infty} \dif x \; \frac{1}{\pi} \frac{\epsilon}{(x - x_0)^2 + \epsilon^2} h(x)
+    \end{equation}
+
+    Wir transformieren $u = x - x_0$, $\dif u = \dif x$:
+    \begin{align}
+      &= \lim_{\epsilon \to 0} \int\limits_{-\infty}^{\infty} \dif u \; \frac{1}{\pi} \frac{\epsilon}{u^2 + \epsilon^2} h(u + x_0) \\
+      &= \lim_{\epsilon \to 0} \int\limits_{-\infty}^{\infty} \dif u \; \frac{1}{\pi} \frac{\epsilon}{\epsilon^2 \del{\frac{u^2}{\epsilon^2} + 1}} h(u + x_0) \\
+    \end{align}
+
+    Wir transformieren $v = \frac{u}{\epsilon}$, $\dif v = \frac{1}{\epsilon} \dif u \Leftrightarrow \dif u = \epsilon \dif v$
+    \begin{equation}
+      = \lim_{\epsilon \to 0} \int\limits_{-\infty}^{\infty} \dif v \; \frac{1}{\pi} \frac{1}{v^2 + 1} h(\epsilon v + x_0)
+    \end{equation}
+
+    $h(x)$ ist stetig und beschränkt (laut Aufgabenstellung). Daraus folgt,
+    dass es für $h(\epsilon v + x_0)$ im gesamten Definitionsbereich eine
+    integrierbare Majorante gibt (Beweis trivial). Nach dem Satz über die
+    majorisierte Konvergenz dürfen deshalb Grenzprozess und Integralbildung
+    vertauscht werden. (Lutz Heindorf, Skript Analysis I, S. 125, Abschnitt
+    9.2.3).
+
+    \begin{align}
+      &= \int\limits_{-\infty}^{\infty} \dif v \; \frac{1}{\pi} \frac{1}{v^2 + 1} \lim_{\epsilon \to 0} h(\epsilon v + x_0) \\
+      &= \int\limits_{-\infty}^{\infty} \dif v \; \frac{1}{\pi} \frac{1}{v^2 + 1} h(x_0) \\
+      &= \frac{h(x_0)}{\pi} \int\limits_{-\infty}^{\infty} \dif v \; \frac{1}{v^2 + 1}
+    \end{align}
+
+    Der Wert des Integrals ist bekannt als $\pi$. Somit
+    \begin{align}
+      &= h(x_0)
+    \end{align}
+
+    Was zu beweisen war.
+
+
+
+\end{enumerate}
 
 \end{document}
