@@ -118,12 +118,44 @@ gibt also das Datum um 0 Uhr UT an, während 2456778 das Datum um 12 Uhr UT ist.
 
 \section*{Aufgabe 3: Schiffbruch}
 
-% FIXME: Boooring.
-Da es um 10:48 offenbar dunkel genug ist, um Sterne zu sehen, bin ich nicht in
-England. Was mich zu der Frage bringt, warum meine Uhr auf Greenwich gestellt
-ist. Auch würde ich niemals Sternenkarten mit mir herumschleppen. Ich
-schlussfolgere, dass ich definitiv eine halluzinogene Substanz konsumiert habe
-und mich dementsprechend nur am Strand von Ko Samui befinden kann.
+Die Höhe des Sterns ist $h = \ang{90}$, der Azimut damit egal. Deswegen setze
+ich ihn auf $A = \ang{90}$ und erhalte somit aus der zweiten Azimut-Gleichung
+(Übungsskript, S. 23):
+
+\begin{equation}
+  \cos h = \cos \delta \sin \tau
+\end{equation}
+
+Da $\cos h = 0$ ist, muss $\sin \tau = 0$ sein. Somit ist der Stundenwinkel
+$\tau = \ra{0} \cup \tau = \ra{12}$.
+
+Aus der Höhengleichung (Übungsskript, S. 22) erhalte ich
+
+\begin{equation}
+  1 = \sin \phi \sin \delta \pm \cos \phi \cos \delta
+\end{equation}
+
+Für den positiven Zweig ($\tau = 0$) ist eine mögliche Lösung $\phi = \delta$ (wegen $\sin^2
++ \cos^2 = 1$).
+
+Mit der Formel für Ortssternzeit und Stundenwinkel erhalten wir
+\begin{equation}
+  \tau = \theta(\lambda_G, 0) - \frac{\lambda}{\SI{15}{\degree\per\hour}} + t \cdot 1{,}00274 - \alpha
+\end{equation}
+
+Und somit
+\begin{equation}
+  \lambda = \SI{15}{\degree\per\hour} \del{\theta(\lambda_G, 0) - \tau + t \cdot 1{,}00274 - \alpha}
+\end{equation}
+
+Mit den gegebenen Werten erhalten wir also insgesamt
+\begin{equation}
+  \lambda = \ang{44;44;22.5} \qquad \phi = \ang{-60;50;2.3}
+\end{equation}
+
+Der negative Zweig kann ausgeschlossen werden, denn dieser würde auf einen
+positiven Breitengrad führen, also auf eine Insel auf der Nordhalbkugel. Alpha
+Centauri ist jedoch auf der Nordhalbkugel nicht zu sehen.
 
 \section*{Aufgabe 4: Neptun}
 
