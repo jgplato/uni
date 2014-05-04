@@ -34,6 +34,7 @@
 % Stupid units for astronomy
 \DeclareSIUnit\day{d}
 \DeclareSIUnit\year{yr}
+\DeclareSIUnit\au{AU}
 % Astronomy-Style angles (hours, minutes, seconds)
 \newcommand*{\ra}[2][]{{
   \def\SIUnitSymbolDegree{\textsuperscript{h}}%
@@ -171,7 +172,60 @@ Centauri ist jedoch auf der Nordhalbkugel nicht zu sehen.
   \item
     % FIXME: Plot einfügen (wie?)
   \item
-    %FIXME
+    % FIXME: Nochmal was nettes malen?
+    Wir nehmen alle Objekte als perfekte Kugeln und deren Bahnen als Kreise an.
+
+    Damit die Objekte eine totale Sonnenfinsternis hervorrufen können, muss der
+    scheinbare Durchmesser des Objekts mindestens so groß sein, wie der der
+    Sonne.
+
+    Der scheinbare Durchmesser der Sonne ergibt sich durch
+    \begin{equation}
+      \tan \alpha_0 = 2 \frac{R_0}{r_0}
+    \end{equation}
+    wobei $R_0$ der Sonnenradius ($\approx \SI{6.95e5}{\kilo\meter}$) ist und $r_0$
+    der Abstand zwischen Sonne und Neptun ($\approx \SI{29.7}{\au}$).
+
+    Der scheinbare Durchmesser der jeweiligen Saturnmonde ergibt sich analog
+    durch
+    \begin{equation}
+      \tan \alpha = \frac{D}{r}
+    \end{equation}
+    wobei $D$ der Durchmesser des Objekts ist und $r$ der Bahnradius.
+
+    Somit muss also
+    \begin{equation}
+      \frac{D}{r} \ge \frac{2R_0}{r_0} \approx 4{,}68 \cdot 10^{4}
+    \end{equation}
+    sein, damit eine Sonnenfinsternis theoretisch möglich ist.
+
+    Wir erhalten
+
+    \begin{tabular}{l|r|r|r}
+      Name       & $r$                 & $D$                      & $D/r$ \\
+      \hline
+      Naiad      & $\SI{3.22e-4}{\au}$ & $\SI{67}{\kilo\meter}$   & $2.08 \cdot 10^5$ \\
+      Thalassa   & $\SI{3.35e-4}{\au}$ & $\SI{81}{\kilo\meter}$   & $2.42 \cdot 10^5$ \\
+      Despina    & $\SI{3.51e-4}{\au}$ & $\SI{150}{\kilo\meter}$  & $4.27 \cdot 10^5$ \\
+      Galatea    & $\SI{4.14e-4}{\au}$ & $\SI{175}{\kilo\meter}$  & $4.23 \cdot 10^5$ \\
+      Larissa    & $\SI{4.92e-4}{\au}$ & $\SI{195}{\kilo\meter}$  & $3.40 \cdot 10^5$ \\
+      S/2004 N 1 & $\SI{7.04e-4}{\au}$ & $\SI{18}{\kilo\meter}$   & $2.56 \cdot 10^4$ \\
+      Proteus    & $\SI{7.86e-4}{\au}$ & $\SI{420}{\kilo\meter}$  & $5.34 \cdot 10^5$ \\
+      Triton     & $\SI{2.37e-3}{\au}$ & $\SI{2707}{\kilo\meter}$ & $1.14 \cdot 10^6$ \\
+      Nereid     & $\SI{3.69e-2}{\au}$ & $\SI{340}{\kilo\meter}$  & $9.21 \cdot 10^3$ \\
+      Halimede   & $\SI{1.05e-1}{\au}$ & $\SI{48}{\kilo\meter}$   & $4.57 \cdot 10^2$ \\
+      Sao        & $\SI{1.50e-1}{\au}$ & $\SI{44}{\kilo\meter}$   & $2.93 \cdot 10^2$ \\
+      Laomedeia  & $\SI{1.58e-1}{\au}$ & $\SI{42}{\kilo\meter}$   & $2.66 \cdot 10^2$ \\
+      Psamathe   & $\SI{3.12e-1}{\au}$ & $\SI{38}{\kilo\meter}$   & $1.22 \cdot 10^2$ \\
+      Neso       & $\SI{3.23e-1}{\au}$ & $\SI{60}{\kilo\meter}$   & $1.86 \cdot 10^2$ \\
+    \end{tabular}
+
+    Es können also Naiad, Thalassa, Despina, Galatea, Lariassa, Proteus und
+    Trition theoretisch eine totale Sonnenfinsternis auf dem Neptun
+    hervorrufen.
+
+
+
 \end{enumerate}
 
 
