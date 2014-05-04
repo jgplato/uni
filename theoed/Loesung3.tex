@@ -193,11 +193,11 @@ Das ist, was zu beweisen war.
     Dieses Integral ist bekannt.
 
     \begin{equation}
-      = \frac{Q}{4 \pi \epsilon_0 L} \sbr[2]{\ln\del{ \sqrt{r^2 + u^2} + z}}_{-\frac{L}{2} + z}^{\frac{L}{2} + z}
+      = \frac{Q}{4 \pi \epsilon_0 L} \sbr[2]{\ln\del{ \sqrt{r^2 + u^2} + u}}_{-\frac{L}{2} + z}^{\frac{L}{2} + z}
       = \frac{Q}{4 \pi \epsilon_0 L} \ln \frac{
         \sqrt{r^2 + \del{\frac{L}{2} + z}^2} + \frac{L}{2} + z
       }{
-        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} - \frac{L}{2} + z
+        \sqrt{r^2 + \del{-\frac{L}{2} + z}^2} - \frac{L}{2} + z
       }
     \end{equation}
 
@@ -210,78 +210,55 @@ Das ist, was zu beweisen war.
       &\frac{
         \sqrt{r^2 + \del{\frac{L}{2} + z}^2} + \frac{L}{2} + z
       }{
-        \sqrt{r^2 + \del{\frac{L}{2} + z}^2} - \frac{L}{2} + z
+        \sqrt{r^2 + \del{-\frac{L}{2} + z}^2} - \frac{L}{2} + z
       } \\
       =
       &\frac{
         \sqrt{r^2 + \del{\frac{L}{2} + \frac{z}{L} L}^2} + \frac{L}{2}  + \frac{z}{L} L
       }{
-        \sqrt{r^2 + \del{\frac{L}{2} + \frac{z}{L} L}^2} - \frac{L}{2} + \frac{z}{L} L
+        \sqrt{r^2 + \del{-\frac{L}{2} + \frac{z}{L} L}^2} - \frac{L}{2} + \frac{z}{L} L
       } \\
       =
       &\frac{
         \sqrt{r^2 + L^2 \del{\frac{1}{2} + \frac{z}{L}}^2} + L \del{\frac{1}{2}  + \frac{z}{L}}
       }{
-        \sqrt{r^2 + L^2 \del{\frac{1}{2} + \frac{z}{L}}^2} - L \del{\frac{1}{2} + \frac{z}{L}}
+        \sqrt{r^2 + L^2 \del{-\frac{1}{2} + \frac{z}{L}}^2} - L \del{\frac{1}{2} + \frac{z}{L}}
       } \\
       =
       &\frac{
         L \del{\sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} + \del{\frac{1}{2} + \frac{z}{L}}}
       }{
-        L \del{\sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}}
+        L \del{\sqrt{\del{\frac{r}{L}}^2 + \del{-\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}}
       } \\
       =
       &\frac{
         \sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} + \del{\frac{1}{2} + \frac{z}{L}}
       }{
-        \sqrt{\del{\frac{r}{L}}^2 + \del{\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}
+        \sqrt{\del{\frac{r}{L}}^2 + \del{-\frac{1}{2} + \frac{z}{L}}^2} - \del{\frac{1}{2} + \frac{z}{L}}
       } \\
     \end{align}
 
     und berechnen mit maxima die Taylor-Reihe (\texttt{z} und \texttt{r} sind hier
     die reskalierten Variablen)
+    % phi(z,r) := log((sqrt(r^2 + (1/2 + z)^2) + (1/2 + z))/(sqrt(r^2 + (-1/2 + z)^2) + (-1/2 + z)));
 \begin{verbatim}
 [...]
-                                      2    1     2        1
-                                sqrt(r  + (- + z) ) + z + -
-                                           2              2
-(%o1)         phi(z, r) := log(-----------------------------)
-                                     2    1     2        - 1
-                               sqrt(r  + (- + z) ) + z + ---
-                                          2               2
-(%i2) taylor(phi(z,r), [z,r], 0, 1);
-                                            2    2
-                                       4 z  - r
-(%o2)/T/           - log(z) - log(2) + --------- + . . .
-                                          2 z
+                                       2    1     2     1
+                                 sqrt(r  + (- + z) ) + (- + z)
+                                            2           2
+(%o5)         phi(z, r) := log(---------------------------------)
+                                     2    - 1     2     - 1
+                               sqrt(r  + (--- + z) ) + (--- + z)
+                                           2             2
+(%i6)  taylor(phi(z,r), [z,r], 0, 2);
+                                        2      2
+(%o6)/T/             - 2 log(r) + (- 4 z  + 2 r ) + . . .
 \end{verbatim}
 
     Somit ist die Taylorreihe also
 
     \begin{equation}
-      \phi(r, z) \approx \ln \frac{1}{2z} + \frac{4z^2 - r^2}{2z}
+      \phi(r, z) \approx -2 \ln \frac{r}{L} - 4 \del{\frac{z}{L}}^2 + 2\del{\frac{r}{L}}^2
     \end{equation}
-
-    %FIXME
-
-    Wir sehen, dass das Potential zwar im unendlichen ($z,r \to \infty$) vom negativen Bereich
-    gegen $0$ geht, aber entlang des Stabes für $r=0$ und $z \to \infty$
-    abfällt. Das erscheint uns unplausibel. Vielleicht gibt es da irgendwo
-    einen Vorzeichenfehler in der Berechnung des Integrals?
-
-% FIXME: Sollte folgendes rauskommen. Nochmal Integral checken.
-%                                          1 2    2    1
-%                          - z + sqrt((z - -)  + r ) + -
-%                                          2           2
-%(%o141)               log(-----------------------------)
-%                                     1 2    2        1
-%                           sqrt((z + -)  + r ) - z - -
-%                                     2               2
-%(%i142) taylor(phi(z,r), [r,z], 0, 2);
-%                                       2      2
-%(%o142)/T/            - 2 log(r) + (2 r  - 4 z ) + . . .
-
-
-
 \end{enumerate}
 \end{document}
