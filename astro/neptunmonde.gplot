@@ -4,8 +4,11 @@ f(x) = exp(a*log(x)+b)
 set xlabel "Umlaufdauer [d]"
 set ylabel "Große Halbachse [AU]"
 fit f(x) "neptunmonde.dat" u 2:3 via a,b
-set label 1 sprintf("fit exp(a*log(x)+b)\na=%1.5f\nb=%1.5f",a,b) at 2e2,4e-3
+set label 1 sprintf("fit: $\\exp(a \\log(x)+b)$\n$a=%1.5f$\n$b=%1.5f$",a,b) at 2e2,4e-3
 set key off # Keine Legende
+set terminal epslatex size 27cm,20cm
+set output "neptunmonde.tex"
 plot "neptunmonde.dat" using 2:3 with points, \
      f(x), \
      ""  using 2:3:1 with labels left offset 0,0.5 rotate
+
