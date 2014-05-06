@@ -1,0 +1,86 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{mathtools} % also includes mathclap
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Theoretische Elektrodynamik, Sommersemester 2014, Aufgabenblatt 4
+
+Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1: Geladene Kugeln}
+Aus $\nabla E = \frac{\rho}{\epsilon_0}$ folgt per Gaußschem Satz
+\begin{equation}
+  \oint\limits_{\partial V} \dif \vec{a} \cdot \vec{E} = \int\limits_{V} \dif V \; \frac{\rho}{\epsilon_0} = \frac{Q(V)}{\epsilon_0}
+\end{equation}
+dabei soll $Q(V)$ die im Volumen $V$ eingeschlossene Ladung sein.
+
+Da $\rho(r)$ nur von $r$ abhängt, ist das gesamte Problem Kugelsymmetrisch.
+Das bedeutet, Kugelschalen müssen Äquipotentialflächen bilden, auf denen
+$\vec{E}(r)$ senkrecht steht. Somit ist
+\begin{align}
+  &E(r) \underbrace{\oint\limits_{\partial V} \dif A}_{\mathclap{= \text{ Kugeloberfläche: } 4 \pi r^2}} = \frac{Q(V)}{\epsilon_0} \\
+  \Leftrightarrow\quad
+  & \vec{E}(r) = \frac{Q(r)}{4 \pi \epsilon_0 r^2} \hat{e_r}
+\end{align}
+
+Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
+
+\begin{enumerate}[a)]
+  \item
+    In diesem Fall ist
+    \begin{equation}
+      Q(r) = \begin{cases}
+        0 & \text{ für } r < R \\
+        Q & \text{ für } r \ge R
+      \end{cases}
+    \end{equation}
+
+    also
+    \begin{equation}
+      \vec{E}(r) = \begin{cases}
+        % FIXME: Evil typographic hack.
+        \; \; \; \; 0 & \text{ für } r < R
+        \vspace{0.2 cm} \\
+        \dfrac{Q}{4 \pi \epsilon_0 r^2} & \text{ für } r \ge R
+      \end{cases}
+    \end{equation}
+
+    % TODO: Skizze. "Skizzieren Sie das elektrische Feld" kann auch sein, den
+    % Betrag skizzieren und die Richung angeben? :)
+\end{enumerate}
+\end{document}
