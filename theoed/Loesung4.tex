@@ -76,11 +76,52 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
         % FIXME: Evil typographic hack.
         \; \; \; \; 0 & \text{ für } r < R
         \vspace{0.2 cm} \\
-        \dfrac{Q}{4 \pi \epsilon_0 r^2} & \text{ für } r \ge R
+        \dfrac{Q}{4 \pi \epsilon_0 r^2} \hat{e}_r & \text{ für } r \ge R
       \end{cases}
     \end{equation}
 
     % TODO: Skizze. "Skizzieren Sie das elektrische Feld" kann auch sein, den
     % Betrag skizzieren und die Richung angeben? :)
+  \item
+    Für $n = -2$ kann kein Koeffizient berechnet werden, denn $\rho(r) =
+    c_{-2}r^{-2}$ ist im Interval $[0, R]$ unbeschränkt (außer $c_{-2} = 0$
+    oder $\partial_r c_{-2} \neq 0$ -- ersteres bedeutet keine Ladung, ist also
+    Unfug, letzteres ist keine Konstante in $r$ mehr, also geschummelt). Das
+    Integral konvergiert nicht.
+
+    Für $n = 2$ gilt
+    \begin{align}
+      &Q = \int\limits_0^\infty \dif r \; \rho(r) \\
+      \Leftrightarrow\quad
+      &Q = \int\limits_0^R \dif r \; c_2r^2 \\
+      \Leftrightarrow\quad
+      &c_2 = \frac{1}{Q} \del{\int\limits_0^R \dif r \; r^2}^{-1} \\
+      \Leftrightarrow\quad
+      &c_2 = Q \frac{3}{R^3}
+    \end{align}
+
+    Wir leiten nun die Funktion $Q(r)$ her, die die in der Kugel mit Radius $r$
+    eingeschlossene Ladung angibt.
+
+    \begin{align}
+      &Q(r) = \int\limits_0^r \dif r' \; \rho(r') \\
+      \Leftrightarrow\quad
+      &Q(r) = Q \frac{3}{R^3} \frac{r^3}{3} \\
+      \Leftrightarrow\quad
+      &Q(r) = Q \frac{r^3}{R^3}
+    \end{align}
+
+    Für $r > R$ ist natürlich $Q(r) = Q$.
+
+    Mit der zu Beginn der Aufgabe hergeleiteten Formel ergibt sich das elektrische Feld
+    \begin{equation}
+      \vec{E}(r) = \begin{cases}
+        \dfrac{Q}{4 \pi \epsilon_0 R^3} r \hat{e}_r & \text{ für } r < R
+        \vspace{0.2 cm} \\
+        \dfrac{Q}{4 \pi \epsilon_0 r^2} \hat{e}_r & \text{ für } r \ge R
+      \end{cases}
+    \end{equation}
+
+    %FIXME: Skizze!
 \end{enumerate}
 \end{document}
