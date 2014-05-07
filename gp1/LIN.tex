@@ -95,35 +95,35 @@ Wir substituieren $u(v) = F - \delta v$, somit $\dif u = - \delta \dif v
   \Leftrightarrow\quad
   &\frac{t}{m} + C = - \frac{1}{\delta} \ln(F - \delta v) \\
   \Leftrightarrow\quad
-  &-\frac{\delta}{m} t -\frac{C}{\delta}  = \ln(F - \delta v) \\
+  &-\frac{\delta}{m} t -\delta C = \ln(F - \delta v) \\
   \Leftrightarrow\quad
-  &F - \delta v = \exp \del{-\frac{\delta}{m} t - \frac{C}{\delta}} \\
+  &F - \delta v = \exp \del{-\frac{\delta}{m} t - \delta C} \\
   \Leftrightarrow\quad
-  &- \delta v = \exp \del{-\frac{\delta}{m} t - \frac{C}{\delta}} - F \\
+  &- \delta v = \exp \del{-\frac{\delta}{m} t - \delta C} - F \\
   \Leftrightarrow\quad
-  &v = -\frac{1}{\delta} \exp \del{-\frac{\delta}{m} t - \frac{C}{\delta}} + \frac{F}{\delta} \\
+  &v = -\frac{1}{\delta} \exp \del{-\frac{\delta}{m} t - \delta C} + \frac{F}{\delta} \\
 \end{align}
 
 Durch die Anfangsbedingung $v(0) = 0$ erhalten wir
 \begin{equation}
-  0 = -\frac{1}{\delta} \exp \del{- \frac{C}{\delta}} + \frac{F}{\delta}
+  0 = -\frac{1}{\delta} \exp \del{- \delta C} + \frac{F}{\delta}
 \end{equation}
 
-So dass wir $\exp\del{-\frac{C}{\delta}} = F$ sehen. Somit
+So dass wir $\exp\del{-\delta C} = F$ sehen. Somit
 \begin{align}
   &v = -\frac{F}{\delta} \exp \del{-\frac{\delta}{m} t} + \frac{F}{\delta} \\
   \Leftrightarrow\quad
   &v(t) = \frac{F}{\delta} \del{1 - \exp{\frac{\delta}{m} t}}
 \end{align}
 
-Im Grenzfall $t \to \infty$ folgt natürlich eine konstante
-Geschwindigkeit $\frac{F}{\delta}$. Das heißt, dass ein Körper, der mit einer
-konstanten Kraft $F$ beschleunigt wird unter Einfluss einer
-geschwindigkeitsabhängigen seine Geschwindigkeit einer Konstante annähert. Je
-stärker dabei die Reibung $\delta$ ist, desto geringer ist diese
-Grenzgeschwindigkeit. Je größer die Kraft $F$ ist, desto höher ist diese
-Geschwindigkeit. Ist die Kraft $F = 0$, bleibt die Geschwindigkeit des Körpers
-$0$.
+Im Fall $t \to \infty$ strebt $v(t)$ natürlich gegen eine Grenzgeschwindigkeit
+$\frac{F}{\delta}$.  Das heißt, dass ein Körper, der mit einer konstanten Kraft
+$F$ beschleunigt wird, unter Einfluss einer geschwindigkeitsabhängigen Reibung
+seine Geschwindigkeit einer Konstante annähert. Je größer dabei die
+Reibungskonstante $\delta$ ist, desto geringer ist diese Grenzgeschwindigkeit.
+Je größer die Kraft $F$ ist, desto höher ist die Grenzgeschwindigkeit. Ist die
+Kraft $F = 0$, bleibt die Geschwindigkeit des Körpers $0$. Dies alles stimmt
+mit der Alltagserfahrung überein.
 
 \section*{Aufgaben}
 \begin{enumerate}[1.]
