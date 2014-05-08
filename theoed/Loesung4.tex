@@ -83,42 +83,45 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
     % TODO: Skizze. "Skizzieren Sie das elektrische Feld" kann auch sein, den
     % Betrag skizzieren und die Richung angeben? :)
   \item
-    Für $n = -2$ kann kein Koeffizient berechnet werden, denn $\rho(r) =
-    c_{-2}r^{-2}$ ist im Interval $[0, R]$ unbeschränkt (außer $c_{-2} = 0$
-    oder $\partial_r c_{-2} \neq 0$ -- ersteres bedeutet keine Ladung, ist also
-    Unfug, letzteres ist keine Konstante in $r$ mehr, also geschummelt). Das
-    Integral konvergiert nicht.
-
-    Für $n = 2$ gilt
     \begin{align}
-      &Q = \int\limits_0^\infty \dif r \; \rho(r) \\
+      &Q = \iiint\limits_{\mathclap{\text{Kugel mit Radius $R$}}} \dif V \; \rho(r)
+      = \int\limits_0^R \dif r \int\limits_0^\pi \dif \theta \int\limits_0^{2 \pi} \dif \phi \; r^2 \sin \theta c_n r^n
+      = 4 \pi c_n \int\limits_0^R \dif r \; r^{n+2}
+      = 4 \pi c_n \frac{r^{n+3}}{n+3} \\
       \Leftrightarrow\quad
-      &Q = \int\limits_0^R \dif r \; c_2r^2 \\
-      \Leftrightarrow\quad
-      &c_2 = \frac{1}{Q} \del{\int\limits_0^R \dif r \; r^2}^{-1} \\
-      \Leftrightarrow\quad
-      &c_2 = Q \frac{3}{R^3}
+      &c_n = \frac{Q}{4 \pi} \frac{n+3}{R^{n+3}}
     \end{align}
 
-    Wir leiten nun die Funktion $Q(r)$ her, die die in der Kugel mit Radius $r$
-    eingeschlossene Ladung angibt.
+    Wir leiten nun die Funktion $Q(r)$ her, die die in der Kugel mit Radius $r
+    \le R$ eingeschlossene Ladung angibt. Für $r > R$ ist $Q(r) = Q$.
 
     \begin{align}
-      &Q(r) = \int\limits_0^r \dif r' \; \rho(r') \\
-      \Leftrightarrow\quad
-      &Q(r) = Q \frac{3}{R^3} \frac{r^3}{3} \\
-      \Leftrightarrow\quad
-      &Q(r) = Q \frac{r^3}{R^3}
+      &Q(r) = 4 \pi \int\limits_0^r \dif r' \; r'^2 \rho(r') = Q \frac{n+3}{R^{n+3}} \int\limits_0^r \dif r' \; r'^{n+2} = Q \frac{r^{n+3}}{R^{n+3}}
     \end{align}
-
-    Für $r > R$ ist natürlich $Q(r) = Q$.
 
     Mit der zu Beginn der Aufgabe hergeleiteten Formel ergibt sich das elektrische Feld
     \begin{equation}
-      \vec{E}(r) = \begin{cases}
-        \dfrac{Q}{4 \pi \epsilon_0 R^3} r \hat{e}_r & \text{ für } r < R
-        \vspace{0.2 cm} \\
-        \dfrac{Q}{4 \pi \epsilon_0 r^2} \hat{e}_r & \text{ für } r \ge R
+      \vec{E}(r) = \dfrac{Q}{4 \pi \epsilon_0 r^2} \hat{e}_r \begin{cases}
+        \dfrac{r^{n+3}}{R^{n+3}} & \text{ für } r < R \\
+        1 & \text{ für } r \ge R
+      \end{cases}
+    \end{equation}
+
+    Also für den Fall $n = -2$
+
+    \begin{equation}
+      \vec{E}(r) = \dfrac{Q}{4 \pi \epsilon_0} \hat{e}_r \begin{cases}
+        \dfrac{1}{rR} & \text{ für } r < R \\
+        \frac{1}{r^2} & \text{ für } r \ge R
+      \end{cases}
+    \end{equation}
+
+    Und für $n = 2$
+
+    \begin{equation}
+      \vec{E}(r) = \dfrac{Q}{4 \pi \epsilon_0} \hat{e}_r \begin{cases}
+        \dfrac{r^3}{R^5} & \text{ für } r < R \\
+        \frac{1}{r^2} & \text{ für } r \ge R
       \end{cases}
     \end{equation}
 
