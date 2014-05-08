@@ -43,13 +43,13 @@ Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
 \end{center}
 
 \section*{Aufgabe 1: Geladene Kugeln}
-Aus $\nabla E = \frac{\rho}{\epsilon_0}$ folgt per Gaußschem Satz
+Aus $\nabla E = \dfrac{\rho}{\epsilon_0}$ folgt per Gaußschem Satz
 \begin{equation}
   \oint\limits_{\partial V} \dif \vec{a} \cdot \vec{E} = \int\limits_{V} \dif V \; \frac{\rho}{\epsilon_0} = \frac{Q(V)}{\epsilon_0}
 \end{equation}
 dabei soll $Q(V)$ die im Volumen $V$ eingeschlossene Ladung sein.
 
-Da $\rho(r)$ nur von $r$ abhängt, ist das gesamte Problem Kugelsymmetrisch.
+Da $\rho(r)$ nur von $r$ abhängt, ist das gesamte Problem kugelsymmetrisch.
 Das bedeutet, Kugelschalen müssen Äquipotentialflächen bilden, auf denen
 $\vec{E}(r)$ senkrecht steht. Somit ist
 \begin{align}
@@ -83,6 +83,8 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
     % TODO: Skizze. "Skizzieren Sie das elektrische Feld" kann auch sein, den
     % Betrag skizzieren und die Richung angeben? :)
   \item
+    Bestimmung der Konstanten $c_n$:
+
     \begin{align}
       &Q = \iiint\limits_{\mathclap{\text{Kugel mit Radius $R$}}} \dif V \; \rho(r)
       = \int\limits_0^R \dif r \int\limits_0^\pi \dif \theta \int\limits_0^{2 \pi} \dif \phi \; r^2 \sin \theta c_n r^n
@@ -93,7 +95,7 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
     \end{align}
 
     Wir leiten nun die Funktion $Q(r)$ her, die die in der Kugel mit Radius $r
-    \le R$ eingeschlossene Ladung angibt. Für $r > R$ ist $Q(r) = Q$.
+    \le R$ eingeschlossene Ladung angibt. Für $r > R$ ist $Q(r) = Q$. Für $r \le R$:
 
     \begin{align}
       &Q(r) = 4 \pi \int\limits_0^r \dif r' \; r'^2 \rho(r') = Q \frac{n+3}{R^{n+3}} \int\limits_0^r \dif r' \; r'^{n+2} = Q \frac{r^{n+3}}{R^{n+3}}
@@ -107,7 +109,7 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
       \end{cases}
     \end{equation}
 
-    Also für den Fall $n = -2$
+    Also explizit ausgeschrieben für den Fall $n = -2$
 
     \begin{equation}
       \vec{E}(r) = \dfrac{Q}{4 \pi \epsilon_0} \hat{e}_r \begin{cases}
