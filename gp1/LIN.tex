@@ -140,4 +140,142 @@ mit der Alltagserfahrung überein.
     Wirbelstromdämpfung). Berechnung der Dämpfungskonstanten aus der
     Zeitkonstanten der Bewegung und der Geschwindigkeit.
 \end{enumerate}
+
+% Auswertung hier
+\newpage
+
+\section*{Auswertung: Aufgabe 2}
+Für diese Aufgabe wurden die Messungen 1 bis 6 aufgenommen. Dabei wurden
+jeweils keine Messdaten, sondern nur Plots ausgedruckt.
+
+Für die Geschwindigkeit $v(t)$ wurden jeweils Ausgleichsgeraden eingezeichnet
+um aus der Steigung die Beschleunigung $a$ zu ermitteln. Aufgrund des starken
+Rauschens wurde die Ausgleichsgerade durch dieses bestimmt.
+
+Für diesen Teil nutzen wir die hergeleitete Formel. Dabei nehmen wir an, dass
+das System in etwa reibungsfrei ist, also $\delta = 0$.
+
+Die Kraft $F$ bestimmt sich dann durch die angehangen Gewichte, den Haken und
+den Faden, auf den im Verlauf immer mehr Gewichtskraft wirkt. Da dies für die
+theoretische Herleitung nicht berücksichtigt wurde und unserer Meinung nicht im
+Rahmen der Messgenauigkeit liegt, vernachlässigen wir diesen für die
+theoretischen Werte.
+
+Die wirkende Kraft ist somit
+\begin{equation}
+  F = \del{m_\text{Anhängemasse} + m_\text{Haken}} g
+\end{equation}
+
+Die beschleunigte Masse ist
+\begin{equation}
+  m = m_\text{Gleiter+Faden} + m_{Gleitergewichte} + m_\text{Anhängemasse} + m_\text{Haken}
+\end{equation}
+
+Für $g$ verwenden wir den Wert, den wir im letzten Versuch (Schwerependel) dem
+Platzskript entnommen haben.
+\begin{equation}
+  g = 9{,}81282(1) \meter\second^{-2}
+\end{equation}
+
+Die erwartete Beschleunigung ist somit
+\begin{equation}
+  a = g \frac{m_\text{Anhängemasse} + m_\text{Haken}}{m_\text{Gleiter+Faden} + m_\text{Gleitergewichte} + m_\text{Anhängemasse} + m_\text{Haken}} =
+  \frac{g}{1 + \dfrac{m_\text{Anhängemasse} + m_\text{Haken}}{{m_\text{Gleiter+Faden} + m_\text{Gleitergewichte}}}}
+\end{equation}
+
+Sei $m_\text{G} = m_\text{Gleiter+Faden} + m_\text{Gleitergewichte}$ und $m_\text{Z} = m_\text{Anhängemasse} + m_\text{Haken}$, dann ist
+\begin{equation}
+  a = \frac{g}{1 + \dfrac{m_\text{G}}{m_\text{Z}}}
+\end{equation}
+
+Per Gaußscher Fehlerfortplanzung ergibt sich dann
+\begin{align}
+  \Delta a &= \sqrt{
+    \underbrace{\del{\frac{\partial a}{\partial g} \Delta g}^2}_{\approx 0} +
+    \del{
+      g \frac{m_Z}{\del{m_G + m_Z}^2} \Delta m_G
+    }^2
+    +
+    \del{
+      g \frac{m_G}{\del{m_G + m_Z}^2} \Delta m_Z
+    }^2
+  } \\
+  &= \frac{g}{(m_G + m_Z)^2} \sqrt{\del{m_Z \Delta m_G}^2 + \del{m_G \Delta m_Z}^2}
+\end{align}
+
+Der relative Fehler von $g$ ist um mehrere Nachkommastellen geringer als der
+relative Fehler der Massen und daher vernachlässigbar.
+
+% FIXME: Stimmt nicht. Wir stapeln ja Massen!
+
+Da der Fehler der Massen gleich ist ($\Delta m = 0{,}1 \gram$) und $\Delta m_G$
+und $\Delta m_Z$ aus der Addition mehrer Massen entstehten, ist der Fehler der
+Massen jeweils $\Delta m_G = \sqrt{n_G} \Delta m$ und $\Delta m_Z = \sqrt{n_Z}
+\Delta m$, wobei $n$ die Anzahl der Massen beschreibt, aus denen sich die $m$
+zusammensetzen.
+
+\begin{equation}
+  = \frac{\sqrt{\del{n_Z m_Z^2 + n_G m_G^2}}}{\del{m_Z + m_G}^2} \; g \Delta m
+\end{equation}
+
+% FIXME: Skript in den Anhang packen.
+Damit können wir nun die theoretisch erwarteten Werte berechnen und mit den
+experimentell ermittelten vergleichen. Die Werte wurden dabei der Einfachheit
+halber mit dem im Anhang abgedruckten Ruby-Script berechnet, welches die obigen
+Überlegungen implementiert.
+
+\vspace{0.7cm}
+
+\begin{tabular}{l|r|r|l}
+  Messung & $a$ (theoretisch) & $a$ (experimentell) & Kommentar \\
+  \hline
+  1 & $0{,}721\pm0{,}007$ & $0{,}70\pm0{,}03$ & Werte identisch \\
+  2 & $0{,}484\pm0{,}006$ & $0{,}45\pm0{,}02$ & Werte verträglich \\
+  3 & $0{,}366\pm0{,}005$ & $0{,}33\pm0{,}01$ & Werte verträglich \\
+  4 & $0{,}106\pm0{,}008$ & -- & Messung nicht auswertbar \\
+  5 & $0{,}106\pm0{,}008$ & $0{,}10\pm0{,}09$ & Werte identisch \\
+  6 & $0{,}161\pm0{,}008$ & -- & TODO % FIXME: Grafische Auswertung
+\end{tabular}
+
+
+
+
+
+
+\section*{Diskussion}
+% FIXME
+Abgesehen
+von dem durch die numerische Differentiation verursachten Rauschens ist dabei
+keine Abweichung von einem linearen Verlauf erkennbar. Die Werte $a(t)$ könnten
+möglicherweise konstant sein, aufgrund des hohen Rauschens können wir
+allerdings diese Daten kaum verwerten. Es könnte sich so ziemlich jeder
+beliebige Verlauf darin verbergen.
+
+Die grafisch ermittelten Beschleunigungen $a$ können wir mit den theoretischen
+Werten vergleichen. Es wird dabei die Gesamtmasse des Gleiters und der
+Anhängelasten beschleunigt, bestehend aus Gleiter, Verbindungsfaden,
+Anhängehaken, Zusatzmassen und Anhängemassen. Dass der Verbindungsfaden im
+Verlauf der Bewegung graduell mehr als Anhängemasse wirkt vernachlässigen wir
+aufgrund des geringen Gewichtes des Fadens ($0{,}6 \pm 0{,}2 \gram$). Auch das
+Trägheitsmoment des Umlenkrades vernachlässigen wir.
+
+Die Werte für Beschleunigung und Geschwindigkeit wurden Software durch
+numerische Differentiation gewonnen. Dieses Verfahren hat den Nachteil eines
+relativ großen Jitters, so dass die Werte für die Beschleunigung quasi
+unbrauchbar sind. Die Werte für den Ort haben die Form einer Parabel, sind aber
+nicht gegen $t^2$ aufgetragen und damit ebenfalls unbrauchbar.
+
+Trotz der vergleichsweise hohen Messgenauigkeit der Aparatur gehen uns also
+viele Informationen verloren. Hier wäre es Wünschenswert gewesen, die
+numerischen Messwerte zu haben, was daran scheiterte, dass Druckerpapier
+vergleichsweise knapp war und rationiert wurde. Da der Laborcomputer auch
+leider keinen Anschluss an das Internet hatte (oder dieser nicht freigeschaltet
+war), konnten wir auch keine Messdaten zur späteren Auswertung übertragen.
+
+Insgesamt konnten wir mit den Messdaten trotzdem die Gültigkeit der Newtonschen
+Bewegungsgleichungen und des damit aufgestellten theoretischen Modells
+innerhalb der Messgenauigkeit zeigen, so dass der Versuch trotzdem als
+erfolgreich angesehen werden kann.
+
+
 \end{document}
