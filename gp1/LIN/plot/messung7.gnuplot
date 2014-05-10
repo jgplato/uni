@@ -8,7 +8,7 @@ fit f(x) "./data/messung7.dat" u 1:2 via a,b
 
 t_0 = 0.43 # What we guess for the start time
 
-set xlabel "t [s]"
+set xlabel "$t - t_0$ [s]"
 set ylabel "$v-v_G$ [m/s]"
 set key off
 
