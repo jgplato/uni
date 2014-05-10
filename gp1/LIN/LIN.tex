@@ -358,6 +358,19 @@ ergibt sich $b' \cdot m = 0{,}56278$ mit dem Fehler $\Delta \delta = \sqrt{(b'
 Dieser Wert ist mit dem ersten identisch. Dies zeigt, dass unsere
 Auswertungsmethode gültig ist und hervorragende Resultate liefert.
 
+Für Messung 8 wurde der Gleiter angeschoben. Dadurch ist natürlich die im
+theoretischen Teil getroffene Annahme $v(0) = 0$ nicht mehr gültig. Stattdessen
+benutzen wir die vor dem Einsetzen der Anfangsbedingungen erhaltene Gleichung
+\begin{align*}
+  v(t) &= -\frac{1}{\delta} \exp \del{ - \frac{\delta}{m} t - \delta C} + \frac{F}{\delta} \\
+       &= \exp \del{ - \underbrace{\frac{\delta}{m}}_{=a} t - \underbrace{\delta C - \ln(\delta)}_{=c}} + \underbrace{\frac{F}{\delta}}_{b} \\
+\end{align*}
+
+Wir fitten also gegen die Gleichung $v(t) = a + \exp\del{-bt-c}$. Dabei
+entspricht $a$ wieder der Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ und $b$
+ist erneut $\frac{\delta}{m}$.
+
+
 \section*{Diskussion}
 % FIXME
 Abgesehen
