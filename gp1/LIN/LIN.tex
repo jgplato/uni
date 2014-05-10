@@ -263,6 +263,8 @@ als nicht widerlegt ansehen.
 
 \section*{Aufgabe 3}
 
+% FIXME: Plot in den Anhang!
+
 Hier wurden Magnete an den Gleiter angebracht um eine Reibung durch
 Wirbelströme zu erzielen.
 
@@ -274,7 +276,7 @@ Korrekturterm auf $-0{,}7 \pm 0{,}3 \gram$.
 
 Der beim Auflegen des Gleiters (inklusive Zugfaden) auf der Waage angezeigte
 Wert ist $146{,}5\pm0{,}1 \gram$, so dass wir von einer wahren Masse von
-$145{,}80\pm0{,}31 \gram$ ausgehen.
+$m_\text{GMF} = 145{,}80\pm0{,}31 \gram$ ausgehen.
 
 % Probleme: Gleiter wackelt. Magnetische Streben in der Fahrbahn.
 
@@ -318,7 +320,34 @@ Die Ungenauigkeit der Ortsmessung wird von CASSY-Lab mit $\Delta x = 1
 \milli\meter$ angegeben. Ein erster Blick auf die Werte zeigt aber, dass sich
 durch die numerische Differentiation ein starkes Rauschen ergibt, so dass der
 Messfehler darin untergeht. Der Algorithmus gibt Fehlerwerte für die gefitteten
-Parameter an, so dass wir mit diesen Werten arbeiten.
+Parameter an, so dass wir mit diesen Werten arbeiten. Der Plot befindet sich im
+Anhang.
+
+Wir erhalten $\frac{F}{\delta} = v_G = 0{,}3051\pm0{,}0026
+\;\meter\second^{-1}$ und $b = 2{,}941\pm0{,}079$.
+
+Die gesamte beschleunigte Masse ist $m_1 + m_2 + m_3 + m_\text{GMF} +
+m_\text{Haken} = 163{,}60 \gram$. Der Fehler ist $\Delta m = \sqrt{4 \cdot
+0{,}1^2 + 0{,}31^2} = 0{,}37 \gram$. Somit ist $m = 163{,}60 \pm 0{,}37 \gram$.
+
+Die angehängte Masse ist $m_1 + m_2 + m_3 = 17{,}8 \pm 0{,}02 \gram$. Den
+Fehler von $g$ vernachlässigen wir (siehe oben) und erhalten so $F = (m_1 + m_2
++ m_3) g 0{,}17467\pm 0{,}00019 \newton$
+
+Aus $\delta = \frac{F}{v_G}$ bestimmen wir $\delta = 0{,}5725$ mit dem Fehler
+$\Delta \delta = \sqrt{\del{\frac{\Delta F}{v_G}}^2 + \del{\frac{F}{v_G^2}
+\Delta v_G}^2} = 0{,}0049$. Somit $\delta =  0{,}573\pm0{,}005 \;
+\kilogram\second^{-1}$.
+
+Beim Fitten des Plots wurde nicht berücksichtigt, dass der Gleiter erst zur
+Zeit $t_0 = 0{,}50 \pm 0{,}05$ (Fehler wegen Messauflösung von $50
+\milli\second$) losgelassen wurde. Dieser Wert muss also noch zu $b$ addiert
+werden, um den wahren Wert zu erhalten. Damit ist $b' = 3{,}44 \pm 0{,}50$. Es
+ergibt sich $b' \cdot m = 0{,}56278$ mit dem Fehler $\Delta \delta = \sqrt{(b'
+\Delta m)^2 + (m \Delta b')^2} = 0{,}562\pm0{,}82 \; \kilogram\second^{-1}$.
+Dieser Wert ist mit dem ersten identisch, jedoch viel ungenauer. Es zeigt, dass
+unsere Auswertungsmethode gültig ist und im Gegensatz zur vorgeschlagenen
+Vorgehensweise die Genauigkeit steigert.
 
 \section*{Diskussion}
 % FIXME
