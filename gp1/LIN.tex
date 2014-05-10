@@ -150,7 +150,7 @@ jeweils keine Messdaten, sondern nur Plots ausgedruckt.
 
 Für die Geschwindigkeit $v(t)$ wurden jeweils Ausgleichsgeraden eingezeichnet
 um aus der Steigung die Beschleunigung $a$ zu ermitteln. Aufgrund des starken
-Rauschens wurde die Ausgleichsgerade durch dieses bestimmt.
+Rauschens wurde die Grenzgerade durch dieses bestimmt.
 
 Für diesen Teil nutzen wir die hergeleitete Formel. Dabei nehmen wir an, dass
 das System in etwa reibungsfrei ist, also $\delta = 0$.
@@ -206,8 +206,6 @@ Per Gaußscher Fehlerfortplanzung ergibt sich dann
 Der relative Fehler von $g$ ist um mehrere Nachkommastellen geringer als der
 relative Fehler der Massen und daher vernachlässigbar.
 
-% FIXME: Stimmt nicht. Wir stapeln ja Massen!
-
 Da der Fehler der Massen gleich ist ($\Delta m = 0{,}1 \gram$) und $\Delta m_G$
 und $\Delta m_Z$ aus der Addition mehrer Massen entstehten, ist der Fehler der
 Massen jeweils $\Delta m_G = \sqrt{n_G} \Delta m$ und $\Delta m_Z = \sqrt{n_Z}
@@ -234,12 +232,31 @@ halber mit dem im Anhang abgedruckten Ruby-Script berechnet, welches die obigen
   3 & $0{,}366\pm0{,}005$ & $0{,}33\pm0{,}01$ & Werte verträglich \\
   4 & $0{,}106\pm0{,}008$ & -- & Messung nicht auswertbar \\
   5 & $0{,}106\pm0{,}008$ & $0{,}10\pm0{,}09$ & Werte identisch \\
-  6 & $0{,}161\pm0{,}008$ & -- & TODO % FIXME: Grafische Auswertung
+  6 & $0{,}161\pm0{,}008$ & $0{,}152\pm0{,}007$ & Werte identisch
 \end{tabular}
 
+\vspace{0.7cm}
 
+Für Messung 6 haben wir zusätzlich $x$ über $t^2$ aufgetragen. Aufgrund der
+Grobheit des vom Programm ausgegebenen Rasters ist zwar keine Steigung
+ablesbar, jedoch entspricht die Form näherungsweise einer Gerade. Es ist eine
+leichte Abweichung erkennbar,
+deren Ursachen vielfältig sein könnten. Einerseits könnte es sich um Einflüsse
+durch die obigen Kräfte handeln, die vernachlässigt wurden (Gewichtskraft des
+Zugfadens, Drehmoment des Messrades), es könnte sich um Störeinflüsse handeln
+(Hochblasen des Fadens durch die Luftkissenschiene oder allgemeine
+Luftbewegungen im Raum). Die Abweichungs ist allerdngs so gering, dass sie
+durchaus auch durch thermischen Verzug des Papiers beim Ausdrucken auf dem
+Laserdrucker entstanden sein. Ohne die numerischen Messwerte ist daher eine
+Auswertung reine Spekulation, die wissenschaftlichen Anforderungen nicht
+gerecht werden kann. In sehr guter Näherung ist der Zusammenhang also $x \propto
+t^2$, in Übereinstimmung mit den Newtonschen Axiomen.
 
+Die aufgetragenen Werte für $a$ sind stark verrauscht, konnten jedoch aus $v$
+rekonstruiert werden und sind damit als konstant anzusehen.
 
+Wir können die Newtonschen Bewegungsgesetze damit im Rahmen der Messgenauigkeit
+als nicht widerlegt ansehen.
 
 
 \section*{Diskussion}
