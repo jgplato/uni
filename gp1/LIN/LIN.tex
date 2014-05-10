@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{enumerate}
+\usepackage{listings} % Source code
 \usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
 \usepackage{cancel}
 
@@ -390,6 +391,27 @@ Insgesamt konnten wir mit den Messdaten trotzdem die Gültigkeit der Newtonschen
 Bewegungsgleichungen und des damit aufgestellten theoretischen Modells
 innerhalb der Messgenauigkeit zeigen, so dass der Versuch trotzdem als
 erfolgreich angesehen werden kann.
+
+\newpage
+% FIXME: Plot für Messung 7
+
+\newpage
+\section*{Anhang}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{numbers=left, frame=single}
+
+Programm \texttt{error-calc.rb} zur Berechnung der theoretischen Werte und
+theoretischen Fehler der Messungen 1-6.
+
+\lstinputlisting[language=Ruby]{error-calc.rb}
+
+Programm \texttt{numdiff.rb} zur numerischen Differenzierung der Messwerte und
+konvertierung zu GNUplot.
+\lstinputlisting[language=Ruby]{numdiff.rb}
+
+GNUplot script \texttt{plot/messung7.gnuplot} zum fitten der Daten in Messung 7.
+\lstinputlisting{plot/messung7.gnuplot}
+
 
 
 \end{document}
