@@ -224,6 +224,8 @@ halber mit dem im Anhang abgedruckten Ruby-Script berechnet, welches die obigen
 
 \vspace{0.7cm}
 
+% FIXME: Welche Massen verwendet? Aufschreiben m1, m2, m3. In Tabelle dann m_1 + m_2 ... reinschreiben.
+
 \begin{tabular}{l|r|r|l}
   Messung & $a$ (theoretisch) & $a$ (experimentell) & Kommentar \\
   \hline
@@ -257,6 +259,37 @@ rekonstruiert werden und sind damit als konstant anzusehen.
 
 Wir können die Newtonschen Bewegungsgesetze damit im Rahmen der Messgenauigkeit
 als nicht widerlegt ansehen.
+
+\section*{Aufgabe 3}
+
+Hier wurden Magnete an den Gleiter angebracht um eine Reibung durch
+Wirbelströme zu erzielen.
+
+Die Masse des Gleiters mit den Magneten wurde neu bestimmt, wobei die Waage
+durch die Magneten beeinflusst wurde. Hält man den Gleiter über die Waage ohne
+diese zu berühren, zeigt diese ein Gewicht von $-0{,}5 \gram$ bis $-0{,}9
+\gram$  an. Dies haben wir mehrfach wiederholt und schätzen den benötigten
+Korrekturterm auf $-0{,}7 \pm 0{,}3 \gram$.
+
+Der beim Auflegen des Gleiters (inklusive Zugfaden) auf der Waage angezeigte
+Wert ist $146{,}5\pm0{,}1 \gram$, so dass wir von einer wahren Masse von
+$145{,}80\pm0{,}31 \gram$ ausgehen.
+
+% Probleme: Gleiter wackelt. Magnetische Streben in der Fahrbahn.
+
+Es wurden zwei Messungen mit Anhängemassen durchgeführt um die
+Grenzgeschwindigkeit zu bestimmen. Für Messung 7 wurde der Gleiter losgelassen,
+für Messung 8 wurde er zusätzlich angestoßen, um sich der Grenzgeschwindigkeit
+von oben zu nähern.
+
+Für beide Messungen haben wir numerischen Messdaten (Position $x$ und
+Geschwindigkeit $v$) ausgedruckt. Die Werte für $v$ sind dabei nicht
+verwertbar, da sie vom Programm auf eine Nachkommastelle gerundet wurden.
+
+Wir haben daher die Werte eingescannt, mittels OCR-Verfahren in Text konvertiert,
+triviale Erkennungsfehler durch Reguläre Ausdrücke automatisch korrigiert und
+abschließende Korrekturen manuell vorgenommen. Die Daten haben wir anschließend
+mit einem Ruby-Script (siehe Anhang) numerisch differenziert.
 
 
 \section*{Diskussion}
