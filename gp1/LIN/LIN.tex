@@ -272,7 +272,7 @@ nicht möglich, die Werte können als konstant angesehen werden.
 Insgesamt haben wir das hergeleitete Bewegungsgesetz damit für den Fall $\delta
 = 0$ im Rahmen der Messgenauigkeit bestätigt.
 
-\section*{Aufgabe 3}
+\section*{Auswertung und Diskission: Aufgabe 3}
 
 % FIXME: Plot in den Anhang!
 
@@ -368,48 +368,64 @@ benutzen wir die vor dem Einsetzen der Anfangsbedingungen erhaltene Gleichung
 
 Wir fitten also gegen die Gleichung $v(t) = a + \exp\del{-bt-c}$. Dabei
 entspricht $a$ wieder der Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ und $b$
-ist erneut $\frac{\delta}{m}$.
+ist erneut $\frac{\delta}{m}$. Da die Anfangszeit $t_0$ in diesem Fall in der
+Konstante $c$ verschwindet, sind keine Korrekturen nötig.
 
+Analog zu obiger Rechnung ergeben sich die Werte $\delta_a = 0{,}69 \pm 0{,}02$
+(aus $a$) und $\delta_b = 0{,}41\pm0{,}02$ (aus $b$). Diese Werte sind nicht
+nur untereinander signifikant verschieden, sondern auch inkompatibel zu den in
+Messung 7 sehr genau ermittelten Werten. Es ist hier offensichtlich durch starkes
+Anstoßen des Gleiters zu einem Schlupf des Zugfadens auf dem Messrad gekommen,
+der die Werte völlig verfälscht.
 
-\section*{Diskussion}
-% FIXME
-Abgesehen
-von dem durch die numerische Differentiation verursachten Rauschens ist dabei
-keine Abweichung von einem linearen Verlauf erkennbar. Die Werte $a(t)$ könnten
-möglicherweise konstant sein, aufgrund des hohen Rauschens können wir
-allerdings diese Daten kaum verwerten. Es könnte sich so ziemlich jeder
-beliebige Verlauf darin verbergen.
+In Messung 9 haben wir noch mit veränderter Konfigutation versucht, die
+vermutete Oszillation des Gleiters um die magnetischen Verbindungsstreben der
+Fahrbahn aufzunehmen, diese ist jedoch im Plot nicht ersichtlich, liegt also
+nicht innerhalb der Messgenauigkeit.
 
-Die grafisch ermittelten Beschleunigungen $a$ können wir mit den theoretischen
-Werten vergleichen. Es wird dabei die Gesamtmasse des Gleiters und der
-Anhängelasten beschleunigt, bestehend aus Gleiter, Verbindungsfaden,
-Anhängehaken, Zusatzmassen und Anhängemassen. Dass der Verbindungsfaden im
-Verlauf der Bewegung graduell mehr als Anhängemasse wirkt vernachlässigen wir
-aufgrund des geringen Gewichtes des Fadens ($0{,}6 \pm 0{,}2 \gram$). Auch das
-Trägheitsmoment des Umlenkrades vernachlässigen wir.
+\section*{Diskussion und Zusammenfassung}
 
 Die Werte für Beschleunigung und Geschwindigkeit wurden Software durch
 numerische Differentiation gewonnen. Dieses Verfahren hat den Nachteil eines
-relativ großen Jitters, so dass die Werte für die Beschleunigung quasi
-unbrauchbar sind. Die Werte für den Ort haben die Form einer Parabel, sind aber
-nicht gegen $t^2$ aufgetragen und damit ebenfalls unbrauchbar.
+relativ großen Rauschens, so dass die Werte für die Beschleunigung quasi
+unbrauchbar sind.
 
-Trotz der vergleichsweise hohen Messgenauigkeit der Aparatur gehen uns also
-viele Informationen verloren. Hier wäre es Wünschenswert gewesen, die
-numerischen Messwerte zu haben, was daran scheiterte, dass Druckerpapier
-vergleichsweise knapp war und rationiert wurde. Da der Laborcomputer auch
-leider keinen Anschluss an das Internet hatte (oder dieser nicht freigeschaltet
-war), konnten wir auch keine Messdaten zur späteren Auswertung übertragen.
+Trotz der vergleichsweise hohen Messgenauigkeit der Aparatur gehen uns so viele
+Informationen verloren. Hier wäre es Wünschenswert gewesen, die numerischen
+Messwerte zu haben, was daran scheiterte, dass Druckerpapier vergleichsweise
+knapp ware. Da der Laborcomputer auch leider keinen Anschluss an das Internet
+hatte (oder dieser nicht freigeschaltet war), konnten wir auch keine Messdaten
+zur späteren Auswertung übertragen.
 
-Insgesamt konnten wir mit den Messdaten trotzdem die Gültigkeit der Newtonschen
-Bewegungsgleichungen und des damit aufgestellten theoretischen Modells
-innerhalb der Messgenauigkeit zeigen, so dass der Versuch trotzdem als
-erfolgreich angesehen werden kann.
+Nicht berücksichtigt wurden außerdem in Aufgabe 2, dass die Masse des Fadens
+als zusätzliches Zuggewicht wirkt, sobald dieses über die Umlenkrolle gelaufen
+ist. Gerade bei geringen Anhängemassen macht der Faden bis zu einem Drittel der
+Zugmasse aus. Dieser Effekt hätte sichtbar sein können, ging jedoch im Rauschen
+unter. Gleiches gilt für das Trägheitsmoment der Umlenkrolle.
+
+In Aufgabe 3 wird die Reibungs als Geschwindigkeitsabhängig angeknommen. Da
+jedoch die Fahrbahn von magnetischen Streben gehalten wird, gilt dies nur
+näherungsweise. Bei einer geringen Zugmasse war eine Beschleunigung vor und
+eine Bremsen nach den jeweiligen Streben sichtbar, konnte jedoch im Plot nicht
+sichtbar gemacht werden.
+
+Abgesehen von den Störeffekten konnten wir jedoch die Gültigkeit der
+hergeleiteten Bewegungsgleichung zeigen. Auch die Dämpfungskonstante $\delta =
+0{,}573\pm0{,}005 \kilo\gram\second^{-1}$ konnten wir berechnen, obwohl wenn
+der Sinn dahinter bei einem nicht wiederholbaren Versuchsaufbau (Ankleben
+unspezifizierter Magnete und Magnetbruchstücke mit Tesafilm an den Gleiter)
+fraglich ist.
 
 \newpage
 \begin{landscape}
   % Generieren mit gnuplot ./plot/messung7.gnuplot
   \input{plot-messung7.tex}
+\end{landscape}
+
+\newpage
+\begin{landscape}
+  % Generieren mit gnuplot ./plot/messung8.gnuplot
+  \input{plot-messung8.tex}
 \end{landscape}
 
 \newpage
@@ -426,8 +442,13 @@ Programm \texttt{numdiff.rb} zur numerischen Differenzierung der Messwerte und
 konvertierung zu GNUplot.
 \lstinputlisting[language=Ruby]{numdiff.rb}
 
-GNUplot script \texttt{plot/messung7.gnuplot} zum fitten der Daten in Messung 7.
+GNUplot script \texttt{plot/messung7.gnuplot} zum fitten der Daten in Messung 7
+(gebremster Gleiter mit $v_0 = 0$)
 \lstinputlisting{plot/messung7.gnuplot}
+
+GNUplot script \texttt{plot/messung8.gnuplot} zum fitten der Daten in Messung 8
+(gebremster Gleiter mit $v_0 > v_G$)
+\lstinputlisting{plot/messung8.gnuplot}
 
 
 
