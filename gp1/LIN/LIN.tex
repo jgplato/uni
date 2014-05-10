@@ -8,6 +8,7 @@
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{listings} % Source code
+\usepackage{lscape} % landscape
 \usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
 \usepackage{cancel}
 
@@ -393,7 +394,10 @@ innerhalb der Messgenauigkeit zeigen, so dass der Versuch trotzdem als
 erfolgreich angesehen werden kann.
 
 \newpage
-% FIXME: Plot für Messung 7
+\begin{landscape}
+  % Generieren mit gnuplot ./plot/messung7.gnuplot
+  \input{plot-messung7.tex}
+\end{landscape}
 
 \newpage
 \section*{Anhang}
