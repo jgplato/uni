@@ -291,11 +291,13 @@ Wir haben daher die Werte eingescannt, mittels OCR-Verfahren in Text konvertiert
 triviale Erkennungsfehler durch Reguläre Ausdrücke automatisch korrigiert und
 abschließende Korrekturen manuell vorgenommen. Die Daten haben wir anschließend
 mit einem Ruby-Script (siehe Anhang) numerisch differenziert. Dies führt zu
-einer Genauigkeitsverbesserung um eine Nachkommastelle.
+einer Genauigkeitsverbesserung um eine Nachkommastelle. Dann haben wir Werte
+vom Anfang und Ende entfernt, die aufgenommen wurden, bevor der Gleiter
+losgelassen wurde bzw. nachdem er am Ende aufgeprallt ist.
 
 Vom Skript wird nun vorgeschlagen unter Ausnutzung der Beziehung
 \begin{equation}
-  v(t) - \frac{F}{\delta} = \exp \del{- \frac{\delta}{m} t}
+  v(t) - \frac{F}{\delta} = -\exp \del{- \frac{\delta}{m} t}
 \end{equation}
 zuerst die Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ zu raten und dann
 $v(t) - v_G$ halblogarithmisch gegen den Exponentialterm aufzutragen. Dieses
