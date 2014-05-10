@@ -257,6 +257,7 @@ t^2$, in Übereinstimmung mit den Newtonschen Axiomen.
 Die aufgetragenen Werte für $a$ sind stark verrauscht, konnten jedoch aus $v$
 rekonstruiert werden und sind damit als konstant anzusehen.
 
+% FIXME: Ergibt sich kein Widerspruch zu den newtonschen ...
 Wir können die Newtonschen Bewegungsgesetze damit im Rahmen der Messgenauigkeit
 als nicht widerlegt ansehen.
 
@@ -289,8 +290,33 @@ verwertbar, da sie vom Programm auf eine Nachkommastelle gerundet wurden.
 Wir haben daher die Werte eingescannt, mittels OCR-Verfahren in Text konvertiert,
 triviale Erkennungsfehler durch Reguläre Ausdrücke automatisch korrigiert und
 abschließende Korrekturen manuell vorgenommen. Die Daten haben wir anschließend
-mit einem Ruby-Script (siehe Anhang) numerisch differenziert.
+mit einem Ruby-Script (siehe Anhang) numerisch differenziert. Dies führt zu
+einer Genauigkeitsverbesserung um eine Nachkommastelle.
 
+Vom Skript wird nun vorgeschlagen unter Ausnutzung der Beziehung
+\begin{equation}
+  v(t) - \frac{F}{\delta} = \exp \del{- \frac{\delta}{m} t}
+\end{equation}
+zuerst die Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ zu raten und dann
+$v(t) - v_G$ halblogarithmisch gegen den Exponentialterm aufzutragen. Dieses
+Verfahren soll iterativ zeichnerisch durchgeführt werden, bis der
+Exponentialterm entsprechend logarithmisch wird. Diese Vorgehensweise ist zwar
+möglich, hat aber einige Nachteile
+\begin{enumerate}[1.]
+  \item Hoher Zeitaufwand
+  \item Ungenau, da $v_G$ nur geschätzt wird und dann unter Benutzung der Steigung geprüft wird
+\end{enumerate}
+
+Stattdessen erschien es uns lohnenswerter, die Werte unter Benutzung der
+Methode der kleinsten Quadrate computergestützt gegen den Graphen $v(t) = a (1
+- e^{-bt})$ zu fitten. Wir benutzen dazu das Programm GNUplot (Script siehe
+Anhang).
+
+Die Ungenauigkeit der Ortsmessung wird von CASSY-Lab mit $\Delta x = 1
+\milli\meter$ angegeben. Ein erster Blick auf die Werte zeigt aber, dass sich
+durch die numerische Differentiation ein starkes Rauschen ergibt, so dass der
+Messfehler darin untergeht. Der Algorithmus gibt Fehlerwerte für die gefitteten
+Parameter an, so dass wir mit diesen Werten arbeiten.
 
 \section*{Diskussion}
 % FIXME
