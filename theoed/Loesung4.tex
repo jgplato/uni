@@ -235,7 +235,7 @@ Also ist das Wasserstoffatom elektrisch neutral.
   $\vec{E}(0) = 0$ und daraus wegen der Konstantheit, dass $E_y = 0$ und $E_z =
   0$.
 
-  Aus $\nabla \vec{E} = \frac{\rho}{\epsilon_0}$ sehen wir dann $\partial_x E_x
+  Aus $\nabla \vec{E} = \frac{\rho}{\epsilon_0}$ sehen wir somit $\partial_x E_x
   = \frac{\rho}{\epsilon_0}$, also ist
   \begin{equation}
     E_x(x) = \int_0^x \dif x \; \rho(x)
@@ -251,19 +251,14 @@ Also ist das Wasserstoffatom elektrisch neutral.
     &= \frac{A}{\lambda^2} \del{1 - e^{-\lambda x}\del{\lambda x + 1}}
   \end{align}
 
-  Für $x < 0$
+  Für $x < 0$ erhalten wir aus $E_x(x) = -E_x(-x)$:
   \begin{align}
-    E_x(x) &= -\int_0^x \dif x' \; A x' e^{\lambda x'} \\
-    &= -\sbr[3]{A x' \frac{e^{\lambda x'}}{\lambda}}_0^x + \int_0^x \dif x' \; A \frac{e^{\lambda x'}}{\lambda} \\
-    &= -A x \frac{e^{\lambda x}}{\lambda} + \sbr[3]{ A \frac{e^{\lambda x'}}{\lambda^2}}_0^x \\
-    &= -A x \frac{e^{\lambda x}}{\lambda} + A \frac{e^{\lambda x}}{\lambda^2} + \frac{A}{\lambda^2} \\
-    &= -\frac{A}{\lambda^2} \del{\lambda x e^{\lambda x} - e^{\lambda x} + 1} \\
-    &= -\frac{A}{\lambda^2} \del{1 + e^{\lambda x}\del{\lambda x - 1}}
+    E_x(x) &= -\frac{A}{\lambda^2} \del{1 - e^{\lambda x}\del{-\lambda x + 1}}
   \end{align}
 
-  Insgesamt ist also
+  Dies kann man zusammensetzen zur allgemeinen Funktion
   \begin{equation}
-    \vec{E}(x) = \sgn(x) \del{1 - \sgn(x) e^{-\lambda |x|} \del{\lambda x + \sgn(x)}} \hat{e}_x
+    \vec{E}(x) = \sgn(x) \del{1 - e^{-\lambda |x|} \del{\lambda|x| + 1}} \hat{e}_x
   \end{equation}
   wobei $\sgn(x)$ die Signumfunktion $\sgn(x) = \frac{|x|}{x}$ ist.
 
