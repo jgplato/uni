@@ -129,4 +129,83 @@ Dies gilt für alle rotationssymmetrischen elektrostatischen Probleme.
 
     %FIXME: Skizze!
 \end{enumerate}
+
+\section*{Aufgabe 2: Wasserstoffatom}
+\newcommand*\laplace{\mathop{}\!\mathbin\Delta}
+
+Sei $\phi(r)$ das Potential vom Aufgabenblatt ohne die Konstante $\frac{q}{4 \pi \epsilon_0}$
+
+Wir spalten zuerst die Unendlichkeitsstelle von $\phi(r)$ ab:
+\begin{align}
+  \phi(r) &= \frac{1}{r} e^{-\alpha r} \del{1 + \frac{\alpha r}{2}} \\
+          &= \frac{e^{-\alpha r}}{r} + \frac{\alpha e^{-\alpha r}}{2} \\
+          &= \frac{e^{-\alpha r} - 1 + 1}{r} + \frac{\alpha e^{-\alpha r}}{2} \\
+          &= \underbrace{\frac{e^{-\alpha r} - 1}{r} + \frac{\alpha e^{-\alpha r}}{2}}_{=: \phi_1} + \underbrace{\frac{1}{r}}_{=: \phi_2} \\
+\end{align}
+
+Nun ist ersichtlich (könnte man z.B. durch Taylor-Entwicklung zeigen), dass
+$\phi_2(r) \neq \infty$ existiert, womit $\phi_2(r)$ als stetige Funktion also
+auch bei $r = 0$ differenzierbar ist.
+
+Aus $\laplace \phi(r) = -\frac{\rho(r)}{\epsilon_0}$ gewinnen wir die
+Dichtefunktion. Da $\phi$ nur von $r$ abhängt, berechnen wir also
+
+\begin{align}
+  \laplace \phi_2(r) &= \frac{1}{r^2} \partial_r r^2 \partial_r \del{\frac{\alpha e^{-\alpha r}}{r} + \frac{e^{-\alpha r} - 1}{r}} \\
+                     &= \frac{1}{r^2} \partial_r r^2 \del{ \frac{-\alpha^2 e^{-\alpha r}}{2} - \frac{\alpha e^{-\alpha r}}{r} - \frac{e^{-\alpha r} - 1}{r^2}} \\
+                     &= \frac{1}{r^2} \partial_r r^2 e^{-\alpha r} \del{ \frac{-\alpha^2}{2} - \frac{\alpha}{r} - \frac{1 - e^{\alpha r}}{r^2}} \\
+                     &= \frac{1}{r^2} \partial_r e^{-\alpha r} \del{ \frac{-\alpha^2r^2}{2} - \alpha r - 1 - e^{\alpha r}} \\
+                     &= \frac{1}{r^2} \del{
+                        -\alpha e^{-\alpha r} \del{ \frac{-\alpha^2r^2}{2} - \alpha r - 1 - e^{\alpha r}} +
+                        e^{-\alpha r} \del{ -\alpha^2 r - \alpha - \alpha e^{\alpha r}}
+                      } \\
+                      &= \frac{1}{r^2} e^{-\alpha r} \del{
+                        \frac{\alpha^3r^2}{2} + \alpha^2 r + \alpha + \alpha e^{\alpha r} +
+                         -\alpha^2 r - \alpha - \alpha e^{\alpha r}
+                      } \\
+                      &= \frac{1}{r^2} e^{-\alpha r} \frac{\alpha^3r^2}{2} \\
+                      &= e^{-\alpha r} \frac{\alpha^3}{2}
+\end{align}
+
+Auf dem Aufgabenblatt gegeben ist
+\begin{equation}
+  \laplace \phi_1(r) = \laplace \frac{1}{r} = - 4 \pi \delta(r)
+\end{equation}
+
+So dass sich insgesamt für die Dichtefunktion ergibt
+\begin{equation}
+  \rho(r) = \frac{q}{4 \pi} \del{4 \pi \delta(r) - \frac{\alpha^3 e^{-\alpha r}}{2}}
+\end{equation}
+
+Physikalisch bildet hierbei der erste Term den positiv geladenen als
+punktförmig angenommenen Kern ab. Der zweite Term entspricht dem Betragsquadret
+der Wellenfunktion des Wasserstoffatoms im Grundzustand, gibt also die ``Dichte
+der Elektronenwolke'' an.
+
+Die Gesamtladung im gesamten Raum ist
+\begin{align}
+  Q = \iiint \dif V \rho(r) &= q \iiint \dif V \delta(r) - \frac{q}{4 \pi} \iiint \dif V \; \frac{\alpha^3 e^{-\alpha r}}{2} \\
+                            &= q - \frac{q \alpha^3}{2} \int_0^\infty \dif r \; r^2 e^{-\alpha r}
+\end{align}
+
+Mit
+\begin{align}
+  \int_0^\infty \dif r \; r^2 e^{-\alpha r}
+  &=
+    \sbr[3]{r^2 \frac{e^{-\alpha r}}{-\alpha}}_0^\infty
+    - \int \dif r \; 2r \frac{e^{-\alpha r}}{-\alpha} \\
+    &= \int \dif r \; 2r \frac{e^{-\alpha r}}{\alpha} \\
+    &=  \sbr[3]{2r \frac{e^{-\alpha r}}{-\alpha^2}}_0^\infty
+    - \int \dif r \; 2 \frac{e^{-\alpha r}}{-\alpha^2} \\
+    &= \sbr[3]{ 2 \frac{e^{-\alpha r}}{\alpha^3}}_0^\infty \\
+    &= \frac{2}{\alpha^3}
+\end{align}
+
+ist
+\begin{equation}
+  Q = q - q = 0
+\end{equation}
+
+Also ist das Wasserstoffatom elektrisch neutral.
+
 \end{document}
