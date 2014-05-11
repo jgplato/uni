@@ -237,23 +237,36 @@ Also ist das Wasserstoffatom elektrisch neutral.
 
   Aus $\nabla \vec{E} = \frac{\rho}{\epsilon_0}$ sehen wir dann $\partial_x E_x
   = \frac{\rho}{\epsilon_0}$, also ist
-
-  \begin{align}
-    E_x(x) &= \int_0^x \dif x \; \rho(x) \\
-           &= \int_0^x \dif x' \; A x' e^{-\lambda |x'|} \\
-           &= \sbr[3]{A x' \frac{e^{- \lambda |x'|}}{-\sgn(x)\lambda}}_0^x - \int_0^x \dif x' \; A \frac{e^{- \lambda |x'|}}{-\sgn(x)\lambda} \\
-           &= -A x \frac{e^{- \lambda |x|}}{\sgn(x) \lambda} + \sbr[3]{ A \frac{e^{- \lambda |x'|}}{-\lambda^2}}_0^x \\
-           &= -A x \sgn(x) \frac{e^{- \lambda |x|}}{\lambda} - A \frac{e^{- \lambda |x|}}{\lambda^2} + \frac{A}{\lambda^2} \\
-           &= \frac{A}{\lambda^2} \del{-\lambda |x| e^{-\lambda |x|} - e^{-\lambda |x|} + 1} \\
-           &= \frac{A}{\lambda^2} \del{1 - e^{-\lambda |x|}\del{\lambda |x| + 1}}
-  \end{align}
-
-  Man sieht, dass $E_x(0) = 0$ ist, wie gefordert. In Vektorform ergibt sich also
   \begin{equation}
-    \vec{E}(x) = \frac{A}{\lambda^2} \del{1 - e^{-\lambda |x|}\del{\lambda |x| + 1}} \hat{e}_x
+    E_x(x) = \int_0^x \dif x \; \rho(x)
   \end{equation}
 
-  Skizze siehe letzte Seite. % TODO: Per Hand draufmalen.
+  Für $x > 0$ erhalten wir
+  \begin{align}
+    E_x(x) &= \int_0^x \dif x' \; A x' e^{-\lambda x'} \\
+    &= \sbr[3]{A x' \frac{e^{- \lambda x'}}{-\lambda}}_0^x - \int_0^x \dif x' \; A \frac{e^{- \lambda x'}}{-\lambda} \\
+    &= -A x \frac{e^{- \lambda x}}{\lambda} + \sbr[3]{ A \frac{e^{- \lambda x'}}{-\lambda^2}}_0^x \\
+    &= -A x \frac{e^{- \lambda x}}{\lambda} + A \frac{e^{- \lambda x}}{-\lambda^2} + \frac{A}{\lambda^2} \\
+    &= \frac{A}{\lambda^2} \del{-\lambda x e^{-\lambda x} - e^{-\lambda x} + 1} \\
+    &= \frac{A}{\lambda^2} \del{1 - e^{-\lambda x}\del{\lambda x + 1}}
+  \end{align}
+
+  Für $x < 0$
+  \begin{align}
+    E_x(x) &= -\int_0^x \dif x' \; A x' e^{\lambda x'} \\
+    &= -\sbr[3]{A x' \frac{e^{\lambda x'}}{\lambda}}_0^x + \int_0^x \dif x' \; A \frac{e^{\lambda x'}}{\lambda} \\
+    &= -A x \frac{e^{\lambda x}}{\lambda} + \sbr[3]{ A \frac{e^{\lambda x'}}{\lambda^2}}_0^x \\
+    &= -A x \frac{e^{\lambda x}}{\lambda} + A \frac{e^{\lambda x}}{\lambda^2} + \frac{A}{\lambda^2} \\
+    &= -\frac{A}{\lambda^2} \del{\lambda x e^{\lambda x} - e^{\lambda x} + 1} \\
+    &= -\frac{A}{\lambda^2} \del{1 + e^{\lambda x}\del{\lambda x - 1}}
+  \end{align}
+
+  Insgesamt ist also
+  \begin{equation}
+    \vec{E}(x) = \sgn(x) \del{1 - \sgn(x) e^{-\lambda |x|} \del{\lambda x + \sgn(x)}} \hat{e}_x
+  \end{equation}
+  wobei $\sgn(x)$ die Signumfunktion $\sgn(x) = \frac{|x|}{x}$ ist.
+
 \end{enumerate}
 
 \end{document}
