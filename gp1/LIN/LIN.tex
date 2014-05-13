@@ -146,6 +146,22 @@ mit der Alltagserfahrung überein.
 % Auswertung hier
 \newpage
 
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 1, Sommersemester 2014
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>},
+
+Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>},
+
+Tutor: Jonathan Heidkamp
+
+Lineare Bewegungen: Auswertung
+\vspace{-10pt}
+\end{center}
+
 \section*{Auswertung und Diskussion: Aufgabe 2}
 Für diese Aufgabe wurden die Messungen 1 bis 6 aufgenommen. Dabei wurden
 jeweils keine Messdaten, sondern nur Plots ausgedruckt.
@@ -256,8 +272,8 @@ implementiert.
 
 Für Messung 6 haben wir zusätzlich $x$ über $t^2$ aufgetragen.
 
-Es ist eine leichte Abweichung erkennbar, deren Ursachen vielfältig sein
-könnten. In Frage kommen:
+Es ist eine leichte Abweichung von einer Gerade erkennbar, deren Ursachen
+vielfältig sein könnten. In Frage kommen:
 \begin{itemize}
   \item Einflüsse durch die vernachlässigten Kräfte: Gewichtskraft des
   Zugfadens, Drehmoment des Messrades
@@ -276,7 +292,7 @@ ist allerdings so gering, dass der Zusammenhang $x \propto t^2$ in sehr guter
 Näherung gilt.
 
 Aus der Steigung können wir die Beschleunigung ablesen (Verdopplung aufgrund
-von $\partial_x x^2 = 2x$). Den Fehler bestimmen wir durch einzeichnen von zwei
+von $\partial_x x^2 = 2x$). Den Fehler bestimmen wir durch Einzeichnen von zwei
 weiteren Tangenten bei den maximalen Abweichungen am Anfang und am Ende. Es
 fällt auf, dass die maximale Abweichung am Anfang liegt, so dass wir $a =
 0{,}14 \pm 0{,}02 \meter\second^{-1}$ erhalten. Dies ist mit den theoretischen
@@ -320,13 +336,14 @@ Grenzgeschwindigkeit ungefähr konstant ist kann man aus dem Plot der Messung 7
 durch grafische Auswertung die Grenzgeschwindigkeit als $v_G = 0{,}30 \pm
 0{,}03 \meter \second^{-1}$ erhalten.
 
-Wir haben daher die Werte eingescannt, mittels OCR-Verfahren in Text konvertiert,
-triviale Erkennungsfehler durch Reguläre Ausdrücke automatisch korrigiert und
-abschließende Korrekturen manuell vorgenommen. Die Daten haben wir anschließend
-mit einem Ruby-Script (siehe Anhang) numerisch differenziert. Dies führt zu
-einer Genauigkeitsverbesserung um eine Nachkommastelle. Dann haben wir Werte
-vom Anfang und Ende entfernt, die aufgenommen wurden, bevor der Gleiter
-losgelassen wurde bzw. nachdem er am Ende aufgeprallt ist. 
+Für weitere Auswertungen haben wir die Werte eingescannt, mittels OCR-Verfahren
+in Text konvertiert, triviale Erkennungsfehler durch Reguläre Ausdrücke
+automatisch korrigiert und abschließende Korrekturen manuell vorgenommen. Die
+Daten haben wir anschließend mit einem Ruby-Script (siehe Anhang) numerisch
+differenziert. Dies führt zu einer Genauigkeitsverbesserung um eine
+Nachkommastelle. Dann haben wir Werte vom Anfang und Ende entfernt, die
+aufgenommen wurden, bevor der Gleiter losgelassen wurde bzw. nachdem er am Ende
+aufgeprallt ist.
 
 Vom GP1-Skript wird nun vorgeschlagen unter Ausnutzung der Beziehung
 \begin{equation} v(t) - \frac{F}{\delta} = -\exp \del{- \frac{\delta}{m} t}
@@ -337,9 +354,9 @@ bis sich ein Gerade ergibt wird. Wir haben dies mit dem Computer gemacht, ohne
 automatisches Fitting zu benutzen. Für die Grenzgeschwindigkeit nutzen wir die
 erste Abschätzung, da sich diese als bester Fit erwiesen hat. Die
 Ausgleichsgeraden erhalten wie in den Messungen 1-6 aus den Abweichungen, da
-die Fehlerbalken ansonsten viel zu klein ausfallen würden.
+die Fehlerbalken ansonsten viel zu klein ausfallen würden (siehe Plot).
 
-Somit erhalten wir $b = \frac{\delta}{m} = 2{,}9 \pm 2{,}2$.
+Wir erhalten $b = \frac{\delta}{m} = 2{,}9 \pm 2{,}2$.
 
 Die gesamte beschleunigte Masse ist $m_1 + m_2 + m_3 + m_\text{GMF} +
 m_\text{Haken} = 163{,}60 \gram$. Der Fehler ist $\Delta m = \sqrt{4 \cdot
@@ -378,16 +395,26 @@ Analog zu obiger Rechnung erhalten wir daraus die Werte $\delta = bm = 0{,}4
 \pm 0{,}2$ bzw $\delta = \frac{F}{v_G} = 0{,}67\pm0{,}06$. Diese Werte sind
 untereinander und mit den Werten aus Messung 7 veträglich.
 
+\vspace{0.7cm}
+
+\begin{tabular}{l|l|l}
+  Msg. & $\delta$ aus Grenzgeschw. & $\delta$ aus Exp.-Term \\
+  \hline
+  7 & $0{,}58\pm0{,}06$ & $0{,}5\pm0{,}4$ \\
+  8 & $0{,}67\pm0{,}06$ & $0{,}4\pm0{,}2$
+\end{tabular}
+
+\vspace{0.7cm}
 
 \section*{Diskussion und Zusammenfassung}
 
-Die Werte für Beschleunigung und Geschwindigkeit wurden Software durch
-numerische Differentiation gewonnen. Dieses Verfahren hat den Nachteil eines
-relativ großen Rauschens, so dass die Werte für die Beschleunigung quasi
-unbrauchbar sind.
+Die Werte für Beschleunigung und Geschwindigkeit wurden durch numerische
+Differentiation gewonnen. Dieses Verfahren hat den Nachteil eines relativ
+großen Rauschens, so dass die Werte für die Beschleunigung quasi unbrauchbar
+sind.
 
 Trotz der vergleichsweise hohen Messgenauigkeit der Aparatur gehen uns so viele
-Informationen verloren. Hier wäre es Wünschenswert gewesen, die numerischen
+Informationen verloren. Hier wäre es wünschenswert gewesen, die numerischen
 Messwerte zu haben, was daran scheiterte, dass Druckerpapier vergleichsweise
 knapp ware. Da der Laborcomputer auch leider keinen Anschluss an das Internet
 hatte (oder dieser nicht freigeschaltet war), konnten wir auch keine Messdaten
@@ -401,17 +428,16 @@ unter. Gleiches gilt für das Trägheitsmoment der Umlenkrolle.
 
 In Aufgabe 3 wird die Reibung als geschwindigkeitsabhängig angeknommen. Da
 jedoch die Fahrbahn von magnetischen Streben gehalten wird, gilt dies nur
-näherungsweise. Bei einer geringen Zugmasse war eine Beschleunigung vor und ein
-Bremsen nach den jeweiligen Streben sichtbar, konnte jedoch im Plot nicht
-sichtbar gemacht werden.
+näherungsweise. In Messung 7 würde dies den relativ großen Ausreißer gegen Ende
+erklären. Da wir jedoch nicht wissen, wo genau sich der Gleiter im Verhältnis
+zur Strebe befand, ist unklar, ob an dieser Stelle dadurch gebremst oder
+an vorheriger Stelle beschleunigt wurde. Deswegen können wir weder den
+Mittelteil noch die Werte an Ende ausklammern. Messung 9 zeigt diesen Effekt
+erneut, jedoch wäre eine Auswertung jenseits der Aufgabenstellung.
 
-Abgesehen von den Störeffekten konnten wir jedoch die Gültigkeit der
+Abgesehen von den Störeffekten konnten wir insgesamt die Gültigkeit der
 hergeleiteten Bewegungsgleichung zeigen. Auch die Dämpfungskonstante konnten
-wir berechnen, obwohl der Sinn dahinter bei einem nicht wiederholbaren
-Versuchsaufbau (Ankleben unspezifizierter Magnete und Magnetbruchstücke mit
-Tesafilm an den Gleiter) fraglich ist.
-
-
+wir berechnen.
 
 \newpage
 \begin{landscape}
