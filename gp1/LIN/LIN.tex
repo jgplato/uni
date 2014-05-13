@@ -155,6 +155,11 @@ um aus der Steigung die Beschleunigung $a$ zu ermitteln. Aufgrund des starken
 Rauschens wurde die Grenzgerade durch dieses bestimmt, statt durch den von
 CASSY-Lab angegebenen Fehler $\Delta x = 1 \milli\meter$.
 
+Für die Beschleunigung $a(t)$ haben wir auch jeweils Ausgleichsgeraden und
+Grenzgeraden eingezeichnet. Die so erhaltenen Werte sind mit den aus $v(t)$
+erhaltenen Werten verträglich, jedoch wesentlich ungenauer, so dass wir diese
+vernachlässigen.
+
 Für die Auswertung nutzen wir die hergeleitete Formel. Dabei nehmen wir an,
 dass das System in etwa reibungsfrei ist, also $\delta = 0$.
 
@@ -228,9 +233,11 @@ Dabei sind folgende Massen relevant. Zusatzgewichte für den Gleiter: $m_{G1} =
 $91{,}4$. Für die Anhängemasse wird zusätzlich eine Büroklammer mit der Masse
 $0{,}3$ berücksichtig. Alle Fehler $\Delta m = 0{,}1$, alle Angaben in Gramm.
 
-% TODO: Nobody cares? - Wenn einkommentieren, dann Skript in den Anhang.
-%Die Werte wurden der Einfachheit halber mit dem im Anhang abgedruckten
-%Ruby-Script berechnet, welches die obigen Überlegungen implementiert.
+Die theoretischen Werte wurden der Einfachheit halber mit dem im Anhang
+abgedruckten Ruby-Script berechnet, welches die obigen Überlegungen
+implementiert.
+
+
 
 \vspace{0.7cm}
 
@@ -247,9 +254,7 @@ $0{,}3$ berücksichtig. Alle Fehler $\Delta m = 0{,}1$, alle Angaben in Gramm.
 
 \vspace{0.7cm}
 
-Für Messung 6 haben wir zusätzlich $x$ über $t^2$ aufgetragen. Aufgrund der
-Grobheit des vom Programm ausgegebenen Rasters ist zwar keine Steigung
-ablesbar, jedoch entspricht die Form näherungsweise einer Gerade.
+Für Messung 6 haben wir zusätzlich $x$ über $t^2$ aufgetragen.
 
 Es ist eine leichte Abweichung erkennbar, deren Ursachen vielfältig sein
 könnten. In Frage kommen:
@@ -261,13 +266,21 @@ könnten. In Frage kommen:
   \item Thermischer Verzug des Papiers beim Ausdrucken auf dem Laserdrucker.
 \end{itemize}
 
-Ohne die numerischen Messwerte können wir letzteres nicht ausschließen, können
-also keine Aussage machen. Die Abweichung ist allerdings so gering, dass der
-Zusammenhang $x \propto t^2$ in sehr guter Näherung gilt.
+Durch Anlegen eines Lineals an die Skalenlinien sieht man eine Abweichung in
+$x$-Richtung in der Größenordnung, in der auch der Graph gekrümmt ist, was für
+letztere Hypothese spricht. In $y$-Richtung ist dies nicht der Fall. Ob dies
+die Abweichung erklärt, ist trotzdem fraglich.
 
-Die aufgetragenen Werte für $a$ sind stark verrauscht, konnten jedoch aus $v$
-rekonstruiert werden. Ohne numerische Messdaten ist eine weitere Auswertung
-nicht möglich, die Werte können als konstant angesehen werden.
+Ohne die numerischen Messwerte können wir keine Aussage machen. Die Abweichung
+ist allerdings so gering, dass der Zusammenhang $x \propto t^2$ in sehr guter
+Näherung gilt.
+
+Aus der Steigung können wir die Beschleunigung ablesen (Verdopplung aufgrund
+von $\partial_x x^2 = 2x$). Den Fehler bestimmen wir durch einzeichnen von zwei
+weiteren Tangenten bei den maximalen Abweichungen am Anfang und am Ende. Es
+fällt auf, dass die maximale Abweichung am Anfang liegt, so dass wir $a =
+0{,}14 \pm 0{,}02 \meter\second^{-1}$ erhalten. Dies ist mit den theoretischen
+Werten und mit der aus $v$ ermittelten Steigung verträglich.
 
 Insgesamt haben wir das hergeleitete Bewegungsgesetz damit für den Fall $\delta
 = 0$ im Rahmen der Messgenauigkeit bestätigt.
@@ -298,7 +311,14 @@ von oben zu nähern.
 
 Für beide Messungen haben wir numerischen Messdaten (Position $x$ und
 Geschwindigkeit $v$) ausgedruckt. Die Werte für $v$ sind dabei nicht
-verwertbar, da sie vom Programm auf eine Nachkommastelle gerundet wurden.
+verwertbar, da sie vom Programm auf eine Nachkommastelle gerundet wurden. Bei
+der Annahme der Genauigkeit von einer Nachkommastelle erhalten wir daher $v_G =
+0{,}3 \pm 0{,}1 \meter \second{-1}$. Dies erscheinien uns zu ungenau.
+
+Durch die Annahme, dass die Geschwindigkeit nach erreichen der
+Grenzgeschwindigkeit ungefähr konstant ist kann man aus dem Plot der Messung 7
+durch grafische Auswertung die Grenzgeschwindigkeit als $v_G = 0{,}30 \pm
+0{,}03 \meter \second{-1}$ erhalten.
 
 Wir haben daher die Werte eingescannt, mittels OCR-Verfahren in Text konvertiert,
 triviale Erkennungsfehler durch Reguläre Ausdrücke automatisch korrigiert und
