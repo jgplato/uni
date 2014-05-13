@@ -333,28 +333,10 @@ Vom GP1-Skript wird nun vorgeschlagen unter Ausnutzung der Beziehung
 \end{equation} zuerst die Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ zu
 raten und dann $v(t) - v_G$ halblogarithmisch gegen den Exponentialterm
 aufzutragen. Dieses Verfahren soll iterativ zeichnerisch durchgeführt werden,
-bis sich ein Gerade ergibt wird. Diese Vorgehensweise ist zwar möglich, hat
-aber einige Nachteile
-\begin{itemize}
-  \item Ungenau, da $v_G$ nur geschätzt wird und dann unter Benutzung der
-    Steigung geprüft wird. Der Wert wird nur geraten.
-  \item Zu hoher Zeitaufwand
-\end{itemize}
-
-Stattdessen erschien es uns lohnenswerter, die Werte unter Benutzung der
-Methode der kleinsten Quadrate computergestützt gegen den Graphen $v(t) = a (1
-- e^{-bt})$ zu fitten. Wir benutzen dazu das Programm GNUplot (Script siehe
-Anhang).
-
-Die Ungenauigkeit der Ortsmessung wird von CASSY-Lab mit $\Delta x = 1
-\milli\meter$ angegeben. Ein erster Blick auf die Werte zeigt aber, dass sich
-durch die numerische Differentiation ein starkes Rauschen ergibt, so dass der
-Messfehler darin untergeht. Der Algorithmus gibt Fehlerwerte für die gefitteten
-Parameter an, so dass wir mit diesen Werten arbeiten. Der Plot befindet sich im
-Anhang.
-
-Wir erhalten $\frac{F}{\delta} = v_G = 0{,}3051\pm0{,}0026
-\;\meter\second^{-1}$ und $b = 2{,}941\pm0{,}079$.
+bis sich ein Gerade ergibt wird. Wir haben dies mit dem Computer gemacht, ohne
+automatisches Fitting zu benutzen. Für die Grenzgeschwindigkeit nutzen wir die
+erste Abschätzung, da sich diese als bester Fit erwiesen hat. Durch Einzeichnen
+der Ausgleichsgeraden erhalten wir $\frac{\delta}{m} = -2{,}94 \pm 2{,}20$.
 
 Die gesamte beschleunigte Masse ist $m_1 + m_2 + m_3 + m_\text{GMF} +
 m_\text{Haken} = 163{,}60 \gram$. Der Fehler ist $\Delta m = \sqrt{4 \cdot
