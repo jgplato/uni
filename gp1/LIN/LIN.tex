@@ -326,7 +326,7 @@ abschließende Korrekturen manuell vorgenommen. Die Daten haben wir anschließen
 mit einem Ruby-Script (siehe Anhang) numerisch differenziert. Dies führt zu
 einer Genauigkeitsverbesserung um eine Nachkommastelle. Dann haben wir Werte
 vom Anfang und Ende entfernt, die aufgenommen wurden, bevor der Gleiter
-losgelassen wurde bzw. nachdem er am Ende aufgeprallt ist.
+losgelassen wurde bzw. nachdem er am Ende aufgeprallt ist. 
 
 Vom GP1-Skript wird nun vorgeschlagen unter Ausnutzung der Beziehung
 \begin{equation} v(t) - \frac{F}{\delta} = -\exp \del{- \frac{\delta}{m} t}
@@ -335,8 +335,11 @@ raten und dann $v(t) - v_G$ halblogarithmisch gegen den Exponentialterm
 aufzutragen. Dieses Verfahren soll iterativ zeichnerisch durchgeführt werden,
 bis sich ein Gerade ergibt wird. Wir haben dies mit dem Computer gemacht, ohne
 automatisches Fitting zu benutzen. Für die Grenzgeschwindigkeit nutzen wir die
-erste Abschätzung, da sich diese als bester Fit erwiesen hat. Durch Einzeichnen
-der Ausgleichsgeraden erhalten wir $b = \frac{\delta}{m} = 2{,}9 \pm 2{,}2$.
+erste Abschätzung, da sich diese als bester Fit erwiesen hat. Die
+Ausgleichsgeraden erhalten wie in den Messungen 1-6 aus den Abweichungen, da
+die Fehlerbalken ansonsten viel zu klein ausfallen würden.
+
+Somit erhalten wir $b = \frac{\delta}{m} = 2{,}9 \pm 2{,}2$.
 
 Die gesamte beschleunigte Masse ist $m_1 + m_2 + m_3 + m_\text{GMF} +
 m_\text{Haken} = 163{,}60 \gram$. Der Fehler ist $\Delta m = \sqrt{4 \cdot
@@ -364,20 +367,17 @@ benutzen wir die vor dem Einsetzen der Anfangsbedingungen erhaltene Gleichung
 
 Wir fitten also gegen die Gleichung $v(t) = a + \exp\del{-bt-c}$. Dabei
 entspricht $a$ wieder der Grenzgeschwindigkeit $v_G = \frac{F}{\delta}$ und $b$
-ist erneut $\frac{\delta}{m}$. Da die Anfangszeit $t_0$ in diesem Fall in der
-Konstante $c$ verschwindet, sind keine Korrekturen nötig.
+ist erneut $\frac{\delta}{m}$. Die Anfangsbedingungen stecken in der Konstante
+$c$, die wir unberücksichtig lassen wollen und automatisch fitten.
 
-Analog zu obiger Rechnung ergeben sich die Werte $\delta_a = 0{,}69 \pm 0{,}02$
-(aus $a$) und $\delta_b = 0{,}41\pm0{,}02$ (aus $b$). Diese Werte sind nicht
-nur untereinander signifikant verschieden, sondern auch inkompatibel zu den in
-Messung 7 sehr genau ermittelten Werten. Es ist hier offensichtlich durch starkes
-Anstoßen des Gleiters zu einem Schlupf des Zugfadens auf dem Messrad gekommen,
-der die Werte völlig verfälscht.
+Aus den Tabellarischen Messdaten schätzen wir $a = v_G = 0{,}26 \pm 0{,}02$.
+Iterative Durchführung des Plots zeigt, dass sich damit am ehesten eine Gerade
+ergibt. Damit erhalten wir dann $b = \frac{\delta}{m} = 2{,}61 \pm 0{,}87$.
 
-In Messung 9 haben wir noch mit veränderter Konfigutation versucht, die
-vermutete Oszillation des Gleiters um die magnetischen Verbindungsstreben der
-Fahrbahn aufzunehmen, diese ist jedoch im Plot nicht ersichtlich, liegt also
-nicht innerhalb der Messgenauigkeit.
+Analog zu obiger Rechnung erhalten wir daraus die Werte $\delta = bm = 0{,}4
+\pm 0{,}2$ bzw $\delta = \frac{F}{v_G} = 0{,}67\pm0{,}06$. Diese Werte sind
+untereinander und mit den Werten aus Messung 7 veträglich.
+
 
 \section*{Diskussion und Zusammenfassung}
 
@@ -399,18 +399,19 @@ ist. Gerade bei geringen Anhängemassen macht der Faden bis zu einem Drittel der
 Zugmasse aus. Dieser Effekt hätte sichtbar sein können, ging jedoch im Rauschen
 unter. Gleiches gilt für das Trägheitsmoment der Umlenkrolle.
 
-In Aufgabe 3 wird die Reibungs als Geschwindigkeitsabhängig angeknommen. Da
+In Aufgabe 3 wird die Reibung als geschwindigkeitsabhängig angeknommen. Da
 jedoch die Fahrbahn von magnetischen Streben gehalten wird, gilt dies nur
-näherungsweise. Bei einer geringen Zugmasse war eine Beschleunigung vor und
-eine Bremsen nach den jeweiligen Streben sichtbar, konnte jedoch im Plot nicht
+näherungsweise. Bei einer geringen Zugmasse war eine Beschleunigung vor und ein
+Bremsen nach den jeweiligen Streben sichtbar, konnte jedoch im Plot nicht
 sichtbar gemacht werden.
 
 Abgesehen von den Störeffekten konnten wir jedoch die Gültigkeit der
-hergeleiteten Bewegungsgleichung zeigen. Auch die Dämpfungskonstante $\delta =
-0{,}573\pm0{,}005 \kilo\gram\second^{-1}$ konnten wir berechnen, obwohl wenn
-der Sinn dahinter bei einem nicht wiederholbaren Versuchsaufbau (Ankleben
-unspezifizierter Magnete und Magnetbruchstücke mit Tesafilm an den Gleiter)
-fraglich ist.
+hergeleiteten Bewegungsgleichung zeigen. Auch die Dämpfungskonstante konnten
+wir berechnen, obwohl der Sinn dahinter bei einem nicht wiederholbaren
+Versuchsaufbau (Ankleben unspezifizierter Magnete und Magnetbruchstücke mit
+Tesafilm an den Gleiter) fraglich ist.
+
+
 
 \newpage
 \begin{landscape}
@@ -438,14 +439,11 @@ Programm \texttt{numdiff.rb} zur numerischen Differenzierung der Messwerte und
 konvertierung zu GNUplot.
 \lstinputlisting[language=Ruby]{numdiff.rb}
 
-GNUplot script \texttt{plot/messung7.gnuplot} zum fitten der Daten in Messung 7
+GNUplot script \texttt{plot/messung7.gnuplot} für Messung 7
 (gebremster Gleiter mit $v_0 = 0$)
 \lstinputlisting{plot/messung7.gnuplot}
 
-GNUplot script \texttt{plot/messung8.gnuplot} zum fitten der Daten in Messung 8
+GNUplot script \texttt{plot/messung8.gnuplot} für Messung 8
 (gebremster Gleiter mit $v_0 > v_G$)
 \lstinputlisting{plot/messung8.gnuplot}
-
-
-
 \end{document}
