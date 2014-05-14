@@ -40,9 +40,9 @@
 \vspace{-40pt}
 Physikalisches Grundpraktikum 1, Sommersemester 2014
 
-Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>},
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
 
-Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>},
+Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>}
 
 Tutor: Ramona Kositzki
 \vspace{-10pt}
@@ -52,17 +52,18 @@ Tutor: Ramona Kositzki
 
 Auf einen Körper in einer Flüssigkeit wirken drei verschiedene Kräfte. Zuerst
 einmal die Gewichtskraft des Körpers. Wenn wir das Problem als eindimensional
-annehmen und die $x$-Achse nach oben zeigt, ist die Gewichtskraft
+annehmen und die $x$-Achse nach unten zeigt ($x = 0$ also zu Messbeginn), ist
+die Gewichtskraft
 \begin{equation}
-  F_G = -mg
+  F_G = mg
 \end{equation}
 
-Es wirkt außerdem eine Auftriebskraft, die der Masse der vom Körper verdrängten
+Dem entgegen wirkt eine Auftriebskraft, die der Masse der vom Körper verdrängten
 Flüssigkeit entspricht: $m_\text{verdrängt} = \rho V$. Im Fall einer Kugel mit
 Radius $r$ ist das Volumen $3V = 4 \pi r^3$, somit
 
 \begin{equation}
-  F_A = \frac{4}{3} \pi r^3 \rho
+  F_A = -\frac{4}{3} \pi r^3 \rho
 \end{equation}
 
 Bewegt sich die Kugel durch die Flüssigkeit, entsteht bei eine laminare (also
@@ -87,19 +88,39 @@ damit auch die Reibung. Die Reibungskraft, die der Bewegung entgegengesetzt
 ist, ergibt sich dann aus dem Stokesschen Gesetz.
 
 \begin{equation}
-  F_R = 6 \pi r \eta v
+  F_R = -6 \pi r \eta v
 \end{equation}
 
 Die Summe aller Kräfte verschwindet bei Ausbildung eines Gleichgewichts, also
 
 \begin{equation}
-  -mg + \frac{4}{3} \pi r^3 \rho + 6 \pi r \eta v = 0
+  mg - \frac{4}{3} \pi r^3 \rho - 6 \pi r \eta v = 0
 \end{equation}
 
 Umgestellt kann man daraus, sobald die Grenzgeschwindigkeit $v$ erreicht ist,
-die Viskosität $\eta$ berechnen.
+die Viskosität $\eta$ berechnen, wenn die übrigen Parameter bekannt sind.
 
 \begin{equation}
-  \eta = \frac{4 \pi \rho r^3 - 3 mg}{18 \pi r v}
+  \eta = \frac{3mg - 4 \pi \rho r^3}{18 \pi r v}
+\end{equation}
+
+Wichtig ist auch, dass die Viskosität $\eta$ temperaturabhängig ist, denn eine
+höhere Temperatur entspricht einer schnelleren Bewegung der Moleküle der
+Flüssigkeit. Man kann sich überlegen, dass die Abstände zwischen den Molekülen
+größer werden (das sieht man makroskopisch auf daran, dass die Flüssigkeit sich
+ausdehnt). Bei größeren Abständen zwischen den Molekülen sind die
+Wechselwirkungskräfte entsprechend geringer. Die Temperaturabhängigkeit der
+Viskosität ist dabei
+
+\begin{equation}
+  \eta(T) = A \exp \frac{B}{T}
+\end{equation}
+
+Um bei bekanntem $\eta$ den Radius $r$ zu ermitteln, muss man eine kubische
+Gleichung lösen. Einfacher ist es, im Fall kleiner Radien $r^3 \approx 0$ zu
+nähern. Man erhält dann
+
+\begin{equation}
+  r \approx \frac{mg}{6 \pi \eta v}
 \end{equation}
 \end{document}
