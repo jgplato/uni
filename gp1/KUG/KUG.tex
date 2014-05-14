@@ -1,0 +1,105 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 1, Sommersemester 2014
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>},
+
+Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>},
+
+Tutor: Ramona Kositzki
+\vspace{-10pt}
+\end{center}
+
+\section*{Physikalische Grundlagen}
+
+Auf einen Körper in einer Flüssigkeit wirken drei verschiedene Kräfte. Zuerst
+einmal die Gewichtskraft des Körpers. Wenn wir das Problem als eindimensional
+annehmen und die $x$-Achse nach oben zeigt, ist die Gewichtskraft
+\begin{equation}
+  F_G = -mg
+\end{equation}
+
+Es wirkt außerdem eine Auftriebskraft, die der Masse der vom Körper verdrängten
+Flüssigkeit entspricht: $m_\text{verdrängt} = \rho V$. Im Fall einer Kugel mit
+Radius $r$ ist das Volumen $3V = 4 \pi r^3$, somit
+
+\begin{equation}
+  F_A = \frac{4}{3} \pi r^3 \rho
+\end{equation}
+
+Bewegt sich die Kugel durch die Flüssigkeit, entsteht bei eine laminare (also
+wirbelfreie -- die Flüssigkeit bewegt sich in Schichten) oder turbulente (also
+nicht wirbelfreie) Ströumung. Welche Art der Strömung vorliegt, lässt sich
+durch die Reynolds-Zahl bestimmen
+
+\begin{equation}
+  \text{Re} = \frac{\rho v r}{\eta}
+\end{equation}
+
+Je kleiner die Reynolds-Zahl ist, desto schneller zerfallen auftretende
+Turbulenzen. Für kleine Werte kann also von einer ideal laminaren Strömung
+ausgegangen werden, sie tritt bei langsamen Bewegungen (kleines $v$) kleiner
+Körper (kleines $r$) in Flüssigkeiten die im Vergleich zu ihrer Dichte $\rho$
+eine hohe Viskosität $\eta$ aufweisen.
+
+In diesem Fall entsteht eine geschwindigkeitsabhängige Reibungskraft. Sie wird
+hauptsächlich durch Bindungskräfte der Moleküle der Flüssigkeit untereinander
+verursacht. Je höher diese Bindungskräfte, desto höher ist die Viskosität und
+damit auch die Reibung. Die Reibungskraft, die der Bewegung entgegengesetzt
+ist, ergibt sich dann aus dem Stokesschen Gesetz.
+
+\begin{equation}
+  F_R = 6 \pi r \eta v
+\end{equation}
+
+Die Summe aller Kräfte verschwindet bei Ausbildung eines Gleichgewichts, also
+
+\begin{equation}
+  -mg + \frac{4}{3} \pi r^3 \rho + 6 \pi r \eta v = 0
+\end{equation}
+
+Umgestellt kann man daraus, sobald die Grenzgeschwindigkeit $v$ erreicht ist,
+die Viskosität $\eta$ berechnen.
+
+\begin{equation}
+  \eta = \frac{4 \pi \rho r^3 - 3 mg}{18 \pi r v}
+\end{equation}
+\end{document}
