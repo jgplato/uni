@@ -93,14 +93,99 @@ man den Koordinatenursprung frei wählen. Den setzen wir also auf die untere
 Grundseite des Dreiecks, in die Mitte zwischen den beiden $q$. In diesem Punkt
 stehen sich zwei gleichnamige Ladungen in gleichem Abstand gegenüber, also
 verschwindet das Dipolmoment dieser Ladungen. Die Höhe des gleichseitigen
-Dreiecks ist $\frac{\sqrt{3}}{2}a$, dort auf der $y$-Achse sitzt die Ladung $q$.
+Dreiecks ist $\frac{\sqrt{3}}{2}a$, dort auf der $y$-Achse sitzt die Ladung
+$q$. Der Mittelpunkt eines gleichseitigen Dreiecks teilt die Höhe im Verhältnis
+$2:1$, liegt also bei $(0, \frac{\sqrt{3}}{6})$.
 In der Mitte, also auf der Hälfte der Strecke sitzt die Ladung $-3q$. Somit ist
 das Dipolmoment
 \begin{equation}
-  \vec{p} = q \frac{\sqrt{3}}{2} a \hat{e}_y - 3q \frac{\sqrt{3}}{4} a \hat{e}_y = -\frac{\sqrt{3}}{4} aq\hat{e}_y
+  \vec{p} = q \frac{\sqrt{3}}{2} a \hat{e}_y - 3q \frac{\sqrt{3}}{6} a \hat{e}_y = 0
 \end{equation}
 
-Das ist das erste nicht-verschwindende Multipolmoment.
+Wir berechnen also das Multipolmoment. Dafür haben wir jeweils die folgenden
+Ladungen und Ortsvektoren: % FIXME: Wenn Zeit ist: Skizze.
+
+\begin{align}
+  &q_1 = q, &&r_1 = a\begin{pmatrix} -\frac{1}{2} \\ 0 \\ 0 \end{pmatrix} \\
+  &q_2 = q, &&r_2 = a\begin{pmatrix} \frac{1}{2} \\ 0 \\ 0 \end{pmatrix} \\
+  &q_3 = q, &&r_3 = a\begin{pmatrix} 0 \\ \frac{\sqrt{3}}{2} \\ 0 \end{pmatrix} \\
+  &q_4 = -3q, &&r_4 = a\begin{pmatrix} 0 \\ \frac{\sqrt{3}}{6} \\ 0 \end{pmatrix} \\
+\end{align}
+
+Das Multipolmoment berechnet sich durch
+
+\begin{align}
+  Q_{kl} &= \sum_i q_i \del{3 r_{ik} r_{il} - (r_i)^2 \delta_{kl}} \\
+       &= \sum_i q_i 3 q_i \begin{pmatrix}
+        r_{i1}^2     & r_{i1} r_{i2}  & r_{i1} r_{i3} \\
+        r_{i2} r_{i1} & r_{i2}^2      & r_{i2} r_{i3} \\
+        r_{i2} r_{i1} & r_{i3} r_{i2} & r_{i3}^2 \\
+      \end{pmatrix} - \sum_i q_i \begin{pmatrix}
+        r_i^2 &       &       \\
+              & r_i^2 &       \\
+              &       & r_i^2
+      \end{pmatrix}
+\end{align}
+
+Die Quadrupolmomente für die einzelnen Ladungen sind somit
+
+\begin{equation}
+  Q_1 = Q_2 = 3q\begin{pmatrix}
+    \dfrac{a^2}{4} & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+  \end{pmatrix} - \begin{pmatrix}
+   \frac{a^2}{4} &       &       \\
+                 & \dfrac{a^2}{4} &       \\
+                 &       & \dfrac{a^2}{4}
+  \end{pmatrix}
+  =
+  qa^2\begin{pmatrix}
+   \dfrac{2}{4} &       &       \\
+                 & -\dfrac{1}{4} &       \\
+                 &       & -\dfrac{1}{4}
+  \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+  Q_3 = 3q\begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & \frac{3a^2}{4} & 0 \\
+    0 & 0 & 0
+  \end{pmatrix} - \begin{pmatrix}
+   \frac{3a^2}{4} &       &       \\
+                 & \dfrac{3a^2}{4} &       \\
+                 &       & \dfrac{3a^2}{4}
+  \end{pmatrix}
+  =
+  qa^2\begin{pmatrix}
+   \dfrac{6}{4} &       &       \\
+                 & -\dfrac{3}{4} &       \\
+                 &       & -\dfrac{3}{4}
+  \end{pmatrix}
+\end{equation}
+
+Für $Q_4$ ergibt sich aufgrund des gedrittelten Abstandes, aber der höheren Ladung
+\begin{equation}
+  Q_4 = -3 \cdot \frac{1}{9} Q_3 = -\frac{1}{3} Q_3 = 
+    qa^2\begin{pmatrix}
+    -\dfrac{2}{4} &       &       \\
+                    & \dfrac{1}{4} &       \\
+                    &       & \dfrac{1}{4}
+    \end{pmatrix}
+\end{equation}
+
+Das Gesamtquadrupolmoment ist die Summe der Quadrupolmomente, also
+\begin{equation}
+  Q = qa^2 \begin{pmatrix}
+    2 & & \\
+      & -1 & \\
+      &    & -1
+  \end{pmatrix}
+\end{equation}
+
+Das ist das kleinste nicht-verschwindende Multipolmoment.
+
 
 
 \end{document}
