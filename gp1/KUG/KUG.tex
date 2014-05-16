@@ -11,13 +11,13 @@
 \usepackage{lscape} % landscape
 \usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
 \usepackage{cancel}
-
 \usepackage[fleqn]{mathtools}
 % Number only referenced equations
 %\mathtoolsset{showonlyrefs}
 
 %\usepackage{wrapfig}
-\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\usepackage{siunitx}
+\sisetup{round-mode=places,round-precision=2,separate-uncertainty=true} % For the plot.
 
 % New command for color underlining
 \usepackage{xcolor}
@@ -141,4 +141,11 @@ nähern. Man erhält dann
     Zeit bzw. Wegstrecke, ab der die Kugeln mit praktisch konstanter
     Geschwindigkeit sinken.
 \end{enumerate}
+
+\newpage
+
+\begin{landscape}
+  % Generieren mit gnuplot ./plot/plot.gnuplot
+  \input{plot.tex}
+\end{landscape}
 \end{document}
