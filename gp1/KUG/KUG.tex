@@ -63,7 +63,7 @@ Flüssigkeit entspricht: $m_\text{verdrängt} = \rho V$. Im Fall einer Kugel mit
 Radius $r$ ist das Volumen $3V = 4 \pi r^3$, somit
 
 \begin{equation}
-  F_A = -\frac{4}{3} \pi r^3 \rho
+  F_A = -\frac{4}{3} \pi r^3 \rho g
 \end{equation}
 
 Bewegt sich die Kugel durch die Flüssigkeit, entsteht bei eine laminare (also
@@ -95,14 +95,15 @@ Die Summe aller Kräfte verschwindet bei Ausbildung eines Gleichgewichts ($v$
 konstant), also
 
 \begin{equation}
-  mg - \frac{4}{3} \pi r^3 \rho - 6 \pi r \eta v = 0
+  mg - \frac{4}{3} \pi r^3 \rho g - 6 \pi r \eta v = 0
 \end{equation}
 
 Umgestellt kann man daraus, sobald die Grenzgeschwindigkeit $v$ erreicht ist,
 die Viskosität $\eta$ berechnen, wenn die übrigen Parameter bekannt sind.
 
 \begin{equation}
-  \eta = \frac{3mg - 4 \pi \rho r^3}{18 \pi r v}
+  \eta = \frac{3mg - 4 \pi \rho r^3 g}{18 \pi r v}
+  \label{visco}
 \end{equation}
 
 Wichtig ist auch, dass die Viskosität $\eta$ temperaturabhängig ist, denn eine
@@ -202,6 +203,88 @@ Den exponentiellen Zusammenhang können wir im Rahmen der Messgenauigkeit
 bestätigen. Durch Projektion der Ausgleichs- und Grenzgeraden auf die Gerade $T
 = 20\,^{\circ} \mathrm{C}$ kann man die Fallzeiten für diese Temperatur
 ablesen.
+
+Wir setzen $s = vt$ und $3m = 4 \pi \rho_\text{K} r^3$ in Gleichung \ref{visco}
+ein und erhalten
+
+\begin{equation}
+  \eta = \frac{2 t r^2 g \del{\rho_\text{K} - \rho_\text{Ö}}}{9 s}
+  \label{visco2}
+\end{equation}
+
+dabei ist $t$ die Fallzeit, $r$ der Kugelradius, $g$ die Erdbeschleunigung,
+$\rho_\text{K}$ die Dichte der Stahlkugel, $\rho_\text{Ö}$ die Dichte des Öls
+und $s$ die Fallstrecke.
+
+Wir nutzen die folgenden Werte:
+\begin{align*}
+  &t = \SI{14.9+-1.6}{s}     && \qquad \text{(siehe grafische Auswertung)} \\
+  &r = \SI{1.000+-0.002}{mm} && \qquad \text{(Quelle: Platzskript)} \\
+  &g = \SI{9.812777+-0.000005}{m/s^2} && \qquad \text{(Quelle: Skript GP1, Seite 61)} \\
+  &\rho_\text{K} = \SI{7.81+-0.02e3}{kg/m^3} && \qquad \text{(Quelle: Platzskript)} \\
+  &\rho_\text{Ö} = \SI{0.975+-0.005e3}{kg/m^3} && \qquad \text{(Quelle: Platzskript)} \\
+  &s = \SI{20.6+-0.05}{cm} && \qquad \text{(gemessen)}
+\end{align*}
+
+Man sieht sofort, dass der relative Fehler von $t$ um mehrere Nachkommastellen
+größer ist, als die relativen Fehler der übrigen Werte. Daher sind die Fehler
+der anderen Werte vernachlässigbar. Wir erhalten
+
+\begin{equation}
+  \Delta \eta = \frac{\eta}{t} \Delta t
+\end{equation}
+
+Damit ergibt sich als Endergebnis eine Viskosität von
+
+\begin{equation*}
+  \eta = \SI{1.1+-0.2}{\pascal \second}
+\end{equation*}
+
+% FIXME: Passt. Scheiß Literaturwert finden und vergleichen.
+
+\section*{Aufgabe 3}
+
+Aus Gleichung \ref{visco2} sieht man, dass bei gleichbleibenden anderen
+Parametern $t \cdot r^2$ konstant bleibt. Daraus erhalten wir
+
+\begin{equation}
+  \frac{t_1}{t_2} = \frac{r_1^2}{r_2^2} \qquad \Rightarrow \qquad r_2 = \sqrt{\frac{t_1}{t_2}} r_1
+\end{equation}
+
+Für den Fehler gilt
+\begin{align*}
+  \Delta r_2 &= \sqrt{
+    \del{\frac{\partial r_2}{\partial t_1} \Delta t_1}^2 +
+    \del{\frac{\partial r_2}{\partial t_2} \Delta t_2}^2 +
+    \del{\frac{\partial r_2}{\partial r_1} \Delta r_1}^2
+  } \\
+  &= \sqrt{
+    \del{ \frac{r_1}{2 \sqrt{t_1 t_2}} \Delta t_1 }^2 +
+    \del{ -\frac{r_1}{2} \sqrt{ \frac{t_1}{t_2^3}} \Delta t_2 }^2 +
+    \del{ \sqrt{ \frac{t_1}{t_2}} \Delta r_1 }^2
+  } \\
+  &= \sqrt{
+    \frac{r_1^2}{4 t_1 t_2} \Delta t_1^2 + \frac{t_1 r_1^2}{4 t_2^3} \Delta t_2^2 + \frac{t_1}{t_2} \Delta r_1^2
+  }
+\end{align*}
+
+% FIXME: Beschriftungen oder Fehler im Plot vertauscht? Nö.
+Somit erhalten wir die Werte
+
+\vspace{0.5cm}
+\begin{tabular}{l|r|r|r}
+  Kugel & Fallzeit $t$ [s] & Berechneter Radius $r$ [mm] & Gemessener Radius $r'$ [mm] \\
+  \hline
+  A & $\num{52.9+-3.3}$ & $\num{0.52+-0.04}$ & $\num{0.495+-0.005}$ \\
+  B & $\num{22.6+-1.9}$ & $\num{0.81+-0.06}$ & $\num{0.780+-0.005}$ \\
+  C & $\num{10.0+-1.2}$ & $\num{1.2+-0.1}$ & $\num{1.235+-0.005}$ \\
+\end{tabular}
+\vspace{0.5cm}
+
+Die berechneten Werte stimmen innerhalb der Messgenauigkeit mit den
+gemessenen überein.
+
+
 
 
 
