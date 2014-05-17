@@ -284,6 +284,116 @@ Somit erhalten wir die Werte
 Die berechneten Werte stimmen innerhalb der Messgenauigkeit mit den
 gemessenen überein.
 
+\section*{Aufgabe 4}
+
+Die summe der Kräfte  $F_G + F_A + F_R$ ist
+
+\begin{equation}
+  mg - \frac{4}{3} \pi r^3 \rho g - 6 \pi r \eta v
+\end{equation}
+
+Hier wird die Stahlkugel der Masse $m$ nach unten beschleunigt, während das Öl,
+was sich an dieser Stelle befindet nach oben beschleunigt wird. Diese hat die
+Masse $\frac{4}{3} \pi r^3 \rho$. Es liegt nahe, dies zu einer reduzierten
+Masse $\mu = m - \frac{4}{3} \pi r^3 \rho$ zusammenzufassen. Die
+Bewegungsgleichung muss dementsprechend auch das Öl enthalten. Sie lautet also
+
+\begin{equation}
+  \mu g - 6 \pi r \eta \dot{x} = \mu \ddot{x}
+\end{equation}
+
+Wir definieren $k := 6 \pi r \eta$ und erhalten
+
+\begin{equation}
+  \mu g - k \dot{x} = \mu \ddot{x}
+\end{equation}
+
+Durch $v = \dot{x}$ können wir diese Differentialgleichung durch Trennung der
+Variablen lösen:
+
+\begin{align*}
+  &\mu g - k v = \mu \frac{\dif v}{\dif t} \\
+  \Leftrightarrow \quad &
+  \int \dif v \; \frac{1}{\mu g - kv} = \int \dif t \; \frac{1}{\mu} \\
+  \Leftrightarrow \quad &
+  -\frac{1}{k} \ln \del{\mu g - kv} = \frac{t}{\mu} + C_1 \\
+  \Leftrightarrow \quad &
+  \mu g - kv = C_2 \exp \del{- \frac{kt}{\mu} }, \quad C_2 > 0 \\
+  \Leftrightarrow \quad &
+  v(t) = -C \exp \del{- \frac{kt}{\mu} } + \frac{\mu g}{k}, \quad C > 0
+\end{align*}
+
+Aus der Anfangsbedingung $v(0) = 0$ sehen wir sofort $C = \dfrac{\mu g}{k}$.
+Entsprechend ist $v_\infty = \dfrac{\mu g}{k}$.
+
+\begin{equation}
+  v(t) = v_\infty \del{1 - \exp\del{-\frac{k t}{\mu}}}
+\end{equation}
+
+
+Bevor wir die reduzierte Masse $\mu$ wieder separieren und dann aus
+Erhaltungssätzen die Geschwindigkeiten der einzelnen Komponenten bestimmen,
+erscheint es sinnvoll, sich zunächst zu fragen, ob dies nicht vernachlässigt
+werden kann. Die Aufgabenstellung ist eine \textit{Abschätzung} der Zeit bzw.
+Wegstrecke, ab der die Kugeln mit \textit{praktisch} konstanter Geschwindigkeit
+sinken. Da die Fallzeitenauswertung nach grafischer Auswertung auf gerade
+einmal 2 signifikante Stellen genau ist, wäre eine Geschwindigkeitsabweichung
+von $1 \%$ unterhalb der Messbarkeitsgrenze. Da die Dichte der Kugeln etwa dem
+8-fachen des Öls entspricht, müsste dieser Wert auf $0{,}01 \cdot \dfrac{8}{9}$
+korrigiert werden, was auch nicht weiter ins Gewicht fällt. Für die
+\textit{praktische Abschätzung} können wir es also als ausreichend ansehen,
+reduzierte Masse $0{,}99 \cdot v_\infty$ erreicht hat.
+
+Dies ist der Fall, wenn
+
+\begin{align*}
+  &0{,}99 = \del{1 - \exp\del{-\frac{k t}{\mu}}} \\
+  \Leftrightarrow \quad &
+  0{,}01 = \exp\del{-\frac{k t}{\mu}} \\
+  \Leftrightarrow \quad &
+  \ln{0{,}01} = -\frac{k t}{\mu} \\
+  \Leftrightarrow \quad &
+  t = \frac{\mu \ln{100}}{k}\\
+\end{align*}
+
+Die zurückgelegte Wegstrecke ist
+
+\begin{align}
+  x(t) &= \int_0^t \dif t' v_{\infty} \del{1 - \exp\del{-\frac{k t}{\mu}}} \\
+  &= v_\infty t + \frac{\mu}{k} \exp\del{-\frac{k t}{\mu}} \\
+  &= \frac{\mu}{k} g t + \frac{\mu}{k} \exp\del{-\frac{k t}{\mu}} \\
+  &= \frac{\mu^2}{k^2} g \ln(100) + \frac{\mu}{k} \exp\del{-\ln(100)} \\
+  &= \frac{\mu^2g}{k^2} \ln(100) + 0{,}01 \frac{\mu}{k}
+\end{align}
+
+Aus den substituierten Werten $\mu = \frac{4}{3} \pi r^3 \del{\rho_\text{K} -
+\rho_\text{Ö}}$ und $k = 6 \pi r \eta$ erhalten wir
+
+\begin{equation}
+  \frac{\mu}{k} = \frac{2}{9} \frac{r^2}{\eta} \del{ \rho_\text{K} - \rho_\text{Ö} }
+\end{equation}
+
+Ausgehend von den gemessenen Radien können wir nun relativ einfach die Zeiten
+und Strecken bestimmen. Wir gehen von einer Viskosität von $\eta =
+\SI{1}{\pascal \second}$ aus, weil dies am ehesten denn Messbedingungen
+entsprach. Die Abschätzung erfolgt nur auf eine Stelle genau und ohne
+Fehlerrechnung, den interessant sind hier nur die Größenordnungen
+
+\vspace{0.5 cm}
+\begin{tabular}{l|r|r}
+  Kugel & Zeit [ms] & Weg [mm] \\
+  \hline
+  A & 2 & 0{,}01 \\
+  B & 4 & 0{,}05 \\
+  0 & 7 & 0{,}1 \\
+  C & 11 & 0{,}3
+\end{tabular}
+\vspace{0.5 cm}
+
+Man sieht, dass die Endgeschwindigkeit bereits nach sehr kurzer Zeit und sehr
+kurzen Strecken erreicht wird.
+
+
 
 
 
