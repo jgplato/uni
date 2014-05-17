@@ -7,8 +7,8 @@ set style line 1 lt 1
 set style line 2 lt 1
 set style line 3 lt 2
 
-#set terminal epslatex size 27cm,18cm
-#set output "plot.tex"
+set terminal epslatex size 27cm,18cm
+set output "plot.tex"
 
 set fit errorvariables
 
@@ -43,19 +43,25 @@ C_down(x) = c_1*exp((c_2-c_2_err_down)*x)
 
 set logscale y
 
-set label 1 "Fit gegen: $y = a e^{b x}$" at 0.00344,300
+set label 1 "Fitgleichung: $y = a e^{b x}$" at 0.00351,13
 
-#set label 2 sprintf("$R_A$: $a=\\num{%100.100f+-%100.100f}, b=\\num{%f+-%f}$", a_1, a_1_err, a_2, a_2_err) at 0.00348,84 rotate by 7 center
-#set label 3 sprintf("$R_0$: $a=\\num{%f+-%f}, b=\\num{%f+-%f}$", b_1, b_1_err, b_2, b_2_err) at 0.00348,37 rotate by 7 center
-#set label 4 sprintf("$R_B$: $a=\\num{%f+-%f}, b=\\num{%f+-%f}$", o_1, o_1_err, o_2, o_2_err) at 0.00348,24 rotate by 7 center
-#set label 5 sprintf("$R_C$: $a=\\num{%f+-%f}, b=\\num{%f+-%f}$", c_1, c_1_err, c_2, c_2_err) at 0.00348,15 rotate by 7 center
+set label 2 sprintf("$R_A$: $a=\\num{%1.2e}, b=\\num{%4.0f+-%2.0f}$", a_1, a_2, a_2_err_down) at 0.00348,88 rotate by 18 center
+set label 3 sprintf("$R_0$: $a=\\num{%1.2e}, b=\\num{%4.0f+-%2.0f}$", b_1, b_2, b_2_err_up)   at 0.00348,38 rotate by 18 center
+set label 4 sprintf("$R_B$: $a=\\num{%1.2e}, b=\\num{%4.0f+-%2.0f}$", o_1, o_2, o_2_err_up)   at 0.00348,24 rotate by 17 center
+set label 5 sprintf("$R_C$: $a=\\num{%1.2e}, b=\\num{%4.0f+-%2.0f}$", c_1, c_2, c_2_err_up)   at 0.00348,15 rotate by 16 center
+
 
 
 set xrange [0.0034:0.00354]
-set yrange [10:150]
+set yrange [8:150]
 target_temp = 273.15 + 20
 set arrow from (1/target_temp),graph(0,0) to (1/target_temp),graph(1,1) nohead
-set label 6 "$T = 20\\,^{\\circ}\\mathrm{C}$" at 1/target_temp+1.5e-6,150 rotate by 90 left
+set label 6 "$T = 20\\,^{\\circ}\\mathrm{C}$" at 1/target_temp+1.5e-6,100 rotate by 90 left
+
+set label  7 sprintf("$t_A = \\SI{%2.1f+-%1.1f}{s}$", A(1/target_temp), A(1/target_temp)-A_down(1/target_temp)) at 0.003413,46.0 rotate by 18 left
+set label  8 sprintf("$t_B = \\SI{%2.1f+-%1.1f}{s}$", B(1/target_temp), B_up(1/target_temp)-B(1/target_temp))   at 0.003413,20.0 rotate by 18 left
+set label  9 sprintf("$t_0 = \\SI{%2.1f+-%1.1f}{s}$", O(1/target_temp), O_up(1/target_temp)-O(1/target_temp))   at 0.003413,13.0 rotate by 17 left
+set label 10 sprintf("$t_C = \\SI{%2.1f+-%1.1f}{s}$", C(1/target_temp), C_up(1/target_temp)-C(1/target_temp))   at 0.003413,8.70 rotate by 16 left
 
 plot "./data/plot/A.dat" using 1:3:2:4 w xyerrorbars ls 1, A(x) ls 2, A_up(x) ls 3, A_down(x) ls 3, \
      "./data/plot/B.dat" using 1:3:2:4 w xyerrorbars ls 1, B(x) ls 2, B_up(x) ls 3, B_down(x) ls 3, \
