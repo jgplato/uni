@@ -115,6 +115,7 @@ Viskosität ist dabei
 
 \begin{equation}
   \eta(T) = A \exp \frac{B}{T}
+  \label{temp_dep}
 \end{equation}
 
 Um bei bekanntem $\eta$ den Radius $r$ zu ermitteln, muss man eine kubische
@@ -143,6 +144,69 @@ nähern. Man erhält dann
 \end{enumerate}
 
 \newpage
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 1, Sommersemester 2014
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>}
+
+Tutor: Ramona Kositzki
+
+Kugelfallviskosimeter am 16. Mai 2014
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1}
+Sofern nicht anders angegeben wird Gaußsche Fehlerrechnung verwendet.
+
+
+Die Fallzeiten der Kugeln wurden über eine feste Fallstrecke von $s =
+\SI{0.2060+-0.0005}{m}$ bei verschiedenen Temperaturen gemessen.
+
+Es wurde jeweils die Anfangs- und die Endtemperatur gemessen und davon der
+Mittelwert als konstante Temperatur angenommen. Aufgrund der Ablesegenauigkeit
+des Thermometers von $\Delta T_{1,2} = \SI{0.2}{K}$ ergibt sich bei Mittelwertbildung
+$T = \frac{T_2 - T_1}{2}$ der Fehler 
+\begin{equation}
+  \Delta T = \frac{\sqrt{2}}{2} \Delta T_{1,2} \approx \SI{0.14}{K}
+\end{equation}
+
+Die Zeit wurde mit einer mechanischen Stoppuhr mit einer Ablesengenauigkeit von
+$ \SI{0.1}{s}$ gemessen. Der Ablesefehler tritt nur einmal pro Messung auf.
+Zusätzliche berücksichtigen wir eine Reaktionszeit von $\SI{0.3}{s}$, die
+jeweils am Anfang und am Ende der Messung auftritt. Der Gesamtfehler ist somit
+
+\begin{equation}
+  \Delta t = \sqrt{\del{\SI{0.1}{s}}^2 + 2 \cdot \del{\SI{0.3}{s}}^2} \approx \SI{0.44}{s}
+\end{equation}
+
+Die entsprechenden Messwerte finden sich in der Messwerttabelle.
+
+% FIXME: Plot mit diesen Fehlerwerten korrigieren!
+
+\section*{Aufgabe 2}
+
+
+Aufgrund des exponentiellen Zusammenhangs (Gleichung \ref{temp_dep}) tragen wir
+$t$ halblogarithmisch gegen $\frac{1}{T}$ auf. Der Fehler von $\frac{1}{T}$ ist
+
+\begin{equation}
+  \Delta \frac{1}{T} = \frac{\Delta T}{T^2}
+\end{equation}
+
+Den exponentiellen Zusammenhang können wir im Rahmen der Messgenauigkeit
+bestätigen. Durch Projektion der Ausgleichs- und Grenzgeraden auf die Gerade $T
+= 20\,^{\circ} \mathrm{C}$ kann man die Fallzeiten für diese Temperatur
+ablesen.
+
+
+
+
+
 
 \begin{landscape}
   % Generieren mit gnuplot ./plot/plot.gnuplot
