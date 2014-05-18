@@ -186,6 +186,82 @@ Das Gesamtquadrupolmoment ist die Summe der Quadrupolmomente, also
 
 Das ist das kleinste nicht-verschwindende Multipolmoment.
 
+\section*{Aufgabe 3: Zwei elektrische Dipole}
+\begin{enumerate}[a)]
+  \item
+    Das elektrische Feld des Punktdipols $\vec{p_1}$ ist
+    \begin{equation}
+      \vec{E}_1(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \del{
+        3 \frac{\vec{p}_1 \cdot \vec{r}}{r^5} \vec{r} - \frac{1}{r^3} \vec{p}_1
+      }
+    \end{equation}
+
+    Dann wirkt auf $\vec{p}_2$ das Drehmoment
+    \begin{equation}
+      \vec{M}_2 = \vec{p}_2 \times \vec{E}_1
+    \end{equation}
+
+    Der Zeichnung entnehmen wir
+    \begin{equation}
+      \vec{p}_1 = p_1 \begin{pmatrix}
+        \cos \theta_1 \\
+        0 \\
+        \sin \theta_1
+      \end{pmatrix}, \quad
+      \vec{p}_2 = p_2 \begin{pmatrix}
+        \cos \theta_2 \\
+        0 \\
+        \sin \theta_2
+      \end{pmatrix}, \quad
+      \vec{r} = \begin{pmatrix}
+        d \\
+        0 \\
+        0
+      \end{pmatrix}
+    \end{equation}
+
+    Eingesetzt in das Drehmoment erhalten wir
+    \begin{align}
+      \vec{M}_2 &= p_2 \begin{pmatrix}
+        \cos \theta_2 \\
+        0 \\
+        \sin \theta_2
+      \end{pmatrix}
+      \times
+      \del{
+        \frac{1}{4 \pi \epsilon_0}
+        \frac{3 \vec{p}_1 \cos \theta_1 d}{d^5} \begin{pmatrix} d \\ 0 \\ 0 \end{pmatrix} -
+        \frac{p_1}{d^3} \begin{pmatrix} \cos \theta_1 \\ 0 \\ \sin \theta_1 \end{pmatrix}
+      } \\
+      &= \frac{3 p_1 p_2 \cos \theta_1}{4 \pi \epsilon_0 d^4}
+        \begin{pmatrix} \cos \theta_2 \\ 0 \\ \sin \theta_2 \end{pmatrix} \times
+        \begin{pmatrix} d \\ 0 \\ 0 \end{pmatrix}
+        -
+        \frac{p_1 p_2}{4 \pi \epsilon_0 d^3}
+        \begin{pmatrix} \cos \theta_2 \\ 0 \\ \sin \theta_2 \end{pmatrix} \times
+        \begin{pmatrix} \cos \theta_1 \\ 0 \\ \sin \theta_1 \end{pmatrix} \\
+      &= \frac{3 p_1 p_2 \cos \theta_1}{4 \pi \epsilon_0 d^4}
+         \begin{pmatrix} 0 \\ d \sin \theta_2 \\ 0 \end{pmatrix}
+         - \frac{p_1 p_2}{4 \pi \epsilon_0 d^3}
+           \begin{pmatrix}
+             0 \\
+             \sin \theta_2 \cos \theta_1 - \cos \theta_2 \sin \theta_1 \\
+             0
+           \end{pmatrix} \\
+      \Rightarrow M_{2y} &= \frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
+        2 \cos \theta_1 \sin \theta_2 + \cos \theta_2 \sin \theta_1
+      }, M_{2x} = M_{2z} = 0
+    \end{align}
+
+    Für den umgekehrten Fall wird $d \to -d$ und die jeweiligen Indices
+    vertauschen sich, also ist
+    \begin{equation}
+      M_{1y} = -\frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
+        2 \cos \theta_2 \sin \theta_1 + \cos \theta_1 \sin \theta_2
+      }, M_{1x} = M_{1z} = 0
+    \end{equation}
+\end{enumerate}
+
 
 
 \end{document}
