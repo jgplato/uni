@@ -17,7 +17,7 @@
 
 %\usepackage{wrapfig}
 \usepackage{siunitx}
-\sisetup{separate-uncertainty=true}
+\sisetup{separate-uncertainty=true,locale=DE}
 
 % New command for color underlining
 \usepackage{xcolor}
@@ -134,7 +134,7 @@ nähern. Man erhält dann
     unbekanntem Radius in Abhängigkeit von der Temperatur.
   \item Untersuchung der funktionalen Abhängigkeit der Viskosität des
     Rizinusöls von der Temperatur. Bestimmung der Viskosität des Öles bei $20
-    \deg C$ und Vergleich mit dem Literaturwert.
+    \,^{\circ}\mathrm{C}$ und Vergleich mit dem Literaturwert.
   \item
     Bestimmung der Radien der unbekannten Stahlkugeln aus den Messungen und
     Vergleich mit einer direkten Messung mit einer Mikrometerschraube.
@@ -171,7 +171,7 @@ Die Fallzeiten der Kugeln wurden über eine feste Fallstrecke von $s =
 Es wurde jeweils die Anfangs- und die Endtemperatur gemessen und davon der
 Mittelwert als konstante Temperatur angenommen. Aufgrund der Ablesegenauigkeit
 des Thermometers von $\Delta T_{1,2} = \SI{0.2}{K}$ ergibt sich bei Mittelwertbildung
-$T = \frac{T_2 - T_1}{2}$ der Fehler 
+$T = \frac{T_2 - T_1}{2}$ der Fehler
 \begin{equation}
   \Delta T = \frac{\sqrt{2}}{2} \Delta T_{1,2} \approx \SI{0.14}{K}
 \end{equation}
@@ -240,7 +240,24 @@ Damit ergibt sich als Endergebnis eine Viskosität von
   \eta = \SI{1.1+-0.2}{\pascal \second}
 \end{equation*}
 
-% FIXME: Passt. Scheiß Literaturwert finden und vergleichen.
+In Marcelo Alonso, Edward J. Finn: Physik auf Seite 117 wird die Viskosität von
+Rizinusöl bei $20\,^{\circ}\mathrm{C}$ mit $\SI{9.86e-3}{\pascal \second}$
+angegeben, leider auch ohne Fehlerintervall. Die Abweichung zum Literaturwert
+erklären wir mit einem Fehler in der Quelle. Wikipedia hingegen wird leider
+nicht als zitierfähig angesehen (ironischerweise wegen der angeblichen
+Unzuverlässigkeit), übernimmt jedoch im englischen Artikel \textit{Viscosity}
+aus dem CRC Handbook of Chemistry and Physics, 86. Edition (die uns natürlich
+nicht vorliegt) einen Wert, der um den Faktor $10^2$ höher ist.
+
+Wir vermuten daher, der wahre Wert der Viskosität ist (unter Annahme der
+Fehlergrenzen von einer Nachkommastelle bei ``ansonsten zuverlässigen
+Quellen'' -- siehe GP1-Skript):
+
+\begin{equation}
+  \eta = \SI{0.986+-0.001}{\pascal \second}
+\end{equation}
+
+Unsere Messungen stimmen also mit dem Literaturwert überein.
 
 \section*{Aufgabe 3}
 
@@ -286,14 +303,14 @@ gemessenen überein.
 
 \section*{Aufgabe 4}
 
-Die summe der Kräfte  $F_G + F_A + F_R$ ist
+Die Summe der Kräfte  $F_G + F_A + F_R$ ist
 
 \begin{equation}
   mg - \frac{4}{3} \pi r^3 \rho g - 6 \pi r \eta v
 \end{equation}
 
 Hier wird die Stahlkugel der Masse $m$ nach unten beschleunigt, während das Öl,
-was sich an dieser Stelle befindet nach oben beschleunigt wird. Diese hat die
+was sich an dieser Stelle befindet, nach oben beschleunigt wird. Diese hat die
 Masse $\frac{4}{3} \pi r^3 \rho$. Es liegt nahe, dies zu einer reduzierten
 Masse $\mu = m - \frac{4}{3} \pi r^3 \rho$ zusammenzufassen. Die
 Bewegungsgleichung muss dementsprechend auch das Öl enthalten. Sie lautet also
@@ -342,7 +359,7 @@ von $1 \%$ unterhalb der Messbarkeitsgrenze. Da die Dichte der Kugeln etwa dem
 8-fachen des Öls entspricht, müsste dieser Wert auf $0{,}01 \cdot \dfrac{8}{9}$
 korrigiert werden, was auch nicht weiter ins Gewicht fällt. Für die
 \textit{praktische Abschätzung} können wir es also als ausreichend ansehen,
-reduzierte Masse $0{,}99 \cdot v_\infty$ erreicht hat.
+wenn die reduzierte Masse $0{,}99 \cdot v_\infty$ erreicht hat.
 
 Dies ist der Fall, wenn
 
