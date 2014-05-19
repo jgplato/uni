@@ -248,37 +248,49 @@ Das ist das kleinste nicht-verschwindende Multipolmoment.
              \sin \theta_2 \cos \theta_1 - \cos \theta_2 \sin \theta_1 \\
              0
            \end{pmatrix} \\
-      \Rightarrow M_{2y} &= \frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
+      \Rightarrow \vec{M}_{2} &= \frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
         2 \cos \theta_1 \sin \theta_2 + \cos \theta_2 \sin \theta_1
-      }, M_{2x} = M_{2z} = 0
+      } \hat{e}_y
     \end{align}
 
     Für den umgekehrten Fall wird $d \to -d$ und die jeweiligen Indices
     vertauschen sich, also ist
     \begin{equation}
-      M_{1y} = -\frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
+      \vec{M}_{1} = -\frac{p_1p_2}{4 \pi \epsilon_0 d^3} \del{
         2 \cos \theta_2 \sin \theta_1 + \cos \theta_1 \sin \theta_2
-      }, M_{1x} = M_{1z} = 0
+      } \hat{e}_y
     \end{equation}
   \item
-    % FIXME: Bullshit. Die einzelnen Drehmomente müssen verschwinden (und damit
-    % AUCH die Summe).
+    In der Gleichgewichtslage verschwinden die einzelnen Drehmomente. Abgesehen
+    vom trivialen Fall $p_1 = p_2 = 0$ muss also
 
-    In der Gleichgewichtslage verschwinden die einzelnen Drehmomente und somit
-    auch deren Summe. Das nutzen wir, um zuerst die Optionen zu reduzieren.
     \begin{align}
-      0 &= \vec{M}_1 + \vec{M}_2 \\
-      0 &= \frac{p_1 p_2}{4 \pi \epsilon_0 d^3} \del{
-          2 \cos \theta_1 \sin \theta_2 + \cos \theta_2 \sin \theta_1 -
-          2 \cos \theta_2 \sin \theta_1 - \cos \theta_1 \sin \theta_2
-        } \\
-      0 &= \cos \theta_1 \sin \theta_2 - \cos \theta_2 \sin \theta_1 \\
-      0 &= \sin(\theta_1 - \theta_2)
+      2 \cos \theta_1 \sin \theta_2 + \cos \theta_2 \sin \theta_1 &= 0 \\
+      2 \cos \theta_2 \sin \theta_1 + \cos \theta_1 \sin \theta_2 &= 0
     \end{align}
 
-    Abgesehen von der Möglichkeit $p_1 = p_2 = 0$, muss also entweder $\theta_1
-    = \theta_2$ oder $\theta_1 = \theta_2 \pm \pi$.
+    Mit $a := \cos \theta_1 \sin \theta_2$ und $b := \cos \theta_2 \sin \theta_1$:
 
+    \begin{align}
+      2 a + b &= 0 \\
+      2 b + a &= 0 \\
+    \end{align}
+
+    Dieses Lineare Gleichungssystem hat die Lösungen $a = 0$ und $b = 0$.
+
+    Es ist also insbesondere $a + b = 0$ und $a - b = 0$, was auf
+    $\sin(\theta_1 + \theta_2) = 0$ und $-\sin(\theta_1 - \theta_2) = 0$ führt.
+
+    Somit ergeben sich die Lösungen $\theta_1 = \pi n_1, \theta_2 = \pi n_2$
+    und $\theta_1 = \pi n_1 - \frac{\pi}{2}$ und $\theta_2 = \pi n_2 -
+    \frac{\pi}{2}$, jeweils mit $n_1, n_2$ ganzzahlig.
+
+    Bei Einschränkung auf $\theta_{1,2} \in [0, 2\pi)$ ergeben sich insgesamt 8
+    Gleichgewichtslagen: Die Orientierung entlang der $x$-Achse, jeweils in 4
+    verschiedenen Möglichkeiten: $(\theta_1, \theta_2) = (0, 0), (0, \pi),
+    (\pi, 0), (\pi, \pi)$) und die Orientierung entlang der $z$-Achse,
+    jeweils in 4 verschiedenen Möglichkeiten: $(\theta_1, \theta_2) = (\pi/2,
+    \pi/2), (3 \pi/2, \pi/2), (\pi/2, 3 \pi/2), (3 \pi/2, 3\pi/2)$
 
   \item
     Die Wechselwikungsenergie von $p_1$ auf $p_2$ ist
@@ -304,14 +316,23 @@ Das ist das kleinste nicht-verschwindende Multipolmoment.
     Für die Möglichkeit $p_1 = p_2$ ergibt sich eine indifferente
     Gleichgewichtslage (denn $W = 0$ konstant).
 
-    % FIXME: Erst das oben fixen.
     Für $\theta_1 = \theta_2$ ist $W \propto 1 - 3 \cos^2(\theta)$, die
     Funktion hat ihr Minimum bei $\theta = 0$ und $\theta = \pi$. Es gibt also
-    zwei Gleichgewichtslagen, wenn die beiden Dipole jeweils entlang der
-    $x$-Achse in die gleiche Richtung zeigen. Die Maxima sind bei $\theta =
+    zwei stabile Gleichgewichtslagen, wenn die beiden Dipole jeweils entlang
+    der $x$-Achse in die gleiche Richtung zeigen. Die Maxima sind bei $\theta =
     \dfrac{\pi}{2}$ und $\theta = \dfrac{3 \pi}{2}$. Wenn die Dipole also
-    jeweils entlang der $z$-Achse orientiert sind, ist kein Gleichgewicht
-    vorhanden.
+    jeweils entlang der $z$-Achse in gleiche Richungen orientiert sind, handelt
+    es sich um eine labile Gleichgewichtslage.
+
+    Die andere Lösungsklasse ist $\theta_1 = \theta_2 + \pi$. Dabei wird $W
+    \propto 3 \cos^2(\theta) - 1$. Die Minima und Maxima vertauschen sich also
+    im Vergleich zu vorherigem Absatz.
+    Also ist die Gleichgewichtslage stabil, wenn die Dipole in
+    entgegengesetzter Richtung auf der $z$-Achse orientiert sind und die
+    Gleichgewichtslage labil, wenn die Dipole entlang der $x$-Achse orientiert sind
+    und aufeinander bzw. voneinander Weg zeigen.
+
+    Damit sind alle 8 Lösungen abgehandelt.
 
 
 
