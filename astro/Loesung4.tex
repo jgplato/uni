@@ -1,0 +1,108 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage{gnuplottex}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Stupid units for astronomy
+\DeclareSIUnit\day{d}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\au{AU}
+% Astronomy-Style angles (hours, minutes, seconds)
+\newcommand*{\ra}[2][]{{
+  \def\SIUnitSymbolDegree{\textsuperscript{h}}%
+  \def\SIUnitSymbolArcminute{\textsuperscript{m}}%
+  \def\SIUnitSymbolArcsecond{\textsuperscript{s}}%
+  \ang[#1]{#2}}%
+}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Aufgabenblatt 4
+
+Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 3: Stefan-Boltzmann-Gesetz}
+
+Die Plancksche Strahlungsformel gibt die Strahldichte für jede Frequenz an. Das
+heißt, wir müssen über alle Frequenzen und dann über die Strahldichte integrieren.
+
+\begin{align}
+  \omega = \int_0^\infty \frac{8 \pi h \nu^3}{c^3} \frac{1}{\exp\del{\frac{h \nu}{k T}}} \dif \nu
+\end{align}
+
+Substitution $u = \frac{h \nu}{k T}$ liefert:
+
+\begin{align}
+  &= \int_0^\infty \frac{8 \pi h}{c^3} \del{ \frac{kT}{h} u}^3 \frac{1}{e^u - 1} \frac{kT}{h} \dif u \\
+  &= \frac{8 \pi}{c^3} \frac{k^4 T^4}{h^3} \underbrace{\int_0^\infty \frac{u^3}{e^u - 1} \dif u}_{\mathclap{\Gamma(4) \zeta(4) = \frac{\pi^4}{15}}} \\
+  &= \frac{8 \pi^5 k^4}{15 c^3 h^3} T^4
+\end{align}
+
+Für die Strahlungsdichte der vom Oberflächenelement $\dif A$ in das
+Raumwinkelelement $\dif \Omega$ unter dem Winkel $\theta$ senkrecht zur Fläche
+gilt $S = \frac{c}{4 \pi} \omega \cos \theta$. Die Strahlung wird nur in eine
+Richtung der Kugel abgegeben (auf der anderen Seite ist der Strahler), also
+$\dif \Omega = 2 \pi$.
+
+Insgesamt gilt für die abgegebene Leistung pro Fläche also
+\begin{align}
+  P &= \int S \dif \Omega \\
+    &= \omega \frac{c}{4 \pi} \int\limits_0^{\frac{\pi}{2}} \dif \theta \int\limits_0^{2 \pi} \dif \phi \cos \theta \sin \theta \\
+    &= \omega \frac{c}{4} \\
+    &= \frac{2 \pi^5 k^4}{15c^2h^3} T^4
+\end{align}
+
+Daraus folgt für die auf eine Fläche $A$ abgegebene Leistung
+
+\begin{equation}
+  P = \sigma A T^4
+\end{equation}
+
+Mit
+\begin{equation}
+  \sigma = \frac{2 \pi^5 k^4}{15 c^2 h^3} \approx \SI{5.67e-8}{W/(m^2 K^4)}
+\end{equation}
+
+
+\end{document}
