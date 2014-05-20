@@ -104,5 +104,32 @@ Mit
   \sigma = \frac{2 \pi^5 k^4}{15 c^2 h^3} \approx \SI{5.67e-8}{W/(m^2 K^4)}
 \end{equation}
 
+\section*{Aufgabe 4: 2-Körper-Problem im Schwerpunktsystem}
+
+\begin{align*}
+  \vec{L}_1 + \vec{L}_2
+  &= \vec{r}_1 \times \vec{p}_1 + \vec{r}_2 \times \vec{p}_2 \\
+  &= m_1 \vec{r}_1 \times \dot{\vec{r}}_1 +
+   m_2 \vec{r}_2 \times \dot{\vec{r}}_2
+\end{align*}
+
+Sei $\vec{r}$ der Verbindungsvektor zwischen den beiden Massen. Da der Ursprung
+im Schwerpunkt liegt, ist $\vec{r}_1 = \dfrac{m_2}{m_1 + m_2} \vec{r} =
+\dfrac{\mu}{m_1} \vec{r}$ und analog $\vec{r}_2 = -\dfrac{\mu}{m_2} \vec{r}$,
+wobei $\mu$ die reduzierte Masse $\dfrac{m_1 m_2}{M}$ ist.
+
+\begin{align*}
+  &= \frac{\mu^2}{m_1} \vec{r} \times \dot{\vec{r}} + \frac{\mu^2}{m_2} \vec{r} \times \dot{\vec{r}}
+\end{align*}
+
+Wobei
+\begin{align*}
+  \frac{\mu^2}{m_1} + \frac{\mu^2}{m_2} = \mu^2 \del{\frac{1}{m_1} + \frac{1}{m_2}} = \mu^2 \frac{1}{\mu} = \mu
+\end{align*}
+
+Somit
+\begin{equation}
+  \vec{L}_1 + \vec{L}_2 = \mu \vec{r} \times \dot{\vec{r}} = \vec{L}_s
+\end{equation}
 
 \end{document}
