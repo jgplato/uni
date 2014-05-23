@@ -1,0 +1,115 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage{gnuplottex}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Stupid units for astronomy
+\DeclareSIUnit\day{d}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\au{AU}
+% Astronomy-Style angles (hours, minutes, seconds)
+\newcommand*{\ra}[2][]{{
+  \def\SIUnitSymbolDegree{\textsuperscript{h}}%
+  \def\SIUnitSymbolArcminute{\textsuperscript{m}}%
+  \def\SIUnitSymbolArcsecond{\textsuperscript{s}}%
+  \ang[#1]{#2}}%
+}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Aufgabenblatt 5
+
+Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Energiehaushalt eines Hot Jupiter}
+\begin{enumerate}[a)]
+  \item
+    Aus der Grafik kann man 9 Perioden im Zeitraum von 80 Tagen ablesen. Daraus
+    ergibt sich die Periode $T = \dfrac{80}{9}\,\mathrm{d} = 8{,}\overline{8}\,\mathrm{d}$.
+
+    Aus dem 3. Keplerschen Gesetz erhalten wir
+    % WA: ((gravitational constant) * (1.05*(mass of sun) + 2.96*(mass of
+    % jupiter))*(80/9 days)^2/(4 pi^2))^(1/3) in astronomical units
+    \begin{equation}
+      a = \sqrt[3]{
+        \frac{G(M+m)T^2}{4 \pi^2}
+      } \approx \SI{0.0854}{AU}
+    \end{equation}
+  \item
+    Die Strahlungsgleichgewichtstemperatur erhalten wir aus
+    \begin{equation}
+      T_\text{Pl} = \sqrt[4]{
+        (1-A) \frac{F_\text{abs}}{F_\text{em}} \frac{R_\star^2}{a^2} T_\star^4
+      }
+    \end{equation}
+
+    Dabei ist $F_\text{abs} = 2 \pi R_\text{Pl}^2$ die absorbierende Fläche (also
+    die Größe des Schattens des Planeten). Aus der gegebenen Masse und der
+    Dichte erhalten wir den Radius, wenn wir den Planeten als kugelförmig
+    annehmen
+    \begin{equation}
+     V = \frac{M_\text{Pl}}{\rho_\text{Pl}} = \frac{4}{3} \pi R_\text{Pl}^3
+     \Leftrightarrow R_\text{Pl} = \sqrt[3]{\frac{3M}{4\pi \rho}}
+    \end{equation}
+
+    \begin{enumerate}[(i)]
+      \item
+        Im Fall eines schnell rotierenden Planetens, ist die emmitierende
+        Fläche die gesamte Oberfläche $F_\text{em} = 4 \pi R_\text{Pl}^2$. Die
+        Temperatur ist dann
+        \begin{equation}
+          T_\text{Pl} = \sqrt[4]{
+            \frac{1-A}{2 R_\text{Pl}} \frac{R_\star^2}{a^2} T_\star^4
+          } = \sqrt[4]{
+            \frac{1-A}{
+              2 \sqrt[3]{\frac{3M}{4 \pi \rho}}
+            } \frac{R_\star^2}{a^2} T_\star^4
+          }
+        \end{equation}
+
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
