@@ -84,31 +84,58 @@ Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
       }
     \end{equation}
 
-    Dabei ist $F_\text{abs} = 2 \pi R_\text{Pl}^2$ die absorbierende Fläche (also
-    die Größe des Schattens des Planeten). Aus der gegebenen Masse und der
-    Dichte erhalten wir den Radius, wenn wir den Planeten als kugelförmig
-    annehmen
-    \begin{equation}
-     V = \frac{M_\text{Pl}}{\rho_\text{Pl}} = \frac{4}{3} \pi R_\text{Pl}^3
-     \Leftrightarrow R_\text{Pl} = \sqrt[3]{\frac{3M}{4\pi \rho}}
-    \end{equation}
+    Dabei ist $F_\text{abs} = \pi R_\text{Pl}^2$ die absorbierende Fläche (also
+    die Größe des Schattens des Planeten).
+
+    %Aus der gegebenen Masse und der
+    %Dichte erhalten wir den Radius, wenn wir den Planeten als kugelförmig
+    %annehmen
+    %\begin{equation}
+    % V = \frac{M_\text{Pl}}{\rho_\text{Pl}} = \frac{4}{3} \pi R_\text{Pl}^3
+    % \Leftrightarrow R_\text{Pl} = \sqrt[3]{\frac{3M}{4\pi \rho}}
+    %\end{equation}
 
     \begin{enumerate}[(i)]
       \item
-        Im Fall eines schnell rotierenden Planetens, ist die emmitierende
+        Im Fall eines schnell rotierenden Planetens ist die emmitierende
         Fläche die gesamte Oberfläche $F_\text{em} = 4 \pi R_\text{Pl}^2$. Die
         Temperatur ist dann
+        % WA: ((1-0.5)*1/4*(1.025 radius of sun)^2/(0.08543 AU)^2 (6050
+        % kelvin)^4)^(1/4)
         \begin{equation}
           T_\text{Pl} = \sqrt[4]{
-            \frac{1-A}{2 R_\text{Pl}} \frac{R_\star^2}{a^2} T_\star^4
-          } = \sqrt[4]{
-            \frac{1-A}{
-              2 \sqrt[3]{\frac{3M}{4 \pi \rho}}
-            } \frac{R_\star^2}{a^2} T_\star^4
-          }
+            \del{1-A} \frac{1}{4} \frac{R_\star^2}{a^2} T_\star^4
+          } = \SI{849.6}{\kelvin}
         \end{equation}
 
+      \item
+        Im Fall eines langsam rotierenden Planeten halbiert sich die
+        emmitierende Fläche.
+        % WA: ((1-0.5)*1/2*(1.025 radius of sun)^2/(0.08543 AU)^2 (6050
+        % kelvin)^4)^(1/4)
+        \begin{equation}
+          T_\text{Pl} = \sqrt[4]{
+            \del{1-A} \frac{1}{2} \frac{R_\star^2}{a^2} T_\star^4
+          } = \SI{1010}{\kelvin}
+        \end{equation}
+
+      %TODO: Zeug mit innerer Energiequelle!
     \end{enumerate}
+  \item
+    Da die direkte Beobachtung nicht möglich ist, werden zur Suche von
+    Exoplaneten indirekte Entdeckungsmethoden angewandt. Zwei erfolgreiche
+    Methoden nutzen dabei aus, dass sich ein System aus Stern und Planet um den
+    gemeinsamen Schwerpunkt bewegt. Bei der Radialgeschwindigkeitsmethode misst
+    man die Rot- und Blauverschiebung des Sternenspektrums durch die Bewegung
+    vom Beobachter weg und auf den Beobachter zu (Dopplereffekt), um die
+    Geschwindigkeitskomponente in Radialrichtung zu bestimmen. Bei der
+    astrometrischen Methode misst man durch direkte Beobachtung über einen
+    Zeitraum die Rotation des Sterns um den Schwerpunkt.
+
+    Je massereicher der Stern ist, desto ausgeprägter sind die Effekte. Je
+    kürzer seine Umlaufzeit ist, umso kleiner ist die Periode der Effekte.
+    Beides erhöht die Erkennungswahrscheinlichkeit, so dass man bevorzugt
+    Planeten mit größer Masse und geringen Umlaufzeiten entdeckt.
 \end{enumerate}
 
 
