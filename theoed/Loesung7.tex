@@ -44,17 +44,61 @@ Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
 \end{center}
 
 \section*{Aufgabe 1: Kugelschale}
-Das kann man im Kopf machen und sieht sofort die Lösung.
+Die allgemeine zylindersymmetrische Lösung der Laplace-Gleichung ist
+\begin{equation}
+  \Phi(r, \theta) = \sum_{l=0}^\infty \del{A_lr^l + \frac{B_l}{r^{l+1}}} P_l(\cos \theta)
+\end{equation}
 
+Heuristisch schmeißen wir die Terme für $l>2$ weg (weil wir keine Kosinusterme
+höherer Ordnung erwarten) und setzen auch direkt $A_0 = \phi_0, B_0 = 0$. Somit
+erhalten wir
+\begin{equation}
+  \Phi(r, \theta) = \del{Ar + \frac{B}{r^2}} \cos \theta + \phi_0
+\end{equation}
+
+Wir fangen mit dem Außenbereich $r > R_2$ an. Das Potential darf nicht gegen
+unendlich gehen, also gilt für den Außenbereich offentsichtlich $A=0$.
+
+Aus der Oberflächenladungsdichte bauen wir uns über $\sigma = - \epsilon_0
+\partial_r \phi$ das Oberflächenpotential
+
+\begin{equation}
+  \phi(r, \theta) \overset{!}{=} - \frac{r k \cos(\theta)}{\epsilon_0} + C \quad\text{ (bei $r=R_2$)}
+\end{equation}
+
+Somit
 \begin{align*}
-  \phi_\text{Innen} &= -\frac{k}{\epsilon_0} \frac{1}{1 - \del{\frac{R_1}{R_2}}^3} \del{
-    r - \frac{R_1^3}{r^2}
-  } \cos(\theta) + \phi_0 \\
-  \phi_\text{Außen} &= -\frac{k}{\epsilon_0} \frac{R_2^3}{r^2} \cos(\theta) + \phi_0
+  -\frac{R_2 k \cos \theta}{\epsilon_0} + C = \frac{B}{R_2^2} \cos(\theta) + \phi_0
 \end{align*}
 
-% TODO: Glaubt der Tutor bestimmt nicht. Vielleicht doch herleiten, für Leute
-% die gekoppelte DGL nicht im Kopf lösen können (Warum studieren die Physik?).
+Mit $C=\phi_0$ und Kürzen von $\cos \theta$ erhalten wir
+\begin{align*}
+  -\frac{R_2 k}{\epsilon_0} = \frac{B}{R_2^2} \Rightarrow B = -\frac{k}{\epsilon_0} R_2^3
+\end{align*}
 
+Somit ist für den Außenbereich
 
+\begin{align*}
+  \phi_\text{A}(r,\theta) &= -\frac{k}{\epsilon_0} \frac{R_2^3}{r^2} \cos(\theta) + \phi_0
+\end{align*}
+
+Für den Innenbereich muss das Potential stetig an das Potential des
+Außenbereichs anschließen und gleichzeitig $\phi(R_1,\theta) = \phi_0$ erfüllt
+werden. Daraus folgt das Gleichungssystem
+\begin{align*}
+  -\frac{R_2 k \cos(\theta)}{\epsilon_0} + \phi_0 &= \del{AR_2 + \frac{B}{R_2^2}} \cos(\theta) + \phi_0 \\
+                                           \phi_0 &= \del{AR_1 + \frac{B}{R_1^2}} \cos(\theta) + \phi_0
+\end{align*}
+
+Aus der zweiten Gleichung folgt $AR_1 + \dfrac{B}{R_1^2} = 0$, also $B =
+-AR_1^3$. Eingesetzt in die erste Gleichung und durch Kürzung folgt
+\begin{equation}
+  -\frac{R_2 k}{\epsilon_0} = A \del{R_2 - \frac{R_1^3}{R_2^2}} \Rightarrow
+  A = -\frac{k}{\epsilon_0} \frac{1}{(1- \del{\frac{R_1}{R_2}}^3}
+\end{equation}
+
+Und somit für den Innenbereich
+\begin{equation}
+  \phi_I(r, \theta) = -\frac{k}{\epsilon_0} \frac{1}{1-\del{\frac{R_1}{R_2}}^3} \del{r - \frac{R_1^3}{r^2}} \cos(\theta) + \phi_0
+\end{equation}
 \end{document}
