@@ -1,0 +1,60 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{mathtools} % also includes mathclap
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\newcommand*\laplace{\mathop{}\!\mathbin\Delta}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Theoretische Elektrodynamik, Sommersemester 2014, Aufgabenblatt 6
+
+Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1: Kugelschale}
+Das kann man im Kopf machen und sieht sofort die Lösung.
+
+\begin{align*}
+  \phi_\text{Innen} &= -\frac{k}{\epsilon_0} \frac{1}{1 - \del{\frac{R_1}{R_2}}^3} \del{
+    r - \frac{R_1^3}{r^2}
+  } \cos(\theta) + \phi_0 \\
+  \phi_\text{Außen} &= -\frac{k}{\epsilon_0} \frac{R_2^3}{r^2} \cos(\theta) + \phi_0
+\end{align*}
+
+% TODO: Glaubt der Tutor bestimmt nicht. Vielleicht doch herleiten, für Leute
+% die gekoppelte DGL nicht im Kopf lösen können (Warum studieren die Physik?).
+
+
+\end{document}
