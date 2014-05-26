@@ -30,6 +30,7 @@
 \setlength\parindent{0pt}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Var}{Var}
+\newcommand*\laplace{\mathop{}\!\mathbin\Delta}
 \begin{document}
 \allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
 \begin{center}
@@ -44,52 +45,231 @@ Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
 
 \section*{Aufgabe 1: Spiegelladungen}
 Die Ladung $q$ befindet sich an der Position $(a,b)$. Es liegt nahe, einfach
-zwei Spiegelladungen $-\dfrac{q}{2}$ an den Punkten $(-a, b)$ und $(a, -b)$
-anzubringen.
+zwei Spiegelladungen $-q$ an den Punkten $(-a, b)$ und $(a, -b)$ und eine
+Spiegelladung $q$ an $(-a, -b)$ anzubringen und zu prüfen, ob das Potential bei
+$x=0$ bzw. $y=0$ verschwindet.
 
-Es entstehen Superpositionen der drei Coulombpotentiale, nämlich
+Es entstehen Superpositionen von vier Coulombpotentialen, nämlich
 \begin{align*}
   \Phi_0(x,y) = \frac{q}{4 \pi \epsilon_0} \left(
     \frac{1}{\sqrt{(a-x)^2 + (b-y)^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{(a+x)^2 + (b-y)^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{(a-x)^2 + (b+y)^2}}
+    \frac{1}{\sqrt{(a+x)^2 + (b-y)^2}} - \right. \\
+    \left. \frac{1}{\sqrt{(a-x)^2 + (b+y)^2}} +
+    \frac{1}{\sqrt{(a+x)^2 + (b+y)^2}}
   \right)
 \end{align*}
 
-Wir sehen, dass das Potential an den Grenzflächen verschwindet:
+Prüfen, ob der Ansatz stimmt:
 
-Für $x = 0$:
-
+Für $x=0$:
 \begin{align*}
-  \Phi_0(x,y) = \frac{q}{4 \pi \epsilon_0} \left(
+  \Phi_0(0,y) = \frac{q}{4 \pi \epsilon_0} \left(
     \frac{1}{\sqrt{a^2 + (b-y)^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{a^2 + (b-y)^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{a^2 + (b-y)^2}}
+    \frac{1}{\sqrt{a^2 + (b-y)^2}} - \right. \\
+    \left. \frac{1}{\sqrt{a^2 + (b+y)^2}} +
+    \frac{1}{\sqrt{a^2 + (b+y)^2}}
   \right) = 0
 \end{align*}
 
-Für $y = 0$:
+Für $y=0$:
+\begin{align*}
+  \Phi_0(x,0) = \frac{q}{4 \pi \epsilon_0} \left(
+    \frac{1}{\sqrt{(a-x)^2 + b^2}} -
+    \frac{1}{\sqrt{(a+x)^2 + b^2}} - \right. \\
+    \left. \frac{1}{\sqrt{(a-x)^2 + b^2}} +
+    \frac{1}{\sqrt{(a+x)^2 + b^2}}
+  \right) = 0
+\end{align*}
+
+Der Ansatz stimmt, das Potential ist dann (wenn man das Erdpotential auf 0
+festlegt)
+\begin{align*}
+  \Phi(x,y) = \begin{cases}
+    \Phi_0(x,y) & \text{ wenn } x,y > 0 \\
+    0 & \text{ sonst}
+  \end{cases}
+\end{align*}
+
+Die Kraft erhält man durch das Couloumbsche Kraftgesetz als
+\begin{align*}
+  \vec{F} = \frac{q^2}{4 \pi \epsilon_0} \del{
+    -\frac{1}{\sqrt{4a^2}^3} \begin{pmatrix} 2a \\ 0 \end{pmatrix}
+    -\frac{1}{\sqrt{4b^2}^3} \begin{pmatrix} 0  \\ 2b \end{pmatrix}
+    +\frac{1}{\sqrt{4a^2+4b^2}^3} \begin{pmatrix} 2a \\ 2b \end{pmatrix}
+  }
+\end{align*}
+
+\section*{Aufgabe 2: Ladung und Kugel}
+\begin{enumerate}[a)]
+  \item
+Angenommen, die Ladung $q' = -q \frac{R}{a}$ bilde im Abstand $b =
+\frac{R^2}{a}$ eine Line mit dem Mittelpunkt der Kugel und der Ladung $q$, dann
+wäre das Potential
+
+\begin{equation}
+  \Phi_0(x,y,z) = \frac{1}{4 \pi \epsilon_0} \del{
+    \frac{q}{\sqrt{(a-x)^2 + y^2 + z^2}} +
+    \frac{q'}{\sqrt{(b-x)^2 + y^2 +z^2}}
+  }
+\end{equation}
+
+Wir wollen das Potential auf der Kugeloberfläche berechnen. Das Problem ist
+rotationssymmetrisch um die $x$-Achse, also setzen wir oBdA $z = 0$ (denn wenn
+$z \neq 0$ ist, drehen wir das Ding so, dass der Punkt in der $x$-$y$-Ebene
+liegt und dann ist $z=0$).
+
+Für die Kreisoberfläche ist $x^2 + y^2 = R^2 \Leftrightarrow y^2 = R^2 - x^2$.
+
+Das Potential im Abstand $R$ ist dann also:
 
 \begin{align*}
-  \Phi_0(x,y) = \frac{q}{4 \pi \epsilon_0} \left(
-    \frac{1}{\sqrt{(a-x)^2 + b^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{(a-x)^2 + b^2}} -
-    \frac{1}{2} \frac{1}{\sqrt{(a-x)^2 + b^2}}
-  \right) = 0
+  \Phi_0 4 \pi \epsilon_0 &= \frac{q}{\sqrt{(a-x)^2 + R^2 - x^2}} -
+  \frac{qR}{a\sqrt{\del{\frac{R^2}{a} - x}^2 + R^2 - x^2}} \\
+   &= \frac{q}{\sqrt{(a-x)^2 + R^2 - x^2}} -
+   \frac{q}{\sqrt{\frac{a^2}{R^2} \del{\del{\frac{R^2}{a} - x}^2 + R^2 - x^2}}} \\
+   &= \frac{q}{\sqrt{(a-x)^2 + R^2 - x^2}} -
+   \frac{q}{\sqrt{\frac{a^2}{R^2} \del{\del{\frac{R^2}{a} - x}^2 + R^2  - x^2}}} \\
+   &= \frac{q}{\sqrt{a^2 - 2ax + x^2 + R^2 - x^2}} -
+   \frac{q}{\sqrt{\frac{a^2}{R^2} \del{\frac{R^4}{a^2} - 2 \frac{R^2x}{a} + x^2 + R^2 - x^2}}} \\
+   &= \frac{q}{\sqrt{a^2 - 2ax + x^2 + R^2 - x^2}} -
+   \frac{q}{\sqrt{\frac{a^2}{R^2} \del{\frac{R^4}{a^2} - 2 \frac{R^2x}{a} + x^2 + R^2 - x^2}}} \\
+   &= \frac{q}{\sqrt{a^2 - 2ax + R^2}} -
+   \frac{q}{\sqrt{\frac{a^2}{R^2} \del{\frac{R^4}{a^2} - 2 \frac{R^2x}{a} + R^2}}} \\
+   &= \frac{q}{\sqrt{a^2 - 2ax + R^2}} -
+   \frac{q}{\sqrt{R^2 - 2ax + a^2}} \\
+   &= 0
 \end{align*}
 
-Also ist der Ansatz korrekt.
+Das Potential ist also
+\begin{equation}
+  \Phi = \begin{cases}
+    \Phi_0 & \text{ wenn } x^2 + y^2 + z^2 > R^2 \\
+    0 & \text{ sonst }
+  \end{cases}
+\end{equation}
 
-Die Kraft ergibt sich als $F = q \vec{E}$, wobei $\Phi = - \nabla \vec{E}$. Da
-$\Phi$ bei $x=a$ und $b=y$ eine Unendlichkeitsstelle hat, die sich durch die
-Deltafunktion ausdrücken lässt, muss die Kraft dementsprechend verschwinden.
-Was ja klar ist, denn über eine geerdete Platte kann keinerlei Energie zugeführt
-werden.
+\item
+  Analog zu oben sei $\vec{r}$ irgendein Punkt und oBdA $z=0$. Dann können wir
+  das Problem auch in Polarkoordinaten betrachten. Mit der Transformation
+  \begin{align*}
+    x &= r \cos \phi \\
+    y &= r \sin \phi \\
+    z &= 0
+  \end{align*}
+
+  eingesetzt in das Potential $\Phi_0$ erhalten wir
+  \begin{equation}
+    \Phi_0(x,y) = \frac{1}{4 \pi \epsilon_0} \del{
+      \frac{q}{\sqrt{a^2 - 2 a r \cos \phi + R^2}} +
+      \frac{q'}{\sqrt{b^2 - 2 b r \cos \phi + R^2}}
+    }
+  \end{equation}
+
+  Die Oberflächenladungsdichte ist proportional zur Radialkomponente des
+  elektrischen Feldes, die wiederrum aus dem $\nabla \Phi$ kommt.
+  \begin{align}
+    \sigma &= - \epsilon_0 \partial_r \Phi \\
+           &= - \frac{1}{4 \pi} \del {
+             \frac{-2qa \cos \phi}{\sqrt{a^2 - 2ar \cos \phi + R^2}^3} +
+             \frac{-2qb \cos \phi}{\sqrt{b^2 - 2br \cos \phi + R^2}^3}
+           } \\
+           &= \frac{\cos \phi}{2 \pi} \del {
+             \frac{qa}{\sqrt{a^2 - 2ar \cos \phi + R^2}^3} +
+             \frac{q'b}{\sqrt{b^2 - 2br \cos \phi + R^2}^3}
+           }
+  \end{align}
+  % FIXME: b und q' einsetzen. Bin zu faul
+
+\item
+  Die Gesamtladung der Kugel muss verschwinden. Gleichzeitig bildet die
+  Kugeloberfläche eine Äquipotentialfläche, denn sie leitet. Wir brauchen also
+  noch eine Pseudoladung mit $q'' = -q' = \frac{qR}{a}$ genau im Mittelpunkt
+  der Kugel.
+
+  Wenn das Potential auf der Kugeloberfläche vorher $\Phi = 0$ ist, ist es
+  jetzt aufgrund des Superpositionsprinzips
+  \begin{equation}
+    \Phi(R) = \frac{1}{4 \pi \epsilon 0} \frac{q}{a} \text{ (das R kürzt sich weg)}
+  \end{equation}
+
+\item Überlegungen wie oben. Damit die Gesamtladung $q$ wird, muss $q'' + q' =
+  q$ sein. Also ist $q'' = q \del{1 - \dfrac{R}{a}}$.
+
+  Dann haben wir 3 Ladungen in einer Linie (wobei sich $q'$ natürlich in
+  Richtung $q$ bewegt, wenn $q$ näher kommt um die Oberfläche auf konstantem
+  Potential zu halten).
+
+  Wir haben also zwei Ladungen zu denen Kräfte berechnet werden müssen:
+  \begin{itemize}
+    \item $q'' \to q$: Ladung: $q \del{1-\frac{R}{a}}$ im Abstand $a$ von $q$.
+    \item $q' \to q$: Ladung $-q\frac{R}{a}$ im Abstand $a - b$ (mit $b =
+      \frac{R^2}{a}$) von $q$
+  \end{itemize}
+
+  Über das Coulomb'sche Kraftgesetz erhalten wir
+  \begin{equation}
+    F = \frac{1}{4 \pi \epsilon_0} \del{
+      \frac{q q \del{1 - \frac{R}{a}}}{a^2} -
+      \frac{q q \frac{R}{a}}{\del{a-\frac{R^2}{a}}^2}
+    } = \frac{q^2}{4 \pi \epsilon_0} \del{
+      \frac{1 - \frac{R}{a}}{a^2} -
+      \frac{\frac{R}{a}}{\del{a-\frac{R^2}{a}}^2}
+    }
+  \end{equation}
+
+  Wir drücken $a$ in Vielfachen von $R$ aus: $a = x R$. Wenn wir das auf einen
+  Nenner bringen und entsprechend kürzen (Maxima macht das), erhalten wir einen
+  Bruch in dessen Nenner ein Polynom 5. Grades steht. Das muss verschwinden, um
+  die Gleichung zu lösen.
+
+  \begin{equation}
+    x^5 - 2x^4 - 2x^3 + 2x^2 + x - 1 \overset{!}{=} 0
+  \end{equation}
+
+  Wir suchen hier Nullstellen, denn wir wissen, dass die Kraft für $R \to
+  \infty$ abstoßend sein muss.  Bei einem Nulldurchgang wechselt also das
+  Vorzeichen der Kraft.
+  Bei $x = 1$ wird $a = R$, geht also in die Kugel. Diese Stellen interessieren
+  uns nicht, also muss außerdem $x > 1$ sein.
+
+  Dieses Polynom ist \textit{nicht faktorisierbar} (und das hab ich echt
+  mehrfach nachgerechnet) und hat seine einzige reelle Nullstelle bei $x
+  \approx 2{,}44305$. Also wird die Ladung ab einem Abstand von $a \approx
+  2{,}44305 R$ angezogen.
+\end{enumerate}
 
 \section*{Aufgabe 3: Randwertproblem in zwei Dimensionen}
 
-Da im Volumen $V$ keine Ladungen sind, kann auch kein Feld existieren. Somit
-muss $A=0$, dann ist $\Phi(x,y) = 0$
+Über den Separationsansatz $\Phi(x,y) = f(x) g(y)$ erhalten wir
+\begin{align*}
+  &\laplace \Phi = g \partial_x^2 f + f \partial_y^2 g = 0 \\
+  \Leftrightarrow \quad
+  & \frac{1}{f} \partial_x^2 f = -\frac{1}{g} \partial_y^2 g
+\end{align*}
 
+Links steht eine Funktion von $x$, rechts eine Funktion von $y$. Damit die
+Gleichung stimmt, müssen also beide Seiten konstant sein. Sei diese Konstante
+$k^2$ erhalten wir die separierten Differentialgleichungen mit den Lösungen
+\begin{align*}
+  \partial_x^2 f - k^2f = 0 &\Rightarrow f(x) = ae^{kx} + be^{-kx} \\
+  \partial_y^2 g + k^2g = 0 &\Rightarrow g(x) = c \sin(ky) + d \cos(ky)
+\end{align*}
+
+Aus der Randbedingung $\phi(0,y) = 0$ sehen wir $a + b
+= 0$. Aus $\phi(b,y) = A \sin(\pi y /a)$ sehen wir $c = A$, $d=0$, $k = \pi/a$.
+
+Wir raten damit die Lösung als
+\begin{equation}
+  \Phi(x,y) = A \sinh(kx) \sin\del{ky} \text{ mit } k = \frac{\pi}{a}
+\end{equation}
+
+Die partiellen Ableitungen sind dann
+\begin{align*}
+  &\partial_x^2 \Phi = -Ak^2 \sinh(kx) \sin(ky) = -k^2 \Phi(x,y) \\
+  &\partial_y^2 \Phi = Ak^2 \sinh(kx) \sin(ky) = k^2 \Phi(x,y) \\
+  &\Rightarrow \laplace \Phi = \partial_x^2 \Phi + \partial_y^2 \Phi = 0
+\end{align*}
+
+Also ist dies die Lösung.
 
 \end{document}
