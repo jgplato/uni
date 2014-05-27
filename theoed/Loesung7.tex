@@ -222,6 +222,9 @@ und mit $\vec{F} = q\vec{E}$:
   = \frac{-qv \mu_0}{12 \pi} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
 \end{equation}
 
+
+% FIXME: Müsste (-1, 2) rauskommen. Und unterm Bruchstrich eine R. Und ein I
+% fehlt. Herrje.
 Wir transformieren die Kraft zurück ins System $S$:
 \begin{equation}
   \vec{F}_1
@@ -229,6 +232,86 @@ Wir transformieren die Kraft zurück ins System $S$:
 \end{equation}
 
 % TODO: Hieraus (oder später aus der Summe) das Magnetfeld berechnen.
+
+
+Für den Halbkreis betrachten wir unendliche viele bewegte Inertialsysteme in
+denen wir jeweils nur die Kraft eines infinitesimales Drahtelementes auf eine
+in $S'$ ruhende Probeladung $q$ im Ursprung berechnen. Dann transformieren wir
+alle diese Systeme zurück nach $S$ und integrieren über alle Systeme um die
+Gesamtkraft zu erhalten.
+
+Sei $\phi$ der Winkel unter dem wir das Drahtelement sehen, dann ist die
+Geschwindigkeit der Ladungen im Leiter $\vec{v} = v (\cos \phi, -\sin \phi)$.
+Die Probeladung bewege sich parallel zu den Ladungen im Leiter und sei im
+System $S'$ in Ruhe.
+
+Analog zu oben ergibt sich dann die selbe Elektronen- und
+Protonenladungsdichte.
+
+Das von diesem Drahtelement in $S'$ erzeugte elektrische Feld ist
+% FIXME: R für r einsetzen!
+% FIXME: R*cos(\phi) muss irgendwo her kommen!
+\begin{equation}
+  d \vec{E}' = \frac{1}{4 \pi \epsilon_0} \frac{\lambda}{r^2} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+            = \frac{1}{4 \pi \epsilon_0} \frac{\lambda_+}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+            = \frac{1}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+\end{equation}
+
+Das Kraftelement ist dann
+\begin{equation}
+  d \vec{F}' = q \cdot d \vec{E}'
+            = \frac{q}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+\end{equation}
+
+Die Rücktransformation in $S$ ist
+
+\begin{equation}
+d \vec{F} = \frac{q}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2}{c^2}
+\begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+\end{equation}
+
+Die Gesamtkraft erhalten wir durch Integration über alle Kräfte:
+\begin{equation}
+  \vec{F} = -\frac{q v^2 \lambda_{-}}{4 \pi \epsilon_0 c^2 R^2} \int_0^\pi
+   \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+\end{equation}
+
+Die Integration ist trivial und liefert
+\begin{equation}
+  \vec{F} = -\frac{q v^2 \lambda_{-}}{4 \pi \epsilon_0 c^2 R^2}
+\begin{pmatrix} 0 \\ -2\end{pmatrix}
+\end{equation}
+
+Jetzt formen wir unter Benutzung von $I = \lambda v$ und $\epsilon_0 c^2 =
+\mu_0^{-1}$ um:
+
+\begin{equation}
+  \vec{F} = \frac{q v I \mu_0}{2 \pi R^2} \hat{e}_y
+\end{equation}
+
+% FIXME:
+\textbf{FIXME:} Korrekt wäre: Irgendwo ein $R$ vergessen.
+
+\begin{equation}
+  \vec{F}_2 = \frac{q v I \mu_0}{2 \pi R} \hat{e}_y
+\end{equation}
+
+Für den unteren Draht hat man die Situation wie oben, nur gespiegelt. Die Kraft
+ist dann
+
+% FIXME: Siehe oben, Kraft muss nach unten links zeigen, daswegen hingebastelt.
+\begin{equation}
+  \vec{F}_2
+  = \frac{qv \mu_0}{12 \pi} \begin{pmatrix} -1 \\ -2 \end{pmatrix}
+\end{equation}
+
+Die Gesamtkraft ist dann
+\begin{equation}
+  \vec{F} =
+\end{equation}
+
+
+
 
 
 
