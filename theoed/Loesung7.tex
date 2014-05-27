@@ -157,162 +157,103 @@ Linienladungsdichte ist nämlich genau
 \end{align*}
 
 Daraus folgt, dass auf die Ladung $q$ nun eine elektrische Kraft $\vec{F} = q
-\vec{E}$ wirkt. Wir integrieren also über homogen geladenen den Draht entlang
-der $x$-Achse von $-\infty$ bis $0$.
+\vec{E}$ wirkt. Wir integrieren also über den mit $\lambda'$ homogen geladenen
+den Draht entlang der $x$-Achse von $-\infty$ bis $0$.
 
-Wenn $\vec{r}$ der Vektor zum Draht ist, ist $r_y = R$ und $r_x = R
-\tan(\theta)$. Dann muss für die Integration $\theta$ von $0$ bis
-$\frac{\pi}{2}$ laufen, also ist das elektrische Feld:
+\begin{align*}
+  \vec{E}'_1 &= \frac{1}{4 \pi \epsilon_0} \int_{-\infty}^0 \dif x \;
+  \frac{\lambda}{\sqrt{x^2 + R^2}^3} \begin{pmatrix} x \\ R \end{pmatrix} \\
+  &= \frac{\lambda}{4 \pi \epsilon_0 R^3} \int_{-\infty}^0
+  \frac{\dif x}{\sqrt{1 + \frac{x^2}{R^2}}^3} \begin{pmatrix} x \\ R \end{pmatrix}
+\end{align*}
 
-% TODO: Zeichnung hier:
-%                           x
-% -------------------------------.
-%                       \        |
-%                        \       |
-%                         \      | R
-%                          \     |
-%                           \    |
-%                            \   |
-%                             \-^|
-%                              \ | <-- \theta
-%                               \|
-%                                q
+Mit $u = \frac{x}{R}$ ist $\dif x = R \dif u$:
+\begin{align*}
+  &= \frac{\lambda}{4 \pi \epsilon_0 R^3} \int_{-\infty}^0
+  \frac{R \dif u}{\sqrt{1 + u^2}^3} \begin{pmatrix} u R \\ R \end{pmatrix} \\
+  &= \frac{\lambda}{4 \pi \epsilon_0 R} \int_{-\infty}^0
+  \frac{\dif u}{\sqrt{1 + u^2}^3} \begin{pmatrix} u \\ 1 \end{pmatrix} \\
+  &= \frac{\lambda}{4 \pi \epsilon_0 R} \begin{pmatrix} -1 \\ 1 \end{pmatrix}
+\end{align*}
 
+% TODO: Hier Ladungsdichte einsetzen
+
+Im unteren Draht geht der Strom in die andere Richtung. Ob sich dabei nun
+negative Ladungen in die eine Richtung oder positive Ladungen in die andere
+Richtung bewegen ist für das Ergebnis egal. Betrachtet man also einen Strom von
+Protonen in die entgegengesetzte RIchtung ist der Draht aus Sicht von $S'$
+genau anders herum geladen.
+
+Es muss also das folgende Feld herauskommen:
+\begin{align*}
+  \vec{E}'_2 = \frac{\lambda}{4 \pi \epsilon_0 R} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\end{align*}
+
+In Summe entsteht also ein Feld
 \begin{equation}
-  4 \pi \epsilon_0 \vec{E} =
-  \int \frac{\rho'}{r^3} \vec{r} =
-  \int_0^\frac{\pi}{2} \dif \theta \; \frac{\lambda'}{\sqrt{R^2 \del{\tan^2(\theta) +1}}^3}
-  \begin{pmatrix}
-    R \tan \theta \\
-    R
-  \end{pmatrix}
-  =
-  \int_0^\frac{\pi}{2} \dif \theta \; \frac{\lambda'}{\sqrt{\del{\tan^2(\theta) +1}}^3}
-  \begin{pmatrix}
-    \tan \theta \\
-    1
-  \end{pmatrix}
+  \vec{E}' = \frac{\lambda'}{2 \pi \epsilon_0 R} \hat{e}_y
 \end{equation}
 
-% WA: int from 0 to pi/2 of tan(x)/sqrt(tan^2(x)+1)^3 = 1/3
-% WA: int from 0 to pi/2 of 1/sqrt(tan^2(x)+1)^3 = 2/3
-Per Maxima berechnen wir die Integrale als $\frac{1}{3}$ bzw. $\frac{2}{3}$ und
-erhalten das elektrische Feld des oberen Drahtes im Ursprung.
+Betrachten wir nun das Feld des Halbkreises in $S'$. Der Halbkreis sei durch
+den Winkel $\phi$ parametrisiert, der im Uhrzeigersinn von $0$ bis $\pi$ laufe.
+Die $x$-Komponente des Stromes ist dort proportional zu $\cos(\phi)$, so dass
+die Längenkontraktion dort die Ladungsdichte $\lambda' \cos \phi$ verursacht.
+
+% FIXME: r = R
+Wir integrieren also über den Ring
 \begin{equation}
-  \vec{E}_1' = \frac{\lambda'}{12\pi \epsilon_0} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
-  = \frac{\lambda_+ v^2}{12 \pi \epsilon_0 c^2} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  \vec{E}' = \frac{1}{4 \pi \epsilon_0} \int_\text{Ring} \dif V \;
+  \frac{\lambda' \cos \phi}{r^2} \begin{pmatrix} \sin \phi \\ \cos \phi \end{pmatrix}
 \end{equation}
 
-Wegen $\lambda_+ = -\lambda_-$ und $I = \lambda v$
-
+% FIXME: Sollte eigentlich das Doppelte sein.
+Man sieht, dass die $x$-Komponente sowieso verschwindet (gerade mal ungerade
+Funktion). Mit $\dif V = r \dif \phi$ und den entsprechenden Grenzen:
 \begin{equation}
-  \vec{E}_1'
-  = \frac{-v}{12 \pi \epsilon_0 c^2} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  \vec{E}' = \frac{1}{4 \pi \epsilon_0} \int_0^\phi \frac{\lambda' \cos^2 \phi}{r} \hat{e}_y
+  = \frac{\lambda'}{8 \epsilon_0 R} \hat{e}_y
 \end{equation}
 
-Mit $\mu_0 = \frac{1}{\epsilon_0 c^2}$:
+% Ab hier doppeltes eingesetzt, damit passt.
+Die Summe der 3 Felder ist dann
+\begin{align*}
+  \vec{E}' = \frac{\lambda'}{\epsilon_0 R} \hat{e}_y \del{\frac{1}{2 \pi} + \frac{1}{4}}
+\end{align*}
+
+Sei zur Kürzung:
 \begin{equation}
-  \vec{E}_1'
-  = \frac{-v \mu_0}{12 \pi} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  k := \frac{\dfrac{1}{2 \pi} + \frac{1}{4}}{R}
 \end{equation}
 
-und mit $\vec{F} = q\vec{E}$:
+Dann ist
 \begin{equation}
-  \vec{F}_1'
-  = \frac{-qv \mu_0}{12 \pi} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  \vec{E} = \frac{k}{\epsilon_0} \lambda' \hat{e}_y
 \end{equation}
 
+Auf die Ladung wirkt dann die Kraft
+\begin{align*}
+  \vec{F}' = q \vec{E}' = \frac{qk}{\epsilon_0} \lambda' \hat{e}_y
+  &= \frac{qk}{\epsilon_0} \lambda_{+} \frac{v^2}{c^2} \frac{1}{\sqrt{1-\frac{v^2}{c^2}}} \hat{e}_y
+\end{align*}
 
-% FIXME: Müsste (-1, 2) rauskommen. Und unterm Bruchstrich eine R. Und ein I
-% fehlt. Herrje.
-Wir transformieren die Kraft zurück ins System $S$:
+Mit $\lambda_+ = -\lambda_-$ und $I = q \lambda$ sowie $\mu_0 =
+\frac{1}{\epsilon_0 c^2}$ wird das zu
+
+\begin{align*}
+  \vec{F}' = \frac{qv kI \mu_0}{\sqrt{1 - \frac{v^2}{c^2}}} \hat{e}_y
+\end{align*}
+
+Transformiert in das ruhende System $S$:
 \begin{equation}
-  \vec{F}_1
-  = \frac{-qv \mu_0}{12 \pi} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  \vec{F} = qvkI \mu_0 \hat{e}_y
 \end{equation}
 
-% TODO: Hieraus (oder später aus der Summe) das Magnetfeld berechnen.
-
-
-Für den Halbkreis betrachten wir unendliche viele bewegte Inertialsysteme in
-denen wir jeweils nur die Kraft eines infinitesimales Drahtelementes auf eine
-in $S'$ ruhende Probeladung $q$ im Ursprung berechnen. Dann transformieren wir
-alle diese Systeme zurück nach $S$ und integrieren über alle Systeme um die
-Gesamtkraft zu erhalten.
-
-Sei $\phi$ der Winkel unter dem wir das Drahtelement sehen, dann ist die
-Geschwindigkeit der Ladungen im Leiter $\vec{v} = v (\cos \phi, -\sin \phi)$.
-Die Probeladung bewege sich parallel zu den Ladungen im Leiter und sei im
-System $S'$ in Ruhe.
-
-Analog zu oben ergibt sich dann die selbe Elektronen- und
-Protonenladungsdichte.
-
-Das von diesem Drahtelement in $S'$ erzeugte elektrische Feld ist
-% FIXME: R für r einsetzen!
-% FIXME: R*cos(\phi) muss irgendwo her kommen!
-\begin{equation}
-  d \vec{E}' = \frac{1}{4 \pi \epsilon_0} \frac{\lambda}{r^2} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
-            = \frac{1}{4 \pi \epsilon_0} \frac{\lambda_+}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
-            = \frac{1}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
-\end{equation}
-
-Das Kraftelement ist dann
-\begin{equation}
-  d \vec{F}' = q \cdot d \vec{E}'
-            = \frac{q}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2/c^2}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
-\end{equation}
-
-Die Rücktransformation in $S$ ist
+Da $\vec{F} = q\vec{v} \times \vec{B}$ und $\vec{v} = v \hat{e}_x$, ist das
+Magnetfeld
 
 \begin{equation}
-d \vec{F} = \frac{q}{4 \pi \epsilon_0} \frac{-\lambda_-}{r^2} \frac{v^2}{c^2}
-\begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
+  \vec{B} = - \mu_0 I k \vec{e_z} = - \frac{\mu_0 I}{R} \del{\frac{1}{4} + \frac{1}{2\pi}}
 \end{equation}
-
-Die Gesamtkraft erhalten wir durch Integration über alle Kräfte:
-\begin{equation}
-  \vec{F} = -\frac{q v^2 \lambda_{-}}{4 \pi \epsilon_0 c^2 R^2} \int_0^\pi
-   \begin{pmatrix} \cos \phi \\ -\sin \phi\end{pmatrix} \dif \phi
-\end{equation}
-
-Die Integration ist trivial und liefert
-\begin{equation}
-  \vec{F} = -\frac{q v^2 \lambda_{-}}{4 \pi \epsilon_0 c^2 R^2}
-\begin{pmatrix} 0 \\ -2\end{pmatrix}
-\end{equation}
-
-Jetzt formen wir unter Benutzung von $I = \lambda v$ und $\epsilon_0 c^2 =
-\mu_0^{-1}$ um:
-
-\begin{equation}
-  \vec{F} = \frac{q v I \mu_0}{2 \pi R^2} \hat{e}_y
-\end{equation}
-
-% FIXME:
-\textbf{FIXME:} Korrekt wäre: Irgendwo ein $R$ vergessen.
-
-\begin{equation}
-  \vec{F}_2 = \frac{q v I \mu_0}{2 \pi R} \hat{e}_y
-\end{equation}
-
-Für den unteren Draht hat man die Situation wie oben, nur gespiegelt. Die Kraft
-ist dann
-
-% FIXME: Siehe oben, Kraft muss nach unten links zeigen, daswegen hingebastelt.
-\begin{equation}
-  \vec{F}_2
-  = \frac{qv \mu_0}{12 \pi} \begin{pmatrix} -1 \\ -2 \end{pmatrix}
-\end{equation}
-
-Die Gesamtkraft ist dann
-\begin{equation}
-  \vec{F} =
-\end{equation}
-
-
-
-
 
 
 \end{document}
