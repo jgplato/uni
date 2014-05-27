@@ -101,4 +101,135 @@ Und somit für den Innenbereich
 \begin{equation}
   \phi_I(r, \theta) = -\frac{k}{\epsilon_0} \frac{1}{1-\del{\frac{R_1}{R_2}}^3} \del{r - \frac{R_1^3}{r^2}} \cos(\theta) + \phi_0
 \end{equation}
+
+\section*{Aufgabe 3: Leiterschleife}
+
+Die Leiterschleife befinde sich in einem ruhenden Inertialsystem $S$. Der
+Ursprung liege im Mittelpunkt des Halbkreises. Dort befinde sich eine
+Probeladung $q$, die sich mit der Geschwindigkeit $v$ in $x$-Richtung bewege.
+Wenn wir die Kraft auf diese Ladung kennen würden, könnten wir über die
+Lorentzkraft $\vec{F} = q\vec{v} \times \vec{B}$ das Magnetfeld berechnen. Das
+machen wir also.
+
+Der Draht ist elektrisch neutral. Das bedeutet, die Linienladungsdichte
+$\lambda$ verschwindet. Sei $\lambda_-$ die Linienladungsdichte, die durch die
+Elektronen erzeugt wird und $\lambda_+$ die Linienladungsdichte, die durch die
+Protonen erzeugt wird. Dann ist
+
+\begin{equation}
+  \lambda = \lambda_- + \lambda_+ = 0
+\end{equation}
+
+Damit die Elektronen einen Strom $I$ hervorrufen, müssen sie sich bewegen, denn
+Strom ist Ladung pro Zeit. Wir sehen:
+
+\begin{equation}
+  I = \frac{dQ}{dt} = \frac{dQ}{dx} \frac{dx}{dt} = \lambda v
+\end{equation}
+
+Wir können die Geschwindigkeit $v$ also frei wählen, solange wir entsprechend
+$\lambda = \frac{I}{v}$ setzen. Der Einfachheit halber bewegen sich also die
+Elektronen mit der selben Geschwindigkeit $v$ wie die Probeladung.
+
+Wir transformieren nun in ein mit $v$ bewegtes Inertialsystem $S'$.
+
+Betrachten wir den oberen Draht in $S'$. Dort bewegen sich die Elektronen nun
+nicht mehr. Auch die Ladung $q$ ist unbewegt, also wirkt auf sie kein
+Magnetfeld und die Geschwindigkeit der Protonen ist uns deswegen egal. Die neue
+Linienladungsdichte ist aufgrund der Längenkontraktion in $x$-Richtung.
+\begin{equation}
+  \lambda_+' = \frac{\lambda_+}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation}
+
+Die Ruhedichte der Elektronen liegt im System $S'$, also muss die
+Elektronendichte genau anders herum transformiert werden (von bewegt zu
+unbewegt):
+\begin{equation}
+  \lambda_-' = \lambda_- \sqrt{1 - \frac{v^2}{c^2}}
+\end{equation}
+
+Daraus ergibt sich, dass der Draht in diesem Inertialsystem geladen ist. Seine
+Linienladungsdichte ist nämlich genau
+\begin{align*}
+  \lambda' &= \lambda_+' + \lambda_-' \\
+       &= \frac{\lambda_+}{\sqrt{1 - \frac{v^2}{c^2}}} + \lambda_- \sqrt{1 - \frac{v^2}{c^2}} \\
+       &= \lambda_{+} \frac{v^2}{c^2} \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{align*}
+
+Daraus folgt, dass auf die Ladung $q$ nun eine elektrische Kraft $\vec{F} = q
+\vec{E}$ wirkt. Wir integrieren also über homogen geladenen den Draht entlang
+der $x$-Achse von $-\infty$ bis $0$.
+
+Wenn $\vec{r}$ der Vektor zum Draht ist, ist $r_y = R$ und $r_x = R
+\tan(\theta)$. Dann muss für die Integration $\theta$ von $0$ bis
+$\frac{\pi}{2}$ laufen, also ist das elektrische Feld:
+
+% TODO: Zeichnung hier:
+%                           x
+% -------------------------------.
+%                       \        |
+%                        \       |
+%                         \      | R
+%                          \     |
+%                           \    |
+%                            \   |
+%                             \-^|
+%                              \ | <-- \theta
+%                               \|
+%                                q
+
+\begin{equation}
+  4 \pi \epsilon_0 \vec{E} =
+  \int \frac{\rho'}{r^3} \vec{r} =
+  \int_0^\frac{\pi}{2} \dif \theta \; \frac{\lambda'}{\sqrt{R^2 \del{\tan^2(\theta) +1}}^3}
+  \begin{pmatrix}
+    R \tan \theta \\
+    R
+  \end{pmatrix}
+  =
+  \int_0^\frac{\pi}{2} \dif \theta \; \frac{\lambda'}{\sqrt{\del{\tan^2(\theta) +1}}^3}
+  \begin{pmatrix}
+    \tan \theta \\
+    1
+  \end{pmatrix}
+\end{equation}
+
+% WA: int from 0 to pi/2 of tan(x)/sqrt(tan^2(x)+1)^3 = 1/3
+% WA: int from 0 to pi/2 of 1/sqrt(tan^2(x)+1)^3 = 2/3
+Per Maxima berechnen wir die Integrale als $\frac{1}{3}$ bzw. $\frac{2}{3}$ und
+erhalten das elektrische Feld des oberen Drahtes im Ursprung.
+\begin{equation}
+  \vec{E}_1' = \frac{\lambda'}{12\pi \epsilon_0} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+  = \frac{\lambda_+ v^2}{12 \pi \epsilon_0 c^2} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation}
+
+Wegen $\lambda_+ = -\lambda_-$ und $I = \lambda v$
+
+\begin{equation}
+  \vec{E}_1'
+  = \frac{-v}{12 \pi \epsilon_0 c^2} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation}
+
+Mit $\mu_0 = \frac{1}{\epsilon_0 c^2}$:
+\begin{equation}
+  \vec{E}_1'
+  = \frac{-v \mu_0}{12 \pi} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation}
+
+und mit $\vec{F} = q\vec{E}$:
+\begin{equation}
+  \vec{F}_1'
+  = \frac{-qv \mu_0}{12 \pi} \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation}
+
+Wir transformieren die Kraft zurück ins System $S$:
+\begin{equation}
+  \vec{F}_1
+  = \frac{-qv \mu_0}{12 \pi} \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation}
+
+% TODO: Hieraus (oder später aus der Summe) das Magnetfeld berechnen.
+
+
+
 \end{document}
