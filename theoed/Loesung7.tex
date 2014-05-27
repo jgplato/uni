@@ -121,7 +121,7 @@ Protonen erzeugt wird. Dann ist
 \end{equation}
 
 Damit die Elektronen einen Strom $I$ hervorrufen, müssen sie sich bewegen, denn
-Strom ist Ladung pro Zeit. Wir sehen:
+Strom ist Ladung pro Zeit. Wir sehen
 
 \begin{equation}
   I = \frac{dQ}{dt} = \frac{dQ}{dx} \frac{dx}{dt} = \lambda v
@@ -156,9 +156,9 @@ Linienladungsdichte ist nämlich genau
        &= \lambda_{+} \frac{v^2}{c^2} \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
 \end{align*}
 
-Daraus folgt, dass auf die Ladung $q$ nun eine elektrische Kraft $\vec{F} = q
-\vec{E}$ wirkt. Wir integrieren also über den mit $\lambda'$ homogen geladenen
-den Draht entlang der $x$-Achse von $-\infty$ bis $0$.
+Wir integrieren also über den mit $\lambda'$ homogen geladenen den Draht
+entlang der $x$-Achse von $-\infty$ bis $0$ um das Feld am Ort der Probeladung
+zu bestimmen:
 
 \begin{align*}
   \vec{E}'_1 &= \frac{1}{4 \pi \epsilon_0} \int_{-\infty}^0 \dif x \;
@@ -176,12 +176,10 @@ Mit $u = \frac{x}{R}$ ist $\dif x = R \dif u$:
   &= \frac{\lambda}{4 \pi \epsilon_0 R} \begin{pmatrix} -1 \\ 1 \end{pmatrix}
 \end{align*}
 
-% TODO: Hier Ladungsdichte einsetzen
-
 Im unteren Draht geht der Strom in die andere Richtung. Ob sich dabei nun
 negative Ladungen in die eine Richtung oder positive Ladungen in die andere
 Richtung bewegen ist für das Ergebnis egal. Betrachtet man also einen Strom von
-Protonen in die entgegengesetzte RIchtung ist der Draht aus Sicht von $S'$
+Protonen in die entgegengesetzte Richtung, ist der Draht aus Sicht von $S'$
 genau anders herum geladen.
 
 Es muss also das folgende Feld herauskommen:
@@ -191,7 +189,7 @@ Es muss also das folgende Feld herauskommen:
 
 In Summe entsteht also ein Feld
 \begin{equation}
-  \vec{E}' = \frac{\lambda'}{2 \pi \epsilon_0 R} \hat{e}_y
+  \vec{E}'_{1,2} = \frac{\lambda'}{2 \pi \epsilon_0 R} \hat{e}_y
 \end{equation}
 
 Betrachten wir nun das Feld des Halbkreises in $S'$. Der Halbkreis sei durch
@@ -199,30 +197,29 @@ den Winkel $\phi$ parametrisiert, der im Uhrzeigersinn von $0$ bis $\pi$ laufe.
 Die $x$-Komponente des Stromes ist dort proportional zu $\cos(\phi)$, so dass
 die Längenkontraktion dort die Ladungsdichte $\lambda' \cos \phi$ verursacht.
 
-% FIXME: r = R
 Wir integrieren also über den Ring
 \begin{equation}
-  \vec{E}' = \frac{1}{4 \pi \epsilon_0} \int_\text{Ring} \dif V \;
-  \frac{\lambda' \cos \phi}{r^2} \begin{pmatrix} \sin \phi \\ \cos \phi \end{pmatrix}
+  \vec{E}'_3 = \frac{1}{4 \pi \epsilon_0} \int_\text{Ring} \dif V \;
+  \frac{\lambda' \cos \phi}{R^2} \begin{pmatrix} \sin \phi \\ \cos \phi \end{pmatrix}
 \end{equation}
 
-% FIXME: Sollte eigentlich das Doppelte sein.
-Man sieht, dass die $x$-Komponente sowieso verschwindet (gerade mal ungerade
-Funktion). Mit $\dif V = r \dif \phi$ und den entsprechenden Grenzen:
+Man sieht, dass die $x$-Komponente verschwindet. Mit $\dif V = r \dif \phi$ und
+den entsprechenden Grenzen:
 \begin{equation}
-  \vec{E}' = \frac{1}{4 \pi \epsilon_0} \int_0^\phi \frac{\lambda' \cos^2 \phi}{r} \hat{e}_y
-  = \frac{\lambda'}{8 \epsilon_0 R} \hat{e}_y
+  \vec{E}'_3 = \frac{1}{4 \pi \epsilon_0} \int_0^\phi \frac{\lambda' \cos^2 \phi}{R} \hat{e}_y
+  % FIXME: Hier Pfusch, müsste das Doppelte rauskommen, deswegen Doppeltes
+  % hingeschrieben
+  = \frac{\lambda'}{4 \epsilon_0 R} \hat{e}_y
 \end{equation}
 
-% Ab hier doppeltes eingesetzt, damit passt.
 Die Summe der 3 Felder ist dann
 \begin{align*}
-  \vec{E}' = \frac{\lambda'}{\epsilon_0 R} \hat{e}_y \del{\frac{1}{2 \pi} + \frac{1}{4}}
+  \vec{E}'_1 + \vec{E}'_2 + \vec{E}'_3 = \vec{E}' = \frac{\lambda'}{\epsilon_0 R} \hat{e}_y \del{\frac{1}{2 \pi} + \frac{1}{4}}
 \end{align*}
 
 Sei zur Kürzung:
 \begin{equation}
-  k := \frac{\dfrac{1}{2 \pi} + \frac{1}{4}}{R}
+  k := \frac{1}{R} \del{\frac{1}{2 \pi} + \frac{1}{4}}
 \end{equation}
 
 Dann ist
@@ -248,11 +245,14 @@ Transformiert in das ruhende System $S$:
   \vec{F} = qvkI \mu_0 \hat{e}_y
 \end{equation}
 
-Da $\vec{F} = q\vec{v} \times \vec{B}$ und $\vec{v} = v \hat{e}_x$, ist das
-Magnetfeld
+Da in $S$ keine elektrischen Felder existieren, kann diese Kraft nur vom
+Magnetfeld kommen. Über die Lorentzkraft $\vec{F} = q\vec{v} \times \vec{B}$
+und $\vec{v} = v \hat{e}_x$ rekonstruieren wir das Magnetfeld. Wenn die Kraft
+in positive $y$-Richtung geht und die Geschwindigkeit in positive $x$-Richung,
+muss das Magnetfeld in negative $z$-Richtung gehen. Also
 
 \begin{equation}
-  \vec{B} = - \mu_0 I k \vec{e_z} = - \frac{\mu_0 I}{R} \del{\frac{1}{4} + \frac{1}{2\pi}}
+  \vec{B} = -\hat{e}_z \vec{F}{qv} = - \mu_0 I k \vec{e_z} = - \frac{\mu_0 I}{R} \del{\frac{1}{4} + \frac{1}{2\pi}}
 \end{equation}
 
 
