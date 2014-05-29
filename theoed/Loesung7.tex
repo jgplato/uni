@@ -102,6 +102,83 @@ Und somit für den Innenbereich
   \phi_I(r, \theta) = -\frac{k}{\epsilon_0} \frac{1}{1-\del{\frac{R_1}{R_2}}^3} \del{r - \frac{R_1^3}{r^2}} \cos(\theta) + \phi_0
 \end{equation}
 
+\section*{Aufgabe 2: Geladene Kreisringe}
+Wir berechnen zuerst das Potential des ersten Kreisrings ($\phi_1(r,\theta)$)
+und nur auf der $z$-Achse ($\phi_1(r,0)$) um dann aus dem
+Koeffizientenvergleich mit der rotationssysmmetrischen Lösung der
+Poisson-Gleichung die allgemeine Lösung zu bestimmen. Anschließend konstruieren
+wir aus Symmetrieüberlegungen das Potential des zweiten Kreisringes ($\phi_2(r,
+\theta)$) und erhalten das Gesamtpotential ($\phi(r,\theta$) durch
+Superposition.
+
+Es gilt
+\begin{equation}
+  4 \pi \epsilon_0 \phi = \int \dif V' \; \frac{\rho'(\vec{r}')}{\envert{\vec{r} - \vec{r}'}}
+\end{equation}
+
+Dabei ist $\rho(\vec{r}) = \lambda \delta(r-R) \delta(z-b)$ in
+Zylinderkoordinaten. Aus geometrischen Überlegungen wird klar, dass im Integral
+wegen der Deltafunktion der Vektor $\vec{r}'$ immer auf den Kreis zeigt. Der
+Vektor $\vec{r}$ hingegen ist konstant und zeigt entlang der $z$-Achse. Das
+bedeutet, dass sowohl die Längen $r$ und $r'$ als auch der Winkel $\alpha$
+zwischen den Vektoren konstant sind.
+
+Weiterhin können wir $\envert{\vec{r} - \vec{r}'}^{-1}$ wie in der Vorlesung
+gezeigt in eine Reihe entwickeln.
+\begin{equation}
+  \frac{1}{\envert{\vec{r} - \vec{r}'}}
+  = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \alpha)
+  = \text{const. im Integral}
+\end{equation}
+
+Dabei ist $\alpha$ der Winkel zwischen den Vektoren, sowie $r_< = \min(r,r'),
+r_> = \max(r,r')$. Somit ist das Potential auf der $z$-Achse:
+
+\begin{equation}
+  4 \pi \epsilon_0 \phi(r,0)
+  = \int \dif V' \; \frac{\rho'(\vec{r}')}{\envert{\vec{r} - \vec{r}'}}
+  = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \alpha) \int \dif V' \; \rho'(\vec{r}')
+  = q \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \alpha)
+\end{equation}
+
+Wobei natürlich $r' = R^2 + b^2$.
+
+Durch Koeffizientenvergleich mit der zylindersymmetrischen Lösung der
+Poisson-Gleichung
+\begin{equation}
+  \phi(r,\theta) = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \theta)
+\end{equation}
+
+sehen wir direkt
+
+\begin{equation}
+  \phi_1(r,\theta) = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \alpha) P_l(\cos \theta)
+\end{equation}
+
+% FIXME: Bullshit. Kürzt sich nicht mit der Ladung, weils im Legendre-Polynom
+% steht.
+Für den zweiten Kreisring ist $b \to -b$ und $q \to -q$. Durch den
+Vorzeichenwechsel von $b$ ändert sich das Vorzeichen von $r'$ nicht, aber der
+Winkel $\alpha$ wird zu $\pi - \alpha$, womit das Vorzeichen des Kosinusterms
+ändert, was sich mit dem Vorzeichenwechsel der Ladung kürzt. Es wird außerdem
+$\theta$ zu $\pi - \theta$, dadurch ändert sich das Vorzeichen des $\cos
+\theta$-Terms. Wegen $P_n(-x) = (-1)^n P_n(x)$ erhalten wir
+
+\begin{equation}
+  \phi_2(r,\theta) = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} (-1)^l P_l(\cos \alpha) P_l(\cos \theta)
+\end{equation}
+
+In Summe ist das Potential
+\begin{equation}
+  \phi(r, \theta) = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos \alpha) P_l(\cos \theta) (1+(-1)^l)
+\end{equation}
+
+Die Geraden Terme fallen also weg. Damit ist auch klar, dass das Potential für
+$r \to \infty$ die Form eines Dipolfeldes hat, denn der Monopolterm ist der
+Term $l=0$, der verschwindet. Die nächsten Terme fallen alle schneller ab, also
+entsteht für $r \to \infty$ ein Dipolfeld.
+
+
 \section*{Aufgabe 3: Leiterschleife}
 
 Die Leiterschleife befinde sich in einem ruhenden Inertialsystem $S$. Der
