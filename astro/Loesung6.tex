@@ -1,0 +1,106 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage{gnuplottex}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Stupid units for astronomy
+\DeclareSIUnit\day{d}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\au{AU}
+% Astronomy-Style angles (hours, minutes, seconds)
+\newcommand*{\ra}[2][]{{
+  \def\SIUnitSymbolDegree{\textsuperscript{h}}%
+  \def\SIUnitSymbolArcminute{\textsuperscript{m}}%
+  \def\SIUnitSymbolArcsecond{\textsuperscript{s}}%
+  \ang[#1]{#2}}%
+}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Aufgabenblatt 6
+
+Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 1: Klassifikation von Sternspektren aus Objektivprismenaufnahmen}
+Im Tutorium bearbeitet.
+
+\section*{Aufgabe 3: Roche-Flächen in Doppelsternsystem}
+\begin{enumerate}[a)]
+  \item
+    Als Koordinatensystem wählen wir ein mitrotierendes
+    Schwerpunktkoordinatensystem. Die Sterne befinden sich dann an den Orten
+    \begin{equation}
+      x_A = \frac{aq}{q-1}, x_B = -\frac{a}{q-1}
+    \end{equation}
+
+    Sie haben die Massen
+    \begin{equation}
+      M_A = \frac{qM}{q+1}, M_B = \frac{M}{q+1}
+    \end{equation}
+
+    Aus den Gravitationskräften erhalten wir die Potentiale
+    \begin{equation}
+      \phi_{A,B} = -G \frac{M_{A,B}}{\envert{x - x_{A,B}}}
+    \end{equation}
+
+    Das System hat einen einen konstanten Abstand, rotiert also nach
+    Keplerschem Gesetz mit konstanter Winkelgeschwindigkeit $\omega$. Daraus
+    resultiert das Zentrifugalpotential
+    \begin{equation}
+      \phi_Z = \frac{\omega^2 x^2}{2}
+    \end{equation}
+
+    Das Potential das $M_A$ an der Stelle $x_B$ erzeugt muss dabei genauso groß
+    sein, dass es sich gegen das Zentrifugalpotential aufhebt, denn sonst wäre
+    der Abstand nicht konstant. Daraus bestimmen wir die Winkelgeschwindigkeit
+    des Systems.
+    \begin{equation}
+      \frac{\omega^2 x_B^2}{2} - \frac{GM_A}{a} \overset{!}{=} 0 \Rightarrow \omega = \frac{\sqrt{\dfrac{2 M_A G}{a}}}{x_B}
+    \end{equation}
+
+    \textbf{TODO}: Summe der Potentiale A,B,Z ist
+    Gesamtpotential. Alle Werte einsetzen, alles auf $a$ und
+    $M$ normieren.
+\end{enumerate}
+\end{document}
