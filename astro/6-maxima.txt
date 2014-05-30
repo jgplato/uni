@@ -1,0 +1,35 @@
+/* Potentiale */
+declare(M_A, real);
+declare(M_B, real);
+declare(omega, real);
+assume(M_A > 0);
+assume(M_B > 0);
+assume(omega > 0);
+phi_A(x) := - G*M_A/(abs(x_A - x));
+phi_B(x) := - G*M_B/(abs(x_B - x));
+phi_Z(x) := omega^2*x^2/2;
+
+/* x_i, M_i */
+declare(q, real);
+declare(a, real);
+assume(q > 0);
+assume(a > 0);
+xs: solve([a=M_A/(M_A+M_B)*x_A + M_B/(M_A+M_B)*x_B, x_A+x_B=a], [x_A, x_B]);
+Ms: solve([q=M_A/M_B, M=M_A+M_B], [M_A, M_B]);
+xs: ratsimp(ev(xs, Ms));
+
+/* Potentiale vereinfachen */
+define(phi_A(x), ev(phi_A(x), xs, Ms));
+define(phi_B(x), ev(phi_B(x), xs, Ms));
+
+/* Omega bestimmen */
+assume(omega > 0);
+diff(phi_A(x) + phi_Z(x), x);
+ev(%, x=x_B);
+ev(%, xs);
+om: solve(%, omega);
+ev(%, xs);
+
+/* In phi_Z(x) einsetzen */
+define(phi_Z(x), ev(phi_Z(x), om));
+phi_A(x) + phi_B(x) + phi_Z(x);

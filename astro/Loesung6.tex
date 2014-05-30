@@ -70,11 +70,13 @@ Im Tutorium bearbeitet.
   \item
     Als Koordinatensystem wählen wir ein mitrotierendes
     Schwerpunktkoordinatensystem. Die Sterne befinden sich dann an den Orten
+    % solve([d=M_A/(M_A+M_B)*x_A + M_B/(M_A+M_B)*x_B, x_A+x_B=d], [x_A, x_B]);
     \begin{equation}
       x_A = \frac{aq}{q-1}, x_B = -\frac{a}{q-1}
     \end{equation}
 
     Sie haben die Massen
+    % solve([q=M_A/M_B, M=M_A+M_B], [M_A, M_B])
     \begin{equation}
       M_A = \frac{qM}{q+1}, M_B = \frac{M}{q+1}
     \end{equation}
@@ -91,16 +93,24 @@ Im Tutorium bearbeitet.
       \phi_Z = \frac{\omega^2 x^2}{2}
     \end{equation}
 
-    Das Potential das $M_A$ an der Stelle $x_B$ erzeugt muss dabei genauso groß
-    sein, dass es sich gegen das Zentrifugalpotential aufhebt, denn sonst wäre
-    der Abstand nicht konstant. Daraus bestimmen wir die Winkelgeschwindigkeit
-    des Systems.
+    Die Kraft, die $M_A$ an der Stelle $x_B$ erzeugt, muss dabei genauso groß
+    wie die Zentrifugalkraft sein. Also
     \begin{equation}
-      \frac{\omega^2 x_B^2}{2} - \frac{GM_A}{a} \overset{!}{=} 0 \Rightarrow \omega = \frac{\sqrt{\dfrac{2 M_A G}{a}}}{x_B}
+      \partial_x \del{\phi_A + \phi_Z} \sVert[2]_{\mathrlap{x=x_B}} \overset{!}{=} 0 \Rightarrow \omega = \sqrt{\frac{q(q-1)^3 GM}{a^3(q+1)^3}}
     \end{equation}
 
-    \textbf{TODO}: Summe der Potentiale A,B,Z ist
-    Gesamtpotential. Alle Werte einsetzen, alles auf $a$ und
-    $M$ normieren.
+    Insgesamt ist das Potential also...
+
+  \item
+    %TODO: Skizze plotten
+    Ein Materietausch kann stattfinden, sobald Materie des einen Sterns das
+    Potentialmaximum überschreitet, denn dort kehrt die Kraft ihr Vorzeichen
+    um. Einer der Sterne muss also größer sein, als der entsprechende Radius.
+
+    Die Lagrangepunkte des Systems sind die Punkte an denen sich ein Körper
+    im instabilen Gleichgewicht befindet. Sie befinden sich zwischen den
+    Sternen und an diversen anderen Positionen \textbf{FIXME}.
+  \item
+    Nicht bearbeitet.
 \end{enumerate}
 \end{document}
