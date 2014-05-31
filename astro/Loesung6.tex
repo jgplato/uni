@@ -69,7 +69,9 @@ Im Tutorium bearbeitet.
 \begin{enumerate}[a)]
   \item
     Als Koordinatensystem wählen wir ein mitrotierendes
-    Schwerpunktkoordinatensystem. Die Sterne befinden sich dann an den Orten
+    Schwerpunktkoordinatensystem. Dabei setzen wir aufgrund der
+    Rotationssymmetrie um die $x$-Achse direkt $z=0$. Die Sterne befinden sich
+    dann an den Orten
     % solve([d=M_A/(M_A+M_B)*x_A + M_B/(M_A+M_B)*x_B, x_A+x_B=d], [x_A, x_B]);
     \begin{equation}
       x_A = \frac{aq}{q-1}, x_B = -\frac{a}{q-1}
@@ -83,35 +85,63 @@ Im Tutorium bearbeitet.
 
     Aus den Gravitationskräften erhalten wir die Potentiale
     \begin{equation}
-      \phi_{A,B} = -G \frac{M_{A,B}}{\envert{x - x_{A,B}}}
+      \phi_{A,B} = -G \frac{M_{A,B}}{\sqrt{(x - x_{A,B})^2 + y^2}}
     \end{equation}
 
     Das System hat einen einen konstanten Abstand, rotiert also nach
-    Keplerschem Gesetz mit konstanter Winkelgeschwindigkeit $\omega$. Daraus
+    Keplerschem Gesetz mit konstanter Winkelgeschwindigkeit $\omega = \sqrt{\dfrac{GM}{d}}$. Daraus
     resultiert das Zentrifugalpotential
     \begin{equation}
-      \phi_Z = \frac{\omega^2 x^2}{2}
+      \phi_Z = -\frac{\omega^2 r^2}{2} = -\frac{GM(x^2+y^2)}{2d}
     \end{equation}
 
-    Die Kraft, die $M_A$ an der Stelle $x_B$ erzeugt, muss dabei genauso groß
-    wie die Zentrifugalkraft sein. Also
+    Setzt man das alles ein, normiert die Längen auf $a$, die Massen auf $M$
+    und setzt der Einfachheit halber auch $G=1$, erhält man
     \begin{equation}
-      \partial_x \del{\phi_A + \phi_Z} \sVert[2]_{\mathrlap{x=x_B}} \overset{!}{=} 0 \Rightarrow \omega = \sqrt{\frac{q(q-1)^3 GM}{a^3(q+1)^3}}
+      \phi =
+      \frac{q - 1}{\sqrt{\dfrac{y^2}{a^2} + \del{\dfrac{x}{a} - q}^2}}
+      - \frac{q}{\sqrt{\dfrac{y^2}{a^2} + \del{\dfrac{x}{a} - q + 1}^2}}
+      - \frac{x^2 + y^2}{2a^2}
     \end{equation}
 
-    Insgesamt ist das Potential also...
+    %FIXME: Welchen Einfluss haben a und q auf das System? => Keine Ahnung?
+
 
   \item
-    %TODO: Skizze plotten
+    \begin{figure}[h!]
+      \includegraphics[width=\textwidth]{lagrange.pdf}
+      \label{fig:pot}
+      \caption{Effektives Potential eines Doppelsternsystems}
+    \end{figure}
+    Skizze siehe nächste Seite.
+
+    Die Linien entsprechen den Äquipotentialflächen. Die Extrema wurden jeweils mit
+    einem Punkt markiert, sie entsprechen den Lagrangepunkten, denn in den
+    Extrempunkten des Potentials wirkt keine Kraft mehr (auf ein Teilchen
+    infinitesimaler Masse).
+
     Ein Materietausch kann stattfinden, sobald Materie des einen Sterns das
-    Potentialmaximum überschreitet, denn dort kehrt die Kraft ihr Vorzeichen
-    um. Einer der Sterne muss also größer sein, als der entsprechende Radius.
-
-    Die Lagrangepunkte des Systems sind die Punkte an denen sich ein Körper im
-    instabilen Gleichgewicht befindet (Gradient des Potentials verschwindet).
-    Sie befinden sich zwischen den Sternen und an diversen anderen Positionen
-    \textbf{FIXME:} 5 Lagrange Punkte. Siehe Wikipedia.
+    Potentialextremum (Lagrangepunkt) überschreitet, denn dort kehrt die Kraft
+    ihr Vorzeichen um. Einer der Sterne muss also größer sein, als der
+    entsprechende Radius.
   \item
-    Nicht bearbeitet.
+    Wenn für Stern A der Radius gegeben ist durch
+    \begin{equation}
+      R_{R,A} \approx 0{,}44 \frac{q^{0{,}33}}{(q+1)^{0{,}2}}
+    \end{equation}
+
+    Das Problem ist symmetrisch, die Massen sind vertauschbar. Wegen $q =
+    \frac{M_A}{M_B}$ muss für Stern B einfach nur $q$ durch $q^{-1} =
+    \frac{M_B}{M_A}$ ersetzt werden. Somit
+    \begin{equation}
+      R_{R,B} \approx 0{,}44 \frac{q^{-0{,}33}}{(\frac{1}{q}+1)^{0{,}2}}
+    \end{equation}
+
+    Daraus folgt
+    \begin{align*}
+      \frac{R_{R,A}}{R_{R,B}} = \frac{q^{0,33}}{q^{-0{,}33}} \frac{(\frac{1}{q}+1)^{0{,}2}}{(q+1)^{0{,}2}} = q^{0{,}66} \frac{\del{\frac{1}{q}}^{0{,}2} (q+1)^{0{,}2}}{(q+1)^{0{,}2}} = q^{0{,}46}
+    \end{align*}
+
+
 \end{enumerate}
 \end{document}

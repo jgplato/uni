@@ -1,0 +1,321 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11727,        312]
+NotebookOptionsPosition[     11131,        287]
+NotebookOutlinePosition[     11491,        303]
+CellTagsIndexPosition[     11448,        300]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gravpot", "[", 
+   RowBox[{"mass_", ",", " ", "pos_", ",", " ", "r_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"-", "mass"}], "/", 
+   RowBox[{"Norm", "[", 
+    RowBox[{"pos", "-", "r"}], "]"}]}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"centripot", "[", 
+   RowBox[{"omega_", ",", " ", "r_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"omega", "^", "2"}]}], " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Norm", "[", "r", "]"}], "^", "2"}], "/", "2"}]}]}]], "Input",
+ CellChangeTimes->{{3.6105293053659267`*^9, 3.6105293061284122`*^9}}],
+
+Cell["\<\
+Das sind die drei Potentiale (zwei f\[UDoubleDot]r verschiedene Massen und \
+eins f\[UDoubleDot]r die Zentrifugalkraft). Wir m\[UDoubleDot]ssen jetzt \
+Omega so berechnen, dass Potential A (von Masse A) und das \
+Zentrifugalpotential am Ort der Masse B ein Extremum haben (damit keine Kraft \
+auf Masse B wirkt, sonst w\[UDoubleDot]rde sie wegfliegen).
+\
+\>", "Text",
+ CellChangeTimes->{{3.610529380852599*^9, 3.6105295600458717`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.610529328063192*^9, 3.6105293297609367`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"ContourPlot", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"gravpot", "[", 
+       RowBox[{"m1", ",", " ", 
+        RowBox[{"p", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "+", "\[IndentingNewLine]", 
+      
+      RowBox[{"gravpot", "[", 
+       RowBox[{"m2", ",", " ", 
+        RowBox[{"p", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "+", "\[IndentingNewLine]", 
+      
+      RowBox[{"centripot", "[", 
+       RowBox[{"omega", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", 
+       RowBox[{"-", "2"}], ",", " ", "2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", " ", 
+       RowBox[{"-", "2"}], ",", " ", "2"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Contours", " ", "\[Rule]", " ", "10"}], ",", " ", 
+     RowBox[{"ContourLabels", " ", "\[Rule]", " ", "True"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m1", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", "3"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m2", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", "3"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"omega", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", 
+     "30"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"p", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0"}], "}"}]}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", " ", 
+       RowBox[{"-", "1"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1"}], "}"}], ",", " ", "Locator"}], 
+    "\[IndentingNewLine]", "}"}], ",", " ", 
+   RowBox[{"Deployed", " ", "\[Rule]", " ", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6105210633899117`*^9, 3.610521077114168*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m1$$ = 1, $CellContext`m2$$ = 
+    1, $CellContext`omega$$ = 1, $CellContext`p$$ = {{-1, 0}, {1, 0}}, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m1$$], 1}, 0, 3}, {{
+       Hold[$CellContext`m2$$], 1}, 0, 3}, {{
+       Hold[$CellContext`omega$$], 1}, 0, 30}, {{
+       Hold[$CellContext`p$$], {{-1, 0}, {1, 0}}}, {-1, -1}, {1, 1}}}, 
+    Typeset`size$$ = {360., {176., 182.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`m1$11424$$ = 0, $CellContext`m2$11425$$ = 
+    0, $CellContext`omega$11426$$ = 0, $CellContext`p$11427$$ = {0, 0}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m1$$ = 1, $CellContext`m2$$ = 
+        1, $CellContext`omega$$ = 1, $CellContext`p$$ = {{-1, 0}, {1, 0}}}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`m1$$, $CellContext`m1$11424$$, 0], 
+        Hold[$CellContext`m2$$, $CellContext`m2$11425$$, 0], 
+        Hold[$CellContext`omega$$, $CellContext`omega$11426$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$11427$$, {0, 0}]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      ContourPlot[$CellContext`gravpot[$CellContext`m1$$, 
+          
+          Part[$CellContext`p$$, 
+           1], {$CellContext`x, $CellContext`y}] + \
+$CellContext`gravpot[$CellContext`m2$$, 
+          
+          Part[$CellContext`p$$, 
+           2], {$CellContext`x, $CellContext`y}] + \
+$CellContext`centripot[$CellContext`omega$$, {$CellContext`x, \
+$CellContext`y}], {$CellContext`x, -2, 2}, {$CellContext`y, -2, 2}, Contours -> 
+        10, ContourLabels -> True], 
+      "Specifications" :> {{{$CellContext`m1$$, 1}, 0, 
+         3}, {{$CellContext`m2$$, 1}, 0, 3}, {{$CellContext`omega$$, 1}, 0, 
+         30}, {{$CellContext`p$$, {{-1, 0}, {1, 0}}}, {-1, -1}, {1, 1}, 
+         ControlType -> Locator}}, "Options" :> {Deployed -> True}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{413., {248., 255.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.610521078148921*^9, 3.6105292661102343`*^9, 
+  3.6105292966412992`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot3D", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"gravpot", "[", 
+       RowBox[{"m1", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "+", "\[IndentingNewLine]", 
+      
+      RowBox[{"gravpot", "[", 
+       RowBox[{"m2", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}], "+", "\[IndentingNewLine]", 
+      
+      RowBox[{"centripot", "[", 
+       RowBox[{"omega", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y"}], "}"}]}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", " ", 
+       RowBox[{"-", "2"}], ",", " ", "2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"y", ",", " ", 
+       RowBox[{"-", "2"}], ",", " ", "2"}], "}"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m1", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", "3"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m2", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", "3"}], 
+    "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"omega", ",", " ", "1"}], "}"}], ",", " ", "0", ",", " ", 
+     "30"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6105210633899117`*^9, 3.610521168876397*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m1$$ = 1, $CellContext`m2$$ = 
+    1, $CellContext`omega$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`m1$$], 1}, 0, 3}, {{
+       Hold[$CellContext`m2$$], 1}, 0, 3}, {{
+       Hold[$CellContext`omega$$], 1}, 0, 30}}, Typeset`size$$ = {
+    360., {143., 148.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`m1$11497$$ = 
+    0, $CellContext`m2$11498$$ = 0, $CellContext`omega$11499$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m1$$ = 1, $CellContext`m2$$ = 
+        1, $CellContext`omega$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`m1$$, $CellContext`m1$11497$$, 0], 
+        Hold[$CellContext`m2$$, $CellContext`m2$11498$$, 0], 
+        Hold[$CellContext`omega$$, $CellContext`omega$11499$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot3D[$CellContext`gravpot[$CellContext`m1$$, {-1, 
+          0}, {$CellContext`x, $CellContext`y}] + \
+$CellContext`gravpot[$CellContext`m2$$, {1, 
+          0}, {$CellContext`x, $CellContext`y}] + \
+$CellContext`centripot[$CellContext`omega$$, {$CellContext`x, \
+$CellContext`y}], {$CellContext`x, -2, 2}, {$CellContext`y, -2, 2}], 
+      "Specifications" :> {{{$CellContext`m1$$, 1}, 0, 
+         3}, {{$CellContext`m2$$, 1}, 0, 3}, {{$CellContext`omega$$, 1}, 0, 
+         30}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {212., 219.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6105292662828817`*^9, 3.61052929679937*^9}]
+}, Open  ]]
+},
+WindowSize->{1054, 701},
+WindowMargins->{{53, Automatic}, {Automatic, 41}},
+CellContext->Notebook,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 250, 7, 32, "Input"],
+Cell[810, 29, 355, 10, 32, "Input"],
+Cell[1168, 41, 445, 8, 91, "Text"],
+Cell[1616, 51, 94, 1, 32, "Input"],
+Cell[CellGroupData[{
+Cell[1735, 56, 2488, 69, 319, "Input"],
+Cell[4226, 127, 2864, 57, 520, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7127, 189, 1660, 48, 209, "Input"],
+Cell[8790, 239, 2325, 45, 481, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
