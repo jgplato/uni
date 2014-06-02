@@ -1,0 +1,155 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 1, Sommersemester 2014
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Paul Rahmann \texttt{<paulrahmann@zedat.fu-berlin.de>}
+
+Drehbewegungen, Tutor: Christian Hindermann
+\vspace{-10pt}
+\end{center}
+
+\section*{Physikalische Grundlagen}
+Das Trägheitsmoment wird durch $F = \dot{p} = m \dot{v}$ motiviert. Wenn auf eine Masse $m$
+im Abstand $r$ von der Drehachse eine Kraft wirkt, folgt
+
+\begin{equation}
+  \vec{r} \times \vec{F}
+  = \vec{r} \times m \dot{\vec{v}}
+\end{equation}
+
+mit $v = r \omega$ und $r$ konstant und weil die Drehachse senkrecht auf Kraft
+und Ortsvektor steht
+
+\begin{equation}
+  = \dot{\vec{\omega}} r^2 m
+\end{equation}
+
+Durch Überführung von $m$ in ein Massenelement $\dif m$ folgt
+
+\begin{equation}
+  \underbrace{\vec{r} \times \vec{F}}_{=: \vec{M}} = \dot{\vec{\omega}} \underbrace{\int \dif m \; r^2}_{=: I}
+\end{equation}
+
+Wir verwenden ab hier nur die Beträge, da alle Vektoren jeweils senkrecht
+aufeinander stehen. Die Richtungen können dann aus der Rechte-Hand-Regel
+ermittelt werden.
+
+Die Bewegungsgleichung für die Drehbewegung eines starren Körpers lautet also gemäß der Herleitung
+\begin{equation}
+  M = I \dot{\omega} = I \ddot{\phi}
+\end{equation}
+
+Analog zur Newtonschen Bewegungsgleichung für lineare Bewegungen unter Einfluss
+einer konstanten Kraft ist die Lösung dieser Differentialgleichung unter
+Annahme eines konstanten Drehmoments $M$
+\begin{equation}
+  \phi(t) = \frac{M}{2I}t^2 + \omega_0 t + \phi_0
+\end{equation}
+
+Dabei ist $M$ das konstante Drehmoment, $I$ das Trägheitsmoment, $\omega_0$ die
+Anfangswinkelgeschwindigkeit und $\phi_0$ der Anfangswinkel. Als Konsequenz
+ergibt sich unter Einfluss einer konstanten Kraft also eine lineare Zunahme der
+Winkelgeschwindigkeit
+\begin{equation}
+  \omega(t) = \frac{M}{I} t + \omega_0
+\end{equation}
+
+Das Drehmoment im Schwerpunktkoordinatensystem ist
+
+\begin{equation}
+  I = \int \dif m \; r^2
+\end{equation}
+
+Sei die Drehachse oBdA $\omega \hat{z}$. Verschieben wir die Drehachse um
+$(a_x, a_y)$ erhalten wir
+
+\begin{align*}
+  I_a &= \int \dif m \; \del{(x - a_x)^2 + (y - a_y)^2} \\
+      &= \int \dif m \; \del{x^2 - 2xa_x + a_x^2 + y^2 - 2ya_y + a_y^2} \\
+      &= \int \dif m \; \del{x^2 + y^2}
+       + 2 a_x \int \dif m \; x
+       + 2 a_y \int \dif m \; y
+       + \del{a_x^2 + a_y^2} \int \dif m
+\end{align*}
+
+Der erste Term ist das Drehmoment um den Schwerpunkt, die nächsten beiden
+Integrale sind die $x$- und die $y$-Koordinate des Schwerpunktes im
+Schwerpunktsystem. Da in diesem der Schwerpunkt im Ursprung liegt, verschwinden
+sie. Das nächste Integral ist einfach die Gesamtmasse. Somit
+
+\begin{equation}
+  I_a = I + ma^2
+\end{equation}
+
+Dies ist der Steinersche Satz.
+
+Für die Aufgabenstellung ist außerdem die Berechnung des Trägheitsmoments eines
+starren Zylinders gefordert. Ein Vollzylinder wird dem experimentellen Aufbau
+nicht gerecht, denn die Masse konzentriert sie unseren Erachtens nach auf den
+Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
+= \frac{m}{2 \pi R} \delta(r-R)\delta(z)$ aus, erhalten wir
+
+\begin{equation}
+  I = \int \dif V \; r^2 \rho = m R^2
+\end{equation}
+
+\section*{Aufgaben}
+%Untersuchung gleichmäßig beschleunigter Drehbewegungen
+%\begin{itemize}
+%  \item Messung von Weg-Zeit-Abhängigkeiten
+%  \item Messung von Drehmoment-Zeit-Abhängigkeiten
+%  \item Messung der Reibungsverluste
+%\end{itemize}
+%für unterschiedliche Trägheitsmomente (mit und ohne Zusatzmassen).
+\begin{enumerate}[1.]
+  \item Qualitative und quantitative Überprüfung des Bewegungsgesetzes. Messung
+    der Zeit in Abhängigkeit des Drehwinkels (bei festem Drehmoment) und in
+    Abhängigkeit des Drehmoments (bei festem Drehwinkel). Bestimmung der
+    Trägheitsmomente (mit und ohne Zusatzmassen) des Rades aus den Messungen
+    und Vergleich mit dem berechneten Wert aus dem \textit{Steinerschen Satz}.
+  \item
+    Diskussion von Reibungseinflüssen und Reibungsmodellen (Abhängigkeit von
+    Reibungskräften bzw. Reibungsmomenten von den verschiedenen
+    Bewegungsparametern) aus den Ergebnissen der Messungen.
+\end{enumerate}
+\end{document}
