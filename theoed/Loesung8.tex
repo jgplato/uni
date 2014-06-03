@@ -236,4 +236,98 @@ Mit der Substitution $x(z') = z - z'$, $\dif x = - \dif z'$ wird das zu
     sich im instabilen Gleichgewicht, wird also bei einer Auslenkung nach oben
     von den restlichen Drähten abgestoßen, geht also weiter in Richtung $y$.
 \end{enumerate}
+
+\section*{Aufgabe 3: Helmholtz-Spulen}
+\begin{enumerate}[a)]
+  \item
+    Mit der Kürzung $2b = a$ erhalten wir die Stromdichte
+    \begin{equation}
+      \vec{j} = I \hat{e}_\varphi \delta(r-R) \delta(z \pm b)
+    \end{equation}
+    wobei die Doppeldeutigkeit ($\pm$) als Summe der Terme für positives und
+    negatives $b$ gemeint ist.
+
+    Der Ortsvektor sei $\vec{r} = z \hat{e}_z$. Durch Einsetzen in das
+    Biot-Savert-Gesetz erhält man
+    \begin{align*}
+      \vec{B}(\vec{r})
+      &= \frac{\mu_0}{4 \pi}
+      \int\limits_0^{2 \pi} \dif \varphi'
+      \int\limits_{-\infty}^{\infty} \dif z'
+      \int\limits_{0}^{\infty} \dif r' \;
+      r'
+      I \hat{e}_\varphi \delta(r-R) \delta(z \pm b) \times
+      \frac{
+        (z - z') \hat{e}_z - r'\hat{e}_r
+      }{
+        \sqrt{
+          (z-z')^2 + r'^2
+        }^3
+      } \\
+      &= \frac{R I \mu_0}{4 \pi}
+      \int\limits_0^{2 \pi} \dif \varphi'
+      \hat{e}_\varphi \times
+      \frac{
+        (z \mp b) \hat{e}_z - R\hat{e}_r
+      }{
+        \sqrt{
+          (z \mp b)^2 + R^2
+        }^3
+      } \\
+      &= \frac{RI \mu_0}{4 \pi}
+      \int\limits_0^{2 \pi} \dif \varphi'
+      \frac{
+        (z \mp b) \hat{e}_r
+        + R \hat{e}_z
+      }{
+        \sqrt{
+          (z \mp b)^2 + R^2
+        }^3
+      } \\
+      &= \frac{RI \mu_0}{2}
+      \frac{
+        R \hat{e}_z
+      }{
+        \sqrt{
+          (z \mp b)^2 + R^2
+        }^3
+      } \\
+      &= \frac{I R^2 \mu_0}{2}
+      \frac{
+        \hat{e}_z
+      }{
+        \sqrt{
+          \del{z \pm \frac{a}{2}}^2 + R^2
+        }^3
+      } \\
+      &= \frac{I R^2 \mu_0}{2} \hat{e}_z \del{
+        \frac{
+          1
+        }{
+          \sqrt{
+            \del{z + \frac{a}{2}}^2 + R^2
+          }^3
+        }
+        +
+        \frac{
+          1
+        }{
+          \sqrt{
+            \del{z - \frac{a}{2}}^2 + R^2
+          }^3
+        }
+      }
+    \end{align*}
+  \item
+    Wir entwickeln $B(z) \hat{e}_z$ in $z=0$:
+    \begin{equation}
+      B(z) \propto
+      \frac{16}{\del{a^2 + 4R^2}^{3/2}} +
+      \frac{384 (a^2-R^2)z^2}{\del{a^2+4R^2}^{7/2}}
+      + \mathcal{O}(z^4)
+    \end{equation}
+
+    Die Inhomogenitäten bis zur 4. Ordnung verschwinden, wenn man $a=R$ setzt.
+    Der Abstand zwischen den Spulen muss also genau so groß sein, wie ihr Radius.
+\end{enumerate}
 \end{document}
