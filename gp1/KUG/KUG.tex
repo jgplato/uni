@@ -60,7 +60,7 @@ die Gewichtskraft
 
 Dem entgegen wirkt eine Auftriebskraft, die der Masse der vom Körper verdrängten
 Flüssigkeit entspricht: $m_\text{verdrängt} = \rho V$. Im Fall einer Kugel mit
-Radius $r$ ist das Volumen $3V = 4 \pi r^3$, somit
+Radius $r$ ist das Volumen $V = \dfrac{4}{3} \pi r^3$, somit
 
 \begin{equation}
   F_A = -\frac{4}{3} \pi r^3 \rho g
@@ -161,12 +161,31 @@ Kugelfallviskosimeter am 16. Mai 2014
 \vspace{-10pt}
 \end{center}
 
+\section*{Versuchsdurchführung}
+Zuerst haben wir eine feste Fallstrecke abgemessen, die mit den vorhandenen
+Markierungen auf dem Zylinder übereinstimmte. Anschließend haben wir die vier
+verschiedenen Typen von Stahlkugeln mit Propanol gereinigt.
+
+Nachdem der ölgefüllte Zylinder aus dem Kühlschrank entnommen wurde, haben wir
+Stahlkugeln mit verschiedenem Durchmesser nacheinander mittig in den Zylinder
+gegeben und mittels Handstoppuhr die Zeit gemessen, die die Kugeln benötigten,
+um jeweils unter die beiden Markierungen der vorher definierten Fallstrecke zu
+sinken (siehe Zeichnung des Messaufbaus).
+
+Über die Versuchsdauer (1:18 Stunden) erwärmte sich dabei das Öl, weswegen wir
+die Temperatur mittig im Zylinder jeweils bei Überqueren der Markierungen
+abgelesen haben, um daraus den Mittelwert zu bilden.
+
+Im Anschluss haben wir die Durchmesser der verschiedenen Stahlkugeln mit der
+Mikrometerschraube bestimmt.
+
 \section*{Aufgabe 1}
 Sofern nicht anders angegeben wird Gaußsche Fehlerrechnung verwendet.
 
 
 Die Fallzeiten der Kugeln wurden über eine feste Fallstrecke von $s =
-\SI{0.2060+-0.0005}{m}$ bei verschiedenen Temperaturen gemessen.
+\SI{0.2060+-0.0005}{m}$ (der Fehler ergibt sich aus der Skala des Lineals) bei
+verschiedenen Temperaturen gemessen.
 
 Es wurde jeweils die Anfangs- und die Endtemperatur gemessen und davon der
 Mittelwert als konstante Temperatur angenommen. Aufgrund der Ablesegenauigkeit
@@ -216,7 +235,7 @@ und $s$ die Fallstrecke.
 
 Wir nutzen die folgenden Werte:
 \begin{align*}
-  &t = \SI{14.9+-1.6}{s}     && \qquad \text{(siehe grafische Auswertung)} \\
+  &t = \SI{14.95+-0.52}{s}     && \qquad \text{(siehe grafische Auswertung)} \\
   &r = \SI{1.000+-0.002}{mm} && \qquad \text{(Quelle: Platzskript)} \\
   &g = \SI{9.812777+-0.000005}{m/s^2} && \qquad \text{(Quelle: Skript GP1, Seite 61)} \\
   &\rho_\text{K} = \SI{7.81+-0.02e3}{kg/m^3} && \qquad \text{(Quelle: Platzskript)} \\
@@ -234,8 +253,10 @@ der anderen Werte vernachlässigbar. Wir erhalten
 
 Damit ergibt sich als Endergebnis eine Viskosität von
 
+% WA: 2/9*(14.95 s)*(1 mm)²*(9.812777 m/s²)*(7.81*10³ kg/m³ - 0.975*10³ kg/m³)/(20.60 cm)
+% WA: 1.082/14.95 * 0.52
 \begin{equation*}
-  \eta = \SI{1.1+-0.2}{\pascal \second}
+  \eta = \SI{1.08+-0.04}{\pascal \second}
 \end{equation*}
 
 In E. Hering, R. Martin, M. Stohrer: Taschenbuch der Mathematik und Physik,
@@ -247,7 +268,7 @@ Stelle anzunehmen. Der Literaturwert lautet somit
   \eta = \SI{0.986+-0.001}{\pascal \second}
 \end{equation*}
 
-Unsere Messungen stimmen mit dem Literaturwert überein.
+Unsere Messungen sind mit dem Literaturwert verträglich.
 
 \section*{Aufgabe 3}
 
@@ -275,15 +296,18 @@ Für den Fehler gilt
   }
 \end{align*}
 
-Somit erhalten wir die Werte
+Mit den aus der Grafik abgelesenen Fallzeiten für $20\,^{\circ} \mathrm{C}$
+können wir damit die Radien der unbekannten Stahlkugeln ermitteln.
 
+% Mit neuen Fehlern nachgerechnet. Resultierende Radien inkl. Fehler ändern
+% sich nicht.
 \vspace{0.5cm}
 \begin{tabular}{l|r|r|r}
   Kugel & Fallzeit $t$ [s] & Berechneter Radius $r$ [mm] & Gemessener Radius $r'$ [mm] \\
   \hline
-  A & $\num{52.9+-3.3}$ & $\num{0.52+-0.04}$ & $\num{0.495+-0.005}$ \\
-  B & $\num{22.6+-1.9}$ & $\num{0.81+-0.06}$ & $\num{0.780+-0.005}$ \\
-  C & $\num{10.0+-1.2}$ & $\num{1.2+-0.1}$ & $\num{1.235+-0.005}$ \\
+  A & $\num{52.9+-1.8}$   & $\num{0.52+-0.04}$ & $\num{0.495+-0.005}$ \\
+  B & $\num{22.58+-0.70}$ & $\num{0.81+-0.06}$ & $\num{0.780+-0.005}$ \\
+  C & $\num{10.02+-0.42}$ & $\num{1.2+-0.1}$   & $\num{1.235+-0.005}$ \\
 \end{tabular}
 \vspace{0.5cm}
 
@@ -403,21 +427,29 @@ kurzen Strecken erreicht wird.
 \section*{Zusammenfassung und Diskussion}
 
 Wir konnten aus der Messung der Fallzeit von Stahlkugeln in Rizinusöl bei
-verschiedenen Temperaturen erfolgreich die Viskosität bei Normalbedingungen
-extrapolieren. Auch konnten wir den exponentiellen Zusammenhang zwischen
-Viskosität und Temperatur zeigen.
+verschiedenen Temperaturen die Viskosität bei Normalbedingungen extrapolieren.
+Die Abweichung zum Literaturwert liegt in systematischen Fehlern begründet. Wir
+nehmen eine konstante Temperierung des Öls an. Durch die schnelle Erwärmung
+entsteht jedoch ein Temperaturgradient. Die Messung genau in der Mitte des
+Gefäßes soll zwar die Messunsicherheit herausmitteln, unberücksichtigt bleibt
+dabei jedoch eine leichte Konvektionsströmung die als systematischer Fehler die
+empfindliche Messung in Richtung langsamerer Fallzeiten beeinflusst. Somit
+ergibt sich eine leicht größere Viskosität.
 
-Die relativ geringe Genauigkeit hätte man durch eine konstante Temperierung des
-Öls steigern können, was jedoch die Versuchsdurchführung erheblich
-verkompliziert hätte.
+Qualitativ konnten wir den exponentiellen Zusammenhang zwischen Viskosität und
+Temperatur im Rahmen der Messgenauigkeit bestätigen.
+
+Die relativ geringe Genauigkeit und den systematischen Fehler hätte man durch
+eine konstante Temperierung des Öls steigern können, was jedoch die
+Versuchsdurchführung erheblich verkompliziert hätte.
 
 Aus der Abweichung zwischen dem mit der Mikrometerschraube gemessenen Radius
-und dem tatsächlichen Radius $r_0$ kann man eine Differenz erkennen, die
-außerhalb der Messtoleranzen liegt. Dies legt den Schluss nahe, dass die
-Mikrometerschraube falsch bedient wurde (zu stark angezogen).
-Dementsprechend entsprechen auch die anderen Wert nicht der angegebenen
-Genauigkeit, was aber nicht ins Gewicht fällt, da die berechneten Werte
-signifikant ungenauer sind.
+($\SI{1.97+-0.01}{mm}$) und dem tatsächlichen Radius $r_0 =
+\SI{1.000+-0.002}{mm}$ kann man eine Differenz erkennen, die außerhalb der
+Messtoleranzen liegt. Dies legt den Schluss nahe, dass die Mikrometerschraube
+falsch bedient wurde (zu stark angezogen).  Dementsprechend entsprechen auch
+die anderen Wert nicht der angegebenen Genauigkeit, was aber nicht ins Gewicht
+fällt, da die berechneten Werte signifikant ungenauer sind.
 
 Aus Aufgabe 4 konnten wir ersehen, dass die Annahme einer konstanten
 Fallgeschwindigkeit gerechtfertigt ist, denn wir konnten zeigen, dass eine
