@@ -364,6 +364,50 @@ und die Reibungskonstante
   \mu = \frac{mgr}{C}
 \end{equation}
 
+Der Fehler des Trägheitsmoments ist unter Vernachlässigung des Fehlers der sehr
+genau bekannten Gravitationskonstante % Zu wenig Platz für g.
+\begin{align*}
+  \Delta I &= \sqrt{
+    \del{\frac{\partial I}{\partial m} \Delta m}^2 +
+    \del{\frac{\partial I}{\partial r} \Delta r}^2 +
+    \del{\frac{\partial I}{\partial B} \Delta B}^2 +
+    \del{\frac{\partial I}{\partial C} \Delta C}^2
+  } \\
+  &= \sqrt{
+    r^2\del{\frac{g}{BC} -r}^2 \Delta m^2 +
+    \del{\frac{mg}{BC} - 2mr}^2 \Delta r^2 +
+    \del{\frac{mrg}{B^2C}}^2 \Delta B^2 +
+    \del{\frac{mrg}{BC^2}}^2 \Delta C^2
+  }
+\end{align*}
+
+Der Fehler der Reibungskonstante ist (ebenfalls unter Vernachlässigung der
+Reibungskonstante)
+\begin{equation}
+  \Delta \mu = \sqrt{
+    \del{\frac{gr}{C}}^2 \Delta m^2 +
+    \del{\frac{mg}{C}}^2 \Delta r^2 +
+    \del{\frac{mgr}{C^2}}^2 \Delta C^2
+  }
+\end{equation}
+
+Somit erhalten wir folgende Wertetabelle
+
+\input{results.tex}
+
+Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lassen
+auf ein inkorrektes Reibungsmodell schließen, so dass es nicht wundert, dass
+auch die Werte für $I$ inkonsistent sind. In erster Näherung scheint das
+Trägheitsmoment aber für die einzelnen Messungen zu stimmen, so dass wir durch
+Mittelwertbildung erhalten:
+
+\begin{equation}
+  I = \num{1.109+-0.092}
+\end{equation}
+
+Für die Messungen mit Zusatzmassen kann man das Trägheitsmoment nur sehr grob
+abschätzen.
+
 Obwohl bei der Durchführung bei den letzten Versuchen mit den
 Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
 wurde, wird diese in der Bewegungsgleichung ignoriert, was bei der Auswertung

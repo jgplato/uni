@@ -2,29 +2,30 @@ require "rubygems"
 require "byebug"
 
 g = 9.8182 # FIXME
-r = 0.2874 # Aus Zoll
+r = 0.2775
+r_err = 0.00005
 
 # m1...m5
 M = [
-  0.1130,
-  0.2738,
-  0.5410,
-  0.7485,
-  0.9867
+  [0.1130, 0.0001],
+  [0.2738, 0.00023],
+  [0.5410, 0.0001],
+  [0.7485, 0.00023],
+  [0.9867, 0.00023]
 ]
 
 def mass(number_of_exp)
   case number_of_exp
   when (1..6), (30..36)
-    M[1]
+    M[0]
   when (7..12), (37..42)
-    M[2]
+    M[1]
   when (13..18), (43..48)
-    M[3]
+    M[2]
   when (19..24), (49..54)
-    M[4]
+    M[3]
   when (25..30), (55..60)
-    M[5]
+    M[4]
   else
     raise "Unknown"
   end
@@ -39,12 +40,52 @@ end.map do |num,a,a_err,b,b_err,c,c_err|
   [num.to_i, a.to_f, a_err.to_f, b.to_f, b_err.to_f, c.to_f, c_err.to_f]
 end
 
-data.each do |num,a,a_err,b,b_err,c,c_err|
-# Compute I
-  m = mass(num)
-  i = m*r*(g/(b*c) - r)
-  mu = m*g*r/c
-  puts "#{num} I = #{i}"
-  #puts "#{num} mu = #{mu}"
+def round2(val,err)
+  err = ("%.2g" % err).to_f # Round error to two significant places
+  d = (Math.log(err)/Math.log(10)) # Get number of digits
+  d = d > 0 ? d.ceil : d.floor
+  val = val.round(-d) # Round value to same number of digits
+  # Works in most cases, should be formatted
+  [val,err]
 end
 
+def f(val, err)
+  val, err = round2(val,err)
+  "$\\num{#{val}+-#{err}}$"
+end
+is = []
+i_errs = []
+File.open("./results.tex", "w") do |fh|
+  fh.write "\\begin{tabular}{l|r|r|r|r|r}\n"
+  fh.write "Messung & $A$ & $B$ & $C$ & $I$ & $\\mu$ \\\\\n"
+  data.each do |num,a,a_err,b,b_err,c,c_err|
+    m, m_err = mass(num)
+    byebug if m.nil?
+    i = m*r*(g/(b*c) - r)
+    i_err = Math.sqrt(
+      r**2*(g/(b*c) - r)**2*m_err**2 +
+      ((m*g)/(b*c) - 2*m*r)**2*r_err**2 +
+      ((m*r*g)/(b**2*c))*b_err**2 +
+      ((m*r*g)/(b*c**2))*c_err**2
+    )
+    mu = m*g*r/c
+    mu_err = Math.sqrt(
+      (g*r/c)**2*m_err**2 +
+      (m*g/r)**2*r_err**2 +
+      (m*g*r/c**2)**2*c_err**2
+    )
+    puts "#{num} I = #{i}+-#{i_err}"
+    fh.write "#{num} & #{f(a,a_err)} & #{f(b,b_err)} & #{f(c,c_err)}, & #{f(i,i_err)} & #{f(mu, mu_err)} \\\\\n"
+
+    if num <= 30
+      is  << i
+      i_errs << i_err
+    end
+  end
+  fh.write "\\end{tabular}\n"
+end
+
+puts "Avg 1...30:"
+i = is.reduce(&:+)/is.size
+i_err = 1/is.size.to_f*Math.sqrt(i_errs.map{|e| e**2}.reduce(&:+))
+puts "I = #{i}+-#{i_err}"
