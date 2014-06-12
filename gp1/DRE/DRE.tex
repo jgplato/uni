@@ -338,6 +338,19 @@ Und können damit gegen
 \end{equation}
 fitten.
 
+Hieraus sieht man, dass es einerseits eine Grenzgeschwindigkeit für $t \to
+\infty$ gibt (nämlich $C$), andererseits erhält man über Taylorentwicklung
+\begin{equation}
+  A(1-Bt+\frac{1}{2}B^2t^2 + \dots - 1) + Ct = -ABt+\frac{1}{2}AB^2t^2 + Ct = (C-AB)t+ \frac{1}{2}AB^2 t^2 + \dots
+\end{equation}
+
+Beim Grenzübergang $\mu \to 0$ verschwinden die Terme in $t$, während sie sich
+für $t^2$ kürzen, so dass im reibungsfreien Fall eine Abhängigkeit von $\phi(t)
+\propto t^2$ stehen bleibt, wie zu erwarten war.
+
+Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots siehe weiter
+hinten) und erhalten damit folgende Werte
+
 Obwohl bei der Durchführung bei den letzten Versuchen mit den
 Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
 wurde, wird diese in der Bewegungsgleichung ignoriert, was bei der Auswertung
@@ -386,4 +399,6 @@ Dabei ist $B$ eine zu bestimmende Reibungskonstante.
   % gnuplot ./plot/plot-57-quad.gnuplot
   \input{plot-57-quad.tex}
 \end{landscape}
+
+\input{plots-exp.tex}
 \end{document}
