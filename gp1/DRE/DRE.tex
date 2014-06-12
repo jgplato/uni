@@ -250,24 +250,21 @@ Energie des Rades und der angehängten Masse
   T = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} I \dot{\phi}^2 = \frac{1}{2} \del{m r^2 + I} \dot{\phi}^2
 \end{equation}
 
-Da hier eine Drehbewegung auftritt ist es sinnvoll mit einem Ansatz für die
-virtuelle Arbeit zu rechnen. Einerseits wird natürlich Arbeit verrichtet, wenn
-sich die Masse im Gravitationspotential nach unten bewegt, andererseits ist für eine
-Winkeländerung ein Drehmoment erforderlich, somit
-
+Das Potential ist ein Gravitationspotential, woraus sich die Potentielle Energie ergibt
 \begin{equation}
-  \delta W = mg \delta x + M \delta \phi = (mgr+M) \delta \phi
+  V = -mgx = -mgr \phi
 \end{equation}
 
-Somit ergibt sich die generalisierte Zwangskraft (hier also ein Drehmoment)
+Durch $Q = -\frac{\partial V}{\partial \phi}$ ergibt sich die generalisierte
+Zwangskraft (hier also ein Drehmoment)
 \begin{equation}
-  Q = mgr+M
+  Q = mgr
 \end{equation}
 
 Statt eine Dissipationsfunktion zu nutzen können wir an dieser Stelle die
-Zwangskraft auch direkt als Drehmoment angeben. Die Begründung des Ansatzes ist in Aufgabe 2
-dargestellt. % FIXME Achtung: Und muss da auch bleiben!
-Wir wählen eine Geschwindigkeitsabhängiges Reibungsdrehmoment
+Zwangskraft nun direkt als Drehmoment angeben. Die Begründung des Ansatzes ist
+in Aufgabe 2 dargestellt. % FIXME Achtung: Und muss da auch bleiben!
+Wir wählen eine geschwindigkeitsabhängiges Reibungsdrehmoment
 \begin{equation}
   M_R = \mu \dot{\phi} = Q_R
 \end{equation}
@@ -279,13 +276,13 @@ Wir wählen eine Geschwindigkeitsabhängiges Reibungsdrehmoment
 
 Erhalten wir die Bewegungsgleichung
 \begin{equation}
-  (mr^2+I) \ddot{\phi} = mgr + M - \mu \dot{\phi} \Leftrightarrow
-  \frac{mr^2+I}{mgr+M} \ddot{\phi} = 1 - \frac{\mu}{mgr+M} \dot{\phi}
+  (mr^2+I) \ddot{\phi} = mgr - \mu \dot{\phi} \Leftrightarrow
+  \frac{mr^2+I}{mgr} \ddot{\phi} = 1 - \frac{\mu}{mgr} \dot{\phi}
 \end{equation}
 
 Wir definieren
 \begin{equation*}
-  A = \frac{mr^2+I}{mgr+M} \quad B = \frac{\mu}{mgr+M} \quad \omega = \dot{\phi}
+  A = \frac{mr^2+I}{mgr} \quad B = \frac{\mu}{mgr} \quad \omega = \dot{\phi}
 \end{equation*}
 
 und erhalten eine handliche Differentialgleichung
@@ -317,10 +314,10 @@ Mit der Anfangsbedingung $\phi(0) = 0$ erhält man $C = -\frac{A}{B^2}$, somit
 Durch Rücksubstitution erhalten wir die Lösung
 \begin{equation}
   \phi(t)
-  %= \frac{(mr^2+I)(mgr+M)}{\mu^2} \del{
+  %= \frac{(mr^2+I)(mgr)}{\mu^2} \del{
   %  \exp{-\frac{\mu}{mr^2 + I} t} - 1
-  %} + \frac{t}{\mu} \del{mgr + M}
-  = \del{mgr+M}
+  %} + \frac{t}{\mu} \del{mgr}
+  = \del{mgr}
   \del{
     \frac{mr^2+I}{\mu^2}
     \del{
@@ -330,12 +327,16 @@ Durch Rücksubstitution erhalten wir die Lösung
 
 Wir definieren nun unsere Fitparameter als
 \begin{equation}
-  A = \frac{(mgr+M)(mr^2+I)}{\mu^2} \qquad
+  A = \frac{(mgr)(mr^2+I)}{\mu^2} \qquad
   B = \frac{\mu}{mr^2+I} \qquad
-  C = \frac{mgr+M}{\mu}
+  C = \frac{mgr}{\mu}
 \end{equation}
 
-Und können dagegen fitten
+Und können damit gegen
+\begin{equation}
+  \phi(t) = A(e^{-Bt} -1) + Ct
+\end{equation}
+fitten.
 
 Obwohl bei der Durchführung bei den letzten Versuchen mit den
 Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
