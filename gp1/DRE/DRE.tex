@@ -33,6 +33,11 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Var}{Var}
 \begin{document}
+
+\begin{titlepage}
+\input{title.tex}
+\end{titlepage}
+
 \allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
 \begin{center}
 \bfseries % Fettdruck einschalten
@@ -84,6 +89,7 @@ einer konstanten Kraft ist die Lösung dieser Differentialgleichung unter
 Annahme eines konstanten Drehmoments $M$
 \begin{equation}
   \phi(t) = \frac{M}{2I}t^2 + \omega_0 t + \phi_0
+  \label{eq_of_motion}
 \end{equation}
 
 Dabei ist $M$ das konstante Drehmoment, $I$ das Trägheitsmoment, $\omega_0$ die
@@ -98,6 +104,7 @@ Das Drehmoment im Schwerpunktkoordinatensystem ist
 
 \begin{equation}
   I = \int \dif m \; r^2
+  \label{speed}
 \end{equation}
 
 Sei die Drehachse oBdA $\omega \hat{z}$. Verschieben wir die Drehachse um
@@ -152,4 +159,128 @@ Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
     Reibungskräften bzw. Reibungsmomenten von den verschiedenen
     Bewegungsparametern) aus den Ergebnissen der Messungen.
 \end{enumerate}
+
+\newpage
+\section*{Versuchsaufbau}
+% TODO: Text
+% TODO: Bonuspunkte für Skizze mit PGF/Tikz? Zweite Wahl: Foto
+
+
+\section*{Versuchsdurchführung}
+
+Wir haben jeweils mittels Stoppuhr die Zeiten gemessen, die die angehängte
+Masse bis zum Tiefpunkt und zum nächsten Hochpunkt braucht. Der Tiefpunkt ist
+jeweils dort, wo der im Rad angebrachte Zeiger seinen Nulldurchgang hat, der
+Hochpunkt dort, wo er seinen Stillstand erreicht.
+
+Dies haben wir jeweils für jede der 5 Masses, die beiden verschiedenen Drehrichtungen
+und jeweils 1,2 und 5 Umdrehungen und in den Konfigurationen ohne und mit
+zusätzlicher Trägheitsmasse, so dass sich insgesamt 60 Messwertsätze mit 120
+Zeiten ergeben.
+
+Den Hochpunkt des Gewichtes haben wir abgeschätzt indem wir die noch
+aufgewickelten Umdrehungen und die ungefähre Position des Zeigers (Angaben von
+0 bis 12 Uhr) abgeschätzt haben.
+
+Außerdem haben wir jede Messung mit der Handykamera (Samsung Galaxy S3,
+mp4-Format, variable Framerate) aufgenommen um die abgeschätzten Positionen und
+evtl. Zeiten zu verfeinern oder vielleicht weitere Daten extrahieren zu können.
+
+\section*{Datenanalyse}
+Zur Analyse der Videos hatten wir mehrere Optionen zur Auswahl. Entweder die 60
+Videos manuell auszuwerten oder eine Software zu entwickeln, die dies
+automatisiert macht.
+
+Da die zweite Variante herrausforderner erschien, haben wir diese gewählt. Die
+Software extrahiert automatisch aus den Videos die jeweilige Position des
+Zeigers (Winkel) in Abhängigkeit von der Zeit. Wird die Position verloren, wird
+anhand von Feature Matching die Position abgeschätzt, was leider nur bei
+geringen Geschwindigkeiten gut funktioniert. Wird die Position komplett
+verloren, werden Werte mit großen Fehlern ($\pm \pi$) angegeben, und weiter
+über Feature Matching geschätzt, bis die Position wiedergefunden wird.
+
+Insgesamt funktioniert der Ansatz gut, so dass wir für 33 der 60 Messungen eine
+sehr genaue Ort-Zeit-Kurve extrahieren konnten.
+
+Im Anschluss haben wir manuell aus den Videos die jeweiligen Zeiten bestimmt,
+bei denen das Rad losgelassen wurde. Eine automatische Bestimmung war leider
+nicht möglich.
+
+Die Bestimmung des Umkehrpunktes, also des Punktes an dem der Faden von der
+Rolle komplett abgewickelt war, war mit der Postprocessing-Software möglich
+(Quellcode siehe Anhang oder DVD) % FIXME
+Die Software hat dann die Daten zwischen Start- und Umkehrpunkt selektiert und
+mit neuen Nullpunkten $t' = t - t_\text{Start}$ und $\phi' = \phi -
+\phi_\text{Start}$ versehen. Diese Daten nutzen wir in der ersten Aufgabe.
+
+% TODO: Das machen!
+Die genaue Funktionsweise der Software ist im Anhang näher beschrieben. Die
+analysierten Daten und Ergebnisse und der Quellcode liegen dem Protokoll auf
+DVD bei.
+
+\section*{Ergänzte Messwerttabelle}
+% TODO: Tabelle
+
+\section*{Aufgabe 1}
+Aus der Bewegungsgleichung (Gleichung $\ref{eq_of_motion}$) erhalten wir bei
+Annahme der Anfangsbedingungen $\phi_0 = 0$ und $\omega_0 = 0$
+
+\begin{equation}
+  \phi(t) = \frac{M}{2I} t^2
+\end{equation}
+
+Im ersten Plot haben wir exemplarisch für die Messung 57, bei der der Reibungseffekt
+besonders prägnat hervortritt, $\phi$ gegen $t^2$ aufgetragen.
+
+Hier ist kein linearer Zusammenhang erkennbar, so dass es zuerst darauf
+ankommen sollte, die Theorie zu verbessern.
+
+Obwohl bei der Durchführung bei den letzten Versuchen mit den
+Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
+wurde, wird diese in der Bewegungsgleichung ignoriert, was bei der Auswertung
+auffallen müsste.
+
+% FIXME: Ansatz Reibung M(t) = M_0 + M_Reibung + M_Reibung(t)*t + M_Reibung(t^2)*t^2 + ...
+
+Dieses Bewegungsgesetz wollen wir anhand der Messdaten überprüfen und daraus
+das Trägheitsmoment des Rades mit und ohne Zusatzmassen bestimmen.
+
+% FIXME: Bewegungsgleichung ist falsch. Korrekt wäre: http://de.wikipedia.org/wiki/Lagrange-Formalismus#Masse_an_Trommel_.28nicht-konservativ.29
+
+\section*{Aufgabe 2}
+Wir vermuten hier verschiedene Reibungskräfte, bzw. Reibungsdrehmomente $M_R$.
+
+Am meisten ins Gewicht fallen dürfte die Luftreibung der Speichen des Rades. Im
+Falle einer laminaren Strömung könnten wir von einer
+geschwindigkeitsproportionalen Reibung $M_R \propto \dot{\phi}$ ausgehen.  Aufgrund der geringen
+Reynolds-Zahl der Luft ist dies hier jedoch nicht anwendbar. Vielmehr muss es
+sich um turbulente Strömungen handeln so dass ein nichtlinearer
+Strömungswiderstanskoeffizient auftritt, damit wäre das Reibungsdrehmoment dann
+$M_R(\dot{\phi})$.
+
+Die Radnabe haben wir nicht genauer untersucht, aber bei Fahrrad-Rädern werden
+üblicherweise in der Nabe Wälzlager verbaut, so dass man von einer
+geschwindigkeitsabhängigen Rollreibung $M_R(\dot{\phi})$ ausgehen könnte.
+
+Es treten weitere eher als gering anzusehende Reibungskräfte auf, die
+Luftreibung des fallenden Gewichtes, diverse Spannungen im Rad und in den
+Speichen, Luftreibung der Zusatzmassen, etc.
+
+Da die größte Komponente (die Luftreibung der Speichen) nicht-linear ist,
+nähern wir die Reibung durch eine Taylor-Entwicklung in erster Ordnung $
+M(t) = A + B \dot{\phi}$. Wegen $\dot{\phi} \propto t$ (Gleichung \ref{speed})
+kann man das genauso gut schreiben als $ M_R(t) = A + Bt$. Da wir von einer
+Anfangsgeschwindigkeit $\omega_0=0$ ausgehen und ohne Bewegung auch keine
+Reibung auftreten kann, setzen wir $A=0$ und erhalten
+
+\begin{equation}
+  M_R(t) = B t
+\end{equation}
+
+Dabei ist $B$ eine zu bestimmende Reibungskonstante.
+\newpage
+\begin{landscape}
+  % gnuplot ./plot/plot-57-quad.gnuplot
+  \input{plot-57-quad.tex}
+\end{landscape}
 \end{document}

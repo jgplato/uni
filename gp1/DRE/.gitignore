@@ -1,2 +1,5 @@
-plot.eps
-plot.tex
+plot-*.eps
+plot-*.tex
+*.toc
+*.pdf
+
