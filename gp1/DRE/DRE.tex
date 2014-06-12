@@ -233,7 +233,109 @@ Im ersten Plot haben wir exemplarisch für die Messung 57, bei der der Reibungse
 besonders prägnat hervortritt, $\phi$ gegen $t^2$ aufgetragen.
 
 Hier ist kein linearer Zusammenhang erkennbar, so dass es zuerst darauf
-ankommen sollte, die Theorie zu verbessern.
+ankommen sollte, die Theorie zu verbessern, bevor Trägheitsmomente ausgerechnet
+werden.
+
+Dazu stellen wir die Bewegungsgleichung im Lagrange-Formalismus auf und
+berücksichtigen Reibungskräfte.
+
+Sei $x$ die negative Höhe der angehängten Masse. $x=0$ entspricht der Maximalen
+Höhe, mit zunehmender Dauer fällt die Masse und $x$ steigt. Der Zusammenhang
+zum Winkel ist dann $x = r \phi$, wobei $r$ der Radius ist, auf den die Schnur
+gewickelt wird.
+
+Es ergibt sich dann für die kinetischen Energie als Summe der kinetischen
+Energie des Rades und der angehängten Masse
+\begin{equation}
+  T = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} I \dot{\phi}^2 = \frac{1}{2} \del{m r^2 + I} \dot{\phi}^2
+\end{equation}
+
+Da hier eine Drehbewegung auftritt ist es sinnvoll mit einem Ansatz für die
+virtuelle Arbeit zu rechnen. Einerseits wird natürlich Arbeit verrichtet, wenn
+sich die Masse im Gravitationspotential nach unten bewegt, andererseits ist für eine
+Winkeländerung ein Drehmoment erforderlich, somit
+
+\begin{equation}
+  \delta W = mg \delta x + M \delta \phi = (mgr+M) \delta \phi
+\end{equation}
+
+Somit ergibt sich die generalisierte Zwangskraft (hier also ein Drehmoment)
+\begin{equation}
+  Q = mgr+M
+\end{equation}
+
+Statt eine Dissipationsfunktion zu nutzen können wir an dieser Stelle die
+Zwangskraft auch direkt als Drehmoment angeben. Die Begründung des Ansatzes ist in Aufgabe 2
+dargestellt. % FIXME Achtung: Und muss da auch bleiben!
+Wir wählen eine Geschwindigkeitsabhängiges Reibungsdrehmoment
+\begin{equation}
+  M_R = \mu \dot{\phi} = Q_R
+\end{equation}
+
+Über die Lagrange-Gleichung 1. Art
+\begin{equation}
+  \frac{d}{dt} \frac{\partial T}{\partial \dot{\phi}} - \frac{\partial T}{\partial \phi} = Q
+\end{equation}
+
+Erhalten wir die Bewegungsgleichung
+\begin{equation}
+  (mr^2+I) \ddot{\phi} = mgr + M - \mu \dot{\phi} \Leftrightarrow
+  \frac{mr^2+I}{mgr+M} \ddot{\phi} = 1 - \frac{\mu}{mgr+M} \dot{\phi}
+\end{equation}
+
+Wir definieren
+\begin{equation*}
+  A = \frac{mr^2+I}{mgr+M} \quad B = \frac{\mu}{mgr+M} \quad \omega = \dot{\phi}
+\end{equation*}
+
+und erhalten eine handliche Differentialgleichung
+\begin{equation}
+  A \frac{d \omega}{dt} + B \omega = 1
+\end{equation}
+
+die durch scharfes Hinsehen (oder Trennung der Variablen) gelöst werden kann als
+\begin{equation}
+  \omega(t) = C \exp\del{- \frac{B}{A} t} + \frac{1}{B}
+\end{equation}
+
+Die Anfangsbedingung $\omega(0) = 0$ (Anfangsgeschwindigkeit 0) liefert $C =
+-\frac{1}{B}$, somit
+\begin{equation}
+  \omega(t) = \frac{1}{B} \del{1 - \exp\del{-\frac{B}{A} t}}
+\end{equation}
+
+Nochmalige Integration liefert
+\begin{equation}
+  \phi(t) = \frac{1}{B} \del{t + \frac{A}{B} \exp\del{-\frac{B}{A} t}} + C
+\end{equation}
+
+Mit der Anfangsbedingung $\phi(0) = 0$ erhält man $C = -\frac{A}{B^2}$, somit
+\begin{equation}
+  \phi(t) = \frac{A}{B^2} \del{ \exp\del{-\frac{B}{A} t} - 1} + \frac{t}{B}
+\end{equation}
+
+Durch Rücksubstitution erhalten wir die Lösung
+\begin{equation}
+  \phi(t)
+  %= \frac{(mr^2+I)(mgr+M)}{\mu^2} \del{
+  %  \exp{-\frac{\mu}{mr^2 + I} t} - 1
+  %} + \frac{t}{\mu} \del{mgr + M}
+  = \del{mgr+M}
+  \del{
+    \frac{mr^2+I}{\mu^2}
+    \del{
+      \exp\del{-\frac{\mu}{mr^2 + I} t} - 1
+  } + \frac{t}{\mu}}
+\end{equation}
+
+Wir definieren nun unsere Fitparameter als
+\begin{equation}
+  A = \frac{(mgr+M)(mr^2+I)}{\mu^2} \qquad
+  B = \frac{\mu}{mr^2+I} \qquad
+  C = \frac{mgr+M}{\mu}
+\end{equation}
+
+Und können dagegen fitten
 
 Obwohl bei der Durchführung bei den letzten Versuchen mit den
 Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
