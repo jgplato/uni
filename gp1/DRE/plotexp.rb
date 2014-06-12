@@ -4,6 +4,13 @@ template = File.open("./templates/exp.gnuplot", "r"){|fh| fh.read}
 files = Dir["./data/*.csv"]
 nums = []
 
+files.sort! do |a,b|
+  def h(str)
+    File.basename(str, ".csv").gsub(/^clean-/,"").to_i
+  end
+  h(a) <=> h(b)
+end
+
 files.each do |filename|
   num = File.basename(filename, ".csv").gsub(/^clean-/,"")
   out = template.gsub("__NUM__", num)

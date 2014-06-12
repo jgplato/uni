@@ -16,8 +16,9 @@ set fit errorvariables
 
 A(x) = A*(exp(-B*x)-1) + C*x
 fit A(x) "./data/clean-__NUM__.csv" using 1:3:4 via A,B,C
-A_err_n(x) = (A+A_err)*(exp(-(B+B_err)*x)-1) + (C+C_err)*x
-A_err_p(x) = (A-A_err)*(exp(-(B-B_err)*x)-1) + (C-C_err)*x
+
+A_err_n(x) = A*(exp(-(B+B_err)*x)-1) + (C+C_err)*x
+A_err_p(x) = A*(exp(-(B-B_err)*x)-1) + (C-C_err)*x
 
 set label 1 sprintf("Messung __NUM__\nFitgleichung: $\\phi(t) = A e^{-Bt} + Ct$\n$A = \\num{%1.6f+-%1.6f}$\n$B = \\num{%1.6f+-%1.6f}$\n$C = \\num{%1.6f+-%1.6f}$", A, A_err, B, B_err, C, C_err) at graph 0.07, graph 0.9
 
