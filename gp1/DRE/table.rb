@@ -2,8 +2,8 @@ require "rubygems"
 require "byebug"
 
 g = 9.8182 # FIXME
-r = 0.2775
-r_err = 0.00005
+r = 0.0400
+r_err = 0.0001
 
 # m1...m5
 M = [
@@ -46,8 +46,8 @@ data = File.open("./exp-fitting.csv", "r") do |fh|
   fh.read
 end.split("\n").map do
   |line| line.split(";")
-end.map do |num,a,a_err,b,b_err,c,c_err|
-  [num.to_i, a.to_f, a_err.to_f, b.to_f, b_err.to_f, c.to_f, c_err.to_f]
+end.map do |num,k,k_err,w,w_err|
+  [num.to_i, k.to_f, k_err.to_f, w.to_f, w_err.to_f]
 end
 
 def round2(val,err)
@@ -68,26 +68,20 @@ i_errs1 = []
 is2 = []
 i_errs2 = []
 File.open("./results.tex", "w") do |fh|
-  fh.write "\\begin{tabular}{l|r|r|r|r|r}\n"
-  fh.write "Messung & $A$ & $B$ & $C$ & $I$ & $\\mu$ \\\\\n"
-  data.each do |num,a,a_err,b,b_err,c,c_err|
+  fh.write "\\begin{tabular}{l|r|r|r|r}\n"
+  fh.write "Messung & $A$ & $B$ & $I$ & $\\mu$ \\\\\n"
+  data.each do |num,k,k_err,w,w_err|
     m, m_err = mass(num)
     byebug if m.nil?
-    i = m*r*(g/(b*c) - r)
-    i_err = Math.sqrt(
-      r**2*(g/(b*c) - r)**2*m_err**2 +
-      ((m*g)/(b*c) - 2*m*r)**2*r_err**2 +
-      ((m*r*g)/(b**2*c))*b_err**2 +
-      ((m*r*g)/(b*c**2))*c_err**2
-    )
-    mu = m*g*r/c
-    mu_err = Math.sqrt(
-      (g*r/c)**2*m_err**2 +
-      (m*g/r)**2*r_err**2 +
-      (m*g*r/c**2)**2*c_err**2
-    )
+    mu = m*g*r/w
+    i  = m*g*r/(w*k) - m*r**2
+
+    # FIXME
+    mu_err = 0.0001
+    i_err  = 0.0001
+
     puts "#{num} I = #{i}+-#{i_err}"
-    fh.write "#{num} & #{f(a,a_err)} & #{f(b,b_err)} & #{f(c,c_err)}, & #{f(i,i_err)} & #{f(mu, mu_err)} \\\\\n"
+    fh.write "#{num} & #{f(k,k_err)} & #{f(w,w_err)} & #{f(i,i_err)} & #{f(mu, mu_err)} \\\\\n"
 
     if num <= 30
       is1  << i
