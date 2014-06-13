@@ -168,18 +168,36 @@ Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
 \newpage
 \invisiblesection{Durchführung und Auswertung}
 \subsection{Versuchsaufbau}
-% TODO: Text
-% TODO: Bonuspunkte für Skizze mit PGF/Tikz? Zweite Wahl: Foto
+\begin{wrapfigure}{R}{10.1 cm}
+  \includegraphics[width=10cm]{fig1.jpg}
+  \caption{Versuchsaufbau}
+\end{wrapfigure}
+Es befindet sich an der Wand montiert ein Rad eines Fahrads, um dessen Achse
+eine Seilrolle liegt, an der eine Schnur mit wechselbaren Gewichten
+aufgewickelt wird ist. Am Rad befinden sich auf gegenüberliegenden Seiten zwei
+Gewindestangen an denen mit Rändelschrauben zusätzliche Massen angebracht
+werden können, um das Trägheitsmoment zu erhöhen.
 
+Mit einem am Rad montierten Zeiger kann die Auslenkung in einem kleinen Bereich
+(etwa $\pm 0.4\; \mathrm{rad}$, entsprechen etwa $25\,^\circ$) der
+Auslenkungswinkel abgelesen werden kann.
+
+Das Gewicht ist mit einer Feder aufgehängt, um die Kraft die am Umkehrpunkt auf
+die Schnur wirkt abzufedern, damit das Seil nicht reisst.
+
+Es gibt außerdem eine Skala zum Ablesen der Höhe des Gewichts, wir wir jedoch
+aus Gründen der Messgenauigkeit nicht verwendet haben. Stattdessen haben wir
+die Höhe aus der Zeigerposition geschätzt.
 
 \subsection{Versuchsdurchführung}
 
-Wir haben jeweils mittels Stoppuhr die Zeiten gemessen, die die angehängte
-Masse bis zum Tiefpunkt und zum nächsten Hochpunkt braucht. Der Tiefpunkt ist
-jeweils dort, wo der im Rad angebrachte Zeiger seinen Nulldurchgang hat, der
-Hochpunkt dort, wo er seinen Stillstand erreicht.
+Wir haben jeweils mittels Stoppuhr die Zeiten gemessen, die die am mit einer
+bestimmten Anzahl Umdrehungen aufgewickelten Seil angehängte Masse bis zum
+Tiefpunkt und zum nächsten Hochpunkt braucht. Der Tiefpunkt ist jeweils dort,
+wo der im Rad angebrachte Zeiger seinen Nulldurchgang hat, der Hochpunkt dort,
+wo er seinen Stillstand erreicht.
 
-Dies haben wir jeweils für jede der 5 Massen, die beiden verschiedenen Drehrichtungen
+Dies haben wir für jede der 5 Massen, die beiden verschiedenen Drehrichtungen
 und jeweils 1,2 und 5 Umdrehungen und in den Konfigurationen ohne und mit
 zusätzlicher Trägheitsmasse, so dass sich insgesamt 60 Messwertsätze mit 120
 Zeiten ergeben.
@@ -199,37 +217,18 @@ automatisiert macht und wesentlich effizienter mehr Datenpunkte generieren kann.
 
 Da die zweite Variante herrausforderner erschien, haben wir diese gewählt. Die
 Software extrahiert automatisch aus den Videos die jeweilige Position des
-Zeigers (Winkel) in Abhängigkeit von der Zeit. Wird die Position verloren, wird
-anhand von Feature Matching die Position abgeschätzt, was leider nur bei
-geringen Geschwindigkeiten gut funktioniert. Wird die Position komplett
-verloren, werden Werte mit großen Fehlern ($\pm \pi$) angegeben, und weiter
-über Feature Matching geschätzt, bis die Position wiedergefunden wird.
+Zeigers (Winkel) in Abhängigkeit von der Zeit. Die Funktionsweise ist weiter
+hinten beschrieben.
 
-Insgesamt funktioniert der Ansatz gut, so dass wir für 33 der 60 Messungen eine
-sehr genaue Ort-Zeit-Kurve extrahieren konnten. Insgesamt haben wir so über
-38.000 Messpunkte extrahiert.
-
-Im Anschluss haben wir manuell aus den Videos die jeweiligen Zeiten bestimmt,
-bei denen das Rad losgelassen wurde. Eine automatische Bestimmung war leider
-nicht möglich.
-
-Die Bestimmung des Umkehrpunktes, also des Punktes an dem der Faden von der
-Rolle komplett abgewickelt war, war mit der Postprocessing-Software möglich
-(Quellcode siehe Anhang oder DVD) % FIXME
-Die Software hat dann die Daten zwischen Start- und Umkehrpunkt selektiert und
-mit neuen Nullpunkten $t' = t - t_\text{Start}$ und $\phi' = \phi -
-\phi_\text{Start}$ versehen. Diese Daten nutzen wir in der ersten Aufgabe.
-
-% TODO: Das machen!
-Die genaue Funktionsweise der Software ist im Anhang näher beschrieben. Die
-analysierten Daten und Ergebnisse und der Quellcode liegen dem Protokoll auf
-DVD bei.
+Wir konnten damit für 33 der 60 Messungen eine sehr genaue Ort-Zeit-Kurve
+erstellt. Insgesamt haben wir so über 38.000 Messpunkte extrahiert.
 
 \subsection{Aufgabe 2}
 Wir bearbeiten zuerst Aufgabe 2, weil man anhand der Messwerte sofort sehen
-kann, dass der reibungsfreie Fall überhaupt nicht zutrifft.
+kann (siehe Plot 1: Messung 57 linear), dass der reibungsfreie Fall überhaupt
+nicht zutrifft.
 
-Aus der Bewegungsgleichung (Gleichung $\ref{eq_of_motion}$) erhalten wir bei
+Aus der Bewegungsgleichung (\ref{eq_of_motion}) erhalten wir bei
 Annahme der Anfangsbedingungen $\phi_0 = 0$ und $\omega_0 = 0$
 
 \begin{equation}
@@ -240,7 +239,7 @@ Im ersten Plot haben wir exemplarisch für die Messung 57, bei der der Reibungse
 besonders prägnat hervortritt, $\phi$ gegen $t^2$ aufgetragen.
 
 Hier ist kein linearer Zusammenhang erkennbar, so dass es sinnvoll erscheint,
-zuerst ein Reibungsmodell aufzustellen und dann die Trägheitsmomente
+zuerst ein Reibungsmodell aufzustellen und erst dann die Trägheitsmomente
 auszurechnen, weil ansonsten die Reibung das Trägheitsmoment völlig verfälscht.
 
 Wir vermuten hier verschiedene Reibungskräfte bzw. Reibungsdrehmomente $M_R$.
@@ -277,10 +276,9 @@ erhalten als Näherung
 
 Dabei ist $\mu$ eine zu bestimmende Reibungskonstante.
 
-Dazu stellen wir die Bewegungsgleichung im Lagrange-Formalismus auf und
-berücksichtigen Reibungskräfte.
+Nun stellen wir die Bewegungsgleichung im Lagrange-Formalismus auf.
 
-Sei $x$ die negative Höhe der angehängten Masse. $x=0$ entspricht der Maximalen
+Sei $x$ die negative Höhe der angehängten Masse. $x=0$ entspricht der maximalen
 Höhe, mit zunehmender Dauer fällt die Masse und $x$ steigt. Der Zusammenhang
 zum Winkel ist dann $x = r \phi$, wobei $r$ der Radius ist, auf den die Schnur
 gewickelt wird.
@@ -291,7 +289,7 @@ Energie des Rades und der angehängten Masse
   T = \frac{1}{2} m \dot{x}^2 + \frac{1}{2} I \dot{\phi}^2 = \frac{1}{2} \del{m r^2 + I} \dot{\phi}^2
 \end{equation}
 
-Das Potential ist ein Gravitationspotential, woraus sich die Potentielle Energie ergibt
+Das Potential ist ein Gravitationspotential, woraus sich die potentielle Energie ergibt
 \begin{equation}
   V = -mgx = -mgr \phi
 \end{equation}
@@ -302,16 +300,20 @@ Zwangskraft (hier also ein Drehmoment)
   Q = mgr
 \end{equation}
 
-Statt eine Dissipationsfunktion zu nutzen können wir an dieser Stelle die
-Zwangskraft nun direkt als Drehmoment angeben. Wir wählen eine
-geschwindigkeitsabhängiges Reibungsdrehmoment
+Statt eine Dissipationsfunktion zu nutzen, können wir an dieser Stelle die
+Kraft um die Reibung erweitern
 \begin{equation}
   M_R = \mu \dot{\phi} = Q_R
 \end{equation}
 
+So dass sich insgesamt ergibt
+\begin{equation}
+  Q' = mgr + \mu \dot{\phi}
+\end{equation}
+
 Über die Lagrange-Gleichung 1. Art
 \begin{equation}
-  \frac{d}{dt} \frac{\partial T}{\partial \dot{\phi}} - \frac{\partial T}{\partial \phi} = Q
+  \frac{d}{dt} \frac{\partial T}{\partial \dot{\phi}} - \frac{\partial T}{\partial \phi} = Q'
 \end{equation}
 
 Erhalten wir die Bewegungsgleichung
@@ -378,18 +380,36 @@ Und können damit gegen
 fitten.
 
 Man sieht hier übrigens direkt, dass für den reibungsfreien Grenzfall $\mu \to
-0$ wieder ein Zusammenhang $\phi \propto t^2$ herauskommt. % FIXME: Hier
-Taylor-Entwicklung einfügen.
+0$ wieder ein Zusammenhang $\phi \propto t^2$ herauskommt.
+
+Denn mit
+\begin{equation}
+  e^{-kt} \approx 1 - kt + \frac{1}{2} k^2 t^2 - \frac{1}{6} k^3t^3 + \dots
+\end{equation}
+
+Ist
+\begin{align}
+  \phi(t) &\approx \frac{\omega}{k}\del{-kt + \frac{1}{2}k^2t^2 - \frac{1}{6} k^3t^3 + \dots} + \omega t\\
+          &= \frac{\omega k}{2} t^2 -  \frac{\omega k^2}{6} t^3 + \dots
+\end{align}
+
+Wegen $k \propto \mu$ und $\omega \propto \frac{1}{\omega}$ bleibt beim Grenzübergang $\mu \to 0$ nur der Term in $t^2$ stehen, so dass
+\begin{equation}
+  \lim_{\mu \to 0} \phi(t) = \frac{mgr}{mr^2 +I} t^2
+\end{equation}
+
+Was nicht ganz der ursprünglichen Bewegungsgleichung entspricht, aber die hat
+auch nicht die kinetische Energie der Masse berücksichtigt.
 
 \subsection{Aufgabe 1}
-Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots siehe weiter
-hinten). Dabei haben wir auf eine Linearisierung der Darstellung verzichtet,
-denn die Gleichung ist auch logarithmisch auf beiden Seiten von beiden
-Parametern abhängig, so dass eine linearisierte Darstellung sinnlos ist. Da
-außerdem zwei freie Parameter in der Gleichung vorkommen ist sowieso nicht
-klar, wie die Grenzgeraden gewählt werden sollen. Stattdessen haben wir dem
-Fehler durch die Methode der kleinsten Quadrate ermittelt, wie dies in der
-Experimentalphysik allgemein üblich ist.
+Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots und
+Wertetabelle weiter hinten). Dabei haben wir auf eine Linearisierung der
+Darstellung verzichtet, denn die Gleichung ist auch logarithmisch auf beiden
+Seiten von beiden Parametern abhängig, so dass eine linearisierte Darstellung
+möglich, aber sinnlos ist. Da außerdem zwei freie Parameter in der Gleichung
+vorkommen ist sowieso nicht klar, wie die Grenzgeraden gewählt werden sollen.
+Stattdessen haben wir dem Fehler durch die Methode der kleinsten Quadrate
+ermittelt, wie dies in der Experimentalphysik allgemein üblich ist.
 
 \subsubsection{Fehlerrechnung}
 Durch Umstellen erhalten wir das Trägheitsmoment
@@ -424,19 +444,16 @@ Gravitationskonstante)
   }
 \end{equation}
 
-\subsection{Berechnete Werte}
-
-Somit erhalten wir folgende Wertetabelle
-
-\input{results.tex}
+Die Resultate der Berechnungen wurden ebenfalls in die Wertetabelle
+eingetragen. Die Eingangsdaten können dabei dem Messprotokoll entnommen werden.
 
 \subsection{Interpretation und Ergebnis}
 Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lassen
-auf ein inkorrektes Reibungsmodell schließen. Die Reibung scheint nicht linear
-von der Geschwindigkeit abzuhängen, sondern einer unbekannten Gesetzmäßigkeit
-zu folgen, möglicherweise einem Haft- und Gleitreibungsanteil. Insbesondere am
-Plott zu Messung 60 sieht man den großen Haftreibungsanteil, der gerade zu
-Anfang vom Modell abweicht.
+auf Unzulänglichkeiten im Reibungsmodell schließen. Die Reibung scheint nicht
+linear von der Geschwindigkeit abzuhängen, sondern einer unbekannten
+Gesetzmäßigkeit zu folgen, möglicherweise einem Haft- und Gleitreibungsanteil.
+Insbesondere am Plot zu Messung 60 sieht man den großen Haftreibungsanteil,
+der gerade zu Anfang vom Modell abweicht.
 
 Mit den gegebenen Daten ein exaktes Reibungsmodell aufzustellen würde in pure
 Spekulation ausarten. Auch wären die auftretenden Differentialgleichungen
@@ -569,10 +586,10 @@ eine CSV-Datei exportiert, die dann weiter verarbeitet werden können.
 \end{wrapfigure}
 Um stets eine konstante Ausrichtung zu erhalten und zu wissen, wie des Video
 gegenüber dem Aufbau rotiert und translatiert ist, muss die Orientierung
-konstant gehalten werden.
-Dazu werden zuerst im Video über ein statisches Matching sechs feste
-Punkte erkannt, um die Orientierung des Experiments gegenüber der Kamera zu
-berechnen. Folgende Punkte haben sich dabei als gut erkennbar herausgestellt:
+konstant gehalten werden.  Dazu werden zuerst im Video über ein statisches
+Matching sechs feste Punkte erkannt, um die Orientierung des Experiments
+gegenüber der Kamera zu berechnen. Folgende Punkte (siehe Abbildung 1) haben
+sich dabei als gut erkennbar herausgestellt:
 \begin{enumerate}
   \item Die linke obere Ecke des gelben Hintergrunds
   \item Die rechte obere Ecke des gelben Hintergrunds
@@ -592,16 +609,17 @@ das Rad scheint und es reflektiert. Dafür ist der Algorithmus erstaunlich
 unempfindlich gegen Bewegungsunschärfe.
 
 \subsection{Positionsbestimmung des Zeigers durch direkte Erkennung}
-\begin{wrapfigure}{r}{10.1 cm}
+\begin{wrapfigure}{L}{10.1 cm}
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=10cm]{fig1.jpg}};
     \draw[red,ultra thick] (1.1,9.4) rectangle (2.1,4.7);  % left
     \draw[red,ultra thick] (7.9,9.4) rectangle (8.9,4.7);  % right
     \draw[red,ultra thick] (3.4,4.3) rectangle (6.6,3.1);  % center
   \end{tikzpicture}
+  \label{zones}
   \caption{Zonen für die Erkennung}
 \end{wrapfigure}
-Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung) ist,
+Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung 3) ist,
 wird die Position direkt mithilfe der Methode von oben erkannt. Problematisch
 sind dabei Rotationen, so dass für jede Zone ein jeweils anderes Bild des
 Zeigers verwendet werden muss. Die Methode funktioniert nicht mehr, sobald der
@@ -652,4 +670,9 @@ GNUplot-Code, der aber größtenteils von den Hilfsprogrammen generiert wird.
 \end{landscape}
 
 \input{plots-exp.tex}
+
+\invisiblesection{Wertetabelle}
+
+\input{results.tex}
+
 \end{document}
