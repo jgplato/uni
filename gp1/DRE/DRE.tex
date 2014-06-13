@@ -221,7 +221,10 @@ DVD bei.
 \section*{Ergänzte Messwerttabelle}
 % TODO: Tabelle
 
-\section*{Aufgabe 1}
+\section*{Aufgabe 2}
+Wir bearbeiten zuerst Aufgabe 2, weil man anhand der Messwerte sofort sehen
+kann, dass der reibungsfreie Fall überhaupt nicht zutrifft.
+
 Aus der Bewegungsgleichung (Gleichung $\ref{eq_of_motion}$) erhalten wir bei
 Annahme der Anfangsbedingungen $\phi_0 = 0$ und $\omega_0 = 0$
 
@@ -232,9 +235,43 @@ Annahme der Anfangsbedingungen $\phi_0 = 0$ und $\omega_0 = 0$
 Im ersten Plot haben wir exemplarisch für die Messung 57, bei der der Reibungseffekt
 besonders prägnat hervortritt, $\phi$ gegen $t^2$ aufgetragen.
 
-Hier ist kein linearer Zusammenhang erkennbar, so dass es zuerst darauf
-ankommen sollte, die Theorie zu verbessern, bevor Trägheitsmomente ausgerechnet
-werden.
+Hier ist kein linearer Zusammenhang erkennbar, so dass es sinnvoll erscheint,
+zuerst ein Reibungsmodell aufzustellen und dann die Trägheitsmomente
+auszurechnen, weil ansonsten die Reibung das Trägheitsmoment völlig verfälscht.
+
+Wir vermuten hier verschiedene Reibungskräfte bzw. Reibungsdrehmomente $M_R$.
+
+Am meisten ins Gewicht fallen dürfte die Luftreibung der Speichen des Rades. Im
+Falle einer laminaren Strömung könnten wir von einer
+geschwindigkeitsproportionalen Reibung $M_R \propto \dot{\phi}$ ausgehen.
+Aufgrund der geringen Reynolds-Zahl der Luft ist dies hier jedoch nicht
+anwendbar. Vielmehr muss es sich um turbulente Strömungen handeln so dass ein
+nichtlinearer Strömungswiderstanskoeffizient auftritt, damit wäre das
+Reibungsdrehmoment dann $M_R(\dot{\phi})$.
+
+Die Radnabe haben wir nicht genauer untersucht, aber bei Fahrrad-Rädern werden
+üblicherweise in der Nabe Wälzlager verbaut, so dass man von einer
+geschwindigkeitsabhängigen Rollreibung $M_R(\dot{\phi})$ und einer geringen
+Haftreibung am Anfang ausgehen könnte, die insbesondere bei langsamen Drehungen
+und hohen auf das Lager wirkenenden Kräften (also bei Verwendung der
+Zusatzmassen) ins Gewicht fällt.
+
+Es treten weitere eher als gering anzusehende Reibungskräfte auf, die
+Luftreibung des fallenden Gewichtes, diverse Spannungen im Rad und in den
+Speichen, Luftreibung der Zusatzmassen, etc.
+
+Da die größte Komponente (die Luftreibung der Speichen) nicht-linear ist,
+nähern wir die Reibung durch eine Taylor-Entwicklung in erster Ordnung $
+M(\dot{\phi}) = A + B \dot{\phi}$
+Da wir von einer Anfangsgeschwindigkeit $\omega_0=0$ ausgehen und ohne Bewegung
+auch keine Reibung auftreten kann (Energieerhaltung), setzen wir $A=0$ und
+erhalten als Näherung
+
+\begin{equation}
+  M_R(t) = \mu \dot{\phi}
+\end{equation}
+
+Dabei ist $\mu$ eine zu bestimmende Reibungskonstante.
 
 Dazu stellen wir die Bewegungsgleichung im Lagrange-Formalismus auf und
 berücksichtigen Reibungskräfte.
@@ -262,9 +299,8 @@ Zwangskraft (hier also ein Drehmoment)
 \end{equation}
 
 Statt eine Dissipationsfunktion zu nutzen können wir an dieser Stelle die
-Zwangskraft nun direkt als Drehmoment angeben. Die Begründung des Ansatzes ist
-in Aufgabe 2 dargestellt. % FIXME Achtung: Und muss da auch bleiben!
-Wir wählen eine geschwindigkeitsabhängiges Reibungsdrehmoment
+Zwangskraft nun direkt als Drehmoment angeben. Wir wählen eine
+geschwindigkeitsabhängiges Reibungsdrehmoment
 \begin{equation}
   M_R = \mu \dot{\phi} = Q_R
 \end{equation}
@@ -337,23 +373,27 @@ Und können damit gegen
 \end{equation}
 fitten.
 
-% FIXME:
-Hieraus sieht man, dass es einerseits eine Grenzgeschwindigkeit für $t \to
-\infty$ gibt (nämlich $C$), andererseits erhält man über Taylorentwicklung
-\begin{equation}
-  A(1-Bt+\frac{1}{2}B^2t^2 + \dots - 1) + Ct = -ABt+\frac{1}{2}AB^2t^2 + Ct = (C-AB)t+ \frac{1}{2}AB^2 t^2 + \dots
-\end{equation}
+Man sieht hier übrigens direkt, dass für den reibungsfreien Grenzfall $\mu \to
+0$ wieder ein Zusammenhang $\phi \propto t^2$ herauskommt. % FIXME: Hier
+Taylor-Entwicklung einfügen.
 
-Beim Grenzübergang $\mu \to 0$ verschwinden die Terme in $t$, während sie sich
-für $t^2$ kürzen, so dass im reibungsfreien Fall eine Abhängigkeit von $\phi(t)
-\propto t^2$ stehen bleibt, wie zu erwarten war.
 
+\newpage
+\begin{landscape}
+  % gnuplot ./plot/plot-57-quad.gnuplot
+  \input{plot-57-quad.tex}
+\end{landscape}
+\section*{Aufgabe 1}
 Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots siehe weiter
-hinten). Um aus den Fitparametern nun die Reibungskonstante und das
-Trägheitsmoment zu berechnen, reicht es, zwei Parameter zu wählen. Aufgrund des
-jeweils relativ großen Fehlers im Parameter $A$ nutzen wir die Parameter $B$
-und $C$.
+hinten). Dabei haben wir auf eine Linearisierung der Darstellung verzichtet,
+denn die Gleichung ist auch logarithmisch auf beiden Seiten von beiden
+Parametern abhängig, so dass eine linearisierte Darstellung sinnlos ist. Da
+außerdem zwei freie Parameter in der Gleichung vorkommen ist sowieso nicht
+klar, wie die Grenzgeraden gewählt werden sollen. Stattdessen haben wir dem
+Fehler durch die Methode der kleinsten Quadrate ermittelt, wie dies in der
+Experimentalphysik allgemein üblich ist.
 
+\subsection*{Fehlerrechnung}
 Durch Umstellen erhalten wir das Trägheitsmoment
 \begin{equation}
   I = \frac{mgr}{\omega k} - mr^2
@@ -386,71 +426,43 @@ Gravitationskonstante)
   }
 \end{equation}
 
+\subsection*{Berechnete Werte}
+
 Somit erhalten wir folgende Wertetabelle
 
 \input{results.tex}
 
+\subsection*{Interpretation und Ergebnis}
 Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lassen
-auf ein inkorrektes Reibungsmodell schließen, so dass es nicht wundert, dass
-auch die Werte für $I$ inkonsistent sind. In erster Näherung scheint das
-Trägheitsmoment aber für die einzelnen Messungen zu stimmen, so dass wir durch
-Mittelwertbildung erhalten:
+auf ein inkorrektes Reibungsmodell schließen. Die Reibung scheint nicht linear
+von der Geschwindigkeit abzuhängen, sondern einer unbekannten Gesetzmäßigkeit
+zu folgen, möglicherweise einem Haft- und Gleitreibungsanteil. Insbesondere am
+Plott zu Messung 60 sieht man den großen Haftreibungsanteil, der gerade zu
+Anfang vom Modell abweicht.
+
+Mit den gegebenen Daten ein exaktes Reibungsmodell aufzustellen würde in pure
+Spekulation ausarten. Auch wären die auftretenden Differentialgleichungen
+wahrscheinlich nicht elementar lösbar.
+
+Aufgrund des inkorrekten Reibungsmodells wundert es auch nicht, dass die Fehler
+für $I$ inkonsistent sind. Dennoch ist unser Modell eine viel bessere
+Approximation als die Bewegungsgleichungen für den reibungsfreien Fall. Wenn
+wir also die Fehler ignorieren und die ermittelten Werte für $I$ als
+Stichproben betrachten, können wir über Mittelwert und Standardverteilung
+trotzdem Werte abschätzen. Der Wert des Trägheitsmoments ohne Zusatzmassen
+lautet demnach
 
 \begin{equation}
-  I = \num{1.109+-0.092}
+  I_0 = \SI{0.180+-0.036}{kg m^2}
 \end{equation}
 
-Für die Messungen mit Zusatzmassen kann man das Trägheitsmoment nur sehr grob
-abschätzen.
-
-Obwohl bei der Durchführung bei den letzten Versuchen mit den
-Zusatzmassen und der geringen Anhängemasse die Reibung ganz offensichtlich
-wurde, wird diese in der Bewegungsgleichung ignoriert, was bei der Auswertung
-auffallen müsste.
-
-% FIXME: Ansatz Reibung M(t) = M_0 + M_Reibung + M_Reibung(t)*t + M_Reibung(t^2)*t^2 + ...
-
-Dieses Bewegungsgesetz wollen wir anhand der Messdaten überprüfen und daraus
-das Trägheitsmoment des Rades mit und ohne Zusatzmassen bestimmen.
-
-% FIXME: Bewegungsgleichung ist falsch. Korrekt wäre: http://de.wikipedia.org/wiki/Lagrange-Formalismus#Masse_an_Trommel_.28nicht-konservativ.29
-
-\section*{Aufgabe 2}
-Wir vermuten hier verschiedene Reibungskräfte, bzw. Reibungsdrehmomente $M_R$.
-
-Am meisten ins Gewicht fallen dürfte die Luftreibung der Speichen des Rades. Im
-Falle einer laminaren Strömung könnten wir von einer
-geschwindigkeitsproportionalen Reibung $M_R \propto \dot{\phi}$ ausgehen.  Aufgrund der geringen
-Reynolds-Zahl der Luft ist dies hier jedoch nicht anwendbar. Vielmehr muss es
-sich um turbulente Strömungen handeln so dass ein nichtlinearer
-Strömungswiderstanskoeffizient auftritt, damit wäre das Reibungsdrehmoment dann
-$M_R(\dot{\phi})$.
-
-Die Radnabe haben wir nicht genauer untersucht, aber bei Fahrrad-Rädern werden
-üblicherweise in der Nabe Wälzlager verbaut, so dass man von einer
-geschwindigkeitsabhängigen Rollreibung $M_R(\dot{\phi})$ ausgehen könnte.
-
-Es treten weitere eher als gering anzusehende Reibungskräfte auf, die
-Luftreibung des fallenden Gewichtes, diverse Spannungen im Rad und in den
-Speichen, Luftreibung der Zusatzmassen, etc.
-
-Da die größte Komponente (die Luftreibung der Speichen) nicht-linear ist,
-nähern wir die Reibung durch eine Taylor-Entwicklung in erster Ordnung $
-M(t) = A + B \dot{\phi}$. Wegen $\dot{\phi} \propto t$ (Gleichung \ref{speed})
-kann man das genauso gut schreiben als $ M_R(t) = A + Bt$. Da wir von einer
-Anfangsgeschwindigkeit $\omega_0=0$ ausgehen und ohne Bewegung auch keine
-Reibung auftreten kann, setzen wir $A=0$ und erhalten
-
+und mit Zusatzmassen
 \begin{equation}
-  M_R(t) = B t
+  I = \SI{0.58+-0.13}{kg m^2}
 \end{equation}
 
-Dabei ist $B$ eine zu bestimmende Reibungskonstante.
-\newpage
-\begin{landscape}
-  % gnuplot ./plot/plot-57-quad.gnuplot
-  \input{plot-57-quad.tex}
-\end{landscape}
+\subsection*{Vergleich mit dem Steinerschen Satz}
+
 
 \input{plots-exp.tex}
 \end{document}

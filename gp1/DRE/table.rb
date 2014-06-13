@@ -106,5 +106,7 @@ end
 
 puts "Avg 1...30:"
 puts avg(is1, i_errs1).join("+-")
+puts is1.map{|i| i.round(4)}.join(",")
 puts "Avg 1...30:"
 puts avg(is2, i_errs2).join("+-")
+puts is2.map{|i| i.round(4)}.join(",")
