@@ -356,38 +356,33 @@ und $C$.
 
 Durch Umstellen erhalten wir das Trägheitsmoment
 \begin{equation}
-  I = mr \del{\frac{g}{BC} - r}
+  I = \frac{mgr}{\omega k} - mr^2
 \end{equation}
 
 und die Reibungskonstante
 \begin{equation}
-  \mu = \frac{mgr}{C}
+  \mu = \frac{mgr}{\omega}
 \end{equation}
 
 Der Fehler des Trägheitsmoments ist unter Vernachlässigung des Fehlers der sehr
 genau bekannten Gravitationskonstante % Zu wenig Platz für g.
 \begin{align*}
-  \Delta I &= \sqrt{
-    \del{\frac{\partial I}{\partial m} \Delta m}^2 +
-    \del{\frac{\partial I}{\partial r} \Delta r}^2 +
-    \del{\frac{\partial I}{\partial B} \Delta B}^2 +
-    \del{\frac{\partial I}{\partial C} \Delta C}^2
-  } \\
+  \Delta I
   &= \sqrt{
-    r^2\del{\frac{g}{BC} -r}^2 \Delta m^2 +
-    \del{\frac{mg}{BC} - 2mr}^2 \Delta r^2 +
-    \del{\frac{mrg}{B^2C}}^2 \Delta B^2 +
-    \del{\frac{mrg}{BC^2}}^2 \Delta C^2
+  \del{\frac{gr}{\omega k} - r^2}^2 \Delta m^2 +
+  \del{\frac{mg}{\omega k} - 2mr}^2 \Delta r^2 +
+  \del{\frac{mgr}{\omega^2k} \Delta \omega}^2 +
+  \del{\frac{mgr}{\omega k^2} \Delta k}^2
   }
 \end{align*}
 
 Der Fehler der Reibungskonstante ist (ebenfalls unter Vernachlässigung der
-Reibungskonstante)
+Gravitationskonstante)
 \begin{equation}
   \Delta \mu = \sqrt{
-    \del{\frac{gr}{C}}^2 \Delta m^2 +
-    \del{\frac{mg}{C}}^2 \Delta r^2 +
-    \del{\frac{mgr}{C^2}}^2 \Delta C^2
+    \del{\frac{gr}{\omega} \Delta m}^2 +
+    \del{\frac{mg}{\omega} \Delta r}^2 +
+    \del{\frac{mgr}{\omega^2} \Delta \omega}^2
   }
 \end{equation}
 

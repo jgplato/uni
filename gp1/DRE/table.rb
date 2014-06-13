@@ -77,9 +77,13 @@ File.open("./results.tex", "w") do |fh|
     i  = m*g*r/(w*k) - m*r**2
 
     # FIXME
-    mu_err = 0.0001
-    i_err  = 0.0001
-
+    mu_err = Math.sqrt((m_err*g*r/w)**2 + (r_err*m*g/w)**2 + (w_err*m*g*r/w**2)**2)
+    i_err  = Math.sqrt(
+      ((g*r/(w*k) - r**2)*m_err)**2 +
+      ((m*g/(w*k) - 2*m*r)*r_err)**2 +
+      (m*g*r/(w**2*k)*w_err)**2 +
+      (m*g*r/(w*k**2)*k_err)**2
+    )
     puts "#{num} I = #{i}+-#{i_err}"
     fh.write "#{num} & #{f(k,k_err)} & #{f(w,w_err)} & #{f(i,i_err)} & #{f(mu, mu_err)} \\\\\n"
 
