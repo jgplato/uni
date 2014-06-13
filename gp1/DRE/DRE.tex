@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{geometry}
+\usepackage{tikz}
+\usepackage{wrapfig}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{float}
@@ -21,7 +23,10 @@
 
 % New command for color underlining
 \usepackage{xcolor}
-
+\newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+      \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+        \sectionmark{#1}}
 \newsavebox\MBox
 \newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
   \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
@@ -53,7 +58,7 @@ Drehbewegungen, Tutor: Christian Hindermann
 \vspace{-10pt}
 \end{center}
 
-\section*{Physikalische Grundlagen}
+\section{Physikalische Grundlagen}
 Das Trägheitsmoment wird durch $F = \dot{p} = m \dot{v}$ motiviert. Wenn auf eine Masse $m$
 im Abstand $r$ von der Drehachse eine Kraft wirkt, folgt
 
@@ -140,7 +145,7 @@ Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
   I = \int \dif V \; r^2 \rho = m R^2
 \end{equation}
 
-\section*{Aufgaben}
+\section{Aufgaben}
 %Untersuchung gleichmäßig beschleunigter Drehbewegungen
 %\begin{itemize}
 %  \item Messung von Weg-Zeit-Abhängigkeiten
@@ -161,24 +166,25 @@ Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
 \end{enumerate}
 
 \newpage
-\section*{Versuchsaufbau}
+\invisiblesection{Durchführung und Auswertung}
+\subsection{Versuchsaufbau}
 % TODO: Text
 % TODO: Bonuspunkte für Skizze mit PGF/Tikz? Zweite Wahl: Foto
 
 
-\section*{Versuchsdurchführung}
+\subsection{Versuchsdurchführung}
 
 Wir haben jeweils mittels Stoppuhr die Zeiten gemessen, die die angehängte
 Masse bis zum Tiefpunkt und zum nächsten Hochpunkt braucht. Der Tiefpunkt ist
 jeweils dort, wo der im Rad angebrachte Zeiger seinen Nulldurchgang hat, der
 Hochpunkt dort, wo er seinen Stillstand erreicht.
 
-Dies haben wir jeweils für jede der 5 Masses, die beiden verschiedenen Drehrichtungen
+Dies haben wir jeweils für jede der 5 Massen, die beiden verschiedenen Drehrichtungen
 und jeweils 1,2 und 5 Umdrehungen und in den Konfigurationen ohne und mit
 zusätzlicher Trägheitsmasse, so dass sich insgesamt 60 Messwertsätze mit 120
 Zeiten ergeben.
 
-Den Hochpunkt des Gewichtes haben wir abgeschätzt indem wir die noch
+Den Hochpunkt des Gewichtes haben wir abgeschätzt, indem wir die noch
 aufgewickelten Umdrehungen und die ungefähre Position des Zeigers (Angaben von
 0 bis 12 Uhr) abgeschätzt haben.
 
@@ -186,10 +192,10 @@ Außerdem haben wir jede Messung mit der Handykamera (Samsung Galaxy S3,
 mp4-Format, variable Framerate) aufgenommen um die abgeschätzten Positionen und
 evtl. Zeiten zu verfeinern oder vielleicht weitere Daten extrahieren zu können.
 
-\section*{Datenanalyse}
+\subsection{Datenanalyse}
 Zur Analyse der Videos hatten wir mehrere Optionen zur Auswahl. Entweder die 60
 Videos manuell auszuwerten oder eine Software zu entwickeln, die dies
-automatisiert macht.
+automatisiert macht und wesentlich effizienter mehr Datenpunkte generieren kann.
 
 Da die zweite Variante herrausforderner erschien, haben wir diese gewählt. Die
 Software extrahiert automatisch aus den Videos die jeweilige Position des
@@ -200,7 +206,8 @@ verloren, werden Werte mit großen Fehlern ($\pm \pi$) angegeben, und weiter
 über Feature Matching geschätzt, bis die Position wiedergefunden wird.
 
 Insgesamt funktioniert der Ansatz gut, so dass wir für 33 der 60 Messungen eine
-sehr genaue Ort-Zeit-Kurve extrahieren konnten.
+sehr genaue Ort-Zeit-Kurve extrahieren konnten. Insgesamt haben wir so über
+38.000 Messpunkte extrahiert.
 
 Im Anschluss haben wir manuell aus den Videos die jeweiligen Zeiten bestimmt,
 bei denen das Rad losgelassen wurde. Eine automatische Bestimmung war leider
@@ -218,10 +225,7 @@ Die genaue Funktionsweise der Software ist im Anhang näher beschrieben. Die
 analysierten Daten und Ergebnisse und der Quellcode liegen dem Protokoll auf
 DVD bei.
 
-\section*{Ergänzte Messwerttabelle}
-% TODO: Tabelle
-
-\section*{Aufgabe 2}
+\subsection{Aufgabe 2}
 Wir bearbeiten zuerst Aufgabe 2, weil man anhand der Messwerte sofort sehen
 kann, dass der reibungsfreie Fall überhaupt nicht zutrifft.
 
@@ -377,13 +381,7 @@ Man sieht hier übrigens direkt, dass für den reibungsfreien Grenzfall $\mu \to
 0$ wieder ein Zusammenhang $\phi \propto t^2$ herauskommt. % FIXME: Hier
 Taylor-Entwicklung einfügen.
 
-
-\newpage
-\begin{landscape}
-  % gnuplot ./plot/plot-57-quad.gnuplot
-  \input{plot-57-quad.tex}
-\end{landscape}
-\section*{Aufgabe 1}
+\subsection{Aufgabe 1}
 Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots siehe weiter
 hinten). Dabei haben wir auf eine Linearisierung der Darstellung verzichtet,
 denn die Gleichung ist auch logarithmisch auf beiden Seiten von beiden
@@ -393,7 +391,7 @@ klar, wie die Grenzgeraden gewählt werden sollen. Stattdessen haben wir dem
 Fehler durch die Methode der kleinsten Quadrate ermittelt, wie dies in der
 Experimentalphysik allgemein üblich ist.
 
-\subsection*{Fehlerrechnung}
+\subsubsection{Fehlerrechnung}
 Durch Umstellen erhalten wir das Trägheitsmoment
 \begin{equation}
   I = \frac{mgr}{\omega k} - mr^2
@@ -426,13 +424,13 @@ Gravitationskonstante)
   }
 \end{equation}
 
-\subsection*{Berechnete Werte}
+\subsection{Berechnete Werte}
 
 Somit erhalten wir folgende Wertetabelle
 
 \input{results.tex}
 
-\subsection*{Interpretation und Ergebnis}
+\subsection{Interpretation und Ergebnis}
 Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lassen
 auf ein inkorrektes Reibungsmodell schließen. Die Reibung scheint nicht linear
 von der Geschwindigkeit abzuhängen, sondern einer unbekannten Gesetzmäßigkeit
@@ -461,7 +459,7 @@ und mit Zusatzmassen
   I = \SI{0.58+-0.13}{kg m^2}
 \end{equation}
 
-\subsection*{Vergleich mit dem Steinerschen Satz}
+\subsection{Vergleich mit dem Steinerschen Satz}
 Wir berechnen zuerst das Trägheitsmoment der Zusatzmassen. Wenn wir diese
 näherungsweise als Vollzylinder annehmen ist das
 
@@ -542,6 +540,116 @@ Mit einer verbesserten Software wäre dies sicherlich möglich, aber da wir ein
 breites Spektrum an Messungen über alle Parameter auswerten konnten, bringt
 dies wahrscheinlich keine neuen Erkenntnisse. Deswegen lassen wir das.
 
-\section{Plots}
+\section{Funktionsweise der Software}
+Für die Datenauswertung wurde die Software ``overkill'' entwickelt. Der Name
+ist dabei natürlich ein rekursives Backronym für ``\textbf{O}verkill:
+\textbf{v}isuelle \textbf{E}rkennung von \textbf{R}otations\textbf{k}inetik
+\textbf{i}n \textbf{l}ehrreichen \textbf{L}aborexperimenten'' und hat nichts mit dem
+umgangssprachlichen Begriff ``Overkill'' für ``mit Kanonen auf Spatzen
+schießen'' (völlig übertriebene Maßnahmen) zu tun.
+
+Die Software analysiert Videos die vom Experiment aufgenommen wurden. Dazu wird
+das Video in einzelnen Bilder (sog. Frames) zerlegt, Verwacklung entfernt (sog.
+deshaking) und dann versucht in jedem Frame die Position des Zeigers zu
+erkennen. Die erkannten Winkel werden mit Zeitindex und Fehlerabschätzung in
+eine CSV-Datei exportiert, die dann weiter verarbeitet werden können.
+
+\subsection{Deshaking}
+\begin{wrapfigure}{R}{10.1 cm}
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=10cm]{fig1.jpg}};
+    \draw[red,ultra thick] (5.1,11.2) circle (0.5); % center top
+    \draw[red,ultra thick] (2.8,10.7) circle (0.5); % left top
+    \draw[red,ultra thick] (7.2,10.7) circle (0.5); % right top
+    \draw[red,ultra thick] (5.1,7.4) circle (0.5);  % axis
+    \draw[red,ultra thick] (2.8,3.7) circle (0.5);  % left bottom
+    \draw[red,ultra thick] (7.2,3.7) circle (0.5);  % right bottom
+  \end{tikzpicture}
+  \caption{Trackingpunkte für die Ausrichtung}
+\end{wrapfigure}
+Um stets eine konstante Ausrichtung zu erhalten und zu wissen, wie des Video
+gegenüber dem Aufbau rotiert und translatiert ist, muss die Orientierung
+konstant gehalten werden.
+Dazu werden zuerst im Video über ein statisches Matching sechs feste
+Punkte erkannt, um die Orientierung des Experiments gegenüber der Kamera zu
+berechnen. Folgende Punkte haben sich dabei als gut erkennbar herausgestellt:
+\begin{enumerate}
+  \item Die linke obere Ecke des gelben Hintergrunds
+  \item Die rechte obere Ecke des gelben Hintergrunds
+  \item Der obere Punkt, bei dem das Rad hinter dem Träger verschwindet
+  \item Die Drehachse des Rades
+  \item Der linke untere Punkt an dem das Rad den gelben Hintergrund verlässt
+  \item Der rechte untere Punkt an dem das Rad den gelben Hintergrund verlässt
+\end{enumerate}
+
+Konkret werden dabei Bilder der einzelnen Punkte über das Video bewegt und die
+jeweilige Korrelation mit dem Hintergrund berechnet. Dort wo sich das Maximum
+der Korrelation befindet, befindet sich der Punkt. Das Verfahren ist dabei aber
+anfällig für zweierlei Störungen. Wenn der Punkt überdeckt wird, wird er
+irgendwo anders gefunden, dies muss erkannt und herausgefiltert werden. Auch
+mit sich ändernden Lichtverhältnissen gibt es Probleme, z.B. wenn die Sonne auf
+das Rad scheint und es reflektiert. Dafür ist der Algorithmus erstaunlich
+unempfindlich gegen Bewegungsunschärfe.
+
+\subsection{Positionsbestimmung des Zeigers durch direkte Erkennung}
+\begin{wrapfigure}{r}{10.1 cm}
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=10cm]{fig1.jpg}};
+    \draw[red,ultra thick] (1.1,9.4) rectangle (2.1,4.7);  % left
+    \draw[red,ultra thick] (7.9,9.4) rectangle (8.9,4.7);  % right
+    \draw[red,ultra thick] (3.4,4.3) rectangle (6.6,3.1);  % center
+  \end{tikzpicture}
+  \caption{Zonen für die Erkennung}
+\end{wrapfigure}
+Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung) ist,
+wird die Position direkt mithilfe der Methode von oben erkannt. Problematisch
+sind dabei Rotationen, so dass für jede Zone ein jeweils anderes Bild des
+Zeigers verwendet werden muss. Die Methode funktioniert nicht mehr, sobald der
+Zeiger einen anderen Hintergrund überstreicht oder seine Orientierung stark
+ändert, so dass in diesen Positionen auf andere Methoden zurückgegriffen werden
+muss.
+
+\subsection{Indirekte Erkennung der Rotation des Rades}
+Sofern der Zeiger nicht innerhalb einer der Zonen ist wird stattdessen direkt
+die Rotation des Rades bestimmt. Dazu läuft in gewissen Abständen eine
+Erkennung starker Pixelgradienten über definierte Zonen vor ruhigem Hintergrund
+(sog. Edge Detection). So werden bis zu 20 Punkte gefunden, die zum Rad
+gehören. Dann wird mit dem nächsten Frame verglichen und versucht, die Punkte
+dort wiederzufinden. Somit ist bekannt, welcher Punkt sich im Vergleich zum
+nächsten Frame wohin bewegt hat. Über die Abschätzung einer
+Transformationsmatrix zwischen den Punkten kann dann der Winkel bestimmt werden
+um den sich das Rad gedreht hat.
+
+Problematisch an dieser Methode ist, dass sie starke Gradienten, also klare
+Ecken vorraussetzt. Bei schnellen Bewegungen wird der Fehler schnell sehr groß
+bzw. es werden überhaupt keine Ecken mehr gefunden, die getrackt werden können.
+Dann muss gewartet werden, bis der Zeiger wieder in einer der Zonen ist, um die
+Position wiederzufinden.
+
+\subsection{Ausgabe}
+Einerseits schreibt das Programm die berechneten Werte direkt in eine CSV-Datei, andererseits wird auch ein Video generiert, dass die Position des Zeigers direkt mit Fehlerbalken, Werten und Zeitindex anzeigt um die Funktionsweise zu prüfen.
+
+\subsection{Implementierung und Performance}
+Die Software wurde in C geschrieben und benutzt die OpenCV-Bibliothek, die die
+Grafikfunktionalitäten zur Verfügung stellt. Es hat einen Umfang von knapp 800
+Zeilen und benötigt auf meinem Laptop etwa 16 Stunden um alle 60 Videos zu
+bearbeiten.
+
+\subsection{Weitere Auswertung}
+Die CSV-Daten werden anschließend mit einem weiteren Programm bearbeitet,
+welches die Werte zwischen Start- und Umkehrpunkt herausschneidet und dabei den
+Nullpunkt festsetzt. Außerdem gibt es noch diverse Hilfsprogramme in Ruby. Hier
+wurden insgesamt 200 Zeilen Code geschrieben. Außerdem über 1000 Zeilen
+GNUplot-Code, der aber größtenteils von den Hilfsprogrammen generiert wird.
+
+
+\invisiblesection{Grafische Auswertung}
+
+\newpage
+\begin{landscape}
+  % gnuplot ./plot/plot-57-quad.gnuplot
+  \input{plot-57-quad.tex}
+\end{landscape}
+
 \input{plots-exp.tex}
 \end{document}
