@@ -462,7 +462,59 @@ und mit Zusatzmassen
 \end{equation}
 
 \subsection*{Vergleich mit dem Steinerschen Satz}
+Wir berechnen zuerst das Trägheitsmoment der Zusatzmassen. Wenn wir diese
+näherungsweise als Vollzylinder annehmen ist das
 
+\begin{equation}
+  I = \frac{1}{2} m r^2 = \frac{1}{8} mD^2 \Rightarrow
+  \Delta I = \sqrt{\del{\frac{D}{8} \Delta m}^2 + \del{\frac{md}{4} \Delta D}^2}
+\end{equation}
+
+Wir haben die Zylinder mit den Massen $M_1$ und $M_3$ benztzt. Der gemessene
+Durchmesser ist für alle Zylinder jeweils $D = \SI{55.0+-0.1}{mm}$ (der Fehler
+ergibt sich aus der Messung mit der Schiebelehre). Für die Waage legen wir
+einen Ablesefehler von $\SI{0.2}{g}$ ($\SI{0.1}{g}$ für Werte die exakt bei
+ganzen Gramm abgelesen werden) und eine Genauigkeit von $\SI{0.1}{g}$ zugrunde
+und erhalten die Fehler. Die Massen sind also $M_1 = \SI{981.4+-0.23}{g}$ und $M_3 =
+\SI{981.0+-0.14}{g}$.
+
+Somit ergeben sich die Trägheitsmomente
+\begin{align*}
+  I_1 &= \SI{0.3711+-0.0017}{g m^2} \\
+  I_3 &= \SI{0.3709+-0.0010}{g m^2}
+\end{align*}
+
+Den Abstand zur Drehachse haben wir gemessen, indem wir zuerst mit der
+Schiebelehre den Durchmesser der mittleren Außenkante der Radnabe gemessen
+haben ($d_1 = \SI{77.7+-0.1}{mm}$), dann mit dem Lineal bis zur Außenkante des
+Zusatzgewichts ($d_2 = \SI{277.5+-0.5}{mm}$). Zusätzlich müssen wir noch den
+Radius des Zusatzgewichts addieren um den Abstand zur Drehachse zu erhalten:
+
+\begin{equation}
+  d = \SI{382.70\pm0.52}{mm}
+\end{equation}
+
+Über den Steinerschen Satz
+\begin{equation}
+  I = I_1 + M_1 d^2 + I_3 + M_3 d^2 \Rightarrow
+  \Delta I = \sqrt{\Delta I_1^2 + \Delta I_3^2 + \del{d^2 \Delta M_1}^2 +
+  \del{d^2 \Delta M_3}^2 + \del{2d (M_1+M_2) \Delta d}^2}
+\end{equation}
+erhalten wir das zusätzliche Trägheitsmoment
+\begin{equation}
+  % in g*m^2
+  % 0.3711+0.3709+(981.4+981.0)*0.3827^2
+  % sqrt(0.0017^2+0.0010^2+(0.3827^2*0.23)^2+(0.3827^2*0.14)^2+
+  % (2*0.3827*(981.40+981.00)*0.00052)^2)
+  I' = \SI{0.28815+-0.00079}{kg m^2}
+\end{equation}
+
+Aus den experimentellen Daten erhalten wir hingegen
+\begin{equation}
+  I' = I - I_0 = \SI{0.180+-0.036}{kg m^2} - \SI{0.58+-0.13}{kg m^2} = \SI{0.46+-0.13}{kg m^2}
+\end{equation}
+
+Die beiden Werte sind verträglich.
 
 \input{plots-exp.tex}
 \end{document}
