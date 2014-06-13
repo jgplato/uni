@@ -16,16 +16,26 @@ M = [
 
 def mass(number_of_exp)
   case number_of_exp
-  when (1..6), (30..36)
+  when (1..6)
     M[0]
-  when (7..12), (37..42)
+  when (7..12)
     M[1]
-  when (13..18), (43..48)
+  when (13..18)
     M[2]
-  when (19..24), (49..54)
+  when (19..24)
     M[3]
-  when (25..30), (55..60)
+  when (25..30)
     M[4]
+  when (30..36)
+    M[4]
+  when (37..42)
+    M[3]
+  when (43..48)
+    M[2]
+  when (49..54)
+    M[1]
+  when (55..60)
+    M[0]
   else
     raise "Unknown"
   end
@@ -53,8 +63,10 @@ def f(val, err)
   val, err = round2(val,err)
   "$\\num{#{val}+-#{err}}$"
 end
-is = []
-i_errs = []
+is1 = []
+i_errs1 = []
+is2 = []
+i_errs2 = []
 File.open("./results.tex", "w") do |fh|
   fh.write "\\begin{tabular}{l|r|r|r|r|r}\n"
   fh.write "Messung & $A$ & $B$ & $C$ & $I$ & $\\mu$ \\\\\n"
@@ -78,14 +90,23 @@ File.open("./results.tex", "w") do |fh|
     fh.write "#{num} & #{f(a,a_err)} & #{f(b,b_err)} & #{f(c,c_err)}, & #{f(i,i_err)} & #{f(mu, mu_err)} \\\\\n"
 
     if num <= 30
-      is  << i
-      i_errs << i_err
+      is1  << i
+      i_errs1 << i_err
+    elsif num > 30 && num <= 59
+      is2 << i
+      i_errs2 << i_err
     end
   end
   fh.write "\\end{tabular}\n"
 end
 
+def avg(is, i_errs)
+  i = is.reduce(&:+)/is.size
+  i_err = 1/is.size.to_f*Math.sqrt(i_errs.map{|e| e**2}.reduce(&:+))
+  [i,i_err]
+end
+
 puts "Avg 1...30:"
-i = is.reduce(&:+)/is.size
-i_err = 1/is.size.to_f*Math.sqrt(i_errs.map{|e| e**2}.reduce(&:+))
-puts "I = #{i}+-#{i_err}"
+puts avg(is1, i_errs1).join("+-")
+puts "Avg 1...30:"
+puts avg(is2, i_errs2).join("+-")
