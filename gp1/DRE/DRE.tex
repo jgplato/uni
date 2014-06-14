@@ -173,18 +173,18 @@ Reifen, nicht auf die Speichen. Gehen wir also von einer Massenverteilung $\rho
   \caption{Versuchsaufbau}
 \end{wrapfigure}
 Das Rad eines Fahrrads ist drehbar an der Wand montiert. Auf seiner Achse
-befindet sich eine Rolle, auf der eine Schnur aufgewickelt wird. Am Ende
-der Schnur hängt eine Feder, an die verschiedene Gewichte angehängt werden
-können. Wird das Rad losgelassen folgt das Gewicht der Schwerkraft und dreht
-dadurch das Rad.
+befindet sich eine Rolle, auf der eine Schnur aufgewickelt wird. Am Ende der
+Schnur hängt eine Feder, an die verschiedene Gewichte angehängt werden können.
+Wird das Rad losgelassen, folgt das Gewicht der Schwerkraft und dreht dadurch
+das Rad.
 
 Das Rad verfügt über einen radialen Zeiger, der den Drehwinkel des Rades auf
 einer Skala anzeigt. Die Skala geht nur von von ca. $-0{,}4$ rad bis $0{,}4$
 rad, umfasst also nur einen kleinen Winkel von etwa $50\,^\circ$.  Im
 restlichen Bereich kann der Winkel nur grob geschätzt werden.
 
-Es gibt außerdem eine Skala zum Ablesen der Höhe des Gewichts, wir wir jedoch
-aus nicht verwendet haben. Stattdessen haben wir die Höhe aus der
+Es gibt außerdem eine Skala zum Ablesen der Höhe des Gewichts, die wir jedoch
+nicht verwendet haben. Stattdessen haben wir die Höhe aus der
 Zeigerposition geschätzt.
 
 Am Rad befinden sich außerdem zwei Gewindestangen auf gegenüberliegenden
@@ -196,8 +196,9 @@ werden, um das Trägheitsmoment des Rades zu erhöhen.
 Wir haben ein Gewicht angehängt, eine bestimmte Anzahl Umdrehungen aufgewickelt
 und dann das Rad losgelassen. Das Gewicht wird von der Schwerkraft nach unten
 gezogen und bringt dadurch das Rad in eine Drehbewegung. Sobald die Schnur
-komplett abgewickelt ist (Umkehrpunkt), zieht das Rad das Gewicht wieder nach
-oben, bis es an einem zweiten Hochpunkt wieder zum Stillstand kommt.
+komplett abgewickelt ist (Umkehrpunkt), zieht das Rad durch seine
+Rotationsenergie das Gewicht wieder nach oben, bis es an einem zweiten
+Hochpunkt wieder zum Stillstand kommt.
 
 Mit einer Stoppuhr haben wir parallel zwei Zeiten gemessen. Der erste Messwert
 ist die Zeit, die vom Hoch- zum Umkehrpunkt verstreicht. Der zweite Messwert ist
@@ -383,8 +384,10 @@ Durch Rücksubstitution erhalten wir die Lösung
 
 Wir definieren nun
 \begin{align}
-  k &= \frac{\mu}{mr^2 + I} \quad \\
+  k &= \frac{\mu}{mr^2 + I} \quad
+  \label{eq:k} \\
   \omega &= \frac{mgr}{\mu}
+  \label{eq:omega}
 \end{align}
 
 Und erhalten eine Gleichung mit zwei freien Parametern, die die Bewegung beschreibt.
@@ -430,11 +433,12 @@ zweiten Parameter wäre damit nicht ersichtlich. Somit ist ein Einzeichnen von
 Grenzgeraden in diesem Fall sinnlos, da der Fehler dadurch nicht ermittelt
 werden kann.
 
-Stattdessen haben wir dem Fehler durch die Methode der kleinsten Quadrate
+Stattdessen haben wir den Fehler durch die Methode der kleinsten Quadrate
 ermittelt.
 
 \subsubsection{Fehlerrechnung}
-Durch Umstellen erhalten wir das Trägheitsmoment
+Durch Umstellen von Gl.~\ref{eq:k} und \ref{eq:omega} erhalten wir das
+Trägheitsmoment
 \begin{equation}
   I = \frac{mgr}{\omega k} - mr^2
 \end{equation}
@@ -471,8 +475,9 @@ eingetragen. Die Eingangsdaten können dabei dem Messprotokoll entnommen werden.
 
 \subsubsection{Interpretation und Ergebnis}
 Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lassen
-auf Unzulänglichkeiten im Reibungsmodell schließen. Die Reibung scheint nicht
-linear von der Geschwindigkeit abzuhängen, sondern einer unbekannten
+auf Unzulänglichkeiten im Reibungsmodell schließen. Die Reibung scheint, wie
+bereits am Anfang vermutet, nicht linear von der Geschwindigkeit abzuhängen,
+sondern einer unbekannten
 Gesetzmäßigkeit zu folgen, möglicherweise einem Haft- und Gleitreibungsanteil.
 Insbesondere am Plot zu Messung 60 (Seite $\pageref{plot:60-exp}$) sieht man
 den großen Haftreibungsanteil, der gerade zu Anfang vom Modell abweicht.
@@ -502,20 +507,22 @@ und mit Zusatzmassen
 Wir berechnen zuerst das Trägheitsmoment der Zusatzmassen. Wenn wir diese
 näherungsweise als Vollzylinder annehmen ist das
 
-\begin{equation}
-  I = \frac{1}{2} m r^2 = \frac{1}{8} mD^2 \Rightarrow
-  \Delta I = \sqrt{\del{\frac{D}{8} \Delta m}^2 + \del{\frac{md}{4} \Delta D}^2}
-\end{equation}
+\begin{align}
+  &I = \frac{1}{2} m r^2 = \frac{1}{8} mD^2 \\
+  \Rightarrow \quad
+  &\Delta I = \sqrt{\del{\frac{D}{8} \Delta m}^2 + \del{\frac{md}{4} \Delta D}^2}
+\end{align}
 
 Wir haben die Zylinder mit den Massen $M_1$ und $M_3$ benutzt. Der gemessene
 Durchmesser ist für alle Zylinder jeweils $D = \SI{55.0+-0.1}{mm}$ (der Fehler
-ergibt sich aus der Messung mit der Schiebelehre). Für die Waage legen wir
-einen Ablesefehler von $\SI{0.2}{g}$ ($\SI{0.1}{g}$ für Werte die exakt bei
-ganzen Gramm abgelesen werden) und eine Genauigkeit von $\SI{0.1}{g}$ zugrunde
-und erhalten die Fehler. Die Massen sind also $M_1 = \SI{981.4+-0.23}{g}$ und $M_3 =
+ergibt sich aus der Messung mit der Schiebelehre). Für die Waage setzen wir
+einen Ablesefehler von $\SI{0.2}{g}$ fest. Für Werte, die auf ganzen
+Grammzahlen liegen nehmen wir einen Ablesefehler von $\SI{0.1}{g}$ an.  Die
+Wage hat eine Messgenauigkeit von $\SI{0.1}{g}$. Daraus können wir die Fehler
+der Massen berechnen und erhalten $M_1 = \SI{981.4+-0.23}{g}$ und $M_3 =
 \SI{981.0+-0.14}{g}$.
 
-Somit ergeben sich die Trägheitsmomente
+Daraus ergeben sich die Trägheitsmomente
 \begin{align*}
   I_1 &= \SI{0.3711+-0.0017}{g m^2} \\
   I_3 &= \SI{0.3709+-0.0010}{g m^2}
@@ -524,8 +531,8 @@ Somit ergeben sich die Trägheitsmomente
 Den Abstand zur Drehachse haben wir gemessen, indem wir zuerst mit der
 Schiebelehre den Durchmesser der mittleren Außenkante der Radnabe gemessen
 haben ($d_1 = \SI{77.7+-0.1}{mm}$), dann mit dem Lineal bis zur Außenkante des
-Zusatzgewichts ($d_2 = \SI{277.5+-0.5}{mm}$). Zusätzlich müssen wir noch den
-Radius des Zusatzgewichts addieren um den Abstand zur Drehachse zu erhalten:
+Zusatzgewichts ($d_2 = \SI{277.5+-0.5}{mm}$) und dann addieren wir noch den
+Radius des Gewichts um den Abstand zu neuen Drehachse zu erhalten
 
 \begin{equation}
   d = \SI{382.70\pm0.52}{mm}
@@ -555,7 +562,7 @@ Die beiden Werte sind verträglich.
 
 \section{Funktionsweise der Software}
 \label{chap:software}
-Für die Datenauswertung wurde die Software ``overkill'' entwickelt. Der Name
+Für die Datenauswertung wurde die Software ``Overkill'' entwickelt. Der Name
 ist dabei natürlich ein rekursives Backronym für ``\textbf{O}verkill:
 \textbf{v}isuelle \textbf{E}rkennung von \textbf{R}otations\textbf{k}inetik
 \textbf{i}n \textbf{l}ehrreichen \textbf{L}aborexperimenten'' und hat nichts mit dem
@@ -586,7 +593,8 @@ CSV-Datei exportiert, die dann weiter verarbeitet werden kann.
 Da wir aus der Hand gefilmit haben, bewegt und dreht sich das Kamerabild
 gegenüber dem Versuchsaufbau. Um absolute Positionen zu bestimmen, muss die
 Software diese Bewegungen erkennen und ausgleichen (sog. Deshaking). Dazu
-bestimmt sie fortlaufend die Position von sechs verschiedenen Punkten im Frame.
+bestimmt sie fortlaufend die Position von sechs verschiedenen Punkten im Frame
+(sog. statisches Feature Tracking).
 \begin{enumerate}
   \item Die linke obere Ecke des gelben Hintergrunds
   \item Die rechte obere Ecke des gelben Hintergrunds
@@ -596,10 +604,10 @@ bestimmt sie fortlaufend die Position von sechs verschiedenen Punkten im Frame.
   \item Der rechte untere Punkt an dem das Rad den gelben Hintergrund verlässt
 \end{enumerate}
 
-Dazu haben wir für jeden Punkt ein Bild exportiert. Die Bilder werden in
-Pixelschritten über das Frame bewegt und die Korrelation mit dem Hintergrund
-berechnet. Das Feature wird dort erkannt, wo sich das Korrelationsmaximum
-befindet.
+Um die Features zu finden, haben wir für jeden dieser 6 Punkte einen kleinen
+Bildausschnitt exportiert. Diese Bilder werden in Pixelschritten über das Frame
+bewegt und die Korrelation mit dem Hintergrund berechnet. Das Feature wird dort
+erkannt, wo sich das Korrelationsmaximum befindet.
 
 Das Verfahren ist dabei anfällig für zweierlei Störungen. Wenn der Punkt
 überdeckt wird, wird er irgendwo anders gefunden, dies muss erkannt und
@@ -619,7 +627,7 @@ ist der Algorithmus erstaunlich unempfindlich gegen Bewegungsunschärfe.
   \caption{Zonen für die Erkennung}
 \end{wrapfigure}
 Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung 3)
-ist, wird die Position direkt mithilfe dem gerade beschrieben Feature Matching
+ist, wird die Position direkt mithilfe dem gerade beschrieben Feature Tracking
 erkannt. Problematisch sind dabei Rotationen, so dass für jede Zone ein jeweils
 anderes Bild des Zeigers verwendet werden muss. Die Methode funktioniert nicht
 mehr, sobald der Zeiger einen anderen Hintergrund überstreicht oder seine
@@ -631,11 +639,10 @@ Sofern der Zeiger nicht innerhalb einer der Zonen ist, wird direkt die Rotation
 des Rades bestimmt. Dazu läuft in gewissen Abständen eine Erkennung starker
 Pixelgradienten über definierte Zonen (sog. Edge Detection). So werden bis zu
 20 Punkte gefunden, die zum Rad gehören. Dann wird der optische Fluss zwischen
-dem bearbeiteten und dem nächsten Frame berechnet um die Bewegung der erkannten
-Punkte im Bild zu bestimmen. Somit ist bekannt, welcher Punkt sich im Vergleich
-zum nächsten wohin bewegt hat. Über die Abschätzung einer Transformationsmatrix
-zwischen den Punkten kann dann der Winkel bestimmt werden um den sich das Rad
-gedreht hat.
+dem aktuellen und dem nächsten Frame berechnet, um die Bewegung der erkannten
+Punkte im Bild zu bestimmen. Somit ist bekannt, welcher Punkt sich wohin bewegt
+hat. Über die Abschätzung einer Transformationsmatrix zwischen den Punkten kann
+dann der Winkel bestimmt werden um den sich das Rad gedreht hat.
 
 Problematisch an dieser Methode ist, dass sie starke Gradienten, also klare
 Ecken voraussetzt. Bei schnellen Bewegungen entsteht eine Bewegungsunschärfe.
@@ -649,6 +656,8 @@ dann weiter bearbeiten können.
 
 Außerdem werden die Winkel in ein Output-Video gerendert, anhand dessen man die
 Erkennungsgenauigkeit verifizieren kann.
+
+Die Daten und den Quellcode haben wir dem Protokoll auf DVD beigelegt.
 
 \subsection{Implementierung und Performance}
 Die Software wurde in C geschrieben und benutzt die OpenCV-Bibliothek, die die
