@@ -23,6 +23,7 @@ end
 File.open("plots-exp.tex", "w") do |fh|
   nums.each do |num|
     fh.write("\\newpage
+\\label{plot:#{num}-exp}
 \\begin{landscape}
   % gnuplot ./plot/plot-#{num}-exp.gnuplot
   \\input{plot-#{num}-exp.tex}

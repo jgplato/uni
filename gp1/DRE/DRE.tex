@@ -420,13 +420,18 @@ Energie der Anhängemasse nicht berücksichtigt hat.
 
 \subsection{Aufgabe 1}
 Wir haben nun alle Daten gegen die obige Gleichung gefittet (Plots und
-Wertetabelle weiter hinten). Dabei haben wir auf eine Linearisierung der
-Darstellung verzichtet, denn die Gleichung ist auch logarithmisch auf beiden
-Seiten von beiden Parametern abhängig, so dass eine linearisierte Darstellung
-möglich, aber sinnlos ist. Da außerdem zwei freie Parameter in der Gleichung
-vorkommen ist sowieso nicht klar, wie die Grenzgeraden gewählt werden sollen.
+Wertetabelle weiter hinten).
+
+Bei den Plots für das revisionierte Bewegungsgesetz haben wir auf eine
+Linearisierung der Darstellung verzichtet, denn die Gleichung ist selbst in der
+logarithmischen Umformung auf beiden Seiten von beiden Parametern abhängig, so
+dass eine linearisierte Darstellung möglich, aber sinnlos ist. Der Fehler im
+zweiten Parameter wäre damit nicht ersichtlich. Somit ist ein Einzeichnen von
+Grenzgeraden in diesem Fall sinnlos, da der Fehler dadurch nicht ermittelt
+werden kann.
+
 Stattdessen haben wir dem Fehler durch die Methode der kleinsten Quadrate
-ermittelt, wie dies in der Experimentalphysik allgemein üblich ist.
+ermittelt.
 
 \subsubsection{Fehlerrechnung}
 Durch Umstellen erhalten wir das Trägheitsmoment
@@ -469,8 +474,8 @@ Die stark schwankenden und untereinander unverträglichen Werte für $\mu$ lasse
 auf Unzulänglichkeiten im Reibungsmodell schließen. Die Reibung scheint nicht
 linear von der Geschwindigkeit abzuhängen, sondern einer unbekannten
 Gesetzmäßigkeit zu folgen, möglicherweise einem Haft- und Gleitreibungsanteil.
-Insbesondere am Plot zu Messung 60 sieht man den großen Haftreibungsanteil,
-der gerade zu Anfang vom Modell abweicht.
+Insbesondere am Plot zu Messung 60 (Seite $\pageref{plot:60-exp}$) sieht man
+den großen Haftreibungsanteil, der gerade zu Anfang vom Modell abweicht.
 
 Mit den gegebenen Daten ein exaktes Reibungsmodell aufzustellen würde in pure
 Spekulation ausarten. Auch wären die auftretenden Differentialgleichungen
@@ -549,18 +554,20 @@ Aus den experimentellen Daten erhalten wir hingegen
 Die beiden Werte sind verträglich.
 
 \section{Funktionsweise der Software}
+\label{chap:software}
 Für die Datenauswertung wurde die Software ``overkill'' entwickelt. Der Name
 ist dabei natürlich ein rekursives Backronym für ``\textbf{O}verkill:
 \textbf{v}isuelle \textbf{E}rkennung von \textbf{R}otations\textbf{k}inetik
 \textbf{i}n \textbf{l}ehrreichen \textbf{L}aborexperimenten'' und hat nichts mit dem
-umgangssprachlichen Begriff ``Overkill'' für ``mit Kanonen auf Spatzen
-schießen'' (völlig übertriebene Maßnahmen) zu tun.
+umgangssprachlichen Begriff ``Overkill'' zu tun.
 
-Die Software analysiert Videos die vom Experiment aufgenommen wurden. Dazu wird
-das Video in einzelnen Bilder (sog. Frames) zerlegt, Verwacklung entfernt (sog.
-Deshaking) und dann versucht in jedem Frame die Position des Zeigers zu
-erkennen. Die erkannten Winkel werden mit Zeitindex und Fehlerabschätzung in
-eine CSV-Datei exportiert, die dann weiter verarbeitet werden können.
+Die Software analysiert Videos die vom Experiment aufgenommen wurden. Sie
+zerlegt das Video in einzelne Bilder (sog. Frames), entfernt Verwacklung (sog.
+Deshaking). Dann versucht sie in jedem einzelnen Frame den Winkel des Zeigers
+zu bestimmen.
+
+Die erkannten Winkel werden mit Zeitindex und Fehlerabschätzung in eine
+CSV-Datei exportiert, die dann weiter verarbeitet werden kann.
 
 \subsection{Deshaking}
 \begin{wrapfigure}{R}{10.1 cm}
@@ -575,12 +582,11 @@ eine CSV-Datei exportiert, die dann weiter verarbeitet werden können.
   \end{tikzpicture}
   \caption{Trackingpunkte für die Ausrichtung}
 \end{wrapfigure}
-Um stets eine konstante Ausrichtung zu erhalten und zu wissen, wie des Video
-gegenüber dem Aufbau rotiert und translatiert ist, muss die Orientierung
-konstant gehalten werden.  Dazu werden zuerst im Video über ein statisches
-Matching sechs feste Punkte erkannt, um die Orientierung des Experiments
-gegenüber der Kamera zu berechnen. Folgende Punkte (siehe Abbildung 1) haben
-sich dabei als gut erkennbar herausgestellt:
+
+Da wir aus der Hand gefilmit haben, bewegt und dreht sich das Kamerabild
+gegenüber dem Versuchsaufbau. Um absolute Positionen zu bestimmen, muss die
+Software diese Bewegungen erkennen und ausgleichen (sog. Deshaking). Dazu
+bestimmt sie fortlaufend die Position von sechs verschiedenen Punkten im Frame.
 \begin{enumerate}
   \item Die linke obere Ecke des gelben Hintergrunds
   \item Die rechte obere Ecke des gelben Hintergrunds
@@ -590,14 +596,16 @@ sich dabei als gut erkennbar herausgestellt:
   \item Der rechte untere Punkt an dem das Rad den gelben Hintergrund verlässt
 \end{enumerate}
 
-Konkret werden dabei Bilder der einzelnen Punkte über das Video bewegt und die
-jeweilige Korrelation mit dem Hintergrund berechnet. Dort wo sich das Maximum
-der Korrelation befindet, befindet sich der Punkt. Das Verfahren ist dabei aber
-anfällig für zweierlei Störungen. Wenn der Punkt überdeckt wird, wird er
-irgendwo anders gefunden, dies muss erkannt und herausgefiltert werden. Auch
-mit sich ändernden Lichtverhältnissen gibt es Probleme, z. B. wenn die Sonne auf
-das Rad scheint und es reflektiert. Dafür ist der Algorithmus erstaunlich
-unempfindlich gegen Bewegungsunschärfe.
+Dazu haben wir für jeden Punkt ein Bild exportiert. Die Bilder werden in
+Pixelschritten über das Frame bewegt und die Korrelation mit dem Hintergrund
+berechnet. Das Feature wird dort erkannt, wo sich das Korrelationsmaximum
+befindet.
+
+Das Verfahren ist dabei anfällig für zweierlei Störungen. Wenn der Punkt
+überdeckt wird, wird er irgendwo anders gefunden, dies muss erkannt und
+herausgefiltert werden. Auch mit sich ändernden Lichtverhältnissen gibt es
+Probleme, z. B. wenn die Sonne auf das Rad scheint und es reflektiert. Dafür
+ist der Algorithmus erstaunlich unempfindlich gegen Bewegungsunschärfe.
 
 \subsection{Positionsbestimmung des Zeigers durch direkte Erkennung}
 \begin{wrapfigure}{L}{10.1 cm}
@@ -610,33 +618,37 @@ unempfindlich gegen Bewegungsunschärfe.
   \label{zones}
   \caption{Zonen für die Erkennung}
 \end{wrapfigure}
-Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung 3) ist,
-wird die Position direkt mithilfe der Methode von oben erkannt. Problematisch
-sind dabei Rotationen, so dass für jede Zone ein jeweils anderes Bild des
-Zeigers verwendet werden muss. Die Methode funktioniert nicht mehr, sobald der
-Zeiger einen anderen Hintergrund überstreicht oder seine Orientierung stark
-ändert, so dass in diesen Positionen auf andere Methoden zurückgegriffen werden
-muss.
+Sofern der Zeiger in einer von drei verschiedenen Zonen (siehe Abbildung 3)
+ist, wird die Position direkt mithilfe dem gerade beschrieben Feature Matching
+erkannt. Problematisch sind dabei Rotationen, so dass für jede Zone ein jeweils
+anderes Bild des Zeigers verwendet werden muss. Die Methode funktioniert nicht
+mehr, sobald der Zeiger einen anderen Hintergrund überstreicht oder seine
+Orientierung stark ändert, so dass in diesen Positionen auf andere Methoden
+zurückgegriffen werden muss.
 
 \subsection{Indirekte Erkennung der Rotation des Rades}
-Sofern der Zeiger nicht innerhalb einer der Zonen ist wird stattdessen direkt
-die Rotation des Rades bestimmt. Dazu läuft in gewissen Abständen eine
-Erkennung starker Pixelgradienten über definierte Zonen vor ruhigem Hintergrund
-(sog. Edge Detection). So werden bis zu 20 Punkte gefunden, die zum Rad
-gehören. Dann wird mit dem nächsten Frame verglichen und versucht, die Punkte
-dort wiederzufinden. Somit ist bekannt, welcher Punkt sich im Vergleich zum
-nächsten Frame wohin bewegt hat. Über die Abschätzung einer
-Transformationsmatrix zwischen den Punkten kann dann der Winkel bestimmt werden
-um den sich das Rad gedreht hat.
+Sofern der Zeiger nicht innerhalb einer der Zonen ist, wird direkt die Rotation
+des Rades bestimmt. Dazu läuft in gewissen Abständen eine Erkennung starker
+Pixelgradienten über definierte Zonen (sog. Edge Detection). So werden bis zu
+20 Punkte gefunden, die zum Rad gehören. Dann wird der optische Fluss zwischen
+dem bearbeiteten und dem nächsten Frame berechnet um die Bewegung der erkannten
+Punkte im Bild zu bestimmen. Somit ist bekannt, welcher Punkt sich im Vergleich
+zum nächsten wohin bewegt hat. Über die Abschätzung einer Transformationsmatrix
+zwischen den Punkten kann dann der Winkel bestimmt werden um den sich das Rad
+gedreht hat.
 
 Problematisch an dieser Methode ist, dass sie starke Gradienten, also klare
-Ecken voraussetzt. Bei schnellen Bewegungen wird der Fehler schnell sehr groß
-bzw. es werden überhaupt keine Ecken mehr gefunden, die getrackt werden können.
-Dann muss gewartet werden, bis der Zeiger wieder in einer der Zonen ist, um die
-Position wiederzufinden.
+Ecken voraussetzt. Bei schnellen Bewegungen entsteht eine Bewegungsunschärfe.
+Also wird der Fehler schnell sehr groß bzw. es werden überhaupt keine Ecken
+mehr gefunden, die getrackt werden können. Dann muss gewartet werden, bis der
+Zeiger wieder in einer der Zonen ist, um die Position wiederzufinden.
 
 \subsection{Ausgabe}
-Einerseits schreibt das Programm die berechneten Werte direkt in eine CSV-Datei, andererseits wird auch ein Video generiert, dass die Position des Zeigers direkt mit Fehlerbalken, Werten und Zeitindex anzeigt um die Funktionsweise zu prüfen.
+Die erkannten Winkel und Zeiten werden in eine CSV-Datei ausgegeben, die wir
+dann weiter bearbeiten können.
+
+Außerdem werden die Winkel in ein Output-Video gerendert, anhand dessen man die
+Erkennungsgenauigkeit verifizieren kann.
 
 \subsection{Implementierung und Performance}
 Die Software wurde in C geschrieben und benutzt die OpenCV-Bibliothek, die die
@@ -664,8 +676,14 @@ Aus den Differenzen der Laufzeiten für Links- und Rechtsdrehung ist außerdem
 ersichtlich, dass das Rad Unwuchten hat, die das Ergebnis weiter verfälschen.
 
 Aufgrund dieser konstruktionsbedingten Ungenauigkeiten im Aufbau konnten wir
-die Trägheitsmomente leider nicht in der gewünschten Genauigkeit berechnen,
-dennoch konnten wir die Gültigkeit des Steinerschen Satzes zeigen.
+die Trägheitsmomente leider nicht in der gewünschten Genauigkeit berechnen, wir
+erhalten die Endergebnisse (ohne und mit Zusatzmassen):
+\begin{align*}
+  I_0 &= \SI{0.18+-0.05}{kg m^2} \\
+  I   &= \SI{0.6+-0.2}{kg m^2}
+\end{align*}
+
+Trotzdem konnten wir die Gültigkeit des Steinerschen Satzes zeigen.
 
 Da für die Messungen die nicht mit der Software auswertbar waren, jeweils nur
 zwei Messpunkte verfügbar sind, können nicht alle Parameter der
@@ -676,10 +694,25 @@ Mit einer verbesserten Software wäre dies sicherlich möglich, aber da wir ein
 breites Spektrum an Messungen über alle Parameter auswerten konnten, bringt
 dies wahrscheinlich keine neuen Erkenntnisse. Deswegen lassen wir das.
 
+\section{Grafische Auswertungen und Wertetabellen}
+Es folgen die erstellten Plots und ganz am Ende die Wertetabelle.
 
-\invisiblesection{Grafische Auswertungen und Wertetabellen}
+Bei den Plots für das revisionierte Bewegungsgesetz haben wir auf eine
+Linearisierung der Darstellung verzichtet, denn die Gleichung ist selbst in der
+logarithmischen Umformung auf beiden Seiten von beiden Parametern abhängig, so
+dass eine linearisierte Darstellung möglich, aber sinnlos ist. Der Fehler im
+zweiten Parameter wäre damit nicht ersichtlich. Somit ist ein Einzeichnen von
+Grenzgeraden in diesem Fall sinnlos, da der Fehler dadurch nicht ermittelt
+werden kann.
+
+Stattdessen haben wir dem Fehler durch die Methode der kleinsten Quadrate
+ermittelt.
+
+Im ersten Plot in dem eine Linearisierte Darstellung möglich ist, haben wir
+hingegen eine Grenzgerade eingezeichnet und damit den Fehler bestimmt.
 
 \newpage
+\label{plot:57-lin}
 \begin{landscape}
   % gnuplot ./plot/plot-57-quad.gnuplot
   \input{plot-57-quad.tex}
