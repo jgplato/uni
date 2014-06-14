@@ -210,7 +210,7 @@ die noch aufgewickelten Umdrehungen und die ungefähre Position des Zeigers
 Mit den 5 verschiedenen Anhängemassen, den zwei verschiedenen Drehrichtungen
 (im und gegen den Uhrzeigersinn) und in der Konfiguration mit und ohne
 Zusatzmassen haben wir Messreihen für 1, 2 und 5 Umdrehungen aufgenommen. So
-haben wir 60 Messwertreihen mit jeweils 2 Zeiten erhalten.
+haben wir 60 Messreihen mit jeweils 2 Zeiten erhalten.
 
 Außerdem haben wir jede Messung mit der Handykamera (Samsung Galaxy S3,
 mp4-Format, variable Framerate) aufgenommen um die abgeschätzten Positionen und
@@ -241,7 +241,7 @@ Annahme der Anfangsbedingungen $\phi_0 = 0$ und $\omega_0 = 0$
 \end{equation}
 
 Im ersten Plot haben wir exemplarisch für die Messung 57, bei der der Reibungseffekt
-besonders prägnat hervortritt, $\phi$ gegen $t^2$ aufgetragen.
+besonders prägnant hervortritt, $\phi$ gegen $t^2$ aufgetragen.
 
 Hier ist kein linearer Zusammenhang erkennbar, so dass es sinnvoll erscheint,
 zuerst ein Reibungsmodell aufzustellen und erst dann die Trägheitsmomente
@@ -502,7 +502,7 @@ näherungsweise als Vollzylinder annehmen ist das
   \Delta I = \sqrt{\del{\frac{D}{8} \Delta m}^2 + \del{\frac{md}{4} \Delta D}^2}
 \end{equation}
 
-Wir haben die Zylinder mit den Massen $M_1$ und $M_3$ benztzt. Der gemessene
+Wir haben die Zylinder mit den Massen $M_1$ und $M_3$ benutzt. Der gemessene
 Durchmesser ist für alle Zylinder jeweils $D = \SI{55.0+-0.1}{mm}$ (der Fehler
 ergibt sich aus der Messung mit der Schiebelehre). Für die Waage legen wir
 einen Ablesefehler von $\SI{0.2}{g}$ ($\SI{0.1}{g}$ für Werte die exakt bei
@@ -558,7 +558,7 @@ schießen'' (völlig übertriebene Maßnahmen) zu tun.
 
 Die Software analysiert Videos die vom Experiment aufgenommen wurden. Dazu wird
 das Video in einzelnen Bilder (sog. Frames) zerlegt, Verwacklung entfernt (sog.
-deshaking) und dann versucht in jedem Frame die Position des Zeigers zu
+Deshaking) und dann versucht in jedem Frame die Position des Zeigers zu
 erkennen. Die erkannten Winkel werden mit Zeitindex und Fehlerabschätzung in
 eine CSV-Datei exportiert, die dann weiter verarbeitet werden können.
 
@@ -595,7 +595,7 @@ jeweilige Korrelation mit dem Hintergrund berechnet. Dort wo sich das Maximum
 der Korrelation befindet, befindet sich der Punkt. Das Verfahren ist dabei aber
 anfällig für zweierlei Störungen. Wenn der Punkt überdeckt wird, wird er
 irgendwo anders gefunden, dies muss erkannt und herausgefiltert werden. Auch
-mit sich ändernden Lichtverhältnissen gibt es Probleme, z.B. wenn die Sonne auf
+mit sich ändernden Lichtverhältnissen gibt es Probleme, z. B. wenn die Sonne auf
 das Rad scheint und es reflektiert. Dafür ist der Algorithmus erstaunlich
 unempfindlich gegen Bewegungsunschärfe.
 
@@ -630,7 +630,7 @@ Transformationsmatrix zwischen den Punkten kann dann der Winkel bestimmt werden
 um den sich das Rad gedreht hat.
 
 Problematisch an dieser Methode ist, dass sie starke Gradienten, also klare
-Ecken vorraussetzt. Bei schnellen Bewegungen wird der Fehler schnell sehr groß
+Ecken voraussetzt. Bei schnellen Bewegungen wird der Fehler schnell sehr groß
 bzw. es werden überhaupt keine Ecken mehr gefunden, die getrackt werden können.
 Dann muss gewartet werden, bis der Zeiger wieder in einer der Zonen ist, um die
 Position wiederzufinden.
@@ -653,9 +653,9 @@ GNUplot-Code, der aber größtenteils von den Hilfsprogrammen generiert wird.
 
 \section{Zusammenfassung und Diskussion}
 Insgesamt konnten wir dank rechnergestützter Auswertung das hergeleitete
-Bewegungsgesetz wiederlegen. Erst ein Ansatz mit einer
+Bewegungsgesetz widerlegen. Erst ein Ansatz mit einer
 geschwindigkeitsabhängigen Reibung kann die Bewegung des Rades näherungsweise
-erklären, auch wenn an einigen Stellen (z.B. Messung 60) der Einfluss einer
+erklären, auch wenn an einigen Stellen (z. B. Messung 60) der Einfluss einer
 nichtlinearen Reibung klar erkannbar sind. Gerade für die letzten Messungen
 konnten wir keine Werte aufnehmen, da das Rad sich nicht bewegt hat. Hierbei
 handelt es sich um eine Haftreibung.
@@ -666,7 +666,6 @@ ersichtlich, dass das Rad Unwuchten hat, die das Ergebnis weiter verfälschen.
 Aufgrund dieser konstruktionsbedingten Ungenauigkeiten im Aufbau konnten wir
 die Trägheitsmomente leider nicht in der gewünschten Genauigkeit berechnen,
 dennoch konnten wir die Gültigkeit des Steinerschen Satzes zeigen.
-
 
 Da für die Messungen die nicht mit der Software auswertbar waren, jeweils nur
 zwei Messpunkte verfügbar sind, können nicht alle Parameter der
