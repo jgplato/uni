@@ -46,18 +46,73 @@ Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
 \section*{Aufgabe 1: Rotierende Kugel}
 \begin{enumerate}[a)]
 \item
-Wir nutzen Zylinderkoordinaten.
-
-Die Ladung $q$ verteilt sich auf der Kugeloberfläche $A = 4 \pi R^2$, daraus
-folgt die Ladungsdichte $\rho = \dfrac{q}{4 \pi R^2}$.
-
-Sei o.B.d.A. die Drehachse $\vec{\omega} = \omega \hat{e}_z$, dann ist am Ort
-$\vec{r} = r\hat{e}_r + z \hat{e}_z$ der Geschwindigkeitsvektor $\vec{\omega}
-\times \vec{r} = \omega r \hat{e}_\phi$.
-
-In Zylinderkoordinaten ist die Stromdichte dann also
 \begin{equation}
-  \vec{j} =  \frac{q}{4 \pi R^2} \delta\del{r^2 + z^2 - R^2} \omega r \hat{e}_\phi
+  \vec{j}(\vec{r}) =  \frac{q}{4 \pi R^2} \delta\del{\envert{\vec{r}} - R} \vec{\omega} \times \vec{r}
 \end{equation}
+\item
+  \begin{align}
+    \vec{A}(\vec{r})
+    &= \frac{\mu_0}{4 \pi} \int \dif V' \; \frac{\vec{j}(\vec{r}')}{\envert{\vec{r}' - \vec{r}}} \\
+    &= \frac{\mu_0}{4 \pi} \frac{q}{4 \pi R^2} \int \dif V' \;
+    \frac{\vec{\omega} \times \vec{r}'}{\envert{\vec{r}' - \vec{r}}}
+    \delta\del{r' - R} \\
+    &= \frac{q \mu_0}{16 \pi^2 R^2} \vec{\omega} \times \int \dif V' \;
+    \frac{\vec{r}'}{\envert{\vec{r}' - \vec{r}}}
+    \delta\del{r' - R} \\
+  \end{align}
+
+  Wir werten das Integral in Kugelkoordinaten aus. Dazu setzen wir o.B.d.A.
+  $\vec{r}$ entlang der $z$-Achse fest.
+  Dann ist der Winkel zwischen $\vec{r}$ und $\vec{r}'$ genau der Winkel
+  $\theta$ aus den Kugelkoordinaten.  Über den Kosinus-Satz ist
+  $\envert{\vec{r}' - \vec{r}} = \sqrt{r'^2 + r^2 - 2 r' r \cos \theta}$.
+  Außerdem ist der Integrationsvektor in Kugelkoordinaten $\vec{r}' = r' (\sin
+  \theta' \cos \phi', \sin \theta' \sin \phi', \cos \phi')$.
+
+  Die Delta-Funktion ersetzen wir direkt und erhalten die Komponenten des
+  Integrals.
+
+  Die $x$-Komponente verschwindet, wenn man zuerst das Integral nach $\phi'$
+  ausführt:
+
+  \begin{align}
+    \int\limits_0^\pi \dif \theta'
+    \int\limits_0^{2 \pi} \dif \phi' \;
+    \frac{R \sin \theta' \cos \phi'}{\sqrt{R^2 + r^2 - 2Rr \cos \theta'}} R^2 \sin \theta' = 0
+  \end{align}
+
+  $y$-Komponente analog:
+
+  \begin{align}
+    \int\limits_0^\pi \dif \theta'
+    \int\limits_0^{2 \pi} \dif \phi' \;
+    \frac{R \sin \theta' \sin \phi'}{\sqrt{R^2 + r^2 - 2Rr \cos \theta'}} R^2 \sin \theta' = 0
+  \end{align}
+
+  $z$-Komponente:
+  \begin{align}
+    &\int\limits_0^\pi \dif \theta'
+    \int\limits_0^{2 \pi} \dif \phi' \;
+    \frac{R \cos \theta'}{\sqrt{R^2 + r^2 - 2Rr \cos \theta'}} R^2 \sin \theta'
+    =
+    &2 \pi R^3
+    \int\limits_0^\pi \dif \theta'
+    \frac{\cos \theta' \sin \theta'}{\sqrt{R^2 + r^2 - 2Rr \cos \theta'}}
+    = 2 \pi R^3 \frac{2R}{3 r^2}
+  \end{align}
+
+  Zusammengfasst und eingesetzt:
+  \begin{equation}
+    \vec{A}(\vec{r})
+    = \frac{q \mu_0}{16 \pi^2 R^2} \vec{\omega} \times \frac{4 \pi R^4}{3 r^2} \hat{e}_z
+    = \frac{q \mu_0 R^2}{12 \pi r^2} \vec{\omega} \times \hat{e}_z
+  \end{equation}
+
+  Wegen $\vec{r} = r \hat{e}_z$ ergibt sich insgesamt:
+  \begin{equation}
+    \vec{A}(\vec{r}) = \frac{q \mu_0 R^2}{12 \pi r^3} \vec{\omega} \times \vec{r}
+  \end{equation}
+
+
 \end{enumerate}
 \end{document}
