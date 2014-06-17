@@ -1,0 +1,90 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{mathtools} % also includes mathclap
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+% Number only referenced equations
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\newcommand*\laplace{\mathop{}\!\mathbin\Delta}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Theoretische Elektrodynamik, Sommersemester 2014, Aufgabenblatt 10
+
+Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 2: Welle mit Anfangsbedingungen}
+Die Lösung der allgemeinen Wellengleichung ist eine Kombination zweier eindimensionaler $C_2$-Funktionen:
+\begin{equation}
+  u(x,t) = f(x+ct) + g(x-ct)
+\end{equation}
+
+Aus der ersten Anfangsbedingung $u(x,0) = 0$ erhalten wir daher
+\begin{equation}
+  f(x) + g(x) = 0
+\end{equation}
+
+Aus der zweiten Anfangsbedingung links:
+\begin{align}
+ \eval{\partial_t u(x,t)}_{\mathrlap{t=0}} 
+ &= \eval{\partial_t \del{f(x+ct) + g(x-ct)}}_{t=0} \\
+ &= \eval{\partial_{x+ct} f(x+ct) \partial_{t} (x+ct)}_{\mathrlap{t=0}} +
+    \eval{\partial_{x-ct} g(x-ct) \partial_{t} (x-ct)}_{\mathrlap{t=0}} \\
+ &= \eval{c \partial_x \del{f(x) - g(x)}}_{t=0} \\
+ &= \eval{2c \partial_x f}_{t=0} \\
+ &= 2c \partial_x f
+\end{align}
+
+Mit $2c \partial_x f = 4c \epsilon \dfrac{x}{(x^2+\epsilon^2)^2}$ folgt:
+\begin{align}
+  f(x)
+  &= 2 \epsilon \int \dif x \; \frac{x}{(x^2+\epsilon^2)^2} \\
+  &= -\frac{\epsilon}{x^2 + \epsilon^2} + C
+\end{align}
+
+Somit
+\begin{equation}
+  u(x,t) = f(x+ct) - f(x-ct) = -\frac{\epsilon}{(x+ct)^2 + \epsilon^2} + \frac{\epsilon}{(x-ct)^2 + \epsilon^2}
+\end{equation}
+
+Es handelt sich bei dieser Wellengleichung um zwei aufeinander zulaufende
+gaußglockenförmige Pulse, die sich bei $x=0$ treffen, dabei kurzzeitig
+auslöschen und wieder ausseinander laufen. Für betragsmäßig große Zeiten wären
+die Pulse unendlich weit voneinander entfernt. Damit die also noch im
+Plotbereich wären, müsste ich herrauszoomen. Für $t \to \pm \infty$ unendlich
+weit, so dass die Pulse unendlich klein werden. Es bleibt nichts weiter als
+eine flache Linie $u(x) = 0$ übrig.
+
+Da du dir das gerade vorgestellt hast, ist eine Zeichnung hinfällig.
+
+\end{document}
