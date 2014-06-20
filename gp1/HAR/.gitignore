@@ -1,0 +1,5 @@
+plot*.eps
+plot*.tex
+*.toc
+*.pdf
+
