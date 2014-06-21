@@ -17,8 +17,8 @@ set output "plot.tex"
 
 set fit errorvariables
 
-omega0 = 3.7
 A(x) = a/sqrt((omega0**2 - x**2)**2 + 4*delta**2*x**2)
+omega0 = 3.45
 fit A(x) "messwerte-korrekt.csv" using 3:1:2 via omega0, delta, a
 
 set label 1 sprintf("\\textbf{Resonanzkurve}\n\nFitgleichung: $A(\\Omega) = \\frac{a}{\\sqrt{\\del{\\omega_0^2 - \\Omega^2}^2 + 4 \\delta^2 \\Omega^2}}$\n\n$\\omega_0 = \\num{%1.6f+-%1.6f}$\n$\\delta = \\num{%1.6f+-%1.6f}$\n$a = \\num{%1.6f+-%1.6f}$", omega0, omega0_err, delta, delta_err, a, a_err) at graph 0.6, graph 0.6

@@ -217,13 +217,81 @@ Da wir leider keinen logarithmischen Plot direkt aus CASSY-Lab erstellt haben,
 mussten wir hier zu einer anderen Methode greifen.
 
 Zuerst haben wir zwei Maxima gesucht um aus der Zeitdifferenz und der Anzahl
-der Perioden die Schwingungsfrequenz $\omega$ zu bestimmen.
+der Perioden die Periode $T$ zu bestimmen:
+\begin{equation}
+  T = \frac{t_2 - t_1}{n}
+\end{equation}
 
-Dann haben die Amplituden der einzelnen Maxima abgemessen. Wegen des ungeraden
-Maßstabes des Papiers (1 Volt entspricht $9{,}1$ cm), haben wir diese in
-Zentimetern abgemessen. Die Einheit ist für die Bestimmung der Konstanten
-sowieso nicht relevant. Diese haben wir dann logarithmisch gegen die Zeit
-aufgetragen, die sich rechnerisch aus der Frequenz ergibt.
+Dann haben die Amplituden der einzelnen Minima abgemessen.
+Wegen des ungeraden Maßstabes des Papiers (1 Volt entspricht $9{,}1$
+cm), haben wir diese in Zentimetern abgemessen. Die Einheit ist für die
+Bestimmung der Konstanten sowieso nicht relevant.
+
+Der Fehler ergibt sich aus der Ablesegenauigkeit des Lineals. Bei den letzten
+vier Messungen auf $0{,}5$ mm genau, weil die Messungen jeweils zwischen
+den Strichen lagen.
+
+Diese haben wir dann logarithmisch gegen die Zeit aufgetragen, die sich
+rechnerisch aus der Periode ergibt. Die Zeit ist jeweils
+\begin{equation}
+  t_n = t_\text{start} + \frac{T}{2} + Tn
+\end{equation}
+Dabei ist $t_\text{start} = \SI{0.8+-0.1}{s}$ das erste Maximum. Wir addieren
+eine halbe Periodendauer um zum nächsten Minimum zu kommen und dann jeweils
+ganze Perioden. Somit erhalten wir die Werte für Zeit und Amplitude:
+
+% FIXME: Fehler in der Zeit falsch. Auch im Plot. Korrigieren!
+\begin{tabular}{r|r}
+  $t$ [s] & $A$ [cm] \\
+  \hline
+  \SI{ 1.71+-0.1}{s} & \SI{ 2.8+-0.1 }{cm} \\
+  \SI{ 3.53+-0.1}{s} & \SI{ 2.4+-0.1 }{cm} \\
+  \SI{ 5.35+-0.1}{s} & \SI{ 2,0+-0.1 }{cm} \\
+  \SI{ 7.17+-0.1}{s} & \SI{ 1.7+-0.1 }{cm} \\
+  \SI{ 8.99+-0.1}{s} & \SI{ 1.5+-0.1 }{cm} \\
+  \SI{10.81+-0.1}{s} & \SI{1.25+-0.05}{cm} \\
+  \SI{12.63+-0.1}{s} & \SI{1.05+-0.05}{cm} \\
+  \SI{14.45+-0.1}{s} & \SI{0.90+-0.05}{cm} \\
+  \SI{16.27+-0.1}{s} & \SI{0.75+-0.05}{cm} \\
+\end{tabular}
+
+Diese Werte haben wir im Plot \textit{Dämpfungskurve} logarithmisch
+gegeneinander aufgetragen und somit die Dämpfungskonstante bestimmt:
+
+\begin{equation}
+  \delta = \SI{0.0896+-0.0030}{s^{-1}}
+\end{equation}
+
+Die Schwingfrequenz ergibt sich aus den Perioden
+\begin{equation}
+  \omega_1 = \frac{2 \pi}{T} = 2 \pi \frac{n}{t_2 - t_1}
+\end{equation}
+
+mit dem Fehler
+\begin{align}
+  \Delta \omega_1 &= \sqrt{
+    \del{\partial{\omega_1}{t_2}}^2 \Delta t_2^2 +
+    \del{\partial{\omega_1}{t_1}}^2 \Delta t_1^2 +
+  } \\
+  &= \sqrt{
+    \del{-\frac{2 \pi n}{(t_2 - t_1)^2}}^2 +
+    \del{\frac{2 \pi n}{(t_2 - t_1)^2}}^2
+  } \Delta t \\
+  &= \sqrt{2} \frac{2 \pi n}{(t_2 - t_1)^2} \Delta t
+\end{align}
+
+als
+\begin{equation}
+  \omega_1 = \SI{3.4523+-0.0027}{s^{-1}}
+\end{equation}
+
+Die Eigenfrequenz erhalten wir aus Gleichung TODO FIXME als: % TODO: Das muss
+% im theoretischen Teil rein
+\begin{equation}
+  \omega_0 = \sqrt{\omega^2  + \delta^2}
+\end{equation}
+
+% FIXME: Fehlerrechnung
 
 
 \subsection{Aufgabe 2}
@@ -243,7 +311,7 @@ mit dem Fehler
 \begin{align}
   \Delta \Omega &= \sqrt{
     \del{\partial{\Omega}{t_2}}^2 \Delta t_2^2 +
-    \del{\partial{\Omega}{t_2}}^2 \Delta t_1^2 +
+    \del{\partial{\Omega}{t_1}}^2 \Delta t_1^2 +
   } \\
   &= \sqrt{
     \del{-\frac{2 \pi n}{(t_2 - t_1)^2}}^2 +
