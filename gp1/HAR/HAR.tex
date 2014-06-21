@@ -111,7 +111,13 @@ Während im Reibungsfreien Fall $k=0$ die Schwingfrequenz ausschließlich von
 Verhältnis zwischen Federkonstante und Masse abhängt, beeinflusst auch die
 Reibung die Schwingfrequenz des Systems. Je größer die Reibungskonstente $k$,
 desto geringer ist die Frequenz, bis das System in den aperiodischen Grenzfall
-und den Kriechfall übergeht.
+und den Kriechfall übergeht. Der Zusammenhang zur Eigenfrequenz lässt sich über
+die folgende Gleichung ausdrücken:
+
+\begin{equation}
+  \omega^2 = \sqrt{\omega_0^2 - \delta^2}
+  \label{eq:eigenfreq}
+\end{equation}
 
 Im Reibungsfall sorgt außerdem der Term $e^{- \delta t}$ für eine Modulation
 der Schwingungen. Je größer die Reibung, desto schneller klingt die Schwingung
@@ -213,25 +219,25 @@ direkt ausgedruckt.
 \section{Auswertung}
 \subsection{Aufgabe 1}
 Da wir leider keinen logarithmischen Plot direkt aus CASSY-Lab erstellt haben,
-mussten wir hier zu einer anderen Methode greifen.
+lesen wir zuerst die Werte für Zeit und Amplituden aus dem Ausdruck
+\textit{Messung 2} ab.
 
-Zuerst haben wir zwei Maxima gesucht um aus der Zeitdifferenz und der Anzahl
-der Perioden die Periode $T$ zu bestimmen:
+Zuerst haben wir zwei Maxima gesucht, um aus der Zeitdifferenz und der Anzahl
+der Perioden die Schwingungsperiode $T$ zu bestimmen:
 \begin{equation}
   T = \frac{t_2 - t_1}{n}
 \end{equation}
 
-Dann haben die Amplituden der einzelnen Minima abgemessen.
-Wegen des ungeraden Maßstabes des Papiers (1 Volt entspricht $9{,}1$
-cm), haben wir diese in Zentimetern abgemessen. Die Einheit ist für die
-Bestimmung der Konstanten sowieso nicht relevant.
+Dann haben wir die Amplituden der einzelnen Minima abgemessen.  Wegen des
+ungeraden Maßstabes auf dem Ausdruck (1 Volt entspricht $9{,}1$ cm), haben wir
+diese in Zentimetern abgemessen. Die Einheit ist für die Bestimmung der
+Konstanten sowieso nicht relevant.
 
 Der Fehler ergibt sich aus der Ablesegenauigkeit des Lineals. Bei den letzten
 vier Messungen auf $0{,}5$ mm genau, weil die Messungen jeweils zwischen
 den Strichen lagen.
 
-Diese haben wir dann logarithmisch gegen die Zeit aufgetragen, die sich
-rechnerisch aus der Periode ergibt. Die Zeit beim Minimum $n$ ist jeweils
+Die Zeit beim Minimum $n$ ist
 \begin{equation}
   t_n = t_\text{start} + \frac{T}{2} + T(n-1)
 \end{equation}
@@ -295,8 +301,7 @@ als
   \omega_1 = \SI{3.4523+-0.0027}{s^{-1}}
 \end{equation}
 
-Aus Gleichung TODO FIXME erhalten wir die Eigenfrequenz: % TODO: Das muss
-% im theoretischen Teil rein
+Aus Gleichung \ref{eq:eigenfreq} erhalten wir die Eigenfrequenz:
 \begin{equation}
   \omega_0 = \sqrt{\omega^2  + \delta^2}
 \end{equation}
@@ -372,7 +377,7 @@ folgenden Messwerttabelle ein.
 
 \vspace{1cm}
 
-Gleichung \ref{eq:amp}, gibt den theoretischen Zusammenhang zwischen
+Gleichung \ref{eq:amp} gibt den theoretischen Zusammenhang zwischen
 Orts-Ampltitude und Erregerfrequenz an. Da wir jedoch nicht den Ort gemessen
 haben, sondern die Geschwindigkeit, muss dies noch korrigiert werden. Der Ort
 ist
@@ -385,16 +390,15 @@ Die Geschwindigkeit somit
   v(t) = \dot{x}(t) = A_s i \omega e^{i(\Omega t + \phi)}
 \end{equation}
 
-Es gilt $\envert{i \Omega e^{i(\Omega t + \phi)}} = 1$, also ist die
+Es gilt $\envert{i e^{i(\Omega t + \phi)}} = 1$, also ist die
 Geschwindkeitsamplitude
 \begin{equation}
   \envert{A_v} = \envert{A_s \omega} = \frac{\Omega F_0 / m}{\sqrt{\del{\omega_0^2 - \Omega^2}^2 + 4 \delta^2 \Omega^2}}
 \end{equation}
 
-Wir kürzen $F_0 / m = a$ und fitten gegen diese Gleichung.
-
-Im \textit{Resonanzkurve} haben wir die Amplitude $A_0$ über die Frequenz
-$\Omega$ aufgetragen.
+Wir kürzen $F_0 / m = a$ und fitten gegen diese Gleichung. Im Plot
+\textit{Resonanzkurve} haben wir die Amplitude $A_0$ über die Frequenz $\Omega$
+aufgetragen.
 
 Dabei sind vier Ausreißer zu erkennen, die wir gestrichelt eingezeichnet haben
 und nicht für den Fit verwenden. Sie lassen sich dadurch erklären, dass wir
@@ -412,7 +416,9 @@ Fehler die bei der Methode der kleinsten Quadrate anfallen
   \delta &= \SI{0.078+-0.004}{s^{-1}}
 \end{align}
 
-Dieses Ergebnis unterschiedet sich signifkant vom Ergebnis der Aufgabe 1.
+Dieses Ergebnis unterschiedet sich signifkant vom Ergebnis der Aufgabe 1. Eine
+mögliche Erklärung liefern wir im Abschnitt \textit{Zusammenfassung und
+Diskussion}.
 
 \subsection{Aufgabe 3}
 Aus der Messwerttabelle kann man erkennen, dass die Phasenverschiebung
@@ -426,8 +432,8 @@ Genauso möglich wäre aber ein linearer Verlauf. Die Daten sind zu ungenau um
 exaktere Aussagen zu treffen.
 
 \subsection{Aufgabe 4}
-Anhand der Grafik des Einschwingvorgangs im Resonanzfall kann man sehen, dass
-die Maximalamplituden des ungefähr einem exponentiellen Verlauf
+Anhand des Ausdrucks \textit{Einschwingvorgang im Resonanzfall} kann man sehen,
+dass die Maximalamplituden des ungefähr einem exponentiellen Verlauf
 $A_\text{max}(t) \propto 1 - e^{- a t}$ folgen.
 
 Wenn man die Bewegungsgleichung für den Einschwingvorgang
@@ -441,8 +447,9 @@ dabei $-\frac{\pi}{2}$, somit erhält man
 
 Dies entspricht exakt der Beobachtung.
 
-In der nähe der Resonanz schwingen die Maximalamplituden mit einer Frequenz,
-die wesentlich größer ist als die Erreger- oder die Resonanzfrequenz.
+Im Ausdruck \textit{Einschwingvorgang nahe Resonanz} schwingen die
+Maximalamplituden mit einer Frequenz, die wesentlich größer ist als die
+Erreger- oder die Resonanzfrequenz.
 
 Nehmen wir erneut Gleichung \ref{eq:ein} und nehmen aufgrund der Nähe zur
 Resonanz näherungsweise eine Phasenverschiebung von $-\frac{\pi}{2}$ an,
