@@ -1,4 +1,4 @@
-\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\documentclass[a4paper,german,12pt,smallheadings,twocolumn]{scrartcl}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
@@ -62,6 +62,16 @@ Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Formelsammlu
 \vspace{-10pt}
 \end{center}
 \section*{Koordinatensysteme}
+Stundenwinkel $\tau$ eines Sterns mit der Rektaszension $\alpha$ bei Sternzeit
+(Greenwich) $\Theta_G$. Alle Winkelangaben in Stunden!
+\begin{equation}
+  \tau = \Theta_G(0) + t \text{[h]} \frac{366{,}24}{365{,}24} - l \text{[h]} - \alpha \text{[h]}
+\end{equation}
+
+Höhe
+\begin{equation}
+  h = \arcsin(\sin(b) \sin \delta + \cos b \cos \delta \cos \tau)
+\end{equation}
 
 \section*{Sterne und Entfernung}
 
@@ -98,6 +108,11 @@ Leuchtkraft eines Sterns:
   L_\star = 4 \pi R_\star^2 \sigma T^4_\text{eff}
 \end{equation}
 
+Strahlungsfluss, wobei $F_\star(R_\star)$: Strahlungsfluss an der Oberfläche.
+\begin{equation}
+  f(r) = F_\star(R_\star) \del{\frac{R_\star}{r}}^2
+\end{equation}
+
 Absolute Helligkeit:
 \begin{equation}
   M_\star = M_\odot - 2{,}5 \log_{10} \del{\frac{L_\star}{L_\odot}} \text{ mit } M_\odot = 4{,}74^\text{mag}
@@ -126,15 +141,17 @@ Herleitung aus Zentrifugalkraft gleich Gravitationskraft
 \begin{equation}
   F_G = - G \frac{Mm}{r^2} = m \omega^2 r = F_Z
 \end{equation}
-1. Keplersches Gesetz (Bahnen sind Ellipsen in deren Brennpunkt die Sonne steht). $a$: Große Halbachse, $\epsilon$: Exzentrizität.
+1. Keplersches Gesetz (Bahnen sind Ellipsen in deren Brennpunkt die Sonne
+steht). $a$: Große Halbachse, $\epsilon$: Exzentrizität, $\phi$: Wahre
+Anomalie, $L_s$: Drehimpuls im Schwerpunktsystem, $\mu$: Reduzierte Masse
 \begin{equation}
-  r(\phi) = \frac{a(1-\epsilon)}{1 + \epsilon \cos \phi}
+  r(\phi) = \frac{p}{1 + \epsilon \cos \phi} \text{ mit } p = a(1+\epsilon^2) = \frac{L_s^2}{\mu^2 mG}
 \end{equation}
 
 2. Keplersches Gesetz: Fahrstrahl überstreicht in gleichen Zeiten gleiche
 Flächen
 \begin{equation}
-  A(t, t + \dif t) = \frac{L}{2m} \dif t
+  A(t, t + \dif t) = \frac{L}{2 \mu} \dif t = \text{const.}
 \end{equation}
 
 Drehimpulserhaltung bei Kepler
@@ -145,7 +162,7 @@ Drehimpulserhaltung bei Kepler
 3. Keplersches Gesetz: Quadrate der Perioden verhalten sich wie Kuben der
 großen Halbachsen.
 \begin{equation}
-  \frac{T^2}{a^3} = \frac{4 \pi^2}{G(M+m)} \approx \frac{4 \pi^2}{GM}
+  \frac{T^2}{a^3} = \frac{4 \pi^2}{G(M+m)} \approx \frac{4 \pi^2}{GM} = \text{const.}
 \end{equation}
 
 Masse eines Exoplaneten aus RV-Kurve ($i$: Inklination, $\kappa$: Amplitude)
@@ -153,6 +170,67 @@ Masse eines Exoplaneten aus RV-Kurve ($i$: Inklination, $\kappa$: Amplitude)
   M_\text{Pl} \sin(i) = \frac{\kappa M_\star}{\sqrt[3]{\frac{2 \pi G M_\star}{T}}}
 \end{equation}
 
+Fluchtgeschwindigkeit (z.B. für Atmossphäre):
+\begin{equation}
+  v_\text{esc} = \sqrt{\frac{2 G m_\text{pl}}{R_\text{pl}}}
+\end{equation}
+
+Thermische Geschwindigkeit eines Teilchens mit Masse $m$:
+\begin{equation}
+  v_\text{th} = \sqrt{\frac{2 kT}{m}}
+\end{equation}
+
+Stabilitätsparameter der Atmossphäre ($\Gamma \ll 1$: stabil, $\Gamma \gg 1$:
+instabil):
+\begin{equation}
+  \Gamma^2 = \del{\frac{v_\text{esc}}{v_\text{th}}}^2
+  = \frac{kT R_\text{pl}}{G m_\text{pl} m}
+\end{equation}
+
+Temperatur eines Planeten ($A$: Albedo = Rückstrahlvermögen)
+\begin{equation}
+  T_\text{pl}^4 = (1-A) \del{
+    \frac{\mathcal{F}_\text{abs}}{\mathcal{F}_\text{em}}
+  } \del{
+    \frac{R_\odot}{r}
+  }^2 T_\odot^4
+\end{equation}
+
+Absorptionsfläche:
+\begin{equation}
+  \mathcal{F}_\text{abs} = \pi R_\text{pl}^2
+\end{equation}
+
+Emmissionsfläche:
+\begin{equation}
+  \mathcal{F}_\text{em} = \begin{cases}
+    4 \pi R_\text{pl}^2 & \text{ schnell rotierende Planeten} \\
+    2 \pi R_\text{pl}^2 & \text{ langsam rotierende Planeten}
+  \end{cases}
+\end{equation}
+
+Roche-Grenze (= Zerfallsgrenze für gravitativ gebundene Körper):
+\begin{equation}
+  r > 2{,}44 \cdot \sqrt[3]{\frac{\rho_\text{Pl}}{\rho_\text{Mond}}} R_\text{Pl}
+\end{equation}
+
+\section*{Gravitationslinsen}
+Schwarzschildradius ($v_\text{esc} = c$):
+\begin{equation}
+  R_S = \frac{2 G M}{c^2}
+\end{equation}
+
+Ablenkwinkel des Lichts an einer Gravitationslinse im Abstand $r$:
+\begin{equation}
+  \widetilde{\alpha} = 2 \frac{R_s}{r}
+\end{equation}
+
+Einstein-Radius (eines Einstein-Ringes) mit $D_{LS}$: Abstand Linse -- Objekt,
+$D_L$: Abstand Beobachter -- Linse, $D_S$: Abstand Beobachter -- Objekt, $M$:
+Masse der Linse.
+\begin{equation}
+  \Theta_E = \sqrt{\frac{D_{LS}}{D_S D_L} \frac{G M}{c^2}}
+\end{equation}
 
 
 \end{document}
