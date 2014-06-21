@@ -210,7 +210,8 @@ Zeit/Geschwindigkeitskurven für verschiedene Motorfrequenzen direkt am PC
 ausgewertet. Die Kurven in der Nähe der Resonanz und im Resonanzfall haben wir
 direkt ausgedruckt.
 
-\section{Aufgabe 1}
+\section{Auswertung}
+\subsection{Aufgabe 1}
 % TODO
 Da wir leider keinen logarithmischen Plot direkt aus CASSY-Lab erstellt haben,
 mussten wir hier zu einer anderen Methode greifen.
@@ -225,7 +226,7 @@ sowieso nicht relevant. Diese haben wir dann logarithmisch gegen die Zeit
 aufgetragen, die sich rechnerisch aus der Frequenz ergibt.
 
 
-\section{Aufgabe 2}
+\subsection{Aufgabe 2}
 Wir haben jeweils für verschiedene Erregerfrequenzen die
 Zeit/Geschwindigkeitskurven aufgenommen. Die Frequenz bestimmen wir, indem wir
 zwei die Zeiten zweier Maxima ($t_1$, $t_2$) bestimmen und die Anzahl der
@@ -300,10 +301,10 @@ Fehler die bei der Methode der kleinsten Quadrate anfallen
 
 \begin{align}
   \omega_0 &= \SI{3,675+-0.006}{s^{-1}} \\
-  \delta &= \SI{0.083+-0.004}{s^{-1}}
+  \delta &= \SI{0.083+-0.005}{s^{-1}}
 \end{align}
 
-\section{Aufgabe 3}
+\subsection{Aufgabe 3}
 Aus der Messwerttabelle kann man erkennen, dass die Phasenverschiebung
 frequenzabhängig ist. Sie nimmt Werte zwischen $0$ (Frequenzen unterhalb der
 Resonanzfrequenz) und $-\pi$ (Frequenzen oberhalb der Resonanzfrequenz) an. Ist
@@ -314,7 +315,7 @@ Die ermittelten Werte stützen dabei den Zusammenhang in Gleichung \ref{eq:tan}.
 Genauso möglich wäre aber ein linearer Verlauf. Die Daten sind zu ungenau um
 exaktere Aussagen zu treffen.
 
-\section{Aufgabe 4}
+\subsection{Aufgabe 4}
 Anhand der Grafik des Einschwingvorgangs im Resonanzfall kann man sehen, dass
 die Maximalamplituden des ungefähr einem exponentiellen Verlauf
 $A_\text{max}(t) \propto 1 - e^{- a t}$ folgen.
@@ -359,7 +360,32 @@ mit dieser großen Frequenz auf.
 
 Dies entspricht ebenfalls genau der Beobachtung.
 
+\section{Zusammenfassung und Diskussion}
+Wir haben mithilfe des Pohlschen Rades ungetriebene und getriebene harmonische
+Oszillationen mit ihren Resonanzen untersucht. Wir konnten mithilfe der
+Resonanzkurve die Eigenfrequenz und Dämpfungskonstante des Pohlschen Rades sehr
+genau bestimmen:
 
+\begin{align}
+  \omega_0 &= \SI{3,675+-0.006}{s^{-1}} \\
+  \delta &= \SI{0.083+-0.005}{s^{-1}}
+\end{align}
+
+Auch konnten wir den Verlauf der Amplitudenmodulation beim Einschwingvorgang
+anhand der theoretischen Überlegungen erklären.
+
+Die Phasenverschiebung wurde nur visuell geschätzt. Mit einem veränderten
+Aufbau des Experiments hätten wir die treibende Kraft messen können, zum
+Beispiel mit einem zweiten Messrad und so eine bessere Übereinstimmung der
+Phasenverschiebung mit den theoretischen Werten zu zeigen.
+
+Beim Ablesen der Werte vom Bildschirm sind offenbar einige Fehler aufgetreten,
+die vermeidbar gewesen wären.  Wenn wir die Daten ausgedruckt hätten oder der
+Messcomputer über einen Internetzugang verfügt hätte, hätten wir diese Fehler
+korrigieren können.
+
+Da wir die Ausreißer jedoch identifizieren konnten, hat dies die Resultate
+nicht beeinflusst.
 
 \newpage
 \label{plot:amp}
