@@ -372,11 +372,29 @@ folgenden Messwerttabelle ein.
 
 \vspace{1cm}
 
-In Plot \textit{Resonanzkurve} haben wir die Amplitude $A_0$ über die Frequenz
-$\Omega$ aufgetragen.
+Gleichung \ref{eq:amp}, gibt den theoretischen Zusammenhang zwischen
+Orts-Ampltitude und Erregerfrequenz an. Da wir jedoch nicht den Ort gemessen
+haben, sondern die Geschwindigkeit, muss dies noch korrigiert werden. Der Ort
+ist
+\begin{equation}
+  x(t) = A_s e^{i(\Omega t + \phi)}
+\end{equation}
 
-Wir fitten diese Daten gegen Gleichung \ref{eq:amp}, die den theoretischen
-Zusammenhang zwischen Ampltitude und Erregerfrequenz angibt.
+Die Geschwindigkeit somit
+\begin{equation}
+  v(t) = \dot{x}(t) = A_s i \omega e^{i(\Omega t + \phi)}
+\end{equation}
+
+Es gilt $\envert{i \Omega e^{i(\Omega t + \phi)}} = 1$, also ist die
+Geschwindkeitsamplitude
+\begin{equation}
+  \envert{A_v} = \envert{A_s \omega} = \frac{\Omega F_0 / m}{\sqrt{\del{\omega_0^2 - \Omega^2}^2 + 4 \delta^2 \Omega^2}}
+\end{equation}
+
+Wir kürzen $F_0 / m = a$ und fitten gegen diese Gleichung.
+
+Im \textit{Resonanzkurve} haben wir die Amplitude $A_0$ über die Frequenz
+$\Omega$ aufgetragen.
 
 Dabei sind vier Ausreißer zu erkennen, die wir gestrichelt eingezeichnet haben
 und nicht für den Fit verwenden. Sie lassen sich dadurch erklären, dass wir
@@ -390,9 +408,11 @@ Fehler die bei der Methode der kleinsten Quadrate anfallen
 (Standardabweichung). Das Endergebnis lautet
 
 \begin{align}
-  \omega_0 &= \SI{3,675+-0.006}{s^{-1}} \\
-  \delta &= \SI{0.083+-0.005}{s^{-1}}
+  \omega_0 &= \SI{3.662+-0.004}{s^{-1}} \\
+  \delta &= \SI{0.078+-0.004}{s^{-1}}
 \end{align}
+
+Dieses Ergebnis unterschiedet sich signifkant vom Ergebnis der Aufgabe 1.
 
 \subsection{Aufgabe 3}
 Aus der Messwerttabelle kann man erkennen, dass die Phasenverschiebung
@@ -453,16 +473,35 @@ Dies entspricht ebenfalls genau der Beobachtung.
 \section{Zusammenfassung und Diskussion}
 Wir haben mithilfe des Pohlschen Rades ungetriebene und getriebene harmonische
 Oszillationen mit ihren Resonanzen untersucht. Wir konnten mithilfe der
-Resonanzkurve die Eigenfrequenz und Dämpfungskonstante des Pohlschen Rades sehr
-genau bestimmen:
+Resonanzkurve die Eigenfrequenz und Dämpfungskonstante des Pohlschen Rades
+bestimmen.
 
 \begin{align}
-  \omega_0 &= \SI{3,675+-0.006}{s^{-1}} \\
-  \delta &= \SI{0.083+-0.005}{s^{-1}}
+  \omega_0 &= \SI{3.66+-0.01}{s^{-1}} \\
+  \delta &= \SI{0.078+-0.004}{s^{-1}}
 \end{align}
 
-Auch konnten wir den Verlauf der Amplitudenmodulation beim Einschwingvorgang
-anhand der theoretischen Überlegungen erklären.
+Aus der ungetriebenen Schwingung haben wir jedoch folgendes Ergebnis erhalten:
+
+\begin{align}
+  \omega_0 &= \SI{3.4535+-0.0008}{s^{-1}} \\
+  \delta &= \SI{0.090+-0.003}{s^{-1}}
+\end{align}
+
+Die beiden Frequenzen sind signifikant verschieden. Eine mögliche Erklärung
+liegt darin, dass die Feder im Falle der getriebenen Schwingung ihre Energie
+nicht mehr vollständig aus der Drehbewegung des Rades erhält, sondern auch
+durch den äußeren Antrieb. Somit reduziert sich die schwingende Masse etwas,
+was eine höhere Schwingfrequenz zur Folge hat.
+
+Die beiden Dämpfungskonstanten sind verträglich, können jedoch auch durch die
+Reibung im Lager erklärt werden. Während bei hohen Geschwindigkeiten bei der
+angeregten Schwingung die Haftreibung im Lager nicht ins Gewicht fällt, macht
+sie sich bei der abnehmenden Geschwindigkeit im nicht angeregten Fall
+bemerkbar. Um diesen Effekt nachzuweisen bräuchten wir jedoch genauere Daten.
+
+Wir konnten außerdem den Verlauf der Amplitudenmodulation beim
+Einschwingvorgang anhand der theoretischen Überlegungen erklären.
 
 Die Phasenverschiebung wurde nur visuell geschätzt. Mit einem veränderten
 Aufbau des Experiments hätten wir die treibende Kraft messen können, zum
@@ -477,6 +516,7 @@ korrigieren können.
 Da wir die Ausreißer jedoch identifizieren konnten, hat dies die Resultate
 nicht beeinflusst.
 
+\invisiblesection{Grafische Auswertung}
 \newpage
 \label{plot:damp}
 \begin{landscape}
@@ -490,6 +530,4 @@ nicht beeinflusst.
   % gnuplot ./plot.gnuplot
   \input{plot.tex}
 \end{landscape}
-
-
 \end{document}
