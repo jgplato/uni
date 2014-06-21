@@ -212,7 +212,6 @@ direkt ausgedruckt.
 
 \section{Auswertung}
 \subsection{Aufgabe 1}
-% TODO
 Da wir leider keinen logarithmischen Plot direkt aus CASSY-Lab erstellt haben,
 mussten wir hier zu einer anderen Methode greifen.
 
@@ -232,15 +231,24 @@ vier Messungen auf $0{,}5$ mm genau, weil die Messungen jeweils zwischen
 den Strichen lagen.
 
 Diese haben wir dann logarithmisch gegen die Zeit aufgetragen, die sich
-rechnerisch aus der Periode ergibt. Die Zeit ist jeweils
+rechnerisch aus der Periode ergibt. Die Zeit beim Minimum $n$ ist jeweils
 \begin{equation}
-  t_n = t_\text{start} + \frac{T}{2} + Tn
+  t_n = t_\text{start} + \frac{T}{2} + T(n-1)
 \end{equation}
 Dabei ist $t_\text{start} = \SI{0.8+-0.1}{s}$ das erste Maximum. Wir addieren
 eine halbe Periodendauer um zum nächsten Minimum zu kommen und dann jeweils
-ganze Perioden. Somit erhalten wir die Werte für Zeit und Amplitude:
+ganze Perioden.
 
-% FIXME: Fehler in der Zeit falsch. Auch im Plot. Korrigieren!
+Der Fehler wäre dann folgender:
+\begin{equation}
+  \Delta t_n = \sqrt{\Delta t^2 + \del{n- \frac{1}{2}} \del{\frac{\Delta t}{10}}^2}
+\end{equation}
+Da jedoch $\frac{\Delta t}{10}$ um eine Stelle geringer ist als $\Delta t$ und
+$n$ nur bis 9 läuft, dann der zweite Term vernachlässigt werden. Somit
+$\Delta t_n = \Delta t = \SI{0.1}{s}$.
+
+Somit erhalten wir die Werte für Zeit und Amplitude:
+
 \begin{tabular}{r|r}
   $t$ [s] & $A$ [cm] \\
   \hline
@@ -254,6 +262,8 @@ ganze Perioden. Somit erhalten wir die Werte für Zeit und Amplitude:
   \SI{14.45+-0.1}{s} & \SI{0.90+-0.05}{cm} \\
   \SI{16.27+-0.1}{s} & \SI{0.75+-0.05}{cm} \\
 \end{tabular}
+
+\vspace{1cm}
 
 Diese Werte haben wir im Plot \textit{Dämpfungskurve} logarithmisch
 gegeneinander aufgetragen und somit die Dämpfungskonstante bestimmt:
@@ -285,13 +295,25 @@ als
   \omega_1 = \SI{3.4523+-0.0027}{s^{-1}}
 \end{equation}
 
-Die Eigenfrequenz erhalten wir aus Gleichung TODO FIXME als: % TODO: Das muss
+Aus Gleichung TODO FIXME erhalten wir die Eigenfrequenz: % TODO: Das muss
 % im theoretischen Teil rein
 \begin{equation}
   \omega_0 = \sqrt{\omega^2  + \delta^2}
 \end{equation}
 
-% FIXME: Fehlerrechnung
+mit dem Fehler
+\begin{align}
+  \Delta \omega_0 &= \sqrt{
+  \del{\frac{\partial \omega_0}{\partial \omega} \Delta \omega}^2+
+  \del{\frac{\partial \omega_0}{\partial \delta} \Delta \delta}^2
+} \\
+&= \frac{\sqrt{\omega_0^2 \Delta \omega_0^2 + \delta^2 \Delta \delta^2}}{\omega_0^2 + \delta^2}
+\end{align}
+
+als
+\begin{equation}
+  \omega_0 = \SI{3.45346+-0.00078}{s^{-1}}
+\end{equation}
 
 
 \subsection{Aufgabe 2}
