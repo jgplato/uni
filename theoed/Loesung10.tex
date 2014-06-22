@@ -43,6 +43,86 @@ Markus Fenske, Mattis Riediger, Tutor: Clemens Meyer zu Rheda
 \vspace{-10pt}
 \end{center}
 
+\section*{Aufgabe 1: Magnetisierte Eisenkugel}
+\begin{enumerate}[a)]
+  \item
+Das elektrische Feld der Kugel ist
+\begin{equation}
+  \vec{E} = \begin{cases}
+    0 & r < R \\
+    \dfrac{q}{4 \pi \epsilon_0 r^2} \hat{r} & r > R
+  \end{cases}
+\end{equation}
+
+Zusammen mit dem Magnetfeld
+\begin{equation}
+  \vec{B} = \begin{cases}
+    \dfrac{2}{3} \mu_0 M \hat{z} & r < R \\
+    \dfrac{\mu_0}{4 \pi} \dfrac{m}{r^3} \del{
+      2 \cos \theta \hat{r} + \sin \theta \hat{\theta}
+    } & r > R
+  \end{cases}
+\end{equation}
+
+Ergibt sich eine Drehimpulsdichte
+\begin{align*}
+  \vec{l} = \frac{1}{4 \pi c} \vec{r} \times \del{\vec{E} \times \vec{B}}
+\end{align*}
+
+Innerhalb der Kugel verschwindet die Drehimpulsdichte, weil dort kein
+$\vec{E}$-Feld vorhanden ist. Für außerhalb gilt
+
+\begin{equation}
+  \vec{E} \times \vec{B} = -\frac{q \mu_0 m}{16 \pi^2 \epsilon_0 r^3} \sin(\theta) \hat{\phi}
+\end{equation}
+
+Mit dem Ortsvektor $r = r \hat{r}$:
+
+\begin{equation}
+  \vec{l}_{>} = \frac{q \mu_0 m}{64 \pi^3 \epsilon_0 c r^4} \hat{\theta}
+\end{equation}
+
+Der Gesamtdrehimpuls ist das Integral der Drehimpulsdichte:
+\begin{equation}
+  \vec{L} = \int \dif V \; \vec{l}
+\end{equation}
+
+Wir integrieren über den gesamten Raum (außer innerhalb er Kugel, dort ist
+$\vec{l} = 0$). Wegen $\hat{\theta} = \del{\cos \theta \cos \phi, \cos \theta
+\sin \phi, - \sin \theta}$ verschwinden die $x$- und $y$-Komponenten und es
+ist nur noch folgendes Integral zu lösen:
+
+\begin{align*}
+  \vec{L} &\propto \hat{z} \int_R^\infty \dif r \int_0^\pi \dif \theta \int_0^{2 \pi} \dif \phi \; \frac{- \sin \theta}{r^4} \sin \theta r^2 \\
+          &= -2 \pi \hat{z} \int_R^\infty \dif r \int_0^\pi \dif \theta \; \frac{\sin^2 \theta}{r^2} \\
+          &= -\pi \hat{z} \int_R^\infty \dif r \; \frac{1}{r^2} \\
+          &= -\frac{\pi}{R} \hat{z}
+\end{align*}
+
+Somit
+\begin{equation}
+  \vec{L} = -\frac{q \mu_0 m}{64 \pi^2 \epsilon_0 c R} \hat{z} = -\frac{qm}{64 \pi^2 c^3 R} \hat{z}
+\end{equation}
+\item
+  % FIXME: Ist nur geraten und vielleicht Bullshit.
+  Wenn der gesamte Drehimpuls im Magnetfeld gespeichert ist und das Magnetfeld
+  verschwindet, muss bei einer Entmagnetisierung aufgrund der
+  Drehimpulserhaltung der Drehimpuls auf die Kugel übergehen und als
+  elektromagnetisches Feld abgestrahlt werden.
+
+  Aus Symmetriegründen steht der Poynting-Vektor des abgestrahlten Feldes
+  senkrecht auf der Kugeloberfläche. Somit $\vec{l} \propto \vec{r} \times
+  \vec{S} = 0$, also wird vom elektromagnetischen Feld kein Drehimpuls
+  transportiert.
+
+  Also geht der gesamte Drehimpuls auf die Kugel über.
+
+  \begin{equation}
+    \vec{L} = -\frac{qm}{64 \pi^2 c^3 R} \hat{z}
+  \end{equation}
+\end{enumerate}
+
+
 \section*{Aufgabe 2: Welle mit Anfangsbedingungen}
 Die Lösung der allgemeinen Wellengleichung ist eine Kombination zweier eindimensionaler $C_2$-Funktionen:
 \begin{equation}
