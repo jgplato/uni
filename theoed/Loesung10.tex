@@ -165,6 +165,49 @@ Plotbereich wären, müsste ich herrauszoomen. Für $t \to \pm \infty$ unendlich
 weit, so dass die Pulse unendlich klein werden. Es bleibt nichts weiter als
 eine flache Linie $u(x) = 0$ übrig.
 
-Da du dir das gerade vorgestellt hast, ist eine Zeichnung hinfällig.
+\section*{Aufgabe 3: Kugelwelle}
+% TODO: Ich glaube, das ist Quatsch.
+Die allgemeine Lösung der kugelsymmetrischen Wellengleichung ist
+
+\begin{equation}
+  u(r,t) = \frac{1}{r} f(r+ct) + \frac{1}{r} g(r-ct)
+\end{equation}
+
+Aus der ersten Anfangsbedingung
+\begin{equation}
+  u(r,0) = \Theta(R-r)
+\end{equation}
+
+folgt
+\begin{equation}
+  f(r) + g(r) = \Theta(R-r) r
+\end{equation}
+
+Aus der zweiten Anfangsbedingung analog zu oben
+\begin{equation}
+  c \partial_r \del{f(r) - g(r)} = 0
+\end{equation}
+also
+\begin{equation}
+  f(r) - g(r) = C \Leftrightarrow g(r) = f(r) - C
+\end{equation}
+
+Somit
+\begin{equation}
+  u(r,t) = \frac{\Theta(R - r - ct)}{2} + \frac{\Theta(R - r + ct)}{2} - \frac{C}{r}
+\end{equation}
+
+Es handelt sich hierbei um eine rechteckige Feldstörung, die sich mit der
+Geschwindkeit $c$ durch den Raum ausbreitet.
+
+\newpage
+Zu einer Zeit $t$:
+
+\includegraphics[width=\textwidth]{plot-stoerung.pdf}
+
+Zu einer Zeit $t' > t$
+
+\includegraphics[width=\textwidth]{plot-stoerung2.pdf}
+
 
 \end{document}
