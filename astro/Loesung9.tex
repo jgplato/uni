@@ -1,0 +1,106 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{pgfplots}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{lscape}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage{gnuplottex}
+
+% Number only referenced equations
+\usepackage[fleqn]{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Stupid units for astronomy
+\DeclareSIUnit\day{d}
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\au{AU}
+% Astronomy-Style angles (hours, minutes, seconds)
+\newcommand*{\ra}[2][]{{
+  \def\SIUnitSymbolDegree{\textsuperscript{h}}%
+  \def\SIUnitSymbolArcminute{\textsuperscript{m}}%
+  \def\SIUnitSymbolArcsecond{\textsuperscript{s}}%
+  \ang[#1]{#2}}%
+}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.2}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Einführung in die Astronomie und Astrophysik, Sommersemester 2014, Aufgabenblatt 9
+
+Markus Fenske, Julia Schuch, Tutor: Daniel Härdt
+\vspace{-10pt}
+\end{center}
+\section*{Aufgabe 3: Potentielle Energie einer Molekülwolke}
+Die potentielle Energie ist die Energie, die ich erhalte, wenn ich die Wolke
+zusammenbaue.
+
+Angenommen es gäbe bereits eine kugelförmige Masse $M$ und ich hole aus
+unendlicher Entfernung eine kleine Masse $dM$ die ich sphärisch um die Kugel
+verteile, dann wird die potentielle Energie
+\begin{equation}
+  dV = - \frac{G M dM}{r}
+\end{equation}
+frei.
+
+Wenn ich die Wolke aus solchen sphärischen Schichten der Dichte $\rho$ aufbaue,
+erhalte ich jeweils eine zusätzliche Kugelschale der Dichte $\rho$ mit dem
+Radius $dr$. Diese hat jeweils die Masse
+\begin{equation}
+  dM = 4 \pi r^2 \rho dr
+\end{equation}
+
+Angenommen, ich habe solche Schichten bis zum Radius $r$ gestapelt und die
+Dichte sei konstant, dann ist die Masse
+\begin{equation}
+  M(r) = \rho V = \rho \frac{4}{3} \pi r^3
+\end{equation}
+
+Wenn wir über die einzelnen Schichten integrieren, erhalten wir
+\begin{equation}
+  V = -G \int_0^R \frac{M(r) dM(r)}{r} = -G \frac{16 \pi^2}{4} \rho^2 \int_0^R \dif \; r^4 = -G\frac{16 \pi^2 \rho^2}{4} \frac{1}{5} R^5
+\end{equation}
+
+Mit
+\begin{equation}
+  \rho = \frac{M}{V} = \frac{3 M}{4 \pi R^3}
+\end{equation}
+
+also
+\begin{equation}
+  V = -G \frac{16 \pi^2}{4} \frac{1}{5} R^5 \frac{9 M^2}{16\pi^2 R^6} = - \frac{3}{5} \frac{G M^2}{R}
+\end{equation}
+
+
+\end{document}
