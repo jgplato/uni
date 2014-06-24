@@ -23,6 +23,10 @@
 
 % New command for color underlining
 \usepackage{xcolor}
+\newcommand\invisiblesubsection[1]{%
+    \refstepcounter{subsection}%
+      \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}#1}%
+        \subsectionmark{#1}}
 \newcommand\invisiblesection[1]{%
     \refstepcounter{section}%
       \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
@@ -89,7 +93,6 @@ $\omega = 0$. Dadurch nehmen die $\omega$-Exponentialterme in Gl. \ref{eq:x_t}
 den größtmöglichen Wert $1$ an. Das System kehrt ohne Schwingung in die
 Ruhelage zurück, und zwar schneller als für die anderen Fälle.
 
-\subsection{Physikalische Interpretation}
 Es ist ersichtlich, dass die wesentlichen Teile der Bewegungsgleichung,
 abgesehen von den Anfangsbedingungen, von den Konstanten $m$ (Masse), $k$
 (Reibungskonstante) und $D$ (Federkonstante) beeinflusst werden.
@@ -132,7 +135,6 @@ und
   \label{eq:tan}
 \end{equation}
 
-\subsection{Physikalische Interpretation}
 Im Falle der erzwungenen Schwingung sind Amplitude und Frequenz des Oszillators
 von der treibenden Schwingung abhängig. Entspricht die treibende Kraft der
 Eigenfrequenz des Oszillators, erreicht die Amplitude $A_s$ ihr Maximum, weil
@@ -155,7 +157,6 @@ Für den Einschwingvorgang gilt in Näherung
   \label{eq:ein}
 \end{equation}
 
-\subsection{Physikalische Interpretation}
 Der Einschwingterm $e^{-\delta t} \cos(\omega_0 t + \beta)$, der die Schwingung
 überlagert nimmt zeitlich ab. Für $t \to \infty$ schwingt sich das System ein.
 
@@ -176,6 +177,18 @@ Der Einschwingterm $e^{-\delta t} \cos(\omega_0 t + \beta)$, der die Schwingung
     Beobachtung der Einschwingvorgänge für den Resonanzfall und für eine
     Anregerfrequenz in der Nähe der Resonanz.
 \end{enumerate}
+
+\newpage
+% Do not print
+\section{Messprotokoll}
+\newpage
+\section{Ausdrucke}
+\subsection{Freies Ausschwingen bei Dämpfung 2}
+\newpage
+\subsection{Einschwingvorgang nahe der Resonanz}
+\newpage
+\subsection{Einschwingvorgang im Resonanzfall}
+\newpage
 
 \section{Versuchsaufbau und Versuchsdurchführung}
 \begin{wrapfigure}{R}{9.1 cm}
@@ -514,6 +527,7 @@ nicht beeinflusst.
 \newpage
 \invisiblesection{Grafische Auswertung}
 \label{plot:damp}
+\invisiblesubsection{Dämpfungskurve}
 \begin{landscape}
   % gnuplot ./plot-daempfung.gnuplot
   \input{plot-daempfung.tex}
@@ -521,6 +535,7 @@ nicht beeinflusst.
 
 \newpage
 \label{plot:amp}
+\invisiblesubsection{Resonanzkurve}
 \begin{landscape}
   % gnuplot ./plot.gnuplot
   \input{plot.tex}
