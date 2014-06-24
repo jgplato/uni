@@ -84,7 +84,7 @@ Ist $\omega$ hingen imaginär, ergibt sich der Kriechfall. Dieses System
 schwingt nicht, sondern kehrt ohne Überschreitung der Nulllinie in seine
 Ausgangsposition zurück.
 
-Sind die Terme unter der Wurzel gleich, ergibt sich der apriodische Grenzfall
+Sind die Terme unter der Wurzel gleich, ergibt sich der aperiodische Grenzfall
 $\omega = 0$. Dadurch nehmen die $\omega$-Exponentialterme in Gl. \ref{eq:x_t}
 den größtmöglichen Wert $1$ an. Das System kehrt ohne Schwingung in die
 Ruhelage zurück, und zwar schneller als für die anderen Fälle.
@@ -96,7 +96,7 @@ abgesehen von den Anfangsbedingungen, von den Konstanten $m$ (Masse), $k$
 
 Während im Reibungsfreien Fall $k=0$ die Schwingfrequenz ausschließlich von
 Verhältnis zwischen Federkonstante und Masse abhängt, beeinflusst auch die
-Reibung die Schwingfrequenz des Systems. Je größer die Reibungskonstente $k$,
+Reibung die Schwingfrequenz des Systems. Je größer die Reibungskonstante $k$,
 desto geringer ist die Frequenz, bis das System in den aperiodischen Grenzfall
 und den Kriechfall übergeht. Der Zusammenhang zur Eigenfrequenz lässt sich über
 die folgende Gleichung ausdrücken:
@@ -132,7 +132,7 @@ und
   \label{eq:tan}
 \end{equation}
 
-\subsection{Physikalische Interpration}
+\subsection{Physikalische Interpretation}
 Im Falle der erzwungenen Schwingung sind Amplitude und Frequenz des Oszillators
 von der treibenden Schwingung abhängig. Entspricht die treibende Kraft der
 Eigenfrequenz des Oszillators, erreicht die Amplitude $A_s$ ihr Maximum, weil
@@ -183,13 +183,13 @@ Der Einschwingterm $e^{-\delta t} \cos(\omega_0 t + \beta)$, der die Schwingung
   \caption{Versuchsaufbau}
 \end{wrapfigure}
 Der Aufbau besteht aus einem horizontal gelagertem Rad an das eine Spiralfeder
-monitiert ist, so dass es um die Ruhelage frei schwingen kann. An die
+montiert ist, so dass es um die Ruhelage frei schwingen kann. An die
 Spiralfeder ist ein Motor gekoppelt, der den Ruhepunkt in eine sinusförmige
 Schwingung mit einstellbarer Frequenz versetzt. Von einer Wirbelstrombremse
 kann eine geschwindigkeitsabhängige Dämpfung variabler Stärke erzeugt werden.
 
 Das Rad ist mit einem Faden verbunden, der über ein Messrad (Rotationskodierer)
-läuft und am anderen Ende mit einem geringen Gewicht beschwert ist. Des Messrad
+läuft und am anderen Ende mit einem geringen Gewicht beschwert ist. Das Messrad
 ist an einen Bewegungswandler angeschlossen, der die Geschwindigkeit des Rades
 in eine Spannung umsetzt, die mittels eines A/D-Wandlers vom angeschlossenen PC
 gemessen wird. Die Software CASSY-Lab nimmt die Messdaten auf.
@@ -226,9 +226,9 @@ den Strichen lagen.
 
 Die Zeit beim Minimum $n$ ist
 \begin{equation}
-  t_n = t_\text{start} + \frac{T}{2} + T(n-1)
+  t_n = t_\text{Start} + \frac{T}{2} + T(n-1)
 \end{equation}
-Dabei ist $t_\text{start} = \SI{0.8+-0.1}{s}$ das erste Maximum. Wir addieren
+Dabei ist $t_\text{Start} = \SI{0.8+-0.1}{s}$ das erste Maximum. Wir addieren
 eine halbe Periodendauer um zum nächsten Minimum zu kommen und dann jeweils
 ganze Perioden.
 
@@ -288,7 +288,7 @@ als
   \omega_1 = \SI{3.4523+-0.0027}{s^{-1}}
 \end{equation}
 
-Aus Gleichung \ref{eq:eigenfreq} erhalten wir die Eigenfrequenz:
+Aus Gleichung \ref{eq:eigenfreq} erhalten wir die Eigenfrequenz
 \begin{equation}
   \omega_0 = \sqrt{\omega^2  + \delta^2}
 \end{equation}
@@ -335,7 +335,8 @@ mit dem Fehler
 \end{align}
 
 Die Amplitude haben wir in Volt gemessen. Für die Ermittlung der Konstanten
-spielt dies jedoch keine Rolle, da der Umrechnungsfaktor sich herrauskürzt.
+$\delta$ spielt dies jedoch keine Rolle, da Umrechnungsfaktoren logarithmisch
+als additiver Term erscheinen, der in die Steigung nicht einfließt.
 
 Die Phasenverschiebung haben wir geschätzt. Man kann erkennen, ob die Bewegung
 des Erregers und des Rades gleich- oder gegenläufig ist oder irgendwelche Werte
@@ -365,7 +366,7 @@ folgenden Messwerttabelle ein.
 \vspace{1cm}
 
 Gleichung \ref{eq:amp} gibt den theoretischen Zusammenhang zwischen
-Orts-Ampltitude und Erregerfrequenz an. Da wir jedoch nicht den Ort gemessen
+Orts-Amplitude und Erregerfrequenz an. Da wir jedoch nicht den Ort gemessen
 haben, sondern die Geschwindigkeit, muss dies noch korrigiert werden. Der Ort
 ist
 \begin{equation}
@@ -378,7 +379,7 @@ Die Geschwindigkeit somit
 \end{equation}
 
 Es gilt $\envert{i e^{i(\Omega t + \phi)}} = 1$, also ist die
-Geschwindkeitsamplitude
+Geschwindigkeitsamplitude
 \begin{equation}
   \envert{A_v} = \envert{\Omega A_s} = \frac{\Omega F_0 / m}{\sqrt{\del{\omega_0^2 - \Omega^2}^2 + 4 \delta^2 \Omega^2}}
 \end{equation}
@@ -403,7 +404,7 @@ Fehler die bei der Methode der kleinsten Quadrate anfallen
   \delta &= \SI{0.078+-0.004}{s^{-1}}
 \end{align}
 
-Dieses Ergebnis unterschiedet sich signifkant vom Ergebnis der Aufgabe 1. Eine
+Dieses Ergebnis unterschiedet sich signifikant vom Ergebnis der Aufgabe 1. Eine
 mögliche Erklärung liefern wir im Abschnitt \textit{Zusammenfassung und
 Diskussion}.
 
@@ -510,8 +511,8 @@ korrigieren können.
 Da wir die Ausreißer jedoch identifizieren konnten, hat dies die Resultate
 nicht beeinflusst.
 
-\invisiblesection{Grafische Auswertung}
 \newpage
+\invisiblesection{Grafische Auswertung}
 \label{plot:damp}
 \begin{landscape}
   % gnuplot ./plot-daempfung.gnuplot
