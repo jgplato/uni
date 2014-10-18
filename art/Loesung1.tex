@@ -1,0 +1,75 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=10mm, right=20mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Allgemeine Relativitätstheorie, Sommersemester 2014, Aufgabenblatt 1
+
+Markus Fenske, Luis Herrmann, Jonathan Plato
+\vspace{-10pt}
+\end{center}
+
+\section*{Aufgabe 1: Symmetrieeigenschaften von Tensoren I}
+
+\begin{enumerate}[i)]
+  \item
+    Aus $T_{\alpha [\beta \gamma]} = 0$ folgt
+    \begin{equation}
+      T_{\alpha \beta \gamma} = T_{\alpha \gamma \beta}
+      \label{eq:1}
+    \end{equation}
+
+    Aus $T_{(\alpha \beta) \gamma} = 0$ folgt
+    \begin{equation}
+      T_{\alpha \beta \gamma} = -T_{\beta \alpha \gamma}
+      \label{eq:2}
+    \end{equation}
+
+    Gleichsetzen von (\ref{eq:1}) und (\ref{eq:2}):
+    % Schöner wärs mit amscd:
+    % http://tex.stackexchange.com/q/125508/50173
+    \begin{align*}
+      &T_{\alpha \gamma \beta}          &= -&T_{\beta \alpha \gamma}          \\
+      &\downarrow \text{(\ref{eq:2})}   &   &\downarrow \text{(\ref{eq:1})}   \\
+     -&T_{\gamma \alpha \beta}          &= -&T_{\beta \gamma \alpha}          \\
+      &\downarrow \text{(\ref{eq:1})}   &   &\downarrow \text{(\ref{eq:2})}   \\
+     -&T_{\gamma \beta \alpha}          &=  &T_{\gamma \beta \alpha}          \\
+    \end{align*}
+
+    Durch Umbenennung der Indicies: $T_{\alpha \beta \gamma} = -T_{\alpha \beta \gamma} \;\Rightarrow\; T_{\alpha \beta \gamma} = 0$
+\end{enumerate}
+
+
+\end{document}
