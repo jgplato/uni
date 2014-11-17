@@ -89,7 +89,31 @@ zur Spektralzerlegung und Ablenkung von Licht benutzt werden kann.
 
 % TODO: Theoretische Herleitung erforderlich?
 Für den Sonderfall, dass ein Lichtstrahl das Prisma parallel zu dessen Basis
-durchquert gilt, wenn $\epsilon$ der Winkel an der Spitze des Prismas ist ... FIXME
+durchquert gilt, wenn $\epsilon$ der Winkel an der Spitze des Prismas ist und
+$\alpha$ der Einfallswinkel zum Lot und $\beta$ der Austrittswinkel zum Lot,
+dann ergibt sich der gesamte Brechwinkel $\gamma$ durch
+
+\begin{equation}
+  \gamma = 2 \del{\alpha - \beta}
+\end{equation}
+
+gegeben.
+
+Die beiden Austrittswinkel $\beta$ spannen zusammen mit dem dritten Winkel
+$\delta$ ein Dreieck auf. Wegen Innenwinkelsatz gilt $\delta = 180^\circ -
+\epsilon$. Aufgrund der Winkelsumme ich Dreieck ist somit
+
+\begin{align*}
+  2 \beta + \delta &= 180^\circ \\
+  2 \beta + 180^\circ - \epsilon = 180^\circ \\
+  \beta = \frac{\epsilon}{2}
+\end{align*}
+
+Durch Einsetzen der beiden Gleichungen ineinander erhält man
+
+\begin{equation}
+  \alpha = \frac{\gamma + \epsilon}{2}
+\end{equation}
 
 \subsection{Auflösungsvermögen des Prismas}
 
@@ -170,10 +194,16 @@ Aus dem Bohrschen Atommodell lässt sich das Wasserstoffspektrum ableiten als
 
 \begin{equation}
   \frac{1}{\lambda} = R \del{ \frac{1}{m^2} - \frac{1}{n^2}}
+  \quad \text{mit} \quad m,n \in \mathbf{N}
 \end{equation}
 
-% FIXME: Wobei so und so
+Dabei ist
+\begin{equation}
+  R = \frac{2 \pi^2 m_e e^4}{h^3 c}
+\end{equation}
+die Rydberg-Konstante.
 
+Für $m = 2$ erhält man die Balmer-Serie.
 
 
 \end{document}
