@@ -1,0 +1,179 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+\newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+      \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+        \sectionmark{#1}}
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+
+\begin{titlepage}
+\input{title.tex}
+\end{titlepage}
+
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Alexandra Krause \texttt{<alexandra.krause2@gmail.com>}
+
+Optische Spektroskopie, Tutor: Madsen
+\vspace{-10pt}
+\end{center}
+
+\section{Physikalische Grundlagen}
+
+Untersucht werden soll die spektrale Zerlegung von Licht an einem Prisma und
+einem Beugungsgitter.
+
+\subsection{Brechung am Prisma}
+
+Wechselt ein Lichtstrahl das Medium, gilt
+
+\begin{equation}
+  n_1 \sin(\delta_1) = n_2 \sin(\delta_2)
+\end{equation}
+
+dabei sind $n_1$, $n_2$ die Brechungsindizes der jeweiligen Medien, $\delta_1$
+der Einfallswinkel und $\delta_2$ der Winkel des gebrochenen Strahls. Somit
+tritt eine Ablenkung am Wechsel des Mediums auf.
+
+Der Brechungsindex eines optischen Mediums ist dabei nicht nur vom Medium,
+sondern auch von der Wellenlänge des Lichts abhängig, somit
+
+\begin{equation}
+  n_1(\lambda) \sin(\delta_1) = n_2(\lambda) \sin(\delta_2)
+\end{equation}
+
+\subsection{Prisma}
+
+Ein Prisma ist ein durchsichtiges optisches Bauteil in Form eines Prismas, das
+zur Spektralzerlegung und Ablenkung von Licht benutzt werden kann.
+
+% TODO: Theoretische Herleitung erforderlich?
+Für den Sonderfall, dass ein Lichtstrahl das Prisma parallel zu dessen Basis
+durchquert gilt, wenn $\epsilon$ der Winkel an der Spitze des Prismas ist ... FIXME
+
+\subsection{Auflösungsvermögen des Prismas}
+
+Um getrennte Spektrallinien zu erhalten, wird das Licht durch einen Einzelspalt
+geschickt. Dabei treten Beugungserscheinungen auf. Linien können erst dann als
+getrennt betrachtet werden, wenn der Abstand derart ist, dass das
+Beugungsmaximum der einen Linie mit dem ersten Beugungsminimum der anderen
+Linie zusammenfällt (Rayleigh-Kriterium).
+
+Um dies quantitativ zu Bestimmen, entwickeln wir den Brechnungsindex in eine
+Taylorreihe:
+
+\begin{equation}
+  n(\lambda + \Delta \lambda) \approx n + \frac{\dif n}{\dif \lambda} \Delta \lambda
+\end{equation}
+
+Läuft nun gemischtes Licht der Wellenlängen $\lambda$ und $\lambda + \Delta
+\lambda$ parallel zur Basis auf einer Länge $t$ durch das Prisma, entsteht ein
+Gangunterschied
+
+\begin{align}
+  n(\lambda_1) t - n(\lambda_1 + \Delta \lambda) t &= \lambda \\
+  \del{ n + \frac{\dif n}{\dif \lambda} \Delta \lambda}t - nt &= \lambda
+\end{align}
+
+\begin{equation}
+  \lambda = t \Delta \lambda \frac{\dif n}{\dif \lambda}
+\end{equation}
+
+Das Auflösungsvermögen eines Prismas bestimmt sich also durch die
+materialabhängige Dispersion, die Wellenlänge des Lichts und insbesondere durch
+die Basislänge $t$.
+
+\subsection{Beugungsgitter}
+
+Ein optisches Gitter lässt sich modellhaft betrachten als eine Blende mit einer
+periodischen Folge von lichtdurchlässigen Spalten. Aufgrund des
+Wellencharakters des Lichts entstehen beim Durchgang kohärenten Lichtes durch
+das Gitter dabei Interferrenzeffekte. Zu beobachten sind scharfe Beugungsmaxima
+in Abständen die von der jeweiligen Wellenlänge des Lichts abhängig sind. Somit
+lässt sich auch ein Beugungsgitter zur Spektralzerlegung benutzen.
+
+Die Hauptmaxima lassen sich dabei aus der Bedingung herleiten, dass für
+konstruktive Interferrenz der Gangunterschied benachbarter Spalte ein
+ganzzahliges Vielfaches der Wellenlänge betragen muss. Für eine Gitterkonstante
+$d$ und die Wellenlänge $\lambda$ gilt für den Winkel $\alpha$:
+
+\begin{equation}
+  d \sin \alpha = z \lambda \quad \text{mit} \quad z \in \mathbf{N}
+\end{equation}
+
+$z$ wird dabei als Ordnung der Beugungsmaxima bezeichnet.
+
+\subsection{Auflösungsvermögen des Beugungsgitters}
+
+Neben den Hauptmaxima existieren noch Nebenmaxima, deren Intensität jedoch
+schnell abnimmt, so dass wir nur das erste Nebenmaximum betrachten. Die Lage
+des ersten Nebenminimums ist gegeben durch
+
+\begin{equation}
+  d \sin \alpha_\text{min} = \del{1 + \frac{1}{N}} \lambda
+\end{equation}
+
+wobei $N$ die Gesamtzahl der beitragenden Gitterspalte ist.
+
+Gemäß Rayleigh-Kriterium (siehe Prisma) ergibt sich dann die auflösbare
+Wellenlängendifferenz
+
+\begin{equation}
+  \Delta \lambda = \frac{\lambda}{z N}
+\end{equation}
+
+Das Auflösungsvermögen steigt also mit wachsender Spaltzahl und steigender Ordnung.
+
+\subsection{Wasserstoffspektrum}
+
+Aus dem Bohrschen Atommodell lässt sich das Wasserstoffspektrum ableiten als
+
+\begin{equation}
+  \frac{1}{\lambda} = R \del{ \frac{1}{m^2} - \frac{1}{n^2}}
+\end{equation}
+
+% FIXME: Wobei so und so
+
+
+
+\end{document}
