@@ -54,7 +54,7 @@ Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
 
 Alexandra Krause \texttt{<alexandra.krause2@gmail.com>}
 
-Optische Spektroskopie, Tutor: Madsen
+Optische Spektroskopie, Tutor: Kevin Madsen
 \vspace{-10pt}
 \end{center}
 
@@ -163,6 +163,7 @@ $d$ und die Wellenlänge $\lambda$ gilt für den Winkel $\alpha$:
 
 \begin{equation}
   d \sin \alpha = z \lambda \quad \text{mit} \quad z \in \mathbf{N}
+  \label{eq:1}
 \end{equation}
 
 $z$ wird dabei als Ordnung der Beugungsmaxima bezeichnet.
@@ -205,5 +206,160 @@ die Rydberg-Konstante.
 
 Für $m = 2$ erhält man die Balmer-Serie.
 
+\newpage
+\section{Aufgaben}
+
+\section{Experimenteller Aufbau}
+
+Die Experimente wurden am Beugungsgitter durchgeführt. Der Versuchsaufbau
+besteht aus einem festen Teil mit:
+
+\begin{itemize}
+  \item Spektrallampe (Hg-Dampflampe bzw. unbekannte Spektrallampe Nr. 8)
+  \item Kollimatorlinse
+  \item Größenverstellbarer Eintrittsspalt
+  \item Beugungsgitter mit unbekannter Gitterkonstante
+\end{itemize}
+
+Sowie drehbar gelagert und mit einem Goniometer versehen:
+
+\begin{itemize}
+  \item Objektivlinse
+  \item Okular mit Fadenkreuz
+\end{itemize}
+
+Der Aufbau lässt sich der Abbilung \ref{fig:aufbau} entnehmen.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{aufbau.png}
+    \caption{Versuchsaufbau}
+    \label{fig:aufbau}
+\end{figure}
+
+\section{Durchführung}
+\subsection{Aufgabe 1}
+
+Nach dem Einschalten der Quecksilberdampflampe haben wir den Aufbau
+entsprechend des Skriptes durch Autokollimation justiert. Die Justage war
+erfolgreich. Um größtmögliche Messgenauigkeit zu erreichen, haben wir den
+Einlassspalt auf den kleinstmöglichen Wert eingestellt.
+
+\subsection{Aufgabe 2}
+
+Entsprechend der Aufgabenstellung wurden die Winkel sowie Farbe und subjektive
+Intensität aller sichtbaren Spektrallinien 1. Ordnung aufgenommen. Die Winkel
+der Spektrallinien 2. Ordnung wurden nur für die hellsten Linien aufgenommen.
+Zur Kontrolle und zur Messung Bestimmung des Winkelnullpunkts wurden diese
+Messungen jeweils auf beiden Seiten durchgeführt. Außerdem wurde zur Kontrolle
+des Nullpunkts die Linie 0. Ordnung aufgenommen.
+
+\subsection{Aufgabe 3}
+
+Die Lampe wurde gegen eine unbekannte Spektrallampe ausgetauscht. Die Messungen
+aus Aufgabe 2 wurden an dieser Spektrallampe wiederholt.
+
+\subsection{Aufgabe 4}
+
+Ein zusätzlicher einstellbarer Spalt wurde hinter dem Kollimator und direkt vor
+dem Beugungsgitter eingesetzt. Der Spalt wurde so justiert, dass das
+gelb-orange $579{,}1$ / $577{,}0 \operatorname{nm}$ Linienpaar gerade noch im Sinne
+des Raygleigh-Kriteriums unterscheidbar war. Die Millimeterschraube des Spaltes
+wurde am Nullpunkt und am eingestellten Punkt abgelesen, um aus der Differenz
+die Spaltbreite zu ermitteln.
+
+\subsection{Aufgabe 5}
+
+Das Beugungsgitter wurde durch ein Prisma ersetzt und die qualitativen
+Beobachtungen notiert.
+\newpage
+\section{Messwerte}
+\newpage
+\section{Auswertungen}
+\subsection{Aufgabe 1}
+
+Die Justage wurde erfolgreich durchgeführt.
+
+\subsection{Aufgabe 2}
+Zur Bestimmung des Nullpunktes haben wir zuerst die 4 prägnantesten Linien
+(Violette Hauptlinie, grüne Hauptlinie und gelbe Doppellinie) jeweils ihren
+Entsprechungen in den unterschiedlichen Ordnungen anhand von Intensität und
+Farbe zugeordnet. Bedeutet konkret: Die violette Hauptlinie der 1. Ordnung
+wurde der gegenüberliegenden violetten Hauptlinie der 1. Ordnung zugeordnet,
+usw.
+
+
+% FIXME: Definition Mittelwert, Standardabweichung einbauen.
+Durch Berechnung der Mittelwerte der jeweils 2 Werte erhalten wir 8 Nullpunkte.
+Durch die Berechnung des Mittelwerts und der Standardabweichung der 8 Werte
+erhalten wir den Nullpunkt:
+
+\begin{equation*}
+  \alpha_0 = (177{,}98\pm0{,}91)^\circ
+\end{equation*}
+
+Dieser ist verträglich mit dem Nullpunkt der durch den Winkel der 0. Ordnung
+bestimmt wurde.
+
+Durch Differenzbildung zu diesem Nullpunkt haben wir dann jeweils den
+Ablenkwinkel $\alpha$ ermittelt. Da der ermittelte Fehler des Nullpunktes den
+Ablesefehler um mehr als eine Größenordnung übersteigt, kann der Ablesefehler
+unberücksichtigt bleiben. Der Fehler der Winkel ist somit identisch zum aus der
+Streuung ermittelten Fehler.
+
+\begin{equation*}
+  \Delta \alpha = 0{,}91^\circ
+\end{equation*}
+
+Die ermittelten Werte finden sich in der anliegenden Tabelle.
+
+Die anderen Linien konnten auch durch einen Vergleich mit den Differenzen nicht
+eindeutig identifiziert werden, so dass sie für die Ermittlung der
+Gitterkonstanten unberücksichtigt bleiben müssen.
+
+Anhand des im Skript enthaltenen Spektrums haben wir den identifizierbaren
+Spektrallinien Wellenlängen zugeordnet. Anhand von Gleichung \ref{eq:1} haben
+wir dann für jeden Wert eine Gitterkonstante bestimmt.
+
+Anstatt die Gaußßsche Fehlerfortpflanzung zu benutzen, erschien es uns
+sinnvoll, da der Fehler des Ablesewinkels ja sowieso durch Streuung bestimmt
+wurde, auch den Fehler der Gitterkonstanten aus der Streung zu ermitteln.
+
+Es ergibt sich somit als Zwischenergebnis eine Gitterkonstante von
+
+\begin{equation*}
+  d = (1{,}658\pm0{,}055) \operatorname{\mu m}
+\end{equation*}
+
+Eine kurze Abschätzung in der Tabellenkalkulation zeigte, dass die Genauigkeit
+der Gitterkonstanten nicht ausreichend ist, um auf die Wellenlängen
+zurückzurechnen. Die anderen Linien bleiben somit für uns leider nicht
+eindeutig identifizierbar.
+
+\subsection{Aufgabe 3}
+
+Nachdem wir die Spektrallinien untereinander zugeordnet haben, haben wir unter
+Benutzung der in Aufgabe 2 ermittelten Gitterkonstante die Wellenlänge
+bestimmt. Für jede Spektrallinie ergeben sich 4 Wellenlängen. Die tatsächliche
+Wellenlänge und den Fehler erhalten wir durch Mittelwertbildung und Berechnung
+der Standardabweichung. Gaußsche Fehlerfortplanzung wäre in diesem Fall
+möglich, aber da das Ergebnis eindeutig ist, nicht nötig.
+
+Die ersten 3 hellen Spektrallinien lassen sich gut mit den $467{,}8
+\operatorname{nm}$, $480{,}0 \operatorname{nm}$ und $508{,}6 \operatorname{nm}$
+Linien identifizieren.
+
+Die vierte Linie konnten wir leider in der einen zweiten Ordnung nicht finden,
+so dass sich wohl ein systematischer Fehler ergibt, der durch die
+Mittelwertbildung nicht aufgehoben wird. Wir können daher nur vermuten, dass es
+sich dabei um die hellste Linie handelt, nämlich die $643{,}8
+\operatorname{nm}$-Linie.
+
+Da Helium nicht in Frage kommt und die Linien von Zink viel dichter liegen und
+daher mit den farblichen Beobachtung nicht übereinstimmen, folgern wir, dass es
+sich um eine \textbf{Cadmium-Spektrallampe} handeln muss.
+
+% FIXME: Auswertung
+\section{Endergebnis}
 
 \end{document}
