@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{geometry}
+\usepackage{pdfpages}
 \usepackage{tikz}
 \usepackage{wrapfig}
 \usepackage[fleqn]{amsmath}
@@ -87,7 +88,13 @@ sondern auch von der Wellenlänge des Lichts abhängig, somit
 Ein Prisma ist ein durchsichtiges optisches Bauteil in Form eines Prismas, das
 zur Spektralzerlegung und Ablenkung von Licht benutzt werden kann.
 
-% TODO: Theoretische Herleitung erforderlich?
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{prisma.png}
+    \caption{Prisma}
+    \label{fig:prisma}
+\end{figure}
+
 Für den Sonderfall, dass ein Lichtstrahl das Prisma parallel zu dessen Basis
 durchquert, gilt, dass, wenn $\epsilon$ der Winkel an der Spitze des Prismas ist und
 $\alpha$ der Einfallswinkel zum Lot und $\beta$ der Austrittswinkel zum Lot,
@@ -208,6 +215,19 @@ Für $m = 2$ erhält man die Balmer-Serie.
 
 \newpage
 \section{Aufgaben}
+Da wir die Messungen am Beugungsgitter durchführen, geben wir nur diese
+Aufgaben wieder.
+
+\begin{enumerate}
+  \item Aufbau und Justage des Spektrometers
+  \item Aufnahme des Spektrums einer Quecksilberdampflampe in der ersten und
+    zweiten Ordnung und Bestimmung der Gitterkonstanten
+  \item Spektroskopie einer unbekannten Lampe und Analyse der Lampenfüllung
+  \item Bestimmung des Auflösungsvermögens des Gitters in erster und zweiter
+    Ordnung und Vergleich mit den theoretischen Erwartungen
+  \item Qualitative Beobachtung und Diskussion des Dispersionsspektrums eines
+    Prismas.
+\end{enumerate}
 
 \section{Experimenteller Aufbau}
 
@@ -241,9 +261,9 @@ Der Aufbau lässt sich der Abbilung \ref{fig:aufbau} entnehmen.
 \subsection{Aufgabe 1}
 
 Nach dem Einschalten der Quecksilberdampflampe haben wir den Aufbau
-entsprechend des Skriptes durch Autokollimation justiert. Die Justage war
-erfolgreich. Um größtmögliche Messgenauigkeit zu erreichen, haben wir den
-Einlassspalt auf den kleinstmöglichen Wert eingestellt.
+entsprechend des Skriptes durch Autokollimation justiert. Um größtmögliche
+Messgenauigkeit zu erreichen, haben wir den Einlassspalt auf den
+kleinstmöglichen Wert eingestellt.
 
 \subsection{Aufgabe 2}
 
@@ -273,12 +293,18 @@ die Spaltbreite zu ermitteln.
 Das Beugungsgitter wurde durch ein Prisma ersetzt und die qualitativen
 Beobachtungen notiert.
 \newpage
-\section{Messwerte}
-\newpage
+\invisiblesection{Messwerte}
+\includepdf{mess-0001.pdf}
+\includepdf{mess-0002.pdf}
+\includepdf{mess-0003.pdf}
+\invisiblesection{Tabellen zur Auswertung}
+\includepdf[landscape=true]{hg-lampe.pdf}
+\includepdf[landscape=true]{zn-lampe.pdf}
 \section{Auswertungen}
 \subsection{Aufgabe 1}
 
-Die Justage wurde erfolgreich durchgeführt.
+Die Justage wurde durch Autokollimation und Scharfstellen des Okkulars wie im
+Skript beschrieben durchgeführt.
 
 \subsection{Aufgabe 2}
 Zur Bestimmung des Nullpunktes haben wir zuerst die 4 prägnantesten Linien
@@ -288,8 +314,20 @@ Farbe zugeordnet. Bedeutet konkret: Die violette Hauptlinie der 1. Ordnung
 wurde der gegenüberliegenden violetten Hauptlinie der 1. Ordnung zugeordnet,
 usw.
 
+Da genug Werte gemessen wurden, benutzen wir in dieser Aufgabe die
+Fehlerschätzung aus der Streuung. Dabei ist der Mittelwert der Werte $x_1,
+\dots, x_n$ definiert als
 
-% FIXME: Definition Mittelwert, Standardabweichung einbauen.
+\begin{equation}
+  \overline{x} = \frac{1}{n} \sum_i x_i
+\end{equation}
+
+Die Standardabweichung schätzen wir durch
+
+\begin{equation}
+  \sigma = \sqrt{\frac{1}{n-1} \sum_i (x_i - \overline{x})^2}
+\end{equation}
+
 Durch Berechnung der Mittelwerte der jeweils 2 Werte erhalten wir 8 Nullpunkte.
 Durch die Berechnung des Mittelwerts und der Standardabweichung der 8 Werte
 erhalten wir den Nullpunkt:
@@ -359,7 +397,141 @@ Da Helium nicht in Frage kommt und die Linien von Zink viel dichter liegen und
 daher mit den farblichen Beobachtung nicht übereinstimmen, folgern wir, dass es
 sich um eine \textbf{Cadmium-Spektrallampe} handeln muss.
 
-% FIXME: Auswertung
-\section{Endergebnis}
+\subsection{Aufgabe 4}
 
+Wird die beleuchtete Breite eingeschränkt, sinkt die Anzahl der beleuchteten
+Gitterspalte $N$. Da die Gitterkonstante den Abstand zwischen den Spalten
+angibt, ist das Inverse $\frac{1}{d}$ die Anzahl der Spalte pro Breite $b$.
+Somit ist die Anzahl der beleuchteten Spalte
+
+\begin{equation}
+  N = \frac{b}{d}
+\end{equation}
+
+Dabei ist b die Differenz der beiden gemessenen Werte. Der Fehler ergibt sich
+durch Gaußsche Fehlerfortpflanzung als $\Delta b = \sqrt{2} \Delta b_1$.
+
+\begin{equation}
+  b = (3{,}08 \pm 0{,}01) \operatorname{mm} - (2{,}78\pm0{,}01) \operatorname{mm}
+    = (0{,}300 \pm 0{,}015) \operatorname{mm}
+\end{equation}
+
+Der Fehler von $N$ ist
+
+\begin{align*}
+  \Delta N &= \sqrt{
+    \del{\frac{\partial N}{\partial b}}^2 \Delta b^2 +
+    \del{\frac{\partial N}{\partial d}}^2 \Delta d^2
+  } \\ &= \sqrt{
+    \frac{1}{d^2} \Delta b^2 +
+    \frac{b^2}{d^4} \Delta d^2
+  } \\ & = \sqrt{
+    \del{\frac{0{,}015 \operatorname{mm}}{1{,}658 \operatorname{\mu m}}}^2 +
+    \frac{(0{,}300 \operatorname{mm})^2 (0{,}055 \operatorname{\mu m})^2}{
+      (1{,}658 \operatorname{\mu m})^4
+    }
+  } \approx 10{,}9
+\end{align*}
+
+
+Somit ist
+\begin{equation}
+  N = \frac{(0{,}300 \pm 0{,}015) \operatorname{mm}}{(1{,}658\pm0{,}055) \operatorname{\mu m}}
+  = 181\pm11
+\end{equation}
+
+Experimentell ergibt sich also ein Auflösungsvermögen in der ersten Ordnung v
+
+\begin{equation}
+  \frac{\lambda}{\Delta \lambda} = z N = 180\pm20
+\end{equation}
+
+Theoretisch ergibt sich hingegen
+
+\begin{equation}
+  \frac{\lambda}{\Delta \lambda} = \frac{579{,}1 \operatorname{nm}}{579{,}1 \operatorname{nm} - 577{,}0 \operatorname{nm}} = 275{,}76
+\end{equation}
+
+Die Ergebnisse sind signifikant verschieden. Die Ursache wird im Teil
+\textit{Auswertung} diskutiert.
+
+\subsection{Aufgabe 5}
+Beim Ersetzen des Beugungsgitters durch das Prisma ergeben sich drei
+Beobachtungen:
+
+\begin{itemize}
+  \item Es gibt nur einen Satz Linien (also keine Linien unterschiedlicher
+    Ordnung) auf nur einer Seite
+  \item Die Spektrallinien befinden sich nur auf einer Seite.
+  \item Die Farben sind anders herum geordnet
+\end{itemize}
+
+Die ersten beiden Punkte lassen sich dadurch erklären, dass die Funktionsweise
+des Beugungsgitters auf Interferrenzeffekten beruht. Das Prisma hingegen
+zerlegt einen Lichtstrahl durch Brechung und Dispersion in seine Bestandteile.
+Es gibt also nur ein Spektrum und nur auf einer Seite.
+
+Dass die Linien anders herrum geordnet sind liegt am positiven
+Dispersionskoeffizienten des verwendeten Prismas. Wie bei den meisten Stoffen
+wird Licht kurzer Wellenlänge dabei stärker gebrochen als Licht längerer
+Wellenlänge. Ist der Dispersionskoeffizient negativ, spricht man daher von
+\textit{anomaler Dispersion}.
+
+\section{Auswertung und Diskussion}
+
+Wir konnten die Gitterkonstante erfolgreich als
+\begin{equation*}
+  d = (1{,}66\pm0{,}06) \operatorname{\mu m}
+\end{equation*}
+bestimmen.
+
+Auch konnten wir die Art der Lampe sicher bestimmen.
+
+Die Annahme der hohe Messgenauigkeit von $\Delta \alpha = 0{,}01^\circ$ konnten
+wir anhand der Fehlerbestimmung aus der Streuung als falsch erkennen.
+Dementsprechend stellte es sich auch herraus, dass die Einstellung des Spaltes
+auf kleinstmögliche Breite kontraproduktiv war. Es wäre besser gewesen, den
+Spalt breiter einzustellen, um auch dunklere Spektrallinien zu finden.
+
+Das experimentell bestimmte Auflösungsvermögen des Gitters
+\begin{equation}
+  z N = 180\pm20
+\end{equation}
+
+weicht signifikant vom theoretischen Wert
+\begin{equation}
+  \frac{\lambda}{\Delta \lambda} = 275{,}76
+\end{equation}
+
+ab. Es gehen die Gitterkonstante und die Spaltbreite in die Messgleichung ein.
+Da die Gitterkonstante benutzt wurde, um die Wellenlängen zu berechnen und sich
+dabei keine signifikanten Abweichungen zu den Erwartungen ergaben, ist davon
+auszugehen, dass die Spaltbreite falsch bestimmt wurde. Das Problem liegt dabei
+sicherlich in der Bestimmung des Nullpunkts. Der Nullpunkt wurde dort
+festgestellt, wo sich ein Gegendruck der Rückstellfeder bemerkbar macht.  Diese
+subjektive Art der Messung führt zu einem Fehler, der viel größer ist, als
+angenommen.
+
+Die qualitativen Untersuchungen am Prisma konnten die Unterschiede zum
+Beugungsgitter aufzeigen.
+
+Insgesamt konnten die Messdaten trotz Fehleinstellungen und Fehlannahmen
+produktiv verwertet werden, so dass wir das Experiment als erfolgreich
+betrachten.
+
+\section{Weiterführende Überlegungen}
+Das im Skript abgebildete Spektrum der Cadmium-Lampe scheint nicht mit dem
+Experiment übereinzustimmen. Obwohl die Linien bei $609{,}9 \operatorname{nm}$
+und $611{,}2 \operatorname{nm}$ in einer Niederdruckdampflampe überhaupt nicht
+sichtbar sind\footnote{Siehe
+http://de.wikipedia.org/wiki/Datei:Cd\_Niederdruck\_Spektrum.png}, werden diese
+im Skript als starke Linien dargestellt. Dadurch ist es leicht mit dem Spektrum
+der Zink-Lampe verwechselbar.
+
+Zur Verbesserung der Messergebnisse wäre es sicherlich sinnvoll, die
+Spaltbreite mit anderen Mitteln zu messen. Eine Mikroschieblehre könnte die
+Genauigkeit signifikant verbessern.
+
+Um die dunkleren Spektrallinien besser zu messen wäre es außerdem sinnvoll
+gewesen, den Spalt auf Kosten der Genauigkeit breiter einzustellen.
 \end{document}
