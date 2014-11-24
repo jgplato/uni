@@ -78,6 +78,53 @@ vorheriger Versuch).
 
 \subsection{Dünne Linsen}
 
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\lensRadius}{15}
+    \pgfmathsetmacro{\lensHeight}{3.3}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    \pgfmathsetmacro{\focalLength}{3}
+    \pgfmathsetmacro{\objectDistance}{5}
+    \pgfmathsetmacro{\objectHeight}{2}
+    \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
+    \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
+
+    % Linse
+    \draw [fill=blue!25]  (0,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+     -- cycle;
+
+    % Gegenstand
+    \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
+
+    % Bild
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
+
+    % Mittelpunktstrahl
+    \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Parallelstrahl
+    \draw (-\objectDistance,\objectHeight) -- node[above] {g} (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Brennpunktstrahl
+    \draw (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- node[below] {b} (\pictureDistance,-\pictureHeight);
+
+    % Optische Achse
+    \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
+
+    % Brennweite
+    \draw (-\focalLength,0) -- node[below] {f} (0,0);
+    \draw (0,0) -- node[above] {f} (\focalLength,0);
+
+    % Vertikale Achse
+    \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
+  \end{tikzpicture}
+  \caption{Strahlengang}
+  \label{fig:rays}
+\end{figure}
+
 Besonders wichtig für diesen Versuch ist dabei die Beschreibung von
 Sammellinsen. Sammellinsen sind in erster Näherung Glaskörper in der Form der
 Schnittmenge zweier gleich großer Vollkugeln. Interessant ist, in welcher Art
@@ -98,66 +145,126 @@ anderen auszeichnen:
     \textit{Brennpunktstrahl}.
 \end{itemize}
 
-% FIXME: Abbildung Strahlengang in TikZ
+Abbildung \ref{fig:rays} gibt unter Verwendung dieser Definitionen den Strahlengang durch
+eine dünne Linse an.
 
-Die folgende Zeichnung gibt unter Verwendung dieser Definitionen den
-Strahlengang durch eine dünne Linse an.
+Damit lässt sich nun die Abbildungsgleichung herleiten.
 
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\lensRadius}{15}
+    \pgfmathsetmacro{\lensHeight}{3.3}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    \pgfmathsetmacro{\focalLength}{3}
+    \pgfmathsetmacro{\objectDistance}{5}
+    \pgfmathsetmacro{\objectHeight}{2}
+    \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
+    \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
 
-\begin{tikzpicture}
-  \pgfmathsetmacro{\lensRadius}{15}
-  \pgfmathsetmacro{\lensHeight}{3.3}
-  \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
-  \pgfmathsetmacro{\focalLength}{3}
-  \pgfmathsetmacro{\objectDistance}{5}
-  \pgfmathsetmacro{\objectHeight}{2}
-  \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
-  \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
+    % Linse
+    \draw [fill=blue!25]  (0,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+     -- cycle;
 
-  % Linse
-  \draw [fill=blue!25]  (0,\lensHeight)
-  arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
-  arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
-   -- cycle;
+    % Gegenstand
+    \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
 
-  % Gegenstand
-  \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
+    % Bild
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
 
-  % Bild
-  \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
+    % Mittelpunktstrahl
+    %\draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
 
-  % Mittelpunktstrahl
-  \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+    % Parallelstrahl
+    \draw[color=gray!60] (-\objectDistance,\objectHeight) -- (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
 
-  % Parallelstrahl
-  \draw (-\objectDistance,\objectHeight) -- (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+    % Brennpunktstrahl
+    \draw[color=gray!60] (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- (\pictureDistance,-\pictureHeight);
 
-  % Brennpunktstrahl
-  \draw (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- (\pictureDistance,-\pictureHeight);
+    % Optische Achse
+    \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
 
-  % Optische Achse
-  \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
-\end{tikzpicture}
+    % Brennweite
+    %\draw (-\focalLength,0) -- node[below] {f} (0,0);
+    %\draw (0,0) -- node[above] {f} (\focalLength,0);
 
+    % Vertikale Achse
+    \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
 
+    % Hervorrhebung
+    \draw[thick,color=red] (0,0) -- (-\objectDistance,\objectHeight) -- (-\objectDistance,0) -- node[above,color=black] {g} cycle;
+    \draw[thick,color=blue] (0,0) -- (\pictureDistance,-\pictureHeight) -- (\pictureDistance,0) -- node[above,color=black] {b} cycle;
+  \end{tikzpicture}
+  \caption{Zur Herleitung, Teil 1}
+  \label{fig:eq1}
+\end{figure}
 
-% FIXME: Abbildung
 Die Dreiecke bestehend aus den Strecken $G$, $g$ und dem halben
 Mittelpunktstrahl und aus $B$, $b$ und dem halben Mittelpunktstrahl sind
 ähnlich, denn sie stimmen in allen Winkeln überein (rechter Winkel zwischen $G$
 und $g$ sowie $B$ und $b$ und Wechselwinkel am Mittelpunktstrahl). Somit müssen
-die Streckenverhältnisse gleich sein. Wir definieren darüber den
-Abbildungsmaßstab $\beta$.
+die Streckenverhältnisse gleich sein (siehe Abbilung \ref{fig:eq1}). Wir
+definieren darüber den Abbildungsmaßstab $\beta$.
 
 \begin{equation}
   \beta = \frac{B}{G} = \frac{b}{g}
   \label{eq:beta}
 \end{equation}
 
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\lensRadius}{15}
+    \pgfmathsetmacro{\lensHeight}{3.3}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    \pgfmathsetmacro{\focalLength}{3}
+    \pgfmathsetmacro{\objectDistance}{5}
+    \pgfmathsetmacro{\objectHeight}{2}
+    \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
+    \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
+
+    % Linse
+    \draw [fill=blue!25]  (0,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+     -- cycle;
+
+    % Gegenstand
+    \draw[thick,->,gray!50] (-\objectDistance,0) -- (-\objectDistance,\objectHeight);
+
+    % Bild
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {$B$} (\pictureDistance,-\pictureHeight);
+
+    % Mittelpunktstrahl
+    \draw[gray!50] (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Parallelstrahl
+    \draw[gray!50] (-\objectDistance,\objectHeight) -- (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Brennpunktstrahl
+    \draw[gray!50] (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Optische Achse
+    \draw[dashed,gray!50] (-\objectDistance,0) -- (\pictureDistance,0);
+
+    % Vertikale Achse
+    \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
+
+    % Hervorrhebung
+    \draw[thick,color=red] (0,0) -- node[color=black,right=0.2cm] {$G$} (0,\objectHeight) -- (\focalLength,0) -- node[color=black,above] {$f$} cycle;
+    \draw[thick,color=blue] (\focalLength,0) -- (\pictureDistance,-\pictureHeight) -- (\pictureDistance,0) -- node[above,color=black] {$b - f$} cycle;
+  \end{tikzpicture}
+  \caption{Zur Herleitung, Teil 2}
+  \label{fig:eq2}
+\end{figure}
+
 Auf der Seite des Bildes ergibt wird ein Dreieck gebildet aus der der Strecke
 $f$, der Gegenstandshöhe $G$ in der Linsenebene und dem halben
 Brennpunktstrahl. Das Dreieck aus $B$, $b-f$ und der anderen Hälfte des
-Brennpunktstrahls ist dazu aus den selben Gründen wie oben ähnlich. Somit gilt
+Brennpunktstrahls ist dazu aus den selben Gründen wie oben ähnlich (siehe
+Abbilung \ref{fig:eq2}. Somit gilt
 
 \begin{equation}
   \frac{B}{G} = \frac{b-f}{f}
