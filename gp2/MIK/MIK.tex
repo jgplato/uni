@@ -61,4 +61,107 @@ Mikroskop, Tutor: Kevin Madsen
 
 \section{Physikalische Grundlagen}
 
+% Einführung: Parallelstrahl, Mittelpunktstrahl, Brennpunktstrahl
+
+Herleitung der Linsengleichung $\frac{1}{f} = \frac{1}{g} + \frac{1}{b}$.
+
+% Aufgabe 1
+
+% FIXME: Abbildung
+Die Dreiecke bestehend aus den Strecken $G$, $g$ und dem halben
+Mittelpunktstrahl und aus $B$, $b$ und dem halben Mittelpunktstrahl sind
+ähnlich, denn sie stimmen in allen Winkeln überein (rechter Winkel zwischen $G$
+und $g$ sowie $B$ und $b$ und Wechselwinkel am Mittelpunktstrahl). Somit müssen
+die Streckenverhältnisse gleich sein. Wir definieren darüber den
+Abbildungsmaßstab $\beta$.
+
+\begin{equation}
+  \beta = \frac{B}{G} = \frac{b}{g}
+  \label{eq:beta}
+\end{equation}
+
+Auf der Seite des Bildes ergibt wird ein Dreieck gebildet aus der der Strecke
+$f$, der Gegenstandshöhe $G$ in der Linsenebene und dem halben
+Brennpunktstrahl. Das Dreieck aus $B$, $b-f$ und der anderen Hälfte des
+Brennpunktstrahls ist dazu aus den selben Gründen wie oben ähnlich. Somit gilt
+
+\begin{equation}
+  \frac{B}{G} = \frac{b-f}{f}
+\end{equation}
+
+Zusammengesetzt ergibt sich
+\begin{equation}
+  \frac{b}{g} = \frac{b-f}{f}
+  \label{eq:inter}
+\end{equation}
+
+Durch Division durch $b$ und Addition von $\frac{1}{b}$ erhält man die
+Abbildungsgleichung
+
+\begin{equation}
+  \frac{1}{f} = \frac{1}{b} + \frac{1}{g}
+\end{equation}
+
+% Aufgabe 2
+
+Für einen festen Abstand $e$ zwischen Gegenstand und Bild gilt $e = g+b$.
+
+% http://www.wolframalpha.com/input/?i=solve+1%2Ff+%3D+1%2Fg+%2B+1%2F%28e-g%29+for+g
+Durch Einsetzen in die Linsengleichung ergeben sich also nur zwei Lösungen für
+ein scharfes Bild. % FIXME: Herleitung (Umstellen, PQ-Formel)
+
+\begin{equation}
+  g = \pm \frac{1}{2} \del{\sqrt{e^2 - 4ef} + e}
+\end{equation}
+
+Dabei handelt es sich einmal um eine Vergrößerung ($\beta > 1$) und einmal um
+eine Verkleinerung ($\beta < 1$). % FIXME: Warum? beta = (e-g)/g für beide
+% Lösungen ausrechnen!
+
+% Aufgabe 3
+% FIXME: Einführung dicke Linsen
+Die geometrischen Überlegungen gelten genauso für dicke Linsen, denn entfernt
+man die Hauptebenen, ergeben sich die selben geometrischen Zusammenhänge.
+Problematisch ist nur, dass sich aufgrund des unbekannten Hauptebenenabstands
+die Gegenstands- und die Bildweite nicht mehr bestimmen lassen. Der Brennwert
+muss sich also aus einem anderen Zusammenhang ergeben. Messbar sind $g-b$ und
+$\beta$, so dass daraus der Brennwert berechnet werden muss.
+
+Durch Einsetzen von \ref{eq:beta} in \ref{eq:inter} erhalten wir
+
+\begin{equation}
+  \beta = \frac{b-f}{f}
+\end{equation}
+
+Umgestellt nach $f$:
+\begin{equation}
+  f = \frac{b}{\beta + 1}
+\end{equation}
+
+Durch Erweitern mit $\beta - 1$:
+\begin{equation}
+  f = \frac{b(\beta - 1)}{1-\beta^2}
+\end{equation}
+
+Durch Erweitern mit $\frac{1}{\beta} = \frac{g}{b}$:
+
+\begin{equation}
+  f = \frac{g - b}{\frac{1}{\beta} - \beta}
+\end{equation}
+
+Somit ist die Brennweite nur durch $g-b$ und $\beta$ ausgedrückt.
+
+Aus $e = g + i + b$ erhalten wir
+
+\begin{align*}
+  i &= e - (g+b) \\
+    &= e - (g-b) \frac{g+b}{g-b} \\
+    &= e - (g-b) \frac{(g+b)\beta}{(g-b)\beta} \\
+    &= e - (g-b) \frac{b + \beta b}{b - \beta b} \\
+    &= e - (g-b) \frac{\beta + 1}{\beta - 1}
+\end{align*}
+
+% Aufgabe 4: Zeug malen (Aus Skript übernehmen?)
+
+
 \end{document}
