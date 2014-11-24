@@ -61,11 +61,85 @@ Mikroskop, Tutor: Kevin Madsen
 
 \section{Physikalische Grundlagen}
 
-% Einführung: Parallelstrahl, Mittelpunktstrahl, Brennpunktstrahl
+Das menschliche Auge ist in der Lage Gegenstände ab einer Größe von $0{,}02
+\operatorname{mm}$ zu betrachten. Um kleinere Gegenstände wahrzunehmen, werden
+optische Hilfsmittel wie Lupe oder Mikroskop benötigt. Diese sollen im
+folgenden untersucht werden.
 
-Herleitung der Linsengleichung $\frac{1}{f} = \frac{1}{g} + \frac{1}{b}$.
+\subsection{Geometrische Optik}
 
-% Aufgabe 1
+Die Physik kennt viele verschiedene Beschreibungen der elektromagnetischen
+Wellen. Für den Spezialfall des Lichtes in der Optik besonders geeignet ist die
+\textit{Geometrische Optik}. Dabei wird die Wellen- und Teilchennatur des
+Lichtes vernachlässigt und vereinfachend angenommen, das Licht bestünde aus
+Lichtstrahlen, die sich geradlinig fortbewegen und ihre Richtung nur an
+jeweiligen Brechkanten gemäß des Snelliusschen Brechnungsgesetzes ändern (siehe
+vorheriger Versuch).
+
+\subsection{Dünne Linsen}
+
+Besonders wichtig für diesen Versuch ist dabei die Beschreibung von
+Sammellinsen. Sammellinsen sind in erster Näherung Glaskörper in der Form der
+Schnittmenge zweier gleich großer Vollkugeln. Interessant ist, in welcher Art
+sich nun Lichtstrahlen durch Sammellinsen bewegen. Man stellt fest, dass für
+den Spezialfall, dass die Linse klein gegenüber dem Radius der begrenzenden
+Vollkugeln sind, dass es drei Arten von Strahlen gibt, die sich gegenüber den
+anderen auszeichnen:
+
+\begin{itemize}
+  \item Der \textit{Mittelpunktstrahl} durchläuft die Linse ohne durch
+    Brechnung abgelenkt zu werden.
+  \item Der \textit{Parallelstrahl} trifft parallel zur optischen Achse (also
+    der Achse durch den Mittelpunkt der beiden gedachten Vollkugeln) auf die
+    Linse. Er wird immer derart gebrochen, dass er durch einen Punkt geht, den
+    wir im folgenden als \textit{Brennpunkt} $F$ bezeichnen wollen.
+  \item Da es sich um eine bijektive Abbildung handelt, wird jeder Strahl der
+    durch den Brennpunkt geht wieder zum Parallelstrahl. Diesen nennen wir
+    \textit{Brennpunktstrahl}.
+\end{itemize}
+
+% FIXME: Abbildung Strahlengang in TikZ
+
+Die folgende Zeichnung gibt unter Verwendung dieser Definitionen den
+Strahlengang durch eine dünne Linse an.
+
+
+\begin{tikzpicture}
+  \pgfmathsetmacro{\lensRadius}{15}
+  \pgfmathsetmacro{\lensHeight}{3.3}
+  \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+  \pgfmathsetmacro{\focalLength}{3}
+  \pgfmathsetmacro{\objectDistance}{5}
+  \pgfmathsetmacro{\objectHeight}{2}
+  \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
+  \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
+
+  % Linse
+  \draw [fill=blue!25]  (0,\lensHeight)
+  arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+  arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+   -- cycle;
+
+  % Gegenstand
+  \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
+
+  % Bild
+  \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
+
+  % Mittelpunktstrahl
+  \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+  % Parallelstrahl
+  \draw (-\objectDistance,\objectHeight) -- (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+  % Brennpunktstrahl
+  \draw (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- (\pictureDistance,-\pictureHeight);
+
+  % Optische Achse
+  \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
+\end{tikzpicture}
+
+
 
 % FIXME: Abbildung
 Die Dreiecke bestehend aus den Strecken $G$, $g$ und dem halben
