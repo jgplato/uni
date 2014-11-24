@@ -97,26 +97,26 @@ vorheriger Versuch).
      -- cycle;
 
     % Gegenstand
-    \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
+    \draw[thick,->] (-\objectDistance,0) -- node[left] {$G$} (-\objectDistance,\objectHeight);
 
     % Bild
-    \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {$B$} (\pictureDistance,-\pictureHeight);
 
     % Mittelpunktstrahl
-    \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+    \draw[color=green] (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
 
     % Parallelstrahl
-    \draw (-\objectDistance,\objectHeight) -- node[above] {g} (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+    \draw[color=blue] (-\objectDistance,\objectHeight) -- node[above,color=black] {$g$} (0,\objectHeight) -- (\pictureDistance,-\pictureHeight);
 
     % Brennpunktstrahl
-    \draw (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- node[below] {b} (\pictureDistance,-\pictureHeight);
+    \draw[color=red] (-\objectDistance,\objectHeight) -- (0,-\pictureHeight) -- node[below,color=black] {$b$} (\pictureDistance,-\pictureHeight);
 
     % Optische Achse
     \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
 
     % Brennweite
-    \draw (-\focalLength,0) -- node[below] {f} (0,0);
-    \draw (0,0) -- node[above] {f} (\focalLength,0);
+    \draw (-\focalLength,0) -- node[below] {$f$} (0,0);
+    \draw (0,0) -- node[above] {$f$} (\focalLength,0);
 
     % Vertikale Achse
     \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
@@ -134,15 +134,16 @@ Vollkugeln sind, dass es drei Arten von Strahlen gibt, die sich gegenüber den
 anderen auszeichnen:
 
 \begin{itemize}
-  \item Der \textit{Mittelpunktstrahl} durchläuft die Linse ohne durch
-    Brechnung abgelenkt zu werden.
-  \item Der \textit{Parallelstrahl} trifft parallel zur optischen Achse (also
-    der Achse durch den Mittelpunkt der beiden gedachten Vollkugeln) auf die
-    Linse. Er wird immer derart gebrochen, dass er durch einen Punkt geht, den
-    wir im folgenden als \textit{Brennpunkt} $F$ bezeichnen wollen.
+  \item Der \textit{Mittelpunktstrahl} (in der Abbildung grün) durchläuft die
+    Linse ohne durch Brechnung abgelenkt zu werden.
+  \item Der \textit{Parallelstrahl} (in der Abbildung blau) trifft parallel zur
+    optischen Achse (also der Achse durch den Mittelpunkt der beiden gedachten
+    Vollkugeln) auf die Linse. Er wird immer derart gebrochen, dass er durch
+    einen Punkt geht, den wir im folgenden als \textit{Brennpunkt} $F$
+    bezeichnen wollen.
   \item Da es sich um eine bijektive Abbildung handelt, wird jeder Strahl der
     durch den Brennpunkt geht wieder zum Parallelstrahl. Diesen nennen wir
-    \textit{Brennpunktstrahl}.
+    \textit{Brennpunktstrahl} (in der Abbildung rot).
 \end{itemize}
 
 Abbildung \ref{fig:rays} gibt unter Verwendung dieser Definitionen den Strahlengang durch
@@ -169,10 +170,10 @@ Damit lässt sich nun die Abbildungsgleichung herleiten.
      -- cycle;
 
     % Gegenstand
-    \draw[thick,->] (-\objectDistance,0) -- node[left] {G} (-\objectDistance,\objectHeight);
+    \draw[thick,->] (-\objectDistance,0) -- node[left] {$G$} (-\objectDistance,\objectHeight);
 
     % Bild
-    \draw[thick,->] (\pictureDistance,0) -- node[right] {B} (\pictureDistance,-\pictureHeight);
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {$B$} (\pictureDistance,-\pictureHeight);
 
     % Mittelpunktstrahl
     %\draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
@@ -194,8 +195,8 @@ Damit lässt sich nun die Abbildungsgleichung herleiten.
     \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
 
     % Hervorrhebung
-    \draw[thick,color=red] (0,0) -- (-\objectDistance,\objectHeight) -- (-\objectDistance,0) -- node[above,color=black] {g} cycle;
-    \draw[thick,color=blue] (0,0) -- (\pictureDistance,-\pictureHeight) -- (\pictureDistance,0) -- node[above,color=black] {b} cycle;
+    \draw[thick,color=red] (0,0) -- (-\objectDistance,\objectHeight) -- (-\objectDistance,0) -- node[above,color=black] {$g$} cycle;
+    \draw[thick,color=blue] (0,0) -- (\pictureDistance,-\pictureHeight) -- (\pictureDistance,0) -- node[above,color=black] {$b$} cycle;
   \end{tikzpicture}
   \caption{Zur Herleitung, Teil 1}
   \label{fig:eq1}
@@ -253,7 +254,7 @@ definieren darüber den Abbildungsmaßstab $\beta$.
     \draw[dashed,gray] (0,\lensHeight) -- (0,-\lensHeight);
 
     % Hervorrhebung
-    \draw[thick,color=red] (0,0) -- node[color=black,right=0.2cm] {$G$} (0,\objectHeight) -- (\focalLength,0) -- node[color=black,above] {$f$} cycle;
+    \draw[thick,color=red] (0,0) -- node[color=black,right=0.3cm] {$G$} (0,\objectHeight) -- (\focalLength,0) -- node[color=black,above] {$f$} cycle;
     \draw[thick,color=blue] (\focalLength,0) -- (\pictureDistance,-\pictureHeight) -- (\pictureDistance,0) -- node[above,color=black] {$b - f$} cycle;
   \end{tikzpicture}
   \caption{Zur Herleitung, Teil 2}
