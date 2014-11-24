@@ -206,7 +206,7 @@ Die Dreiecke bestehend aus den Strecken $G$, $g$ und dem halben
 Mittelpunktstrahl und aus $B$, $b$ und dem halben Mittelpunktstrahl sind
 ähnlich, denn sie stimmen in allen Winkeln überein (rechter Winkel zwischen $G$
 und $g$ sowie $B$ und $b$ und Wechselwinkel am Mittelpunktstrahl). Somit müssen
-die Streckenverhältnisse gleich sein (siehe Abbilung \ref{fig:eq1}). Wir
+die Streckenverhältnisse gleich sein (siehe Abbildung \ref{fig:eq1}). Wir
 definieren darüber den Abbildungsmaßstab $\beta$.
 
 \begin{equation}
@@ -265,11 +265,11 @@ Auf der Seite des Bildes ergibt wird ein Dreieck gebildet aus der der Strecke
 $f$, der Gegenstandshöhe $G$ in der Linsenebene und dem halben
 Brennpunktstrahl. Das Dreieck aus $B$, $b-f$ und der anderen Hälfte des
 Brennpunktstrahls ist dazu aus den selben Gründen wie oben ähnlich (siehe
-Abbilung \ref{fig:eq2}. Somit gilt
+Abbildung \ref{fig:eq2}). Somit gilt
 
-\begin{equation}
+\begin{equation*}
   \frac{B}{G} = \frac{b-f}{f}
-\end{equation}
+\end{equation*}
 
 Zusammengesetzt ergibt sich
 \begin{equation}
@@ -285,31 +285,89 @@ Abbildungsgleichung
 \end{equation}
 
 % Aufgabe 2
-
-Für einen festen Abstand $e$ zwischen Gegenstand und Bild gilt $e = g+b$.
-
 % http://www.wolframalpha.com/input/?i=solve+1%2Ff+%3D+1%2Fg+%2B+1%2F%28e-g%29+for+g
-Durch Einsetzen in die Linsengleichung ergeben sich also nur zwei Lösungen für
-ein scharfes Bild. % FIXME: Herleitung (Umstellen, PQ-Formel)
+Um bei einem festen Abstand $e = g+b$ zwischen Gegenstand und Bild ein scharfes
+Bild zu erhalten, gibt es genau zwei Möglichkeiten. Dies sieht man durch
+Einsetzen in die Linsengleichung und Umstellen. Mittels Computeralgebrasystem
+ergeben sich die zwei Lösungen
 
 \begin{equation}
   g = \pm \frac{1}{2} \del{\sqrt{e^2 - 4ef} + e}
 \end{equation}
 
+% FIXME: Warum? beta = (e-g)/g für beide Lösungen ausrechnen!
 Dabei handelt es sich einmal um eine Vergrößerung ($\beta > 1$) und einmal um
-eine Verkleinerung ($\beta < 1$). % FIXME: Warum? beta = (e-g)/g für beide
-% Lösungen ausrechnen!
+eine Verkleinerung ($\beta < 1$).
+
+
+\subsection{Dicke Linsen}
+
+Die idealisierte Vorstellung einer dünnen Linse gilt nur in erster Näherung.
+Der Realität näher kommt das Modell der dicken Linse. Dabei wird das System
+zusätzlich durch die beiden Hauptebenen bestimmt.  Die beiden Hauptebenen sind
+dabei durch einen Abstand $i$ entfernt.  Die nachfolgende Abbildung
+\ref{fig:thicklens} verdeutlicht das Modell anhand des Strahlengangs.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\lensRadius}{6}
+    \pgfmathsetmacro{\lensHeight}{3.3}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    \pgfmathsetmacro{\focalLength}{3}
+    \pgfmathsetmacro{\focalDistance}{0.6}
+    \pgfmathsetmacro{\objectDistance}{5}
+    \pgfmathsetmacro{\objectHeight}{2}
+    \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
+    \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
+
+    % Linse
+    \draw [fill=blue!25]  (0,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+     -- cycle;
+
+    % Gegenstand
+    \draw[thick,->] (-\objectDistance,0) -- node[left] {$G$} (-\objectDistance,\objectHeight);
+
+    % Bild
+    \draw[thick,->] (\pictureDistance,0) -- node[right] {$B$} (\pictureDistance,-\pictureHeight);
+
+    % Mittelpunktstrahl
+    \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+
+    % Parallelstrahl
+    \draw (-\objectDistance,\objectHeight) -- node[above,color=black] {$g$} (-\focalDistance,\objectHeight) -- (\focalDistance,\objectHeight)  --(\pictureDistance,-\pictureHeight);
+
+    % Brennpunktstrahl
+    \draw (-\objectDistance,\objectHeight) -- (-\focalDistance,-\pictureHeight) -- node[below=0.5cm,color=black] {$i$}  (\focalDistance,-\pictureHeight) -- node[below,color=black] {$b$} (\pictureDistance,-\pictureHeight);
+
+    % Optische Achse
+    \draw[dashed] (-\objectDistance,0) -- (\pictureDistance,0);
+
+    % Brennweite
+    \draw (-\focalLength,0) -- node[below] {$f$} (0,0);
+    \draw (0,0) -- node[above] {$f$} (\focalLength,0);
+
+    % Vertikale Achse
+    \draw[dashed,gray] (-\focalDistance,\lensHeight) -- (-\focalDistance,-\lensHeight);
+    \draw[dashed,gray] (\focalDistance,\lensHeight) -- (\focalDistance,-\lensHeight);
+  \end{tikzpicture}
+  \caption{Strahlengang einer dicken Linse}
+  \label{fig:thicklens}
+\end{figure}
+
 
 % Aufgabe 3
-% FIXME: Einführung dicke Linsen
-Die geometrischen Überlegungen gelten genauso für dicke Linsen, denn entfernt
-man die Hauptebenen, ergeben sich die selben geometrischen Zusammenhänge.
-Problematisch ist nur, dass sich aufgrund des unbekannten Hauptebenenabstands
-die Gegenstands- und die Bildweite nicht mehr bestimmen lassen. Der Brennwert
-muss sich also aus einem anderen Zusammenhang ergeben. Messbar sind $g-b$ und
-$\beta$, so dass daraus der Brennwert berechnet werden muss.
+Die geometrischen Überlegungen gelten genauso für dicke Linsen, denn schneidet
+man die Hauptebenen herraus, ergeben sich die selben geometrischen
+Zusammenhänge.  Problematisch ist nur, dass sich aufgrund des unbekannten
+Hauptebenenabstands die Gegenstands- und die Bildweite nicht mehr bestimmen
+lassen. Der Brennwert muss sich also aus einem anderen Zusammenhang ergeben.
+Messbar sind $g-b$ und $\beta$, so dass daraus der Brennwert berechnet werden
+muss.
 
-Durch Einsetzen von \ref{eq:beta} in \ref{eq:inter} erhalten wir
+Durch Einsetzen von (\ref{eq:beta}) in (\ref{eq:inter}) erhalten wir
 
 \begin{equation}
   \beta = \frac{b-f}{f}
@@ -343,17 +401,45 @@ Aus $e = g + i + b$ erhalten wir
     &= e - (g-b) \frac{\beta + 1}{\beta - 1}
 \end{align*}
 
+\subsection{Mikroskop}
+Um eine Vergrößerung eines realen Gegenstands zu erreichen, verwendet man oft
+ein System aus zwei Sammellinsen, genannt Mikroskop. Dabei wird zuerst mit der
+ersten Linse (Objektiv) ein reelles Zwischenbild des Gegenstands erzeugt, dass
+dann mit einem als Lupe wirkenden Okular betrachtet wird.
+
 % Aufgabe 4: Zeug malen (Aus Skript übernehmen?)
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{mikroskop.png}
+    \caption{Strahlengang eines Mikroskops}
+    \label{fig:mikroskop}
+\end{figure}
+
+Statt mit Brennweiten zu hantieren wird eine Gesamtvergrößerung definiert.
+Diese ist
+
+\begin{equation}
+  \Gamma := \frac{\tan \epsilon}{\tan \epsilon_0}
+\end{equation}
+
+Dabei ist $\epsilon$ der Tangens des Sehwinkels unter Verwendung des Mikroskops
+und $\epsilon_0$ der Tangens des Sehwinkels ohne Mikroskop. Um den Sehwinkel
+ohne Mikroskop genau zu definieren wird dieser auf die sogenannte
+konventionelle Sehweite $a_0 = 250 \operatorname{mm}$ bezogen.
+
+Die Gesamtvergrößerung des Mikroskops setzt sich multiplikativ aus den
+einzelnen Vergrößerungen zusammen, also aus dem Vergrößerungsfaktor
+$\Gamma_\text{ok}$ des Okulars und dem Vergrößerungsfaktor $\Gamma_\text{ob}$
+des Objektivs.
 
 % Aufgabe 5:
-% FIXME: Einleitung Mikroskop
 Analog zu oben kann man sich den Vergrößerungsfaktor des Objektivs geometrisch
 überlegen.
 
-% FIXME: Hier Grafik mit Hervorhebung der beiden Dreiecke.
 Auf der Bildseite des Objektivs bildet die Strecke $f_1$ zusammen mit $G$ und
 der Hälfte des Mittelpunktstrahls ein Dreieck das ähnlich ist zu dem Dreieck
-aus $t$, $B$ und der anderen Hälfte des Mittelpunktstrahls. Somit ist
+aus $t$, $B$ und der anderen Hälfte des Mittelpunktstrahls (beide Dreiecke grün
+hervorgehoben). Somit ist
 
 \begin{equation}
   \beta_\text{ob} = \frac{B}{G} = \frac{t}{f_1}
@@ -367,6 +453,68 @@ Vergrößerungsfaktors ist also
 \end{equation}
 
 % FIXME: Herleitung Okular. Akkomodation??? Unklar. Zusammenstümpern!
+
+Um die Vergrößerung des Okulars zu bestimmen, muss man zwei Fälle
+unterscheiden. Aus der Abbildung erhält man erneut geometrisch
+
+\begin{equation}
+  \Gamma_\text{ok} = \frac{a_0}{g}
+\end{equation}
+
+Ist das Auge auf einen unendlich weit entfernten Punkt akkomodiert gilt $g =
+f_\text{ok}$. Einsetzen liefert
+
+\begin{equation}
+  \Gamma_\text{ok}(\infty) = \frac{a_0}{f_\text{ok}}
+\end{equation}
+
+% FIXME: Gegenstandsweite berechnen
+In diesem Versuch wird gleichzeitig eine Vergleichsskala in der Entfernung
+$a_0$ betrachtet, so dass also zusätzlich auf $a_0$ akkomodiert wird
+(Bildentfernung $b = a_0$). Durch die Abbilungsgleichung erhält man die
+Gegenstandsweite $g$ und durch Einsetzen
+
+\begin{equation}
+  \Gamma_\text{ok}(a_0) = \frac{a_0}{f_\text{ok}} - 1
+\end{equation}
+
+Multipliziert man die Vergrößerung des Objektivs dazu, erhält man die
+Gesamtvergrößerungen, die natürlich ebenfalls abhängig sind von der
+Akkomodationsweite des Auges.
+
+Für unendliche Akkomodation:
+\begin{equation}
+  \Gamma(\infty) = \frac{t}{f_\text{ob}} \frac{a_0}{f_\text{ok}}
+\end{equation}
+
+Für Akkomodation auf $a_0$:
+
+\begin{equation}
+  \Gamma(a_0) = \frac{t}{f_\text{ob}} \del{\frac{a_0}{f_\text{ok}} - 1}
+\end{equation}
+
+\subsection{Auflösungsvermögen des Mikroskops}
+
+Die Schwachstelle der geometrischen Optik liegt in der Vernachlässigung der
+Wellennatur des Lichtes. Aufgrund von auftretenden Interferrenz- und
+Beugungseffekten ist es nicht möglich, die Vergrößerung beliebig zu erhöhen.
+
+% FIXME: Hier kommt noch ganz viel hin
+
+\section{Aufgaben}
+\begin{enumerate}
+  \item Bestimmung der Brennweite beider Linsen nach der Besselschen Methode
+  \item Aufbau eines Mikroskop-Strahlenganges
+  \item Bestimmung der Vergrößerung für drei verschiedene Tubungslängen und
+    Vergleich der Ergebnisse mit den theoretischen Erwartungen.
+  \item Kalibrierung eines Okularmikrometers (Messokular). Bestimmung des
+    Drahtabstandes (Gitterkonstante) und der Drahtstärke eines Drahtnetzes
+    (Kreuzgitter).
+  \item Überprüfung der Abbesche Theorie. Beobachtung der Auflösungsgrenze des
+    Mikroskops an dem Drahtgitter. Bestimmung der numerische Apertur für diesen
+    Grenzfall und Vergleich des draus erwarteten kleinsten auflösbaren
+    Punktabstandes mit der gemessenen Gitterkonstante.
+\end{enumerate}
 
 
 \end{document}
