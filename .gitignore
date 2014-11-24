@@ -7,3 +7,4 @@
 # Ignore latexmk output files
 *.fls
 *.fdb_latexmk
+*.toc
