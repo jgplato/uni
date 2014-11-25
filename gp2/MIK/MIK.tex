@@ -130,7 +130,7 @@ Sammellinsen. Sammellinsen sind in erster Näherung Glaskörper in der Form der
 Schnittmenge zweier gleich großer Vollkugeln. Interessant ist, in welcher Art
 sich nun Lichtstrahlen durch Sammellinsen bewegen. Man stellt fest, dass für
 den Spezialfall, dass die Linse klein gegenüber dem Radius der begrenzenden
-Vollkugeln sind, dass es drei Arten von Strahlen gibt, die sich gegenüber den
+Vollkugeln sind, es drei Arten von Strahlen gibt, die sich gegenüber den
 anderen auszeichnen:
 
 \begin{itemize}
@@ -314,9 +314,9 @@ dabei durch einen Abstand $i$ entfernt.  Die nachfolgende Abbildung
     \pgfmathsetmacro{\lensRadius}{6}
     \pgfmathsetmacro{\lensHeight}{3.3}
     \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
-    \pgfmathsetmacro{\focalLength}{3}
+    \pgfmathsetmacro{\focalLength}{3.5}
     \pgfmathsetmacro{\focalDistance}{0.6}
-    \pgfmathsetmacro{\objectDistance}{5}
+    \pgfmathsetmacro{\objectDistance}{7}
     \pgfmathsetmacro{\objectHeight}{2}
     \pgfmathsetmacro{\pictureDistance}{1/((1/\focalLength)-(1/\objectDistance))}
     \pgfmathsetmacro{\pictureHeight}{\pictureDistance/\objectDistance*\objectHeight}
@@ -334,7 +334,7 @@ dabei durch einen Abstand $i$ entfernt.  Die nachfolgende Abbildung
     \draw[thick,->] (\pictureDistance,0) -- node[right] {$B$} (\pictureDistance,-\pictureHeight);
 
     % Mittelpunktstrahl
-    \draw (-\objectDistance,\objectHeight) -- (\pictureDistance,-\pictureHeight);
+    \draw (-\objectDistance,\objectHeight) -- (-\focalDistance,0) -- (\focalDistance,0) -- (\pictureDistance,-\pictureHeight);
 
     % Parallelstrahl
     \draw (-\objectDistance,\objectHeight) -- node[above,color=black] {$g$} (-\focalDistance,\objectHeight) -- (\focalDistance,\objectHeight)  --(\pictureDistance,-\pictureHeight);
@@ -499,7 +499,40 @@ Die Schwachstelle der geometrischen Optik liegt in der Vernachlässigung der
 Wellennatur des Lichtes. Aufgrund von auftretenden Interferrenz- und
 Beugungseffekten ist es nicht möglich, die Vergrößerung beliebig zu erhöhen.
 
-% FIXME: Hier kommt noch ganz viel hin
+Um aus Auflösungsvermögen zu vermessen, wird dem Objektiv ein optisches Gitter
+vorgelagert. In der Brennebene der Linse entsteht nach dem Huygenschen Prinzip
+ein Beugungsmuster des Gitters. Intensitätsmaxima entstehen dort, wo alle
+Teilwellen konstruktiv interferrieren, also analog zum letzten Versuch
+
+\begin{equation}
+  d \sin \alpha = z \lambda \quad \text{mit} \quad z \in \mathbb{N}
+\end{equation}
+
+Für ein Bild minimaler Ähnlichkeit müssen dann mindestens die Teilwellen zweier
+benachbarter Beugungsordnungen von der Linse erfasst werden. Der Winkel $\alpha$ der 1.
+Beugungsordnung muss also gleich dem objektseitigen Öffnungswinkel sein. Somit
+ergibt sich die minmal auflösbare Gitterkonstante
+
+\begin{equation}
+  d_\text{min} \sin \alpha_\text{max} = \lambda
+\end{equation}
+
+Wenn der Raum zwischen Objekt und Objektiv durch ein Medium mit Brechungsindex
+$n$ ausgefüllt wird, spricht man von Immersion. Dies führt zu einer Reduktion
+der Ausbreitungsgeschwindigkeit und damit damit der Wellenlänge. Das
+Auflösungsvermögen steigt. Deswegen definieren wir die Größe
+
+\begin{equation}
+  A = n \sin \alpha_\text{max}
+\end{equation}
+
+als die \textit{numerische Apertur} des Objektivs. Sie gibt zusammen mit der
+Wellenlänge des einfallenden Lichts das Auflösungsvermögen an.
+
+\begin{equation}
+  d_\text{min} = \frac{\lambda}{A}
+\end{equation}
+
 
 \section{Aufgaben}
 \begin{enumerate}
@@ -515,6 +548,4 @@ Beugungseffekten ist es nicht möglich, die Vergrößerung beliebig zu erhöhen.
     Grenzfall und Vergleich des draus erwarteten kleinsten auflösbaren
     Punktabstandes mit der gemessenen Gitterkonstante.
 \end{enumerate}
-
-
 \end{document}
