@@ -444,6 +444,7 @@ hervorgehoben). Somit ist
 
 \begin{equation}
   \beta_\text{ob} = \frac{B}{G} = \frac{t}{f_1}
+  \label{eq:vergr_zw}
 \end{equation}
 
 Durch die Definition $\Gamma_\text{ob} := \beta_\text{ob}$ des
@@ -486,12 +487,14 @@ Akkomodationsweite des Auges.
 Für unendliche Akkomodation:
 \begin{equation}
   \Gamma(\infty) = \frac{t}{f_\text{ob}} \frac{a_0}{f_\text{ok}}
+  \label{eq:vergr_inf}
 \end{equation}
 
 Für Akkomodation auf $a_0$:
 
 \begin{equation}
   \Gamma(a_0) = \frac{t}{f_\text{ob}} \del{\frac{a_0}{f_\text{ok}} - 1}
+  \label{eq:vergr}
 \end{equation}
 
 \subsection{Auflösungsvermögen des Mikroskops}
@@ -724,6 +727,7 @@ Analog zu oben erhalten wir
   f = (22{,}52 \pm 0{,}34) \operatorname{mm}
 \end{equation}
 
+%FIXME: Lieber doch hier einbauen
 Eine Diskussion der Ergebnisse findet sich weiter hinten. Der wahre Brennwert
 der beiden Linsen ist $f = 40 \operatorname{mm}$ mit welchem wir im folgenden
 weiterrechnen.
@@ -734,11 +738,121 @@ weiterrechnen.
 Der Mikroskopstrahlengang wurde erfolgreich aufgebaut.
 
 \subsection{Aufgabe 3}
-% FIXME
-Der theoretische Vergrößerungsfaktor ist ...
+Der theoretische Vergrößerungsfaktor ergibt sich durch Einsetzen der
+Tubuslängen $t = {150, 200, 300} \operatorname{mm}$ und der Sichtweite $a_0 =
+250 \operatorname{mm}$ in Gleichung (\ref{eq:vergr}) bzw. (\ref{eq:vergr}).
+Aufgrund des wackelnden Aufbaus setzen wir analog zu oben dabei für alle
+Längenmessungen den Fehler $\pm 10 \operatorname{mm}$ an. Die Brennweiten
+$f_\text{ob}$ und $f_\text{ok}$ sind dabei genau als $40 \operatorname{mm}$
+bekannt, so dass wir dessen Fehler vernachlässigen können.
+
+Der Fehler des Vergrößerungsfaktors $\Gamma(a_0)$ ist dann:
+
+\begin{align*}
+  \Delta \Gamma(a_0) &= \sqrt{
+    \del{\frac{\partial \Gamma}{\partial t} \Delta t}^2 +
+    \del{\frac{\partial \Gamma}{\partial a_0} \Delta a_0}^2
+  } \\
+  &= \sqrt{
+    \del{
+      \frac{\Delta t}{f_\text{ob}} \del{
+        \frac{a_0}{f_\text{ok}} - 1
+      }
+    }^2 +
+    \del{
+      \frac{t \Delta a_0}{f_\text{ob} f_\text{ok}}
+    }^2
+  }
+\end{align*}
+
+Für $\Gamma(\infty)$ ergibt sich hingegen:
+
+\begin{align*}
+  \Delta \Gamma(\infty) &= \sqrt{
+    \del{\frac{\partial \Gamma}{\partial t} \Delta t}^2 +
+    \del{\frac{\partial \Gamma}{\partial a_0} \Delta a_0}^2
+  } \\
+  &= \sqrt{
+    \del{
+      \frac{\Delta t}{f_\text{ob}} \del{
+        \frac{a_0}{f_\text{ok}}
+      }
+    }^2 +
+    \del{
+      \frac{t \Delta a_0}{f_\text{ob} f_\text{ok}}
+    }^2
+  }
+\end{align*}
+
+Damit lassen sich nun die theoretischen mit den gemessenen Werten vergleichen
+
+\hspace{5 mm}
+
+\begin{tabular}{ r | r | r | r}
+  Tubuslänge ($t$) & Vergrößerungsfaktor $\Gamma(a_0)$ & Vergrößerungsfaktor $\Gamma(\infty)$ & Gemessener Wert \\
+  \hline
+  $(150\pm10) \operatorname{mm}$ & $19{,}7\pm1{,}6$ & $23{,}4\pm1{,}9$ & $23\pm2$ \\
+  $(200\pm10) \operatorname{mm}$ & $26{,}3\pm1{,}9$ & $31{,}3\pm2{,}1$ & $28\pm1$ \\
+  $(300\pm10) \operatorname{mm}$ & $39{,}4\pm2{,}3$ & $46{,}9\pm2{,}5$ & $44\pm2$ \\
+\end{tabular}
+
+\hspace{5mm}
+
+Zu beobachten ist, dass die Werte eher mit dem Wert $\Gamma(\infty)$
+übereinstimmen als mit $\Gamma(a_0)$. Man könnte sicherlich physikalische
+Gründe für die Abweichungen finden, jedoch erscheint uns das in Anbetracht
+des ungenauen Messaufbaus für zu spekulativ. Schon eine Abweichung des
+Abstandes $a_0$ und die halbe Brennweitenlänge führt nämlich zu einer
+Verschiebung die den Messwert in die Mitte der beiden theoretischen Werte
+rückt.
 
 \subsection{Aufgabe 4}
-% FIXME: Kalibrierung nachrechnen!
+Analog zu Aufgabe 1 tritt hier wieder das Ableseproblem der Millimeterskala
+auf, so dass alle Messwerte um den Faktor 10 zu gering notiert wurden.
+
+Um Rechenfehler auszuschließen wurden im Messprotokoll die abgelesenen Werte
+aufgenommen. Dabei wurde leider die Kalibrierung vergessen. Diese können wir
+jedoch aus theoretischen Überlegungen nachrechnen. Für die Messung vergleichen
+wir die Größe des Zwischenbildes mit der tatsächlichen Größe einer dort
+positionierten Skala. Diese wurd vom Okular dann nochmals vergrößert. Für
+die Kalibrierung relevant ist also nur die Vergrößerung bis zum Zwischenbild.
+Diese ist durch (\ref{eq:vergr_zw}) gegeben. Unter Vernachlässigung der
+Brennweitenfehlers erhalten wir mit der Tubuslänge $t = (300\pm10)
+\operatorname{mm}$ und der Brennweite $f_1 = 40 \operatorname{mm}$:
+
+\begin{equation}
+  \beta_{ob} = 7{,}50 \pm 0{,}25
+\end{equation}
+
+Es wurden $n = 9$ Gitterdrähte auf $b = (6{,}5\pm0{,}1) \operatorname{mm}$
+Zwischenbildskala gezählt. Die Gitterkonstante ist gerade der wahre Abstand
+zwischen zwei Drähten, also
+
+\begin{equation}
+  d = \frac{b}{n \beta_{ob}}
+\end{equation}
+
+Der Fehler ist (unter Vernachlässigung der Fehlers von $n$) gemäß Gauß:
+
+\begin{equation}
+  \Delta d = \sqrt{
+    \del{\frac{\Delta b}{n \beta_\text{ob}}}^2 +
+    \del{\frac{b}{n \beta_\text{ob}^2} \Delta \beta_\text{ob}}^2
+  }
+\end{equation}
+
+Somit ergibt sich eine Gitterkonstante von
+\begin{equation}
+  d = (0{,}0963 \pm 0{,}0015) \operatorname{mm}
+\end{equation}
+
+Die Drahtstärke wurde auf $0{,}2 \operatorname{mm}$ gemessen. Somit ergibt sich
+die wahre Drahtstärke durch Division durch den Vergrößerungsfaktor mit der
+Fehlerrechnung analog zur Gitterkonstanten mit $n = 1$ als:
+
+\begin{equation}
+  b = (0{,}027\pm0{,}014) \operatorname{mm}
+\end{equation}
 
 \subsection{Aufgabe 5}
 
