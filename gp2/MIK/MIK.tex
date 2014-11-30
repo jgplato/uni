@@ -519,6 +519,7 @@ ergibt sich die minmal auflösbare Gitterkonstante
 
 \begin{equation}
   d_\text{min} \sin \alpha_\text{max} = \lambda
+  \label{eq:dmin}
 \end{equation}
 
 Wenn der Raum zwischen Objekt und Objektiv durch ein Medium mit Brechungsindex
@@ -528,6 +529,7 @@ Auflösungsvermögen steigt. Deswegen definieren wir die Größe
 
 \begin{equation}
   A = n \sin \alpha_\text{max}
+  \label{eq:aper}
 \end{equation}
 
 als die \textit{numerische Apertur} des Objektivs. Sie gibt zusammen mit der
@@ -602,15 +604,9 @@ Abstand zwischen zwei Skalenstrichen auf der ersten Skala entsprachen.
 
 \subsection{Aufgabe 4}
 
-Aufbaue wie Aufgabe 2, jedoch wurde in die Zwischenbildebene des Mikroskops
-die 1/10-mm-Skala entgesetzt. Die beleuchtete Skala wurde durch ein Drahtnetz
-ersetzt. 
-
-% FIXME: Können wir die Werte errechnen?
-Die Kalibrierung wurde vergessen.
-
-
-Anschließend wurde der Gitterabstand und die Drahtstärke gemessen.
+Aufbau wie Aufgabe 2, jedoch wurde in die Zwischenbildebene des Mikroskops die
+1/10-mm-Skala entgesetzt. Die beleuchtete Skala wurde durch ein Drahtnetz
+ersetzt. Anschließend wurde der Gitterabstand und die Drahtstärke gemessen.
 
 \subsection{Aufgabe 5}
 
@@ -624,9 +620,6 @@ Hier einfügen.
 
 \section{Auswertungen}
 \subsection{Aufgabe 1}
-
-% FIXME: Kleine Skala: Werte um Faktor 10 zu klein, weil dachte, große
-% Unterteilungen sind 1/10 mm. In wirklichkeit sind kleine.
 
 Der Abstand zwischen den Skalen betrug $e = (185\pm10) \operatorname{mm} -
 (3{,}5\pm0{,}5) \operatorname{mm} = (181\pm10) \operatorname{mm}$. Die geringe
@@ -727,11 +720,9 @@ Analog zu oben erhalten wir
   f = (22{,}52 \pm 0{,}34) \operatorname{mm}
 \end{equation}
 
-%FIXME: Lieber doch hier einbauen
-Eine Diskussion der Ergebnisse findet sich weiter hinten. Der wahre Brennwert
-der beiden Linsen ist $f = 40 \operatorname{mm}$ mit welchem wir im folgenden
-weiterrechnen.
-
+Eine Diskussion der Ergebnisse findet sich im Abschnitt ``Diskussion'' weiter
+hinten. Der wahre Brennwert der beiden Linsen ist $f = 40 \operatorname{mm}$
+mit welchem wir im folgenden weiterrechnen.
 
 \subsection{Aufgabe 2}
 
@@ -856,8 +847,113 @@ Fehlerrechnung analog zur Gitterkonstanten mit $n = 1$ als:
 
 \subsection{Aufgabe 5}
 
+Die periodische Struktur verschwindet irgendwo zwischen der Blendeneinstellung
+von $0{,}2 \operatorname{mm}$ und $0{,}3 \operatorname{mm}$, so dass die
+Blendeneinstellung $B = (0{,}2 \pm 0{,}1) \operatorname{mm}$ anzunehmen ist.
 
+Der Öffnungswinkel ist
+\begin{equation}
+  \alpha_\text{max} = \arctan \frac{B/2}{f_\text{ob}}
+\end{equation}
 
+Unter Vernachlässigung des Brennweitenfehlers ist der Fehler dann nach Gauß:
+\begin{equation}
+  \Delta \alpha = \frac{2 f_\text{ob} \Delta B}{B^2 + 4f_\text{ob}^2}
+\end{equation}
 
+Somit ist
+
+\begin{equation}
+  \alpha_\text{max} = 0{,}0025\pm0{,}0013
+\end{equation}
+
+Da das Licht sichtbares weißes Licht war, ist für die Wellenlänge das sichtbare
+Spektrum von 390 bis 790 nm anzusetzen, also $\lambda = 590\pm200
+\operatorname{nm}$.
+
+Aufgrund der geringen Genauigkeit nähern wir den Brechungsindex der Luft als
+$n=1$ und erhalten die numerische Apertur gemäß (\ref{eq:aper}). Der Fehler ist
+nach Gauß dann
+
+\begin{equation}
+  \Delta A = \cos(\alpha_\text{max}) \Delta \alpha_\text{max}
+\end{equation}
+
+Somit
+\begin{equation}
+  A = 0{,}0025 \pm 0{,}0013
+\end{equation}
+
+Das maximale Auflösungsvermögen (\ref{eq:dmin}) hat den Fehler
+
+\begin{equation}
+  \Delta d_\text{min} = \sqrt{
+    \del{\frac{\Delta \lambda}{A}}^2 +
+    \del{\frac{\lambda \Delta A}{A^2}}^2
+  }
+\end{equation}
+
+Und damit den Wert
+\begin{equation}
+  d_\text{min} = (0{,}24 \pm 0{,}15) \operatorname{mm}
+\end{equation}
+
+Die gemessene Gitterkonstante $d$ liegt gerade noch innerhalb dieses
+Fehlerintervalls, so dass kein Widerspruch zur Theorie anzunehmen ist.
+
+\section{Diskussion und Endergebnisse}
+
+\subsection{Messung der Brennweiten}
+
+Die gemessenen Werte der Brennweiten sind mit den aufgedruckten Werten nicht
+verträglich.  Allerdings mussten wir auch von Messverfahren abweichen. Die
+Halterung der Blende ließ nicht genug Raum um die Linsen wirklich in den
+schärfsten Punkt zu schieben, so dass wir nach Rücksprache mit dem Tutor die
+Blende jeweils vor und hinter der Linse angebracht haben. Dies führt
+wahrscheinlich zu unterschiedlichen Strahlengängen und verschiebt die
+Strahlengänge, so dass sich unterschiedliche scharfe Punkte ergeben.
+
+Da schon das Einfügen der Blende nach der hier benutzen Theorie überhaupt
+keinen Unterschied macht und der Effekt auch nicht weiter erläutert wird,
+müsste man eine andere Theoretische Herangehensweise nutzen, um den Effekt zu
+erklären.
+
+\textbf{Die Messung ergibt somit zwar keine sinnvollen Werte, jedoch die
+Feststellung, dass die Theorie für unseren veränderten Messaufbau (Blenden
+wechseln) nicht mehr gültig zu sein scheint.} Da wir die wahren Brennwerte
+kennen, können wir dies also als Ergebnis betrachten und das Experiment somit
+als abweichend, aber erfolgreich ansehen.
+
+\subsection{Messung des Vergrößerungsfaktor}
+
+Der gemessene Vergrößerungsfaktor stimmt mit den theoretischen Beobachtungen
+überein.
+
+\subsection{Messung der Gitterkonstanten}
+
+Den Fehler der Kalibrierung konnten wir durch Anwendung der Theorie erfolgreich
+beheben und somit als Endergebnis die Gitterkonstante
+
+\begin{equation}
+  d = (0{,}096\pm0{,}002) \operatorname{mm}
+\end{equation}
+
+\subsection{Messung des Auflösungsvermögens}
+
+Die Messung des Auflösungsvermögens stimmt mit den theoretischen Ansätzen
+überein.
+
+\subsection{Verbessungsvorschläge}
+
+Der Experimentelle Aufbau ist leider für die Messungen unzureichend.
+
+Die Halterungen für die Blende sind zu dick, so dass die Position der Linsen
+nicht an schärfsten Punkte gefahren werden kann. Der ganze Aufbau wackelt und
+verfügt nicht über die Stabilität um Genaue optische Messungen zuzulassen.
+
+Die Vergleichskala wird frei im Raum platziert und der Winkel des
+halbdurchlässigen Spiegels wird nach Gefühl eingestellt. Hier wäre eine zweite
+Schiene wünschenswert gewesen um eine genauere Positionierung durchzuführen und
+die Vergleichsskala gegen verrutschen zu sichern.
 
 \end{document}
