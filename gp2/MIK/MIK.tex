@@ -387,6 +387,7 @@ Durch Erweitern mit $\frac{1}{\beta} = \frac{g}{b}$:
 
 \begin{equation}
   f = \frac{g - b}{\frac{1}{\beta} - \beta}
+  \label{eq:dickebrennweite}
 \end{equation}
 
 Somit ist die Brennweite nur durch $g-b$ und $\beta$ ausgedrückt.
@@ -630,28 +631,103 @@ Genauigkeit ergibt sich, weil die Halterung für die zweite Skala stark wackelt.
 
 \subsubsection{Erste Linse}
 
-In
+Aufgrund der Fehlannahme, dass die Zahlen auf der kleinen Skala $1/10$ mm
+angeben, während in Wirklichkeit die Skala in $1/10$ mm \textit{unterteilt}
+ist, wurden die Messwerte für die kleine Skala um den Faktor 10 zu gering
+aufgenommen. Fehler und Messwerte der kleinen Skala müssen also mit 10
+multipliziert werden.
 
-Der Abbildungsmaßstab in der ersten Position ist
+Der Fehler ergibt sich durch
+\begin{equation*}
+  \Delta \beta
+  = \sqrt{
+    \del{\frac{\partial \beta}{\partial B} \Delta B}^2 +
+    \del{\frac{\partial \beta}{\partial G} \Delta G}^2
+  }
+  = \sqrt{
+    \del{\frac{\Delta B}{G}}^2 +
+    \del{\frac{B}{G^2} \Delta G}^2
+  }
+\end{equation*}
+
+Der Abbildungsmaßstab in der ersten Position ist somit
 
 \begin{equation}
-  \beta_1 = \frac{(5\pm1) \operatorname{mm}}{(0{,}3 \pm 0{,}01 \operatorname{mm}} = 
+  \beta_1 = \frac{(3{,}0 \pm 0{,}1) \operatorname{mm}}{(5\pm1) \operatorname{mm}} = (0{,}60\pm0{,}13) \operatorname{mm}
 \end{equation}
 
 In der zweiten Position:
 
 \begin{equation}
-  \beta_2 = ... % FIXME
+  \beta_2 = \frac{(5{,}1\pm0{,}1) \operatorname{mm}}{(4\pm1) \operatorname{mm}} = (1{,}28\pm 0{,}32) \operatorname{mm}
 \end{equation}
+
+Man sieht, dass die Beziehung $\beta_1 = \beta_2^{-1}$ hier im Rahmen der
+Messgenauigkeit erfüllt ist.
 
 Die Differenz zwischen beiden Positionen ist
 
 \begin{equation}
-  g - b = (22{,}30 \pm 0{,}05) \operatorname{cm}
-        - (17{,}40 \pm 0{,}05) \operatorname{cm} = (49{,}0 \pm 0{,}7) \operatorname{mm}
+  g - b = (22{,}00 \pm 0{,}05) \operatorname{cm}
+        - (17{,}95 \pm 0{,}05) \operatorname{cm} = (40{,}5 \pm 0{,}7) \operatorname{mm}
 \end{equation}
 
-Damit ergibt sich die Brennweite
+Die Brennweite ist gegeben durch (\ref{eq:dickebrennweite}). Der Fehler ist
+dabei
+
+\begin{align*}
+  \Delta f &= \sqrt{
+    \del{\frac{\partial f}{\partial (g-b)} \Delta(g-b)}^2 +
+    \del{\frac{\partial f}{\partial \beta} \Delta \beta}^2
+  } \\
+  &= \sqrt{
+    \del{\frac{1}{\frac{1}{\beta} - \beta} \Delta(g-b)}^2 +
+    \del{\frac{\beta^2 + 1}{(\beta^2 -1)^2} \Delta \beta}^2
+  }
+\end{align*}
+
+Man könnte nun die Brennweite für beide Werte $\beta_1$ und $\beta_2$ berechnen
+und daraus den Mittelwert bilden, sowie durch Anwendung der Gaußschen
+Fehlerfortplanzung auf den Mittelwert den Fehler um die Genauigkeit zu
+verbessern. In Anbetracht der hohen Ungenauigkeit der Messwerte trägt dies
+wahrscheinlich nur minimal zur Verbesserung bei, so dass wir darauf verzichten
+und die Brennweite nur aus dem, mit einem geringeren relativen Fehler
+behafteten, Messwert $\beta_2$ berechnen.
+
+Somit ist die Brennweite der ersten Linse
+\begin{equation}
+  f = (19{,}6\pm2{,}5) \operatorname{mm}
+\end{equation}
+
+\subsubsection{Zweite Linse}
+
+Analog ergibt sich für die zweite Linse:
+
+\begin{equation}
+  \beta_1 = \frac{(3{,}3 \pm 0{,}1) \operatorname{mm}}{(5\pm1) \operatorname{mm}} = (0{,}66\pm0{,}14) \operatorname{mm}
+\end{equation}
+
+\begin{equation}
+  \beta_2 = \frac{(6{,}5 \pm 0{,}1) \operatorname{mm}}{(5\pm1) \operatorname{mm}} = (1{,}30\pm0{,}27) \operatorname{mm}
+\end{equation}
+
+\begin{equation}
+  g -b = (22{,}30\pm0{,}05) \operatorname{cm} -
+         (17{,}40 \pm 0{,}05) \operatorname{cm}
+         = (49{,}0\pm0{,}7) \operatorname{mm}
+\end{equation}
+
+Aufgrund des geringeren relativen Fehlers rechnen wir mit $\beta_1$ weiter.
+Analog zu oben erhalten wir
+
+\begin{equation}
+  f = (22{,}52 \pm 0{,}34) \operatorname{mm}
+\end{equation}
+
+Eine Diskussion der Ergebnisse findet sich weiter hinten. Der wahre Brennwert
+der beiden Linsen ist $f = 40 \operatorname{mm}$ mit welchem wir im folgenden
+weiterrechnen.
+
 
 \subsection{Aufgabe 2}
 
