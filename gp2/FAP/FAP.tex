@@ -87,12 +87,14 @@ Fabry-Perot-Etalon
 
 \section{Physikalische Grundlagen}
 
-Ein Fabry-Perot-Etalon besteht schematisch gesehen aus einem optisch
-durchlässigen Medium, das von zwei parallelen teilverspiegelten Grenzflächen
-eingeschlossen wird. Wenn ein Strahl unter dem Winkel $\alpha$ auf das Etalon
-trifft, wird er zwischen den Spiegeln hin und her reflektiert, wobei ein Anteil
-das Etalon verlässt.
+Ein Fabry-Perot-Etalon besteht aus einem optisch durchlässigen Medium, das von
+zwei parallelen teilverspiegelten Grenzflächen eingeschlossen wird. Wenn ein
+Strahl unter dem Winkel $\alpha$ auf das Etalon trifft, wird er zwischen den
+Spiegeln hin und her reflektiert, wobei ein Anteil das Etalon verlässt.
 
+% FIXME: Abstand von caption zu groß
+% FIXME: Grafik verständlicher machen (Lichtstrahl sollte Pfeile haben)
+% FIXME: Dranschreiben, was was ist ("Licht", "Spiegel", ...)
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
@@ -102,12 +104,10 @@ das Etalon verlässt.
     \pgfmathsetmacro{\rayAt}{1}
     \pgfmathsetmacro{\reflectionWidth}{\distance*tan(\angle)}
 
-    % FIXME: Rechnet falsch. angle nicht ändern!
-    \pgfmathsetmacro{\perpX}{\reflectionWidth*sin(\angle)/cos(\angle)}
-    \pgfmathsetmacro{\perpY}{\reflectionWidth*cos(\angle)/cos(\angle)}
+    \pgfmathsetmacro{\perpX}{2*\reflectionWidth*sin(\angle)*sin(\angle)}
+    \pgfmathsetmacro{\perpY}{2*\reflectionWidth*cos(\angle)*sin(\angle)}
 
     % Koordinaten
-    % FIXME: Labels
     \coordinate                        (RayStart)        at
       (-\width/2+\rayAt-    \reflectionWidth/2, -\distance   );
     \coordinate                        (RayIn)           at
@@ -129,6 +129,8 @@ das Etalon verlässt.
 
     \coordinate (RayInPerp) at (-\width/2+\rayAt, -\distance);
     \coordinate (RayBounceTop1Perp) at (-\width/2+\rayAt+\reflectionWidth, 0);
+    \coordinate (RayBounceBottomPerp) at (-\width/2+\rayAt+ 2  *\reflectionWidth, 0);
+    \coordinate[label=above:$E$] (RayBounceBottomTop) at (-\width/2+\rayAt+ 2  *\reflectionWidth, \distance/2);
 
     % Oberer und unterer Spiegel
     \draw (-\width/2,\distance/2)  -- (\width/2,\distance/2);
@@ -155,6 +157,15 @@ das Etalon verlässt.
     % Einfallswinkel bei A
     \draw[color=black!50] (RayBounceTop1) -- (RayBounceTop1Perp);
     \markangle[orange]{RayIn}{RayBounceTop1}{RayBounceTop1Perp}{$\alpha$}{10};
+
+    % Winkel untere Reflexion (C)
+    \draw[color=black!50] (RayBounceBottom) -- (RayBounceBottomPerp);
+    \draw[dashed, color=black!50] (RayBounceBottom) -- (RayBounceBottomTop);
+    \markangle[orange]{RayBounceTop1}{RayBounceBottom}{RayBounceBottomTop}{$\alpha$}{10};
+
+    % Winkel bei D
+    \markangle[orange]{RayBounceTop1}{RayBounceTop2}{RayTrans1Perp}{$\alpha$}{10};
+
 
     % Breite des Etalons
     \draw[<->] (\width/2-0.5, \distance/2) -- node[left] {$d$} (\width/2-0.5, -\distance/2);
@@ -183,6 +194,56 @@ außerdem
 
 \begin{equation}
   \overline{AC} = \overline{CD}
+\end{equation}
+
+Wegen der Symmetrie der Dreiecke gilt
+\begin{equation}
+  \overline{AD} = 2 \overline{AE}
+\end{equation}
+
+Mit
+\begin{equation}
+  \tan \alpha = \frac{\overline{AE}}{d}
+\end{equation}
+
+erhalten wir
+\begin{equation}
+  \overline{AD} = 2 d \tan \alpha
+\end{equation}
+
+Mit
+\begin{equation}
+  \sin \alpha = \frac{\overline{AB}}{\overline{AD}}
+\end{equation}
+
+erhalten wir
+\begin{equation}
+  \overline{AB} = \overline{AD} \sin \alpha = 2d \tan \alpha \cos \alpha
+\end{equation}
+
+Somit
+\begin{equation}
+  \delta = \frac{2d}{\cos \alpha} - 2d \tan \alpha \sin \alpha
+\end{equation}
+
+Es gilt außerdem
+\begin{align*}
+  \frac{1}{\cos} - \tan \sin &= \frac{1}{\cos} - \frac{\sin^2}{\cos} \\
+                             &= \frac{1}{\cos} \underbrace{\del{1-\sin^2}}_{\mathrlap{\sin^2 + \cos^2 = 1 \; \Leftrightarrow \; \cos^2 = 1 - \sin^2}} \\
+                             &= \cos
+\end{align*}
+
+Somit ist der Gangunterschied
+
+\begin{equation}
+  \delta = 2d \cos \alpha
+\end{equation}
+
+Für konstruktive Interferenz muss dies ein Vielfaches der Wellenlänge betragen,
+also
+
+\begin{equation}
+  2d \cos \alpha = n \lambda \quad \text{mit} \quad n \in \mathbb{N}
 \end{equation}
 
 
