@@ -5,6 +5,7 @@
 \usepackage{geometry}
 \usepackage{pdfpages}
 \usepackage{tikz}
+\usetikzlibrary{calc,intersections,fadings}
 \usepackage{wrapfig}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
@@ -95,55 +96,101 @@ das Etalon verlässt.
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
-    \pgfmathsetmacro{\angle}{35}
+    \pgfmathsetmacro{\angle}{25}
     \pgfmathsetmacro{\distance}{4}
-    \pgfmathsetmacro{\width}{15}
+    \pgfmathsetmacro{\width}{17}
     \pgfmathsetmacro{\rayAt}{1}
     \pgfmathsetmacro{\reflectionWidth}{\distance*tan(\angle)}
 
+    % FIXME: Rechnet falsch. angle nicht ändern!
+    \pgfmathsetmacro{\perpX}{\reflectionWidth*sin(\angle)/cos(\angle)}
+    \pgfmathsetmacro{\perpY}{\reflectionWidth*cos(\angle)/cos(\angle)}
+
     % Koordinaten
     % FIXME: Labels
-    \coordinate                       (RayStart)        at
+    \coordinate                        (RayStart)        at
       (-\width/2+\rayAt-    \reflectionWidth/2, -\distance   );
-    \coordinate                       (RayIn)           at
+    \coordinate                        (RayIn)           at
       (-\width/2+\rayAt,                        -\distance/2 );
-    \coordinate[label=above left:$A$] (RayBounceTop1)   at
+    \coordinate[label=above left:$A$]  (RayBounceTop1)   at
       (-\width/2+\rayAt+     \reflectionWidth,   \distance/2 );
-    \coordinate                       (RayBounceBottom) at
+    \coordinate[label=below:$C$]       (RayBounceBottom) at
       (-\width/2+\rayAt+ 2  *\reflectionWidth,  -\distance/2 );
-    \coordinate                       (RayBounceTop2)   at
+    \coordinate[label=above right:$D$] (RayBounceTop2)   at
       (-\width/2+\rayAt+ 3  *\reflectionWidth,   \distance/2 );
-    \coordinate                       (RayEnd)          at
+    \coordinate                        (RayEnd)          at
       (-\width/2+\rayAt+ 3.5*\reflectionWidth,   0           );
-    \coordinate                       (RayTrans1)          at
+    \coordinate                        (RayTrans1)          at
       (-\width/2+\rayAt +1.5*\reflectionWidth,   \distance   );
-    \coordinate                       (RayTrans2)          at
+    \coordinate                        (RayTrans2)          at
       (-\width/2+\rayAt +3.5*\reflectionWidth,   \distance   );
+    \coordinate[label=above left:$B$]  (RayTrans1Perp)      at
+      (-\width/2+\rayAt+     \reflectionWidth+\perpX,   \distance/2+\perpY);
+
+    \coordinate (RayInPerp) at (-\width/2+\rayAt, -\distance);
+    \coordinate (RayBounceTop1Perp) at (-\width/2+\rayAt+\reflectionWidth, 0);
 
     % Oberer und unterer Spiegel
     \draw (-\width/2,\distance/2)  -- (\width/2,\distance/2);
     \draw (-\width/2,-\distance/2) -- (\width/2,-\distance/2);
 
-    % Strahl
-    \draw (RayStart) -- (RayIn) -- (RayBounceTop1) -- (RayBounceBottom) 
-    -- (RayBounceTop2) -- (RayEnd); % FIXME: Fadein, Fadeout
+    % Strahl(-\width/2+\rayAt +1.5*\reflectionWidth,   \distance   );
+    % FIXME: Fadein, Fadeout
+    \draw[color=orange] (RayStart) -- (RayIn);
+    \draw[color=orange] (RayIn) --(RayBounceTop1) -- (RayBounceBottom) -- (RayBounceTop2);
+    \draw[color=orange] (RayBounceTop2) -- (RayEnd);
 
     % Outputstrahlen
-    \draw (RayBounceTop1) -- (RayTrans1);
-    \draw (RayBounceTop2) -- (RayTrans2);
+    % FIXME: Fadeout
+    \draw[color=yellow, ->] (RayBounceTop1) -- (RayTrans1);
+    \draw[color=yellow, ->] (RayBounceTop2) -- (RayTrans2);
 
-    % Gestrichelte Linie Einfallswinkel und Einfallswinkel
-    \draw[dashed] (-\width/2+\rayAt,-\distance/2) -- (-\width/2+\rayAt,-\distance);
-    %\markangle[green]{(-\width/2+\rayAt-\reflectionWidth/2,-\distance)}{(-\width/2+\rayAt,-\distance/2)}{(-\width/2+\rayAt,-\distance)}{$\gamma$}{12}
+    % Gangunterschied
+    \draw[dashed, color=black!50] (RayBounceTop2) -- (RayTrans1Perp);
 
-    % Winkel
+    % Linie Einfallswinkel und Einfallswinkel
+    \draw[color=black!50] (RayInPerp) -- (RayIn);
+    \markangle[orange]{RayStart}{RayIn}{RayInPerp}{$\alpha$}{10};
 
+    % Einfallswinkel bei A
+    \draw[color=black!50] (RayBounceTop1) -- (RayBounceTop1Perp);
+    \markangle[orange]{RayIn}{RayBounceTop1}{RayBounceTop1Perp}{$\alpha$}{10};
 
+    % Breite des Etalons
+    \draw[<->] (\width/2-0.5, \distance/2) -- node[left] {$d$} (\width/2-0.5, -\distance/2);
 
   \end{tikzpicture}
   \caption{Strahlengang im Etalon}
   \label{fig:rays}
 \end{figure}
+
+Für die Interferenz relevant ist der Gangunterschied zwischen den Strahlen
+(hier exemplarisch für die ersten beiden Strahlen dargestellt). Dieser ist
+genau die Differenz der zurückgelegten Strecke der beiden Strahlen, also
+
+\begin{equation}
+  \delta = \overline{AC} + \overline{CD} - \overline{AB}
+\end{equation}
+
+Aus der Grafik erhält man geometrisch
+
+\begin{equation}
+  \cos \alpha = \frac{d}{\overline{AC}} \quad \Leftrightarrow \quad \overline{AC} = \frac{d}{\cos \alpha}
+\end{equation}
+
+Aufgrund des Reflexionsgesetzes (Einfallswinkel gleich Ausfallswinkel) gilt
+außerdem
+
+\begin{equation}
+  \overline{AC} = \overline{CD}
+\end{equation}
+
+
+
+
+
+
+
 
 
 
