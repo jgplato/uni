@@ -1,0 +1,153 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% http://tex.stackexchange.com/questions/38818/best-way-to-denote-an-angle-in-tikz
+\newcommand\markangle[6][red]{% [color] {X} {origin} {Y} {mark} {radius}
+  % filled circle: red by default
+  \begin{scope}
+    \path[clip] (#2) -- (#3) -- (#4);
+    \fill[color=#1,fill opacity=0.5,draw=#1,name path=circle]
+    (#3) circle (#6mm);
+  \end{scope}
+  % middle calculation
+  \path[name path=line one] (#3) -- (#2);
+  \path[name path=line two] (#3) -- (#4);
+  \path[%
+  name intersections={of=line one and circle, by={inter one}},
+  name intersections={of=line two and circle, by={inter two}}
+  ] (inter one) -- (inter two) coordinate[pos=.5] (middle);
+  % bissectrice definition
+  \path[%
+  name path=bissectrice
+  ] (#3) -- (barycentric cs:#3=-1,middle=1.2);
+  % put mark
+  \path[
+  name intersections={of=bissectrice and circle, by={middleArc}}
+  ] (#3) -- (middleArc) node[pos=1.3] {#5};
+  }
+
+% New command for color underlining
+\usepackage{xcolor}
+\newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+      \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+        \sectionmark{#1}}
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+
+\begin{titlepage}
+\input{title.tex}
+\end{titlepage}
+
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Alexandra Krause \texttt{<alexandra.krause2@gmail.com>}
+
+Fabry-Perot-Etalon
+\vspace{-10pt}
+\end{center}
+
+\section{Physikalische Grundlagen}
+
+Ein Fabry-Perot-Etalon besteht schematisch gesehen aus einem optisch
+durchlässigen Medium, das von zwei parallelen teilverspiegelten Grenzflächen
+eingeschlossen wird. Wenn ein Strahl unter dem Winkel $\alpha$ auf das Etalon
+trifft, wird er zwischen den Spiegeln hin und her reflektiert, wobei ein Anteil
+das Etalon verlässt.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfmathsetmacro{\angle}{35}
+    \pgfmathsetmacro{\distance}{4}
+    \pgfmathsetmacro{\width}{15}
+    \pgfmathsetmacro{\rayAt}{1}
+    \pgfmathsetmacro{\reflectionWidth}{\distance*tan(\angle)}
+
+    % Koordinaten
+    % FIXME: Labels
+    \coordinate                       (RayStart)        at
+      (-\width/2+\rayAt-    \reflectionWidth/2, -\distance   );
+    \coordinate                       (RayIn)           at
+      (-\width/2+\rayAt,                        -\distance/2 );
+    \coordinate[label=above left:$A$] (RayBounceTop1)   at
+      (-\width/2+\rayAt+     \reflectionWidth,   \distance/2 );
+    \coordinate                       (RayBounceBottom) at
+      (-\width/2+\rayAt+ 2  *\reflectionWidth,  -\distance/2 );
+    \coordinate                       (RayBounceTop2)   at
+      (-\width/2+\rayAt+ 3  *\reflectionWidth,   \distance/2 );
+    \coordinate                       (RayEnd)          at
+      (-\width/2+\rayAt+ 3.5*\reflectionWidth,   0           );
+    \coordinate                       (RayTrans1)          at
+      (-\width/2+\rayAt +1.5*\reflectionWidth,   \distance   );
+    \coordinate                       (RayTrans2)          at
+      (-\width/2+\rayAt +3.5*\reflectionWidth,   \distance   );
+
+    % Oberer und unterer Spiegel
+    \draw (-\width/2,\distance/2)  -- (\width/2,\distance/2);
+    \draw (-\width/2,-\distance/2) -- (\width/2,-\distance/2);
+
+    % Strahl
+    \draw (RayStart) -- (RayIn) -- (RayBounceTop1) -- (RayBounceBottom) 
+    -- (RayBounceTop2) -- (RayEnd); % FIXME: Fadein, Fadeout
+
+    % Outputstrahlen
+    \draw (RayBounceTop1) -- (RayTrans1);
+    \draw (RayBounceTop2) -- (RayTrans2);
+
+    % Gestrichelte Linie Einfallswinkel und Einfallswinkel
+    \draw[dashed] (-\width/2+\rayAt,-\distance/2) -- (-\width/2+\rayAt,-\distance);
+    %\markangle[green]{(-\width/2+\rayAt-\reflectionWidth/2,-\distance)}{(-\width/2+\rayAt,-\distance/2)}{(-\width/2+\rayAt,-\distance)}{$\gamma$}{12}
+
+    % Winkel
+
+
+
+  \end{tikzpicture}
+  \caption{Strahlengang im Etalon}
+  \label{fig:rays}
+\end{figure}
+
+
+
+
+
+
+\end{document}
