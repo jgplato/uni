@@ -86,6 +86,7 @@ Fabry-Perot-Etalon
 \end{center}
 
 \section{Physikalische Grundlagen}
+\subsection{Fabry-Perot-Etalon}
 
 Ein Fabry-Perot-Etalon besteht aus einem optisch durchlässigen Medium, das von
 zwei parallelen teilverspiegelten Grenzflächen eingeschlossen wird. Wenn ein
@@ -243,19 +244,116 @@ Für konstruktive Interferenz muss dies ein Vielfaches der Wellenlänge betragen
 also
 
 \begin{equation}
-  2d \cos \alpha = n \lambda \quad \text{mit} \quad n \in \mathbb{N}
+  2d \cos \alpha = z \lambda \quad \text{mit} \quad z \in \mathbb{Z}
 \end{equation}
 
+\subsection{Freier Spektralbereich}
 
+Zwei benachbarte Maxima können sich in ihrer Ordnung unterscheiden ($\Delta z =
+1$) oder aus einer Wellenlängendifferenz $\Delta \lambda$ stammen. Durch
+Einsetzen in obige Gleichung ergibt sich
 
+\begin{equation}
+  (z+1) \lambda = z (\lambda + \delta \lambda)
+\end{equation}
 
+Umstellen liefert den \textit{freien Spektralbereich} des Etalons
 
+\begin{equation}
+  \Delta \lambda = \frac{\lambda}{z} \quad \text{bzw.} \quad \frac{\Delta \lambda}{\lambda} = \frac{1}{z}
+\end{equation}
 
+\subsection{Fabry-Perot-Spektrometer}
 
+In der Anwendung als Spektrometer wird hinter dem Etalon eine Linse
+positioniert. Durch die Rotationssymmetrie des Aufbaus zur optischen Achse
+ergeben sich konzentrische Ringe in der Brennebene der Linse (Abstand $f$) mit
+Radius $r$. Mit Kleinwinkelnäherung erhält man
 
+\begin{equation}
+  \tan \alpha \approx \alpha = \frac{r}{f}
+\end{equation}
 
+Und durch Taylorentwicklung
 
+\begin{equation}
+  \sin \alpha \approx \alpha \qquad \cos \alpha \approx 1 - \frac{\alpha^2}{2}
+\end{equation}
 
+Durch Einsetzen in die Interferenzbedingung ergibt sich
+\begin{equation}
+  z = \frac{2d}{\lambda} \del{1 - \frac{r^2}{2f^2}}
+\end{equation}
 
+Mit $r \ll f$ folgt:
+
+\begin{align*}
+  \frac{2d}{\lambda} &= \frac{z}{1-\frac{r^2}{2f^2}} \\
+                     &= z \frac{1+\frac{r^2}{2f^2}}{1 - \del{\frac{r^2}{2f^2}}^2} \\
+                     &= z \del{1 + \frac{r^2}{2f^2}} \frac{1}{1 - \frac{r^4}{4f^4}} \\
+                     &\approx z \del{1+\frac{r^2}{2f^2}}
+\end{align*}
+
+Um $d$ und $\lambda$ in Bezug zu setzen und $z$ zu eleminieren, kann man die
+Radien mehrerer Ringe nutzen. Indiziert man die Ringe beginnend mit $i = 1$ von
+innen nach außen ($i = 0$ ist das Zentrum), folgt aus obiger Gleichung
+
+\begin{equation}
+  (z+i) - z' = \frac{2d}{\lambda} \del{\del{1-\frac{r_0^2}{2f^2}} - \del{1-\frac{r_i^2}{2f^2}}}
+\end{equation}
+
+Daraus folgt
+\begin{equation}
+  d = i \frac{\lambda f^2}{r_i^2 - r_0^2}
+  \label{eq:deq}
+\end{equation}
+
+Ist die Ordnung identisch, aber die Wellenlängen $\lambda$ und $\lambda'$
+unterschiedlich und mit den Radien $r$ und $r'$, so folgt:
+
+\begin{equation}
+  \frac{z}{2d} = \frac{1 - \frac{r^2}{2f^2}}{\lambda} = \frac{1 - \frac{r'^2}{2f^2}}{\lambda'}
+\end{equation}
+
+Mit $\lambda' = \lambda + \Delta \lambda$:
+
+\begin{equation}
+  \Delta \lambda = \frac{\lambda \del{\frac{r^2 - r'^2}{2f^2}}}{1 - \frac{r^2}{2f^2}} \approx \frac{\lambda}{2f^2} \del{r^2 - r'^2}
+\end{equation}
+
+\subsection{Auflösungsvermögen des Fabry-Perot-Etalons}
+
+Unter Nutzung der \textit{Phasengröße} $\phi = \frac{\delta}{\lambda}$ können
+wir die Airy-Formel für die Intensität verwenden:
+
+\begin{equation}
+  \frac{I}{I_0} = \del{\frac{T}{1-R}}^2 \frac{1}{1+\frac{4R}{(1-R)^2} \sin^2 \phi \pi}
+\end{equation}
+
+Dabei ist $T$ die Transmissionsrate, $R$ die Reflexionsrate, $I$ die Intensität
+und $I_0$ die Maximalintensität. Für die Maximalintensität ist $\sin \phi \pi =
+0$. Um die Halbwertsbreite $2 \Delta z$ zu bestimmen nutzen wir die Näherung
+
+\begin{equation}
+  2 \Delta z = \frac{1-R}{\pi \sqrt{R}}
+\end{equation}
+
+Setzt man die Halbwertsbreite als Auflösungsvermögen an, so ergibt sich
+\begin{equation}
+  \Delta \lambda = \frac{\lambda}{z} \Delta z
+\end{equation}
+
+\newpage
+\section{Aufgaben}
+\begin{enumerate}
+  \item Aufbau und Justierung der Apperatur
+  \item Bestimmung des Plattenabstands eines \textit{Fabry-Perot-Etalons} mit
+    der roten 643{,}9-nm-Linie von Cadmium und Berechnung der (ungefähren)
+    Interferenzordnung.
+  \item Relative Bestimmung der Wellenlängen der grünen und dunkelblauen Linie
+    des Cadmium-Spektrums.
+  \item Abschätzung der Linienbreite der Interferenzmaxima für die rote Linie
+    und Vergleich mit der erwarteten instrumentellen Linienbreite.
+\end{enumerate}
 
 \end{document}
