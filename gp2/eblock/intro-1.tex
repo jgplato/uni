@@ -63,4 +63,60 @@ strom- und spannungsrichtige Messung.
 % TODO: Strom- und spannungsrichtige Messung
 % TODO: Berechnung Spannungsfehler (siehe Kursmaterial)
 
+\subsection{Kirchhoffsche Regeln}
+In der elektrischen Schaltungstechnik verwendet man die Kirchhoffschen
+Regeln, um den Zusammenhang zwischen mehreren elektrischen Strömen bzw.
+mehreren elektrischen Spannungen zu beschreiben. Sie bestehen aus zwei
+grundlegenden Sätzen, die im Folgenden beschrieben werden sollen.
+
+\subsubsection{Knotenregel}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0) to (4,0);
+      \draw (0,0) to (-4,0);
+      \draw (0,0) to (0,2);
+      \draw (0,0) to (0,-2);
+      \draw node[circ] at (0,0) {};
+      \draw[<-] (2.5,0.4) -- ++(1.4,0)    node [midway,fill=white] {$I_1$};
+      \draw[<-] (-2.5,0.4) -- ++(-1.5,0)  node [midway,fill=white] {$I_3$};
+      \draw[<-] (0.35,0.6) -- ++(0,1.4)   node [midway,fill=white] {$I_2$};
+      \draw[<-] (0.35,-0.6) -- ++(0,-1.4) node [midway,fill=white] {$I_4$};
+    \end{circuitikz}
+    \caption{Knotenregel}
+  \end{center}
+\end{figure}
+
+
+Betrachten wir einen beliebigen Knoten innerhalb einer elektrischen
+Schaltung, also einen Punkt in dem mehrere Leitungen elektrisch verbunden
+sind, so ist klar, dass in diesem Punkt keine Ladung gespeichert werden
+kann. Aufgrund der Ladungserhaltung muss also zufließende Ladung wieder
+abfließen. Den Fluss von Ladungen definiert man als elektrischen Strom
+
+\begin{equation}
+  I := \frac{\dif Q}{\dif t}
+\end{equation}
+
+Soll der Zufluss von Ladungen also dem Abfluss von Ladungen entsprechend,
+muss die Summe aller Ströme $I_1, I_2, \dots, I_n$ in den Knoten hinein und
+aus dem Knoten herraus verschwinden.
+
+\begin{equation}
+  \sum_{n=1}^k I_n = 0
+\end{equation}
+
+Diese Erkenntnis bezeichnet man als Knotensatz oder auch 1. Kirchhoffsches
+Gesetz.
+
+Es gilt natürlich nur für Knoten, die elektrisch neutral bleiben. Wird zum
+Beispiel ein Kondensator benutzt, so werden die Ladungen auf der
+Kondensatorplatte gespeichert. Betrachtet man also nur eine Kondensatorplatte,
+so muss zusätzlich der Verschiebungsstrom berücksichtigt werden. Da wir in
+diesem Versuch nicht mit Kondensatoren oder Spulen arbeiten, sondern nur
+statische Fälle betrachten, kann dies unberücksichtigt bleiben.
+
+\subsubsection{Maschenregel}
+
 \end{document}
