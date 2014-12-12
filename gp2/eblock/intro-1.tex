@@ -190,4 +190,81 @@ gibt jedoch Korrekturen für Wechselströme (komplexe Wechselstromrechnung).
 Diese sind jedoch für diesen Versuch nicht relevant und werden daher nicht
 betrachtet.
 
+\subsection{Ohmsche Widerstände}
+
+Der elektrische Widerstand $R$ ist in der Elektrotechnik ein Maß dafür, welche
+Spannung $U$ notwendig ist, um einen bestimmten Strom $I$ durch einen Leiter
+fließen zu lassen. Er ist definiert durch das \textit{Ohmsche Gesetz}
+
+\begin{equation}
+  R = \frac{U}{I}
+\end{equation}
+
+Wenn $R$ unabhängig von Strom und Spannung ist (also $R = \text{const.}$),
+spricht man von einem \textit{ohmschen Widerstand}.
+
+Im Folgenden wollen wir einfache Schaltungen aus mehreren ohmschen Widerständen
+betrachten, um deren effektiven Gesamtwiderstand zu berechnen.
+
+\subsubsection{Reihenschaltung}
+
+% Schaltbild Reihenschaltung R_1 ... R_n mit Spannung U_0
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,2)
+      to[R=$R_1$, v=$U_1$] (2,2)
+      to[R=$R_2$, v=$U_2$] (4,2);
+      \draw [dashed] (4,2) -- (6,2);
+      \draw (6,2)
+      to[R=$R_n$, v=$U_n$] (8,2)
+      to[short] (8,0)
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Reihenschaltung von Widerständen}
+  \end{center}
+\end{figure}
+
+Wenn $n$ Widerstände $R_1, \dots, R_n$ in Reihe geschaltet sind (siehe
+Abbildung), fällt über jedem eine bestimmte Spannung $U_i$ ab.
+
+Gemäß der Maschenregel folgt sofort, dass die Summe der abfallenden Spannungen
+gleich der Summe der von der Spannungsquelle erzeugten Spannung sein muss.
+
+\begin{equation}
+  \sum_{i=1}^n U_i = U_0
+\end{equation}
+
+Wenn wir das Ohmsche Gesetz für jeden Widerstand einsetzen, erhalten wir sofort
+
+\begin{equation}
+  \sum_{i=1}^n I_i R_i = U_0
+\end{equation}
+
+Aus der Knotenregel wird klar, dass alle Ströme durch die Widerstände gleich
+sein müssen, also $I_i =: I_0$. Wir können diesen Term vor die Summe ziehen.
+
+\begin{equation}
+  I_0 \sum_{i=1}^n R_i = U_0
+\end{equation}
+
+Durch Umstellen ergibt sich
+
+\begin{equation}
+  \frac{U_0}{I_0} = \sum_{i=1}^n R_i
+\end{equation}
+
+Die linke Seite hat die Dimension eines Widerstandes (ohmsches Gesetz), also
+schreiben wir dafür $R_\text{ges} = \frac{U_0}{I_0}$ und erhalten
+
+
+\begin{equation}
+  R_\text{ges} = \sum_{i=1}^n R_i
+\end{equation}
+
+In einer Reihenschaltung ergibt sich also der effektive Gesamtwiderstand durch
+Addition der einzelnen Widerstände.
+
+
 \end{document}
