@@ -52,6 +52,8 @@ Widerstandskennlinie, Strom- und Spannungsteiler (belastet und unbelastet),
 Innenwiderstände von Spannungsquellen und Messgeräten und darauf aufbauend die
 strom- und spannungsrichtige Messung.
 
+% TODO: Was machen wir hier eigentlich?
+
 \section{Theoretische Grundlagen}
 % TODO: Kirchhoffsche Regeln
 % TODO: Herleitung Gesamtwiderstand von Reihen- und Parallelschaltung
@@ -62,6 +64,7 @@ strom- und spannungsrichtige Messung.
 % TODO: Analog von Messgeräten (mit Ersatzschaltbildern)
 % TODO: Strom- und spannungsrichtige Messung
 % TODO: Berechnung Spannungsfehler (siehe Kursmaterial)
+% TODO: Wheatstonesche Brückenschaltung
 
 \subsection{Kirchhoffsche Regeln}
 In der elektrischen Schaltungstechnik verwendet man die Kirchhoffschen
@@ -266,5 +269,272 @@ schreiben wir dafür $R_\text{ges} = \frac{U_0}{I_0}$ und erhalten
 In einer Reihenschaltung ergibt sich also der effektive Gesamtwiderstand durch
 Addition der einzelnen Widerstände.
 
+\subsubsection{Parallelschaltung}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (8,0)
+      to[V,v=$U_0$,i=$I_0$] (0,0);
+      \draw (0,0)
+      to[short] (0,2)
+      to[R=$R_1$,i=$I_1$,v=$U_1$] (8,2)
+      to[short, i=$I_\text{ges}$] (8,0);
+      \draw (0,2)
+      to[short] (0,4)
+      to[R=$R_2$,i=$I_2$,v=$U_2$] (8,4)
+      to[short] (8,2);
+      \draw[dashed] (0,4) -- (0,6);
+      \draw[dashed] (8,4) -- (8,6);
+      \draw (0,6)
+      to[R=$R_n$,i=$I_n$,v=$U_n$] (8,6);
+    \end{circuitikz}
+    \caption{Parallelschaltung}
+  \end{center}
+\end{figure}
+
+Wenn $n$ Widerstände $R_1, R_2, \dots, R_n$ parallel geschaltet werden (siehe
+Abbildung), teilen sich die Ströme aufgrund der Knotenregel auf.
+Fließt durch die Spannungsquelle der Strom $I_0$, gilt folglich
+
+\begin{equation}
+  I_0 = \sum_{i=1}^n I_i
+\end{equation}
+
+Durch Einsetzen des umgestellten ohmschen Gesetzes $I = \frac{U}{R}$ erhält man
+
+\begin{equation}
+  I_0 = \sum_{i=1}^n \frac{U_i}{R_i}
+\end{equation}
+
+In dieser Schaltung kann man jeden Kreis von Stromquelle und Widerstand mit der
+Maschenregel betrachten, also sind alle Spannungen an den Widerständen gleich.
+
+\begin{equation}
+  U_i = U_0 \quad\text{für alle}\quad i = 1, 2, \dots, n
+\end{equation}
+
+Somit erhält man
+\begin{equation}
+  I_0 = U_0 \sum_{i=1}^n \frac{1}{R_i}
+\end{equation}
+
+Durch Umstellen
+\begin{equation}
+  \frac{I_0}{U_0} = \sum_{i=1}^n \frac{1}{R_i}
+\end{equation}
+
+Anhand des Ohmschen Gesetzes sieht man, dass die linke Seite dem inversen
+Widerstand entspricht. Der Gesamtwiderstand ist also
+
+\begin{equation}
+  \frac{1}{R_\text{ges}} = \sum_{i=1}^n \frac{1}{R_i}
+\end{equation}
+
+\subsection{Nicht-Ohmsche Widerstände}
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$U$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$I$};
+        \draw plot[id=x] function{0.9*x/2}
+            node[right] {$R_1$};
+        \draw plot[id=exp] function{0.055*exp(x/2)}
+            node[right] {$R_2$};
+        \draw plot[id=log] function{4*(1-exp(-(x/2)))}
+            node[above] {$R_3$};
+    \end{tikzpicture}
+    \caption{Kennlinien von Widerständen}
+  \end{center}
+\end{figure}
+
+Wenn $R = \text{const.}$ spricht man von einem Ohmschen Widerstand. Allerdings
+muss dies nicht zwangsläufig der Fall sein. Widerstände können eine
+Abhängigkeit von Strom und Spannung zeigen, so dass die Kennlinie nichtlinear
+wird. In der obigen Abbildung ist nur $R_1$ ein Ohmscher Widerstand. Die
+anderen beiden zeigen ein nichtlineares Verhalten und sind somit keine Ohmschen
+Widerstände.
+
+Jeder in der Technik benutze Widerstand zeigt ein gewisses nichtlineares
+Verhalten, z.B. durch Erwärmung. Der Ohmsche Widerstand ist ein Idealbild, das
+in erster Näherung gilt.
+
+
+\subsection{Strom- und Spannungsteiler}
+
+Widerstände können benutzt werden, um Ströme aufzuteilen. Möchte man, dass
+durch einen Verbraucher nur ein bestimmter Strom fließt bzw. eine bestimmte
+Spannung anliegt, kann man Widerstände parallel bzw. in Reihe schalten. Das
+Prinzip wird aus den Abbildungen zur Parallel und Reihenschaltung hinreichend
+ersichtlich, so dass wir dies an dieser Stelle nicht weiter ausführen.
+
+% FIXME: Formeln für belasteten und unbelasteten Fall herleiten
+
+\subsubsection{Potentiometer}
+
+% FIXME: Strom- und Spannungsteiler mit Poti
+
+\subsection{Messgeräte}
+
+Um Ströme und Spannungen zu Messen, benutzt man Messgeräte. Das Messgerät für
+die Strommessung nennt man \textit{Amperemeter}, das Gerät für die
+Spannungsmessung \textit{Voltmeter}.
+
+\subsubsection{Amperemeter}
+
+% Ersatzschaltbild Amperemeter
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[R=$R_I$] (2,0)
+      to[ammeter] (4,0);
+    \end{circuitikz}
+    \caption{Ersatzschaltbild für das Amperemeter}
+  \end{center}
+\end{figure}
+
+Um den Strom an einer bestimmten Stelle zu messen, wird ein Amperemeter in
+Reihe geschaltet, dass den Strom misst, das durch es fließt. Um den Schaltkreis
+durch die Messung nicht zu beeinträchtigen hat das ideale Amperemeter dabei den
+Widerstand $R=0$. Dies ist leider technisch nicht exakt möglich, so dass auch
+ein gutes Amperemeter über einen Innenwiderstand verfügt.
+
+Im Schaltbild stellt man das reale Amperemeter dar durch ein ideales
+Amperemeter und einen Innenwiderstand $R_I$ (sog. Ersatzschaltbild, siehe oben).
+
+\subsubsection{Voltmeter}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,4)
+      to[short] (0,2)
+      to[voltmeter=$U$] (4,2)
+      to[short] (4,4);
+      \draw (0,2)
+      to[short] (0,0)
+      to[R=$R_{I}$] (4,0)
+      to[short] (4,2);
+    \end{circuitikz}
+    \caption{Ersatzschaltbild für das Voltmeter}
+  \end{center}
+\end{figure}
+
+Um die Spannung an einer Stelle zu messen, wird ein Voltmeter parallel
+geschaltet. Es zeigt die Potentialdifferenz an zwei Stellen an. Um die Messung
+nicht zu beinträchtigen hat das ideale Amperemeter dabei einen unendlich großen
+Innenwiderstand $R_I \to \infty$. Technisch ist dies leider nicht möglich, so
+dass auch das Voltmeter durch ein Ersatzschaltbild dargestellt wird. Es
+besteht aus einem idealen Voltmeter und einem Innenwiderstand $R_I$ (siehe
+oben).
+
+\subsection{Strom und Spannungsquelle}
+
+In der Elektrotechnik unterscheidet man zwischen Strom- und Spannungsquellen.
+Die ideale Spannungsquelle erhält unabhängig vom Stromverbrauch eine feste
+Spannung aufrecht, während die ideale Stromquelle unabhängig von der Spannung
+einen konstanten Strom liefert.
+
+Da wir im Versuch nur mit Spannungsquellen arbeiten, ignorieren wir die
+Stromquellen im Folgenden.
+
+Damit die ideale Spannungsquelle auch bei hohen Strömen die Spannung aufrecht
+erhalten kann, verfügt sie über einen verschwindend geringen Innenwiderstand.
+In der Praxis ist dieser jedoch vorhanden, was bei hohen Strömen zu einem
+Spannungseinbruch führt. Im Fall stabilisierter Netzgeräte bei geringen Strömen
+ist dieser Effekt jedoch völlig vernachlässigbar, so dass wir nicht weiter
+darauf eingehen wollen.
+
+\subsection{Strom- und Spannungsrichtige Messung}
+
+Wird eine Spannung und gleichzeitig ein Strom gemessen, führen die nichtidealen
+Messgeräte zu einer Verfälschung der Messung. Nur eine der beiden Größen können
+korrekt (im Rahmen des Innenwiderstands) gemessen werden. Dies führt zu zwei
+Schaltungsarten.
+
+\subsubsection{Stromrichtige Messung}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,2)
+      to[R=$R_{I,A}$] (2,2)
+      to[ammeter=$I$, l=$I$] (4,2)
+      to[R=$R_V$] (6,2)
+      to[short] (6,0)
+      to[short] (0,0);
+      \draw (0,2)
+      to[short] (0,4)
+      to[voltmeter, l=$U$] (6,4)
+      to[short] (6,2);
+      \draw (0,4)
+      to[short] (0,6)
+      to[R=$R_{I,V}$] (6,6)
+      to[short] (6,4);
+    \end{circuitikz}
+    \caption{Stromrichtige Messung an einem ohmschen Verbraucher $R_V$}
+  \end{center}
+\end{figure}
+
+In der Abbildung soll der Strom und die Spannung des Verbrauchers $R_V$
+gemessen werden. Bei der stromrichtigen Messung wird dazu das Voltmeter
+parallel zu Amperemeter und Verbraucher geschaltet. Das Amperemeter führt durch
+seinen Innenwiderstand zu einem Spannungsabfall, der vom Voltmeter mitgemessen
+wird. Der Strom durch den Verbraucher wird nicht beeinflusst. Man nennt dies
+daher die Stromrichtige Messung oder auch Spannungsfehlerschaltung.
+
+% FIXME: Der Fehler berechnet sich wie?
+
+\subsubsection{Spannungsrichtige Messung}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,2)
+      to[R=$R_{I,A}$] (2,2)
+      to[ammeter=$I$] (4,2)
+      to[R=$R_V$] (4,0)
+      to[short] (0,0);
+      \draw (4,2)
+      to[short] (6,2)
+      to[voltmeter=$U$] (6,0)
+      to[short] (4,0);
+      \draw (6,2)
+      to[short] (8,2)
+      to[R=$R_{I,V}$] (8,0)
+      to[short] (6,0);
+    \end{circuitikz}
+    \caption{Spannungsrichtige Messung an einem Verbraucher $R_V$}
+  \end{center}
+\end{figure}
+
+In der obigen Abbildung soll ebenfalls wieder der Strom und die Spannung am
+Verbraucher $R_V$ gemessen werden. Diesmal wird eine Spannungsrichtige Messung
+benutzt. Dabei wird das Voltmeter direkt parallel zum Verbraucher geschaltet,
+so dass die tatsächliche Spannung durch den Verbraucher ermittelt wird. Das
+Amperemeter misst jedoch nicht nur den Strom durch den Verbraucher sondern auch
+den Strom durch das Voltmeter.
+
+Da der Innenwiderstand moderner Digitalvoltmeter in der Größenordnung von $10
+\;\text{M}\Omega$ liegt, führt die Spannungsrichtige Messung bei Verbrauchern
+mit kleinerem Widerstand zu keiner signifikanten Verfälschung, so dass diese
+Art der Messung zu bevorzugen ist.
+
+% FIXME: Der Fehler berechnet sich wie?
+
+\subsubsection{Beispielrechnung}
+
+% FIXME
+
+\subsection{Wheatstonesche Brückenschaltung}
+
+\section{Aufgaben}
+
+\begin{enumerate}
+  \item Aufnahme der Spannungskurve an einem belasteten und unbelasteten Spannungsteiler
+  \item Aufnahme der Widerstandskennlinie eines ohmschen Widerstandes, einer Glühbirne und eines Graphitstabs
+  \item Messung eines Widerstands mithilfe der Wheatstoneschen Brückenschaltung
+\end{enumerate}
 
 \end{document}
