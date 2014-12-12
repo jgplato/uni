@@ -118,5 +118,76 @@ diesem Versuch nicht mit Kondensatoren oder Spulen arbeiten, sondern nur
 statische Fälle betrachten, kann dies unberücksichtigt bleiben.
 
 \subsubsection{Maschenregel}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0) to[R=$R_1$, v=$U_1$] (6,0)
+                  to[R=$R_2$, v=$U_2$] (6,2)
+                  to[R=$R_3$, v=$U_3$] (0,2)
+                  to[R=$R_4$, v=$U_4$] (0,0);
+    \end{circuitikz}
+    \caption{Maschenregel}
+  \end{center}
+\end{figure}
+
+Die 3. Maxwellsche Gleichung stellt den Zusammengang zwischen der elektrischen
+Zirkulation über eine Randfläche $\partial A$ und der Änderung des magnetischen
+Flusses durch die Fläche $A$. Sie lautet in Integralschreibweise
+
+\begin{equation}
+  \oint\limits_{\partial A} \vec{E} \cdot \dif \vec{s} = - \iint\limits_{A} \frac{\partial \vec{B}}{\partial t} \cdot \vec{A}
+\end{equation}
+
+
+Bei Betrachtungen elektrischer Schaltkreise mit zeitlich konstanten Strömen
+existieren keine zeitlich variablen Magnetfelder, also folgt:
+
+\begin{equation}
+  \oint\limits_{\partial A} \vec{E} \cdot \dif \vec{s} = 0
+  \label{eq:maxwell3static}
+\end{equation}
+
+
+Das Ringintegral in (\ref{eq:maxwell3static}) lässt sich aufteilen in $n$
+Teilstücke $[A_1, A_2], [A_2, A_3], \dots, [A_{n-1}, A_n], [A_n, A_1]$. Damit
+wird das Integral zu
+
+\begin{equation}
+  \int\limits_{A_1}^{A_2} \vec{E} \cdot \dif \vec{s} +
+  \int\limits_{A_2}^{A_3} \vec{E} \cdot \dif \vec{s} +
+  \dots +
+  \int\limits_{A_{n-1}}^{A_n} \vec{E} \cdot \dif \vec{s} +
+  \int\limits_{A_{n}}^{A_1} \vec{E} \cdot \dif \vec{s}
+  = 0
+\end{equation}
+
+Die elektrische Spannung zwischen zwei Punkten $A$ und $B$ ist definiert durch
+\begin{equation}
+  U_{AB} = \int\limits_A^B \vec{E} \cdot \dif \vec{s}
+\end{equation}
+
+Somit
+
+\begin{equation}
+  \underbrace{U_{A_1A_2}}_{=: U_1} +
+  \underbrace{U_{A_2A_3}}_{=: U_2} +
+  \dots +
+  \underbrace{U_{A_{n-1}A_n}}_{=: U_{n-1}} +
+  \underbrace{U_{A_nA_1}}_{=: U_n} = 0
+\end{equation}
+
+Das bedeutet die Summe der Spannungen innerhalb einer Masche verschwindet.
+
+\begin{equation}
+  \sum_{n=1}^k U_n = 0
+\end{equation}
+
+Diese Regel ist bekannt als 2. Kirchhoffsches Gesetz oder als Maschenregel.
+
+Sie gilt nur für zeitlich konstante Magnetfelder. Werden Spulen oder
+Kondensatoren eingesetzt, kann nur der statische Fall betrachtet werden. Es
+gibt jedoch Korrekturen für Wechselströme (komplexe Wechselstromrechnung).
+Diese sind jedoch für diesen Versuch nicht relevant und werden daher nicht
+betrachtet.
 
 \end{document}
