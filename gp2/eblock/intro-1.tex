@@ -1,0 +1,66 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Ohmscher Widerstand, Tutor: Andreas Maier
+\vspace{-10pt}
+\end{center}
+\section{Einführung}
+Ziel des Versuches ist die Untersuchung von (ohmschen und nicht-ohmschen)
+Widerständen und daraus aufgebauten Schaltungen. Dabei behandeln wir die
+Widerstandskennlinie, Strom- und Spannungsteiler (belastet und unbelastet),
+Innenwiderstände von Spannungsquellen und Messgeräten und darauf aufbauend die
+strom- und spannungsrichtige Messung.
+
+\section{Theoretische Grundlagen}
+% TODO: Kirchhoffsche Regeln
+% TODO: Herleitung Gesamtwiderstand von Reihen- und Parallelschaltung
+% TODO: Kennlinie eines Widerstands (Ohm: linear, ansonsten nicht-linear)
+% TODO: Spannungsteiler, Stromteiler
+% TODO: Innenwiederstände von Strom- und Spannungsquellen sowie Messgeräten
+% TODO: Ersatzschaltbilder
+% TODO: Analog von Messgeräten (mit Ersatzschaltbildern)
+% TODO: Strom- und spannungsrichtige Messung
+% TODO: Berechnung Spannungsfehler (siehe Kursmaterial)
+
+\end{document}
