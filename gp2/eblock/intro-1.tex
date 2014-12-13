@@ -123,9 +123,9 @@ statische Fälle betrachten, kann dies unberücksichtigt bleiben.
   \end{center}
 \end{figure}
 
-Die 3. Maxwellsche Gleichung stellt den Zusammengang zwischen der elektrischen
-Zirkulation über eine Randfläche $\partial A$ und der Änderung des magnetischen
-Flusses durch die Fläche $A$. Sie lautet in Integralschreibweise
+Die 3. Maxwellsche Gleichung stellt den Zusammengang her zwischen der Änderung
+des magnetischen Flusses durch eine Fläche $A$ und der elektrischen Zirkulation
+auf dem Rand $\partial A$ dieser Fläche. Sie lautet in Integralschreibweise
 
 \begin{equation}
   \oint\limits_{\partial A} \vec{E} \cdot \dif \vec{s} = - \iint\limits_{A} \frac{\partial \vec{B}}{\partial t} \cdot \vec{A}
@@ -137,20 +137,41 @@ existieren keine zeitlich variablen Magnetfelder, also folgt:
 
 \begin{equation}
   \oint\limits_{\partial A} \vec{E} \cdot \dif \vec{s} = 0
-  \label{eq:maxwell3static}
 \end{equation}
 
 
-Das Ringintegral in (\ref{eq:maxwell3static}) lässt sich aufteilen in $n$
-Teilstücke $[A_1, A_2], [A_2, A_3], \dots, [A_{n-1}, A_n], [A_n, A_1]$. Damit
-wird das Integral zu
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}
+      \draw plot[smooth, tension=.7] coordinates {(-3.5,0.5) (-3,2.5) (-1,3.5) (1.5,3) (4,3.5) (5,2.5) (5,0.5) (2.5,-2) (0,-0.5) (-3,-2) (-3.5,0.5)};
+      \draw (-3.5,0.5) node[circle,fill,inner sep=2pt,label=left:$p_1$] {};
+      \draw (1.5,3)    node[circle,fill,inner sep=2pt,label=above:$p_2$] {};
+      \draw (4,3.5)    node[circle,fill,inner sep=2pt,label=above:$p_3$] {};
+      \draw (5,0.5)    node[circle,fill,inner sep=2pt,label=right:$p_4$] {};
+      \draw (0,-0.5)   node[circle,fill,inner sep=2pt,label=above:$p_5$] {};
+      \draw (1,1)      node[label=$A$] {};
+      \draw (-3,2.5)   node[label=above:$\partial A$] {};
+    \end{tikzpicture}
+    \caption{Aufteilung des Ringintegrals in Teilstücke}
+  \end{center}
+\end{figure}
+
+Das Ringintegral lässt sich aufteilen in $n$ Pfade zwischen jeweils zwei
+Punkten. Dabei seien $p_i$ Punkte auf der Randkurve $\partial A$ und $[p_{i},
+p_{i+1}]$ ein Pfad zwischen zwei Punkten, dann gilt
 
 \begin{equation}
-  \int\limits_{A_1}^{A_2} \vec{E} \cdot \dif \vec{s} +
-  \int\limits_{A_2}^{A_3} \vec{E} \cdot \dif \vec{s} +
+  \partial A = [p_1, p_2] \cup [p_2, p_3] \cup \dots \cup [p_{n-1}, p_n] \cup [p_n, p_1]
+\end{equation}
+
+Damit wird das Integral zu
+
+\begin{equation}
+  \int\limits_{p_1}^{p_2} \vec{E} \cdot \dif \vec{s} +
+  \int\limits_{p_2}^{p_3} \vec{E} \cdot \dif \vec{s} +
   \dots +
-  \int\limits_{A_{n-1}}^{A_n} \vec{E} \cdot \dif \vec{s} +
-  \int\limits_{A_{n}}^{A_1} \vec{E} \cdot \dif \vec{s}
+  \int\limits_{p_{n-1}}^{p_n} \vec{E} \cdot \dif \vec{s} +
+  \int\limits_{p_{n}}^{p_1} \vec{E} \cdot \dif \vec{s}
   = 0
 \end{equation}
 
@@ -162,11 +183,11 @@ Die elektrische Spannung zwischen zwei Punkten $A$ und $B$ ist definiert durch
 Somit
 
 \begin{equation}
-  \underbrace{U_{A_1A_2}}_{=: U_1} +
-  \underbrace{U_{A_2A_3}}_{=: U_2} +
+  \underbrace{U_{p_1p_2}}_{=: U_1} +
+  \underbrace{U_{p_2p_3}}_{=: U_2} +
   \dots +
-  \underbrace{U_{A_{n-1}A_n}}_{=: U_{n-1}} +
-  \underbrace{U_{A_nA_1}}_{=: U_n} = 0
+  \underbrace{U_{p_{n-1}p_n}}_{=: U_{n-1}} +
+  \underbrace{U_{p_np_1}}_{=: U_n} = 0
 \end{equation}
 
 Das bedeutet die Summe der Spannungen innerhalb einer Masche verschwindet.
@@ -386,13 +407,13 @@ Spannungsmessung \textit{Voltmeter}.
 \end{figure}
 
 Um den Strom an einer bestimmten Stelle zu messen, wird ein Amperemeter in
-Reihe geschaltet, dass den Strom misst, das durch es fließt. Um den Schaltkreis
-durch die Messung nicht zu beeinträchtigen hat das ideale Amperemeter dabei den
-Widerstand $R=0$. Dies ist leider technisch nicht exakt möglich, so dass auch
-ein gutes Amperemeter über einen Innenwiderstand verfügt.
+Reihe geschaltet. Es zeigt den Stromfluss durch sich selbst an. Um den
+Schaltkreis durch die Messung nicht zu beeinträchtigen hat das ideale
+Amperemeter dabei den Widerstand $R=0$. Dies ist technisch nicht möglich, so
+dass auch ein gutes Amperemeter über einen Innenwiderstand verfügt.
 
-Im Schaltbild stellt man das reale Amperemeter dar durch ein ideales
-Amperemeter und einen Innenwiderstand $R_I$ (sog. Ersatzschaltbild, siehe oben).
+Im Schaltbild stellt man das reale Amperemeterdurch ein ideales Amperemeter und
+einen Innenwiderstand $R_I$ dar (sog. Ersatzschaltbild, siehe Abbildung).
 
 \subsubsection{Voltmeter}
 \begin{figure}[H]
@@ -434,14 +455,13 @@ erhalten kann, verfügt sie über einen verschwindend geringen Innenwiderstand.
 In der Praxis ist dieser jedoch vorhanden, was bei hohen Strömen zu einem
 Spannungseinbruch führt. Im Fall stabilisierter Netzgeräte bei geringen Strömen
 ist dieser Effekt jedoch völlig vernachlässigbar, so dass wir nicht weiter
-darauf eingehen wollen.
+darauf eingehen wollen, da er experimentell nicht relevant ist.
 
 \subsection{Strom- und Spannungsrichtige Messung}
 
 Wird eine Spannung und gleichzeitig ein Strom gemessen, führen die nichtidealen
 Messgeräte zu einer Verfälschung der Messung. Nur eine der beiden Größen können
-korrekt (im Rahmen des Innenwiderstands) gemessen werden. Dies führt zu zwei
-Schaltungsarten.
+korrekt gemessen werden. Dies führt zu zwei möglichen Schaltungsarten.
 
 \subsubsection{Stromrichtige Messung}
 \begin{figure}[H]
@@ -474,8 +494,8 @@ seinen Innenwiderstand zu einem Spannungsabfall, der vom Voltmeter mitgemessen
 wird. Der Strom durch den Verbraucher wird nicht beeinflusst. Man nennt dies
 daher die Stromrichtige Messung oder auch Spannungsfehlerschaltung.
 
-% FIXME: Der Fehler berechnet sich wie?
 % TODO: Berechnung Spannungsfehler (siehe Kursmaterial)
+% FIXME: Der Fehler berechnet sich wie?
 
 \subsubsection{Spannungsrichtige Messung}
 \begin{figure}[H]
