@@ -372,10 +372,6 @@ Verhalten, z.B. durch Erwärmung. Der Ohmsche Widerstand ist ein Idealbild, das
 in erster Näherung gilt.
 
 
-\subsubsection{Potentiometer}
-
-% FIXME: Strom- und Spannungsteiler mit Poti
-
 \subsection{Messgeräte}
 
 Um Ströme und Spannungen zu Messen, benutzt man Messgeräte. Das Messgerät für
@@ -597,7 +593,7 @@ Schaltzeichen lehnt sich an diesen Aufbau an.
   \end{center}
 \end{figure}
 
-Wird nur eine Seite und die Anzapfung angeschlossen benutzt man aus
+Wird nur eine Seite und die Anzapfung angeschlossen, benutzt man aus
 stilistischen Gründen oft das Schaltzeichen für den variablen Widerstand.
 
 \begin{figure}[H]
@@ -695,6 +691,40 @@ nutzen, gehen wir nicht weiter darauf ein.
 
 
 \subsection{Wheatstonesche Brückenschaltung}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}[x=2.5cm,y=2.5cm]
+    \draw
+      (0,0) to[V, v=$U_0$] (0,2) -- (2,2)
+      to[R=$R_1$,*-*] (1,1)
+      to[R=$R_3$, *-*] (2,0) -- (0,0);
+
+    \draw
+      (2,2) to[R=$R_2$, *-*] (3,1)
+      to[R=$R_4$, *-*] (2,0);
+
+    \draw
+      (1,1) to[R=$R_5$, *-*] (3,1);
+
+    \begin{scope}[>=latex,thick,text=black]
+    \draw[->,rounded corners=7pt]
+       (0.6,1.9) -- (1.6,1.9) --
+       (0.7,1) node[anchor=east]{$I_1$} --
+       (1.6,0.1) -- (0.5,0.1);
+
+    \draw[->]
+      (1.7,1.3)  arc(220:-50:0.4 and 0.15)
+      node[pos=0.5,above] {$I_2$};
+
+    \draw[<-]
+      (1.7,0.8) arc(-220:50:0.4 and 0.15)
+      node[midway,above] {$I_3$};
+    \end{scope}
+    \end{circuitikz}
+    \caption{Wheatstonesche Brückenschaltung}
+  \end{center}
+\end{figure}
+
 % TODO: Wheatstonesche Brückenschaltung
 
 \section{Aufgaben}
