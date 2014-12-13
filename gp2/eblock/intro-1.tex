@@ -372,16 +372,6 @@ Verhalten, z.B. durch Erwärmung. Der Ohmsche Widerstand ist ein Idealbild, das
 in erster Näherung gilt.
 
 
-\subsection{Strom- und Spannungsteiler}
-
-Widerstände können benutzt werden, um Ströme aufzuteilen. Möchte man, dass
-durch einen Verbraucher nur ein bestimmter Strom fließt bzw. eine bestimmte
-Spannung anliegt, kann man Widerstände parallel bzw. in Reihe schalten. Das
-Prinzip wird aus den Abbildungen zur Parallel und Reihenschaltung hinreichend
-ersichtlich, so dass wir dies an dieser Stelle nicht weiter ausführen.
-
-% FIXME: Formeln für belasteten und unbelasteten Fall herleiten
-
 \subsubsection{Potentiometer}
 
 % FIXME: Strom- und Spannungsteiler mit Poti
@@ -494,6 +484,27 @@ seinen Innenwiderstand zu einem Spannungsabfall, der vom Voltmeter mitgemessen
 wird. Der Strom durch den Verbraucher wird nicht beeinflusst. Man nennt dies
 daher die Stromrichtige Messung oder auch Spannungsfehlerschaltung.
 
+% FIXME: Stimmt das so?
+Gemäß der Maschenregel gilt für die Spannung am Voltmeter
+
+\begin{equation}
+  U_V = U_0
+\end{equation}
+
+Gemäß der Knotenregel fließen durch den Innenwiderstand $R_{I,A}$ des Amperemeters, durch das Amperemeter $I$ und
+den Verbraucher $R_V$ der selbe Strom den wir $I_A$ nennen wollen. Gemäß
+Maschenregel und Ohmschen Gesetz gilt dann
+
+\begin{equation}
+  U_0 = I_A R_{I,A} + I_A R_{V}
+\end{equation}
+
+Der gemessene Strom ist dann also
+
+\begin{equation}
+  I_A = \frac{U_0}{R_{I,A} + R_V}
+\end{equation}
+
 % TODO: Berechnung Spannungsfehler (siehe Kursmaterial)
 % FIXME: Der Fehler berechnet sich wie?
 
@@ -503,8 +514,8 @@ daher die Stromrichtige Messung oder auch Spannungsfehlerschaltung.
     \begin{circuitikz}
       \draw (0,0)
       to[V,v=$U_0$] (0,2)
-      to[R=$R_{I,A}$] (2,2)
-      to[ammeter=$I$] (4,2)
+      to[ammeter=$I$] (2,2)
+      to[R=$R_{I,A}$] (4,2)
       to[R=$R_V$] (4,0)
       to[short] (0,0);
       \draw (4,2)
@@ -532,11 +543,156 @@ Da der Innenwiderstand moderner Digitalvoltmeter in der Größenordnung von $10
 mit kleinerem Widerstand zu keiner signifikanten Verfälschung, so dass diese
 Art der Messung zu bevorzugen ist.
 
-% FIXME: Der Fehler berechnet sich wie?
+Der Strom durch das Amperemeter entspricht dem Gesamtstrom durch die Schaltung,
+denn das Amperemeter ist in Reihe mit der Spannungsquelle geschaltet. Es ergibt
+sich nach den obigen Regeln für Parallel- und Reihenschaltung ein
+Gesamtwiderstand der Schaltung von
+
+\begin{equation}
+  R = R_{I_A} + \tfrac{1}{\tfrac{1}{R_V} + \tfrac{1}{R_{I,V}}}
+\end{equation}
+
+Nach Ohmschem Gesetz ist dann der gemessene Strom
+
+\begin{equation}
+  I_A = \tfrac{U_0}{R_{I_A} + \tfrac{1}{\tfrac{1}{R_V} + \tfrac{1}{R_{I,V}}}}
+\end{equation}
+
+Nach Maschenregel ist die gemessene Spannung die Spannung der Spannungsquelle
+minus der Spannung die am ersten Widerstand abfällt
+
+\begin{equation}
+  U_V = U_0 - I_A R_{I,A}
+\end{equation}
 
 \subsubsection{Beispielrechnung}
 
 % FIXME
+Wir berechnen für die Messungen an Verbrauchern von $R_1 = 10 \, \Omega$ und
+$R_2 = 50\,\text{k}\Omega$ die jeweiligen relativen Fehler. Wir nehmen einen
+Innenwiderstand des Amperemeters von $R_{I,A} = 0{,}1\,\Omega$ und $R_{I,U} =
+50\;\text{k}\Omega$ an.
+
+Im Fall der Stromrichtgen Messung ergibt sich der relative Spannungsfehler aus
+dem Quotienten der angezeigten und der wahren Spannung.
+\begin{equation}
+  \frac{U_A}{U_W} = ?
+\end{equation}
+
+
+
+% FIXME
+\subsection{Potentiometer}
+Ein Potentiometer ist ein einstellbarer Widerstand. Technisch betrachtet
+besteht es aus einem Widerstandsdraht bei dem ein in seiner Position
+veränderlicher Schleifkontakt eine Abzapfung in der Mitte bereit stellt. Des
+Schaltzeichen lehnt sich an diesen Aufbau an.
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0) to[pR] (2,0);
+    \end{circuitikz}
+    \caption{Schaltzeichen für das Potentiometer}
+  \end{center}
+\end{figure}
+
+Wird nur eine Seite und die Anzapfung angeschlossen benutzt man aus
+stilistischen Gründen oft das Schaltzeichen für den variablen Widerstand.
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0) to[vR] (2,0);
+    \end{circuitikz}
+    \caption{Schaltzeichen für den variablen Widerstand}
+  \end{center}
+\end{figure}
+
+
+% FIXME: Von oben hier her schieben und Schaltung erklären
+\subsection{Spannungsteiler}
+
+Mithilfe des Potentiometers kann ein Spannungsteiler aufgebaut werden.
+Technische Anwendungen kann man sich viele ausdenken, beispielsweise zum Dimmen
+von Lampen\footnote{Tatsächlich wird das nicht mehr gemacht. Man benutzt eine
+Phasenanschnittsteuerung mit Thyristorstellern, was übrigens auch das lästige
+Summen älterer Dimmer erklärt.} oder zum Einstellen einer Lautstärke\footnote{Wobei
+dann allerdings die Spannung benutzt wird, um den Basisstrom des
+Verstärkertransistors zu regulieren, nicht die Ausgangsspannung direkt.}.
+
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,4)
+      to[short] (2,4)
+      to[pR, n=POT] (2,0)
+      to[short] (0,0);
+      \draw (POT.wiper) -| (4,2);
+      \draw (4,2)
+      to[voltmeter, l=$U_1$] (4,4)
+      to[short] (2,4);
+      \draw (2,0)
+      to[short] (4,0)
+      to[voltmeter, l=$U_2$] (4,2);
+    \end{circuitikz}
+    \caption{Spannungsteiler}
+  \end{center}
+\end{figure}
+
+Die obige Abbildung zeigt den Aufbau. Für die Spannungen gilt nach Maschenregel
+\begin{equation}
+  U_0 = U_1 + U_2
+\end{equation}
+
+Wenn das Potentiometer einen Widerstand $R$ hat und ein Skalenwert $s =
+0\dots1$ eingestellt ist, ergeben sich die Teilwiderstände $sR$ und $(1-s)R$.
+Damit gilt für die Teilspannungen
+
+\begin{equation}
+  U_1 = s IR \qquad U_2 = (1-s) IR
+\end{equation}
+
+Und für das Verhältnis
+\begin{equation}
+  \frac{U_1}{U_2} = \frac{s}{1-s}
+\end{equation}
+
+\subsection{Stromteiler}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,4)
+      to[short] (3,4);
+      \draw (0,0)
+      to[short] (3,0)
+      to[short] (3,1);
+      \draw (3,1)
+      to[short] (2,1)
+      to[ammeter] (2,3)
+      to[pR, n=POT] (4,3)
+      to[ammeter]  (4,1)
+      to[short]  (3,1);
+      \draw (POT.wiper) -| (3,4);
+
+      %to[pR, n=POT] (2,0)
+      %to[short] (0,0);
+      %\draw (POT.wiper) -| (4,2);
+
+    \end{circuitikz}
+    \caption{Stromteiler}
+  \end{center}
+\end{figure}
+
+Analog zum Spannungsteiler bei dem die ``internen Widerstände'' des
+Potentiometers in Reihe geschaltet werden, kann man diese auch parallel
+schalten um einen Stromteiler aufzubauen. Da wir dies im Experiment nicht
+nutzen, gehen wir nicht weiter darauf ein.
+
+
 
 \subsection{Wheatstonesche Brückenschaltung}
 % TODO: Wheatstonesche Brückenschaltung
