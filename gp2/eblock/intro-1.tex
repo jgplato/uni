@@ -697,14 +697,14 @@ nutzen, gehen wir nicht weiter darauf ein.
     \draw
       (0,0) to[V, v=$U_0$] (0,2) -- (2,2)
       to[R=$R_1$,*-*] (1,1)
-      to[R=$R_3$, *-*] (2,0) -- (0,0);
+      to[R=$R_x$, *-*] (2,0) -- (0,0);
 
     \draw
       (2,2) to[R=$R_2$, *-*] (3,1)
-      to[R=$R_4$, *-*] (2,0);
+      to[vR=$R$, *-*] (2,0);
 
     \draw
-      (1,1) to[R=$R_5$, *-*] (3,1);
+      (1,1) to[voltmeter=$U$, *-*] (3,1);
 
     \begin{scope}[>=latex,thick,text=black]
     \draw[->,rounded corners=7pt]
@@ -725,7 +725,21 @@ nutzen, gehen wir nicht weiter darauf ein.
   \end{center}
 \end{figure}
 
-% TODO: Wheatstonesche Brückenschaltung
+%FIXME: Widerstand R_x oben einzeichnen
+Die Wheatstonesche Brückenschaltung (siehe oben) dient zur genauen Bestimmung
+eines unbekannten Widerstandes $R_x$. Dazu wird einstellbare Widerstand $R$ so
+eingestellt, dass das Voltmeter keine Potentialdifferenz mehr anzeigt.
+
+Wenn es keine Potentialdifferenz im Voltmeter mehr gibt, könnte das Voltmeter
+durch einen Draht ersetzt werden, ohne irgendwelche Ströme oder Spannungen zu
+ändern (denn Punkte mit gleichem Potential können verbunden werden). In diesem
+Fall kann die Maschenregel angewendet werden.
+
+% FIXME: Herleitung!!!
+Man erhält
+\begin{equation}
+  \frac{R_1}{R_2} = \frac{R_x}{R}
+\end{equation}
 
 \section{Aufgaben}
 
