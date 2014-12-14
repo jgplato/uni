@@ -381,17 +381,17 @@ und Außenradius ein Fehler von
   \operatorname{mm}
 \end{equation}
 
-Um den tatsächlichen Radius zu erhalten, berechneten wir
+Um den tatsächlichen Radius zu erhalten, berechnen wir
 \begin{equation}
   r = \frac{r_a - r_i}{2}
 \end{equation}
 
 Der Fehler dafür beträgt dann nach Gauß
 \begin{equation}
-  \Delta r = \del{\sqrt{2}{2}}^2 \cdot 0{,}01 \operatorname{mm} = 0{,}005 \operatorname{mm}
+  \Delta r = \del{\frac{\sqrt{2}}{2}}^2 \cdot 0{,}01 \operatorname{mm} = 0{,}005 \operatorname{mm}
 \end{equation}
 
-Um nun die Gitterkonstante $d$ zu bestimmen, stellen wir \ref{eq:deq} um und erhalten
+Um nun die Gitterkonstante $d$ zu bestimmen, stellen wir (\ref{eq:deq}) um und erhalten
 \begin{equation}
   r_i^2 - r_0^2 = i \frac{\lambda f^2}{d}
 \end{equation}
@@ -403,7 +403,16 @@ Nach Gauß ist der Fehler von $r_i^2 - r_0^2$:
 \end{align*}
 
 Die Berechnungen der Werte und der Fehler finden sich in der beigelegenten
-Kalkulationstabelle.
+Kalkulationstabelle. Während des Aufstellens der Tabelle sind dabei einige
+offensichtliche Ablesefehler aufgefallen. Da die Ringe konzentrisch sind und
+die Ringbreiten dem Index nach absteigend sind, konnten wir diese Fehler
+korrigieren. Dabei haben wir angenommen, dass der Ablesefehler immer ein
+Vielfaches der Umdrehung der Mikrometerschraube ($0{,}50 \operatorname{mm}$)
+ist. Hilfreich war auch ein mit dem Handy aufgenommenes Bild der
+Interferenzringe anhand dessen wir die Verhältnisse der Durchmesser feststellen
+konnten. Die korrigierten Werte wurdem zum Vergleich mit den aufgenommenen
+Werten gelb hinterlegt. Der theoretische Teil wurde dabei ausdrücklich nicht
+zur Korrektur benutzt, um keine Vorannahmen einfließen zu lassen.
 
 Da $\frac{\lambda f^2}{d}$ die Proportionalitätskonstante zwischen
 $r_i^2 - r_0^2$ und $i$ ist, haben wir die Wertepaare gegeneinander aufgetragen
@@ -447,15 +456,67 @@ zu erhalten. Die Wellenlänge ist dann
 
 Der Fehler ist unter Vernachlässigung des Brennweitenfehlers
 \begin{align*}
-  \Delta \lambda &=
+  \Delta \lambda &= \sqrt{
+    \del{\frac{\partial \lambda}{\partial d} \Delta d}^2 +
+    \del{\frac{\partial \lambda}{\partial m} \Delta m}^2
+  } \\
+  &= \sqrt{
+    \frac{m^2}{f^4} \Delta d^2 +
+    \frac{d^2}{f^4} \Delta m^2
+  } \\
+  &= \frac{1}{f^2} \sqrt{
+    m^2 \Delta d^2 +
+    d^2 \Delta m^2
+  }
 \end{align*}
 
 
-Im Falle des grünen Filters erhalten wir
+Im Falle des grünen Filters erhalten wir mit $m = \num{3.203+-0.042}
+\operatorname{mm}^2$ mit der Brennweite $f = 160 \operatorname{mm}$ und
+dem obigen Zwischenergebnis von $d$
+
+\begin{equation}
+  \lambda_\text{G} = \num{499.1+-6.6} \operatorname{nm}
+\end{equation}
+
+Für den blauen Filter mit $m = \num{3.117 \pm 0.062} \operatorname{mm}^2$:
+
+\begin{equation}
+  \lambda_\text{B} = \num{485.7+-9.7} \operatorname{nm}
+\end{equation}
 
 
 
 \section{Endergebnis und Diskussion}
+% FIXME: Überall "Gitterkonstante" ersetzen durch "Plattenabstand"
+
+Das Endergebnis des Plattenabstandes lautet
+\begin{equation}
+  d = \num{3.989+-0.003} \operatorname{mm}
+\end{equation}
+
+Mangels Vergleichswert können wir zur Korrektheit keine Aussage machen.
+Eventuelle Fehler die durch Verschiebung des Mittelpunktes entstehen, würden
+sich bei der Ermittlung der Wellenlängen wieder herauskürzen, da bei diesen
+Radien der selbe Fehler entstünde. Daher ist auch eine korrekte Reproduktion
+der Wellenlängen kein Garant für einen gültigen Wert.
+
+Das Endergebnis der Wellenlängen lautet
+\begin{align*}
+  \lambda_\text{G} &= \num{499+-7} \operatorname{nm} \\
+  \lambda_\text{B} &= \num{490+-10} \operatorname{nm}
+\end{align*}
+
+Die Wellenlänge der grünen Linie $\lambda_\text{G}$ ist dabei mit der
+Wellenlänge der grünen $508{,}6 \operatorname{nm}$-Linie des Cadmiums
+verträglich.
+
+Die Wellenlänge der blauen Linie $\lambda_\text{B}$ ist identisch mit der
+Wellenlänge der blauen $480{,}0 \operatorname{nm}$-Linie. Sie ist aber auch
+verträglich mit der $467{,}8 \operatorname{nm}$-Linie. Während der Messung
+waren farbliche Unterschiede auszumachen, so dass wir
+wahrscheinlich beide zusammen gemessen haben.
+
 \newpage
 
 \invisiblesection{Plots}
