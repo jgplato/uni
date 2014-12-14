@@ -283,6 +283,7 @@ Und durch Taylorentwicklung
 Durch Einsetzen in die Interferenzbedingung ergibt sich
 \begin{equation}
   z = \frac{2d}{\lambda} \del{1 - \frac{r^2}{2f^2}}
+  \label{eq:ord}
 \end{equation}
 
 Mit $r \ll f$ folgt:
@@ -319,6 +320,7 @@ Mit $\lambda' = \lambda + \Delta \lambda$:
 
 \begin{equation}
   \Delta \lambda = \frac{\lambda \del{\frac{r^2 - r'^2}{2f^2}}}{1 - \frac{r^2}{2f^2}} \approx \frac{\lambda}{2f^2} \del{r^2 - r'^2}
+  \label{eq:linewidth}
 \end{equation}
 
 \subsection{Auflösungsvermögen des Fabry-Perot-Etalons}
@@ -341,6 +343,7 @@ und $I_0$ die Maximalintensität. Für die Maximalintensität ist $\sin \phi \pi
 Setzt man die Halbwertsbreite als Auflösungsvermögen an, so ergibt sich
 \begin{equation}
   \Delta \lambda = \frac{\lambda}{z} \Delta z
+  \label{eq:aufls}
 \end{equation}
 
 \newpage
@@ -357,6 +360,10 @@ Setzt man die Halbwertsbreite als Auflösungsvermögen an, so ergibt sich
 \end{enumerate}
 
 \newpage
+\invisiblesection{Durchführung und Messdaten}
+\includepdf{mess-0001.pdf}
+\includepdf{mess-0002.pdf}
+\includepdf{mess-0003.pdf}
 \section{Auswertung}
 \subsection{Aufgabe 1}
 Der Aufbau war bereits gut justiert. Die Schärfe der Ringe konnte durch
@@ -485,6 +492,69 @@ Für den blauen Filter mit $m = \num{3.117 \pm 0.062} \operatorname{mm}^2$:
   \lambda_\text{B} = \num{485.7+-9.7} \operatorname{nm}
 \end{equation}
 
+\subsection{Aufgabe 4}
+Um die Linienbreite des Interferenzmaximums zu bestimmen, nutzen wir Gleichung
+(\ref{eq:linewidth}):
+
+\begin{equation}
+  \Delta \lambda = \frac{\lambda}{2f^2} \del{r^2 - r'^2}
+\end{equation}
+
+Der Fehler ist nach Gauß und unter Vernachlässigung des Brennweitenfehlers
+(siehe oben):
+\begin{align}
+  \Delta(\Delta \lambda) &= \sqrt{
+    \del{\frac{\partial \Delta \lambda}{\partial r} \Delta r}^2 +
+    \del{\frac{\partial \Delta \lambda}{\partial r'} \Delta r'}^2
+  } \\
+  &= \sqrt{
+    \del{\frac{r \lambda}{f^2} \Delta r}^2 +
+    \del{\frac{r' \lambda}{f^2} \Delta r'}^2 +
+  } \\
+  &= \frac{\lambda}{f^2} \sqrt{
+    r^2 \Delta r^2 + r'^2 \Delta r'^2
+  }
+\end{align}
+
+Mit den Werten des Außen- und Innenradius des Interferenzmaximums (siehe
+Kalkulationstabelle) ergibt sich somit
+
+\begin{equation}
+  \Delta \lambda = \num{0.0065\pm0.0003} \operatorname{nm}
+\end{equation}
+
+Nun berechnen wir die Ordnungen der Ringe. Dazu nutzen wir (\ref{eq:ord}):
+\begin{equation}
+  z = \frac{2d}{\lambda} \del{1 - \frac{r^2}{2f^2}}
+\end{equation}
+
+Der Fehler ist (unter Vernachlässigung des Brennweitenfehlers, siehe oben):
+\begin{align}
+  \Delta z &= \sqrt{
+    \del{\frac{\partial z}{\partial r} \Delta r}^2 +
+    \del{\frac{\partial z}{\partial d} \Delta d}^2
+  } \\
+  &= \frac{2}{\lambda} \sqrt{
+    \frac{d^2 r^2}{f^4} \Delta r^2 + \del{1 - \frac{r^2}{2f^2}} \Delta d^2
+  }
+\end{align}
+
+Die Ergebnisse sind in der Kalkulationstabelle aufgeführt. Auffällig ist, dass
+die Ordnungen nicht, wie zu erwarten gewesen wäre, ganzzahlig sind. Auch
+scheinen sie nicht um den Fehler normalverteilt zu sein. Der Grund dafür war
+für uns nicht zu ermitteln.
+
+Wir berechnen nun die Halbwertsbreite aus dem angenommenen Reflexionsgrad $R =
+0{,}8$. Sie beträgt
+
+\begin{equation}
+  2 \Delta z = \frac{1 - R}{\pi \sqrt{R}} \approx 0{,}071
+\end{equation}
+
+Damit ergibt sich durch (\ref{eq:aufls}) der theoretische Wert
+\begin{equation}
+  \Delta \lambda = 0{,}0018 \operatorname{nm}
+\end{equation}
 
 
 \section{Endergebnis und Diskussion}
@@ -517,9 +587,43 @@ verträglich mit der $467{,}8 \operatorname{nm}$-Linie. Während der Messung
 waren farbliche Unterschiede auszumachen, so dass wir
 wahrscheinlich beide zusammen gemessen haben.
 
+Der Wert des Auflösungsvermögens wurde als
+\begin{equation}
+  \Delta \lambda = \num{0.0065\pm0.0003} \operatorname{nm}
+\end{equation}
+bestimmt.
+
+Der theoretische Wert
+\begin{equation}
+  \Delta \lambda = 0{,}0018 \operatorname{nm}
+\end{equation}
+
+ist wesentlich geringer.
+
+Der Grund darin liegt zum einen im optischen Aufbau. Zu beobachten war, dass
+die Linien bei kleinerer Blende schmaler wurden. Wäre die Blende beliebig klein
+einstellbar gewesen, hätten sich bessere Werte ergeben. Zum anderen führen
+Streueffekte an der Luft und die tatsächliche Linienbreite optischer Übergänge
+zu einer Verbreiterung.
+
+\section{Weiterführende Überlegungen}
+
+Einige Probleme hat das Ablesen der Millimeterschraube in der Dunkelheit
+bereitet. Dies führt zu Ablesefehlern, die wir zwar korrigieren konnten, jedoch
+wäre ein anderes Verfahren wünschenswert. Möglich wäre es, die Interferenzringe
+mit einer Kamera aufzunehmen und computergestützt auszuwerten. Zur Erkennung
+der Ringe würde sich eine Hough-Transformation anbieten, mit der der
+Mittelpunkt, Radien, Breiten und sogar eventuelle Verzerrungen erkennbar wären.
+
+Um die tatsächliche Linienbreite besser zu bestimmen müsste die Apperatur im
+Vakuum aufgestellt werden um Streueffekte an der Luft zu vermindern. Eine
+kleinere Blende würde für einen lineareren Strahlengang sorgen, allerdings auch
+die Helligkeit soweit vermindern, dass evtl. nur noch eine Langzeitbelichtung
+die Ringe sichtbar macht.
+
 \newpage
 
-\invisiblesection{Plots}
+\invisiblesection{Plots und Kalkulationstabelle}
 
 \begin{landscape}
   \input{plot-red.tex}
@@ -530,5 +634,7 @@ wahrscheinlich beide zusammen gemessen haben.
 \begin{landscape}
   \input{plot-blue.tex}
 \end{landscape}
+
+\includepdf{FAP-calc.pdf}
 
 \end{document}
