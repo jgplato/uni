@@ -356,4 +356,118 @@ Setzt man die Halbwertsbreite als Auflösungsvermögen an, so ergibt sich
     und Vergleich mit der erwarteten instrumentellen Linienbreite.
 \end{enumerate}
 
+\newpage
+\section{Auswertung}
+\subsection{Aufgabe 1}
+Der Aufbau war bereits gut justiert. Die Schärfe der Ringe konnte durch
+Einfügen einer Blende direkt vor dem Etalon nochmals gesteigert werden (siehe
+Aufbau)
+
+\subsection{Aufgabe 2}
+Um die Rechenarbeit während des Experiments gering zu halten und damit mögliche
+Rechenfehler auszuschließen, haben wir nur relative Positionen aufgenommen.
+Dazu haben wir den Bildbereich mit dem Messokolar durchfahren und dabei jeweils
+die links- und rechtsseitigen Positionen der Ringe aufgenommen um daraus dann
+später die Innen- und Außenradien zu berechnen.
+
+Der Innenradius ist dabei die halbe Differenz aus der links- und rechtsseitigen
+Innenposition. Der Außenradius analog dazu die halbe Differenz aus der links-
+und rechtsseitigen Außenposition. Da der Fehler durch die Mikrometerschraube
+bei 0{,}01 mm liegt, ergibt sich nach Gaußscher Fehlerechnung für den Innen-
+und Außenradius ein Fehler von
+
+\begin{equation}
+  \Delta r_{i,a} = \frac{\sqrt{2}}{2} \cdot 0{,}01 \operatorname{mm} = 0{,}0071
+  \operatorname{mm}
+\end{equation}
+
+Um den tatsächlichen Radius zu erhalten, berechneten wir
+\begin{equation}
+  r = \frac{r_a - r_i}{2}
+\end{equation}
+
+Der Fehler dafür beträgt dann nach Gauß
+\begin{equation}
+  \Delta r = \del{\sqrt{2}{2}}^2 \cdot 0{,}01 \operatorname{mm} = 0{,}005 \operatorname{mm}
+\end{equation}
+
+Um nun die Gitterkonstante $d$ zu bestimmen, stellen wir \ref{eq:deq} um und erhalten
+\begin{equation}
+  r_i^2 - r_0^2 = i \frac{\lambda f^2}{d}
+\end{equation}
+
+Nach Gauß ist der Fehler von $r_i^2 - r_0^2$:
+
+\begin{align*}
+  \Delta(r_i^2 - r_0^2) = \sqrt{\del{2 r_i \Delta r_i}^2 + \del{2 r_0 \Delta r_0}^2}
+\end{align*}
+
+Die Berechnungen der Werte und der Fehler finden sich in der beigelegenten
+Kalkulationstabelle.
+
+Da $\frac{\lambda f^2}{d}$ die Proportionalitätskonstante zwischen
+$r_i^2 - r_0^2$ und $i$ ist, haben wir die Wertepaare gegeneinander aufgetragen
+um durch Lineare Regression den Wert und den Fehler zu bestimmen.
+
+Wir erhalten
+\begin{equation}
+  m = \frac{\lambda f^2}{d} = \num{4.132\pm0.031} \operatorname{mm}^2
+\end{equation}
+
+Durch Umstellen ergibt sich
+\begin{equation}
+  d = \frac{\lambda f^2}{m}
+\end{equation}
+
+Der Fehler von $\lambda$ und $f$ ist hier annehmbar als eine Stelle, so dass er
+um eine Größenordnung unterhalb des Fehlers von $m$ liegt, somit
+vernachlässigbar ist. Die Gaußsche Fehlerfortpflanzung liefert somit
+
+\begin{align*}
+  \Delta d &= \envert{\frac{\partial d}{\partial m} \Delta m} \\
+           &= \frac{\lambda f^2}{m^2} \Delta m \\
+           &= \frac{d}{m} \Delta m
+\end{align*}
+
+Zusammen mit der Wellenlänge der roten Cadmium-Linie $\lambda = 643{,}9
+\operatorname{nm}$ und der Brennweite $f = 160 \operatorname{mm}$ der
+Okularlinse ergibt sich
+
+\begin{equation}
+  d = \num{3.9893+-0.0030} \operatorname{mm}
+\end{equation}
+
+\subsection{Aufgabe 3}
+
+Die Plots erstellen wir analog zu Aufgabe 2 um die Proportionalitätskonstante
+zu erhalten. Die Wellenlänge ist dann
+\begin{equation}
+  \lambda = \frac{dm}{f^2}
+\end{equation}
+
+Der Fehler ist unter Vernachlässigung des Brennweitenfehlers
+\begin{align*}
+  \Delta \lambda &=
+\end{align*}
+
+
+Im Falle des grünen Filters erhalten wir
+
+
+
+\section{Endergebnis und Diskussion}
+\newpage
+
+\invisiblesection{Plots}
+
+\begin{landscape}
+  \input{plot-red.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-green.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-blue.tex}
+\end{landscape}
+
 \end{document}
