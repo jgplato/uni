@@ -561,23 +561,22 @@ minus der Spannung die am ersten Widerstand abfällt
   U_V = U_0 - I_A R_{I,A}
 \end{equation}
 
-\subsubsection{Beispielrechnung}
+%\subsubsection{Beispielrechnung}
+%
+%% FIXME
+%Wir berechnen für die Messungen an Verbrauchern von $R_1 = 10 \, \Omega$ und
+%$R_2 = 50\,\text{k}\Omega$ die jeweiligen relativen Fehler. Wir nehmen einen
+%Innenwiderstand des Amperemeters von $R_{I,A} = 0{,}1\,\Omega$ und $R_{I,U} =
+%50\;\text{k}\Omega$ an.
+%
+%Im Fall der Stromrichtgen Messung ergibt sich der relative Spannungsfehler aus
+%dem Quotienten der angezeigten und der wahren Spannung.
+%\begin{equation}
+%  \frac{U_A}{U_W} = ?
+%\end{equation}
 
-% FIXME
-Wir berechnen für die Messungen an Verbrauchern von $R_1 = 10 \, \Omega$ und
-$R_2 = 50\,\text{k}\Omega$ die jeweiligen relativen Fehler. Wir nehmen einen
-Innenwiderstand des Amperemeters von $R_{I,A} = 0{,}1\,\Omega$ und $R_{I,U} =
-50\;\text{k}\Omega$ an.
-
-Im Fall der Stromrichtgen Messung ergibt sich der relative Spannungsfehler aus
-dem Quotienten der angezeigten und der wahren Spannung.
-\begin{equation}
-  \frac{U_A}{U_W} = ?
-\end{equation}
 
 
-
-% FIXME
 \subsection{Potentiometer}
 Ein Potentiometer ist ein einstellbarer Widerstand. Technisch betrachtet
 besteht es aus einem Widerstandsdraht bei dem ein in seiner Position
@@ -624,36 +623,120 @@ Verstärkertransistors zu regulieren, nicht die Ausgangsspannung direkt.}.
       \draw (0,0)
       to[V,v=$U_0$] (0,4)
       to[short] (2,4)
-      to[pR, n=POT] (2,0)
+      to[pR, n=POT, l_=$R_0$] (2,0)
       to[short] (0,0);
       \draw (POT.wiper) -| (4,2);
-      \draw (4,2)
-      to[voltmeter, l=$U_1$] (4,4)
-      to[short] (2,4);
+      %\draw (4,2)
+      %to[voltmeter, l=$U_1$] (4,4)
+      %to[short] (2,4);
       \draw (2,0)
       to[short] (4,0)
-      to[voltmeter, l=$U_2$] (4,2);
+      to[voltmeter, l=$R\;\,\quad U$] (4,2);
     \end{circuitikz}
     \caption{Spannungsteiler}
   \end{center}
 \end{figure}
 
-Die obige Abbildung zeigt den Aufbau. Für die Spannungen gilt nach Maschenregel
+Es sei eine Potentiometer des Gesamtwiderstands $R_0$ mit einem Voltmeter an
+der Abzweigung versehen. Der Widerstand an der Abzweigung sei $R$ (siehe
+Abbildung).
+
+Nach Maschenregel gilt
 \begin{equation}
-  U_0 = U_1 + U_2
+  U_0 = I R_0
 \end{equation}
 
-Wenn das Potentiometer einen Widerstand $R$ hat und ein Skalenwert $s =
-0\dots1$ eingestellt ist, ergeben sich die Teilwiderstände $sR$ und $(1-s)R$.
-Damit gilt für die Teilspannungen
+Dabei kann der Wiederstand $R_0$ aufgeteilt werden in den oberen Teil $R_0 - R$
+und den unteren Teil $R$, so dass wir zwei Teilspannungen erhalten. Die untere
+davon ist die gemessene Teilspannung.
 
 \begin{equation}
-  U_1 = s IR \qquad U_2 = (1-s) IR
+  U_0 = I(R_0 - R) + \underbrace{IR}_{=U}
 \end{equation}
 
-Und für das Verhältnis
+Somit
 \begin{equation}
-  \frac{U_1}{U_2} = \frac{s}{1-s}
+  U = IR
+\end{equation}
+
+Das Spannungsverhältnis ist somit
+\begin{equation}
+  \frac{U}{U_0} = \frac{R}{R_0}
+\end{equation}
+
+
+\subsubsection{Belasteter Spannungsteiler}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$U_0$] (0,4)
+      to[short] (2,4)
+      to[pR, n=POT, l_=$R_0$] (2,0)
+      to[short] (0,0);
+      \draw (POT.wiper) -| (4,2);
+      %\draw (4,2)
+      %to[voltmeter, l=$U_1$] (4,4)
+      %to[short] (2,4);
+      \draw (2,0)
+      to[short] (4,0)
+      to[R=$R\quad\;\,R_L$] (4,2);
+      \draw (4,0)
+      to[short] (6,0)
+      to[voltmeter, l=$U$] (6,2)
+      to[short] (4,2);
+    \end{circuitikz}
+    \caption{Belasteter Spannungsteiler}
+  \end{center}
+\end{figure}
+
+Beim belasteten Spannungsteiler wird zusätzlich noch ein Lastwiderstand $R_L$
+eingebracht (siehe Abbildung). Dies würde bei einem real genutzten
+Spannungsteiler einem ohmschen Verbraucher entsprechen.
+
+Zur Herleitung der Formel nutzen wir den obigen Ansatz. Allerdings ist zum
+unteren Widerstand $R$ nun ein Widerstand $R_L$ parallel geschaltet, so dass
+der Term zu ersetzen ist
+
+\begin{equation}
+  R \to \frac{1}{\frac{1}{R} + \frac{1}{R_L}}
+\end{equation}
+
+Auch in $R_0$ ist der Term zu ersetzen
+\begin{equation}
+  R_0 = (R_0 - R) + R \to \underbrace{(R_0 - R)}_{\mathclap{\text{Oberer Widerstand}}} + \underbrace{\frac{1}{\frac{1}{R} + \frac{1}{R_L}}}_{\mathclap{\text{Unterer Widerstand}}}
+\end{equation}
+
+Damit ergibt sich das Spannungsverhältnis
+
+\begin{align}
+  \frac{U}{U_0} &= \frac{\frac{1}{\frac{1}{R} + \frac{1}{R_L}}}{R_0 - R + \frac{1}{\frac{1}{R} + \frac{1}{R_L}}} \\
+                &= \frac{\frac{RR_L}{R+R_L}}{R_0 - R + \frac{RR_L}{R+R_L}} \\
+                &= \frac{R R_L}{(R_0 -R)(R + R_L) + R R_L} \\
+                &= \frac{R}{\del{\frac{R}{R_L} + 1}(R_0 - R) + R} \\
+                &= \frac{R}{R_0 \underbrace{- R + R}_{=0} + \frac{R R_0}{R_L} - \frac{R^2}{R_L}} \\
+                &= \frac{R}{R_0 + \frac{RR_0}{R_L} - \frac{R^2}{R_L}} \\
+                &= \frac{\frac{R}{R_0}}{1+\frac{R}{R_L} - \frac{R^2}{R_LR_0}} \\
+                &= \frac{\frac{R}{R_0}}{1 + \frac{R}{R_L} \del{1-\frac{R}{R_0}}} \\
+                &= \frac{\frac{R}{R_0}}{1 + \frac{R}{R_0} \del{1-\frac{R}{R_0}} \frac{R_0}{R_L}}
+\end{align}
+
+Wenn das Potentiometer eine lineare Skala $s_0$ hat und der Einstellwert $s$
+sei, dann gilt
+\begin{equation}
+  \frac{R}{R_0} = \frac{s}{s_0}
+\end{equation}
+
+Durch Einsetzen erhalten wir
+\begin{equation}
+  \frac{U}{U_0} = \frac{\frac{s}{s_0}}{1 + \frac{s}{s_0} \del{1-\frac{s}{s_0}} \frac{R_0}{R_L}}
+\end{equation}
+
+Im limes $R_L \to \infty$ erscheint wieder die Gleichung für das unbelastete
+Potentiometer
+
+\begin{equation}
+  \lim_{R_L \to \infty} \frac{U}{U_0} = \frac{R}{R_0} = \frac{s}{s_0}
 \end{equation}
 
 \subsection{Stromteiler}
@@ -696,50 +779,85 @@ nutzen, gehen wir nicht weiter darauf ein.
     \begin{circuitikz}[x=2.5cm,y=2.5cm]
     \draw
       (0,0) to[V, v=$U_0$] (0,2) -- (2,2)
-      to[R=$R_1$,*-*] (1,1)
-      to[R=$R_x$, *-*] (2,0) -- (0,0);
+      to[R=$R_1$,*-*, mirror] (1,1)
+      to[vR=$R_2$, *-*, mirror] (2,0) -- (0,0);
 
     \draw
-      (2,2) to[R=$R_2$, *-*] (3,1)
-      to[vR=$R$, *-*] (2,0);
+      (2,2) to[R=$R_3$, *-*] (3,1)
+      to[R=$R_x$, *-*] (2,0);
 
     \draw
       (1,1) to[voltmeter=$U$, *-*] (3,1);
 
-    \begin{scope}[>=latex,thick,text=black]
-    \draw[->,rounded corners=7pt]
-       (0.6,1.9) -- (1.6,1.9) --
-       (0.7,1) node[anchor=east]{$I_1$} --
-       (1.6,0.1) -- (0.5,0.1);
 
-    \draw[->]
-      (1.7,1.3)  arc(220:-50:0.4 and 0.15)
-      node[pos=0.5,above] {$I_2$};
+    %\begin{scope}[>=latex,thick,text=black]
+    %\draw[->,rounded corners=7pt]
+    %   (0.6,1.9) -- (1.6,1.9) --
+    %   (0.7,1) node[anchor=east]{$I_1$} --
+    %   (1.6,0.1) -- (0.5,0.1);
 
-    \draw[<-]
-      (1.7,0.8) arc(-220:50:0.4 and 0.15)
-      node[midway,above] {$I_3$};
-    \end{scope}
+    %\draw[->]
+    %  (1.7,1.3)  arc(220:-50:0.4 and 0.15)
+    %  node[pos=0.5,above] {$I_2$};
+
+    %\draw[<-]
+    %  (1.7,0.8) arc(-220:50:0.4 and 0.15)
+    %  node[midway,above] {$I_3$};
+    %\end{scope}
     \end{circuitikz}
     \caption{Wheatstonesche Brückenschaltung}
   \end{center}
 \end{figure}
 
-%FIXME: Widerstand R_x oben einzeichnen
 Die Wheatstonesche Brückenschaltung (siehe oben) dient zur genauen Bestimmung
 eines unbekannten Widerstandes $R_x$. Dazu wird einstellbare Widerstand $R$ so
 eingestellt, dass das Voltmeter keine Potentialdifferenz mehr anzeigt.
 
-Wenn es keine Potentialdifferenz im Voltmeter mehr gibt, könnte das Voltmeter
-durch einen Draht ersetzt werden, ohne irgendwelche Ströme oder Spannungen zu
-ändern (denn Punkte mit gleichem Potential können verbunden werden). In diesem
-Fall kann die Maschenregel angewendet werden.
+Der Strom durch die Widerstände seien jeweils so benannt, wie der Widerstand
+selber ($R_1 \to I_1$, $R_2 \to I_2$, $R_3 \to I_3$, $R_x \to I_x$). Der
+Widerstand des (nicht-idealen) Voltmeters sei $R_V$, der Strom $I_V$.
 
-% FIXME: Herleitung!!!
-Man erhält
+Unter Benutzung der Knotenregel im linken und rechten Knoten gilt
+\begin{align}
+  I_3 - I_x + I_V &= 0 \\
+  I_1 - I_2 - I_V &= 0
+\end{align}
+
+Unter Nutzung der Maschenregel für die obere und untere Masche
+\begin{align}
+  I_3R_3 - I_V R_V - I_1 R_1 &= 0 \\
+  I_xR_x - I_2 R_2 + I_V R_V &= 0
+\end{align}
+
+Wenn es keine Potentialdifferenz im Voltmeter mehr gibt, fließt auch kein Strom
+$I_V$ mehr. Damit vereinfachen sich die obigen Gleichungen zu
+
+\begin{align}
+  I_3 R_3 &= I_1 R_1 \\
+  I_x R_x &= I_2 R_2
+\end{align}
+
+Aus den Knotengleichungen folgt ebenfalls mit $I_V = 0$:
+
+\begin{align}
+  I_3 &= I_x \\
+  I_1 &= I_2
+\end{align}
+
+Somit
+
+\begin{align}
+  I_3 R_3 &= I_1 R_1 \\
+  I_3 R_x &= I_1 R_2
+\end{align}
+
+Durch teilen der beiden Gleichungen durcheinander erhält man dann
+
 \begin{equation}
-  \frac{R_1}{R_2} = \frac{R_x}{R}
+  \frac{R_x}{R_3} = \frac{R_2}{R_1}
 \end{equation}
+
+Sind alle Widerstände bekannt, kann man $R_x$ also einfach ausrechnen.
 
 \section{Aufgaben}
 
