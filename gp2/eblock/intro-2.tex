@@ -1,0 +1,230 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+Wechselstromwiderstände, Tutor: Andreas Maier
+\vspace{-10pt}
+\end{center}
+\section{Einführung}
+Ziel des Versuches ist die Untersuchung von Spulen, Kondensatoren und Ohmschen
+Widerständen in Wechselstromkreisen. Wir betrachten den Auf- und Entladevorgang
+eines Kondensators und aus Spule und Kondensator aufgebaute Hoch-, Tief- und
+Bandpässe.
+
+\section{Theoretische Grundlagen}
+
+% Weiter nach unten schieben.
+\subsection{Kirchhoffsche Regeln}
+
+\textbf{Die zweite Kirchhoffsche Regel gilt hier nicht.}
+
+Eine weiterverbreitete Fehlannahme, die auch in vielen Lehrbüchern reproduziert
+wird, ist die Behauptung, die Kirchhoffschen Regeln hätten in Stromkreisen mit
+Spulen Gültigkeit. Da wir es jedoch in diesen Stromkreisen mit zeitlich
+variablen Magnetischen Feldern zu tun haben, gilt nach 3. Maxwellschem Gesetz
+
+\begin{equation}
+  \oint\limits_{\partial A} \vec{E} \cdot \dif \vec{s} = - \iint\limits_{A} \frac{\partial \vec{B}}{\partial t} \cdot \vec{A}
+\end{equation}
+
+Die Herleitung der Maschenregel beruht darauf, dass der rechte Term
+verschwindet. Das tut er aber nicht mehr. Die Maschenregel muss daher angepasst
+werden. Dies soll anhand eines Beispiels geschehen und dann verallgemeinert
+werden. Wir betrachten wieder das Ringintegral an einem konkreten Stromkreis
+
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[battery1] (0,2)
+      to[R=$R$] (2,2)
+      to[L=$L$] (4,2)
+      to[short] (4,0)
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Beispielschaltung}
+  \end{center}
+\end{figure}
+
+Wir werten nun das Ringintegral schrittweise im Uhrzeigersinn aus.
+
+Die Spannungsquelle liefert das bereits bekannte Potential $U_0$. Dies fließt
+gegen den Uhrzeigersinn (von Plus nach Minus), ist daher negativ zu
+berücksichtigen.
+
+Über dem Widerstand fällt nach Ohmschem Gesetz eine Potentialdifferenz
+proportional zum durchfließenden Strom $I$ ab.
+
+\begin{equation}
+  U_R = IR
+\end{equation}
+
+Die Spule bestehe aus einem Draht mit vernachlässigbarem Widerstand. In der
+Spule existiert also kein elektrisches Feld. Das Integral verschwindet dort.
+
+\begin{equation}
+  U_L = 0
+\end{equation}
+
+Die linke Seite ist somit
+\begin{equation}
+  -U_0 + IR
+\end{equation}
+
+Werten wir nun den rechten Teil der 3. Maxwell-Gleichung aus. Bekannt ist,
+dass sich das Flächenintegral schreiben lässt als Zeitableitung des
+magnetischen Flusses durch die Fläche (also durch den gesammten Schaltkreis):
+
+\begin{equation}
+  \iint\limits_{A} \frac{\partial \vec{B}}{\partial t} \cdot \dif \vec{A} = \frac{\dif \Phi_B}{\dif t}
+\end{equation}
+
+Die Fläche hat nun eine Form, die sich grafisch nur schwer darstellen lässt.
+Sie ist begrenzt durch den gesamten Draht, folgt also insbesondere auch der
+Spule in einer Form, die am ehesten an eine Wendeltreppe erinnert.
+
+Zur Vereinfachung teilen wir die Flächen auf in den Teil innerhalb und
+außerhalb der Spule. Nehmen wir an, die Spule liege in einer Ebene mit dem
+Schaltkreis, so laufen die magnetischen Feldlinien gerade parallel zur Fläche
+außerhalb der Spule, so dass das Integral an dieser Stelle verschwindet.
+
+Wenn die Windungen der Spule unendlich nah zusammenrücken, lässt sich die
+``Wendeltreppe'' betrachten als mehrere übereinanderliegende Kreisflächen
+senkrecht zur Spulenachse. Der magnetische Fluss an dieser Stelle ist gerade
+proportional zum Strom $I$. Die Proportionalitätskonstante $L$ nennen wir
+Induktivität.
+
+\begin{equation}
+  \Phi_B = L I
+\end{equation}
+
+Somit ist
+
+\begin{equation}
+  \frac{\dif \Phi_B}{\dif t} = L \frac{\dif I}{\dif t}
+\end{equation}
+
+Zusammensetzen der einzelnen Teile liefert
+
+\begin{equation}
+  U_0 - IR = -L \frac{\dif I}{\dif t}
+\end{equation}
+
+Dies widerspricht der Maschenregel, denn in dieser würde der rechte Teil
+verschwinden.
+
+Führt man diese Betrachtung für mehrere Spulen durch, sieht man schnell ein,
+dass für jede Spule ein Zusatzterm der Form $U = -L \frac{\dif I}{\dif t}$
+eingefügt werden muss. Dies führt bei vielen Autoren zu der Idee, dass die
+Kirchhoffsche Regel hier doch gilt. Die Ergebnisse sind dann korrekt, weil sie
+die Fehlannahmen ``\textit{Die Kirchhoffsche Regel gilt für Spulen}'' und
+``\textit{In der Spule existiert eine Spannungsquelle}'' gegeneinander
+aufheben. Es führt aber schnell zu Widersprüchen, sobald man einzelne
+Spulenwindungen betrachtet.\footnote{Für mehr Details lohnt sich das Ansehen
+des Videos ``Kirchhoff's rule is for the birds'' von Prof. Walter Lewin
+<http://youtu.be/gJSEgANEkOo>}
+
+
+\subsection{Kondensator}
+
+% TODO: Schematische Zeichnung Kondensator
+
+Ein Kondensator ist ein elektronisches Bauteil das elektrische Ladung speichern
+kann. In der einfachsten Bauform besteht es aus zwei Platten, die durch einen
+gewissen Abstand getrennt sind, so dass sich beim Anlegen einer Spannung ein
+elektrisches Feld zwischen den Platten ausbildet.
+
+Durch das Einfügen eines Dielektrikums und beispielsweise das Ausbilden der
+Kondensatorplatten als Folien und anschließendes Aufrollen führen zum kleineren
+Bauformen. Eine Vielzahl an Materialien und Dielektrika ergeben Kondensatoren
+ganz unterschiedlicher Eigenschaften, auf deren technische Details nicht weiter
+eingegangen werden soll.
+
+Die Ladung $Q$ die sich auf den Platten aufbaut ist proportional zur angelegten
+Spannung $U$. Die für jeden Kondensator unterschiedliche
+Proportionalitätskonstante $C$ bezeichnet man als Kapazität. Je größer die
+Kapazität ist, desto mehr Ladung kann der Kondensator bei einer bestimmten
+Spannung speichern.
+
+% FIXME: Schaltzeichen und Erklärung (stellt 2 Platten dar, ...)
+
+\begin{equation}
+  Q = C U
+  \label{eq:capa}
+\end{equation}
+
+% FIXME: Hierzwischen Kirchhoffsche Regeln
+\subsection{Aufladekurve des Kondensators}
+
+% FIXME: Zeichung Aufladekurve, Entladekurve
+
+% FIXME: Schaltung
+
+Zuerst einmal müssen wir untersuchen, ob die Kirchhoffschen Regeln noch gelten,
+da wir diese nur für statische Fälle verifiziert haben. Da sich hier Spannungen
+und Ströme ändern, müssen wir sie erneut begründen.
+
+Die Knotenregel gilt hier, sofern wir nicht einzelne Platten des Kondensators
+getrennt betrachten, denn sonst gilt die Ladungserhaltung im Knoten nicht mehr
+(denn es wird Ladung im Kondensator gespeichert). Also betrachten wir nur den
+Kondensator als ganzes.
+
+Wenn wir annehmen, dass in erster Näherung keine zeitlich variablen
+Magnetfelder \textit{durch} die Oberfläche des von der betrachteten Masche
+umspannten Stromkreises fließen, gilt auch die Maschenregel. Dies ist hier
+allerdings nicht der Fall. Der sich zeitlich ändernde Strom erzeugt ein
+zeitlich variables Magnetfeld. Nehmen wir allerdings kleine Ströme
+und eine geringe Induktivität (siehe hinten) des Stromkreises an, gilt die
+Maschenregel in guter Näherung.
+
+Angenommen der Kondensator mit der Kapazität $C$ sei in Reihe mit einem
+ohmschen Widerstand $R$ an eine Spannungsquelle $U$ angeschlossen.
+
+
+
+
+
+
+
+\end{document}
