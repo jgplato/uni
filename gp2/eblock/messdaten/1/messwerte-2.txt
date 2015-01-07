@@ -1,0 +1,15 @@
+# U [V], I [mA] (Graphitstab)
+# Messbereich 1 A
+0.791 190 10
+1.273 310 10
+1.522 400 10
+1.773 440 10
+1.911 500 10
+2.242 560 10
+2.965 750 10
+3.386 880 10
+3.643 960 10
+3.984 1070 10
+4.663 1290 10
+5.304 1490 10
+# Abgebrochen wegen Geruchsbildung und Schmelzendem Graphit
