@@ -221,8 +221,94 @@ Maschenregel in guter Näherung.
 Angenommen der Kondensator mit der Kapazität $C$ sei in Reihe mit einem
 ohmschen Widerstand $R$ an eine Spannungsquelle $U$ angeschlossen.
 
+% FIXME: Schaltbild
+
+Dann gilt hier gemäß der Maschenregel (mit obiger Begründung)
+
+\begin{equation}
+  U_0 = U_R + U_C
+\end{equation}
+
+Die Spannung am Kondensator ergibt sich aus der Kapazitätsgleichung
+(\ref{eq:capa}) als $U_C = \frac{Q}{C}$. Die Spannung am Widerstand aus dem
+Ohmschen Gesetz als $U_R = IR$. Damit folgt
 
 
+\begin{equation}
+  U_0 = R I  + \frac{Q}{C}
+\end{equation}
+
+Da der Strom die zeitliche Änderung der Ladung ist ($I = \frac{\dif Q}{\dif
+t}$) ergibt sich damit für die Ladung am Kondensator inhomogene
+Differentialgleichung 1. Ordnung in der Zeit.
+
+\begin{equation}
+  U_0 = R \frac{\dif Q}{\dif t} + \frac{Q}{C}
+\end{equation}
+
+Diese Lösen wir durch Separation der Variablen. Wer gehen von einer
+zeitunabhängigen Spannung $U_0$ aus und erhalten
+
+\begin{equation}
+  \int \dif t \frac{1}{R} = \int \dif Q \frac{1}{U_0 - \frac{Q}{C}}
+\end{equation}
+
+Mit der Substitution $f = U_0 - \frac{Q}{C}$ und damit $\dif Q = -C \dif f$ im
+linken Integral:
+
+\begin{equation}
+  \int \dif t \frac{1}{R} = -C \int \dif f \frac{1}{f}
+\end{equation}
+
+Integration und gleichzeitiges additives Zusammenfassen der
+Integrationskonstanten zu $k$:
+
+\begin{align*}
+  &\frac{t}{R} = -C \ln(f) + k \\
+  \Leftrightarrow\quad&
+  \frac{t}{R} = -C \ln\del{U_0 - \frac{Q}{C}} + k \\
+  \Leftrightarrow\quad&
+  -\frac{t}{RC} = \ln\del{U_0 - \frac{Q}{C}} - \frac{k}{C} \\
+  \Leftrightarrow\quad&
+  \frac{k}{C}-\frac{t}{RC} = \ln\del{U_0 - \frac{Q}{C}} \\
+  \Leftrightarrow\quad&
+  \underbrace{\exp\del{\frac{k}{C}}}_{=: k'} \exp \del{-\frac{t}{RC}} = U_0 - \frac{Q}{C} \\
+  \Leftrightarrow\quad&
+  \frac{Q}{C} = U_0 - k' \exp \del{-\frac{t}{RC}}
+\end{align*}
+
+Da $\frac{Q}{C}$ die Spannung am Kondensator ist, erhalten wir
+
+\begin{equation}
+  U_C(t) = U_0 - k' \exp \del{-\frac{t}{RC}}
+\end{equation}
+
+Um die Integrationskonstante zu bestimmen, beginnen wir mit einem vollständig
+entladenen Kondensator ($U_C(0) = 0$). Durch Einsetzen erhalten wir direkt
+
+\begin{equation}
+  0 = U_0 - k' \quad \Rightarrow \quad k' = U_0
+\end{equation}
+
+Dann ist die Gleichung für die \textit{Aufladekurve} in ihrer bekannten Form
+
+\begin{equation}
+  U_C(t) = U_0 \del{1 - e^{-\frac{t}{RC}}}
+\end{equation}
+
+Für die Entladekurve gehen wir einfach von $U_0 = 0$ aus, während am
+Kondensator eine Anfangsspannung $U_C(0) = U_C > 0$ anliegt. Dann erhalten wir
+\begin{equation}
+  U_C = 0 - k' \quad \Rightarrow k' = U_C
+\end{equation}
+
+Und somit die \textit{Entladekurve}
+
+\begin{equation}
+  U_C(t) = U_C \; e^{-\frac{t}{RC}}
+\end{equation}
+
+% FIXME: Plots, Interpretiation
 
 
 
