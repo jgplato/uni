@@ -187,32 +187,25 @@ Proportionalitätskonstante $C$ bezeichnet man als Kapazität. Je größer die
 Kapazität ist, desto mehr Ladung kann der Kondensator bei einer bestimmten
 Spannung speichern.
 
-% FIXME: Schaltzeichen und Erklärung (stellt 2 Platten dar, ...)
-
 \begin{equation}
   Q = C U
   \label{eq:capa}
 \end{equation}
 
-% FIXME: Hierzwischen Kirchhoffsche Regeln
-\subsection{Auf- und Entladekurve des Kondensators}
-
 \begin{figure}[H]
   \begin{center}
-    \begin{tikzpicture}[domain=0:8]
-        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
-        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$t$};
-        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U/U_0$};
-        \draw plot[id=auf] function{4*(1-exp(-x))}
-            node[below] {Aufladung};
-        \draw plot[id=ent] function{4*exp(-x)}
-            node[above] {Entladung};
-    \end{tikzpicture}
-    \caption{Auf- und Entladekurve des Kondensators}
+    \begin{circuitikz}
+      \draw (0,0) to[C] (2,0);
+    \end{circuitikz}
+    \caption{Schaltzeichen des Kondensators}
   \end{center}
 \end{figure}
 
-% FIXME: Schaltung
+Das Schaltzeichen des Kondensators ist oben abgedruckt. Es zeigt stilisiert die
+beiden Platten des Kondensators.
+
+% FIXME: Hierzwischen Kirchhoffsche Regeln
+\subsection{Auf- und Entladekurve des Kondensators}
 
 Zuerst einmal müssen wir untersuchen, ob die Kirchhoffschen Regeln noch gelten,
 da wir diese nur für statische Fälle verifiziert haben. Da sich hier Spannungen
@@ -234,7 +227,19 @@ Maschenregel in guter Näherung.
 Angenommen der Kondensator mit der Kapazität $C$ sei in Reihe mit einem
 ohmschen Widerstand $R$ an eine Spannungsquelle $U$ angeschlossen.
 
-% FIXME: Schaltbild
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[battery1=$U_0$] (0,2)
+      to[R=$R$] (2,2)
+      to[C=$C$] (4,2)
+      to[short] (4,0)
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Beispielschaltung}
+  \end{center}
+\end{figure}
 
 Dann gilt hier gemäß der Maschenregel (mit obiger Begründung)
 
@@ -321,8 +326,25 @@ Und somit die \textit{Entladekurve}
   U_C(t) = U_C \; e^{-\frac{t}{RC}}
 \end{equation}
 
-% FIXME: Plots, Interpretiation
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$t$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U/U_0$};
+        \draw plot[id=auf] function{4*(1-exp(-x))}
+            node[below] {Aufladung};
+        \draw plot[id=ent] function{4*exp(-x)}
+            node[above] {Entladung};
+    \end{tikzpicture}
+    \caption{Auf- und Entladekurve des Kondensators}
+  \end{center}
+\end{figure}
 
+Man kann die Zeitkonstante $\tau = \frac{1}{RC}$ definieren. Sie gibt an, wie
+schnell eine bestimmte Aufladespannung erreicht wird, bzw. wie schnell die
+Entladung erfolgt. Je größer Kapazität und Widerstand sind, desto langsamer
+erfolgen Auf- und Entladung.
 
 
 
