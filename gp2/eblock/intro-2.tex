@@ -195,9 +195,22 @@ Spannung speichern.
 \end{equation}
 
 % FIXME: Hierzwischen Kirchhoffsche Regeln
-\subsection{Aufladekurve des Kondensators}
+\subsection{Auf- und Entladekurve des Kondensators}
 
-% FIXME: Zeichung Aufladekurve, Entladekurve
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$t$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U/U_0$};
+        \draw plot[id=auf] function{4*(1-exp(-x))}
+            node[below] {Aufladung};
+        \draw plot[id=ent] function{4*exp(-x)}
+            node[above] {Entladung};
+    \end{tikzpicture}
+    \caption{Auf- und Entladekurve des Kondensators}
+  \end{center}
+\end{figure}
 
 % FIXME: Schaltung
 
