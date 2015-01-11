@@ -161,6 +161,7 @@ Zusammensetzen der einzelnen Teile liefert
 
 \begin{equation}
   U_0 - IR = -L \frac{\dif I}{\dif t}
+  \label{eq:ind}
 \end{equation}
 
 Dies widerspricht der Maschenregel, denn in dieser würde der rechte Teil
@@ -358,6 +359,247 @@ schnell eine bestimmte Aufladespannung erreicht wird, bzw. wie schnell die
 Entladung erfolgt. Je größer Kapazität und Widerstand sind, desto langsamer
 erfolgen Auf- und Entladung.
 
+\subsection{Wechselstromkreise}
 
+Widerständen, Spulen und Kondensatoren im Schaltkreis lassen sich Terme
+zuordnen, die das Verhältnis zwischen abfallender Spannung und fließendem Strom
+angeben. Für den Widerstand gilt das Ohmsche Gesetz ($R = \frac{U}{I}$).  Die
+Gleichung für den Kondensator gilt über die Zeitableitung von (\ref{eq:capa})
+und mit $I := \frac{\dif Q}{\dif t}$. Die Gleichung für die Spule erhält man
+durch die Identifizierung der rechten Seite von (\ref{eq:ind}) mit einer
+Spannung. Die Terme sind negativ, weil wir jeweils Spannungsabfälle an den
+Bauteilen betrachten, wie weiter unten ausgeführt wird.
+
+\begin{align}
+  \text{Widerstand:}  \qquad & U_R = -R I_R \\
+  \text{Kondensator:} \qquad & I_C = -C \frac{\dif U_C}{\dif t} \\
+  \text{Spule:}       \qquad & U_L = -L \frac{\dif I_L}{\dif t}
+\end{align}
+
+Im Folgenden wollen wir nun cosinusförmige Wechselspannungen betrachten. Dabei
+wird die Spannung zeitabhängig in der Form
+\begin{equation}
+  U(t) = U_0 \cos \omega t
+\end{equation}
+
+Aufgrund der Homogenität der Zeit betrachten wir keine Phasenverschiebung der
+Spannung.
+
+Man sieht jetzt, dass sich durch obige Gleichungen je nach Wahl des Bauteiles
+Phasenverschiebungen zwischen Strom und Spannung ergeben. Am Widerstand tritt
+keine Phasenverschiebung auf. Beim Kondensator erhält man durch Bildung der
+Zeitableitung
+
+\begin{equation}
+  I_C = U_0 C \omega \sin(\omega t) = U_0 C \omega \cos \del{\omega t + \frac{\pi}{2}}
+\end{equation}
+
+Der Stromfluss am Kondensator ist also um eine Phase $\phi = 90^\circ$
+verschoben. Die Größe des Stroms hängt dabei nicht nur von der Kapazität $C$
+und der Spannung $U_0$ ab, sondern auch von der (Kreis-)Frequenz $\omega$ des
+Wechselstroms.
+
+Bei der Spule muss integriert werden:
+
+\begin{align}
+  U_0 \int \dif t \; \cos(\omega t) &= -L I_L \\
+  U_0 \frac{1}{\omega} \sin(\omega t) &= -L I_L \\
+  I_L &= -\frac{U_0}{\omega L} \sin(\omega t) \\
+  I_L &= \frac{U_0}{\omega L} \cos \del{\omega t - \frac{\pi}{2}}
+\end{align}
+
+Hier hängt der Stromfluss vom \textit{Inversen} der Frequenz $\omega$ ab, auf
+die Induktivität geht invers ein. Die Phasenverschiebung beträgt $\phi =
+-90^\circ$.
+
+\subsection{Impedanz}
+
+Man kann nun wieder den Widerstand als Verhältnis von Spannung und Strom
+betrachten, allerdings hat dieser nun zwei Komponenten, nämlich die Größe und
+die Phasenverschiebung. Um beide zu erfassen, ordnet man dem Widerstand eine
+komplexe Zahl zu und nennt ihn nun \textit{Impedanz}.
+
+\begin{equation}
+  Z := \frac{U}{I}
+\end{equation}
+
+Aus den obigen Herleitungen ergeben sich die folgenden Impedanzen:
+
+\begin{align}
+  \text{Widerstand:}  \qquad & Z_R = R \\
+  \text{Kondensator:} \qquad & Z_C = -\frac{i}{\omega C} \\
+  \text{Spule:}       \qquad & Z_L = i \omega L
+\end{align}
+
+Grenzwertbetrachtungen des Betrages $\envert{Z}$ mit $\omega \to 0$ liefern das
+Verhalten im Falle von Gleichstrom, nämlich einen unendlich großen Widerstand
+des Kondensators bzw.  eine leitende Spule.
+
+Analog zu Widerstandsnetzwerken kann nun mit den Impedanzen gerechnet werden,
+um Gesamtipedanzen zu erhalten. In der Reihenschaltung werden die Impedanzen
+addiert, in der Parallelschaltung ergibt sich das Inverse der Gesamtimpedanz
+als das Inverse ihrer Summen:
+
+\begin{align}
+  \text{Reihenschaltung:}   \qquad & Z = \sum_n Z_n\\
+  \text{Parallelschaltung:} \qquad & \frac{1}{Z} = \sum_n \frac{1}{Z_n}
+\end{align}
+
+Die Phasenverschiebung ergibt sich durch Umrechnen der komplexen Zahl in ihre
+Polardarstellung.
+
+\subsection{Filter}
+Die Frequenzabhängigkeit der Impedanz kann man sich zunutze machen, um
+bestimmte Frequenzen auszufiltern. Der einfachste Anwendungsfall ist die
+Glättung der Eingangsspannung eines elektronischen Geräts. Durch die
+Parallelschaltung eines Kondensators zur Eingangsspannung werden hohe
+Frequenzen kurzgeschlossen, durch die Reihenschaltung einer Spule in die
+Eingangsspannung Wechselströme verringert (sog. Drossel).
+
+Analog kann man Kondensatoren in Reihe schalten, um niedrige Frequenzen zu
+blockieren, bzw. Spulen parallel, um niedrige Frequenzen kurzzuschließen.
+
+In Kombination mit Widerständen lassen sich so verschiedene Filter aufbauen,
+die wir im folgenden vorstellen und berechnen wollen.
+
+\subsubsection{Hochpass}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[vsourcesin=$U_0$] (0,4)
+      to[short] (2,4)
+      to[C=$C$] (2,2)
+      to[R=$R\qquad\; U_R$] (2,0)
+      to[short] (0,0);
+      \draw (2,2) to[short] (4,2);
+      \draw node[ocirc] (A) at (4,2) {};
+      \draw (2,0) to[short] (4,0);
+      \draw node[ocirc] (B) at (4,0) {};
+    \end{circuitikz}
+    \caption{Schaltung des Hochpasses}
+  \end{center}
+\end{figure}
+
+Der Widerstand $R$ simuliert einen Verbraucher. In Reihe dazu ist ein
+Kondensator $C$ angeschlossen. Der Kreis wird von einem Frequenzgenerator mit
+einstellbarer Frequenz mit Spannung versorgt.
+
+Die Gesamtimpedanz der Reihenschaltung aus Kondensator und Widerstand ist
+
+\begin{equation}
+  Z = R - \frac{i}{\omega C}
+\end{equation}
+
+Um die Ausgangsspannung abhängig von der Frequenz zu erhalten, benutzen wir die
+Spannungsteilerformel. Da uns die Phasenverschiebung vorerst nicht
+interessiert, nutzen wir die Beträge.
+
+\begin{equation}
+  \frac{U_R}{U_0} = \frac{R}{|Z|} = \frac{R}{\sqrt{R^2 + \frac{1}{\omega^2 C^2}}}
+\end{equation}
+
+Zu erwarten ist also folgender Kurvenverlauf
+
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$\omega$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U_R/U_0$};
+        \draw plot[id=hochpass,samples=120] function{3/sqrt(0.5+1/x)}
+            node[below] {Hochpass};
+    \end{tikzpicture}
+    \caption{Frequenzgang des Hochpasses}
+  \end{center}
+\end{figure}
+
+\subsubsection{Tiefpass}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[vsourcesin=$U_0$] (0,4)
+      to[short] (2,4)
+      to[L=$L$] (2,2)
+      to[R=$R\qquad\; U_R$] (2,0)
+      to[short] (0,0);
+      \draw (2,2) to[short] (4,2);
+      \draw node[ocirc] (A) at (4,2) {};
+      \draw (2,0) to[short] (4,0);
+      \draw node[ocirc] (B) at (4,0) {};
+    \end{circuitikz}
+    \caption{Schaltung des Tiefpasses}
+  \end{center}
+\end{figure}
+
+Durch Ersetzen des Kondensators durch eine Spule lässt sich ein Tiefpass
+aufbauen. Die Rechnung ist völlig analog und liefert
+
+
+\begin{equation}
+  \frac{U_R}{U_0} = \frac{R}{|Z|} = \frac{R}{\sqrt{R^2 + \omega^2 L^2}}
+\end{equation}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$\omega$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U_R/U_0$};
+        \draw plot[id=tiefpass,samples=120] function{3/sqrt(0.5+6*x)}
+            node[above] {Tiefpass};
+    \end{tikzpicture}
+    \caption{Frequenzgang des Tiefpasses}
+  \end{center}
+\end{figure}
+
+\subsubsection{Bandpass}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[vsourcesin=$U_0$] (0,6)
+      to[short] (2,6)
+      to[L=$L$] (2,4)
+      to[C=$C$] (2,2)
+      to[R=$R\qquad\; U_R$] (2,0)
+      to[short] (0,0);
+      \draw (2,2) to[short] (4,2);
+      \draw node[ocirc] (A) at (4,2) {};
+      \draw (2,0) to[short] (4,0);
+      \draw node[ocirc] (B) at (4,0) {};
+    \end{circuitikz}
+    \caption{Schaltung des Bandpasses}
+  \end{center}
+\end{figure}
+
+Setzt man nun einen Kondensator und eine Spule ein, erhält man (Rechnung
+ebenfalls analog) einen Bandpass.
+
+
+\begin{equation}
+  \frac{U_R}{U_0} = \frac{R}{|Z|} = \frac{R}{\sqrt{R^2 + \del{\omega L - \frac{1}{\omega C}}^2}}
+\end{equation}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{tikzpicture}[domain=0:8]
+        \draw[very thin,color=gray] (-0.1,-0.1) grid (7.9,3.9);
+        \draw[->] (-0.2,0) -- (8.2,0) node[right] {$\omega$};
+        \draw[->] (0,-0.2) -- (0,4.2) node[above] {$U_R/U_0$};
+        \draw plot[id=bandpass,samples=120] function{3/sqrt(0.5+(x-1/x)**2)}
+            node[above] {Bandpass};
+    \end{tikzpicture}
+    \caption{Frequenzgang des Bandpasses}
+  \end{center}
+\end{figure}
+
+Man sieht hier, dass der Bandpass eine Maximalfrequenz aufweist, die besonders
+gut durchgelassen wird. Diese nennt man die Resonanzfrequenz. Man könnte sie
+durch Ableiten und Nullsetzen der Gleichung erhalten. Da die Auswertung des
+Bandpasses sowieso nicht Teil der Aufgabenstellung ist, belassen wir es dabei.
 
 \end{document}
