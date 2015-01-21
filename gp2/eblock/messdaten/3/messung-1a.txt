@@ -1,0 +1,8 @@
+# Kennlinie der Diode, Spannungsrichtig, Durchlassrichtung
+# R = 180 Ohm
+# U [V], Fehler U, I [mA], Fehler I
+
+0.760 0.001 36.2   0.1
+0.768 0.001 43.7   0.1
+0.776 0.001 51.6   0.1
+

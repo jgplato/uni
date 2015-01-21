@@ -1,0 +1,17 @@
+# Kennlinie der Diode, Stromrichtig, Durchlassrichtung
+# R = 180 Ohm
+# U [V], Fehler U, I [mA], Fehler I, Innenwiderstand Messgerät, Fehler
+
+0.299 0.001  0.0003 0.0001   1027  10
+0.567 0.001  0.0794 0.0001   1027  10
+0.665 0.001  0.792  0.001    100.4 0.2 # Messbereichswechsel VC220 200 uA -> 2mA
+0.757 0.001  1.430  0.001    100.4 0.2
+0.660 0.001  2.33   0.01     10.6  0.1 # Messbereichswechsel VC220 2mA -> 20 mA
+0.704 0.001  4.08   0.01     10.6  0.1
+0.767 0.001  7.42   0.01     10.6  0.1
+0.884 0.001 15.35   0.01     10.6  0.1
+0.772 0.001 22.3    0.1      1.5   0.1 # Messbereichswechsel 20 mA -> 200 mA
+0.787 0.001 27.0    0.1      1.5   0.1
+0.809 0.001 34.5    0.1      1.5   0.1
+0.862 0.001 55.7    0.1      1.5   0.1
+
