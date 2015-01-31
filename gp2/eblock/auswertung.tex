@@ -185,6 +185,47 @@ Shockley-Gleichung). Da die Gleichung selber $U$-Werte von unendlich erreicht,
 ergibt die senkrechte Projektion auf die x-Achse auch einen unendlichen Wert.
 Der differentielle Widerstand wird ebenfalls unendlich. Um dennoch eine
 Schwellenspannung und einen entsprechenden Fehler zu berechnen, führe ich eine
-lineare Regression auf den letzten 5 Messwerten durch (siehe Plot).
+lineare Regression auf den letzten 5 Messwerten durch (siehe Plot). Dazu nutze
+ich die Werte der spannungrichtigen Messung.
+
+Durch Ablesen der Projektion auf die x-Achse ergibt sich eine Schwellenspannung
+von
+
+\begin{equation}
+  U_S = \num{0.72+-0.03} \text{V}
+\end{equation}
+
+Eine andere Definition der Schwellenspannung ist die Spannung, bei der der
+Strom 1 mA erreicht. Auch dies lässt sich ablesen und führt auf eine
+Schwellenspannung von
+\begin{equation}
+  U_S = \num{0.60\pm0.01} \text{V}
+\end{equation}
+
+Die beiden Werte sind nicht verträglich. Dies liegt daran, dass die
+Schwellenspannung messabhängig definiert ist.
+
+Die Berechnung eines differentiellen Widerstands ist ebenso messabhängig. Er
+ergibt sich aus der Steigung der Regressionsgerade. Diese ist nach Rundung
+
+\begin{equation}
+  1/R_D = \num{990\pm590} / k \Omega
+\end{equation}
+
+Den Widerstand erhält man durch Bildung des Inversen. Der Fehler ist dann
+$\Delta R_D = \frac{\Delta(1/R_D)}{R_D^2}$.
+
+Das Endergebnis lautet
+\begin{equation}
+  R_D = \num{1.0+-0.6} \,\Omega
+\end{equation}
+
+Die geringe Genauigkeit liegt in der messabhängigen Definition der
+Schwellenspannung begründet.
+
+Zusatzaufgabe: Nicht bearbeitet.
+
+
+
 
 \end{document}
