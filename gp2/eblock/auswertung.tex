@@ -1,0 +1,190 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage{pdfpages}
+
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+%\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
+\usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
+
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% New command for color underlining
+\usepackage{xcolor}
+
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+\begin{center}
+\bfseries % Fettdruck einschalten
+\sffamily % Serifenlose Schrift
+\vspace{-40pt}
+Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
+
+Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
+
+E-Block, Tutor: Andreas Maier
+\vspace{-10pt}
+\end{center}
+\section{Auswertung}
+
+\subsection{Aufgaben}
+\begin{enumerate}
+  \item \textbf{Lade-/Entladekurve Kondensator}
+    \begin{enumerate}
+      \item  Bestimmung der Zeitkonstanten und Kapazität des Kondensators und
+        Vergleich mit den berechneten Werten
+      \item Diskussion des Einflusses der Frequenz der Rechteckspannung auf die
+        Lade-/Entladekurven
+    \end{enumerate}
+  \item \textbf{Diode}
+    \begin{enumerate}
+      \item Bestimmung der Schwellenspannung sowie des (differentiellen)
+        Wiederstandes im Durchlassbereich
+      \item Zusatzaufgabe: Bestimmung des Idealitätsfaktors $n$ bei einer
+        Temperatur von $20\,^\circ C$.
+    \end{enumerate}
+  \item \textbf{Transistor}
+    \begin{enumerate}
+      \item Bestimmung des differentiellen Ausgangswiderstandes im
+        Durchlassbereich für Basisströme von 30, 60, 90 und 120 $\mu$A
+      \item Bestimmung des Arbeits- und Vorwiderstands aus dem aufgenommenen
+        Kannlinienfeld für einer Verstärkerschaltung bei $U_\text{CE} = 6
+        \text{V}$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Lade-/Entladekurve des Kondensators}
+
+Umstellen und Logarithmieren der Auf- und Entladekurve führt zu den
+linearisierten Messgleichungen
+
+\begin{equation}
+  \ln \frac{U_C}{U_0} = -\frac{t}{RC} \qquad \text{(Entladekurve)}
+\end{equation}
+
+und
+
+\begin{equation}
+  \ln \del{1 - \frac{U_C}{U_0}} = -\frac{t}{RC} \qquad \text{(Aufladekurve)}
+\end{equation}
+
+eine entsprechende logarithmische Auftragung und linearer Fit (siehe Plot)
+liefert direkt die Zeitkonstanten (Aufladung und Entladung)
+
+\begin{equation}
+  \tau = \num{1.65+-0.11} \; \text{ms}
+\end{equation}
+
+und
+
+\begin{equation}
+  \tau = \num{1.722+-0.065} \; \text{ms}
+\end{equation}
+
+Die beiden Werte sind verträglich. Das Endergebnis der Zeitkonstante ergibt
+sich als Mittelung $(a+b)/2$ und dem Fehler (per Gauß) $\Delta = \sqrt{\Delta
+a^2 + \Delta b^2}/2$.
+
+\begin{equation}
+  \tau = \num{1.69\pm0.07} \; \text{ms}
+\end{equation}
+
+Der theoretische Wert der Zeitkonstante ist $\tau =
+\num{18.0+-0.9}\,\text{k}\Omega \cdot 0{,}1\,\mathrm{\mu} \text{F} =
+\num{1.8+-0.9} \, \text{ms}$. Der Widerstand wurde nicht gemessen, eine
+Minimalabschätzung des Fehlers ergibt sich aus ergibt sich aus der bei
+Kohleschichtwiderständen üblichen Fertigungstoleranz von 5 \%. Der Fehler des
+Kondensators ist unbekannt, wird daher aufgrund der Minimalabschätzung
+vernachlässigt.
+
+Der experimentell ermittelte Wert der Zeitkonstante ist mit dem theoretischen
+Wert identisch.
+
+Zur Bestimmung der Frequenz des Kondensators wird einfach durch den Widerstand
+geteilt. Es gilt
+
+\begin{equation}
+  C = \frac{\tau}{R}
+\end{equation}
+
+mit dem Fehler
+\begin{equation}
+  \Delta C = \sqrt{
+    \del{\frac{\partial C}{\partial R} \Delta R}^2 +
+    \del{\frac{\partial C}{\partial \tau} \Delta \tau}^2
+  }
+  = \sqrt{
+    \frac{\tau^2 \Delta R^2}{R^4} + \frac{\Delta \tau^2}{R^2}
+  }
+\end{equation}
+
+Somit ist die Kapazität (als Endergebnis):
+\begin{equation}
+  C = \num{0.094+-0.007} \;\mu\text{F}
+\end{equation}
+
+Der Wert ist mit dem angegebenen Wert von $C = 0{,}01 \; \mu\text{F}$
+identisch. Er zeigt außerdem, dass die Toleranzabschätzung von 5 \% korrekt
+war.
+
+Die Frequenz der Rechteckspannung hat einen Einfluss auf die
+Lade/Entladekurve. Bei der verwendeten Frequenz von 50 Hz scheinen noch keine
+Auswirkungen aufzutreten, wie die Übereinstimmung der experimentellen Resultate
+mit den theoretischen Werten zeigen, jedoch kommen folgende Möglichkeiten in
+Frage.
+
+Abschwächung der End/Anfangsspannung: Ist die Periode geringer, wird der
+Kondensator nicht lange genug geladen um sich der Endspannung anzunähern. Man
+kann dann Spannung beim Phasenwechsel nicht mehr als näherungsweise $U_0$
+betrachten. Dies würde zu einem systematischen Fehler führen, sofern man nicht
+Endspannung und $U_0$ am Oszilloskop vergleicht. Da beiden Spannungen
+gleichzeitig betrachtet werden müssen, nimmt dann jedoch die Spannung am
+Kondensator einen geringeren Platz auf dem Oszilloskop ein, was die
+Ablesegenauigkeit verringert.
+
+Hochfrequenzeffekte: Bei höheren Frequenzen treten möglicherweise
+Hochfrequenzeffekte auf. Zu berüchsichtigen wäre die Induktivität der
+Verbindungskabel, die Repolarisationszeit des Dielektrikums des Kondensators
+und eventuelle Phasenverschiebungen (lässt sich theoretisch eventuell durch
+Entwicklung des Rechtecksignals in eine Fourierreihe und dann Behandlung der
+einzelnen Frequenzen im Rahmen der komplexen Wechselstromrechnung), sowie
+Reflektionen an Kabeln etc. Da diese Themen den Umfang des Grundpraktikums
+übersteigen, werde ich darauf nicht weiter eingehen.
+
+\subsection{Diode}
+
+Die Schwellenspannung ergibt sich durch Verlängerung des scheinbar geradlinigen
+Teils der Kennlinie. Da die Kennlinie der Shockley-Gleichung entspricht,
+existiert die Schwellspannung mathematisch überhaupt nicht. Die Steigung geht
+gegen 1 (ersichtlich durch Grenzwertbildung der Ableitung der
+Shockley-Gleichung). Da die Gleichung selber $U$-Werte von unendlich erreicht,
+ergibt die senkrechte Projektion auf die x-Achse auch einen unendlichen Wert.
+Der differentielle Widerstand wird ebenfalls unendlich. Um dennoch eine
+Schwellenspannung und einen entsprechenden Fehler zu berechnen, führe ich eine
+lineare Regression auf den letzten 5 Messwerten durch (siehe Plot).
+
+\end{document}
