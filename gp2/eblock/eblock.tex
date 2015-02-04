@@ -24,6 +24,7 @@
 \sisetup{separate-uncertainty=true,locale=DE}
 \usepackage{tikz}
 \usepackage[europeanresistors]{circuitikz}
+\usepackage{import}
 
 % http://tex.stackexchange.com/questions/38818/best-way-to-denote-an-angle-in-tikz
 \newcommand\markangle[6][red]{% [color] {X} {origin} {Y} {mark} {radius}
@@ -73,13 +74,23 @@
 \end{titlepage}
 
 \input{intro-1.tex}
+\newpage
 \input{intro-2.tex}
+\newpage
 \input{intro-3.tex}
+\newpage
 \input{intro-4.tex}
+\newpage
 \input{auswertung.tex}
-\input{messwerte/2/render-plot.tex}
-\input{messwerte/3/render-plot.tex}
-\input{messwerte/4/render-plot.tex}
+\newpage
+\invisiblesection{Plots}
+\subimport{messdaten/2/}{render-plot.tex}
+\newpage
+%\subimport{messdaten/3/}{render-plot.tex}
+%\newpage
+\subimport{messdaten/4/}{render-plot.tex}
+\newpage
+\invisiblesection{Messprotokolle und im Praktikum angefertigte Plots}
 
 
 \end{document}
