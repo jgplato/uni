@@ -226,7 +226,30 @@ Schwellenspannung begründet.
 
 Zusatzaufgabe: Nicht bearbeitet.
 
+\subsection{Transistor}
 
+% FIXME: a) Fehlt
+
+Zur Bestimmung des Gleichstromverstärkungsfaktors wurde eine lineare Regression
+gegen die Übertragungskennlinie (siehe Plot 4) durchgeführt. Da offenbar eine
+Nullpunktverschiebung besteht (wahrscheinlich aufgrund von Strömen durch die
+Messgeräte), wurde diese als systematischer Fehler $I_0$ berücksichtigt.
+
+Da die Achsen gemäß des Kennlinienfeldes orientiert sind, der
+Gleichstromverstärkungsfaktor jedoch definiert ist also $B = \frac{I_C}{I_B}$
+ergibt sich zunächst der inverse Faktor
+
+\begin{equation}
+  \frac{1}{B} = (\num{0.2318+-0.0047}) \cdot 10^{-3}
+\end{equation}
+
+Durch Bildung des Inversen und mit dem Fehler $\Delta B =
+\frac{\Delta(1/B)}{B^2}$ erhält man den Gleichstromverstärkungsfaktor als
+Endergebnis:
+
+\begin{equation}
+  B = \num{4314.1+-0.3}
+\end{equation}
 
 
 \end{document}
