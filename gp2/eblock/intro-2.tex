@@ -1,57 +1,8 @@
-\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{babel}
-\usepackage{geometry}
-\usepackage[fleqn]{amsmath}
-\usepackage{amssymb}
-\usepackage{float}
-\usepackage{enumerate}
-\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
-\usepackage{cancel}
-
-\usepackage[fleqn]{mathtools}
-% Number only referenced equations
-%\mathtoolsset{showonlyrefs}
-
-%\usepackage{wrapfig}
-\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
-\usepackage{tikz}
-\usepackage[europeanresistors]{circuitikz}
-
-% New command for color underlining
-\usepackage{xcolor}
-
-\newsavebox\MBox
-\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
-  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
-
-\restylefloat{table}
-\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
-\linespread{1.5}
-\setlength\parindent{0pt}
-\DeclareMathOperator{\Tr}{Tr}
-\DeclareMathOperator{\Var}{Var}
-\begin{document}
-\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
-\begin{center}
-\bfseries % Fettdruck einschalten
-\sffamily % Serifenlose Schrift
-\vspace{-40pt}
-Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
-
-Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
-
-Wechselstromwiderstände, Tutor: Andreas Maier
-\vspace{-10pt}
-\end{center}
-\section{Einführung}
+\section{Wechselstromwiderstände}
 Ziel des Versuches ist die Untersuchung von Spulen, Kondensatoren und Ohmschen
 Widerständen in Wechselstromkreisen. Wir betrachten den Auf- und Entladevorgang
 eines Kondensators und aus Spule und Kondensator aufgebaute Hoch-, Tief- und
 Bandpässe.
-
-\section{Theoretische Grundlagen}
 
 \subsection{Spule und Induktivität}
 
@@ -602,11 +553,9 @@ gut durchgelassen wird. Diese nennt man die Resonanzfrequenz. Man könnte sie
 durch Ableiten und Nullsetzen der Gleichung erhalten. Da die Auswertung des
 Bandpasses sowieso nicht Teil der Aufgabenstellung ist, belassen wir es dabei.
 
-\section{Aufgaben}
+\subsection{Aufgaben}
 
 \begin{enumerate}
   \item Messung der Auf- und Entladekurve des Kondensators
   \item Messung des Frequenzganges eines Hoch-, Tief- und Bandpasses.
 \end{enumerate}
-
-\end{document}

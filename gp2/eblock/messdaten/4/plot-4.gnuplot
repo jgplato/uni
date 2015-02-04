@@ -2,6 +2,7 @@ set xlabel "$I_B$ [uA]"
 set ylabel "$U_{BE}$ [V]"
 #set logscale y
 set key box
+set title "Plot 7: Eingangskennlinie"
 
 set termoption dash
 set style line 1 lt 1

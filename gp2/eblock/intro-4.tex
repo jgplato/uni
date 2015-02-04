@@ -1,60 +1,10 @@
-\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{babel}
-\usepackage{geometry}
-\usepackage[fleqn]{amsmath}
-\usepackage{amssymb}
-\usepackage{float}
-\usepackage{enumerate}
-\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
-\usepackage{cancel}
-\usepackage{pdfpages}
-
-\usepackage[fleqn]{mathtools}
-% Number only referenced equations
-%\mathtoolsset{showonlyrefs}
-
-%\usepackage{wrapfig}
-\usepackage[thinspace,thinqspace,squaren,textstyle]{SIunits}
-\usepackage{tikz}
-\usepackage[europeanresistors]{circuitikz}
-
-% New command for color underlining
-\usepackage{xcolor}
-
-\newsavebox\MBox
-\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
-  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
-
-\restylefloat{table}
-\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
-\linespread{1.5}
-\setlength\parindent{0pt}
-\DeclareMathOperator{\Tr}{Tr}
-\DeclareMathOperator{\Var}{Var}
-\begin{document}
-\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
-\begin{center}
-\bfseries % Fettdruck einschalten
-\sffamily % Serifenlose Schrift
-\vspace{-40pt}
-Physikalisches Grundpraktikum 2, Wintersemester 2014/2015
-
-Markus Fenske \texttt{<iblue@zedat.fu-berlin.de>}
-
-Transistor, Tutor: Andreas Maier
-\vspace{-10pt}
-\end{center}
-\section{Einführung}
+\section{Transistor}
 Ziel des Versuches ist die Aufnahme des Kennlinienfeldes eines
 npn-Bipolartransistors  Außerdem soll eine Verstärkerstufe mit
 Parallel-Gegenkopplung aufgebaut und die Verstärkung mit den theoretischen
 Erwartungen verglichen werden.
 
-\section{Theoretische Grundlagen}
-
-\subsection{Transistor}
+\subsection{Theoretische Grundlagen}
 
 Der Transistor ist ein elektronisches Bauelement bei dem der Stromfluss auf
 einer Strecke (Kollektor-Emitter) durch den Stromfluss auf der anderen Strecke
@@ -222,7 +172,7 @@ größer, senkt dies den Arbeitspunkt auf einen geringeren Wert (siehe Schaltung
   \end{center}
 \end{figure}
 
-\section{Aufgaben}
+\subsection{Aufgaben}
 \begin{enumerate}
   \item Aufnahme und Konstruktion des statischen Kennlinienfeldes eines
     npn-Transistors bei einer Versorgungsspannung von 12V. Bestimmung der
@@ -230,6 +180,3 @@ größer, senkt dies den Arbeitspunkt auf einen geringeren Wert (siehe Schaltung
   \item Aufbau einer Verstärkerschaltung mit Parallelgegenkopplung und
     Verstärkung einer Eingangswechselspannung.
 \end{enumerate}
-
-
-\end{document}

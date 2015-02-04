@@ -2,6 +2,7 @@ set xlabel "$U_{CE}$ [V]"
 set ylabel "$U_{BE}$ [V]"
 #set logscale y
 set key box
+set title "Plot 6: Rückwirkungskennlinie"
 
 set termoption dash
 set style line 1 lt 1

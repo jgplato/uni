@@ -228,7 +228,28 @@ Zusatzaufgabe: Nicht bearbeitet.
 
 \subsection{Transistor}
 
-% FIXME: a) Fehlt
+Zur Bestimmung des differentiellen Ausgangswiderstandes wurden jeweils nur die
+Messwerte für größere $U_{CE}$ für die lineare Regression verwendet (siehe Plot
+5). Da die Achesen gemäß des Kennlinienfeldes orientiert sind, ergibt sich
+zunächst der inverse Widerstand $1/R$.
+
+Durch Bildung des Inversen und mit dem Fehler $\Delta R =
+\frac{\Delta(1/R)}{R^2}$ erhält man den differentiellen Widerstand im
+Durchlassbereich als Endergebnis.
+
+% mOhm
+
+\vspace{0.5cm}
+\begin{tabular}{ r r }
+  $I_B$ & $R$ \\
+  \hline
+  $\num{34+-1}$ mA & $\num{20+-3}$ $\text{m}\Omega$ \\
+  $\num{60+-1}$ mA & $\num{11+-3}$ $\text{m}\Omega$ \\
+  $\num{90+-1}$ mA & $\num{4.8+-0.8}$ $\text{m}\Omega$ \\
+  $\num{120+-1}$ mA & $\num{3.4+-0.4}$ $\text{m}\Omega$ \\
+\end{tabular}
+\vspace{0.5cm}
+
 
 Zur Bestimmung des Gleichstromverstärkungsfaktors wurde eine lineare Regression
 gegen die Übertragungskennlinie (siehe Plot 4) durchgeführt. Da offenbar eine
@@ -251,5 +272,36 @@ Endergebnis:
   B = \num{4314.1+-0.3}
 \end{equation}
 
+Zur Bestimmung der Arbeits- und Vorwiderstände vernachlässigen wir Fehler, da
+der Toleranzbereich der Spannungen und Ströme jeweils mindestens 10\% der
+entsprechenden Werte umfasst und damit die Ablesefehler weit übersteigt.
 
+Die Arbeits- und Vorwiderstände bestimmen sich durch
+\begin{equation}
+  R_A = \frac{U_B - U_{CE}}{I_C}
+\end{equation}
+
+und
+
+\begin{equation}
+  R_V = \frac{U_B - U_{BE}}{I_B}
+\end{equation}
+
+dabei ist $U_B = 12$V die Betriebsspannung.
+
+Wählt man als Arbeitspunkt die halbe Betriebsspannung $U_{CE} = 6$V und liest
+an der $I_B = 60\;\mu\text{A}$-Kennlinie den entsprechenden Kollektorstrom ab
+($I_C \approx 8$mA) und erhält somit den Arbeitswiderstand
+$R_A \approx 750 \Omega$ (im Praktikum selber wurde dieser fälschlicherweise
+als 7{,}5 k$\Omega$ berechnet, was die große Verzerrung erklärte, es wurde ein
+Widerstand von 2{,}2 k$\Omega$ gewählt, mit welchem die Schaltung einwandfrei
+arbeitete, was zusätzliche die Annahme stützt, dass der Toleranzbereich sehr
+groß ist und Fehler deshalb vernachlässigt werden können).
+
+Bei obigem Basisstrom kann man außerdem $U_{BE}$ aus dem Eingangskennlinienfeld
+bestimmen, welches sich relativ konstant im Bereich $0{,}6$V bewegt. Somit
+ergibt sich ein Vorwiderstand von $R_V \approx 190\;\text{k}\Omega$. Auch hier
+ist der Fehler vernachlässigbar, die die Schaltung in einem hohen
+Toleranzbereich arbeitet (Im Praktikum wurde $R_V = 18 \;\text{k}\Omega$
+gewählt, um ein verzerrungsfreies Signal zu erreichen).
 \end{document}
