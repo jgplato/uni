@@ -54,7 +54,7 @@ set label 8 sprintf("$1/R = \\num{%1.3f+-%1.3f}\\;\\text{mA/V}$", r4, r4_err) at
 set label 9 "Fit jeweils gegen $I_C(U_{CE}) = I_0 + (1/R) U_{CE}$" at graph 0.6, graph 0.9
 
 set terminal epslatex size 27cm,18cm
-set output "plot-3.tex"
+set output "plot-X.tex"
 
 plot "messung-2.txt" using 3:1:2 w yerrorbars ls 1 title "$I_B = 34+-1$  uA", \
      "messung-3.txt" using 3:1:2 w yerrorbars ls 2 title "$I_B = 60+-1$  uA", \
