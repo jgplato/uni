@@ -1,0 +1,237 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,fadings}
+\usepackage{wrapfig}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% http://tex.stackexchange.com/questions/38818/best-way-to-denote-an-angle-in-tikz
+\newcommand\markangle[6][red]{% [color] {X} {origin} {Y} {mark} {radius}
+  % filled circle: red by default
+  \begin{scope}
+    \path[clip] (#2) -- (#3) -- (#4);
+    \fill[color=#1,fill opacity=0.5,draw=#1,name path=circle]
+    (#3) circle (#6mm);
+  \end{scope}
+  % middle calculation
+  \path[name path=line one] (#3) -- (#2);
+  \path[name path=line two] (#3) -- (#4);
+  \path[%
+  name intersections={of=line one and circle, by={inter one}},
+  name intersections={of=line two and circle, by={inter two}}
+  ] (inter one) -- (inter two) coordinate[pos=.5] (middle);
+  % bissectrice definition
+  \path[%
+  name path=bissectrice
+  ] (#3) -- (barycentric cs:#3=-1,middle=1.2);
+  % put mark
+  \path[
+  name intersections={of=bissectrice and circle, by={middleArc}}
+  ] (#3) -- (middleArc) node[pos=1.3] {#5};
+  }
+
+% New command for color underlining
+\usepackage{xcolor}
+\newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+      \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+        \sectionmark{#1}}
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+
+\begin{titlepage}
+\input{title.tex}
+\end{titlepage}
+
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+
+\section{Physikalische Grundlagen}
+\subsection{$\gamma$-Strahlung}
+
+Beim Zerfall von instabilen Atomkernen gibt es, neben anderen Möglichkeiten,
+zwei Hauptzerfallskanäle. Beim $\alpha$-Zerfall, stößt der Mutterkern
+$\mathrm{X}$ einen Helium-4-Kern, bestehtend aus zwei Protonen und zwei
+Neutronen, aus.  Entsprechend hat der Tochterkern $\mathrm{Y}$ eine um vier
+verringerte Massenzahl und eine um zwei verringerte Kernladungszahl.
+
+\begin{equation}
+  {}^{A}_{Z} \mathrm{X} \to {}^{A-4}_{Z-2} \mathrm{Y} + {}^{4}_{2} \mathrm{He}
+\end{equation}
+
+Die freiwerdende Energie führt zu einer kinetischen Energie der beiden Kerne,
+regt aber in der Regel auch den entstehenden Tochterkern an.
+
+Beim $\beta^{-}$-Zerfall wird im Mutterkern ein Neutron in ein Proton, ein
+Elektron und ein Anti-Elektron-Neutrino umgewandelt.
+
+\begin{equation}
+  \mathrm{n} \to \mathrm{p} + \mathrm{e}^{-} + \overline{\nu}_e
+\end{equation}
+
+Die Kernladungszahl erhöht sich dabei um eins, die Massenzahl bleibt konstant.
+
+Auch hierbei wird Energie frei, die in die kinetische Energie des Elektrons und
+des Anti-Neutrinos fließt, aber auch in eine Kernanregung des Tocherkerns.
+
+Es existieren weitere Zerfallskanäle wie $\beta^+$-Zerfall, spontane Fission
+oder auch Emission von Protonen odr Neutronen bei sehr kurzlebigen Isotopen,
+die aber hier nicht relevant sind.
+
+Die Kernanregung führt in der Regel zu einer Kernspin-Anregung, die dann als
+elektromagnetische Multipolstrahlung relaxiert. Die entstehenden Photonen nennt
+man aus historischen Gründen $\gamma$-Strahlung. Sie können mit der Hülle des
+entsprechenden Atoms wechselwirken (innere Konversion, IC). Dabei überträgt ein
+$\gamma$-Quant einen Teil seiner Energie an ein Hüllenelektron. Die
+resultierende kinetische Energie des Elektrons ergibt sich aus der Differenz zu
+seiner Bindungsenergie.
+
+\begin{equation}
+  E_e = E_\gamma - E_B
+\end{equation}
+
+Gegenstand unseres Experiments ist der qualitative und quantitative Nachweis
+von $\gamma$-Strahlung.
+
+\subsection{Nachweis von $\gamma$-Strahlung}
+
+Zum Nachweis von $\gamma$-Strahlung nutzt man die Wechselwirkung der Photonen
+mit Materie (siehe unten). Es gibt dabei zwei Hauptmöglichkeiten.
+
+In einem Szintillationsdetektor werden die Atome bzw. Moleküle eines Stoffes
+(in der Regel ein Festkörper im klassischen Sinne) durch die $\gamma$-Quanten
+angeregt. Die Relaxation führt dann zur Abstrahlung von Photonen geringerer
+Energie (in der Regel im sichtbaren Bereich), die dann aufgefangen und gemessen
+werden können (z.B. per Photomultiplier).
+
+Bei einem Halbleiterdetektor handelt es sich, vereinfacht ausgedrückt, um eine
+in Sperrrichtung betriebende, elektronische Diode, sodass trotz angelegter
+Spannung kein Strom fließt. Trifft nun ein $\gamma$-Quant auf, wird im
+Halbleitermaterial ein Elektron-Loch-Paar erzeugt, die dann aufgrund des
+anliegenden elektrischen Feldes zu den Anschlussdrähten wandern und dadurch
+einen Strom-Impuls erzeugen, der messbar ist.
+
+Bei beiden Detektoren deponiert das $\gamma$-Quant nicht zwangsläufig seine
+gesamte Energie auf einmal, sodass selbst monochromatische $\gamma$-Strahlung
+zu einer Energieverteilung der Elektronen führt.
+
+Zur Charakterisierung des entstehenden Spektrums benutzt man daher die Begriffe
+\textit{Photopeak}, \textit{Compton-Spektrum} und \textit{Escape-Peak}.
+
+% ??? Ist das korrekt ???
+Der Photopeak tritt dort auf, wo das $\gamma$-Quant seine gesamte Energie
+deponiert, er tritt als schmaler Ausschlag hervor. Das Compton-Spektrum ist das
+sich daran anschließende Kontinuum, das der Verteilung des Compton-Effekts
+entspricht. Escape-Peaks sind Messartefakte, die durch verschiedene Effekte
+innerhalb des Detektormaterials entstehen und mit Photopeaks verwechselt werden
+können.
+
+\subsection{Wechselwirkung von $\gamma$-Strahlung mit Materie}
+
+\subsubsection{Photoeffekt}
+
+Beim Photoeffekt werden durch die Strahlung Atome im Detektormaterial
+ionisiert. Diese werden durch andere Elektronen ersetzt, möglicherweise auch in
+mehreren Schritten, wobei Röntgenstrahlung emmitiert wird, die auch wieder vom
+Detektor absorbiert wird. Auch ein Auger-Prozess ist möglich. Bei diesem werden
+Elektronen emmitiert, deren kinetische Energie aber auch wieder photonisch
+umgewandelt und dann detektiert wird. Da die gesamte Energie also im
+Detektormaterial als Photonen abgestrahlt wird, verfälscht dieser Prozess das
+Messergebnis nicht.
+
+\subsubsection{Compton-Effekt}
+
+Beim Compton-Effekt stößt ein hochenergetisches Photon an quasi-freien Elektron
+(quasi-frei, weil die Bindungsenergie sehr viel kleiner als die Energie des
+Photons ist). Zur Herleitung:
+
+Seien $p_\gamma$ und $p_\gamma'$ die 4-Impulse der Photonen vor und nach dem
+Stoß und seien $p_e$ und $p_e'$ die 4-Impulse der Elektronen vor und nach dem
+Stoß, dann gilt aufgrund der 4-Impuls-Erhaltung
+
+\begin{align}
+  &p_\gamma + p_e = p_\gamma' + p_e' \\
+  \Leftrightarrow\quad & (p_\gamma - p_\gamma')^2 = (p_e' - p_e)^2 \\
+  \Leftrightarrow\quad & p_\gamma^2 - 2p_\gamma p_\gamma' - p_\gamma^2 = p_e'^2 - 2p_ep_e' + p_e'^2
+\end{align}
+
+Wir können das Bezugssystem frei wählen und wählen daher das Ruhesystem des
+Elektrons vor dem Stoß, also ist $p_\gamma = (E_\gamma/c, \vec{p_\gamma})$,
+$p_\gamma' = (E_\gamma'/c, \vec{p_\gamma'})$, $p_e = (m_e c, \vec{0})$, $p_e' =
+(E_e'/c, \vec{p_e}')$. Somit
+
+\begin{align}
+  \Leftrightarrow\quad&-2\left(\frac{E_\gamma E_\gamma'}{c^2} - \vec{p_\gamma} \cdot \vec{p_\gamma}'\right) = 2m_e^2c^2 - 2 m_e E_e'
+\end{align}
+
+Mit dem Kosinussatz (sei $\phi$ der Winkel zwischen den photonischen
+3-Impulsen) und der Energiegieerhaltung $E_e' = m_ec^2 + (E_\gamma -
+E_\gamma')$, sowie $E = pc$ für Photonen folgt
+
+\begin{align}
+  \Leftrightarrow\quad&\frac{E_\gamma E_\gamma'}{c^2}(1 - \cos \phi) = m_e(E_\gamma - E_\gamma') \\
+  \Leftrightarrow\quad&\frac{E_\gamma E_\gamma'}{m_e c^2}(1 - \cos \phi) + E_\gamma' = E_\gamma \\
+  \Leftrightarrow\quad&E_\gamma' \left(\frac{E_\gamma}{m_e c^2}(1 - \cos \phi) + 1\right) = E_\gamma \\
+  \Leftrightarrow\quad&E_\gamma' = \frac{E_\gamma}{1 + \frac{E_\gamma}{m_e c^2}(1 - \cos \phi)}
+\end{align}
+
+Man sieht hier, dass die deponierte Energie $E_\gamma - E_\gamma'$ ab größten
+ist, wenn sich der Winkel $\phi$ einer Reflexion ($180^\circ$) entspricht. Für
+kleine Winkel $\phi \approx 0$ findet kein Energieübertrag statt.
+
+Durch den Compton-Effekt ist es möglich, dass das Photon den Detektor verlässt
+(durch Reflexion), bevor die Energie vollständig deponiert wurde. Dadurch
+entstehen Linien geringerer Energie, die wir Backscatter-Linien nennen.
+
+\subsubsection{Paarbildung}
+
+Ab photonischen Energien, die dem doppelten der Ruheenergie des Elektrons
+entsprechen, entstehen Elektron-Positron-Paare. Die Energie kann durch
+Anihilation zurückgewonnen werden und wird dann wieder in Form von Photonen
+abstrahlt und detektiert. Verlässt jedoch eines oder beide der Teilchen den
+Detektor, verringert sich die detektierte Energie um die Ruhemasse bzw. deren
+Summe (heißt 511 keV (Single-Escape-Peak) bzw. 1022 keV (Double-Escape-Peak)).
+
+\subsection{Verwendete Geräte}
+
+Wir verwenden einen NaI(Tl)-Szintillationsdetektorkristall, dessen erzeugte
+Photonen mithilfe eines Photomultipliers detektiert werden (Funktionsweise
+siehe oben). Die Energieauflösung dieses Detektors liegt ungefähr eine
+Größenordnung unter der, des Halbleiterdetektors.
+
+Außerdem verwenden wir einen Ge-Halbleiterdektor (Funktionsweise siehe oben).
+
+Die Signale der beiden Detektoren werden mit einem Vorverstärker integriert und
+in Impulse umgeformt, deren Höhen proportional zur Ladung des Detektorpulses
+sind. Im angeschlossenen Hauptverstärker werden die Impulse geformt und
+gefiltert und dann mit einem Vielkanalanalysator analysiert. Der
+Vielkanalanlysator trägt dazu die Häufigkeit der Signale über ihrer Höhe auf.
+
+
+\end{document}
