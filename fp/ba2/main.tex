@@ -233,5 +233,80 @@ sind. Im angeschlossenen Hauptverstärker werden die Impulse geformt und
 gefiltert und dann mit einem Vielkanalanalysator analysiert. Der
 Vielkanalanlysator trägt dazu die Häufigkeit der Signale über ihrer Höhe auf.
 
+\section{Auswertung}
 
+\subsection{Aufgabe 1}
+
+Zur Aufnahme der Impulsformen und Zeiten und deren Diskussion siehe Messprotokoll.
+
+\subsection{Aufgabe 2}
+
+Da die Kanalzahl proportional zur Energie ist, ergibt sich die Energieauflösung
+durch die Division der Kanalbreite (Full Width 1/5 Maximum) durch die Kanalzahl.
+
+\begin{equation}
+  \frac{\Delta E}{E_\text{exp}} = \frac{\text{FW(1/5)M (Kanalzahl)}}{\text{Peak (Kanalzahl)}}
+\end{equation}
+
+\begin{tabular}{l|l}
+  Linie & relvative Energieauflösung ($\Delta E/E_\text{exp}$) \\
+  \hline
+  Co-60 1{,}33 MeV & 0{,}082 \\
+  Co-60 1{,}17 MeV & 0{,}079 \\
+  Na-22 1{,}27 MeV & 0{,}054 \\
+  Cs-137 661 keV & 0{,}134 \\
+\end{tabular}
+\vspace{22pt}
+
+Die lineare Regression zur Bestimmung des Eichfaktors befindet sich weiter
+hinten. Man sieht, dass die Energieeichung trotz der breiten Peaks genau
+möglich ist. Der Eichfaktor wurde zu $m = 4591\pm53$ bestimmt, dies entspricht
+der Kanalzahl der 1-MeV-Energie.
+
+\subsection{Aufgabe 3}
+
+TODO.
+
+\subsection{Aufgabe 4}
+
+Zur Aufnahme der Impulsformen und Zeiten und deren Diskussion siehe Messprotokoll.
+
+\subsection{Aufgabe 5}
+
+Die Energieauflösung wurde analog zu Aufgabe 2 bestimmt.
+
+\begin{tabular}{l|l|l}
+  Linie & relvative Energieauflösung ($\Delta E/E_\text{exp}$) & Verhältnis zu NaI \\
+  \hline
+  Co-60 1{,}33 MeV & 0{,}015 & 0{,}18\\
+  Co-60 1{,}17 MeV & 0{,}011 & 0{,}13\\
+  Na-22 1{,}27 MeV & 0{,}010 & 0{,}18\\
+  Cs-137 661 keV & 0{,}017 & 0{,}13\\
+  Am-241 26 keV & 0{,}57 \\
+  Am-241 60 keV & 0{,}057
+\end{tabular}
+\vspace{22pt}
+
+Man sieht, dass die Energieauflösung des Halbleiterdetektors knapp eine
+Größenordnung besser ist, als die Energieauflösung des Szintillationsdetektors,
+wie in der Versuchsanleitung angegeben.
+
+Die Energieeichung des Halbleiterdetektors führt zu einem Eichfaktor von $m =
+4597\pm25$ (Kanalzahl der 1-MeV-Linie).
+
+
+\subsection{Aufgabe 6}
+
+TODO.
+
+\subsection{Aufgabe 7}
+
+TODO.
+
+\begin{landscape}
+  \input{plot-1.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-2.tex}
+\end{landscape}
 \end{document}
