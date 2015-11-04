@@ -297,7 +297,32 @@ Die Energieeichung des Halbleiterdetektors führt zu einem Eichfaktor von $m =
 
 \subsection{Aufgabe 6}
 
-TODO.
+Wir haben das Spektrum im Anhang über der, anhand der Eichfaktoren bestimmten,
+Energie aufgetragen. Die Peak-Kanäle haben wir direkt über Maestro bestimmt und
+die Energie anhand des Eichfaktors berechnet. Den Fehler des Eichfaktors haben
+wir dabei aufgrund seiner geringen Größe vernachlässigt.
+
+\begin{tabular}{l|l|l}
+  ROI & Energie [MeV] & Literaturwert [MeV]\\
+  \hline
+  1{,}33 MeV Photopeak & $1,32\pm0.02$ & $1,333$\\
+  1{,}17 MeV Photopeak & $1,17\pm0,02$ & $1,173$\\
+  1{,}33 MeV Compton   & $1,11\pm0,03$ & $1,118$\\
+  1{,}17 MeV Compton   & $0,95\pm0,03$ & $0,963$\\
+  1{,}33/1{,}17 MeV Backscatter   & $0,22\pm0,01$ & $0,214$ und $0,209$\\
+  Röntgenfluoreszenz   & $0,086\pm0,005$\\
+  Röntgenfluoreszenz   & $0,075\pm0,006$
+\end{tabular}
+\vspace{22pt}
+
+Die gemessenen Werte sind mit den Literaturwerten größtenteils identisch. Es
+gibt außerdem zwei Röntgenfluoreszenzlinien, aus deren Energien wir jedoch
+nicht auf das Material schließen konnten, in dem sie entstehen. Möglicherweise
+stammen Sie aus der Quelle selbst.
+
+Die Backscatter-Linien waren leider nicht klar separierbar.
+
+
 
 \subsection{Aufgabe 7}
 
@@ -308,5 +333,8 @@ TODO.
 \end{landscape}
 \begin{landscape}
   \input{plot-2.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-3.tex}
 \end{landscape}
 \end{document}
