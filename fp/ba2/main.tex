@@ -283,7 +283,24 @@ der Kanalzahl der 1-MeV-Energie.
 
 \subsection{Aufgabe 3}
 
-TODO.
+Die Absorptionskoeffizienten ergeben sich durch Ablesen aus den Plots (siehe
+hinten). Per Division durch die entsprechenden Dichten (Literaturwerte) ergibt
+sich der Massenschwächungskoeffizient (MSK). Zum Vergleich ist der
+Massenschwächungskoeffzient durch Abfrage aus der XCOM Photon Cross Sections
+Database für die 1{,}33 MeV-Linie angegeben.
+
+\begin{tabular}{l|r|r|r|r}
+  Material & Absorptionskoeffizient [$\text{mm}^{-1}$] & Dichte [$\text{g}/\text{mm}^3$]& MSK [$\text{mm}^2/\text{g}$] & XCOM [$\text{mm}^2/\text{g}$] \\
+  \hline
+  Aluminium & $\num{0.018+-0.012}$ & $\num{0.0027}$ & $\num{7.0+-4.0}$ & $\num{5.317}$\\
+  Kupfer & $\num{0.0478+-0.0065}$ & $\num{0.00896}$ & $\num{5.3+-0.8}$ & $\num{5.069}$\\
+  Blei & $\num{0.0630+-0.0035}$ & $\num{0.01134}$ & $\num{5.6+-0.3}$   & $\num{5.451}$\\
+\end{tabular}
+\vspace{22pt}
+
+Unsere Messungen sind mit den XCOM-Werten identisch, leider ergeben sich
+insbesondere bei Aluminium hohe Fehler, die ihre Ursache in der geringen
+Messzeit und der geringen Anzahl an Messungen haben.
 
 \subsection{Aufgabe 4}
 
@@ -342,10 +359,39 @@ Die Backscatter-Linien waren leider nicht klar separierbar.
 
 \subsection{Aufgabe 7}
 
-TODO.
+Es wurde die Zählrate im Vergleich zur Referenzzählrate bei 81 keV berechnet
+und tabellarisch dargestellt. Die Werte berechnen sich dabei durch
+
+Seien $\alpha_0$ und $\beta_0$ die Zählraten ohne Absorber und $\alpha$ und
+$\beta$ die Zählraten mit Absorber (jeweils 30 und 81 keV), dann berechnet sich
+die relative Zählrate $\eta$ durch
+
+\begin{equation}
+  \eta = \frac{\alpha_0 / \beta_0}{\alpha / \beta}
+\end{equation}
+
+\begin{tabular}{l|l|l}
+  Absorber & Verh. zu Ref. & Absorptionskante [keV] \\
+  \hline
+  Sn & 0{,}0050 & 29{,}2 \\
+  Sb & & 30{,}5 \\
+  Te & & 31{,}8 \\
+  I & & 33{,}2 \\
+\end{tabular}
+\vspace{22pt}
+
 
 \begin{landscape}
   \input{plot-1.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-4.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-5.tex}
+\end{landscape}
+\begin{landscape}
+  \input{plot-6.tex}
 \end{landscape}
 \begin{landscape}
   \input{plot-2.tex}
