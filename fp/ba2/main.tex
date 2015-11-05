@@ -178,7 +178,7 @@ Stoß, dann gilt aufgrund der 4-Impuls-Erhaltung
 \begin{align}
   &p_\gamma + p_e = p_\gamma' + p_e' \\
   \Leftrightarrow\quad & (p_\gamma - p_\gamma')^2 = (p_e' - p_e)^2 \\
-  \Leftrightarrow\quad & p_\gamma^2 - 2p_\gamma p_\gamma' - p_\gamma^2 = p_e'^2 - 2p_ep_e' + p_e'^2
+  \Leftrightarrow\quad & p_\gamma^2 - 2p_\gamma p_\gamma' + p_\gamma'^2 = p_e'^2 - 2p_ep_e' + p_e'^2
 \end{align}
 
 Wir können das Bezugssystem frei wählen und wählen daher das Ruhesystem des
@@ -217,6 +217,24 @@ Anihilation zurückgewonnen werden und wird dann wieder in Form von Photonen
 abstrahlt und detektiert. Verlässt jedoch eines oder beide der Teilchen den
 Detektor, verringert sich die detektierte Energie um die Ruhemasse bzw. deren
 Summe (heißt 511 keV (Single-Escape-Peak) bzw. 1022 keV (Double-Escape-Peak)).
+
+\subsubsection{Massenschwächungskoeffizient}
+
+Wenn in einem Materialstück mit einer gewissen Dicke jeweils ein bestimmter
+Prozentsatz der Strahlung absorbiert wird, lässt sich durch Überführung ins
+infinetismale und anschließende Integration leicht zeigen, dass der
+durchgelassene Anteil der Strahlung mit der Materialdicke exponentiell abfällt.
+
+Der Massenschwächungskoeffizient $\mu/\rho$ ist dabei der Dichte-normierte
+Absorptionskoeffizient. Er gibt die materialabhängige Absorptionsstärke an.
+
+\begin{equation}
+  I(x) = I_0 \exp \left( -\frac{\mu}{\rho} \rho x \right)
+\end{equation}
+
+Natürlich sind die Wirkungsquerschnitte von der Energie der Strahlung abhängig,
+so dass der Massenschwächungskoeffizient prinzipiell eine Funktion der Energie
+ist.
 
 \subsection{Verwendete Geräte}
 
@@ -321,8 +339,6 @@ nicht auf das Material schließen konnten, in dem sie entstehen. Möglicherweise
 stammen Sie aus der Quelle selbst.
 
 Die Backscatter-Linien waren leider nicht klar separierbar.
-
-
 
 \subsection{Aufgabe 7}
 
