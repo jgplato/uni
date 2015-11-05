@@ -363,23 +363,110 @@ Es wurde die Zählrate im Vergleich zur Referenzzählrate bei 81 keV berechnet
 und tabellarisch dargestellt. Die Werte berechnen sich dabei durch
 
 Seien $\alpha_0$ und $\beta_0$ die Zählraten ohne Absorber und $\alpha$ und
-$\beta$ die Zählraten mit Absorber (jeweils 30 und 81 keV), dann berechnet sich
-die relative Zählrate $\eta$ durch
+$\beta$ die Zählraten mit Absorber (jeweils 81 und 30 keV), dann definieren wir
+die die Passierstärke $\eta$ durch
 
 \begin{equation}
   \eta = \frac{\alpha_0 / \beta_0}{\alpha / \beta}
 \end{equation}
 
+Der Fehler ist dann
+\begin{align}
+  \Delta \eta &= \sqrt{
+    \del{
+      \frac{\partial \eta}{\partial \alpha_0} \Delta \alpha_0
+    }^2 +
+    \del{
+      \frac{\partial \eta}{\partial \beta_0} \Delta \beta_0
+    }^2 +
+    \del{
+      \frac{\partial \eta}{\partial \alpha} \Delta \alpha
+    }^2 +
+    \del{
+      \frac{\partial \eta}{\partial \beta} \Delta \beta
+    }^2
+  } \\
+  &=
+  \sqrt{
+    \del{
+      \frac{\Delta \alpha_0 / \beta_0}{\alpha / \beta}
+    }^2 +
+    \del{
+      \frac{\alpha_0 / \beta_0^2}{\alpha / \beta} \Delta \beta_0
+    }^2 +
+    \del{
+      \frac{\alpha_0 / \beta_0}{\alpha^2 / \beta}  \Delta \alpha
+    }^2 +
+    \del{
+      \frac{\alpha_0 / \beta_0}{\alpha / \Delta \beta}
+    }^2
+  } \\
+  &=
+  \sqrt{
+    \del{
+      \eta \frac{\Delta \alpha_0}{\alpha_0}
+    }^2 +
+    \del{
+      \eta \frac{\Delta \beta_0}{\beta_0}
+    }^2 +
+    \del{
+      \eta \frac{\Delta \alpha}{\alpha}
+    }^2 +
+    \del{
+      \eta \frac{\Delta \beta}{\beta}
+    }^2
+  } \\
+  &=
+  \eta
+  \sqrt{
+    \del{
+      \frac{\Delta \alpha_0}{\alpha_0}
+    }^2 +
+    \del{
+      \frac{\Delta \beta_0}{\beta_0}
+    }^2 +
+    \del{
+      \frac{\Delta \alpha}{\alpha}
+    }^2 +
+    \del{
+      \frac{\Delta \beta}{\beta}
+    }^2
+  }
+\end{align}
+
+Es ergeben sich folgende Werte, die zusammen mit der Absorptionskante
+(Literaturwert) tabelliert wurden.
+
 \begin{tabular}{l|l|l}
-  Absorber & Verh. zu Ref. & Absorptionskante [keV] \\
+  Absorber & Passierstärke & Absorptionskante [keV] \\
   \hline
-  Sn & 0{,}0050 & 29{,}2 \\
-  Sb & & 30{,}5 \\
-  Te & & 31{,}8 \\
-  I & & 33{,}2 \\
+  Sn & $\num{0.005+-0.009}$ & 29{,}2 \\
+  Sb & $\num{0.151+-0.011}$ & 30{,}5 \\
+  Te & $\num{0.683+-0.028}$ & 31{,}8 \\
+  I  & $\num{0.600+-0.025}$ & 33{,}2 \\
 \end{tabular}
 \vspace{22pt}
 
+Anhand der grafischen Auswertung (siehe hinten), sieht man, dass die Linie im
+Bereich $\num{31.0+-0.5}$ keV liegen muss. Eine Fitformel konnten wir nicht
+finden.
+
+\section{Diskussion}
+
+Alle unsere gemessenen Werte stimmen mit den jeweiligen Literaturwerten, soweit
+vorhanden, überein. Die Messgenauigkeit ist teilweise sehr gering, was auf
+statistische Schwankungen zurückzuführen ist. Radioaktive Zerfälle sind
+Zufallsprozesse. Eine Messung über längere Zeit hätte die Genauigkeit erhöht,
+ist aber teilweise unpraktikabel.
+
+Die Ergebnisse der Eichung des Szintillationsdetektors sind nicht benutzbar, da
+überhaupt keine unbekannten Quellen gemessen wurden. Dies liegt in der
+Versuchsanleitung begründet.
+
+Abschließend möchten wir uns für die gute Zusammenarbeit mit dem Tutor
+bedanken, der uns hervorragend durch das Experiment geführt hat.
+
+\invisiblesection{Plots}
 
 \begin{landscape}
   \input{plot-1.tex}
@@ -399,4 +486,10 @@ die relative Zählrate $\eta$ durch
 \begin{landscape}
   \input{plot-3.tex}
 \end{landscape}
+\begin{landscape}
+  \input{plot-7.tex}
+\end{landscape}
+
+\invisiblesection{Messprotokoll}
+\includepdf[pages=-]{messprotokoll.pdf}
 \end{document}
