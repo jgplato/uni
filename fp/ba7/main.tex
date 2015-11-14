@@ -1,0 +1,166 @@
+\documentclass[a4paper,german,12pt,smallheadings]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,fadings}
+\usepackage{wrapfig}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{listings} % Source code
+\usepackage{lscape} % landscape
+\usepackage{commath} % http://tex.stackexchange.com/questions/14821/whats-the-proper-way-to-typeset-a-differential-operator
+\usepackage{cancel}
+\usepackage[fleqn]{mathtools}
+% Number only referenced equations
+%\mathtoolsset{showonlyrefs}
+
+%\usepackage{wrapfig}
+\usepackage{siunitx}
+\sisetup{separate-uncertainty=true,locale=DE}
+
+% http://tex.stackexchange.com/questions/38818/best-way-to-denote-an-angle-in-tikz
+\newcommand\markangle[6][red]{% [color] {X} {origin} {Y} {mark} {radius}
+  % filled circle: red by default
+  \begin{scope}
+    \path[clip] (#2) -- (#3) -- (#4);
+    \fill[color=#1,fill opacity=0.5,draw=#1,name path=circle]
+    (#3) circle (#6mm);
+  \end{scope}
+  % middle calculation
+  \path[name path=line one] (#3) -- (#2);
+  \path[name path=line two] (#3) -- (#4);
+  \path[%
+  name intersections={of=line one and circle, by={inter one}},
+  name intersections={of=line two and circle, by={inter two}}
+  ] (inter one) -- (inter two) coordinate[pos=.5] (middle);
+  % bissectrice definition
+  \path[%
+  name path=bissectrice
+  ] (#3) -- (barycentric cs:#3=-1,middle=1.2);
+  % put mark
+  \path[
+  name intersections={of=bissectrice and circle, by={middleArc}}
+  ] (#3) -- (middleArc) node[pos=1.3] {#5};
+  }
+
+% New command for color underlining
+\usepackage{xcolor}
+\newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+      \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+        \sectionmark{#1}}
+\newsavebox\MBox
+\newcommand\colul[2][red]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+\restylefloat{table}
+\geometry{a4paper, top=15mm, left=20mm, right=10mm, bottom=20mm, headsep=10mm, footskip=12mm}
+\linespread{1.5}
+\setlength\parindent{0pt}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\begin{document}
+
+\begin{titlepage}
+\input{title.tex}
+\end{titlepage}
+
+\allowdisplaybreaks % Seitenumbrüche in Formeln erlauben
+
+\section{Physikalische Grundlagen}
+\subsection{Herleitung der Bewegungsgleichungen}
+
+Gegeben seien 4 parallele stabförmige Elektroden die jeweils zu ihrem Nachbarn
+eine zeitabhängige Potentialdifferenz aufweisen, aber zu ihrem
+gegenüberliegenden Nachbarn potentialneutral seien (Quadrupol-Konfiguration)
+und jeweils kreuzweise gegenüberliegend den Abstand $2r_0$ voneinander haben.
+Wir bestimmen die Bewegungsgleichungen eines Ions zwischen den Stäben.
+
+Aus der Definition des elektrischen Feldes durch das Potential
+($\vec{E} = - \nabla \Phi(\vec{r})$) und der ersten Maxellschen Gleichung
+($\nabla \vec{E}(\vec{r}) = \rho(\vec{r}) / \epsilon_0$) folgt für den ladungsfreien
+Raum ($\rho = 0$) direkt die Poissongleichung
+
+\begin{equation}
+  \Delta \Phi(\vec{r}) = 0
+\end{equation}
+
+Wir betrachten das Potential in dieser Konfiguration näherungsweise als
+Quadrupol-Feld, also gilt
+\begin{equation}
+  \Phi = \Phi_0 \del{\alpha x^2 + \beta y^2 + \gamma z^2}
+\end{equation}
+
+Seien die Elektroden entlang der z-Achse ausgerichtet und näherungsweise
+unendlich lang, gibt es in dieser Richtung kein Potential, es gilt also $\gamma
+= 0$. Durch Anwendung der Poissiongleichung auf das Potential erhält man
+$\alpha = -\beta$. Somit gilt
+\begin{equation}
+  \Phi = \Phi_0 \alpha \del{x^2 - y^2}
+\end{equation}
+
+Das Potential bestehe aus einem Gleichspannungsanteil $U$ und einem
+zeitabhängigen Wechselfeld $V \cos(\omega t)$. Die Längen seien außerdem durch
+$r_0$ normiert.
+
+\begin{equation}
+  \Phi(x,y,t) = \del{U + V \cos(\omega t)} \frac{x^2-y^2}{r_0^2}
+\end{equation}
+
+Wir betrachten nun ein Ion der Masse $m$ und Ladung $-q$ zwischen den Stäben.
+Aus $\vec{F} = -q E_i = -q \partial_i \Phi$ und $\vec{F} = m \partial_t^2 x_i$
+folgen die Bewegungsgleichungen
+
+\begin{align}
+  m \frac{\partial x^2}{\partial t^2} + q \del{U + V \cos(\omega t)} \frac{2 x}{r_0^2} &= 0 \\
+  m \frac{\partial y^2}{\partial t^2} - q \del{U + V \cos(\omega t)} \frac{2 y}{r_0^2} &= 0 \\
+  m \frac{\partial z^2}{\partial t^2} &= 0
+\end{align}
+
+Die letzte Differentialgleichung ist trivial zu lösen. Für die beiden anderen
+betrachten wir die Substitution
+
+\begin{align}
+  \omega t &= 2 \xi \\
+  a &= \frac{8qU}{m r_0^2 \omega^2} \\
+  b &= \frac{4qV}{m r_0^2 \omega^2}
+\end{align}
+
+und erhalten
+
+\begin{align}
+  x'' + (a + 2 b \cos(2 \xi)) x = 0 \\
+  y'' - (a + 2 b \cos(2 \xi)) y = 0 \\
+\end{align}
+
+Dies entspricht der Normalform der Mathieuschen Differentialgleichung, deren
+Lösungen durch folgende Reihenterme gegeben sind. Wir betrachten hier nur die
+$x$-Komponente, die andere Gleichung löst sich analog.
+
+\begin{equation}
+  x = \alpha' e^{\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{2is \xi} + \alpha'' e^{-\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{-2is \xi}
+\end{equation}
+
+Uns interessieren an dieser Stelle nicht die exakten Bewegungen, sondern
+interessant ist, ob das Ion in der Fall verbleibt ($x$ beschränkt) oder sie
+verlässt ($x \to \infty$). Dafür betrachten wir das Zeitverhalten im unendlichen ($\xi \to \infty$)
+
+
+
+
+
+%\section{Diskussion}
+%\invisiblesection{Plots}
+%
+%\begin{landscape}
+%  \input{plot-1.tex}
+%\end{landscape}
+%
+%\invisiblesection{Messprotokoll}
+%\includepdf[pages=-]{messprotokoll.pdf}
+\end{document}
