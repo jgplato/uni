@@ -104,9 +104,8 @@ $\alpha = -\beta$. Somit gilt
   \Phi = \Phi_0 \alpha \del{x^2 - y^2}
 \end{equation}
 
-Das Potential bestehe aus einem Gleichspannungsanteil $U$ und einem
-zeitabhängigen Wechselfeld $V \cos(\omega t)$. Die Längen seien außerdem durch
-$r_0$ normiert.
+Das Potential bestehe aus einem Gleichspannungsanteil $2U$ und einem
+zeitabhängigen Wechselfeld $2V \cos(\omega t)$. Dann ergibt sich Näherungsweise das folgende Potential:
 
 \begin{equation}
   \Phi(x,y,t) = \del{U + V \cos(\omega t)} \frac{x^2-y^2}{r_0^2}
@@ -122,11 +121,11 @@ folgen die Bewegungsgleichungen
   m \frac{\partial z^2}{\partial t^2} &= 0
 \end{align}
 
-Die letzte Differentialgleichung ist trivial zu lösen. Für die beiden anderen
+Aus der letzten Differentialgleichung folgt sofort $\dot z=0$. Für die beiden anderen
 betrachten wir die Substitution
 
 \begin{align}
-  \omega t &= 2 \xi \\
+  \xi &=\frac{\omega t}{2} \\
   a &= \frac{8qU}{m r_0^2 \omega^2} \\
   b &= \frac{4qV}{m r_0^2 \omega^2}
 \end{align}
@@ -135,7 +134,7 @@ und erhalten
 
 \begin{align}
   x'' + (a + 2 b \cos(2 \xi)) x = 0 \\
-  y'' - (a + 2 b \cos(2 \xi)) y = 0 \\
+  y'' - (a + 2 b \cos(2 \xi)) y = 0
 \end{align}
 
 Dies entspricht der Normalform der Mathieuschen Differentialgleichung, deren
@@ -143,11 +142,11 @@ Lösungen durch folgende Reihenterme gegeben sind. Wir betrachten hier nur die
 $x$-Komponente, die andere Gleichung löst sich analog.
 
 \begin{equation}
-  x = \alpha' e^{\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{2is \xi} + \alpha'' e^{-\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{-2is \xi}
+  x = \alpha' e^{\mu \xi} \sum_{s=-\infty}^{\infty} c_{2s} e^{2is \xi} + \alpha'' e^{-\mu \xi} \sum_{s=-\infty}^{\infty} c_{2s} e^{-2is \xi}
 \end{equation}
 
 Uns interessieren an dieser Stelle nicht die exakten Bewegungen, sondern
-interessant ist, ob das Ion in der Fall verbleibt ($x$ beschränkt) oder sie
+interessant ist, ob das Ion in der Falle verbleibt ($x$ beschränkt) oder sie
 verlässt ($x \to \infty$). Dafür betrachten wir das Zeitverhalten im
 Unendlichen ($\xi \to \infty$).
 
