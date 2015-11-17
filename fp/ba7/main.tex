@@ -75,7 +75,7 @@
 \section{Physikalische Grundlagen}
 \subsection{Herleitung der Bewegungsgleichungen}
 
-Gegeben seien 4 parallele stabförmige Elektroden die jeweils zu ihrem Nachbarn
+Gegeben seien 4 parallele stabförmige (exakter: mit hyperbolischem Querschnitt) Elektroden die jeweils zu ihrem Nachbarn
 eine zeitabhängige Potentialdifferenz aufweisen, aber zu ihrem
 gegenüberliegenden Nachbarn potentialneutral seien (Quadrupol-Konfiguration)
 und jeweils kreuzweise gegenüberliegend den Abstand $2r_0$ voneinander haben.
@@ -104,9 +104,7 @@ $\alpha = -\beta$. Somit gilt
   \Phi = \Phi_0 \alpha \del{x^2 - y^2}
 \end{equation}
 
-Das Potential bestehe aus einem Gleichspannungsanteil $U$ und einem
-zeitabhängigen Wechselfeld $V \cos(\omega t)$. Die Längen seien außerdem durch
-$r_0$ normiert.
+Das Potetnial bestehe aus einem Gleischspannungsanteil $2U$ und einem zeitabhängigen Wechselfeld $2V \cos(\omega t)$. Dann ergibt sich für das Potential:
 
 \begin{equation}
   \Phi(x,y,t) = \del{U + V \cos(\omega t)} \frac{x^2-y^2}{r_0^2}
@@ -117,16 +115,16 @@ Aus $\vec{F} = -q E_i = -q \partial_i \Phi$ und $\vec{F} = m \partial_t^2 x_i$
 folgen die Bewegungsgleichungen
 
 \begin{align}
-  m \frac{\partial x^2}{\partial t^2} + q \del{U + V \cos(\omega t)} \frac{2 x}{r_0^2} &= 0 \\
-  m \frac{\partial y^2}{\partial t^2} - q \del{U + V \cos(\omega t)} \frac{2 y}{r_0^2} &= 0 \\
-  m \frac{\partial z^2}{\partial t^2} &= 0
+  m \frac{\partial^2 x}{\partial t^2} + q \del{U + V \cos(\omega t)} \frac{2 x}{r_0^2} &= 0 \\
+  m \frac{\partial^2 y}{\partial t^2} - q \del{U + V \cos(\omega t)} \frac{2 y}{r_0^2} &= 0 \\
+  m \frac{\partial^2 z}{\partial t^2} &= 0
 \end{align}
 
-Die letzte Differentialgleichung ist trivial zu lösen. Für die beiden anderen
+Die letzte Differentialgleichung liefert sofort $\dot z=const.$; das Ion bewegt sich also mit konstanter (und meist niedriger) Geschwindigkeit durch den Quadrupol. Für die beiden anderen
 betrachten wir die Substitution
 
 \begin{align}
-  \omega t &= 2 \xi \\
+  \omega t &= 2 \xi \left(\Rightarrow \frac{d^2 x}{d \xi^2}=\frac{4}{\omega^2}\frac{\partial^2 x}{\partial t^2} \right) \\
   a &= \frac{8qU}{m r_0^2 \omega^2} \\
   b &= \frac{4qV}{m r_0^2 \omega^2}
 \end{align}
@@ -135,7 +133,7 @@ und erhalten
 
 \begin{align}
   x'' + (a + 2 b \cos(2 \xi)) x = 0 \\
-  y'' - (a + 2 b \cos(2 \xi)) y = 0 \\
+  y'' - (a + 2 b \cos(2 \xi)) y = 0 
 \end{align}
 
 Dies entspricht der Normalform der Mathieuschen Differentialgleichung, deren
@@ -143,19 +141,17 @@ Lösungen durch folgende Reihenterme gegeben sind. Wir betrachten hier nur die
 $x$-Komponente, die andere Gleichung löst sich analog.
 
 \begin{equation}
-  x = \alpha' e^{\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{2is \xi} + \alpha'' e^{-\mu \xi} \sum_{-\infty}^{\infty} c_{2s} e^{-2is \xi}
+  x = \alpha' e^{\mu \xi} \sum_{s=-\infty}^{\infty} c_{2s} e^{2is \xi} + \alpha'' e^{-\mu \xi} \sum_{s=-\infty}^{\infty} c_{2s} e^{-2is \xi}
 \end{equation}
 
 Uns interessieren an dieser Stelle nicht die exakten Bewegungen, sondern
-interessant ist, ob das Ion in der Fall verbleibt ($x$ beschränkt) oder sie
+interessant ist, ob das Ion in der Falle verbleibt ($|x|$ beschränkt, insbesondere $<r_0$) oder sie
 verlässt ($x \to \infty$). Dafür betrachten wir das Zeitverhalten im
 Unendlichen ($\xi \to \infty$).
 
 Es existiert $\lim_{\xi \to \infty} e^{\mu \xi}$ genau dann, wenn $\mu = i
-\beta$ mit $0 < \beta < 1$, es gibt also nur in diesem Bereich stabile
-Lösungen. Der Grenzfall $\beta \in \mathbb{N}$ ist für uns uninteressant, da
-jede kleinste Abweichung das Ion entweder $\beta < 1$ zuordnet, oder
-divergieren lässt.
+\beta$ mit $\beta \in \mathbb{R} \setminus \{0\}$, es gibt also nur in diesem Bereich stabile
+Lösungen.
 
 \subsection{Stabilitätsdiagramm}
 
@@ -170,20 +166,20 @@ S. 146 (1958)}
 \end{figure}
 
 Das Diagramm gibt die Zone stabiler Bewegungsgleichungen in Abhängigkeit von
-$a$ und $b$ (im Digramm $q$ genannt) an. Für einen gegebenen Parametersatz
+$a$ und $b$ (im Diagramm $q$ genannt) an. Für einen gegebenen Parametersatz
 $(a,b$) ergibt sich der stabile Bereich durch Schnitt mit einer Ursprungsgerade
 mit Steigung $a/b$. So lässt sich das Auflösungsvermögen einstellen.
 
-\subsection{Ionisation}
+\subsection{Ionisation und Fragmentierung}
 
 Die Masse eines Ions hängt im wesentlichen von seinem Atomgewicht ab, während
 die Ladung von der elektronischen Struktur bestimmt wird. Da die
 Ionisierungsenergien unterschiedlich sind, erhält man stets eine gewisse
 Verteilung von Ladungen.
 
-Bei größeren Molekülen führt eine Ionisation durch Wegfall der bindenen
-Elektronen oft zu einem Zerfall des Molekülions, man erhält dann für ein
-Molekül mehrere charakteristische Messpunkte.
+Bei größeren Molekülen führt eine Ionisation - durch Wegfall der bindenen
+Elektronen - oft zu einem Zerfall des Molekülions (Fragmentierung), man erhält dann für ein
+Molekül mehrere charakteristische Messpunkte, die den Fragmenten entsprechen.
 
 
 
